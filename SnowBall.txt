@@ -1,0 +1,594 @@
+Snowball 영어 음원 제작 가이드
+제2언어 습득 관점에서 본 CEFR별 문장·청크·어휘·문법·현실성 설계
+들어가며: 좋은 영어 음원은 '쉬운 문장'이 아니라 '처리 가능한 언어'를 만든다
+현재 제작하고 있는 Snowball 음원의 핵심은 단순한 listen-and-repeat가 아니다.
+예를 들어,
+I was wondering I was wondering if you could I was wondering if you could help me I was wondering if you could help me with this.
+처럼 이미 습득한 언어를 유지하면서 새로운 청크를 하나씩 추가하는 방식이다.
+이 구조를 제2언어 습득 관점에서 보면 상당히 중요한 특징이 있다. 학습자는 매번 완전히 새로운 문장을 처리하는 것이 아니라, 이미 처리한 언어 material을 다시 retrieval하면서 새로운 언어를 그 위에 얹는다.
+이는 formulaic sequences/chunks의 자동화, 반복을 통한 처리 부담 감소, 말하기 유창성, 문장 구성 능력과 연결될 수 있다. 실제 연구에서도 formulaic sequence의 사용은 L2 speech processing의 효율성과 관련되고, 명시적 formulaic-sequence 훈련이 말하기의 temporal fluency를 향상시킨 연구가 있다. citeturn3search9turn3search0
+그러나 여기서 중요한 경계가 있다.
+Snowball은 문장을 길게 만드는 기술이 아니다.
+더 정확히 말하면,
+“학습자가 이미 확보한 언어적 처리 단위를 유지하면서 새로운 의미와 구조를 단계적으로 추가하는 기술”
+이어야 한다.
+따라서 음원을 제작할 때 가장 중요한 질문은
+“이 문장이 몇 단어인가?”
+가 아니라,
+“이 문장을 이 학습자가 몇 개의 처리 가능한 단위로 받아들이고, 기억하고, 다시 말할 수 있는가?”
+가 되어야 한다.
+
+1. 먼저 확인해야 할 사실: CEFR은 문장 길이를 규정하지 않는다
+CEFR은 A1부터 C2까지의 능력을 어휘 수, 문장 길이, 문법 항목의 개수로 직접 규정하지 않는다.
+예를 들어 CEFR의 B1은 익숙한 주제에 대해 연결된 표현을 만들고 경험이나 의견을 설명할 수 있는 수준이고, B2는 보다 넓은 주제에서 상당한 유창성과 자발성을 가지고 상호작용할 수 있는 수준이다. C1은 사회적·학업적·전문적 목적에 맞게 언어를 유연하고 효과적으로 사용할 수 있는 수준이다. citeturn2search4turn1search5
+따라서 다음과 같은 주장은 근거가 약하다.
+B1 = 10~15단어 B2 = 15~20단어 C1 = 20~30단어
+이것을 CEFR 공식 기준처럼 사용해서는 안 된다.
+실제로 Council of Europe도 CEFR 자체는 언어별 syllabus나 문법 목록이 아니라 언어 능력의 공통적인 기술 체계이며, 구체적인 언어 내용은 각 언어의 Reference Level Description(RLD) 등을 통해 구체화해야 한다고 설명한다. 영어의 경우 English Profile이 바로 이러한 역할을 수행한다. citeturn1search7turn1search11
+따라서 Snowball 제작에서는 CEFR + English Profile + 실제 spoken English를 함께 사용해야 한다.
+
+2. Snowball에서 가장 중요한 네 가지 축
+음원 하나를 제작할 때 최소한 다음 네 가지를 따로 평가해야 한다.
+① 문장의 길이 ② 청크의 길이 ③ 문법적 복잡성 ④ 의미적·어휘적 복잡성
+그리고 여기에 다섯 번째 요소를 추가해야 한다.
+⑤ 실제 사용 가능성
+이 다섯 가지는 함께 올라가야 하지만 동시에 올라가면 안 된다.
+이것이 핵심이다.
+예를 들어 B1 음원에서
+문장도 길어지고
+청크도 길어지고
+단어도 어려워지고
+문법도 복잡해지고
+주제도 낯설어진다면
+학습자가 무엇 때문에 어려움을 겪는지 알 수 없게 된다.
+반대로 좋은 Snowball은 한 번에 하나 또는 두 개의 난이도 변수만 증가시킨다.
+
+3. CEFR별 기본 설계 방향
+
+이 표의 수치는 CEFR 공식 문장 길이 규정이 아니라 제작용 권고 범위다.
+
+4. A1: 문장을 '만드는' 단계가 아니라 '꺼내는' 단계
+A1에서 Snowball의 가장 중요한 목표는 sentence complexity가 아니다.
+retrieval confidence다.
+예:
+I live here. I live here with my family. I live here with my family in Seoul. I live here with my family in Seoul now.
+이 단계에서는 청크가 너무 길어지면 안 된다.
+좋은 A1 chunk:
+I live with my family in Seoul right now
+나쁜 A1 chunk:
+I live here with my family because I moved to Seoul several years ago.
+문법적으로는 가능하더라도 Snowball의 목적에는 과도하다.
+A1에서는 다음과 같은 표현 유형이 효과적이다.
+greeting
+asking for basic information
+identifying
+requesting
+accepting/refusing
+thanking
+describing immediate surroundings
+simple preferences
+CEFR A1은 친숙한 일상 표현과 매우 기본적인 문장을 사용하고, 상대가 천천히 말하고 도움을 주면 간단한 상호작용을 할 수 있는 수준으로 기술된다. citeturn1search0turn2search10
+따라서 A1에서는 현실성보다 예측 가능성이 우선이다.
+
+5. A2: '문장'보다 '상황'을 늘려라
+A2부터는 단순 문형 반복만으로는 부족하다.
+예:
+I need a ticket. I need a ticket for tomorrow. I need a ticket for tomorrow morning. I need a ticket for tomorrow morning to Busan.
+여기서 중요한 것은 sentence length보다 situational expansion이다.
+A2 학습자는 이미 간단한 문장을 만들 수 있기 때문에 다음 단계는 “실제 상황에서 어떤 표현을 선택하는가”다.
+따라서 A2 Snowball에는 다음 기능을 적극적으로 넣는 것이 좋다.
+asking for help
+ordering
+making arrangements
+asking about time
+asking for directions
+simple comparison
+simple reason
+plans
+past experience
+simple problem solving
+어휘도 고빈도 단어 중심이어야 한다.
+English Profile 연구는 A1~A2에서 친숙한 주제와 기본적인 lexical set이 중심이고, B 단계로 갈수록 새로운 topic set, 추가 의미, frequent collocations와 chunks가 증가한다고 설명한다.
+따라서 A2에서 중요한 변화는:
+어려운 단어를 넣는 것이 아니라 이미 아는 단어를 더 다양한 조합으로 사용하는 것이다.
+
+6. B1: Snowball이 본격적으로 강력해지는 지점
+개인적으로는 B1이 이 시스템의 핵심 구간이라고 판단한다.
+왜냐하면 B1부터 학습자가 단순한 survival English를 넘어 자신의 경험·계획·의견을 연결해서 표현해야 하기 때문이다.
+CEFR B1은 익숙한 주제에서 연결된 표현을 만들고 경험, 사건, 희망, 계획 및 의견에 대한 간단한 이유와 설명을 제시할 수 있는 단계다.
+예:
+I think it's a good idea.
+↓
+I think it's a good idea because it's cheaper.
+↓
+I think it's a good idea because it's cheaper and more convenient.
+↓
+I think it's a good idea because it's cheaper and more convenient for most people.
+
+여기서 Snowball의 역할은 단순히 문장을 길게 하는 것이 아니다.
+의미 단위의 확장이다.
+
+B1에서는 특히 다음 grammar를 Snowball에 적극적으로 활용할 수 있다.
+because / although / if
+when / while
+relative clauses
+infinitive constructions
+gerund patterns
+indirect questions
+basic reported speech
+modals
+present perfect
+future expressions
+comparatives
+conditionals
+English Grammar Profile의 연구는 특정 문법 구조가 모든 학습자에게 동일하게 “정확히 이 단계에서 습득된다”고 주장하는 것이 아니라, 실제 학습자 코퍼스에서 특정 구조가 어느 CEFR 수준에서 능숙하게 사용되기 시작하는지를 분석한다. 예를 들어 indirect questions는 B1의 criterial feature로 제시된다.
+따라서 B1부터는 grammar progression을 의도적으로 설계하는 것이 의미가 있다.
+
+7. B2: 문장을 길게 만드는 것이 아니라 '관점을 추가'하라
+B2에서 가장 흔한 제작상의 오류는 이것이다.
+B1 문장 + 더 어려운 단어 + 더 긴 문장 = B2
+이것은 좋은 B2 설계가 아니다.
+CEFR에서 B2의 핵심은 복잡한 텍스트를 이해하는 능력뿐 아니라 다양한 주제에서 상당한 유창성과 자발성을 가지고 상호작용하는 것이다. 또한 topical issue에 대해 관점을 설명하고 여러 선택지의 장단점을 논할 수 있다.
+따라서 B2 Snowball에서는 propositional expansion이 중요하다.
+예:
+I don't think we should change it.
+↓
+I don't think we should change it because it works well.
+↓
+I don't think we should change it because it works well for most customers.
+↓
+I don't think we should change it because it works well for most customers, at least for now.
+↓
+I don't think we should change it because it works well for most customers, at least for now, although we may need to reconsider it later.
+이렇게 되면 문장 길이보다 중요한 것이 생긴다.
+qualification
+즉,
+예외
+조건
+제한
+반론
+양보
+근거
+결과
+대안
+등을 추가하는 것이다.
+B2부터는 Snowball의 단위를 문법적 chunk → discourse chunk로 발전시키는 것이 좋다.
+
+8. C1: 더 긴 문장이 아니라 '더 정밀한 문장'
+C1에서는 또 다른 함정이 생긴다.
+“C1이니까 문장을 길게 만들자.”
+이것은 잘못된 방향이다.
+CEFR C1의 핵심은 단순한 길이가 아니라 fluency, flexibility, precision이다. 사회적·학업적·전문적 목적에 맞게 언어를 유연하고 효과적으로 사용할 수 있어야 한다. 
+따라서 C1 Snowball에서는 다음이 중요해진다.
+I think it's a problem.
+↓
+I think it's a serious problem.
+↓
+I think it's a more serious problem than we initially expected.
+↓
+I think it's a more serious problem than we initially expected, particularly given the recent changes in the market.
+↓
+I think it's a more serious problem than we initially expected, particularly given the recent changes in the market, which may require us to reconsider our original assumptions.
+
+
+
+
+
+여기서 어려워진 것은 단순히 단어 수가 아니다. 정보의 밀도와 관계의 복잡성이다.
+C1에서는 다음을 적극적으로 다루는 것이 좋다.
+qualification
+hedging
+concession
+contrast
+implication
+evaluation
+speculation
+reformulation
+emphasis
+stance
+discourse organization
+
+그리고 lexical choice도 바뀌어야 한다.
+B1:
+I think this is a good idea.
+B2:
+I think this would be a better option.
+C1:
+I would argue that this is a more viable option, particularly in the long term.
+
+차이는 단어의 어려움 자체가 아니다. 의미의 정밀성이다.
+CEFR 역시 C1을 “less common vocabulary를 idiomatically and appropriately 사용하는 능력”과 연결한다.
+
+
+9. 청크 길이: '단어 수'보다 중요한 것은 내부 응집성
+여기서 Snowball 제작에서 가장 중요한 원칙 하나가 나온다. 청크는 일정한 단어 수로 자르면 안 된다.
+예를 들어:
+I was wondering / if you could / help me / with this.
+이것은 상당히 좋은 분절이다.
+
+하지만
+I was / wondering if / you could help / me with this.
+는 문법적·처리적 관점에서 덜 자연스럽다.
+
+청크는 가능한 한 meaning + grammar + prosody가 함께 움직이는 단위여야 한다.
+Formulaic sequence 연구는 multiword expression이 단어 하나씩 처리하는 것과 다른 처리상의 이점을 가질 수 있음을 보여준다. 영어 L2 학습자도 formulaic sequence를 nonformulaic phrase보다 빠르고 정확하게 처리한 연구가 있다. 또한 L2 fluency 연구에서는 높은 빈도의 n-gram 사용이 articulation rate와 관련되고, n-gram proportion은 mid-clause pause 감소와 관련되었다. 다만 C1 수준 학습자는 동일한 표현을 그대로 복사하기보다 다양한 형태로 활용하는 경향이 나타났다.
+
+따라서 청크 설계의 기준은:
+길이 < 문법적 완결성 < 의미적 응집성 < 실제 사용 가능성 순으로 생각하는 것이 좋다.
+
+
+
+
+
+
+
+
+
+
+10. 그렇다면 실제 제작에서 권장할 청크 길이는?
+연구상 “CEFR B1은 4단어 chunk” 같은 공식 규칙은 없다.
+따라서 아래는 제작 권고치로 봐야 한다.
+A1: 대체로 1~3 words
+A2: 대체로 2~4 words
+B1: 대체로 3~6 words
+B2: 대체로 3~8 words
+C1: 대체로 4~10 words
+하지만 중요한 예외가 있다.
+다음과 같은 고빈도 formulaic expression은 길어도 하나의 chunk로 취급할 수 있다.
+Would you mind if I...
+I was wondering if you could...
+As far as I know...
+The main reason is that...
+What I'm trying to say is...
+
+반대로 단어 수가 짧아도 내부적으로 처리하기 어려운 구조는 더 작은 단위로 나눌 수 있다.
+따라서 chunk length는 lexical length가 아니라 processing length로 정의하는 것이 적절하다.
+
+
+
+11. 문장 길이 역시 '단어 수'만으로 판단하면 안 된다
+문장:
+I went to the store because I needed some milk.
+단어 수는 11개 정도지만 구조적으로 비교적 단순하다.
+반면:
+What I was trying to explain was that we might have to reconsider the decision.
+는 비슷한 길이에서도 훨씬 복잡하다.
+따라서 제작 데이터베이스에는 최소한 다음 변수를 별도로 기록하는 것이 좋다.
+Sentence length
+word count
+Chunk count
+number of chunks
+Chunk length
+words per chunk
+Syntactic depth
+단순절 / 종속절 / 관계절 / 명사절 등
+Lexical difficulty
+high-frequency / mid-frequency / low-frequency
+Formulaicity
+fixed / semi-fixed / productive
+Semantic density
+한 문장에 포함된 정보량
+Discourse function
+request / explanation / opinion / contrast / concession 등
+이렇게 해야 “B2 문장”이라는 말이 실제로 무엇을 의미하는지 설명할 수 있다.
+
+12. 어휘: 어려운 단어보다 '재사용 가능한 단어'
+Snowball에서는 단어 선택이 특히 중요하다.
+좋은 단어는 한 번만 등장하는 단어가 아니다.
+다음 10개의 문장에서도 재사용될 수 있는 단어다.
+예를 들어 B1에서:
+issue는 매우 좋은 target이 될 수 있다.
+deal with an issue discuss the issue solve the issue a serious issue a common issue
+하나의 단어가 여러 chunk를 만들어낸다.
+이것은 Snowball의 철학과 잘 맞는다.
+반면 희귀한 명사를 하나 넣고 그것을 한 번 사용한 뒤 버리는 것은 효율이 낮다.
+English Profile 역시 B 단계로 갈수록 단순한 lexical set의 확대뿐 아니라 기존 단어의 새로운 의미와 frequent collocation, phrasal verb, phrase-level chunks가 증가한다고 설명한다.
+따라서 어휘 난이도는 다음처럼 상승시키는 것이 좋다.
+A1 고빈도 기본어
+↓
+A2 고빈도어의 다양한 의미와 조합
+↓
+B1 collocation + phrasal verbs + topic vocabulary
+↓
+B2 추상어 + lexical bundles + stance vocabulary
+↓
+C1 정밀어휘 + idiomaticity + register + nuance
+
+13. 문법: '문법 항목을 가르치는' 것이 아니라 '문법을 누적시키는' 방식
+Snowball에서는 문법을 별도의 grammar lesson처럼 넣기보다 문장 확장의 원리로 사용하는 것이 좋다.
+예를 들어:
+A2:
+I want to go.
+B1:
+I want to go because I need to buy something.
+B1+:
+I wanted to go, but I didn't have enough time.
+B2:
+I would have gone if I had had more time.
+C1:
+Had I known how difficult it would be, I might have reconsidered the decision.
+이것은 단순히 “조건문 1 → 조건문 2 → 조건문 3”을 가르치는 것이 아니다.
+meaningful expansion을 통해 grammar complexity를 자연스럽게 올리는 것이다.
+English Grammar Profile은 실제 learner corpus를 이용해 문법 구조의 CEFR-level association을 분석하고 있으며, 2025년 연구에서는 기존 EGP의 1,200개가 넘는 structure-level mapping을 정량적으로 다시 검증하려는 작업까지 이루어졌다. 따라서 문법 progression을 직관만으로 결정하기보다 이런 자료를 참고하는 것이 바람직하다.
+
+14. '현실성'은 CEFR보다 더 중요한 독립 변수다
+여기서 매우 중요한 문제가 하나 있다.
+CEFR 수준이 맞는 문장과 실제로 좋은 영어 문장은 같은 개념이 아니다.
+예를 들어 문법적으로 B1에 적절하더라도 실제로 아무도 그렇게 말하지 않는 문장은 좋은 learning material이 아니다.
+Snowball의 target sentence는 최소한 다음 질문을 통과해야 한다.
+실제 사람이 실제 상황에서 이 말을 하는가?
+그리고 두 번째:
+학습자가 이것을 실제로 사용할 가능성이 있는가?
+그리고 세 번째:
+이 표현을 다른 상황에 재사용할 수 있는가?
+예:
+I was wondering if you could help me with this.는 매우 좋은 target이다.
+이유는:
+실제 사용 가능
+공손한 request
+formulaic
+여러 상황에 재사용 가능
+chunk 확장 가능
+grammar frame으로 활용 가능
+하기 때문이다.
+반면 지나치게 교과서적인 문장은 Snowball의 목적과 맞지 않을 수 있다.
+
+15. 실용성은 '빈도' 하나로 결정되지 않는다
+여기서도 주의해야 한다.
+가장 빈번한 표현이 항상 가장 좋은 학습 표현은 아니다.
+예를 들어 실제 corpus에서 매우 빈번한 표현이라도:
+특정 discourse에서만 사용되거나
+학습자가 이해하기 어렵거나
+다른 상황으로 전이하기 어렵거나
+의미가 지나치게 추상적일 수 있다.
+따라서 target expression의 우선순위는 다음 네 가지를 함께 봐야 한다.
+Frequency
+얼마나 자주 등장하는가?
+Communicative utility
+얼마나 많은 상황에서 사용할 수 있는가?
+Generativity
+다른 문장을 만들어내는 frame으로 사용할 수 있는가?
+Learnability
+학습자가 현재 수준에서 처리할 수 있는가?
+이 네 요소가 동시에 높은 표현이 가장 좋은 Snowball target이다.
+
+16. 현실성의 또 다른 문제: '문어체 영어'를 말하기 음원에 넣지 말 것
+특히 B2~C1에서 이 문제가 심해진다.
+C1이라는 이유로:
+It is of paramount importance to take into consideration...
+같은 표현을 넣으면 문법적으로 고급스럽게 보일 수 있지만 실제 spoken English training에는 부적합할 수 있다.
+반대로:
+What matters most is...
+The thing is...
+What I'm concerned about is...
+I wouldn't necessarily say that...
+같은 표현은 실제 담화에서 기능이 강하다.
+따라서 C1에서는 어려운 단어보다 discourse function을 고급화하는 것이 더 중요하다.
+
+17. Snowball의 가장 큰 위험: '긴 문장 암기'로 변질되는 것
+Snowball이 잘못 설계되면 이런 문제가 발생한다.
+I was wondering I was wondering if you could I was wondering if you could help me I was wondering if you could help me with this I was wondering if you could help me with this particular issue that we've been discussing...
+문장이 계속 길어지기만 한다.
+이것은 Snowball이 아니다.
+sentence stretching이다.
+진짜 Snowball에서는 어느 순간 기존 문장을 유지한 채 새로운 방향으로 분기해야 한다.
+예:
+I was wondering if you could help me with this.
+↓
+I was wondering if you could help me with the report.
+↓
+I was wondering if you could help me with the report before Friday.
+↓
+I was wondering if you could take a look at the report before Friday.
+↓
+I was wondering if you could take a look at the report before Friday and let me know what you think.
+이제 학습자는 하나의 문장을 암기하는 것이 아니라 construction을 생산하기 시작한다.
+이것이 훨씬 중요하다.
+
+18. 반복 횟수보다 '반복의 성격'을 관리해야 한다
+2025년 L2 oral task repetition 메타분석은 반복이 syntactic complexity와 accuracy에 특히 긍정적인 영향을 주며, fluency와 lexical complexity에도 긍정적인 효과가 있지만 상대적으로 작은 효과를 보였다고 보고했다. 또한 task type, repetition type, spacing, learner proficiency 등이 효과를 조절하는 변수로 나타났다.
+따라서 10번 반복하는 것 자체가 핵심이 아니다.
+중요한 것은:
+같은 언어를 반복해서 처리 하느냐와 같은 행동을 기계적으로 반복 하느냐의 차이다.
+Snowball에서는 전자가 되어야 한다.
+예를 들어:
+1회: 듣고 따라 말하기
+2회: 같은 chunk를 다시 말하기
+3회: 새로운 chunk 추가
+4회: 전체 누적 문장
+5회: 모델 없이 일부 회상
+6회: cue만 보고 회상
+7회: 마지막 부분 변형
+8회: 새로운 상황에 적용
+이런 구조가 훨씬 강력하다.
+
+19. Shadowing 연구가 주는 중요한 경고
+2025년 Oxford 연구진의 systematic review는 shadowing 관련 44개 연구를 검토했다.
+전체적으로 shadowing은 comprehensibility, intelligibility, accentedness와 일부 suprasegmental pronunciation, 특히 fluency와 prosody 개선에 긍정적인 증거를 보였다.
+그러나 연구에는 중요한 한계도 있었다.
+많은 연구가 controlled speaking task에 의존했고, 실제 spontaneous speech로 얼마나 전이되는지에 대한 검증이 부족했다. 연구진은 앞으로 controlled task와 spontaneous task를 함께 사용하고 실제 listener judgment와 acoustic measurement를 연결해야 한다고 지적한다.
+이것은 Snowball 제작에 매우 중요한 시사점을 준다.
+음원에서 잘 따라 했다는 것만으로 성공 판정을 내려서는 안 된다.
+마지막에는 반드시:
+모델을 제거하고 상황이나 의미만 제시하고 학습자가 스스로 문장을 만들어내게 해야 한다.
+
+20. CEFR별 Snowball 제작 공식
+실제 제작 시스템으로 정리하면 다음과 같다.
+A1
+Formula
+Familiar situation
+high-frequency words
+short chunk
+basic sentence
+immediate repetition
+핵심:
+“말할 수 있다.”
+
+A2
+Formula
+Familiar situation
+basic expansion
+common collocation
+simple reason/time/place
+핵심:
+“조금 더 자세히 말할 수 있다.”
+
+B1
+Formula
+Known frame
+new information
+reason/condition/experience
+controlled grammatical expansion
+핵심:
+“자신의 생각을 연결해서 말할 수 있다.”
+
+B2
+Formula
+Known frame
+qualification
+contrast
+evidence
+alternative
+abstract vocabulary
+핵심:
+“하나의 생각을 여러 방향으로 발전시킬 수 있다.”
+
+C1
+Formula
+Known construction
+nuance
+stance
+qualification
+implication
+reformulation
+register control
+핵심:
+“같은 생각을 상황과 목적에 따라 정밀하게 바꿔 말할 수 있다.”
+
+21. 가장 중요한 제작 원칙: Level은 '문장'에 붙이지 말고 '학습 경험'에 붙여라
+이것은 상당히 중요한 결론이다.
+어떤 문장이 B1인지 B2인지는 문장 자체만으로 결정하기 어렵다.
+예:
+I was wondering if you could help me.
+이 문장은 문법적으로는 비교적 단순하다.
+그러나 학습자가 이것을
+듣고
+즉시 처리하고
+억양까지 재현하고
+chunk로 기억하고
+다른 상황에 적용하고
+즉석에서 변형할 수 있는가
+에 따라 실제 학습 난이도는 달라진다.
+CEFR도 궁극적으로 언어 지식을 목록으로 정의하기보다 무엇을 실제로 할 수 있는가를 중심으로 능력을 기술한다.
+따라서 Snowball의 level은 Sentence Level이 아니라,
+Task + Language + Processing Level 로 설계하는 것이 더 정확하다.
+
+22. 제작 데이터베이스에 반드시 넣어야 할 필드
+앞으로 Snowball 음원을 대량 제작한다면 각 문장을 다음처럼 database화하는 것을 권한다.
+ID
+CEFR
+Topic
+Situation
+Communicative Function
+Target Construction
+Target Chunk
+Chunk Count
+Words per Chunk
+Total Words
+Syntactic Complexity
+Grammar Feature
+Vocabulary Level
+Formulaicity
+Collocation
+Register
+Naturalness
+Frequency
+Reusability
+Variation Potential
+Pronunciation Difficulty
+Prosody Difficulty
+Snowball Stages
+Final Independent Production Prompt
+
+특히 마지막 두 항목이 중요하다.
+Variation Potential
+이 표현으로 최소 몇 개의 다른 문장을 만들 수 있는가?
+
+Independent Production Prompt
+모델 없이 학습자가 이 구조를 사용할 수 있는가?
+
+이 두 가지를 넣으면 Snowball이 단순한 audio library가 아니라 언어 생산 시스템이 된다.
+
+23. 최종 제작 기준표
+
+
+24. 최종 판단
+이번 자료조사에서 가장 중요한 결론은 의외로 단순하다.
+Snowball 음원의 난이도를 “문장이 얼마나 긴가”로 설계하면 안 된다.
+난이도는 최소한 다음 네 축의 조합으로 설계해야 한다.
+Length × Chunking × Grammar × Meaning
+그리고 CEFR이 높아질수록 여기에 하나가 추가된다.
+Flexibility
+즉,
+A1 → 짧게 말한다
+A2 → 조금 확장해서 말한다
+B1 → 연결해서 말한다
+B2 → 논리적으로 확장한다
+C1 → 정밀하게 조절한다
+라는 progression이 되어야 한다.
+이것이 CEFR의 communicative descriptors와 가장 잘 맞는다.
+또 하나의 중요한 결론은 chunk의 길이가 CEFR과 직접적으로 비례하지 않는다는 것이다.
+
+고급 학습자에게도:
+I was wondering if you could...
+같은 6~7단어의 chunk가 매우 중요할 수 있다.
+
+반대로 초급 학습자에게도:
+as soon as possible
+같은 4단어 chunk는 하나의 단위로 학습될 수 있다.
+따라서 중요한 것은 단어 수가 아니라 processing unit으로서의 자연성이다.
+
+25. Snowball 방식의 가장 강력한 설계 원칙
+제가 현재까지의 연구를 종합해서 이 시스템의 제작 원칙을 하나로 압축한다면 다음과 같다.
+Don't make the sentence longer. Make the learner's linguistic control wider.
+즉 문장을 무작정 길게 만드는 것이 아니라,
+같은 linguistic core를 유지하면서
+새로운 정보
+새로운 상황
+새로운 문법
+새로운 어휘
+새로운 관점
+새로운 담화 기능
+을 하나씩 추가해야 한다.
+그러면 Snowball은
+Listen → Repeat
+에서 끝나지 않고,
+
+Listen → Chunk → Repeat → Retrieve → Expand → Vary → Reconstruct → Transfer
+라는 L2 speaking acquisition cycle이 된다.
+이것이 음원 구조를 단순한 shadowing 자료가 아니라 하나의 독립적인 언어훈련 methodology로 발전시킬 수 있는 가장 중요한 지점이다.
+
+
+
+
+근거의 강도와 한계
+Strong Evidence
+CEFR의 수준별 communicative progression, grammatical accuracy, vocabulary control에 관한 기술.
+Strong–Moderate Evidence
+L2 task repetition이 oral complexity, accuracy, fluency 등에 미치는 효과.
+Moderate Evidence
+Formulaic sequences와 L2 processing/fluency의 관계.
+Moderate Evidence
+Shadowing이 pronunciation, prosody, comprehensibility 등에 미치는 효과. 다만 spontaneous transfer에 대한 연구는 아직 부족하다.
+중요한 불확실성
+“B1은 정확히 몇 단어, B2는 정확히 몇 단어”와 같은 sentence-length threshold는 현재 근거로 정당화하기 어렵다. 따라서 본 보고서의 문장·청크 길이 수치는 CEFR 공식 규정이 아니라 제작을 위한 실무적 가이드라인으로 사용해야 한다.
+또한 최근 2026년 연구에서는 multiword sequences의 사용량이 dialogue speaking proficiency를 반드시 예측하지는 않는다는 결과도 나왔다. 즉, chunk를 많이 암기하는 것 자체가 고급 말하기 능력의 충분조건은 아니다. 낮은 수준의 학습자가 동일한 n-gram을 그대로 반복하는 것과 C1 학습자가 같은 construction을 다양한 맥락에서 유연하게 변형하는 것은 전혀 다른 능력이다.
+따라서 Snowball의 최종 KPI는 **“몇 개의 문장을 암기했는가”가 아니라 “하나의 습득된 construction으로 몇 개의 새로운 문장을 자발적으로 만들어낼 수 있는가”**가 되어야 한다.
+
+컨설턴트의 최종 판단
+현재의 Snowball 아이디어는 충분히 발전시킬 가치가 있다. 다만 제품의 핵심을 “shadowing”으로 포지셔닝하는 것보다는,
+cumulative chunking + retrieval + oral production
+이라는 구조로 정의하는 것이 더 정확하고 강력하다.
+특히 앞으로 음원을 제작할 때는 CEFR × Communicative Function × Construction × Chunk × Snowball Stage를 하나의 제작 표준으로 만들 것을 권한다.
+이렇게 하면 A1부터 C1까지 음원을 만들더라도 단순히 “쉬운 영어 → 어려운 영어”가 아니라, 언어 처리와 생산 능력이 단계적으로 확장되는 curriculum을 만들 수 있다.
+이 방향이 잡히면 다음 단계는 상당히 명확하다. 실제 제작에 바로 사용할 수 있도록 A1·A2·B1·B2·C1 각각에 대해 “문장 길이 / 청크 길이 / 문법 / 어휘 / 표현 유형 / 주제 / Snowball 단계 / 변형 단계”를 수치화한 Production Specification을 만드는 것이다. 이것이 만들어지면 이후 음원을 제작할 때마다 같은 기준으로 품질을 검수할 수 있다.
