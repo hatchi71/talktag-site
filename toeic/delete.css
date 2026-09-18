@@ -1,0 +1,1 @@
+.cardActions{display:flex;align-items:center;gap:18px}.deleteButton,.dangerButton{border:0;background:transparent;color:#b54338;cursor:pointer;font:12px 'Noto Sans KR';text-decoration:underline}.dangerButton{margin-left:8px}@media(max-width:600px){.cardActions{gap:10px}.dangerButton{display:inline-block}}

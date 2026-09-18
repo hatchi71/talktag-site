@@ -1,0 +1,223 @@
+const STORAGE_KEY = 'part5-desk-v1';
+const sampleQuestions = [
+  {id:'s1', question:'The report must be submitted _____ Friday afternoon.', choices:['by','until','during','since'], answer:0, translation:'보고서는 늦어도 금요일 오후까지 제출되어야 한다.', vocab:'by - 늦어도 ~까지 (예: Please finish the report by Monday.) / until - ~까지 줄곧 (예: I will wait here until you arrive.) / during - ~동안에 (예: She called during the meeting.) / since - ~이래로 (예: We have been friends since 2010.)', explanation:'핵심 표현은 submit the report by Friday입니다. 여기서 by는 금요일 오후를 ‘마감선’으로 잡아, 그 시각보다 앞서 제출을 끝내라는 뜻입니다. submit은 한 번 완료되는 행동이라 “어떤 상태가 그때까지 계속된다”는 until과는 잘 어울리지 않습니다. during Friday afternoon은 금요일 오후라는 시간대 안에서 일이 일어난다고 할 뿐 마감 의미가 없고, since Friday afternoon은 그때부터 지금까지 이어지는 상황에 쓰므로 must be submitted와 연결되지 않습니다. 원어민은 문법표를 떠올리기보다 by Friday, by the deadline, by noon처럼 마감 표현을 한 덩어리로 받아들입니다.'},
+  {id:'s2', question:'Ms. Kim is responsible _____ coordinating the annual conference.', choices:['at','for','with','to'], answer:1, translation:'Kim 씨는 연례 콘퍼런스를 조율하는 일을 맡고 있다.', vocab:'at - 특정 지점·시각에 (예: Let us meet at 3 p.m.) / for - ~을 담당하여 (예: She is responsible for the budget.) / with - ~와 함께 (예: I went there with my colleague.) / to - ~에게, ~로 (예: Please send this to the manager.)', explanation:'responsible for는 “~을 담당하다”라는 고정된 결합입니다. 그래서 responsible for coordinating the conference는 원어민에게 “콘퍼런스 조율 업무를 맡고 있다”로 곧바로 읽힙니다. responsible at이나 responsible with는 이런 뜻으로 쓰는 자연스러운 결합이 아닙니다. responsible to는 가능하지만 뜻이 달라서, 보통 responsible to the director처럼 “누구에게 보고하거나 책임을 지는가”를 말할 때 씁니다. 이 문장에는 사람이 아니라 coordinating이라는 업무가 뒤따르므로 for가 정확합니다. responsible for + 업무를 하나의 표현 덩어리로 익혀 두는 것이 좋습니다.'},
+  {id:'s3', question:'The new software is _____ easier to use than the previous version.', choices:['much','many','most','more'], answer:0, translation:'새 소프트웨어는 이전 버전보다 훨씬 사용하기 쉽다.', vocab:'much - 훨씬, 매우 큰 차이로 (예: This version is much faster.) / many - 수가 많은 (예: Many employees joined the workshop.) / most - 가장, 대부분의 (예: This is the most popular choice.) / more - 더 (예: We need a more convenient option.)', explanation:'easier than만으로 이미 “~보다 더 쉽다”는 비교가 완성되어 있습니다. 빈칸에는 그 차이가 크다는 느낌을 더하는 much가 들어가며, much easier는 원어민이 매우 자주 쓰는 자연스러운 결합입니다. many는 사람이나 사물의 수가 많다는 말이라 easier를 꾸밀 수 없습니다. most는 보통 the easiest 또는 the most convenient처럼 셋 이상에서 최고를 고를 때 쓰여, than과 짝을 이루지 않습니다. more도 “더”라는 뜻이지만 easier 자체에 이미 그 의미가 들어 있으므로 more easier는 중복됩니다. much easier, far easier, a little easier를 비교 강도 표현으로 함께 익히면 좋습니다.'}
+];
+let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || {questions: sampleQuestions.map(q=>({...q})), results:{}, starred:[], filter:'all'};
+const SAMPLE_CONTENT_VERSION = 2;
+if (state.sampleContentVersion !== SAMPLE_CONTENT_VERSION) {
+  const revisedSamples = new Map(sampleQuestions.map(q => [q.id, q]));
+  state.questions = state.questions.map(q => revisedSamples.has(q.id) ? {...revisedSamples.get(q.id)} : q);
+  state.sampleContentVersion = SAMPLE_CONTENT_VERSION;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+let activePart = [5,6,7].includes(Number(localStorage.getItem('toeic-active-part'))) ? Number(localStorage.getItem('toeic-active-part')) : 5;
+let part5State = state;
+let part6State = JSON.parse(localStorage.getItem('part6-desk-v1') || 'null') || {questions:part6Questions.map(q=>({...q})),results:{},starred:[],filter:'all'};
+let part7State = JSON.parse(localStorage.getItem('part7-desk-v1') || 'null') || {questions:part7Questions.map(q=>({...q})),results:{},starred:[],filter:'all'};
+const partStates = {5:part5State,6:part6State,7:part7State};
+state = partStates[activePart];
+let currentIndex = 0;
+const $ = s => document.querySelector(s);
+function save(){localStorage.setItem(`part${activePart}-desk-v1`, JSON.stringify(state));}
+function filtered(){return state.questions.filter(q=>state.filter==='all'||(state.filter==='starred'&&state.starred.includes(q.id))||(state.filter==='correct'&&state.results[q.id]?.correct)||(state.filter==='incorrect'&&state.results[q.id]&&!state.results[q.id].correct));}
+function updateCounts(){const qs=state.questions, r=state.results; $('#countAll').textContent=qs.length;$('#countCorrect').textContent=qs.filter(q=>r[q.id]?.correct).length;$('#countIncorrect').textContent=qs.filter(q=>r[q.id]&&!r[q.id].correct).length;$('#countStarred').textContent=state.starred.length;const solved=qs.filter(q=>r[q.id]).length;$('#progressText').textContent=`${solved} / ${qs.length}문제 학습`;$('#progressBar').style.width=qs.length?`${solved/qs.length*100}%`:'0'}
+function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항 · 기본 예제 12문항 / AI 생성 한 세트 54문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:'Part 5 · 단문 빈칸 채우기';$('#openAdd').classList.toggle('hidden',activePart!==5);$('#restorePart7').classList.toggle('hidden',activePart!==7);$('#restorePart6').classList.toggle('hidden',activePart!==6);document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex>=qs.length)currentIndex=0;$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
+if(q.part===7){node.querySelector('.number').textContent=`PART 7 · ${q.questionNumber} · ${currentIndex+1} / ${qs.length}`;const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passages.length===1?'단일':q.passages.length===2?'이중':'삼중'} 지문 · ${q.setTitle}`;const container=node.querySelector('.passage');q.passages.forEach((doc,i)=>{const article=document.createElement('section');article.className='readingDocument';const heading=document.createElement('h3');heading.textContent=`문서 ${i+1} · ${doc.title}`;const body=document.createElement('div');body.textContent=doc.text;article.append(heading,body);container.append(article)});}
+
+if(q.passage){const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passageType} · ${q.setTitle}`;const passage=node.querySelector('.passage');q.passage.split(/(\[\d+\])/g).forEach(piece=>{if(piece===`[${q.blank}]`){const mark=document.createElement('mark');mark.textContent=piece;passage.append(mark)}else passage.append(document.createTextNode(piece))});}
+const star=node.querySelector('.star');star.textContent=state.starred.includes(q.id)?'★':'☆';star.classList.toggle('active',state.starred.includes(q.id));star.onclick=()=>{state.starred.includes(q.id)?state.starred=state.starred.filter(id=>id!==q.id):state.starred.push(q.id);save();render()};const choices=node.querySelector('.choices');q.choices.forEach((text,i)=>{const b=document.createElement('button');b.className='choice';const circleSvg=(result&&i===q.answer)?'<svg class="circleMark" viewBox="0 0 60 60" preserveAspectRatio="none"><path d="M38,16 C54,17 57,32 47,41 C37,50 18,50 9,40 C0,30 3,16 16,12 C25,9 33,10 38,15 L30,9"/></svg>':'';b.innerHTML=`<strong>${'ABCD'[i]}${circleSvg}</strong><span>${escapeHtml(text)}</span>`;if(result){b.disabled=true;if(i===q.answer){b.classList.add('correct')}else{b.classList.add('faded');if(i===result.selected)b.classList.add('selectedWrong')}}else b.onclick=()=>answer(q,i);choices.appendChild(b)});if(result){const feedback=node.querySelector('.feedback');feedback.classList.remove('hidden');feedback.classList.toggle('wrong',!result.correct);const translationHtml=q.translation?`<p class="translation"><strong>${q.part===7?'질문·정답 해석':'문장 해석'}</strong> ${escapeHtml(q.translation)}</p>`:'';const vocabHtml=q.vocab?`<p class="vocab"><strong>${q.part===7?'보기 및 핵심 표현':'보기 단어 뜻 & 예문'}</strong> ${escapeHtml(q.vocab)}</p>`:'';feedback.innerHTML=`<h3>${result.correct?'정답이에요. 잘했어요!':'아쉬워요. 정답은 '+ 'ABCD'[q.answer]+'입니다.'}</h3>${translationHtml}${vocabHtml}<p>${escapeHtml(q.explanation)}</p>`;if(q.part===7){const evidence=document.createElement('div');evidence.className='answerEvidence';const heading=document.createElement('h4');heading.textContent='정답 근거 및 보기별 검수';evidence.append(heading);q.evidence.forEach(item=>{const line=document.createElement('p');line.textContent=`문서 ${item.document}: “${item.quote}” — ${item.reason}`;evidence.append(line)});q.optionReasons.forEach((reason,i)=>{const line=document.createElement('p');line.textContent=`${'ABCD'[i]} · ${i===q.answer?'정답':'오답'}: ${reason}`;evidence.append(line)});const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='전체 지문 해석';details.append(summary);q.passages.forEach((doc,i)=>{const para=document.createElement('p');para.textContent=`문서 ${i+1} · ${doc.translation}`;details.append(para)});evidence.append(details);feedback.append(evidence)}}node.querySelector('.status').textContent=result?(result.correct?'✓ 맞힌 문제':'↺ 다시 복습할 문제'):'아직 풀지 않음';node.querySelector('.prevButton').onclick=()=>{currentIndex=(currentIndex-1+qs.length)%qs.length;render()};node.querySelector('.nextButton').onclick=()=>{currentIndex=(currentIndex+1)%qs.length;render()};$('#questionArea').replaceChildren(node)}
+$('#questionArea').onclick=e=>{if(!e.target.matches('.deleteButton'))return;const q=filtered()[currentIndex];if(q&&confirm('이 문제를 삭제할까요? 정오답 기록도 함께 삭제됩니다.')){state.questions=state.questions.filter(item=>item.id!==q.id);delete state.results[q.id];state.starred=state.starred.filter(id=>id!==q.id);save();render()}};
+function answer(q,selected){state.results[q.id]={selected,correct:selected===q.answer,at:Date.now()};save();render()}
+function insertQuestions(newQs){if(!newQs.length)return;const shuffle=confirm(`새 문제 ${newQs.length}개를 추가합니다.\n확인: 기존 문제와 무작위로 섞기\n취소: 기존 문제 뒤에 순서대로 추가`);state.questions=[...state.questions,...newQs];if(shuffle){for(let i=state.questions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.questions[i],state.questions[j]]=[state.questions[j],state.questions[i]]}}}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;currentIndex=0;save();render()});$('#retryMode').onchange=e=>{if(e.target.checked){state.results={};save();render()}};$('#resetCurrent').onclick=()=>{const q=filtered()[currentIndex];if(q){delete state.results[q.id];save();render()}};$('#resetAll').onclick=()=>{if(confirm('모든 문제의 정오답 기록을 초기화할까요? 문제 목록은 그대로 남습니다.')){state.results={};currentIndex=0;save();render()}};$('#deleteAll').onclick=()=>{if(confirm('등록된 모든 문제와 학습 기록을 삭제할까요? 이 작업은 되돌릴 수 없습니다.')){state.questions=[];state.results={};state.starred=[];state.filter='all';currentIndex=0;save();render()}};
+$('#toggleBroadcast').onclick=()=>{const on=document.body.classList.toggle('broadcast');$('#toggleBroadcast').textContent=on?'✕ 방송 모드 종료':'🎬 세로 방송 모드'};
+$('#openAdd').onclick=()=>$('#addDialog').showModal();$('#closeAdd').onclick=()=>$('#addDialog').close();$('#loadSamples').onclick=()=>{if(!state.questions.length){state.questions=sampleQuestions.map(q=>({...q}));save();render()}$('#addDialog').close()};
+$('#addForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target), q={id:crypto.randomUUID(),question:f.get('question'),choices:['a','b','c','d'].map(x=>f.get(x)),answer:Number(f.get('answer')),translation:f.get('translation'),vocab:f.get('vocab'),explanation:f.get('explanation')};insertQuestions([q]);state.filter='all';currentIndex=0;save();$('#addDialog').close();e.target.reset();render()};
+const originalImportPrompt=$('#aiPrompt').textContent.trim();
+const promptSection=(start,end)=>{const from=originalImportPrompt.indexOf(start),to=end?originalImportPrompt.indexOf(end,from):originalImportPrompt.length;return originalImportPrompt.slice(from,to).trim()};
+const importMeta={
+  5:{count:30,range:'101~130',distribution:'A 8개, B 8개, C 7개, D 7개',section:promptSection('[Part 5]','[Part 6]')},
+  6:{count:16,range:'131~146',distribution:'A 4개, B 4개, C 4개, D 4개',section:promptSection('[Part 6]','[공통 출력 규칙]')},
+  7:{count:54,range:'147~200',distribution:'A 14개, B 14개, C 13개, D 13개',section:promptSection('[Part 7 —')}
+};
+Object.entries(importMeta).forEach(([part,meta])=>{
+  let section=meta.section.replaceAll('100문항 전체',`Part ${part} ${meta.count}문항 전체`);
+  if(Number(part)===7)section=section.replace('Part 5·6도 오답을 실제 빈칸에 하나씩 넣어 문법·의미·연어를 모두 검토하세요.','');
+  meta.prompt=`TOEIC Listening & Reading의 Part ${part} 형식에 맞는 실전 연습 문제를 정확히 ${meta.count}문항(${meta.range}) 생성해 주세요. 다른 파트 문제는 포함하지 마세요.
+
+[시험 적합성과 난이도]
+- 전체 체감 난이도는 중상으로 설정하세요. 대략 중 20%, 중상 60%, 상 20%로 구성하되 극단적으로 쉽거나 지엽적인 문항은 제외하세요.
+- 난도는 희귀 단어, 전문 지식, 불필요하게 긴 문장, 말장난으로 높이지 마세요. 일상적 직장 업무와 생활 상황에서 자연스럽게 쓰이는 영어만 사용하세요.
+- ETS의 실제 문항이나 공식·비공식 기출, 출판 교재, 웹사이트 문제를 복사하거나 이름·숫자·표현만 바꾼 근접 변형을 만들지 마세요. 시험의 형식과 능력 요소만 참고하여 모든 소재와 문장을 새로 설계하세요.
+- 모든 문항에는 가장 적절한 정답이 하나만 있어야 합니다. 오답도 문법 형태와 의미 범주가 그럴듯해야 하지만, 문맥·연어·지시 대상·시간·수량·조건 중 하나의 분명한 이유로 배제되어야 합니다.
+- 정답 선택지만 유난히 길거나 구체적이지 않게 하고, 보기 네 개의 문법적 형태·길이·문체를 가능한 한 평행하게 맞추세요.
+- 같은 회사명, 인물명, 사건, 문장 골격, 정답 단어, 핵심 표현을 여러 문항에서 반복하지 마세요.
+- 시험 응시자가 외부 지식 없이 제시된 문장과 문서만으로 풀 수 있어야 하며, 실제 TOEIC처럼 직장 및 일상생활의 의사소통 능력을 측정해야 합니다.
+- 사무·인사·구매·배송·제조·품질관리·금융·청구·회의·행사·여행·숙박·시설관리·고객서비스 등 TOEIC에서 다루는 일반적인 상황을 고르게 사용하되, 한 업종에 치우치지 마세요.
+
+${section}
+
+[출력 및 최종 검수]
+- Part ${part} 객체 ${meta.count}개만 들어 있는 하나의 JSON 배열로 출력하세요.
+- 코드블록, 제목, 설명, 주석, 인사말 등 JSON 배열 밖의 텍스트는 출력하지 마세요.
+- 모든 객체의 part는 숫자 ${part}, choices는 문자열 4개, answer는 0~3 정수여야 합니다.
+- 정답 분포는 정확히 ${meta.distribution}이며 같은 정답이 3문항 이상 연속되지 않게 하세요.
+- 먼저 answer와 해설을 가리고 각 문항을 독립적으로 다시 푼 뒤, 두 개 이상의 보기가 성립하거나 정답 근거가 약한 문항은 수정하세요.
+- 모든 오답을 문장 또는 지문에 실제로 대입하여 배제 이유를 확인하고, answer, translation, vocab, explanation이 최종 선택지 순서와 일치하는지 다시 검사하세요.`;
+});
+let importPart=activePart;
+function selectImportPart(part){
+  importPart=part;
+  const meta=importMeta[part];
+  document.querySelectorAll('[data-import-part]').forEach(button=>{const selected=Number(button.dataset.importPart)===part;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected))});
+  $('#importTitle').textContent=`Part ${part} 문제 업로드`;
+  $('#importIntro').innerHTML=`Part ${part} <b>${meta.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
+  $('#aiPrompt').textContent=meta.prompt;
+  $('#importHint').textContent=`Part ${part} ${meta.count}문항의 형식과 정답 분포를 검사한 뒤 Part ${part}에만 추가합니다.`;
+  $('#importSubmit').textContent=`Part ${part} 등록하기`;
+  $('#importError').classList.add('hidden');
+}
+document.querySelectorAll('[data-import-part]').forEach(button=>button.onclick=()=>selectImportPart(Number(button.dataset.importPart)));
+$('#openImport').onclick=()=>{selectImportPart(activePart);$('#importDialog').showModal()};$('#closeImport').onclick=()=>$('#importDialog').close();
+$('#importFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{$('#importText').value=await file.text();$('#importError').classList.add('hidden')}catch{$('#importError').textContent='파일을 읽지 못했어요. JSON 내용을 직접 붙여넣어 주세요.';$('#importError').classList.remove('hidden')}};
+$('#copyPrompt').onclick=async()=>{try{await navigator.clipboard.writeText($('#aiPrompt').textContent);$('#copyPrompt').textContent='복사했어요'}catch{$('#copyPrompt').textContent='위 요청문을 직접 복사해 주세요'}setTimeout(()=>$('#copyPrompt').textContent='요청문 복사',1800)};
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function countOccurrences(text, pattern){return (text.match(pattern)||[]).length}
+function validateAnswerRun(items, label){
+  let run=1;
+  for(let i=1;i<items.length;i++){
+    run=items[i].answer===items[i-1].answer?run+1:1;
+    if(run>=3)throw Error(`${label}에서 같은 정답이 3문항 연속됩니다. ${i+1}번째 문항 부근을 확인해 주세요.`);
+  }
+}
+function validateDistribution(items, expected, label){
+  const actual=[0,0,0,0];
+  items.forEach(q=>actual[q.answer]++);
+  if(actual.some((n,i)=>n!==expected[i]))throw Error(`${label} 정답 분포가 맞지 않습니다. 현재 A/B/C/D = ${actual.join('/')}, 필요 = ${expected.join('/')}입니다.`);
+}
+function validatePart5Set(p5){
+  if(p5.length!==30)throw Error(`Part 5가 ${p5.length}문항입니다. 정확히 30문항이 필요합니다.`);
+  validateDistribution(p5,[8,8,7,7],'Part 5');
+  validateAnswerRun(p5,'Part 5');
+}
+function validatePart6Set(p6){
+  if(p6.length!==16)throw Error(`Part 6가 ${p6.length}문항입니다. 정확히 16문항이 필요합니다.`);
+  validateDistribution(p6,[4,4,4,4],'Part 6');
+  validateAnswerRun(p6,'Part 6');
+
+  const expectedBlanks=Array.from({length:16},(_,i)=>131+i);
+  const actualBlanks=p6.map(q=>q.blank).sort((a,b)=>a-b);
+  if(actualBlanks.length!==expectedBlanks.length||actualBlanks.some((n,i)=>n!==expectedBlanks[i])){
+    throw Error(`Part 6 blank 번호는 131~146을 각각 정확히 한 번 사용해야 합니다. 현재: ${actualBlanks.join(', ')}`);
+  }
+
+  const groups=new Map();
+  p6.forEach(q=>{
+    const key=`${q.setTitle}\u0000${q.passageType}\u0000${q.passage}`;
+    if(!groups.has(key))groups.set(key,[]);
+    groups.get(key).push(q);
+  });
+  if(groups.size!==4)throw Error(`Part 6 지문 세트가 ${groups.size}개로 인식됩니다. 같은 지문의 4문항은 setTitle, passageType, passage를 글자 하나까지 동일하게 반복해야 합니다.`);
+
+  const orderedGroups=[...groups.values()].sort((a,b)=>Math.min(...a.map(q=>q.blank))-Math.min(...b.map(q=>q.blank)));
+  orderedGroups.forEach((items,setIndex)=>{
+    if(items.length!==4)throw Error(`Part 6 ${setIndex+1}번째 지문이 ${items.length}문항입니다. 지문당 정확히 4문항이어야 합니다.`);
+    const expected=Array.from({length:4},(_,i)=>131+setIndex*4+i);
+    const blanks=items.map(q=>q.blank).sort((a,b)=>a-b);
+    if(blanks.some((n,i)=>n!==expected[i]))throw Error(`Part 6 ${setIndex+1}번째 지문의 blank 번호가 잘못되었습니다. 필요: ${expected.join(', ')}, 현재: ${blanks.join(', ')}`);
+    const passage=items[0].passage;
+    const markerMatches=passage.match(/\[\d+\]/g)||[];
+    if(markerMatches.length!==4)throw Error(`Part 6 ${setIndex+1}번째 지문에는 [번호] 표식이 정확히 4개 있어야 합니다. 현재 ${markerMatches.length}개입니다.`);
+    const dashMatches=passage.match(/-{7}/g)||[];
+    if(dashMatches.length!==4)throw Error(`Part 6 ${setIndex+1}번째 지문에는 ------- 빈칸이 정확히 4개 있어야 합니다. 현재 ${dashMatches.length}개입니다.`);
+    expected.forEach(blank=>{
+      const marker=new RegExp(`\\[${blank}\\]`,'g');
+      const paired=new RegExp(`\\[${blank}\\]\\s*-{7}`,'g');
+      if(countOccurrences(passage,marker)!==1)throw Error(`Part 6 [${blank}] 표식은 해당 지문에 정확히 한 번 있어야 합니다.`);
+      if(countOccurrences(passage,paired)!==1)throw Error(`Part 6 [${blank}] 뒤에 ------- 빈칸이 없습니다. 반드시 “[${blank}] -------” 형식으로 작성해 주세요.`);
+    });
+  });
+}
+function validatePart7Question(q,label){
+  const text=v=>typeof v==='string'&&v.trim().length>0;
+  if(!Number.isInteger(q.questionNumber)||q.questionNumber<147||q.questionNumber>200||!text(q.setId)||!text(q.setTitle)||!text(q.questionType))throw Error(`${label}: Part 7 번호(147~200), setId, setTitle, questionType을 확인해 주세요.`);
+  if(!['purpose','detail','inference','vocabulary','sentence-insertion','cross-reference'].includes(q.questionType))throw Error(`${label}: 지원하지 않는 questionType입니다.`);
+  if(!Array.isArray(q.passages)||q.passages.length<1||q.passages.length>3||q.passages.some(d=>!d||!text(d.title)||!text(d.text)||!text(d.translation)))throw Error(`${label}: Part 7은 제목·본문·한국어 해석이 있는 문서 1~3개가 필요합니다.`);
+  if(!Array.isArray(q.optionReasons)||q.optionReasons.length!==4||q.optionReasons.some(r=>!text(r)))throw Error(`${label}: A~D 네 보기 각각의 정답/오답 근거가 필요합니다.`);
+  if(!Array.isArray(q.evidence)||!q.evidence.length)throw Error(`${label}: 정답을 뒷받침하는 지문 근거가 필요합니다.`);
+  q.evidence.forEach(e=>{if(!e||!Number.isInteger(e.document)||e.document<1||e.document>q.passages.length||!text(e.quote)||!text(e.reason)||!q.passages[e.document-1].text.includes(e.quote))throw Error(`${label}: 근거 인용문이 지정한 문서에 실제로 존재해야 합니다.`)});
+  if(q.questionType==='cross-reference'&&new Set(q.evidence.map(e=>e.document)).size<2)throw Error(`${label}: 연계 문제는 서로 다른 문서 두 개 이상의 근거가 필요합니다.`);
+  if(q.questionType==='sentence-insertion'){
+    const body=q.passages.map(d=>d.text).join('\n');
+    if(['[1]','[2]','[3]','[4]'].some(m=>body.split(m).length!==2)||q.choices.some((v,i)=>v!==`[${i+1}]`))throw Error(`${label}: 문장 삽입 문제는 지문에 [1]~[4] 위치가 각각 한 번 있고 보기가 같은 순서여야 합니다.`);
+  }
+}
+function validatePart7Set(p7){
+  if(p7.length!==54)throw Error(`Part 7이 ${p7.length}문항입니다. 정확히 54문항이 필요합니다.`);
+  p7.sort((a,b)=>a.questionNumber-b.questionNumber);
+  if(p7.some((q,i)=>q.questionNumber!==147+i))throw Error('Part 7 번호는 147~200을 각각 한 번 사용해야 합니다.');
+  validateDistribution(p7,[14,14,13,13],'Part 7');validateAnswerRun(p7,'Part 7');
+  const groups=new Map();
+  p7.forEach(q=>{if(!groups.has(q.setId))groups.set(q.setId,[]);groups.get(q.setId).push(q)});
+  const counts=[0,0,0],totals=[0,0,0];
+  groups.forEach(items=>{
+    const first=items[0],n=first.passages.length;counts[n-1]++;totals[n-1]+=items.length;
+    const key=JSON.stringify(first.passages);
+    if(items.some((q,i)=>q.setTitle!==first.setTitle||JSON.stringify(q.passages)!==key||(i&&q.questionNumber!==items[i-1].questionNumber+1)))throw Error(`Part 7 ${first.setId}: 같은 세트의 지문·제목이 동일하고 번호가 연속되어야 합니다.`);
+    if(n===1?(items.length<2||items.length>4):items.length!==5)throw Error(`Part 7 ${first.setId}: 단일 지문은 2~4문항, 복수 지문은 5문항입니다.`);
+    if(items.some(q=>n===1?q.questionNumber>175:n===2?(q.questionNumber<176||q.questionNumber>185):q.questionNumber<186))throw Error('Part 7 단일 147~175, 이중 176~185, 삼중 186~200 순서를 확인해 주세요.');
+    if(n>1&&!items.some(q=>q.questionType==='cross-reference'))throw Error(`Part 7 ${first.setId}: 복수 지문마다 cross-reference 연계 문제가 필요합니다.`);
+  });
+  if(counts.join('/')!=='10/2/3'||totals.join('/')!=='29/10/15')throw Error('Part 7은 단일 10세트 29문항, 이중 2세트 10문항, 삼중 3세트 15문항이어야 합니다.');
+}
+function validateImportedPart(valid,targetPart){
+  const wrong=valid.find(q=>q.part!==targetPart);
+  if(wrong)throw Error(`Part ${targetPart} 업로드에는 Part ${targetPart} 문제만 넣어 주세요. Part ${wrong.part} 문제가 포함되어 있습니다.`);
+  if(targetPart===5)validatePart5Set(valid);
+  if(targetPart===6)validatePart6Set(valid);
+  if(targetPart===7)validatePart7Set(valid);
+}
+$('#importForm').onsubmit=e=>{
+  e.preventDefault();
+  const raw=$('#importText').value.trim(), error=$('#importError');
+  try{
+    const fenced=raw.match(/```(?:json)?\s*([\s\S]*?)```/i), source=(fenced?fenced[1]:raw).trim(), start=source.indexOf('['), end=source.lastIndexOf(']');
+    if(start<0||end<start)throw Error('JSON 배열을 찾지 못했습니다.');
+    const imported=JSON.parse(source.slice(start,end+1));
+    if(!Array.isArray(imported)||!imported.length)throw Error('문제 배열이 아닙니다.');
+    const valid=imported.map((q,i)=>{
+      if(!q||typeof q!=='object')throw Error(`${i+1}번은 문제 객체여야 합니다.`);
+      const answer=typeof q.answer==='string'&&/^[A-D]$/i.test(q.answer.trim())?'ABCD'.indexOf(q.answer.trim().toUpperCase()):typeof q.answer==='number'?q.answer:NaN;
+      if(typeof q.question!=='string'||!q.question.trim()||!Array.isArray(q.choices)||q.choices.length!==4||q.choices.some(choice=>typeof choice!=='string'||!choice.trim())||!Number.isInteger(answer)||answer<0||answer>3||typeof q.explanation!=='string'||!q.explanation.trim()||typeof q.translation!=='string'||!q.translation.trim()||typeof q.vocab!=='string'||!q.vocab.trim())throw Error(`${i+1}번 문제의 question/choices/answer/translation/vocab/explanation 형식을 확인해 주세요.`);
+      const part=Number(q.part);
+      if(![5,6,7].includes(part))throw Error(`${i+1}번 part는 5, 6, 7이어야 합니다.`);
+      if(new Set(q.choices.map(c=>c.trim().toLowerCase())).size!==4)throw Error(`${i+1}번 보기에 중복이 있습니다.`);
+      if(part===7)validatePart7Question(q,`${i+1}번`);
+      if(part===5&&countOccurrences(q.question,/-{7}/g)!==1)throw Error(`${i+1}번 Part 5 문장에는 ------- 빈칸이 정확히 1개 있어야 합니다.`);
+      if(part===6){
+        if(typeof q.passage!=='string'||!q.passage.trim()||typeof q.setTitle!=='string'||!q.setTitle.trim()||typeof q.passageType!=='string'||!q.passageType.trim()||!Number.isInteger(q.blank)||q.blank<131||q.blank>146)throw Error(`${i+1}번 Part 6의 setTitle/passageType/passage/blank 형식을 확인해 주세요.`);
+        if(!q.passage.includes(`[${q.blank}]`))throw Error(`${i+1}번 Part 6: blank=${q.blank}인데 passage에 [${q.blank}] 표식이 없습니다.`);
+        const paired=new RegExp(`\\[${q.blank}\\]\\s*-{7}`);
+        if(!paired.test(q.passage))throw Error(`${i+1}번 Part 6: [${q.blank}] 뒤에 ------- 빈칸이 없습니다.`);
+      }
+      return {id:crypto.randomUUID(),part,question:q.question,choices:q.choices.map(String),answer,translation:q.translation,vocab:q.vocab,explanation:q.explanation,...(part===6?{passage:q.passage,setTitle:q.setTitle,passageType:q.passageType,blank:q.blank}:{}),...(part===7?{questionNumber:q.questionNumber,setId:q.setId,setTitle:q.setTitle,questionType:q.questionType,passages:q.passages,evidence:q.evidence,optionReasons:q.optionReasons}:{})};
+    });
+    validateImportedPart(valid,importPart);
+    const targetState=partStates[importPart];
+    targetState.questions.push(...valid);targetState.filter='all';
+    localStorage.setItem(`part${importPart}-desk-v1`,JSON.stringify(targetState));
+    activePart=importPart;state=targetState;localStorage.setItem('toeic-active-part',activePart);currentIndex=0;
+    $('#importDialog').close();$('#importText').value='';$('#importFile').value='';render();
+  }catch(err){
+    error.textContent=`등록하지 못했어요: ${err.message}`;
+    error.classList.remove('hidden');
+  }
+};
+
+document.querySelectorAll('[data-part]').forEach(button=>button.onclick=()=>{save();activePart=Number(button.dataset.part);state=partStates[activePart];localStorage.setItem('toeic-active-part',activePart);currentIndex=0;$('#retryMode').checked=false;render()});
+$('#restorePart6').onclick=()=>{const ids=new Set(state.questions.map(q=>q.id));state.questions.push(...part6Questions.filter(q=>!ids.has(q.id)).map(q=>({...q})));state.filter='all';currentIndex=0;save();render()};
+
+$('#restorePart7').onclick=()=>{const ids=new Set(state.questions.map(q=>q.id));state.questions.push(...part7Questions.filter(q=>!ids.has(q.id)).map(q=>({...q})));state.filter='all';currentIndex=0;save();render()};
+render();
