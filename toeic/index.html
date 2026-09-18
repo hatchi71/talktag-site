@@ -6,7 +6,7 @@
     <title>영어만점 Part 5 · 6 · 7</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="import.css" />
-    <link rel="stylesheet" href="delete.css?v=3" />
+    <link rel="stylesheet" href="delete.css?v=4" />
   </head>
   <body>
     <header class="topbar">
@@ -25,7 +25,7 @@
           <button class="tab" data-filter="correct">정답 <b id="countCorrect">0</b></button>
           <button class="tab" data-filter="starred">★ 별표 <b id="countStarred">0</b></button>
         </div>
-        <div class="controls"><label>다시 풀기 <input type="checkbox" id="retryMode" /></label><button id="resetCurrent" class="textButton">현재 기록 초기화</button><button id="resetAll" class="textButton">전체 기록 초기화</button><button id="deleteAll" class="textButton dangerButton">전체 문제 삭제</button></div>
+        <div class="controls"><label>다시 풀기 <input type="checkbox" id="retryMode" /></label><button id="resetCurrent" class="textButton">현재 기록 초기화</button><button id="resetAll" class="textButton">전체 기록 초기화</button><button id="keepReviewOnly" class="textButton dangerButton">오답·별표만 남기기</button><button id="deleteAll" class="textButton dangerButton">전체 문제 삭제</button></div>
       </section>
 
       <section id="emptyState" class="empty hidden"><h2>아직 이 목록에는 문제가 없어요.</h2><p>다른 필터를 선택하거나 새 문제를 추가해 보세요.</p></section>
@@ -232,6 +232,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
     </template>
     <script src="part6.js?v=1"></script>
     <script src="part7.js?v=1"></script>
-    <script src="app.js?v=9"></script>
+    <script src="app.js?v=10"></script>
   </body>
 </html>
