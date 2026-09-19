@@ -402,3 +402,27 @@ $('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Dat
 function closeExamResults(){examSession=null;history.pushState({},'',location.pathname);setExamView('practice')}
 $('#closeResults').onclick=closeExamResults;$('#finishResults').onclick=closeExamResults;
 render();
+
+function openToeicRc(){
+  document.body.classList.add('toeic-app-open');
+  history.pushState({toeicArea:'rc'},'',`${location.pathname}?mode=rc`);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function openToeicLanding(){
+  if(document.body.classList.contains('broadcast'))setBroadcastMode(false);
+  examSession=null;
+  setExamView('practice');
+  document.body.classList.remove('toeic-app-open');
+  history.pushState({toeicArea:'landing'},'',location.pathname);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+$('#openRcHub').onclick=openToeicRc;
+$('#openLcHub').onclick=()=>alert('LC 학습 공간은 준비 중입니다.');
+$('#backToeicLanding').onclick=openToeicLanding;
+function syncToeicAreaFromLocation(){
+  const isRc=new URLSearchParams(location.search).get('mode')==='rc';
+  if(!isRc&&document.body.classList.contains('exam-active')){examSession=null;setExamView('practice')}
+  document.body.classList.toggle('toeic-app-open',isRc);
+}
+window.addEventListener('popstate',syncToeicAreaFromLocation);
+syncToeicAreaFromLocation();

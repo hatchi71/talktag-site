@@ -3,18 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>영어만점 Part 5 · 6 · 7</title>
-    <link rel="stylesheet" href="style.css?v=5" />
+    <title>영어만점 TOEIC · LC & RC</title>
+    <link rel="stylesheet" href="style.css?v=6" />
     <link rel="stylesheet" href="import.css" />
     <link rel="stylesheet" href="delete.css?v=4" />
   </head>
   <body>
+    <main id="toeicLanding" class="toeicLanding">
+      <header class="toeicLandingHeader">
+        <a href="../snowballing-studio.html" class="toeicBack">← TEST PREPPERS</a>
+        <img src="brand.jpg" alt="영어만점" />
+        <span>TOEIC LEARNING SPACE</span>
+      </header>
+      <section class="toeicHero">
+        <div class="toeicHeroCopy">
+          <p class="toeicEyebrow">ENGLISH FULL SCORE · TOEIC</p>
+          <h1>듣고, 읽고,<br><i>점수로 연결하다.</i></h1>
+          <p>오늘 훈련할 영역을 선택하세요. LC와 RC는 각자의 학습 흐름을 유지하면서 하나의 TOEIC 학습 기록으로 연결됩니다.</p>
+        </div>
+        <div class="toeicOrbit" aria-hidden="true"><span>TOEIC</span><b class="lcPlanet">LC</b><b class="rcPlanet">RC</b></div>
+      </section>
+      <section class="toeicTracks" aria-label="TOEIC 학습 메뉴">
+        <button id="openLcHub" class="toeicTrack lcTrack" type="button">
+          <span class="trackNumber">01 · LISTENING</span><em>COMING SOON</em><h2>LC</h2>
+          <strong>듣고 핵심을 잡는 훈련</strong><p>Part 1–4의 소리, 질문 의도, 정답 단서를 단계적으로 훈련합니다.</p><span class="trackAction">LC SPACE 준비 중</span>
+        </button>
+        <button id="openRcHub" class="toeicTrack rcTrack" type="button">
+          <span class="trackNumber">02 · READING</span><em>OPEN</em><h2>RC</h2>
+          <strong>읽고 근거를 찾는 훈련</strong><p>Part 5·6·7 문제 풀이, 시험지 모드와 모의고사 모드로 실전 감각을 만듭니다.</p><span class="trackAction">RC 시작하기 →</span>
+        </button>
+      </section>
+    </main>
     <header class="topbar">
       <a class="brand" href="#"><img src="brand.jpg" alt="영어만점" /></a>
       <div class="progress" aria-label="학습 현황"><span id="progressText">0문제 학습</span><div><i id="progressBar"></i></div></div>
       <button class="primary" id="openPaperExam">📖 시험지 모드</button>
       <button class="secondary" id="openMockExam">⏱ 모의고사 모드</button>
       <button class="secondary" id="toggleBroadcast">🎬 세로 방송 모드</button>
+      <button class="secondary" id="backToeicLanding">TOEIC 홈</button>
       <div class="headerActions"><button class="secondary" id="openImport">파트별 문제 업로드</button><button class="secondary" id="openAdd">+ 문제 추가</button></div>
     </header>
 
@@ -277,6 +303,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
     </template>
     <script src="part6.js?v=1"></script>
     <script src="part7.js?v=1"></script>
-    <script src="app.js?v=14"></script>
+    <script src="app.js?v=15"></script>
   </body>
 </html>
