@@ -265,13 +265,22 @@ function createExamPassage(q){
   }
   return block;
 }
+function examAnswerKey(q){return `${q.part}:${q.id}`}
 function appendExamQuestion(container,q,index){
   const item=document.createElement('section');item.className='examQuestion';item.id=`exam-q-${q.id}`;
   const header=document.createElement('div');header.className='examQuestionHeader';
   const number=document.createElement('span');number.className='examQuestionNumber';number.textContent=examNumber(q,index)+'.';
   const question=document.createElement('p');question.className='examQuestionText';question.textContent=q.question;header.append(number,question);
   const choices=document.createElement('div');choices.className='examChoices';
-  q.choices.forEach((text,choiceIndex)=>{const row=document.createElement('div');row.className='examChoice';row.innerHTML=`<span class="examChoiceLetter">${'ABCD'[choiceIndex]}</span><span>${escapeHtml(text)}</span>`;choices.append(row)});
+  const interactive=examSession.mode==='paper',key=examAnswerKey(q),selected=examSession.answers[key],checked=examSession.checkedSpreads.has(examSession.spreadIndex);
+  q.choices.forEach((text,choiceIndex)=>{
+    const row=document.createElement(interactive?'button':'div');row.className='examChoice';
+    if(interactive){row.type='button';row.setAttribute('aria-pressed',selected===choiceIndex?'true':'false');if(selected===choiceIndex)row.classList.add('selected')}
+    if(checked){if(choiceIndex===q.answer)row.classList.add('correct');else if(choiceIndex===selected)row.classList.add('selectedWrong');else row.classList.add('faded');if(interactive)row.disabled=true}
+    row.innerHTML=`<span class="examChoiceLetter">${'ABCD'[choiceIndex]}</span><span>${escapeHtml(text)}</span>`;
+    if(interactive&&!checked)row.onclick=()=>{examSession.answers[key]=choiceIndex;choices.querySelectorAll('.examChoice').forEach((choice,i)=>{choice.classList.toggle('selected',i===choiceIndex);choice.setAttribute('aria-pressed',i===choiceIndex?'true':'false')})};
+    choices.append(row)
+  });
   item.append(header,choices);container.append(item);
 }
 function collectExamQuestions(parts){
@@ -297,12 +306,12 @@ function buildPhysicalPages(parts){
   return pages;
 }
 function partDirections(part){
-  if(part===5)return '빈칸에 가장 알맞은 단어나 구를 고르세요. 답은 별도의 종이 답안지에 표시합니다.';
+  if(part===5)return examSession.mode==='paper'?'빈칸에 가장 알맞은 단어나 구를 골라 화면의 보기를 선택하세요.':'빈칸에 가장 알맞은 단어나 구를 고르세요. 답은 별도의 종이 답안지에 표시합니다.';
   if(part===6)return '각 지문의 문맥을 읽고 빈칸에 가장 알맞은 선택지를 고르세요.';
   return '각 지문을 읽고 이어지는 질문에 가장 알맞은 답을 고르세요.';
 }
 function renderPhysicalPage(page,pageIndex,totalPages){
-  const sheet=document.createElement('article');sheet.className=`bookPage part${page.part}`;
+  const sheet=document.createElement('article');sheet.className=`bookPage part${page.part} ${examSession.mode==='paper'?'interactive':'staticAnswers'}`;
   if(page.isPartStart){const directions=document.createElement('section');directions.className='bookDirections';directions.innerHTML=`<strong>PART ${page.part}</strong><p>${partDirections(page.part)}</p>`;sheet.append(directions)}
   if(page.part===5){const grid=document.createElement('div');grid.className='examQuestionGrid';page.questions.forEach((q,index)=>appendExamQuestion(grid,q,index));sheet.append(grid)}
   else{
@@ -325,10 +334,10 @@ function renderExamPaper(){
 function startExam(mode){
   const parts=mode==='mock'?[5,6,7]:[activePart],questions=collectExamQuestions(parts),pages=buildPhysicalPages(parts);
   if(!questions.length){alert('시험을 시작할 문제가 없습니다.');return}
-  examSession={mode,parts,questions,pages,spreadIndex:0,startedAt:Date.now(),elapsed:0};
+  examSession={mode,parts,questions,pages,spreadIndex:0,startedAt:Date.now(),elapsed:0,answers:{},checkedSpreads:new Set()};
   $('#examPartLabel').textContent=mode==='mock'?'READING TEST':`PART ${activePart}`;
   $('#examModeLabel').textContent=mode==='mock'?'모의고사 모드':'시험지 모드';
-  $('#examModeNotice').textContent=mode==='mock'?'화면에서는 답을 선택하지 않습니다. 종이 답안지에 표시하고 시험 종료 후 전체 답지와 해설로 자가 채점하세요.':'현재 펼침면의 정답은 “현재 페이지 정답 확인”에서 바로 볼 수 있습니다.';
+  $('#examModeNotice').textContent=mode==='mock'?'화면에서는 답을 선택하지 않습니다. 종이 답안지에 표시하고 시험 종료 후 전체 답지와 해설로 자가 채점하세요.':'화면에서 답을 선택한 뒤 “현재 페이지 정답 확인”을 누르면 이 펼침면을 즉시 채점하고 해설을 보여 줍니다.';
   renderExamPaper();setExamView('exam');history.pushState({toeicExam:true},'',mode==='mock'?'#mock-exam':`#part${activePart}-paper`);
   clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000);
 }
@@ -345,12 +354,14 @@ function resultExplanation(q){
   }
   return section;
 }
-function createAnswerDetail(q,allowSelfGrade){
+function createAnswerDetail(q,allowSelfGrade,attempt=null){
   const number=examNumber(q),item=document.createElement('article');item.id=`result-q-${q.part}-${q.id}`;item.className='resultItem';
-  const label=document.createElement('p');label.className='resultLabel';label.textContent=`Part ${q.part} · ${number} · 정답 ${'ABCD'[q.answer]}`;
+  const label=document.createElement('p');label.className='resultLabel';
+  if(attempt){const selected=attempt.selected;label.textContent=`Part ${q.part} · ${number} · 내 답 ${selected===undefined?'미응답':'ABCD'[selected]} / 정답 ${'ABCD'[q.answer]}`;item.classList.add(selected===q.answer?'correct':'wrong')}
+  else label.textContent=`Part ${q.part} · ${number} · 정답 ${'ABCD'[q.answer]}`;
   if(allowSelfGrade){const checkLabel=document.createElement('label');checkLabel.className='selfGradeCheck';const check=document.createElement('input');check.type='checkbox';check.className='selfGradeInput';checkLabel.append(check,document.createTextNode(' 종이 답안지에서 맞힘'));label.append(checkLabel)}
   const heading=document.createElement('h2');heading.textContent=q.question;const choices=document.createElement('div');choices.className='resultChoices';
-  q.choices.forEach((text,index)=>{const row=document.createElement('div');row.className='resultChoice';if(index===q.answer)row.classList.add('answer');row.innerHTML=`<strong>${'ABCD'[index]}</strong><span>${escapeHtml(text)}</span>`;choices.append(row)});
+  q.choices.forEach((text,index)=>{const row=document.createElement('div');row.className='resultChoice';if(index===q.answer)row.classList.add('answer');if(attempt&&index===attempt.selected&&index!==q.answer)row.classList.add('userWrong');row.innerHTML=`<strong>${'ABCD'[index]}</strong><span>${escapeHtml(text)}</span>`;choices.append(row)});
   item.append(label,heading,choices,resultExplanation(q));return item;
 }
 function updateSelfScore(){
@@ -359,18 +370,21 @@ function updateSelfScore(){
 }
 function showCurrentPageAnswers(){
   const content=$('#pageAnswersContent'),start=examSession.spreadIndex*2,questions=examSession.pages.slice(start,start+2).flatMap(page=>page.questions);content.replaceChildren();
-  const key=document.createElement('div');key.className='pageAnswerKey';questions.forEach(q=>{const chip=document.createElement('span');chip.textContent=`${examNumber(q)} ${'ABCD'[q.answer]}`;key.append(chip)});content.append(key);
-  questions.forEach(q=>content.append(createAnswerDetail(q,false)));$('#pageAnswersDialog').showModal();
+  examSession.checkedSpreads.add(examSession.spreadIndex);renderExamPaper();
+  const key=document.createElement('div');key.className='pageAnswerKey';questions.forEach(q=>{const selected=examSession.answers[examAnswerKey(q)],chip=document.createElement('span');chip.classList.add(selected===q.answer?'correct':'wrong');chip.textContent=`${examNumber(q)} ${selected===q.answer?'정답':'오답'} · ${'ABCD'[q.answer]}`;key.append(chip)});content.append(key);
+  questions.forEach(q=>content.append(createAnswerDetail(q,false,{selected:examSession.answers[examAnswerKey(q)]})));$('#pageAnswersDialog').showModal();
 }
 function renderExamResults(){
   clearInterval(examClock);examClock=null;
   examSession.elapsed=Date.now()-examSession.startedAt;
   const total=examSession.questions.length;
-  $('#resultPartLabel').textContent=examSession.mode==='mock'?'Part 5 · 6 · 7 모의고사 자가 채점':`Part ${examSession.parts[0]} 자가 채점`;
-  $('#resultScore').textContent='0';$('#resultTotal').textContent=` / ${total} 자가 채점`;$('#resultRate').textContent='정답률 0%';$('#resultTime').textContent=`총 시험시간 ${formatExamTime(examSession.elapsed)}`;
+  const isPaper=examSession.mode==='paper',correct=isPaper?examSession.questions.filter(q=>examSession.answers[examAnswerKey(q)]===q.answer).length:0;
+  $('#resultPartLabel').textContent=isPaper?`Part ${examSession.parts[0]} 시험지 모드 자동 채점`:'Part 5 · 6 · 7 모의고사 자가 채점';
+  document.querySelector('.scoreSummary>p').textContent=isPaper?'화면에서 선택한 답안을 자동으로 채점했습니다.':'종이 답안지와 대조해 맞힌 문제를 직접 체크하세요.';
+  $('#resultScore').textContent=correct;$('#resultTotal').textContent=isPaper?` / ${total} 자동 채점`:` / ${total} 자가 채점`;$('#resultRate').textContent=`정답률 ${Math.round(correct/total*100)}%`;$('#resultTime').textContent=`총 시험시간 ${formatExamTime(examSession.elapsed)}`;
   const nav=$('#resultNavigator'),list=$('#resultQuestions');nav.replaceChildren();list.replaceChildren();
-  examSession.questions.forEach(q=>{const number=examNumber(q),link=document.createElement('a');link.href=`#result-q-${q.part}-${q.id}`;link.className='answerKeyChip';link.textContent=`${number} ${'ABCD'[q.answer]}`;nav.append(link);list.append(createAnswerDetail(q,true))});
-  list.querySelectorAll('.selfGradeInput').forEach(input=>input.onchange=updateSelfScore);
+  examSession.questions.forEach(q=>{const number=examNumber(q),selected=examSession.answers[examAnswerKey(q)],link=document.createElement('a');link.href=`#result-q-${q.part}-${q.id}`;link.className='answerKeyChip';if(isPaper)link.classList.add(selected===q.answer?'correct':'wrong');link.textContent=isPaper?`${number} ${selected===undefined?'–':'ABCD'[selected]}`:`${number} ${'ABCD'[q.answer]}`;nav.append(link);list.append(createAnswerDetail(q,!isPaper,isPaper?{selected}:null))});
+  if(!isPaper)list.querySelectorAll('.selfGradeInput').forEach(input=>input.onchange=updateSelfScore);
   setExamView('results');window.scrollTo(0,0);history.pushState({toeicResults:true},'',examSession.mode==='mock'?'#mock-answers':`#part${examSession.parts[0]}-answers`);
 }
 function leaveExam(){
@@ -384,7 +398,7 @@ $('#previousSpread').onclick=()=>{if(examSession.spreadIndex>0){examSession.spre
 $('#nextSpread').onclick=()=>{if(examSession.spreadIndex<Math.ceil(examSession.pages.length/2)-1){examSession.spreadIndex++;renderExamPaper()}};
 $('#showPageAnswers').onclick=showCurrentPageAnswers;$('#closePageAnswers').onclick=()=>$('#pageAnswersDialog').close();
 $('#finishExam').onclick=()=>{const last=Math.ceil(examSession.pages.length/2)-1;if(examSession.spreadIndex<last&&!confirm('아직 보지 않은 페이지가 있습니다. 시험을 종료하고 전체 답지를 볼까요?'))return;renderExamResults()};
-$('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Date.now();examSession.elapsed=0;renderExamPaper();setExamView('exam');clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
+$('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Date.now();examSession.elapsed=0;examSession.answers={};examSession.checkedSpreads=new Set();renderExamPaper();setExamView('exam');clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
 function closeExamResults(){examSession=null;history.pushState({},'',location.pathname);setExamView('practice')}
 $('#closeResults').onclick=closeExamResults;$('#finishResults').onclick=closeExamResults;
 render();
