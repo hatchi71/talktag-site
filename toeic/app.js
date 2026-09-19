@@ -37,7 +37,7 @@ function keepReviewQuestionsOnly(){
   render();
 }
 function updateCounts(){const qs=state.questions, r=state.results; $('#countAll').textContent=qs.length;$('#countCorrect').textContent=qs.filter(q=>r[q.id]?.correct).length;$('#countIncorrect').textContent=qs.filter(q=>r[q.id]&&!r[q.id].correct).length;$('#countStarred').textContent=state.starred.length;const solved=qs.filter(q=>r[q.id]).length;$('#progressText').textContent=`${solved} / ${qs.length}문제 학습`;$('#progressBar').style.width=qs.length?`${solved/qs.length*100}%`:'0'}
-function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항 · 기본 예제 12문항 / AI 생성 한 세트 54문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:'Part 5 · 단문 빈칸 채우기';$('#openAdd').classList.toggle('hidden',activePart!==5);$('#restorePart7').classList.toggle('hidden',activePart!==7);$('#restorePart6').classList.toggle('hidden',activePart!==6);document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex>=qs.length)currentIndex=0;$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
+function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항 · 기본 예제 12문항 / AI 생성 한 세트 54문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:'Part 5 · 단문 빈칸 채우기';$('#openAdd').classList.toggle('hidden',activePart!==5);$('#restorePart7').classList.toggle('hidden',activePart!==7);$('#restorePart6').classList.toggle('hidden',activePart!==6);document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex>=qs.length)currentIndex=0;$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);updateBroadcastDock();if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
 if(q.part===7){node.querySelector('.number').textContent=`PART 7 · ${q.questionNumber} · ${currentIndex+1} / ${qs.length}`;const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passages.length===1?'단일':q.passages.length===2?'이중':'삼중'} 지문 · ${q.setTitle}`;const container=node.querySelector('.passage');q.passages.forEach((doc,i)=>{const article=document.createElement('section');article.className='readingDocument';const heading=document.createElement('h3');heading.textContent=`문서 ${i+1} · ${doc.title}`;const body=document.createElement('div');body.textContent=doc.text;article.append(heading,body);container.append(article)});}
 
 if(q.passage){const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passageType} · ${q.setTitle}`;const passage=node.querySelector('.passage');q.passage.split(/(\[\d+\])/g).forEach(piece=>{if(piece===`[${q.blank}]`){const mark=document.createElement('mark');mark.textContent=piece;passage.append(mark)}else passage.append(document.createTextNode(piece))});}
@@ -46,7 +46,12 @@ $('#questionArea').onclick=e=>{if(!e.target.matches('.deleteButton'))return;cons
 function answer(q,selected){state.results[q.id]={selected,correct:selected===q.answer,at:Date.now()};save();render()}
 function insertQuestions(newQs){if(!newQs.length)return;const shuffle=confirm(`새 문제 ${newQs.length}개를 추가합니다.\n확인: 기존 문제와 무작위로 섞기\n취소: 기존 문제 뒤에 순서대로 추가`);state.questions=[...state.questions,...newQs];if(shuffle){for(let i=state.questions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.questions[i],state.questions[j]]=[state.questions[j],state.questions[i]]}}}
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;currentIndex=0;save();render()});$('#retryMode').onchange=e=>{if(e.target.checked){state.results={};save();render()}};$('#resetCurrent').onclick=()=>{const q=filtered()[currentIndex];if(q){delete state.results[q.id];save();render()}};$('#resetAll').onclick=()=>{if(confirm('모든 문제의 정오답 기록을 초기화할까요? 문제 목록은 그대로 남습니다.')){state.results={};currentIndex=0;save();render()}};$('#keepReviewOnly').onclick=keepReviewQuestionsOnly;$('#deleteAll').onclick=()=>{if(confirm('등록된 모든 문제와 학습 기록을 삭제할까요? 이 작업은 되돌릴 수 없습니다.')){state.questions=[];state.results={};state.starred=[];state.filter='all';currentIndex=0;save();render()}};
-$('#toggleBroadcast').onclick=()=>{const on=document.body.classList.toggle('broadcast');$('#toggleBroadcast').textContent=on?'✕ 방송 모드 종료':'🎬 세로 방송 모드'};
+function updateBroadcastDock(){const qs=filtered();$('#broadcastProgress').textContent=`Part ${activePart} · ${qs.length?currentIndex+1:0} / ${qs.length}`}
+function setBroadcastMode(on){document.body.classList.toggle('broadcast',on);$('#toggleBroadcast').textContent=on?'✕ 방송 모드 종료':'🎬 세로 방송 모드';updateBroadcastDock();window.scrollTo({top:0,behavior:'smooth'})}
+$('#toggleBroadcast').onclick=()=>setBroadcastMode(!document.body.classList.contains('broadcast'));
+$('#broadcastExit').onclick=()=>setBroadcastMode(false);
+$('#broadcastPrev').onclick=()=>document.querySelector('#questionArea .prevButton')?.click();
+$('#broadcastNext').onclick=()=>document.querySelector('#questionArea .nextButton')?.click();
 $('#openAdd').onclick=()=>$('#addDialog').showModal();$('#closeAdd').onclick=()=>$('#addDialog').close();$('#loadSamples').onclick=()=>{if(!state.questions.length){state.questions=sampleQuestions.map(q=>({...q}));save();render()}$('#addDialog').close()};
 $('#addForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target), q={id:crypto.randomUUID(),question:f.get('question'),choices:['a','b','c','d'].map(x=>f.get(x)),answer:Number(f.get('answer')),translation:f.get('translation'),vocab:f.get('vocab'),explanation:f.get('explanation')};insertQuestions([q]);state.filter='all';currentIndex=0;save();$('#addDialog').close();e.target.reset();render()};
 const originalImportPrompt=$('#aiPrompt').textContent.trim();
@@ -237,20 +242,13 @@ $('#restorePart7').onclick=()=>{const ids=new Set(state.questions.map(q=>q.id));
 
 let examSession=null;
 let examClock=null;
-function examNumber(q,index){return q.questionNumber||q.blank||(101+index)}
+function examNumber(q,index){return q._examNumber||q.questionNumber||q.blank||(101+index)}
 function formatExamTime(milliseconds){const seconds=Math.max(0,Math.floor(milliseconds/1000)),minutes=Math.floor(seconds/60);return `${String(minutes).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`}
 function setExamView(view){
   document.body.classList.toggle('exam-active',view!=='practice');
   $('#examMain').classList.toggle('hidden',view!=='exam');
   $('#examResults').classList.toggle('hidden',view!=='results');
   if(view==='practice'){clearInterval(examClock);examClock=null;window.scrollTo({top:0,behavior:'smooth'});render()}
-}
-function updateExamProgress(){
-  if(!examSession)return;
-  const answered=Object.keys(examSession.answers).length,total=examSession.questions.length;
-  $('#examAnswered').textContent=`${answered} / ${total} 답변`;
-  $('#submitExam').disabled=answered!==total;
-  $('#examSubmitHint').textContent=answered===total?'모든 문제에 답했습니다. 정답 확인을 누르면 결과 페이지로 이동합니다.':`아직 ${total-answered}문제가 남았습니다. 모든 문제에 답해 주세요.`;
 }
 function appendMarkedPassage(container,text){
   String(text).split(/(\[\d+\])/g).forEach(piece=>{
@@ -259,7 +257,7 @@ function appendMarkedPassage(container,text){
   });
 }
 function createExamPassage(q){
-  const block=document.createElement('section');block.className=`examPassage part${q.part||activePart}${q.passages?` docs-${q.passages.length}`:''}`;
+  const block=document.createElement('section');block.className=`examPassage part${q.part}${q.passages?` docs-${q.passages.length}`:''}`;
   if(q.part===7){
     q.passages.forEach((doc,index)=>{const article=document.createElement('article');article.className='examDocument';const title=document.createElement('h3');title.textContent=`Document ${index+1} · ${doc.title}`;const body=document.createElement('div');body.textContent=doc.text;article.append(title,body);block.append(article)});
   }else{
@@ -273,27 +271,66 @@ function appendExamQuestion(container,q,index){
   const number=document.createElement('span');number.className='examQuestionNumber';number.textContent=examNumber(q,index)+'.';
   const question=document.createElement('p');question.className='examQuestionText';question.textContent=q.question;header.append(number,question);
   const choices=document.createElement('div');choices.className='examChoices';
-  q.choices.forEach((text,choiceIndex)=>{const button=document.createElement('button');button.type='button';button.className='examChoice';button.setAttribute('aria-pressed','false');button.innerHTML=`<span class="examChoiceLetter">${'ABCD'[choiceIndex]}</span><span>${escapeHtml(text)}</span>`;button.onclick=()=>{examSession.answers[q.id]=choiceIndex;choices.querySelectorAll('.examChoice').forEach((node,i)=>{const selected=i===choiceIndex;node.classList.toggle('selected',selected);node.setAttribute('aria-pressed',String(selected))});updateExamProgress()};choices.append(button)});
+  q.choices.forEach((text,choiceIndex)=>{const row=document.createElement('div');row.className='examChoice';row.innerHTML=`<span class="examChoiceLetter">${'ABCD'[choiceIndex]}</span><span>${escapeHtml(text)}</span>`;choices.append(row)});
   item.append(header,choices);container.append(item);
 }
-function renderExamPaper(){
-  const {part,questions}=examSession,container=$('#examQuestions');container.replaceChildren();
-  $('#examPartLabel').textContent=`PART ${part}`;$('#examTitle').textContent=`Part ${part} 시험지`;
-  if(part===5){
-    const group=document.createElement('section');group.className='examGroup part5';const title=document.createElement('h2');title.className='examGroupTitle';title.textContent='Incomplete Sentences';const grid=document.createElement('div');grid.className='examQuestionGrid';group.append(title,grid);questions.forEach((q,index)=>appendExamQuestion(grid,q,index));container.append(group);
-  }else{
-    const groups=new Map();
-    questions.forEach((q,index)=>{const key=part===7?q.setId:`${q.setTitle}\u0000${q.passage}`;if(!groups.has(key))groups.set(key,[]);groups.get(key).push({q,index})});
-    groups.forEach(items=>{const first=items[0].q,group=document.createElement('section');group.className=`examGroup part${part}`;const title=document.createElement('h2');title.className='examGroupTitle';title.textContent=part===7?`${first.passages.length===1?'Single':'Multiple'} Passages · ${first.setTitle}`:`${first.passageType} · ${first.setTitle}`;const grid=document.createElement('div');grid.className='examQuestionGrid';group.append(title,createExamPassage(first),grid);items.forEach(({q,index})=>appendExamQuestion(grid,q,index));container.append(group)});
-  }
-  updateExamProgress();
+function collectExamQuestions(parts){
+  const questions=[];
+  parts.forEach(part=>partStates[part].questions.forEach((q,index)=>questions.push({...q,part:q.part||part,_examNumber:q.questionNumber||q.blank||(101+index)})));
+  return questions;
 }
-function startExam(){
-  const questions=partStates[activePart].questions.slice();
-  if(!questions.length){alert(`Part ${activePart}에 시험을 시작할 문제가 없습니다.`);return}
-  examSession={part:activePart,questions,answers:{},startedAt:Date.now(),elapsed:0};
-  renderExamPaper();setExamView('exam');window.scrollTo(0,0);history.pushState({toeicExam:true},'',`#part${activePart}-exam`);
-  clearInterval(examClock);examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000);$('#examTimer').textContent='00:00';
+function buildPhysicalPages(parts){
+  const pages=[];
+  parts.forEach(part=>{
+    const questions=collectExamQuestions([part]);
+    if(!questions.length)return;
+    if(part===5){
+      const referencePageSizes=[8,12,10];let offset=0,pageIndex=0;
+      while(offset<questions.length){const size=referencePageSizes[pageIndex]||10;pages.push({part,questions:questions.slice(offset,offset+size),isPartStart:pageIndex===0});offset+=size;pageIndex++}
+      return;
+    }
+    const groups=new Map();
+    questions.forEach(q=>{const key=part===7?(q.setId||q.setTitle):`${q.setTitle}\u0000${q.passage}`;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(q)});
+    let pageIndex=0;
+    groups.forEach(group=>{pages.push({part,questions:group,isPartStart:pageIndex===0});pageIndex++});
+  });
+  return pages;
+}
+function partDirections(part){
+  if(part===5)return '빈칸에 가장 알맞은 단어나 구를 고르세요. 답은 별도의 종이 답안지에 표시합니다.';
+  if(part===6)return '각 지문의 문맥을 읽고 빈칸에 가장 알맞은 선택지를 고르세요.';
+  return '각 지문을 읽고 이어지는 질문에 가장 알맞은 답을 고르세요.';
+}
+function renderPhysicalPage(page,pageIndex,totalPages){
+  const sheet=document.createElement('article');sheet.className=`bookPage part${page.part}`;
+  if(page.isPartStart){const directions=document.createElement('section');directions.className='bookDirections';directions.innerHTML=`<strong>PART ${page.part}</strong><p>${partDirections(page.part)}</p>`;sheet.append(directions)}
+  if(page.part===5){const grid=document.createElement('div');grid.className='examQuestionGrid';page.questions.forEach((q,index)=>appendExamQuestion(grid,q,index));sheet.append(grid)}
+  else{
+    const first=page.questions[0],reference=document.createElement('p');reference.className='bookReference';reference.textContent=`Questions ${examNumber(page.questions[0])}-${examNumber(page.questions[page.questions.length-1])} refer to the following ${page.part===7?'text':'information'}.`;
+    const grid=document.createElement('div');grid.className='examQuestionGrid';page.questions.forEach((q,index)=>appendExamQuestion(grid,q,index));sheet.append(reference,createExamPassage(first),grid);
+  }
+  const footer=document.createElement('footer');footer.className='bookFooter';footer.innerHTML=`<span>${198+pageIndex}</span>${pageIndex<totalPages-1?'<b>GO ON TO THE NEXT PAGE →</b>':''}`;sheet.append(footer);return sheet;
+}
+function renderExamPaper(){
+  const spread=$('#examSpread'),start=examSession.spreadIndex*2,currentPages=examSession.pages.slice(start,start+2);spread.replaceChildren();
+  currentPages.forEach((page,index)=>spread.append(renderPhysicalPage(page,start+index,examSession.pages.length)));
+  if(currentPages.length===1){const blank=document.createElement('article');blank.className='bookPage blankPage';spread.append(blank)}
+  const totalSpreads=Math.ceil(examSession.pages.length/2),current=examSession.spreadIndex+1;
+  $('#examPageStatus').textContent=`${current} / ${totalSpreads} 펼침면`;
+  $('#previousSpread').disabled=current===1;$('#nextSpread').disabled=current===totalSpreads;
+  $('#showPageAnswers').classList.toggle('hidden',examSession.mode==='mock');
+  $('#finishExam').textContent=examSession.mode==='mock'?'시험 종료 · 전체 답지 보기':'전체 답지·해설 보기';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function startExam(mode){
+  const parts=mode==='mock'?[5,6,7]:[activePart],questions=collectExamQuestions(parts),pages=buildPhysicalPages(parts);
+  if(!questions.length){alert('시험을 시작할 문제가 없습니다.');return}
+  examSession={mode,parts,questions,pages,spreadIndex:0,startedAt:Date.now(),elapsed:0};
+  $('#examPartLabel').textContent=mode==='mock'?'READING TEST':`PART ${activePart}`;
+  $('#examModeLabel').textContent=mode==='mock'?'모의고사 모드':'시험지 모드';
+  $('#examModeNotice').textContent=mode==='mock'?'화면에서는 답을 선택하지 않습니다. 종이 답안지에 표시하고 시험 종료 후 전체 답지와 해설로 자가 채점하세요.':'현재 펼침면의 정답은 “현재 페이지 정답 확인”에서 바로 볼 수 있습니다.';
+  renderExamPaper();setExamView('exam');history.pushState({toeicExam:true},'',mode==='mock'?'#mock-exam':`#part${activePart}-paper`);
+  clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000);
 }
 function resultExplanation(q){
   const section=document.createElement('section');section.className='resultExplanation';const title=document.createElement('h3');title.textContent='정답 및 해설';section.append(title);
@@ -308,32 +345,46 @@ function resultExplanation(q){
   }
   return section;
 }
+function createAnswerDetail(q,allowSelfGrade){
+  const number=examNumber(q),item=document.createElement('article');item.id=`result-q-${q.part}-${q.id}`;item.className='resultItem';
+  const label=document.createElement('p');label.className='resultLabel';label.textContent=`Part ${q.part} · ${number} · 정답 ${'ABCD'[q.answer]}`;
+  if(allowSelfGrade){const checkLabel=document.createElement('label');checkLabel.className='selfGradeCheck';const check=document.createElement('input');check.type='checkbox';check.className='selfGradeInput';checkLabel.append(check,document.createTextNode(' 종이 답안지에서 맞힘'));label.append(checkLabel)}
+  const heading=document.createElement('h2');heading.textContent=q.question;const choices=document.createElement('div');choices.className='resultChoices';
+  q.choices.forEach((text,index)=>{const row=document.createElement('div');row.className='resultChoice';if(index===q.answer)row.classList.add('answer');row.innerHTML=`<strong>${'ABCD'[index]}</strong><span>${escapeHtml(text)}</span>`;choices.append(row)});
+  item.append(label,heading,choices,resultExplanation(q));return item;
+}
+function updateSelfScore(){
+  const correct=document.querySelectorAll('.selfGradeInput:checked').length,total=examSession.questions.length;
+  $('#resultScore').textContent=correct;$('#resultTotal').textContent=` / ${total} 자가 채점`;$('#resultRate').textContent=`정답률 ${Math.round(correct/total*100)}%`;
+}
+function showCurrentPageAnswers(){
+  const content=$('#pageAnswersContent'),start=examSession.spreadIndex*2,questions=examSession.pages.slice(start,start+2).flatMap(page=>page.questions);content.replaceChildren();
+  const key=document.createElement('div');key.className='pageAnswerKey';questions.forEach(q=>{const chip=document.createElement('span');chip.textContent=`${examNumber(q)} ${'ABCD'[q.answer]}`;key.append(chip)});content.append(key);
+  questions.forEach(q=>content.append(createAnswerDetail(q,false)));$('#pageAnswersDialog').showModal();
+}
 function renderExamResults(){
   clearInterval(examClock);examClock=null;
   examSession.elapsed=Date.now()-examSession.startedAt;
-  const target=partStates[examSession.part],timestamp=Date.now();
-  examSession.questions.forEach(q=>{const selected=examSession.answers[q.id];target.results[q.id]={selected,correct:selected===q.answer,at:timestamp}});
-  localStorage.setItem(`part${examSession.part}-desk-v1`,JSON.stringify(target));
-  const correct=examSession.questions.filter(q=>examSession.answers[q.id]===q.answer).length,total=examSession.questions.length;
-  $('#resultPartLabel').textContent=`Part ${examSession.part} 채점 결과`;$('#resultScore').textContent=correct;$('#resultTotal').textContent=` / ${total}`;$('#resultRate').textContent=`정답률 ${Math.round(correct/total*100)}%`;$('#resultTime').textContent=`풀이 시간 ${formatExamTime(examSession.elapsed)}`;
+  const total=examSession.questions.length;
+  $('#resultPartLabel').textContent=examSession.mode==='mock'?'Part 5 · 6 · 7 모의고사 자가 채점':`Part ${examSession.parts[0]} 자가 채점`;
+  $('#resultScore').textContent='0';$('#resultTotal').textContent=` / ${total} 자가 채점`;$('#resultRate').textContent='정답률 0%';$('#resultTime').textContent=`총 시험시간 ${formatExamTime(examSession.elapsed)}`;
   const nav=$('#resultNavigator'),list=$('#resultQuestions');nav.replaceChildren();list.replaceChildren();
-  examSession.questions.forEach((q,index)=>{
-    const selected=examSession.answers[q.id],isCorrect=selected===q.answer,number=examNumber(q,index);
-    const link=document.createElement('a');link.href=`#result-q-${q.id}`;link.className=isCorrect?'correct':'wrong';link.textContent=number;link.title=`${number}번 ${isCorrect?'정답':'오답'}`;nav.append(link);
-    const item=document.createElement('article');item.id=`result-q-${q.id}`;item.className=`resultItem ${isCorrect?'correct':'wrong'}`;const label=document.createElement('p');label.className='resultLabel';label.textContent=`${number} · ${isCorrect?'정답':'오답'} · 내 답 ${'ABCD'[selected]} / 정답 ${'ABCD'[q.answer]}`;const heading=document.createElement('h2');heading.textContent=q.question;const choices=document.createElement('div');choices.className='resultChoices';
-    q.choices.forEach((text,choiceIndex)=>{const row=document.createElement('div');row.className='resultChoice';if(choiceIndex===q.answer)row.classList.add('answer');if(choiceIndex===selected&&selected!==q.answer)row.classList.add('userWrong');row.innerHTML=`<strong>${'ABCD'[choiceIndex]}</strong><span>${escapeHtml(text)}</span>`;choices.append(row)});item.append(label,heading,choices,resultExplanation(q));list.append(item);
-  });
-  setExamView('results');window.scrollTo(0,0);history.pushState({toeicResults:true},'',`#part${examSession.part}-results`);
+  examSession.questions.forEach(q=>{const number=examNumber(q),link=document.createElement('a');link.href=`#result-q-${q.part}-${q.id}`;link.className='answerKeyChip';link.textContent=`${number} ${'ABCD'[q.answer]}`;nav.append(link);list.append(createAnswerDetail(q,true))});
+  list.querySelectorAll('.selfGradeInput').forEach(input=>input.onchange=updateSelfScore);
+  setExamView('results');window.scrollTo(0,0);history.pushState({toeicResults:true},'',examSession.mode==='mock'?'#mock-answers':`#part${examSession.parts[0]}-answers`);
 }
 function leaveExam(){
-  const hasAnswers=examSession&&Object.keys(examSession.answers).length;
-  if(hasAnswers&&!confirm('시험 답안은 아직 제출되지 않았습니다. 학습 화면으로 돌아갈까요?'))return;
+  if(examSession&&!confirm('시험을 종료하고 학습 화면으로 돌아갈까요? 현재 시험시간은 저장되지 않습니다.'))return;
   examSession=null;history.pushState({},'',location.pathname);setExamView('practice');
 }
-$('#openExam').onclick=startExam;
+$('#openPaperExam').onclick=()=>startExam('paper');
+$('#openMockExam').onclick=()=>startExam('mock');
 $('#exitExam').onclick=leaveExam;
-$('#submitExam').onclick=()=>{if(examSession&&Object.keys(examSession.answers).length===examSession.questions.length)renderExamResults()};
-$('#retryExam').onclick=()=>{examSession.answers={};examSession.startedAt=Date.now();examSession.elapsed=0;renderExamPaper();setExamView('exam');window.scrollTo(0,0);clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
+$('#previousSpread').onclick=()=>{if(examSession.spreadIndex>0){examSession.spreadIndex--;renderExamPaper()}};
+$('#nextSpread').onclick=()=>{if(examSession.spreadIndex<Math.ceil(examSession.pages.length/2)-1){examSession.spreadIndex++;renderExamPaper()}};
+$('#showPageAnswers').onclick=showCurrentPageAnswers;$('#closePageAnswers').onclick=()=>$('#pageAnswersDialog').close();
+$('#finishExam').onclick=()=>{const last=Math.ceil(examSession.pages.length/2)-1;if(examSession.spreadIndex<last&&!confirm('아직 보지 않은 페이지가 있습니다. 시험을 종료하고 전체 답지를 볼까요?'))return;renderExamResults()};
+$('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Date.now();examSession.elapsed=0;renderExamPaper();setExamView('exam');clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
 function closeExamResults(){examSession=null;history.pushState({},'',location.pathname);setExamView('practice')}
 $('#closeResults').onclick=closeExamResults;$('#finishResults').onclick=closeExamResults;
 render();
