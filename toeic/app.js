@@ -338,7 +338,7 @@ function startExam(mode){
   $('#examPartLabel').textContent=mode==='mock'?'READING TEST':`PART ${activePart}`;
   $('#examModeLabel').textContent=mode==='mock'?'모의고사 모드':'시험지 모드';
   $('#examModeNotice').textContent=mode==='mock'?'화면에서는 답을 선택하지 않습니다. 종이 답안지에 표시하고 시험 종료 후 전체 답지와 해설로 자가 채점하세요.':'화면에서 답을 선택한 뒤 “현재 페이지 정답 확인”을 누르면 이 펼침면을 즉시 채점하고 해설을 보여 줍니다.';
-  renderExamPaper();setExamView('exam');history.pushState({toeicExam:true},'',mode==='mock'?'#mock-exam':`#part${activePart}-paper`);
+  renderExamPaper();setExamView('exam');history.pushState({toeicExam:true,toeicArea:'rc'},'',mode==='mock'?'?mode=rc#mock-exam':`?mode=rc#part${activePart}-paper`);
   clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000);
 }
 function resultExplanation(q){
@@ -385,11 +385,11 @@ function renderExamResults(){
   const nav=$('#resultNavigator'),list=$('#resultQuestions');nav.replaceChildren();list.replaceChildren();
   examSession.questions.forEach(q=>{const number=examNumber(q),selected=examSession.answers[examAnswerKey(q)],link=document.createElement('a');link.href=`#result-q-${q.part}-${q.id}`;link.className='answerKeyChip';if(isPaper)link.classList.add(selected===q.answer?'correct':'wrong');link.textContent=isPaper?`${number} ${selected===undefined?'–':'ABCD'[selected]}`:`${number} ${'ABCD'[q.answer]}`;nav.append(link);list.append(createAnswerDetail(q,!isPaper,isPaper?{selected}:null))});
   if(!isPaper)list.querySelectorAll('.selfGradeInput').forEach(input=>input.onchange=updateSelfScore);
-  setExamView('results');window.scrollTo(0,0);history.pushState({toeicResults:true},'',examSession.mode==='mock'?'#mock-answers':`#part${examSession.parts[0]}-answers`);
+  setExamView('results');window.scrollTo(0,0);history.pushState({toeicResults:true,toeicArea:'rc'},'',examSession.mode==='mock'?'?mode=rc#mock-answers':`?mode=rc#part${examSession.parts[0]}-answers`);
 }
 function leaveExam(){
   if(examSession&&!confirm('시험을 종료하고 학습 화면으로 돌아갈까요? 현재 시험시간은 저장되지 않습니다.'))return;
-  examSession=null;history.pushState({},'',location.pathname);setExamView('practice');
+  examSession=null;history.pushState({toeicArea:'rc'},'',`${location.pathname}?mode=rc`);setExamView('practice');
 }
 $('#openPaperExam').onclick=()=>startExam('paper');
 $('#openMockExam').onclick=()=>startExam('mock');
@@ -399,7 +399,7 @@ $('#nextSpread').onclick=()=>{if(examSession.spreadIndex<Math.ceil(examSession.p
 $('#showPageAnswers').onclick=showCurrentPageAnswers;$('#closePageAnswers').onclick=()=>$('#pageAnswersDialog').close();
 $('#finishExam').onclick=()=>{const last=Math.ceil(examSession.pages.length/2)-1;if(examSession.spreadIndex<last&&!confirm('아직 보지 않은 페이지가 있습니다. 시험을 종료하고 전체 답지를 볼까요?'))return;renderExamResults()};
 $('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Date.now();examSession.elapsed=0;examSession.answers={};examSession.checkedSpreads=new Set();renderExamPaper();setExamView('exam');clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
-function closeExamResults(){examSession=null;history.pushState({},'',location.pathname);setExamView('practice')}
+function closeExamResults(){examSession=null;history.pushState({toeicArea:'rc'},'',`${location.pathname}?mode=rc`);setExamView('practice')}
 $('#closeResults').onclick=closeExamResults;$('#finishResults').onclick=closeExamResults;
 render();
 
@@ -419,10 +419,11 @@ function openToeicLanding(){
 $('#openRcHub').onclick=openToeicRc;
 $('#openLcHub').onclick=()=>alert('LC 학습 공간은 준비 중입니다.');
 $('#backToeicLanding').onclick=openToeicLanding;
-function syncToeicAreaFromLocation(){
-  const isRc=new URLSearchParams(location.search).get('mode')==='rc';
+function syncToeicAreaFromState(state){
+  const isRc=state?.toeicArea==='rc';
   if(!isRc&&document.body.classList.contains('exam-active')){examSession=null;setExamView('practice')}
   document.body.classList.toggle('toeic-app-open',isRc);
 }
-window.addEventListener('popstate',syncToeicAreaFromLocation);
-syncToeicAreaFromLocation();
+window.addEventListener('popstate',event=>syncToeicAreaFromState(event.state));
+history.replaceState({toeicArea:'landing'},'',location.pathname);
+syncToeicAreaFromState(history.state);
