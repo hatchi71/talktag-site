@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영어만점 Part 5 · 6 · 7</title>
-    <link rel="stylesheet" href="style.css?v=2" />
+    <link rel="stylesheet" href="style.css?v=3" />
     <link rel="stylesheet" href="import.css" />
     <link rel="stylesheet" href="delete.css?v=4" />
   </head>
@@ -12,11 +12,12 @@
     <header class="topbar">
       <a class="brand" href="#"><img src="brand.jpg" alt="영어만점" /></a>
       <div class="progress" aria-label="학습 현황"><span id="progressText">0문제 학습</span><div><i id="progressBar"></i></div></div>
+      <button class="primary" id="openExam">📝 실제 시험장 모드</button>
       <button class="secondary" id="toggleBroadcast">🎬 세로 방송 모드</button>
       <div class="headerActions"><button class="secondary" id="openImport">파트별 문제 업로드</button><button class="secondary" id="openAdd">+ 문제 추가</button></div>
     </header>
 
-    <main>
+    <main id="practiceMain">
       <section class="partToolbar" aria-label="파트 선택"><div class="partButtons"><button class="partButton" data-part="5">Part 5</button><button class="partButton" data-part="6">Part 6</button><button class="partButton" data-part="7">Part 7</button></div><p id="partDescription"></p><button id="restorePart6" class="secondary hidden">Part 6 기본 세트 복원</button><button id="restorePart7" class="secondary hidden">Part 7 예제 복원</button></section>
       <section class="toolbar" aria-label="문제 필터">
         <div class="tabs" role="tablist">
@@ -30,6 +31,42 @@
 
       <section id="emptyState" class="empty hidden"><h2>아직 이 목록에는 문제가 없어요.</h2><p>다른 필터를 선택하거나 새 문제를 추가해 보세요.</p></section>
       <section id="questionArea" class="questionWrap" aria-live="polite"></section>
+    </main>
+
+    <main id="examMain" class="examShell hidden" aria-live="polite">
+      <header class="examBar">
+        <div><strong id="examPartLabel">PART 5</strong><span>실제 시험장 모드</span></div>
+        <div class="examStatus"><span id="examAnswered">0 / 0 답변</span><time id="examTimer">00:00</time><button id="exitExam" class="examExit">시험 종료</button></div>
+      </header>
+      <div class="examPaper">
+        <div class="examInstructions">
+          <p>READING TEST</p>
+          <h1 id="examTitle">Part 5 시험지</h1>
+          <p>각 문항의 정답을 하나씩 선택하세요. 선택 중에는 정답과 해설이 표시되지 않습니다.</p>
+        </div>
+        <div id="examQuestions"></div>
+        <div class="examSubmitArea">
+          <p id="examSubmitHint">모든 문제에 답하면 정답을 확인할 수 있습니다.</p>
+          <button id="submitExam" class="examSubmit" disabled>정답 확인</button>
+        </div>
+      </div>
+    </main>
+
+    <main id="examResults" class="examShell resultsShell hidden" aria-live="polite">
+      <header class="examBar resultBar">
+        <div><strong>RESULTS</strong><span id="resultPartLabel">Part 5 채점 결과</span></div>
+        <button id="closeResults" class="examExit">학습 화면으로</button>
+      </header>
+      <div class="resultPaper">
+        <section class="scoreSummary">
+          <p>시험 결과</p>
+          <h1><strong id="resultScore">0</strong><span id="resultTotal"> / 0</span></h1>
+          <div><span id="resultRate">정답률 0%</span><span id="resultTime">풀이 시간 00:00</span></div>
+        </section>
+        <nav id="resultNavigator" class="resultNavigator" aria-label="문항별 채점 결과"></nav>
+        <div id="resultQuestions"></div>
+        <div class="resultActions"><button id="retryExam" class="secondary">같은 문제 다시 풀기</button><button id="finishResults" class="primary">학습 화면으로</button></div>
+      </div>
     </main>
 
     <dialog id="addDialog">
@@ -232,6 +269,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
     </template>
     <script src="part6.js?v=1"></script>
     <script src="part7.js?v=1"></script>
-    <script src="app.js?v=11"></script>
+    <script src="app.js?v=12"></script>
   </body>
 </html>

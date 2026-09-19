@@ -234,4 +234,106 @@ document.querySelectorAll('[data-part]').forEach(button=>button.onclick=()=>{sav
 $('#restorePart6').onclick=()=>{const ids=new Set(state.questions.map(q=>q.id));state.questions.push(...part6Questions.filter(q=>!ids.has(q.id)).map(q=>({...q})));state.filter='all';currentIndex=0;save();render()};
 
 $('#restorePart7').onclick=()=>{const ids=new Set(state.questions.map(q=>q.id));state.questions.push(...part7Questions.filter(q=>!ids.has(q.id)).map(q=>({...q})));state.filter='all';currentIndex=0;save();render()};
+
+let examSession=null;
+let examClock=null;
+function examNumber(q,index){return q.questionNumber||q.blank||(101+index)}
+function formatExamTime(milliseconds){const seconds=Math.max(0,Math.floor(milliseconds/1000)),minutes=Math.floor(seconds/60);return `${String(minutes).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`}
+function setExamView(view){
+  document.body.classList.toggle('exam-active',view!=='practice');
+  $('#examMain').classList.toggle('hidden',view!=='exam');
+  $('#examResults').classList.toggle('hidden',view!=='results');
+  if(view==='practice'){clearInterval(examClock);examClock=null;window.scrollTo({top:0,behavior:'smooth'});render()}
+}
+function updateExamProgress(){
+  if(!examSession)return;
+  const answered=Object.keys(examSession.answers).length,total=examSession.questions.length;
+  $('#examAnswered').textContent=`${answered} / ${total} 답변`;
+  $('#submitExam').disabled=answered!==total;
+  $('#examSubmitHint').textContent=answered===total?'모든 문제에 답했습니다. 정답 확인을 누르면 결과 페이지로 이동합니다.':`아직 ${total-answered}문제가 남았습니다. 모든 문제에 답해 주세요.`;
+}
+function appendMarkedPassage(container,text){
+  String(text).split(/(\[\d+\])/g).forEach(piece=>{
+    if(/^\[\d+\]$/.test(piece)){const mark=document.createElement('mark');mark.textContent=piece;container.append(mark)}
+    else container.append(document.createTextNode(piece));
+  });
+}
+function createExamPassage(q){
+  const block=document.createElement('section');block.className=`examPassage part${q.part||activePart}${q.passages?` docs-${q.passages.length}`:''}`;
+  if(q.part===7){
+    q.passages.forEach((doc,index)=>{const article=document.createElement('article');article.className='examDocument';const title=document.createElement('h3');title.textContent=`Document ${index+1} · ${doc.title}`;const body=document.createElement('div');body.textContent=doc.text;article.append(title,body);block.append(article)});
+  }else{
+    const title=document.createElement('h3');title.textContent=`${q.passageType} · ${q.setTitle}`;block.append(title);appendMarkedPassage(block,q.passage);
+  }
+  return block;
+}
+function appendExamQuestion(container,q,index){
+  const item=document.createElement('section');item.className='examQuestion';item.id=`exam-q-${q.id}`;
+  const header=document.createElement('div');header.className='examQuestionHeader';
+  const number=document.createElement('span');number.className='examQuestionNumber';number.textContent=examNumber(q,index)+'.';
+  const question=document.createElement('p');question.className='examQuestionText';question.textContent=q.question;header.append(number,question);
+  const choices=document.createElement('div');choices.className='examChoices';
+  q.choices.forEach((text,choiceIndex)=>{const button=document.createElement('button');button.type='button';button.className='examChoice';button.setAttribute('aria-pressed','false');button.innerHTML=`<span class="examChoiceLetter">${'ABCD'[choiceIndex]}</span><span>${escapeHtml(text)}</span>`;button.onclick=()=>{examSession.answers[q.id]=choiceIndex;choices.querySelectorAll('.examChoice').forEach((node,i)=>{const selected=i===choiceIndex;node.classList.toggle('selected',selected);node.setAttribute('aria-pressed',String(selected))});updateExamProgress()};choices.append(button)});
+  item.append(header,choices);container.append(item);
+}
+function renderExamPaper(){
+  const {part,questions}=examSession,container=$('#examQuestions');container.replaceChildren();
+  $('#examPartLabel').textContent=`PART ${part}`;$('#examTitle').textContent=`Part ${part} 시험지`;
+  if(part===5){
+    const group=document.createElement('section');group.className='examGroup part5';const title=document.createElement('h2');title.className='examGroupTitle';title.textContent='Incomplete Sentences';const grid=document.createElement('div');grid.className='examQuestionGrid';group.append(title,grid);questions.forEach((q,index)=>appendExamQuestion(grid,q,index));container.append(group);
+  }else{
+    const groups=new Map();
+    questions.forEach((q,index)=>{const key=part===7?q.setId:`${q.setTitle}\u0000${q.passage}`;if(!groups.has(key))groups.set(key,[]);groups.get(key).push({q,index})});
+    groups.forEach(items=>{const first=items[0].q,group=document.createElement('section');group.className=`examGroup part${part}`;const title=document.createElement('h2');title.className='examGroupTitle';title.textContent=part===7?`${first.passages.length===1?'Single':'Multiple'} Passages · ${first.setTitle}`:`${first.passageType} · ${first.setTitle}`;const grid=document.createElement('div');grid.className='examQuestionGrid';group.append(title,createExamPassage(first),grid);items.forEach(({q,index})=>appendExamQuestion(grid,q,index));container.append(group)});
+  }
+  updateExamProgress();
+}
+function startExam(){
+  const questions=partStates[activePart].questions.slice();
+  if(!questions.length){alert(`Part ${activePart}에 시험을 시작할 문제가 없습니다.`);return}
+  examSession={part:activePart,questions,answers:{},startedAt:Date.now(),elapsed:0};
+  renderExamPaper();setExamView('exam');window.scrollTo(0,0);history.pushState({toeicExam:true},'',`#part${activePart}-exam`);
+  clearInterval(examClock);examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000);$('#examTimer').textContent='00:00';
+}
+function resultExplanation(q){
+  const section=document.createElement('section');section.className='resultExplanation';const title=document.createElement('h3');title.textContent='정답 및 해설';section.append(title);
+  if(q.translation){const p=document.createElement('p');p.innerHTML=`<strong>${q.part===7?'질문·정답 해석':'해석'}</strong> ${escapeHtml(q.translation)}`;section.append(p)}
+  if(q.vocab){const p=document.createElement('p');p.innerHTML=`<strong>핵심 표현</strong> ${escapeHtml(q.vocab)}`;section.append(p)}
+  const explanation=document.createElement('p');explanation.textContent=q.explanation;section.append(explanation);
+  if(q.part===7){
+    const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='지문 근거·보기별 해설·전체 해석';details.append(summary);
+    (q.evidence||[]).forEach(e=>{const p=document.createElement('p');p.textContent=`문서 ${e.document}: “${e.quote}” — ${e.reason}`;details.append(p)});
+    (q.optionReasons||[]).forEach((reason,index)=>{const p=document.createElement('p');p.textContent=`${'ABCD'[index]} · ${index===q.answer?'정답':'오답'}: ${reason}`;details.append(p)});
+    (q.passages||[]).forEach((doc,index)=>{const p=document.createElement('p');p.textContent=`문서 ${index+1} 해석 · ${doc.translation}`;details.append(p)});section.append(details);
+  }
+  return section;
+}
+function renderExamResults(){
+  clearInterval(examClock);examClock=null;
+  examSession.elapsed=Date.now()-examSession.startedAt;
+  const target=partStates[examSession.part],timestamp=Date.now();
+  examSession.questions.forEach(q=>{const selected=examSession.answers[q.id];target.results[q.id]={selected,correct:selected===q.answer,at:timestamp}});
+  localStorage.setItem(`part${examSession.part}-desk-v1`,JSON.stringify(target));
+  const correct=examSession.questions.filter(q=>examSession.answers[q.id]===q.answer).length,total=examSession.questions.length;
+  $('#resultPartLabel').textContent=`Part ${examSession.part} 채점 결과`;$('#resultScore').textContent=correct;$('#resultTotal').textContent=` / ${total}`;$('#resultRate').textContent=`정답률 ${Math.round(correct/total*100)}%`;$('#resultTime').textContent=`풀이 시간 ${formatExamTime(examSession.elapsed)}`;
+  const nav=$('#resultNavigator'),list=$('#resultQuestions');nav.replaceChildren();list.replaceChildren();
+  examSession.questions.forEach((q,index)=>{
+    const selected=examSession.answers[q.id],isCorrect=selected===q.answer,number=examNumber(q,index);
+    const link=document.createElement('a');link.href=`#result-q-${q.id}`;link.className=isCorrect?'correct':'wrong';link.textContent=number;link.title=`${number}번 ${isCorrect?'정답':'오답'}`;nav.append(link);
+    const item=document.createElement('article');item.id=`result-q-${q.id}`;item.className=`resultItem ${isCorrect?'correct':'wrong'}`;const label=document.createElement('p');label.className='resultLabel';label.textContent=`${number} · ${isCorrect?'정답':'오답'} · 내 답 ${'ABCD'[selected]} / 정답 ${'ABCD'[q.answer]}`;const heading=document.createElement('h2');heading.textContent=q.question;const choices=document.createElement('div');choices.className='resultChoices';
+    q.choices.forEach((text,choiceIndex)=>{const row=document.createElement('div');row.className='resultChoice';if(choiceIndex===q.answer)row.classList.add('answer');if(choiceIndex===selected&&selected!==q.answer)row.classList.add('userWrong');row.innerHTML=`<strong>${'ABCD'[choiceIndex]}</strong><span>${escapeHtml(text)}</span>`;choices.append(row)});item.append(label,heading,choices,resultExplanation(q));list.append(item);
+  });
+  setExamView('results');window.scrollTo(0,0);history.pushState({toeicResults:true},'',`#part${examSession.part}-results`);
+}
+function leaveExam(){
+  const hasAnswers=examSession&&Object.keys(examSession.answers).length;
+  if(hasAnswers&&!confirm('시험 답안은 아직 제출되지 않았습니다. 학습 화면으로 돌아갈까요?'))return;
+  examSession=null;history.pushState({},'',location.pathname);setExamView('practice');
+}
+$('#openExam').onclick=startExam;
+$('#exitExam').onclick=leaveExam;
+$('#submitExam').onclick=()=>{if(examSession&&Object.keys(examSession.answers).length===examSession.questions.length)renderExamResults()};
+$('#retryExam').onclick=()=>{examSession.answers={};examSession.startedAt=Date.now();examSession.elapsed=0;renderExamPaper();setExamView('exam');window.scrollTo(0,0);clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
+function closeExamResults(){examSession=null;history.pushState({},'',location.pathname);setExamView('practice')}
+$('#closeResults').onclick=closeExamResults;$('#finishResults').onclick=closeExamResults;
 render();
