@@ -107,7 +107,7 @@ function selectImportPart(part){
   $('#importTitle').textContent=`Part ${part} 문제 업로드`;
   $('#importIntro').innerHTML=`Part ${part} <b>${meta.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
   $('#promptModes').classList.toggle('hidden',part!==5);
-  $('#geminiNotice').classList.toggle('hidden',part!==5);
+  $('#geminiNotice').classList.remove('hidden');
   selectImportPlan('full');
   $('#importSubmit').textContent=`Part ${part} 등록하기`;
   $('#importError').classList.add('hidden');
