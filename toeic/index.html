@@ -45,7 +45,7 @@
     </header>
 
     <main id="practiceMain">
-      <section class="partToolbar" aria-label="파트 선택"><div class="partButtons"><button class="partButton" data-part="5">Part 5</button><button class="partButton" data-part="6">Part 6</button><button class="partButton" data-part="7">Part 7</button></div><p id="partDescription"></p><button id="restorePart6" class="secondary hidden">Part 6 기본 세트 복원</button><button id="restorePart7" class="secondary hidden">Part 7 예제 복원</button></section>
+      <section class="partToolbar" aria-label="파트 선택"><div class="partButtons"><button class="partButton" data-part="5">Part 5</button><button class="partButton" data-part="6">Part 6</button><button class="partButton" data-part="7">Part 7</button></div><p id="partDescription"></p></section>
       <section class="toolbar" aria-label="문제 필터">
         <div class="tabs" role="tablist">
           <button class="tab active" data-filter="all">전체 <b id="countAll">0</b></button>
@@ -112,7 +112,7 @@
         <label>문장 해석 (정답 기준)<textarea name="translation" required placeholder="예: 보고서는 늦어도 금요일 오후까지는 제출되어야 한다."></textarea></label>
         <label>보기 단어 뜻 & 예문<textarea name="vocab" required placeholder="예: by - ~까지(기한) (Please finish it by Monday.) / until - ~까지 계속 (I will wait until you arrive.) / ..."></textarea></label>
         <label>원어민 감각 해설<textarea name="explanation" required placeholder="핵심 표현의 자연스러운 결합, 실제 뉘앙스, 오답이 어색한 이유를 자연어로 설명해 주세요. 꼭 필요한 경우에만 문법 용어를 사용합니다."></textarea></label>
-        <div class="modalActions"><button type="button" class="secondary" id="loadSamples">예시 문제 불러오기</button><button class="primary" type="submit">저장하고 풀기</button></div>
+        <div class="modalActions"><button class="primary" type="submit">저장하고 풀기</button></div>
       </form>
     </dialog>
     <dialog id="importDialog">
@@ -301,8 +301,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
         <div class="cardFoot"><span class="status">아직 풀지 않음</span><div class="cardActions"><button class="deleteButton">현재 문제 삭제</button><button class="prevButton">← 이전 문제</button><button class="nextButton">다음 문제 →</button></div></div>
       </article>
     </template>
-    <script src="part6.js?v=1"></script>
-    <script src="part7.js?v=1"></script>
-    <script src="app.js?v=17"></script>
+    <script src="app.js?v=18"></script>
   </body>
 </html>

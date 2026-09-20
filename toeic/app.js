@@ -1,21 +1,9 @@
 const STORAGE_KEY = 'part5-desk-v1';
-const sampleQuestions = [
-  {id:'s1', question:'The report must be submitted _____ Friday afternoon.', choices:['by','until','during','since'], answer:0, translation:'보고서는 늦어도 금요일 오후까지 제출되어야 한다.', vocab:'by - 늦어도 ~까지 (예: Please finish the report by Monday.) / until - ~까지 줄곧 (예: I will wait here until you arrive.) / during - ~동안에 (예: She called during the meeting.) / since - ~이래로 (예: We have been friends since 2010.)', explanation:'핵심 표현은 submit the report by Friday입니다. 여기서 by는 금요일 오후를 ‘마감선’으로 잡아, 그 시각보다 앞서 제출을 끝내라는 뜻입니다. submit은 한 번 완료되는 행동이라 “어떤 상태가 그때까지 계속된다”는 until과는 잘 어울리지 않습니다. during Friday afternoon은 금요일 오후라는 시간대 안에서 일이 일어난다고 할 뿐 마감 의미가 없고, since Friday afternoon은 그때부터 지금까지 이어지는 상황에 쓰므로 must be submitted와 연결되지 않습니다. 원어민은 문법표를 떠올리기보다 by Friday, by the deadline, by noon처럼 마감 표현을 한 덩어리로 받아들입니다.'},
-  {id:'s2', question:'Ms. Kim is responsible _____ coordinating the annual conference.', choices:['at','for','with','to'], answer:1, translation:'Kim 씨는 연례 콘퍼런스를 조율하는 일을 맡고 있다.', vocab:'at - 특정 지점·시각에 (예: Let us meet at 3 p.m.) / for - ~을 담당하여 (예: She is responsible for the budget.) / with - ~와 함께 (예: I went there with my colleague.) / to - ~에게, ~로 (예: Please send this to the manager.)', explanation:'responsible for는 “~을 담당하다”라는 고정된 결합입니다. 그래서 responsible for coordinating the conference는 원어민에게 “콘퍼런스 조율 업무를 맡고 있다”로 곧바로 읽힙니다. responsible at이나 responsible with는 이런 뜻으로 쓰는 자연스러운 결합이 아닙니다. responsible to는 가능하지만 뜻이 달라서, 보통 responsible to the director처럼 “누구에게 보고하거나 책임을 지는가”를 말할 때 씁니다. 이 문장에는 사람이 아니라 coordinating이라는 업무가 뒤따르므로 for가 정확합니다. responsible for + 업무를 하나의 표현 덩어리로 익혀 두는 것이 좋습니다.'},
-  {id:'s3', question:'The new software is _____ easier to use than the previous version.', choices:['much','many','most','more'], answer:0, translation:'새 소프트웨어는 이전 버전보다 훨씬 사용하기 쉽다.', vocab:'much - 훨씬, 매우 큰 차이로 (예: This version is much faster.) / many - 수가 많은 (예: Many employees joined the workshop.) / most - 가장, 대부분의 (예: This is the most popular choice.) / more - 더 (예: We need a more convenient option.)', explanation:'easier than만으로 이미 “~보다 더 쉽다”는 비교가 완성되어 있습니다. 빈칸에는 그 차이가 크다는 느낌을 더하는 much가 들어가며, much easier는 원어민이 매우 자주 쓰는 자연스러운 결합입니다. many는 사람이나 사물의 수가 많다는 말이라 easier를 꾸밀 수 없습니다. most는 보통 the easiest 또는 the most convenient처럼 셋 이상에서 최고를 고를 때 쓰여, than과 짝을 이루지 않습니다. more도 “더”라는 뜻이지만 easier 자체에 이미 그 의미가 들어 있으므로 more easier는 중복됩니다. much easier, far easier, a little easier를 비교 강도 표현으로 함께 익히면 좋습니다.'}
-];
-let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || {questions: sampleQuestions.map(q=>({...q})), results:{}, starred:[], filter:'all'};
-const SAMPLE_CONTENT_VERSION = 2;
-if (state.sampleContentVersion !== SAMPLE_CONTENT_VERSION) {
-  const revisedSamples = new Map(sampleQuestions.map(q => [q.id, q]));
-  state.questions = state.questions.map(q => revisedSamples.has(q.id) ? {...revisedSamples.get(q.id)} : q);
-  state.sampleContentVersion = SAMPLE_CONTENT_VERSION;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-}
+let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || {questions:[],results:{},starred:[],filter:'all'};
 let activePart = [5,6,7].includes(Number(localStorage.getItem('toeic-active-part'))) ? Number(localStorage.getItem('toeic-active-part')) : 5;
 let part5State = state;
-let part6State = JSON.parse(localStorage.getItem('part6-desk-v1') || 'null') || {questions:part6Questions.map(q=>({...q})),results:{},starred:[],filter:'all'};
-let part7State = JSON.parse(localStorage.getItem('part7-desk-v1') || 'null') || {questions:part7Questions.map(q=>({...q})),results:{},starred:[],filter:'all'};
+let part6State = JSON.parse(localStorage.getItem('part6-desk-v1') || 'null') || {questions:[],results:{},starred:[],filter:'all'};
+let part7State = JSON.parse(localStorage.getItem('part7-desk-v1') || 'null') || {questions:[],results:{},starred:[],filter:'all'};
 const partStates = {5:part5State,6:part6State,7:part7State};
 state = partStates[activePart];
 let currentIndex = 0;
@@ -37,7 +25,7 @@ function keepReviewQuestionsOnly(){
   render();
 }
 function updateCounts(){const qs=state.questions, r=state.results; $('#countAll').textContent=qs.length;$('#countCorrect').textContent=qs.filter(q=>r[q.id]?.correct).length;$('#countIncorrect').textContent=qs.filter(q=>r[q.id]&&!r[q.id].correct).length;$('#countStarred').textContent=state.starred.length;const solved=qs.filter(q=>r[q.id]).length;$('#progressText').textContent=`${solved} / ${qs.length}문제 학습`;$('#progressBar').style.width=qs.length?`${solved/qs.length*100}%`:'0'}
-function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항 · 기본 예제 12문항 / AI 생성 한 세트 54문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:'Part 5 · 단문 빈칸 채우기';$('#openAdd').classList.toggle('hidden',activePart!==5);$('#restorePart7').classList.toggle('hidden',activePart!==7);$('#restorePart6').classList.toggle('hidden',activePart!==6);document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex>=qs.length)currentIndex=0;$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);updateBroadcastDock();if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
+function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:`Part 5 · 단문 빈칸 채우기 ${state.questions.length}문항`;$('#openAdd').classList.toggle('hidden',activePart!==5);document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex>=qs.length)currentIndex=0;$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);updateBroadcastDock();if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
 if(q.part===7){node.querySelector('.number').textContent=`PART 7 · ${q.questionNumber} · ${currentIndex+1} / ${qs.length}`;const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passages.length===1?'단일':q.passages.length===2?'이중':'삼중'} 지문 · ${q.setTitle}`;const container=node.querySelector('.passage');q.passages.forEach((doc,i)=>{const article=document.createElement('section');article.className='readingDocument';const heading=document.createElement('h3');heading.textContent=`문서 ${i+1} · ${doc.title}`;const body=document.createElement('div');body.textContent=doc.text;article.append(heading,body);container.append(article)});}
 
 if(q.passage){const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passageType} · ${q.setTitle}`;const passage=node.querySelector('.passage');q.passage.split(/(\[\d+\])/g).forEach(piece=>{if(piece===`[${q.blank}]`){const mark=document.createElement('mark');mark.textContent=piece;passage.append(mark)}else passage.append(document.createTextNode(piece))});}
@@ -52,7 +40,7 @@ $('#toggleBroadcast').onclick=()=>setBroadcastMode(!document.body.classList.cont
 $('#broadcastExit').onclick=()=>setBroadcastMode(false);
 $('#broadcastPrev').onclick=()=>document.querySelector('#questionArea .prevButton')?.click();
 $('#broadcastNext').onclick=()=>document.querySelector('#questionArea .nextButton')?.click();
-$('#openAdd').onclick=()=>$('#addDialog').showModal();$('#closeAdd').onclick=()=>$('#addDialog').close();$('#loadSamples').onclick=()=>{if(!state.questions.length){state.questions=sampleQuestions.map(q=>({...q}));save();render()}$('#addDialog').close()};
+$('#openAdd').onclick=()=>$('#addDialog').showModal();$('#closeAdd').onclick=()=>$('#addDialog').close();
 $('#addForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target), q={id:crypto.randomUUID(),question:f.get('question'),choices:['a','b','c','d'].map(x=>f.get(x)),answer:Number(f.get('answer')),translation:f.get('translation'),vocab:f.get('vocab'),explanation:f.get('explanation')};insertQuestions([q]);state.filter='all';currentIndex=0;save();$('#addDialog').close();e.target.reset();render()};
 const originalImportPrompt=$('#aiPrompt').textContent.trim();
 const promptSection=(start,end)=>{const from=originalImportPrompt.indexOf(start),to=end?originalImportPrompt.indexOf(end,from):originalImportPrompt.length;return originalImportPrompt.slice(from,to).trim()};
@@ -239,10 +227,6 @@ $('#importForm').onsubmit=e=>{
 };
 
 document.querySelectorAll('[data-part]').forEach(button=>button.onclick=()=>{save();activePart=Number(button.dataset.part);state=partStates[activePart];localStorage.setItem('toeic-active-part',activePart);currentIndex=0;$('#retryMode').checked=false;render()});
-$('#restorePart6').onclick=()=>{const ids=new Set(state.questions.map(q=>q.id));state.questions.push(...part6Questions.filter(q=>!ids.has(q.id)).map(q=>({...q})));state.filter='all';currentIndex=0;save();render()};
-
-$('#restorePart7').onclick=()=>{const ids=new Set(state.questions.map(q=>q.id));state.questions.push(...part7Questions.filter(q=>!ids.has(q.id)).map(q=>({...q})));state.filter='all';currentIndex=0;save();render()};
-
 let examSession=null;
 let examClock=null;
 function examNumber(q,index){return q._examNumber||q.questionNumber||q.blank||(101+index)}
