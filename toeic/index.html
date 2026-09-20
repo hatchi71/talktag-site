@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영어만점 TOEIC · LC & RC</title>
-    <link rel="stylesheet" href="style.css?v=6" />
+    <link rel="stylesheet" href="style.css?v=7" />
     <link rel="stylesheet" href="import.css" />
     <link rel="stylesheet" href="delete.css?v=4" />
   </head>
@@ -36,12 +36,15 @@
     </main>
     <header class="topbar">
       <a class="brand" href="./"><img src="brand.jpg" alt="영어만점" /></a>
+      <div class="deckLabel"><span>TOEIC RC</span><strong>CONTROL DECK</strong></div>
       <div class="progress" aria-label="학습 현황"><span id="progressText">0문제 학습</span><div><i id="progressBar"></i></div></div>
-      <button class="primary" id="openPaperExam">📖 시험지 모드</button>
-      <button class="secondary" id="openMockExam">⏱ 모의고사 모드</button>
-      <button class="secondary" id="toggleBroadcast">🎬 세로 방송 모드</button>
-      <button class="secondary" id="backToeicLanding">TOEIC 홈</button>
-      <div class="headerActions"><button class="secondary" id="openImport">파트별 문제 업로드</button><button class="secondary" id="openAdd">+ 문제 추가</button></div>
+      <button class="deckHome" id="backToeicLanding" type="button"><span aria-hidden="true">←</span> TOEIC 홈</button>
+      <nav class="modeControls" aria-label="학습 모드 선택">
+        <button class="deckButton primary" id="openPaperExam" type="button"><span class="deckIcon" aria-hidden="true">▤</span><span><small>PAGE TRAINING</small><strong>시험지 모드</strong></span><i>현재 Part</i></button>
+        <button class="deckButton" id="openMockExam" type="button"><span class="deckIcon" aria-hidden="true">◷</span><span><small>FULL MISSION</small><strong>모의고사 모드</strong></span><i>Part 5–7</i></button>
+        <button class="deckButton" id="toggleBroadcast" type="button"><span class="deckIcon" aria-hidden="true">◉</span><span><small>CREATOR VIEW</small><strong class="deckButtonTitle">세로 방송 모드</strong></span><i>9:16</i></button>
+      </nav>
+      <div class="headerActions" aria-label="문제 관리"><span class="utilityLabel">CONTENT BAY</span><button class="utilityButton" id="openImport" type="button"><b aria-hidden="true">⇧</b> 파트별 문제 업로드</button><button class="utilityButton" id="openAdd" type="button"><b aria-hidden="true">＋</b> 문제 추가</button></div>
     </header>
 
     <main id="practiceMain">
@@ -301,6 +304,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
         <div class="cardFoot"><span class="status">아직 풀지 않음</span><div class="cardActions"><button class="deleteButton">현재 문제 삭제</button><button class="prevButton">← 이전 문제</button><button class="nextButton">다음 문제 →</button></div></div>
       </article>
     </template>
-    <script src="app.js?v=18"></script>
+    <script src="app.js?v=19"></script>
   </body>
 </html>
