@@ -108,23 +108,22 @@ function validateAnswerRun(items, label){
   let run=1;
   for(let i=1;i<items.length;i++){
     run=items[i].answer===items[i-1].answer?run+1:1;
-    if(run>=3)throw Error(`${label}에서 같은 정답이 3문항 연속됩니다. ${i+1}번째 문항 부근을 확인해 주세요.`);
+    if(run>=3)return `${label}에서 같은 정답이 3문항 이상 연속됩니다. ${i+1}번째 문항 부근을 확인해 주세요.`;
   }
+  return '';
 }
 function validateDistribution(items, expected, label){
   const actual=[0,0,0,0];
   items.forEach(q=>actual[q.answer]++);
-  if(actual.some((n,i)=>n!==expected[i]))throw Error(`${label} 정답 분포가 맞지 않습니다. 현재 A/B/C/D = ${actual.join('/')}, 필요 = ${expected.join('/')}입니다.`);
+  return actual.some((n,i)=>n!==expected[i])?`${label} 정답 분포가 권장값과 다릅니다. 현재 A/B/C/D = ${actual.join('/')}, 권장 = ${expected.join('/')}입니다.`:'';
 }
 function validatePart5Set(p5){
   if(p5.length!==30)throw Error(`Part 5가 ${p5.length}문항입니다. 정확히 30문항이 필요합니다.`);
-  validateDistribution(p5,[8,8,7,7],'Part 5');
-  validateAnswerRun(p5,'Part 5');
+  return [validateDistribution(p5,[8,8,7,7],'Part 5'),validateAnswerRun(p5,'Part 5')].filter(Boolean);
 }
 function validatePart6Set(p6){
   if(p6.length!==16)throw Error(`Part 6가 ${p6.length}문항입니다. 정확히 16문항이 필요합니다.`);
-  validateDistribution(p6,[4,4,4,4],'Part 6');
-  validateAnswerRun(p6,'Part 6');
+  const warnings=[validateDistribution(p6,[4,4,4,4],'Part 6'),validateAnswerRun(p6,'Part 6')].filter(Boolean);
 
   const expectedBlanks=Array.from({length:16},(_,i)=>131+i);
   const actualBlanks=p6.map(q=>q.blank).sort((a,b)=>a-b);
@@ -158,6 +157,7 @@ function validatePart6Set(p6){
       if(countOccurrences(passage,paired)!==1)throw Error(`Part 6 [${blank}] 뒤에 ------- 빈칸이 없습니다. 반드시 “[${blank}] -------” 형식으로 작성해 주세요.`);
     });
   });
+  return warnings;
 }
 function validatePart7Question(q,label){
   const text=v=>typeof v==='string'&&v.trim().length>0;
@@ -177,7 +177,7 @@ function validatePart7Set(p7){
   if(p7.length!==54)throw Error(`Part 7이 ${p7.length}문항입니다. 정확히 54문항이 필요합니다.`);
   p7.sort((a,b)=>a.questionNumber-b.questionNumber);
   if(p7.some((q,i)=>q.questionNumber!==147+i))throw Error('Part 7 번호는 147~200을 각각 한 번 사용해야 합니다.');
-  validateDistribution(p7,[14,14,13,13],'Part 7');validateAnswerRun(p7,'Part 7');
+  const warnings=[validateDistribution(p7,[14,14,13,13],'Part 7'),validateAnswerRun(p7,'Part 7')].filter(Boolean);
   const groups=new Map();
   p7.forEach(q=>{if(!groups.has(q.setId))groups.set(q.setId,[]);groups.get(q.setId).push(q)});
   const counts=[0,0,0],totals=[0,0,0];
@@ -190,13 +190,15 @@ function validatePart7Set(p7){
     if(n>1&&!items.some(q=>q.questionType==='cross-reference'))throw Error(`Part 7 ${first.setId}: 복수 지문마다 cross-reference 연계 문제가 필요합니다.`);
   });
   if(counts.join('/')!=='10/2/3'||totals.join('/')!=='29/10/15')throw Error('Part 7은 단일 10세트 29문항, 이중 2세트 10문항, 삼중 3세트 15문항이어야 합니다.');
+  return warnings;
 }
 function validateImportedPart(valid,targetPart){
   const wrong=valid.find(q=>q.part!==targetPart);
   if(wrong)throw Error(`Part ${targetPart} 업로드에는 Part ${targetPart} 문제만 넣어 주세요. Part ${wrong.part} 문제가 포함되어 있습니다.`);
-  if(targetPart===5)validatePart5Set(valid);
-  if(targetPart===6)validatePart6Set(valid);
-  if(targetPart===7)validatePart7Set(valid);
+  if(targetPart===5)return validatePart5Set(valid);
+  if(targetPart===6)return validatePart6Set(valid);
+  if(targetPart===7)return validatePart7Set(valid);
+  return [];
 }
 $('#importForm').onsubmit=e=>{
   e.preventDefault();
@@ -223,7 +225,8 @@ $('#importForm').onsubmit=e=>{
       }
       return {id:crypto.randomUUID(),part,question:q.question,choices:q.choices.map(String),answer,translation:q.translation,vocab:q.vocab,explanation:q.explanation,...(part===6?{passage:q.passage,setTitle:q.setTitle,passageType:q.passageType,blank:q.blank}:{}),...(part===7?{questionNumber:q.questionNumber,setId:q.setId,setTitle:q.setTitle,questionType:q.questionType,passages:q.passages,evidence:q.evidence,optionReasons:q.optionReasons}:{})};
     });
-    validateImportedPart(valid,importPart);
+    const warnings=validateImportedPart(valid,importPart);
+    if(warnings.length&&!confirm(`형식 검사는 통과했습니다. 다만 다음 품질 경고가 있습니다.\n\n• ${warnings.join('\n• ')}\n\n정답과 해설을 확인한 데이터라면 그대로 등록할 수 있습니다. 등록할까요?`))return;
     const targetState=partStates[importPart];
     targetState.questions.push(...valid);targetState.filter='all';
     localStorage.setItem(`part${importPart}-desk-v1`,JSON.stringify(targetState));
