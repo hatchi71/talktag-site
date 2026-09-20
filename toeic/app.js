@@ -75,18 +75,45 @@ ${section}
 - 모든 오답을 문장 또는 지문에 실제로 대입하여 배제 이유를 확인하고, answer, translation, vocab, explanation이 최종 선택지 순서와 일치하는지 다시 검사하세요.`;
 });
 let importPart=activePart;
+let importPlan='full';
+const part5Plans={
+  full:{count:30,range:'101~130',distribution:'A 8개, B 8개, C 7개, D 7개'},
+  first:{count:15,range:'101~115',distribution:'A 4개, B 4개, C 4개, D 3개'},
+  second:{count:15,range:'116~130',distribution:'A 4개, B 4개, C 3개, D 4개'}
+};
+function promptForPlan(part,plan){
+  const meta=importMeta[part];
+  if(part!==5||plan==='full')return meta.prompt+`\n\n[출력 규칙 엄수]\n- 절대로 마크다운 코드블록 태그를 붙이지 마세요.\n- 첫 번째 글자는 반드시 [ 이어야 하고, 마지막 글자는 반드시 ] 이어야 합니다.`;
+  const selected=part5Plans[plan];
+  return meta.prompt
+    .replace(`정확히 ${meta.count}문항(${meta.range})`, `정확히 ${selected.count}문항(${selected.range})`)
+    .replace(`- 정확히 30문항, 순서는 101~130입니다.`, `- 이번에는 정확히 ${selected.count}문항만 생성하며, 순서는 ${selected.range}입니다.`)
+    .replace(`Part 5 객체 ${meta.count}개만`, `Part 5 객체 ${selected.count}개만`)
+    .replaceAll(meta.distribution,selected.distribution)
+    +`\n\n[분할 생성 범위]\n- 이번 응답은 ${selected.range} 범위만 생성하세요. 다른 번호 범위의 문제는 포함하지 마세요.\n- 이 배열은 다른 절반과 웹앱에서 자동으로 이어 붙입니다.\n\n[출력 규칙 엄수]\n- 절대로 마크다운 코드블록 태그를 붙이지 마세요.\n- 첫 번째 글자는 반드시 [ 이어야 하고, 마지막 글자는 반드시 ] 이어야 합니다.`;
+}
+function selectImportPlan(plan){
+  importPlan=importPart===5&&part5Plans[plan]?plan:'full';
+  document.querySelectorAll('[data-prompt-mode]').forEach(button=>button.classList.toggle('active',button.dataset.promptMode===importPlan));
+  const selected=importPart===5?part5Plans[importPlan]:importMeta[importPart];
+  $('#importIntro').innerHTML=importPart===5&&importPlan!=='full'?`Part 5 <b>${selected.range} · ${selected.count}문항</b> 배열을 붙여넣으세요. 먼저 등록한 문제는 그대로 유지됩니다.`:`Part ${importPart} <b>${selected.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
+  $('#aiPrompt').textContent=promptForPlan(importPart,importPlan);
+  $('#importHint').textContent=importPart===5&&importPlan!=='full'?`${selected.range} ${selected.count}문항을 검사한 뒤 기존 문제 뒤에 이어서 저장합니다.`:`Part ${importPart} ${selected.count}문항의 형식과 정답 분포를 검사한 뒤 Part ${importPart}에만 추가합니다.`;
+}
 function selectImportPart(part){
   importPart=part;
   const meta=importMeta[part];
   document.querySelectorAll('[data-import-part]').forEach(button=>{const selected=Number(button.dataset.importPart)===part;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected))});
   $('#importTitle').textContent=`Part ${part} 문제 업로드`;
   $('#importIntro').innerHTML=`Part ${part} <b>${meta.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
-  $('#aiPrompt').textContent=meta.prompt;
-  $('#importHint').textContent=`Part ${part} ${meta.count}문항의 형식과 정답 분포를 검사한 뒤 Part ${part}에만 추가합니다.`;
+  $('#promptModes').classList.toggle('hidden',part!==5);
+  $('#geminiNotice').classList.toggle('hidden',part!==5);
+  selectImportPlan('full');
   $('#importSubmit').textContent=`Part ${part} 등록하기`;
   $('#importError').classList.add('hidden');
 }
 document.querySelectorAll('[data-import-part]').forEach(button=>button.onclick=()=>selectImportPart(Number(button.dataset.importPart)));
+document.querySelectorAll('[data-prompt-mode]').forEach(button=>button.onclick=()=>selectImportPlan(button.dataset.promptMode));
 $('#openImport').onclick=()=>{selectImportPart(activePart);$('#importDialog').showModal()};$('#closeImport').onclick=()=>$('#importDialog').close();
 $('#importFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{$('#importText').value=await file.text();$('#importError').classList.add('hidden')}catch{$('#importError').textContent='파일을 읽지 못했어요. JSON 내용을 직접 붙여넣어 주세요.';$('#importError').classList.remove('hidden')}};
 $('#copyPrompt').onclick=async()=>{try{await navigator.clipboard.writeText($('#aiPrompt').textContent);$('#copyPrompt').textContent='복사했어요'}catch{$('#copyPrompt').textContent='위 요청문을 직접 복사해 주세요'}setTimeout(()=>$('#copyPrompt').textContent='요청문 복사',1800)};
@@ -188,13 +215,52 @@ function validateImportedPart(valid,targetPart){
   if(targetPart===7)return validatePart7Set(valid);
   return [];
 }
+function completeJsonObjects(source){
+  const items=[];
+  let arrayStarted=false,inString=false,escaped=false,depth=0,start=-1;
+  for(let i=0;i<source.length;i++){
+    const ch=source[i];
+    if(inString){
+      if(escaped)escaped=false;
+      else if(ch==='\\')escaped=true;
+      else if(ch==='"')inString=false;
+      continue;
+    }
+    if(ch==='"'){inString=true;continue}
+    if(!arrayStarted){if(ch==='[')arrayStarted=true;continue}
+    if(ch==='{'){if(depth===0)start=i;depth++}
+    else if(ch==='}'&&depth>0){
+      depth--;
+      if(depth===0&&start>=0){
+        try{items.push(JSON.parse(source.slice(start,i+1)))}catch{}
+        start=-1;
+      }
+    }
+  }
+  return items;
+}
+function parseImportedJson(raw){
+  const cleaned=raw.replace(/^\uFEFF/,'').trim();
+  const fenced=[...cleaned.matchAll(/```(?:json)?\s*([\s\S]*?)```/gi)].map(match=>match[1]).find(block=>block.includes('['));
+  const source=(fenced||cleaned).trim(),start=source.indexOf('['),end=source.lastIndexOf(']');
+  if(start<0)throw Error('JSON 배열의 시작 기호 [ 를 찾지 못했습니다.');
+  if(end>start){
+    try{return {items:JSON.parse(source.slice(start,end+1)),recovered:false}}
+    catch(parseError){
+      const recovered=completeJsonObjects(source.slice(start));
+      if(recovered.length)return {items:recovered,recovered:true};
+      throw Error(`JSON 문법을 읽지 못했습니다. ${parseError.message}`);
+    }
+  }
+  const recovered=completeJsonObjects(source.slice(start));
+  if(recovered.length)return {items:recovered,recovered:true};
+  throw Error('응답이 중간에서 끊겨 완성된 문제 객체를 찾지 못했습니다. 더 짧은 분할 요청을 사용해 주세요.');
+}
 $('#importForm').onsubmit=e=>{
   e.preventDefault();
   const raw=$('#importText').value.trim(), error=$('#importError');
   try{
-    const fenced=raw.match(/```(?:json)?\s*([\s\S]*?)```/i), source=(fenced?fenced[1]:raw).trim(), start=source.indexOf('['), end=source.lastIndexOf(']');
-    if(start<0||end<start)throw Error('JSON 배열을 찾지 못했습니다.');
-    const imported=JSON.parse(source.slice(start,end+1));
+    const parsed=parseImportedJson(raw),imported=parsed.items;
     if(!Array.isArray(imported)||!imported.length)throw Error('문제 배열이 아닙니다.');
     const valid=imported.map((q,i)=>{
       if(!q||typeof q!=='object')throw Error(`${i+1}번은 문제 객체여야 합니다.`);
@@ -213,7 +279,16 @@ $('#importForm').onsubmit=e=>{
       }
       return {id:crypto.randomUUID(),part,question:q.question,choices:q.choices.map(String),answer,translation:q.translation,vocab:q.vocab,explanation:q.explanation,...(part===6?{passage:q.passage,setTitle:q.setTitle,passageType:q.passageType,blank:q.blank}:{}),...(part===7?{questionNumber:q.questionNumber,setId:q.setId,setTitle:q.setTitle,questionType:q.questionType,passages:q.passages,evidence:q.evidence,optionReasons:q.optionReasons}:{})};
     });
-    const warnings=validateImportedPart(valid,importPart);
+    let warnings=[];
+    const planned=importPart===5?part5Plans[importPlan]:importMeta[importPart];
+    if(valid.length===planned.count){
+      if(importPart===5&&importPlan!=='full')warnings=[validateDistribution(valid,planned.distribution.match(/\d+/g).map(Number),`Part 5 ${planned.range}`),validateAnswerRun(valid,`Part 5 ${planned.range}`)].filter(Boolean);
+      else warnings=validateImportedPart(valid,importPart);
+    }else{
+      if(valid.length>importMeta[importPart].count)throw Error(`Part ${importPart}는 한 번에 최대 ${importMeta[importPart].count}문항까지 등록할 수 있습니다.`);
+      warnings.push(`요청 분량은 ${planned.count}문항이지만 완성된 ${valid.length}문항만 확인되었습니다. 이 ${valid.length}문항만 저장합니다.`);
+    }
+    if(parsed.recovered)warnings.unshift('응답 끝부분이 잘려 있어 JSON으로 완성된 문제 객체까지만 복구했습니다.');
     if(warnings.length&&!confirm(`형식 검사는 통과했습니다. 다만 다음 품질 경고가 있습니다.\n\n• ${warnings.join('\n• ')}\n\n정답과 해설을 확인한 데이터라면 그대로 등록할 수 있습니다. 등록할까요?`))return;
     const targetState=partStates[importPart];
     targetState.questions.push(...valid);targetState.filter='all';

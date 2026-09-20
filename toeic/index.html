@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영어만점 TOEIC · LC & RC</title>
     <link rel="stylesheet" href="style.css?v=7" />
-    <link rel="stylesheet" href="import.css" />
+    <link rel="stylesheet" href="import.css?v=2" />
     <link rel="stylesheet" href="delete.css?v=4" />
   </head>
   <body>
@@ -127,6 +127,12 @@
           <button type="button" class="importPartButton" data-import-part="7">Part 7</button>
         </div>
         <p class="importIntro" id="importIntro"></p>
+        <div class="promptModes" id="promptModes" aria-label="AI 생성 분량 선택">
+          <button type="button" class="promptModeButton" data-prompt-mode="full">전체 30문항</button>
+          <button type="button" class="promptModeButton" data-prompt-mode="first">1차 · 101–115</button>
+          <button type="button" class="promptModeButton" data-prompt-mode="second">2차 · 116–130</button>
+        </div>
+        <p class="geminiNotice" id="geminiNotice"><b>Gemini 권장</b> 15문항씩 두 번 생성해 차례로 등록하세요. 코드블록 표시는 웹앱이 자동으로 제거합니다.</p>
         <div class="promptBox"><code id="aiPrompt">TOEIC 실전 연습 문제를 한 번의 응답으로 총 100문항 생성해 주세요. 반드시 Part 5 30문항(101~130)과 Part 6 16문항(131~146), Part 7 54문항(147~200)을 모두 포함하고, 일부만 출력하거나 “계속”을 요청하지 마세요.
 
 모든 문장, 지문, 보기, 인물명, 회사명, 장소와 상황은 독창적으로 작성하세요. 기존 TOEIC 기출문제, 교재, 웹사이트 문제를 복사하거나 일부 단어만 바꾸어 가깝게 변형하지 마세요. 실제 업무 및 일상 상황에서 자연스럽게 쓰이는 영어를 사용하고, 쉬운 문제·중간 문제·다소 까다로운 문제를 고르게 섞으세요.
@@ -304,6 +310,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
         <div class="cardFoot"><span class="status">아직 풀지 않음</span><div class="cardActions"><button class="deleteButton">현재 문제 삭제</button><button class="prevButton">← 이전 문제</button><button class="nextButton">다음 문제 →</button></div></div>
       </article>
     </template>
-    <script src="app.js?v=19"></script>
+    <script src="app.js?v=20"></script>
   </body>
 </html>
