@@ -239,21 +239,53 @@ function completeJsonObjects(source){
   }
   return items;
 }
+function normalizeJsonTypography(source){
+  let out='',inString=false,quoteKind='',escaped=false;
+  const nextNonSpace=index=>{for(let j=index+1;j<source.length;j++){if(!/\s/.test(source[j]))return source[j]}return ''};
+  for(let i=0;i<source.length;i++){
+    const ch=source[i];
+    if(!inString){
+      if(ch==='"'){inString=true;quoteKind='ascii';out+=ch;continue}
+      if(ch==='“'||ch==='”'){inString=true;quoteKind='smart';out+='"';continue}
+      if(ch==='：'){out+=':';continue}
+      if(ch==='，'){out+=',';continue}
+      if(ch==='\u200B'||ch==='\u200C'||ch==='\u200D'||ch==='\u2060')continue;
+      out+=ch;continue;
+    }
+    if(escaped){out+=ch;escaped=false;continue}
+    if(ch==='\\'){out+=ch;escaped=true;continue}
+    const next=nextNonSpace(i),structural=!next||':,}]'.includes(next);
+    if(quoteKind==='ascii'){
+      if(ch==='"'){inString=false;quoteKind='';out+=ch;continue}
+      if(ch==='”'&&structural){inString=false;quoteKind='';out+='"';continue}
+      out+=ch;continue;
+    }
+    if(ch==='”'&&structural){inString=false;quoteKind='';out+='"';continue}
+    if(ch==='"'){out+='\\\"';continue}
+    out+=ch;
+  }
+  return out;
+}
 function parseImportedJson(raw){
   const cleaned=raw.replace(/^\uFEFF/,'').trim();
   const fenced=[...cleaned.matchAll(/```(?:json)?\s*([\s\S]*?)```/gi)].map(match=>match[1]).find(block=>block.includes('['));
   const source=(fenced||cleaned).trim(),start=source.indexOf('['),end=source.lastIndexOf(']');
   if(start<0)throw Error('JSON 배열의 시작 기호 [ 를 찾지 못했습니다.');
+  const candidate=end>start?source.slice(start,end+1):source.slice(start);
+  const normalized=normalizeJsonTypography(candidate);
   if(end>start){
-    try{return {items:JSON.parse(source.slice(start,end+1)),recovered:false}}
-    catch(parseError){
-      const recovered=completeJsonObjects(source.slice(start));
-      if(recovered.length)return {items:recovered,recovered:true};
-      throw Error(`JSON 문법을 읽지 못했습니다. ${parseError.message}`);
+    try{return {items:JSON.parse(candidate),recovered:false,normalized:false}}
+    catch(firstError){
+      try{return {items:JSON.parse(normalized),recovered:false,normalized:true}}
+      catch(parseError){
+        const recovered=completeJsonObjects(normalized);
+        if(recovered.length)return {items:recovered,recovered:true,normalized:true};
+        throw Error(`JSON 문법을 읽지 못했습니다. 스마트 따옴표(“ ”)나 쉼표를 자동 보정했지만 아직 오류가 있습니다. ${parseError.message}`);
+      }
     }
   }
-  const recovered=completeJsonObjects(source.slice(start));
-  if(recovered.length)return {items:recovered,recovered:true};
+  const recovered=completeJsonObjects(normalized);
+  if(recovered.length)return {items:recovered,recovered:true,normalized:normalized!==candidate};
   throw Error('응답이 중간에서 끊겨 완성된 문제 객체를 찾지 못했습니다. 더 짧은 분할 요청을 사용해 주세요.');
 }
 $('#importForm').onsubmit=e=>{
