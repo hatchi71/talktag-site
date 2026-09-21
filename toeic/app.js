@@ -124,6 +124,11 @@ $('#importFile').onchange=async e=>{const file=e.target.files[0];if(!file)return
 $('#copyPrompt').onclick=async()=>{try{await navigator.clipboard.writeText($('#aiPrompt').textContent);$('#copyPrompt').textContent='복사했어요'}catch{$('#copyPrompt').textContent='위 요청문을 직접 복사해 주세요'}setTimeout(()=>$('#copyPrompt').textContent='요청문 복사',1800)};
 function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function countOccurrences(text, pattern){return (text.match(pattern)||[]).length}
+function normalizePart5Blank(question){
+  return String(question)
+    .replace(/[‐‑‒–—―﹘﹣－_\-]{5,}/g,'-------')
+    .replace(/(?:[‐‑‒–—―﹘﹣－_\-]\s*){5,}/g,'-------');
+}
 function validateAnswerRun(items, label){
   let run=1;
   for(let i=1;i<items.length;i++){
@@ -307,7 +312,10 @@ $('#importForm').onsubmit=e=>{
       if(![5,6,7].includes(part))throw Error(`${i+1}번 part는 5, 6, 7이어야 합니다.`);
       if(new Set(q.choices.map(c=>c.trim().toLowerCase())).size!==4)throw Error(`${i+1}번 보기에 중복이 있습니다.`);
       if(part===7)validatePart7Question(q,`${i+1}번`);
-      if(part===5&&countOccurrences(q.question,/-{7}/g)!==1)throw Error(`${i+1}번 Part 5 문장에는 ------- 빈칸이 정확히 1개 있어야 합니다.`);
+      if(part===5){
+        q.question=normalizePart5Blank(q.question);
+        if(countOccurrences(q.question,/-{7}/g)!==1)throw Error(`${i+1}번 Part 5 문장에는 ------- 빈칸이 정확히 1개 있어야 합니다. 복사 과정에서 하이픈이 긴 대시(—)나 밑줄로 바뀌었는지도 확인해 주세요.`);
+      }
       if(part===6){
         if(typeof q.passage!=='string'||!q.passage.trim()||typeof q.setTitle!=='string'||!q.setTitle.trim()||typeof q.passageType!=='string'||!q.passageType.trim()||!Number.isInteger(q.blank)||q.blank<131||q.blank>146)throw Error(`${i+1}번 Part 6의 setTitle/passageType/passage/blank 형식을 확인해 주세요.`);
         if(!q.passage.includes(`[${q.blank}]`))throw Error(`${i+1}번 Part 6: blank=${q.blank}인데 passage에 [${q.blank}] 표식이 없습니다.`);
