@@ -111,11 +111,16 @@ function selectImportPart(part){
   selectImportPlan('full');
   $('#importSubmit').textContent=`Part ${part} 등록하기`;
   $('#importError').classList.add('hidden');
+  $('#clearImport').classList.add('hidden');
 }
 document.querySelectorAll('[data-import-part]').forEach(button=>button.onclick=()=>selectImportPart(Number(button.dataset.importPart)));
 document.querySelectorAll('[data-prompt-mode]').forEach(button=>button.onclick=()=>selectImportPlan(button.dataset.promptMode));
 $('#openImport').onclick=()=>{selectImportPart(activePart);$('#importDialog').showModal()};$('#closeImport').onclick=()=>$('#importDialog').close();
-$('#importFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{$('#importText').value=await file.text();$('#importError').classList.add('hidden')}catch{$('#importError').textContent='파일을 읽지 못했어요. JSON 내용을 직접 붙여넣어 주세요.';$('#importError').classList.remove('hidden')}};
+function hideImportError(){$('#importError').classList.add('hidden');$('#clearImport').classList.add('hidden')}
+function showImportError(message){$('#importError').textContent=message;$('#importError').classList.remove('hidden');$('#clearImport').classList.remove('hidden')}
+$('#clearImport').onclick=()=>{$('#importText').value='';$('#importFile').value='';hideImportError();$('#importText').focus()};
+$('#importText').oninput=hideImportError;
+$('#importFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{$('#importText').value=await file.text();hideImportError()}catch{showImportError('파일을 읽지 못했어요. JSON 내용을 직접 붙여넣어 주세요.')}};
 $('#copyPrompt').onclick=async()=>{try{await navigator.clipboard.writeText($('#aiPrompt').textContent);$('#copyPrompt').textContent='복사했어요'}catch{$('#copyPrompt').textContent='위 요청문을 직접 복사해 주세요'}setTimeout(()=>$('#copyPrompt').textContent='요청문 복사',1800)};
 function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function countOccurrences(text, pattern){return (text.match(pattern)||[]).length}
@@ -290,7 +295,7 @@ function parseImportedJson(raw){
 }
 $('#importForm').onsubmit=e=>{
   e.preventDefault();
-  const raw=$('#importText').value.trim(), error=$('#importError');
+  const raw=$('#importText').value.trim();
   try{
     const parsed=parseImportedJson(raw),imported=parsed.items;
     if(!Array.isArray(imported)||!imported.length)throw Error('문제 배열이 아닙니다.');
@@ -328,8 +333,7 @@ $('#importForm').onsubmit=e=>{
     activePart=importPart;state=targetState;localStorage.setItem('toeic-active-part',activePart);currentIndex=0;
     $('#importDialog').close();$('#importText').value='';$('#importFile').value='';render();
   }catch(err){
-    error.textContent=`등록하지 못했어요: ${err.message}`;
-    error.classList.remove('hidden');
+    showImportError(`등록하지 못했어요: ${err.message}`);
   }
 };
 
