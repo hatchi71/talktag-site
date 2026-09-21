@@ -133,6 +133,29 @@ function countPart5Blanks(question){
   const normalized=normalizePart5Blank(question);
   return {question:normalized,count:(normalized.match(/-{7}/g)||[]).length};
 }
+function normalizeNumericMarkers(text){
+  return String(text)
+    .replace(/［\s*(\d+)\s*］/g,'[$1]')
+    .replace(/\[\s*(\d+)\s*\]/g,'[$1]');
+}
+function normalizePart6Passage(passage){
+  let text=normalizeNumericMarkers(passage);
+  text=text.replace(/(\[(?:13[1-9]|14[0-6])\])\s*(?:[-‐‑‒–—―−﹘﹣－_]\s*){3,}/g,'$1 -------');
+  text=text.replace(/(\[(?:13[1-9]|14[0-6])\])\s*\[(?:blank|빈칸)\]/gi,'$1 -------');
+  return text;
+}
+function normalizePart7Structure(q){
+  if(Array.isArray(q.passages)){
+    q.passages=q.passages.map(doc=>({...doc,text:normalizeNumericMarkers(doc.text)}));
+  }
+  if(q.questionType==='sentence-insertion'&&Array.isArray(q.choices)){
+    q.choices=q.choices.map(choice=>{
+      const m=String(choice).match(/^\s*[［\[]\s*([1-4])\s*[］\]]\s*$/);
+      return m?`[${m[1]}]`:String(choice);
+    });
+  }
+  return q;
+}
 function validateAnswerRun(items, label){
   let run=1;
   for(let i=1;i<items.length;i++){
@@ -315,7 +338,10 @@ $('#importForm').onsubmit=e=>{
       const part=Number(q.part);
       if(![5,6,7].includes(part))throw Error(`${i+1}번 part는 5, 6, 7이어야 합니다.`);
       if(new Set(q.choices.map(c=>c.trim().toLowerCase())).size!==4)throw Error(`${i+1}번 보기에 중복이 있습니다.`);
-      if(part===7)validatePart7Question(q,`${i+1}번`);
+      if(part===7){
+        q=normalizePart7Structure(q);
+        validatePart7Question(q,`${i+1}번`);
+      }
       if(part===5){
         const blankCheck=countPart5Blanks(q.question);
         q.question=blankCheck.question;
@@ -323,9 +349,10 @@ $('#importForm').onsubmit=e=>{
       }
       if(part===6){
         if(typeof q.passage!=='string'||!q.passage.trim()||typeof q.setTitle!=='string'||!q.setTitle.trim()||typeof q.passageType!=='string'||!q.passageType.trim()||!Number.isInteger(q.blank)||q.blank<131||q.blank>146)throw Error(`${i+1}번 Part 6의 setTitle/passageType/passage/blank 형식을 확인해 주세요.`);
-        if(!q.passage.includes(`[${q.blank}]`))throw Error(`${i+1}번 Part 6: blank=${q.blank}인데 passage에 [${q.blank}] 표식이 없습니다.`);
+        q.passage=normalizePart6Passage(q.passage);
+        if(!q.passage.includes(`[${q.blank}]`))throw Error(`${i+1}번 Part 6: blank=${q.blank}인데 passage에 [${q.blank}] 표식이 없습니다. 전각 괄호나 괄호 안 공백은 자동 보정됩니다.`);
         const paired=new RegExp(`\\[${q.blank}\\]\\s*-{7}`);
-        if(!paired.test(q.passage))throw Error(`${i+1}번 Part 6: [${q.blank}] 뒤에 ------- 빈칸이 없습니다.`);
+        if(!paired.test(q.passage))throw Error(`${i+1}번 Part 6: [${q.blank}] 뒤의 빈칸을 인식하지 못했습니다. 하이픈/긴 대시/밑줄/[blank] 표시는 자동 보정됩니다.`);
       }
       return {id:crypto.randomUUID(),part,question:q.question,choices:q.choices.map(String),answer,translation:q.translation,vocab:q.vocab,explanation:q.explanation,...(part===6?{passage:q.passage,setTitle:q.setTitle,passageType:q.passageType,blank:q.blank}:{}),...(part===7?{questionNumber:q.questionNumber,setId:q.setId,setTitle:q.setTitle,questionType:q.questionType,passages:q.passages,evidence:q.evidence,optionReasons:q.optionReasons}:{})};
     });
