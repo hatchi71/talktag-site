@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영어만점 TOEIC · LC & RC</title>
-    <link rel="stylesheet" href="style.css?v=7" />
+    <link rel="stylesheet" href="style.css?v=8" />
     <link rel="stylesheet" href="import.css?v=2" />
     <link rel="stylesheet" href="delete.css?v=4" />
   <script src="/talktag-home.js?v=1" defer></script>
@@ -299,6 +299,7 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
         <label class="fileUpload">JSON 파일 선택<input type="file" id="importFile" accept=".json,application/json,text/plain" /></label>
         <label>또는 AI가 만든 JSON 붙여넣기<textarea name="importText" id="importText" placeholder="선택한 파트의 JSON 배열을 붙여넣으세요."></textarea></label>
         <p id="importError" class="importError hidden"></p>
+        <button type="button" id="clearImport" class="clearImportButton hidden">입력 내용 지우기</button>
         <div class="modalActions"><span class="importHint" id="importHint"></span><button class="primary" type="submit" id="importSubmit">Part 5 등록하기</button></div>
       </form>
     </dialog>
@@ -311,6 +312,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
         <div class="cardFoot"><span class="status">아직 풀지 않음</span><div class="cardActions"><button class="deleteButton">현재 문제 삭제</button><button class="prevButton">← 이전 문제</button><button class="nextButton">다음 문제 →</button></div></div>
       </article>
     </template>
-    <script src="app.js?v=22"></script>
+    <script src="app.js?v=23"></script>
   </body>
 </html>
