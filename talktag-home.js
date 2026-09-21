@@ -25,16 +25,16 @@
         </section>
         <section class="home-news">
           <a class="feature-card snow" href="snowballing-studio.html">
-            <small>NEW FEATURE · SNOWBALLING STUDIO</small>
-            <h3>Turn what you learn<br>into lasting language.</h3>
-            <p>Grow your words through repetition, variation and real production.</p>
-            <strong>EXPLORE NOW →</strong>
+            <small>새 소식 · 스노우볼링 스튜디오</small>
+            <h3>듣고 따라 말하며<br>영어를 내 것으로 만들어요.</h3>
+            <p>작은 표현부터 차근차근 반복하고 연결하며 실제로 말할 수 있는 영어를 만들어 갑니다.</p>
+            <strong>스노우볼링 스튜디오 둘러보기 →</strong>
           </a>
-          <a class="feature-card readable" href="readable.html">
-            <small>NEWS · READABLE LIBRARY</small>
-            <h3>Real content.<br>Real progress.</h3>
-            <p>Explore short, engaging readings across levels — from everyday topics to big ideas.</p>
-            <strong>BROWSE LIBRARY →</strong>
+          <a class="feature-card readable" href="toeic-part5.html">
+            <small>새 소식 · 토익 모의고사 웹앱</small>
+            <h3>실전처럼 풀고,<br>바로 확인하세요.</h3>
+            <p>토익 실전 연습문제를 웹에서 풀고 정답과 해설을 확인하며 시험 감각을 키울 수 있습니다.</p>
+            <strong>토익 모의고사 시작하기 →</strong>
           </a>
         </section>`;
 
