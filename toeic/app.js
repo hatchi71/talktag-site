@@ -126,8 +126,12 @@ function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&am
 function countOccurrences(text, pattern){return (text.match(pattern)||[]).length}
 function normalizePart5Blank(question){
   return String(question)
-    .replace(/[‐‑‒–—―﹘﹣－_\-]{5,}/g,'-------')
-    .replace(/(?:[‐‑‒–—―﹘﹣－_\-]\s*){5,}/g,'-------');
+    .replace(/(?:[-‐‑‒–—―−﹘﹣－_]\s*){3,}/g,'-------')
+    .replace(/\[(?:blank|빈칸)\]/gi,'-------');
+}
+function countPart5Blanks(question){
+  const normalized=normalizePart5Blank(question);
+  return {question:normalized,count:(normalized.match(/-{7}/g)||[]).length};
 }
 function validateAnswerRun(items, label){
   let run=1;
@@ -313,8 +317,9 @@ $('#importForm').onsubmit=e=>{
       if(new Set(q.choices.map(c=>c.trim().toLowerCase())).size!==4)throw Error(`${i+1}번 보기에 중복이 있습니다.`);
       if(part===7)validatePart7Question(q,`${i+1}번`);
       if(part===5){
-        q.question=normalizePart5Blank(q.question);
-        if(countOccurrences(q.question,/-{7}/g)!==1)throw Error(`${i+1}번 Part 5 문장에는 ------- 빈칸이 정확히 1개 있어야 합니다. 복사 과정에서 하이픈이 긴 대시(—)나 밑줄로 바뀌었는지도 확인해 주세요.`);
+        const blankCheck=countPart5Blanks(q.question);
+        q.question=blankCheck.question;
+        if(blankCheck.count!==1)throw Error(`${i+1}번 Part 5 문장의 빈칸을 인식하지 못했습니다. 하이픈/긴 대시/밑줄/[blank] 표시는 자동 보정되며, 빈칸 표시는 문장에 정확히 1개만 있어야 합니다.`);
       }
       if(part===6){
         if(typeof q.passage!=='string'||!q.passage.trim()||typeof q.setTitle!=='string'||!q.setTitle.trim()||typeof q.passageType!=='string'||!q.passageType.trim()||!Number.isInteger(q.blank)||q.blank<131||q.blank>146)throw Error(`${i+1}번 Part 6의 setTitle/passageType/passage/blank 형식을 확인해 주세요.`);
