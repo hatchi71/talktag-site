@@ -30,7 +30,7 @@
             <p>작은 표현부터 차근차근 반복하고 연결하며 실제로 말할 수 있는 영어를 만들어 갑니다.</p>
             <strong>스노우볼링 스튜디오 둘러보기 →</strong>
           </a>
-          <a class="feature-card readable" href="toeic-part5.html">
+          <a class="feature-card readable" href="toeic/">
             <div class="news-label">새 소식 · 토익 모의고사 웹앱</div>
             <h3>실전처럼 풀고,<br>바로 확인하세요.</h3>
             <p>토익 실전 연습문제를 웹에서 풀고 정답과 해설을 확인하며 시험 감각을 키울 수 있습니다.</p>
