@@ -14,15 +14,17 @@
           <div class="mission-rule"></div>
           <div class="mission-foot">A BRIGHTER YOU THROUGH A RICHER TOMORROW</div>
         </section>
-        <section class="logic-stack" aria-label="Language grows step by step">
-          <div class="stack-flag">A More<br>Confident You</div>
-          <div class="stack-block fluent"><span>✦</span><b>Fluent<br>Expression</b></div>
-          <div class="stack-block natural"><span>•••</span><b>Natural<br>Communication</b></div>
-          <div class="stack-block logic"><span>✚</span><b>Stronger<br>Language Logic</b></div>
-          <div class="stack-block chunks"><span>▣</span><b>Useful Chunks<br>&amp; Patterns</b></div>
-          <div class="stack-block daily"><span>♧</span><b>Small<br>Daily Practice</b></div>
-          <div class="stack-note">Small Pieces<br>Big Progress! ↗</div>
-        </section>
+        <figure class="character-visual" aria-label="Language grows step by step">
+          <img src="assets/talktag-woman-learning-blocks.png" alt="색색의 학습 블록을 쌓는 여성 학습자">
+          <div class="block-labels" aria-label="TalkTag learning progression">
+            <span class="block-label label-goal">A More<br>Confident You</span>
+            <span class="block-label label-fluent">Fluent<br>Expression</span>
+            <span class="block-label label-natural">Natural<br>Communication</span>
+            <span class="block-label label-logic">Stronger<br>Language Logic</span>
+            <span class="block-label label-chunks">Useful Chunks<br>&amp; Patterns</span>
+            <span class="block-label label-daily">Small<br>Daily Practice</span>
+          </div>
+        </figure>
         <section class="home-news">
           <a class="feature-card snow" href="snowballing-studio.html">
             <div class="news-label">새 소식 · 스노우볼링 스튜디오</div>
@@ -40,7 +42,7 @@
 
       const style = document.createElement('style');
       style.textContent = `
-        #home .mission-home{min-width:0;min-height:820px;position:relative;padding:52px 46px 40px;overflow:auto}
+        #home .mission-home{min-width:0;min-height:900px;position:relative;padding:52px 46px 40px;overflow:auto}
         #home+.ai-panel,.view#home .ai-panel{display:none!important}
         .mission-copy{width:min(52%,650px);position:relative;z-index:2}
         .mission-kicker{font-size:12px;font-weight:900;letter-spacing:.22em;color:#8aa0c4;margin-bottom:18px}
@@ -50,22 +52,19 @@
         .mission-body{font-size:clamp(14px,1.2vw,18px);line-height:1.65;color:#526d91;margin:0}.mission-body b{color:#173d79}
         .mission-rule{width:42px;height:3px;background:#1768e9;margin:24px 0 14px;border-radius:99px}
         .mission-foot{font-size:10px;font-weight:850;letter-spacing:.2em;color:#9bacc7}
-        .logic-stack{position:absolute;right:7%;top:62px;width:330px;height:500px;z-index:1}
-        .stack-block{position:absolute;right:0;width:245px;height:84px;border-radius:22px;box-shadow:0 15px 28px rgba(34,67,110,.12);display:flex;align-items:center;gap:18px;padding:0 28px;color:#143d78;border:1px solid rgba(255,255,255,.7)}
-        .stack-block span{font-size:24px;font-weight:900}.stack-block b{font-size:15px;line-height:1.12}.fluent{top:48px;right:32px;background:#fff2dc}.natural{top:126px;right:14px;background:#dbeaff}.logic{top:204px;right:27px;background:#d8f3df}.chunks{top:282px;right:7px;background:#ffdcd5}.daily{top:360px;right:35px;background:#dedcff}
-        .stack-flag{position:absolute;right:-5px;top:0;background:#ff6a10;color:#fff;padding:10px 18px;border-radius:5px 18px 18px 5px;font-size:14px;font-weight:850;line-height:1.05;transform:rotate(3deg);box-shadow:0 8px 18px rgba(255,106,16,.2)}
-        .stack-note{position:absolute;left:-2px;top:325px;color:#5676aa;font:700 14px/1.3 cursive;transform:rotate(-8deg)}
-        .home-news{position:absolute;left:46px;right:46px;top:590px;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:42px}
+        .character-visual{position:absolute;right:3.5%;top:18px;width:min(42%,470px);margin:0;z-index:1}
+        .character-visual>img{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 26px rgba(30,64,104,.14))}
+        .block-labels{position:absolute;inset:0;z-index:2;pointer-events:none}.block-label{position:absolute;left:34.5%;width:28%;transform:translate(-50%,-50%);color:#143d78;text-align:center;font-size:clamp(8px,.9vw,12px);font-weight:950;line-height:1.05;letter-spacing:-.025em;text-shadow:0 1px 0 rgba(255,255,255,.3)}.label-goal{top:39%;color:#fff;text-shadow:0 1px 2px rgba(108,50,0,.32)}.label-fluent{top:49.3%}.label-natural{top:58.1%}.label-logic{top:67.2%}.label-chunks{top:76.3%}.label-daily{top:85.4%}
+        .home-news{position:absolute;left:46px;right:46px;top:635px;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:42px}
         .feature-card{display:block;text-decoration:none;border-radius:24px;padding:24px 28px;min-height:190px;box-shadow:0 16px 36px rgba(24,52,85,.09);transition:transform .18s ease,box-shadow .18s ease}.feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(24,52,85,.14)}
         .feature-card.snow{background:linear-gradient(145deg,#fff8bf,#fff2a4)}.feature-card.readable{background:linear-gradient(145deg,#fff,#f1f6ff);border:1px solid #e1e9f5}
         .feature-card small{font-size:14px;font-weight:950;letter-spacing:.08em;color:#526f9e}.feature-card .news-label{font-size:18.9px!important;font-weight:950!important;line-height:1.2;color:#e8792f!important;letter-spacing:-.025em;margin-bottom:12px}.feature-card h3{font-size:30px;line-height:1.04;letter-spacing:-.045em;color:#082b68;margin:12px 0;font-weight:950}.feature-card p{font-size:13px;line-height:1.45;color:#617797;margin:0 0 14px}.feature-card strong{font-size:11px;color:#1768e9;letter-spacing:.04em}
         @media(max-width:820px){
-          #home .mission-home{min-height:1180px;padding:28px 20px 34px;overflow:hidden}
+          #home .mission-home{min-height:1480px;padding:28px 20px 34px;overflow:hidden}
           .mission-copy{width:100%}.mission-kicker{font-size:9px;margin-bottom:12px}.mission-copy h1{font-size:47px;line-height:.96;margin-bottom:20px}
           .mission-lead{font-size:17px;line-height:1.48;margin-bottom:12px}.mission-body{font-size:13px;line-height:1.62}.mission-foot{font-size:7px;letter-spacing:.16em}.mission-rule{margin:18px 0 10px}
-          .logic-stack{position:relative;right:auto;top:auto;width:100%;height:330px;margin-top:18px;transform:scale(.82);transform-origin:top center}
-          .stack-block{width:225px;height:68px;border-radius:18px;padding:0 22px}.stack-block b{font-size:13px}.stack-block span{font-size:20px}.fluent{top:38px;right:42px}.natural{top:101px;right:27px}.logic{top:164px;right:39px}.chunks{top:227px;right:22px}.daily{top:290px;right:45px}.stack-flag{right:13px;top:0;font-size:11px;padding:8px 13px}.stack-note{left:5px;top:218px;font-size:12px}
-          .home-news{position:relative;left:auto;right:auto;top:auto;display:grid;grid-template-columns:1fr;gap:14px;margin-top:-20px;padding-bottom:40px}.feature-card{min-height:0;padding:20px 21px;border-radius:20px}.feature-card h3{font-size:27px;font-weight:950}.feature-card small{font-size:13px;font-weight:950}.feature-card .news-label{font-size:17.85px!important;font-weight:950!important;line-height:1.2;color:#e8792f!important}.feature-card p{font-size:12px}
+          .character-visual{position:relative;right:auto;top:auto;width:min(100%,560px);margin:24px auto 0}.block-label{font-size:clamp(9px,2.5vw,13px)}
+          .home-news{position:relative;left:auto;right:auto;top:auto;display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px;padding-bottom:40px}.feature-card{min-height:0;padding:20px 21px;border-radius:20px}.feature-card h3{font-size:27px;font-weight:950}.feature-card small{font-size:13px;font-weight:950}.feature-card .news-label{font-size:17.85px!important;font-weight:950!important;line-height:1.2;color:#e8792f!important}.feature-card p{font-size:12px}
         }
       `;
       document.head.appendChild(style);
