@@ -1,13 +1,36 @@
 (() => {
   const isJapaneseHome = /\/japanese\.html$/.test(location.pathname);
-  const isHome = location.pathname === '/' || /\/index\.html$/.test(location.pathname) || isJapaneseHome;
+  const isKoreanHome = /\/korean\.html$/.test(location.pathname);
+  const isHome = location.pathname === '/' || /\/index\.html$/.test(location.pathname) || isJapaneseHome || isKoreanHome;
 
   if (isHome) {
     const home = document.querySelector('#home .stage');
     if (home && !home.classList.contains('mission-home')) {
       home.classList.add('mission-home');
       if (isJapaneseHome) home.classList.add('mission-home-ja');
-      const copy = isJapaneseHome ? {
+      if (isKoreanHome) home.classList.add('mission-home-ko');
+      const copy = isKoreanHome ? {
+        title: 'Learn Korean,<br>one piece<br><em>at a time.</em>',
+        lead: 'Learning Korean is like building with small pieces,<br>one clear step at a time.',
+        body: 'TalkTag helps Korean learners build strong language <b>LOGIC</b><br>through English guidance—then turn it into<br>Korean they can actually use.',
+        figureLabel: 'Small Korean learning steps building toward confident communication',
+        imageAlt: 'A learner stacking colorful Korean language learning blocks',
+        goal: 'A More Confident<br>Korean Speaker',
+        fluent: 'Natural Korean<br>Expression',
+        natural: 'Real Korean<br>Communication',
+        logic: 'Stronger<br>Korean Logic',
+        chunks: 'Useful Korean<br>Chunks &amp; Patterns',
+        daily: 'Small Daily<br>Practice',
+        snowLabel: 'NEW · KOREAN SNOWBALLING',
+        snowTitle: 'Listen, repeat,<br>and make Korean yours.',
+        snowBody: 'Build short Korean expressions through guided repetition, retrieval, and real speaking practice.',
+        snowAction: 'EXPLORE KOREAN SNOWBALLING →',
+        secondLabel: 'NEW · LANGUAGE EXCHANGE',
+        secondTitle: 'Learn together,<br>through real exchange.',
+        secondBody: 'Korean speakers and international learners share languages, culture, and useful everyday expressions in one community.',
+        secondAction: 'EXPLORE LEADER SPACE →',
+        secondHref: 'korean.html?view=leader'
+      } : isJapaneseHome ? {
         title: '日本語を、<br>ひとつずつ、<br><em>自分のものに。</em>',
         lead: '일본어를 익히는 것은 작은 조각을<br>하나씩 차근차근 쌓아가는 것과 같아요.',
         body: 'TalkTag는 한국인 일본어 학습자가<br>기초부터 탄탄한 일본어 <b>LOGIC</b>을 만들고<br>실제로 말할 수 있도록 도와드립니다.',
@@ -101,6 +124,7 @@
         .character-visual>img{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 26px rgba(30,64,104,.14))}
         .block-labels{position:absolute;inset:0;z-index:2;pointer-events:none}.block-label{position:absolute;left:34.5%;width:28%;transform:translate(-50%,-50%);color:#143d78;text-align:center;font-size:clamp(8px,.9vw,12px);font-weight:950;line-height:1.05;letter-spacing:-.025em;text-shadow:0 1px 0 rgba(255,255,255,.3)}.label-goal{top:39%;color:#fff;text-shadow:0 1px 2px rgba(108,50,0,.32)}.label-fluent{top:49.3%}.label-natural{top:58.1%}.label-logic{top:67.2%}.label-chunks{top:76.3%}.label-daily{top:85.4%}
         .mission-home-ja .mission-copy h1{font-family:"Noto Sans JP","Noto Sans KR",Inter,system-ui,sans-serif;font-size:clamp(46px,5.1vw,72px);letter-spacing:-.055em}.mission-home-ja .mission-lead,.mission-home-ja .mission-body,.mission-home-ja .feature-card{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif}.mission-home-ja .block-label{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif;font-size:clamp(7px,.78vw,11px);line-height:1.16;letter-spacing:-.06em}
+        .mission-home-ko .mission-copy h1{font-size:clamp(46px,5.2vw,74px)}.mission-home-ko .block-label{font-size:clamp(7px,.75vw,10px);line-height:1.12}.mission-home-ko .label-goal{font-size:clamp(6px,.67vw,9px)}
         .home-news{position:absolute;left:46px;right:46px;top:635px;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:42px}
         .feature-card{display:block;text-decoration:none;border-radius:24px;padding:24px 28px;min-height:190px;box-shadow:0 16px 36px rgba(24,52,85,.09);transition:transform .18s ease,box-shadow .18s ease}.feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(24,52,85,.14)}
         .feature-card.snow{background:linear-gradient(145deg,#fff8bf,#fff2a4)}.feature-card.readable{background:linear-gradient(145deg,#fff,#f1f6ff);border:1px solid #e1e9f5}
@@ -111,6 +135,7 @@
           .mission-lead{font-size:17px;line-height:1.48;margin-bottom:12px}.mission-body{font-size:13px;line-height:1.62}.mission-foot{font-size:7px;letter-spacing:.16em}.mission-rule{margin:18px 0 10px}
           .character-visual{position:relative;right:auto;top:auto;width:min(100%,560px);margin:24px auto 0}.block-label{font-size:clamp(9px,2.5vw,13px)}
           .mission-home-ja .mission-copy h1{font-size:42px;line-height:1.08}.mission-home-ja .block-label{font-size:clamp(8px,2.2vw,12px)}
+          .mission-home-ko .mission-copy h1{font-size:44px;line-height:1}.mission-home-ko .block-label{font-size:clamp(7px,2vw,11px)}.mission-home-ko .label-goal{font-size:clamp(6px,1.75vw,9px)}
           .home-news{position:relative;left:auto;right:auto;top:auto;display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px;padding-bottom:40px}.feature-card{min-height:0;padding:20px 21px;border-radius:20px}.feature-card h3{font-size:27px;font-weight:950}.feature-card small{font-size:13px;font-weight:950}.feature-card .news-label{font-size:17.85px!important;font-weight:950!important;line-height:1.2;color:#e8792f!important}.feature-card p{font-size:12px}
         }
       `;
