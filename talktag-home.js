@@ -1,42 +1,87 @@
 (() => {
-  const isHome = location.pathname === '/' || /\/index\.html$/.test(location.pathname);
+  const isJapaneseHome = /\/japanese\.html$/.test(location.pathname);
+  const isHome = location.pathname === '/' || /\/index\.html$/.test(location.pathname) || isJapaneseHome;
 
   if (isHome) {
     const home = document.querySelector('#home .stage');
     if (home && !home.classList.contains('mission-home')) {
       home.classList.add('mission-home');
+      if (isJapaneseHome) home.classList.add('mission-home-ja');
+      const copy = isJapaneseHome ? {
+        title: '日本語を、<br>ひとつずつ、<br><em>自分のものに。</em>',
+        lead: '일본어를 익히는 것은 작은 조각을<br>하나씩 차근차근 쌓아가는 것과 같아요.',
+        body: 'TalkTag는 한국인 일본어 학습자가<br>기초부터 탄탄한 일본어 <b>LOGIC</b>을 만들고<br>실제로 말할 수 있도록 도와드립니다.',
+        figureLabel: '작은 일본어 학습을 쌓아 자신 있는 소통으로 이어가는 과정',
+        imageAlt: '색색의 일본어 학습 블록을 쌓는 여성 학습자',
+        goal: '더 자신 있는<br>나로',
+        fluent: '유창한<br>일본어 표현',
+        natural: '자연스러운<br>일본어 소통',
+        logic: '탄탄한<br>일본어 로직',
+        chunks: '쓸 수 있는 청크<br>&amp; 패턴',
+        daily: '매일 작은<br>연습',
+        snowLabel: '새 소식 · 일본어 스노우볼링',
+        snowTitle: '듣고 따라 말하며<br>일본어를 내 것으로 만들어요.',
+        snowBody: '작은 표현부터 차근차근 반복하고 연결하며 실제로 말할 수 있는 일본어를 만들어 갑니다.',
+        snowAction: '스노우볼링 스튜디오 둘러보기 →',
+        secondLabel: '새 소식 · 일본어 리더블',
+        secondTitle: '읽고 떠올리며<br>대화로 연결해요.',
+        secondBody: '짧은 일본어 글을 읽고 핵심 의미와 표현을 기억에서 꺼내 실제 대화로 이어갑니다.',
+        secondAction: '리더블 라이브러리 둘러보기 →',
+        secondHref: 'readable.html'
+      } : {
+        title: 'Build your<br>language,<br><em>piece by piece.</em>',
+        lead: '언어를 익히는 것은 조그마한 조각을<br>차근차근 쌓아가는 것과 같아요.',
+        body: '톡택에서는 초보부터 중급까지 외국어 학습자가<br>기초부터 탄탄한 언어 <b>LOGIC</b>을 만들도록<br>안내하고 도와드립니다.',
+        figureLabel: 'Language grows step by step',
+        imageAlt: '색색의 학습 블록을 쌓는 여성 학습자',
+        goal: 'A More<br>Confident You',
+        fluent: 'Fluent<br>Expression',
+        natural: 'Natural<br>Communication',
+        logic: 'Stronger<br>Language Logic',
+        chunks: 'Useful Chunks<br>&amp; Patterns',
+        daily: 'Small<br>Daily Practice',
+        snowLabel: '새 소식 · 스노우볼링 스튜디오',
+        snowTitle: '듣고 따라 말하며<br>영어를 내 것으로 만들어요.',
+        snowBody: '작은 표현부터 차근차근 반복하고 연결하며 실제로 말할 수 있는 영어를 만들어 갑니다.',
+        snowAction: '스노우볼링 스튜디오 둘러보기 →',
+        secondLabel: '새 소식 · 토익 모의고사 웹앱',
+        secondTitle: '실전처럼 풀고,<br>바로 확인하세요.',
+        secondBody: '토익 실전 연습문제를 웹에서 풀고 정답과 해설을 확인하며 시험 감각을 키울 수 있습니다.',
+        secondAction: '토익 모의고사 시작하기 →',
+        secondHref: 'toeic/'
+      };
       home.innerHTML = `
         <section class="mission-copy">
           <div class="mission-kicker">SMALL STEPS · BIGGER YOU</div>
-          <h1>Build your<br>language,<br><em>piece by piece.</em></h1>
-          <p class="mission-lead">언어를 익히는 것은 조그마한 조각을<br>차근차근 쌓아가는 것과 같아요.</p>
-          <p class="mission-body">톡택에서는 초보부터 중급까지 외국어 학습자가<br>기초부터 탄탄한 언어 <b>LOGIC</b>을 만들도록<br>안내하고 도와드립니다.</p>
+          <h1>${copy.title}</h1>
+          <p class="mission-lead">${copy.lead}</p>
+          <p class="mission-body">${copy.body}</p>
           <div class="mission-rule"></div>
           <div class="mission-foot">A BRIGHTER YOU THROUGH A RICHER TOMORROW</div>
         </section>
-        <figure class="character-visual" aria-label="Language grows step by step">
-          <img src="assets/talktag-woman-learning-blocks.png" alt="색색의 학습 블록을 쌓는 여성 학습자">
+        <figure class="character-visual" aria-label="${copy.figureLabel}">
+          <img src="assets/talktag-woman-learning-blocks.png" alt="${copy.imageAlt}">
           <div class="block-labels" aria-label="TalkTag learning progression">
-            <span class="block-label label-goal">A More<br>Confident You</span>
-            <span class="block-label label-fluent">Fluent<br>Expression</span>
-            <span class="block-label label-natural">Natural<br>Communication</span>
-            <span class="block-label label-logic">Stronger<br>Language Logic</span>
-            <span class="block-label label-chunks">Useful Chunks<br>&amp; Patterns</span>
-            <span class="block-label label-daily">Small<br>Daily Practice</span>
+            <span class="block-label label-goal">${copy.goal}</span>
+            <span class="block-label label-fluent">${copy.fluent}</span>
+            <span class="block-label label-natural">${copy.natural}</span>
+            <span class="block-label label-logic">${copy.logic}</span>
+            <span class="block-label label-chunks">${copy.chunks}</span>
+            <span class="block-label label-daily">${copy.daily}</span>
           </div>
         </figure>
         <section class="home-news">
           <a class="feature-card snow" href="snowballing-studio.html">
-            <div class="news-label">새 소식 · 스노우볼링 스튜디오</div>
-            <h3>듣고 따라 말하며<br>영어를 내 것으로 만들어요.</h3>
-            <p>작은 표현부터 차근차근 반복하고 연결하며 실제로 말할 수 있는 영어를 만들어 갑니다.</p>
-            <strong>스노우볼링 스튜디오 둘러보기 →</strong>
+            <div class="news-label">${copy.snowLabel}</div>
+            <h3>${copy.snowTitle}</h3>
+            <p>${copy.snowBody}</p>
+            <strong>${copy.snowAction}</strong>
           </a>
-          <a class="feature-card readable" href="toeic/">
-            <div class="news-label">새 소식 · 토익 모의고사 웹앱</div>
-            <h3>실전처럼 풀고,<br>바로 확인하세요.</h3>
-            <p>토익 실전 연습문제를 웹에서 풀고 정답과 해설을 확인하며 시험 감각을 키울 수 있습니다.</p>
-            <strong>토익 모의고사 시작하기 →</strong>
+          <a class="feature-card readable" href="${copy.secondHref}">
+            <div class="news-label">${copy.secondLabel}</div>
+            <h3>${copy.secondTitle}</h3>
+            <p>${copy.secondBody}</p>
+            <strong>${copy.secondAction}</strong>
           </a>
         </section>`;
 
@@ -55,6 +100,7 @@
         .character-visual{position:absolute;right:3.5%;top:18px;width:min(42%,470px);margin:0;z-index:1}
         .character-visual>img{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 26px rgba(30,64,104,.14))}
         .block-labels{position:absolute;inset:0;z-index:2;pointer-events:none}.block-label{position:absolute;left:34.5%;width:28%;transform:translate(-50%,-50%);color:#143d78;text-align:center;font-size:clamp(8px,.9vw,12px);font-weight:950;line-height:1.05;letter-spacing:-.025em;text-shadow:0 1px 0 rgba(255,255,255,.3)}.label-goal{top:39%;color:#fff;text-shadow:0 1px 2px rgba(108,50,0,.32)}.label-fluent{top:49.3%}.label-natural{top:58.1%}.label-logic{top:67.2%}.label-chunks{top:76.3%}.label-daily{top:85.4%}
+        .mission-home-ja .mission-copy h1{font-family:"Noto Sans JP","Noto Sans KR",Inter,system-ui,sans-serif;font-size:clamp(46px,5.1vw,72px);letter-spacing:-.055em}.mission-home-ja .mission-lead,.mission-home-ja .mission-body,.mission-home-ja .feature-card{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif}.mission-home-ja .block-label{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif;font-size:clamp(7px,.78vw,11px);line-height:1.16;letter-spacing:-.06em}
         .home-news{position:absolute;left:46px;right:46px;top:635px;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:42px}
         .feature-card{display:block;text-decoration:none;border-radius:24px;padding:24px 28px;min-height:190px;box-shadow:0 16px 36px rgba(24,52,85,.09);transition:transform .18s ease,box-shadow .18s ease}.feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(24,52,85,.14)}
         .feature-card.snow{background:linear-gradient(145deg,#fff8bf,#fff2a4)}.feature-card.readable{background:linear-gradient(145deg,#fff,#f1f6ff);border:1px solid #e1e9f5}
@@ -64,6 +110,7 @@
           .mission-copy{width:100%}.mission-kicker{font-size:9px;margin-bottom:12px}.mission-copy h1{font-size:47px;line-height:.96;margin-bottom:20px}
           .mission-lead{font-size:17px;line-height:1.48;margin-bottom:12px}.mission-body{font-size:13px;line-height:1.62}.mission-foot{font-size:7px;letter-spacing:.16em}.mission-rule{margin:18px 0 10px}
           .character-visual{position:relative;right:auto;top:auto;width:min(100%,560px);margin:24px auto 0}.block-label{font-size:clamp(9px,2.5vw,13px)}
+          .mission-home-ja .mission-copy h1{font-size:42px;line-height:1.08}.mission-home-ja .block-label{font-size:clamp(8px,2.2vw,12px)}
           .home-news{position:relative;left:auto;right:auto;top:auto;display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px;padding-bottom:40px}.feature-card{min-height:0;padding:20px 21px;border-radius:20px}.feature-card h3{font-size:27px;font-weight:950}.feature-card small{font-size:13px;font-weight:950}.feature-card .news-label{font-size:17.85px!important;font-weight:950!important;line-height:1.2;color:#e8792f!important}.feature-card p{font-size:12px}
         }
       `;
