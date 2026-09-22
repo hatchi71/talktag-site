@@ -127,8 +127,7 @@
         .mission-home-ja .mission-copy h1{font-family:"Noto Sans JP","Noto Sans KR",Inter,system-ui,sans-serif;font-size:clamp(46px,5.1vw,72px);letter-spacing:-.055em}.mission-home-ja .mission-lead,.mission-home-ja .mission-body,.mission-home-ja .feature-card{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif}.mission-home-ja .block-label{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif;font-size:clamp(7px,.78vw,11px);line-height:1.16;letter-spacing:-.06em}
         .mission-home-ko .mission-copy h1{font-size:clamp(46px,5.2vw,74px)}.mission-home-ko .block-label{font-size:clamp(7px,.75vw,10px);line-height:1.12}.mission-home-ko .label-goal{font-size:clamp(6px,.67vw,9px)}
         .floating-share{position:relative;right:auto;top:auto;z-index:30;width:52px;height:52px;display:grid;place-items:center;flex:0 0 52px;padding:0;border:1px solid rgba(181,205,238,.95);border-radius:18px;background:rgba(255,255,255,.94);color:#1768e9;box-shadow:0 8px 22px rgba(24,52,85,.12);cursor:pointer;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}.floating-share:hover,.floating-share[aria-expanded="true"]{transform:translateY(-2px);background:#edf5ff;box-shadow:0 12px 28px rgba(24,52,85,.18)}.floating-share:focus-visible{outline:3px solid rgba(23,104,233,.28);outline-offset:3px}.floating-share svg{width:23px;height:23px;display:block}
-        .floating-language{position:relative;right:auto;top:auto;z-index:30;width:56px;height:56px;display:grid;place-items:center;flex:0 0 56px;padding:0;border:2px solid #1768e9;border-radius:19px;background:rgba(255,255,255,.97);color:#1768e9;box-shadow:0 8px 22px rgba(24,52,85,.13);cursor:pointer;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}.floating-language:hover,.floating-language[aria-expanded="true"]{transform:translateY(-2px);background:#edf5ff;box-shadow:0 12px 28px rgba(24,52,85,.2)}.floating-language:focus-visible{outline:3px solid rgba(23,104,233,.28);outline-offset:3px}.floating-language svg{width:30px;height:30px;display:block}.language-current{position:absolute;right:-5px;bottom:-5px;min-width:29px;height:22px;display:grid;place-items:center;padding:0 6px;border:2px solid #fff;border-radius:999px;background:#1768e9;color:#fff;font-size:10px;font-weight:950;line-height:1;box-shadow:0 4px 10px rgba(23,104,233,.28)}
-        .language-menu{position:absolute;right:88px;top:108px;z-index:32;width:230px;padding:10px;border:1px solid #dce6f3;border-radius:20px;background:rgba(255,255,255,.98);box-shadow:0 22px 52px rgba(24,52,85,.22);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}.language-menu[hidden]{display:none}.language-option{min-height:56px;display:grid;grid-template-columns:42px 1fr 24px;align-items:center;gap:12px;padding:7px 10px;border-radius:14px;color:#183455;text-decoration:none;font-size:15px;font-weight:850}.language-option:hover,.language-option:focus-visible{background:#eef5ff;outline:0}.language-option.active{background:#e7f1ff;color:#1768e9}.language-code{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#edf1f7;color:#28466f;font-size:13px;font-weight:950}.language-option.active .language-code{background:#1768e9;color:#fff}.language-name{white-space:nowrap}.language-check{font-size:20px;font-weight:950;text-align:center;color:#1768e9}
+        .language-switch.language-tabs{height:auto;display:flex;align-items:center;gap:8px;padding:0;border:0;background:transparent}.language-tabs-label{margin-right:4px;color:#71839d;font-size:11px;font-weight:900;letter-spacing:.04em;white-space:nowrap}.language-switch.language-tabs a{min-width:98px;height:52px;display:grid;place-items:center;padding:0 16px;border:1px solid #d7e2f0;border-radius:16px;background:linear-gradient(180deg,#fff 0%,#f6f9fd 100%);box-shadow:0 5px 0 #dbe5f1,0 10px 22px rgba(24,52,85,.1),inset 0 1px 0 #fff;color:#29476e;text-decoration:none;font-size:13px;font-weight:900;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}.language-switch.language-tabs a:hover{transform:translateY(-2px);border-color:#a9c5eb;box-shadow:0 7px 0 #d2deec,0 13px 26px rgba(24,52,85,.14),inset 0 1px 0 #fff}.language-switch.language-tabs a:focus-visible{outline:3px solid rgba(23,104,233,.28);outline-offset:3px}.language-switch.language-tabs a.active{border-color:#1768e9;background:linear-gradient(180deg,#3487f5 0%,#1768e9 100%);box-shadow:0 5px 0 #0d4fae,0 12px 25px rgba(23,104,233,.25),inset 0 1px 0 rgba(255,255,255,.4);color:#fff}.language-switch.language-tabs a.active:hover{box-shadow:0 7px 0 #0d4fae,0 15px 28px rgba(23,104,233,.3),inset 0 1px 0 rgba(255,255,255,.4)}
         .share-menu{position:absolute;right:26px;top:108px;z-index:31;width:190px;padding:8px;border:1px solid #dce6f3;border-radius:18px;background:rgba(255,255,255,.98);box-shadow:0 20px 48px rgba(24,52,85,.2);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}.share-menu[hidden]{display:none}.share-option{width:100%;display:flex;align-items:center;gap:11px;border:0;border-radius:12px;background:transparent;padding:10px 11px;color:#183455;font-size:13px;font-weight:800;text-align:left;cursor:pointer}.share-option:hover,.share-option:focus-visible{background:#eef5ff;outline:0}.share-option-icon{width:28px;height:28px;display:grid;place-items:center;flex:0 0 28px;border-radius:9px;background:#eaf2ff;color:#1768e9;font-size:13px;font-weight:950}.share-option[data-share="kakao"] .share-option-icon{background:#fee500;color:#2d251c}.share-option[data-share="email"] .share-option-icon{background:#fff0e5;color:#e86113}.share-toast{position:absolute;right:26px;top:314px;z-index:32;padding:10px 14px;border-radius:12px;background:#082b68;color:#fff;font-size:12px;font-weight:800;box-shadow:0 12px 30px rgba(24,52,85,.22);opacity:0;transform:translateY(-5px);pointer-events:none;transition:opacity .18s ease,transform .18s ease}.share-toast.show{opacity:1;transform:translateY(0)}
         .home-news{position:absolute;left:46px;right:46px;top:635px;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:42px}
         .feature-card{display:block;text-decoration:none;border-radius:24px;padding:24px 28px;min-height:190px;box-shadow:0 16px 36px rgba(24,52,85,.09);transition:transform .18s ease,box-shadow .18s ease}.feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(24,52,85,.14)}
@@ -142,9 +141,10 @@
           .character-visual{position:relative;right:auto;top:auto;width:min(100%,560px);margin:24px auto 0}.block-label{font-size:clamp(9px,2.5vw,13px)}
           .mission-home-ja .mission-copy h1{font-size:42px;line-height:1.08}.mission-home-ja .block-label{font-size:clamp(8px,2.2vw,12px)}
           .mission-home-ko .mission-copy h1{font-size:44px;line-height:1}.mission-home-ko .block-label{font-size:clamp(7px,2vw,11px)}.mission-home-ko .label-goal{font-size:clamp(6px,1.75vw,9px)}
-          .top-actions{gap:6px}.floating-share{position:relative;right:auto;top:auto;width:48px;height:48px;flex-basis:48px;border-radius:15px}.floating-language{position:relative;right:auto;top:auto;width:50px;height:50px;flex-basis:50px;border-radius:17px}.floating-language svg{width:27px;height:27px}.language-menu{position:absolute;right:68px;top:96px;width:224px}.share-menu{position:absolute;right:10px;top:96px;width:184px}.share-toast{position:absolute;right:10px;top:300px;max-width:calc(100vw - 28px)}
+          .top-actions{gap:6px}.floating-share{position:relative;right:auto;top:auto;width:48px;height:48px;flex-basis:48px;border-radius:15px}.language-switch.language-tabs{gap:5px}.language-tabs-label{display:block;margin-right:1px;font-size:9px}.language-switch.language-tabs a{min-width:62px;height:46px;padding:0 9px;border-radius:14px;font-size:10px;box-shadow:0 4px 0 #dbe5f1,0 8px 18px rgba(24,52,85,.09),inset 0 1px 0 #fff}.language-switch.language-tabs a.active{box-shadow:0 4px 0 #0d4fae,0 10px 21px rgba(23,104,233,.22),inset 0 1px 0 rgba(255,255,255,.4)}.share-menu{position:absolute;right:10px;top:96px;width:184px}.share-toast{position:absolute;right:10px;top:300px;max-width:calc(100vw - 28px)}
           .home-news{position:relative;left:auto;right:auto;top:auto;display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px;padding-bottom:40px}.feature-card{min-height:0;padding:20px 21px;border-radius:20px}.feature-card h3{font-size:27px;font-weight:950}.feature-card small{font-size:13px;font-weight:950}.feature-card .news-label{font-size:17.85px!important;font-weight:950!important;line-height:1.2;color:#e8792f!important}.feature-card p{font-size:12px}
         }
+        @media(max-width:620px){.topbar{height:142px;position:relative;align-items:flex-start;padding-top:10px}.top-brand{height:64px}.top-brand>a{width:58px;height:58px;flex-basis:58px}.mobile-logo{top:-14px;width:140px!important}.catchphrase{font-size:14px;max-width:205px}.top-actions{position:static}.floating-share{position:absolute;right:10px;top:14px}.language-switch.language-tabs{position:absolute;left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:72px repeat(3,1fr);gap:6px}.language-tabs-label{display:block;margin:0;text-align:center;font-size:10px}.language-switch.language-tabs a{min-width:0;width:100%;height:43px;padding:0 5px}.share-menu{top:150px}.share-toast{top:354px}.view{min-height:calc(100dvh - 214px)}}
       `;
       document.head.appendChild(style);
       const panel = document.querySelector('#home .ai-panel');
@@ -210,11 +210,6 @@
         };
         shareButton.addEventListener('click', event => {
           event.stopPropagation();
-          const openLanguageMenu = document.querySelector('.language-menu:not([hidden])');
-          if (openLanguageMenu) {
-            openLanguageMenu.hidden = true;
-            document.querySelector('.floating-language')?.setAttribute('aria-expanded', 'false');
-          }
           shareMenu.hidden = !shareMenu.hidden;
           shareButton.setAttribute('aria-expanded', String(!shareMenu.hidden));
           if (!shareMenu.hidden) shareMenu.querySelector('.share-option')?.focus();
@@ -256,60 +251,15 @@
       }
 
       const languageSwitch = document.querySelector('.language-switch');
-      if (languageSwitch && workspace) {
-        const languages = [
-          { code: 'EN', name: 'English', href: 'index.html', active: !isJapaneseHome && !isKoreanHome, lang: 'en' },
-          { code: 'JA', name: '日本語', href: 'japanese.html', active: isJapaneseHome, lang: 'ja' },
-          { code: 'KO', name: '한국어', href: 'korean.html', active: isKoreanHome, lang: 'ko' }
-        ];
-        const currentLanguage = languages.find(language => language.active) || languages[0];
-        const languageButton = document.createElement('button');
-        languageButton.className = 'floating-language';
-        languageButton.type = 'button';
-        languageButton.setAttribute('aria-label', 'Choose language');
-        languageButton.setAttribute('aria-expanded', 'false');
-        languageButton.setAttribute('aria-haspopup', 'menu');
-        languageButton.title = 'Choose language';
-        languageButton.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9h17M3.5 15h17M12 3c2.2 2.3 3.3 5.3 3.3 9S14.2 18.7 12 21M12 3C9.8 5.3 8.7 8.3 8.7 12S9.8 18.7 12 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span class="language-current">${currentLanguage.code}</span>`;
-        shareButton.before(languageButton);
-
-        const languageMenu = document.createElement('nav');
-        languageMenu.className = 'language-menu';
-        languageMenu.hidden = true;
-        languageMenu.setAttribute('role', 'menu');
-        languageMenu.setAttribute('aria-label', 'Languages');
-        languageMenu.innerHTML = languages.map(language => `
-          <a class="language-option${language.active ? ' active' : ''}" role="menuitem" lang="${language.lang}" href="${language.href}"${language.active ? ' aria-current="page"' : ''}>
-            <span class="language-code">${language.code}</span>
-            <span class="language-name">${language.name}</span>
-            <span class="language-check" aria-hidden="true">${language.active ? '✓' : ''}</span>
-          </a>`).join('');
-        workspace.appendChild(languageMenu);
-        languageSwitch.remove();
-
-        const closeLanguageMenu = () => {
-          languageMenu.hidden = true;
-          languageButton.setAttribute('aria-expanded', 'false');
-        };
-        languageButton.addEventListener('click', event => {
-          event.stopPropagation();
-          const openShareMenu = document.querySelector('.share-menu:not([hidden])');
-          if (openShareMenu) {
-            openShareMenu.hidden = true;
-            document.querySelector('.floating-share')?.setAttribute('aria-expanded', 'false');
-          }
-          languageMenu.hidden = !languageMenu.hidden;
-          languageButton.setAttribute('aria-expanded', String(!languageMenu.hidden));
-          if (!languageMenu.hidden) languageMenu.querySelector('.language-option')?.focus();
-        });
-        document.addEventListener('click', event => {
-          if (!languageMenu.hidden && !languageMenu.contains(event.target) && event.target !== languageButton) closeLanguageMenu();
-        });
-        document.addEventListener('keydown', event => {
-          if (event.key === 'Escape' && !languageMenu.hidden) {
-            closeLanguageMenu();
-            languageButton.focus();
-          }
+      if (languageSwitch) {
+        languageSwitch.classList.add('language-tabs');
+        languageSwitch.setAttribute('aria-label', isKoreanHome ? 'Choose a language to learn' : '배울 언어 선택');
+        const languageLabel = document.createElement('span');
+        languageLabel.className = 'language-tabs-label';
+        languageLabel.textContent = isKoreanHome ? 'LEARN' : '배울 언어';
+        languageSwitch.prepend(languageLabel);
+        languageSwitch.querySelectorAll('a').forEach(link => {
+          if (link.classList.contains('active')) link.setAttribute('aria-current', 'page');
         });
       }
     }
