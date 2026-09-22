@@ -125,6 +125,8 @@
         .block-labels{position:absolute;inset:0;z-index:2;pointer-events:none}.block-label{position:absolute;left:34.5%;width:28%;transform:translate(-50%,-50%);color:#143d78;text-align:center;font-size:clamp(8px,.9vw,12px);font-weight:950;line-height:1.05;letter-spacing:-.025em;text-shadow:0 1px 0 rgba(255,255,255,.3)}.label-goal{top:39%;color:#fff;text-shadow:0 1px 2px rgba(108,50,0,.32)}.label-fluent{top:49.3%}.label-natural{top:58.1%}.label-logic{top:67.2%}.label-chunks{top:76.3%}.label-daily{top:85.4%}
         .mission-home-ja .mission-copy h1{font-family:"Noto Sans JP","Noto Sans KR",Inter,system-ui,sans-serif;font-size:clamp(46px,5.1vw,72px);letter-spacing:-.055em}.mission-home-ja .mission-lead,.mission-home-ja .mission-body,.mission-home-ja .feature-card{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif}.mission-home-ja .block-label{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif;font-size:clamp(7px,.78vw,11px);line-height:1.16;letter-spacing:-.06em}
         .mission-home-ko .mission-copy h1{font-size:clamp(46px,5.2vw,74px)}.mission-home-ko .block-label{font-size:clamp(7px,.75vw,10px);line-height:1.12}.mission-home-ko .label-goal{font-size:clamp(6px,.67vw,9px)}
+        .floating-share{position:absolute;right:26px;top:104px;z-index:30;width:52px;height:52px;display:grid;place-items:center;padding:0;border:1px solid rgba(181,205,238,.95);border-radius:18px;background:rgba(255,255,255,.94);color:#1768e9;box-shadow:0 14px 34px rgba(24,52,85,.15);cursor:pointer;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}.floating-share:hover,.floating-share[aria-expanded="true"]{transform:translateY(-2px);background:#edf5ff;box-shadow:0 18px 40px rgba(24,52,85,.2)}.floating-share:focus-visible{outline:3px solid rgba(23,104,233,.28);outline-offset:3px}.floating-share svg{width:23px;height:23px;display:block}
+        .share-menu{position:absolute;right:26px;top:164px;z-index:31;width:190px;padding:8px;border:1px solid #dce6f3;border-radius:18px;background:rgba(255,255,255,.98);box-shadow:0 20px 48px rgba(24,52,85,.2);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}.share-menu[hidden]{display:none}.share-option{width:100%;display:flex;align-items:center;gap:11px;border:0;border-radius:12px;background:transparent;padding:10px 11px;color:#183455;font-size:13px;font-weight:800;text-align:left;cursor:pointer}.share-option:hover,.share-option:focus-visible{background:#eef5ff;outline:0}.share-option-icon{width:28px;height:28px;display:grid;place-items:center;flex:0 0 28px;border-radius:9px;background:#eaf2ff;color:#1768e9;font-size:13px;font-weight:950}.share-option[data-share="kakao"] .share-option-icon{background:#fee500;color:#2d251c}.share-option[data-share="email"] .share-option-icon{background:#fff0e5;color:#e86113}.share-toast{position:absolute;right:26px;top:370px;z-index:32;padding:10px 14px;border-radius:12px;background:#082b68;color:#fff;font-size:12px;font-weight:800;box-shadow:0 12px 30px rgba(24,52,85,.22);opacity:0;transform:translateY(-5px);pointer-events:none;transition:opacity .18s ease,transform .18s ease}.share-toast.show{opacity:1;transform:translateY(0)}
         .home-news{position:absolute;left:46px;right:46px;top:635px;display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:42px}
         .feature-card{display:block;text-decoration:none;border-radius:24px;padding:24px 28px;min-height:190px;box-shadow:0 16px 36px rgba(24,52,85,.09);transition:transform .18s ease,box-shadow .18s ease}.feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(24,52,85,.14)}
         .feature-card.snow{background:linear-gradient(145deg,#fff8bf,#fff2a4)}.feature-card.readable{background:linear-gradient(145deg,#fff,#f1f6ff);border:1px solid #e1e9f5}
@@ -136,12 +138,114 @@
           .character-visual{position:relative;right:auto;top:auto;width:min(100%,560px);margin:24px auto 0}.block-label{font-size:clamp(9px,2.5vw,13px)}
           .mission-home-ja .mission-copy h1{font-size:42px;line-height:1.08}.mission-home-ja .block-label{font-size:clamp(8px,2.2vw,12px)}
           .mission-home-ko .mission-copy h1{font-size:44px;line-height:1}.mission-home-ko .block-label{font-size:clamp(7px,2vw,11px)}.mission-home-ko .label-goal{font-size:clamp(6px,1.75vw,9px)}
+          .floating-share{position:fixed;right:14px;top:88px;width:48px;height:48px;border-radius:16px}.share-menu{position:fixed;right:14px;top:144px;width:184px}.share-toast{position:fixed;right:14px;top:350px;max-width:calc(100vw - 28px)}
           .home-news{position:relative;left:auto;right:auto;top:auto;display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px;padding-bottom:40px}.feature-card{min-height:0;padding:20px 21px;border-radius:20px}.feature-card h3{font-size:27px;font-weight:950}.feature-card small{font-size:13px;font-weight:950}.feature-card .news-label{font-size:17.85px!important;font-weight:950!important;line-height:1.2;color:#e8792f!important}.feature-card p{font-size:12px}
         }
       `;
       document.head.appendChild(style);
       const panel = document.querySelector('#home .ai-panel');
       if (panel) panel.remove();
+
+      const shareButton = document.querySelector('.share');
+      const workspace = document.querySelector('.workspace');
+      if (shareButton && workspace) {
+        const shareLabel = isJapaneseHome ? 'このページを共有' : isKoreanHome ? 'Share this Korean learning page' : 'Share this TalkTag space';
+        shareButton.className = 'floating-share';
+        shareButton.type = 'button';
+        shareButton.setAttribute('aria-label', shareLabel);
+        shareButton.setAttribute('aria-expanded', 'false');
+        shareButton.setAttribute('aria-haspopup', 'menu');
+        shareButton.title = shareLabel;
+        shareButton.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0-12-4 4m4-4 4 4M6 11H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        workspace.appendChild(shareButton);
+
+        const shareMenu = document.createElement('div');
+        shareMenu.className = 'share-menu';
+        shareMenu.hidden = true;
+        shareMenu.setAttribute('role', 'menu');
+        shareMenu.setAttribute('aria-label', 'Share options');
+        shareMenu.innerHTML = `
+          <button class="share-option" type="button" role="menuitem" data-share="copy"><span class="share-option-icon">⧉</span><span>Copy link</span></button>
+          <button class="share-option" type="button" role="menuitem" data-share="kakao"><span class="share-option-icon">K</span><span>Kakao</span></button>
+          <button class="share-option" type="button" role="menuitem" data-share="email"><span class="share-option-icon">@</span><span>Email</span></button>`;
+        workspace.appendChild(shareMenu);
+
+        const toast = document.createElement('div');
+        toast.className = 'share-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        workspace.appendChild(toast);
+        let toastTimer;
+        const showToast = message => {
+          toast.textContent = message;
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+        };
+        const pageUrl = () => {
+          const url = new URL(location.href);
+          url.searchParams.delete('deploy');
+          return url.href;
+        };
+        const copyLink = async () => {
+          try {
+            await navigator.clipboard.writeText(pageUrl());
+          } catch {
+            const input = document.createElement('textarea');
+            input.value = pageUrl();
+            input.style.position = 'fixed';
+            input.style.opacity = '0';
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            input.remove();
+          }
+        };
+        const closeShareMenu = () => {
+          shareMenu.hidden = true;
+          shareButton.setAttribute('aria-expanded', 'false');
+        };
+        shareButton.addEventListener('click', event => {
+          event.stopPropagation();
+          shareMenu.hidden = !shareMenu.hidden;
+          shareButton.setAttribute('aria-expanded', String(!shareMenu.hidden));
+          if (!shareMenu.hidden) shareMenu.querySelector('.share-option')?.focus();
+        });
+        shareMenu.addEventListener('click', async event => {
+          const option = event.target.closest('.share-option');
+          if (!option) return;
+          const action = option.dataset.share;
+          closeShareMenu();
+          if (action === 'copy') {
+            await copyLink();
+            showToast('Link copied');
+          } else if (action === 'kakao') {
+            if (navigator.share) {
+              try {
+                await navigator.share({ title: document.title, text: 'Discover this TalkTag learning space.', url: pageUrl() });
+              } catch (error) {
+                if (error?.name !== 'AbortError') showToast('Sharing was not completed');
+              }
+            } else {
+              await copyLink();
+              showToast('Link copied — paste it into KakaoTalk');
+            }
+          } else if (action === 'email') {
+            const subject = encodeURIComponent(document.title);
+            const body = encodeURIComponent(`I thought you might like this TalkTag learning space:\n\n${pageUrl()}`);
+            location.href = `mailto:?subject=${subject}&body=${body}`;
+          }
+        });
+        document.addEventListener('click', event => {
+          if (!shareMenu.hidden && !shareMenu.contains(event.target) && event.target !== shareButton) closeShareMenu();
+        });
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape') {
+            closeShareMenu();
+            shareButton.focus();
+          }
+        });
+      }
     }
     return;
   }
