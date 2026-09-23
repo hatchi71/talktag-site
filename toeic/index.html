@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css?v=8" />
     <link rel="stylesheet" href="import.css?v=2" />
     <link rel="stylesheet" href="delete.css?v=4" />
-    <link rel="stylesheet" href="vault.css?v=1" />
+    <link rel="stylesheet" href="vault.css?v=2" />
   <script src="/talktag-home.js?v=1" defer></script>
 </head>
   <body>
@@ -124,10 +124,18 @@
       <div class="vaultShell">
         <header class="vaultHeader"><div><small>LOCAL QUESTION VAULT</small><h2>문제 보관함</h2><p>삭제한 문제와 이전 문제 목록을 이 기기의 브라우저에 보관합니다.</p></div><button id="closeVault" class="vaultClose" type="button" aria-label="닫기">×</button></header>
         <div id="vaultSummary" class="vaultSummary"></div>
-        <section class="vaultStatus"><p id="vaultStorageStatus">로컬 보관 상태를 확인하고 있습니다.</p><button id="strengthenStorage" type="button">로컬 보관 강화</button></section>
-        <div class="vaultActions"><button id="exportBackup" class="vaultAction" type="button">전체 백업 파일 받기</button><label class="vaultAction secondary vaultFile">백업 파일 불러오기<input id="backupFile" type="file" accept=".json,application/json" /></label></div>
+        <section class="vaultSharePanel">
+          <div class="vaultSectionCopy"><span class="vaultSectionIcon" aria-hidden="true">↗</span><div><small>SHARE QUESTIONS</small><h3>회원에게 문제 공유</h3><p>문제·보기·정답·번역·해설만 담습니다. 받는 사람의 학습 기록은 그대로 유지됩니다.</p></div></div>
+          <div class="sharePartPicker" aria-label="공유할 파트 선택"><label><input type="checkbox" data-share-part="5" /> <span>Part 5</span><b id="shareCount5">0</b></label><label><input type="checkbox" data-share-part="6" /> <span>Part 6</span><b id="shareCount6">0</b></label><label><input type="checkbox" data-share-part="7" /> <span>Part 7</span><b id="shareCount7">0</b></label></div>
+          <div class="vaultActions shareActions"><button id="exportQuestionShare" class="vaultAction sharePrimary" type="button">문제공유 내보내기</button><label class="vaultAction shareSecondary vaultFile">문제공유 불러오기<input id="questionShareFile" type="file" accept=".json,application/json" /></label></div>
+        </section>
+        <section class="vaultPersonalPanel">
+          <div class="vaultSectionCopy compact"><span class="vaultSectionIcon personal" aria-hidden="true">▣</span><div><small>MY DATA BACKUP</small><h3>내 학습 데이터 보관</h3><p>문제와 함께 풀이 기록·별표·휴지통·저장본까지 개인용으로 보관합니다.</p></div></div>
+          <section class="vaultStatus"><p id="vaultStorageStatus">로컬 보관 상태를 확인하고 있습니다.</p><button id="strengthenStorage" type="button">로컬 보관 강화</button></section>
+          <div class="vaultActions personalActions"><button id="exportBackup" class="vaultAction" type="button">전체 백업 내보내기</button><label class="vaultAction secondary vaultFile">전체 백업 불러오기<input id="backupFile" type="file" accept=".json,application/json" /></label></div>
+        </section>
         <div class="vaultColumns"><section class="vaultPanel"><h3>최근 저장본</h3><div id="snapshotList" class="vaultList"></div></section><section class="vaultPanel"><h3>삭제한 문제</h3><div id="trashList" class="vaultList"></div></section></div>
-        <p class="vaultNote">보관함은 현재 기기와 브라우저에서만 사용할 수 있습니다. 중요한 문제는 ‘전체 백업 파일 받기’로 별도 보관하세요.</p>
+        <p class="vaultNote">문제 공유 파일은 카카오톡·이메일 등으로 전달할 수 있습니다. 개인 풀이 기록을 보관하려면 ‘전체 백업 내보내기’를 사용하세요.</p>
       </div>
     </dialog>
     <dialog id="importDialog">
@@ -324,6 +332,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
       </article>
     </template>
     <script src="toeic-vault.js?v=1"></script>
-    <script src="app.js?v=26"></script>
+    <script src="app.js?v=27"></script>
   </body>
 </html>

@@ -409,6 +409,20 @@ $('#importForm').onsubmit=async e=>{
 document.querySelectorAll('[data-part]').forEach(button=>button.onclick=()=>{save();activePart=Number(button.dataset.part);state=partStates[activePart];localStorage.setItem('toeic-active-part',activePart);currentIndex=0;$('#retryMode').checked=false;render()});
 function vaultDate(timestamp){return new Intl.DateTimeFormat('ko-KR',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(timestamp))}
 function vaultBytes(bytes){if(!bytes)return '사용량 계산 전';if(bytes<1024*1024)return `${Math.max(1,Math.round(bytes/1024))} KB 사용`;return `${(bytes/1024/1024).toFixed(1)} MB 사용`}
+function downloadJson(data,filename){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=filename;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function cleanSharedQuestion(question,part){const shared=copyState({...question,part});delete shared.id;Object.keys(shared).filter(key=>key.startsWith('_')).forEach(key=>delete shared[key]);return shared}
+function questionSignature(question,part){const shared=cleanSharedQuestion(question,part);if(part===5)shared.question=countPart5Blanks(shared.question).question;if(part===6&&typeof shared.passage==='string')shared.passage=normalizePart6Passage(shared.passage);return JSON.stringify(shared)}
+function normalizeSharedQuestion(raw,part,index){
+  if(!raw||typeof raw!=='object')throw new Error(`Part ${part}의 ${index+1}번 항목이 문제 객체가 아닙니다.`);
+  let question=copyState(raw),answer=typeof question.answer==='string'&&/^[A-D]$/i.test(question.answer.trim())?'ABCD'.indexOf(question.answer.trim().toUpperCase()):question.answer;
+  if(Number(question.part)!==part||typeof question.question!=='string'||!question.question.trim()||!Array.isArray(question.choices)||question.choices.length!==4||question.choices.some(choice=>typeof choice!=='string'||!choice.trim())||!Number.isInteger(answer)||answer<0||answer>3)throw new Error(`Part ${part}의 ${index+1}번 문제 형식을 확인해 주세요.`);
+  if(typeof question.translation!=='string'||typeof question.vocab!=='string'||typeof question.explanation!=='string')throw new Error(`Part ${part}의 ${index+1}번 문제에 번역 또는 해설이 없습니다.`);
+  question.answer=answer;question.choices=question.choices.map(String);
+  if(part===5){const blankCheck=countPart5Blanks(question.question);question.question=blankCheck.question;if(blankCheck.count!==1)throw new Error(`Part 5의 ${index+1}번 문제에 빈칸이 정확히 하나 있어야 합니다.`)}
+  if(part===6){if(typeof question.passage!=='string'||!question.passage.trim()||typeof question.setTitle!=='string'||typeof question.passageType!=='string'||!Number.isInteger(question.blank))throw new Error(`Part 6의 ${index+1}번 지문 정보를 확인해 주세요.`);question.passage=normalizePart6Passage(question.passage);if(!question.passage.includes(`[${question.blank}]`))throw new Error(`Part 6의 ${index+1}번 문제번호 표식이 지문에 없습니다.`)}
+  if(part===7){question=normalizePart7Structure(question);validatePart7Question(question,`Part 7의 ${index+1}번`)}
+  question.id=crypto.randomUUID();question.part=part;return question;
+}
 function makeVaultItem(record,type){
   const item=document.createElement('article');item.className='vaultItem';
   const copy=document.createElement('div'),title=document.createElement('strong'),meta=document.createElement('span'),button=document.createElement('button');
@@ -420,6 +434,9 @@ function makeVaultItem(record,type){
 async function refreshVault(){
   const [snapshots,trash,storage]=await Promise.all([ToeicVault.listSnapshots(),ToeicVault.listTrash(),ToeicVault.storageInfo()]);
   $('#vaultSummary').replaceChildren(...[5,6,7].map(part=>{const box=document.createElement('div');box.className='vaultCount';box.innerHTML=`<span>PART ${part}</span><strong>${partStates[part].questions.length}문제</strong>`;return box}));
+  const shareChecks=[...document.querySelectorAll('[data-share-part]')];
+  shareChecks.forEach(input=>{const part=Number(input.dataset.sharePart),count=partStates[part].questions.length;input.disabled=!count;$(`#shareCount${part}`).textContent=count;if(!count)input.checked=false});
+  if(!shareChecks.some(input=>input.checked&&!input.disabled)){const preferred=shareChecks.find(input=>Number(input.dataset.sharePart)===activePart&&!input.disabled)||shareChecks.find(input=>!input.disabled);if(preferred)preferred.checked=true}
   $('#vaultStorageStatus').textContent=storage.persisted?`이 브라우저가 보관함을 자동 정리하지 않도록 보호 중입니다. · ${vaultBytes(storage.usage)}`:`브라우저 종료 후에도 유지됩니다. ‘로컬 보관 강화’를 누르면 자동 정리 위험을 더 줄일 수 있습니다. · ${vaultBytes(storage.usage)}`;
   $('#strengthenStorage').classList.toggle('hidden',storage.persisted);
   const snapshotList=$('#snapshotList'),trashList=$('#trashList');snapshotList.replaceChildren();trashList.replaceChildren();
@@ -447,8 +464,33 @@ async function restoreTrash(id){
 $('#openVault').onclick=openVault;$('#closeVault').onclick=()=>$('#vaultDialog').close();
 $('#vaultDialog').onclick=async event=>{const button=event.target.closest('[data-vault-id]');if(!button)return;try{button.disabled=true;if(button.dataset.vaultType==='snapshot')await restoreSnapshot(button.dataset.vaultId);else await restoreTrash(button.dataset.vaultId)}catch(error){alert(`복원하지 못했습니다.\n${error.message}`)}finally{button.disabled=false}};
 $('#strengthenStorage').onclick=async()=>{const persisted=await ToeicVault.requestPersistence();await refreshVault();alert(persisted?'로컬 보관이 강화되었습니다.':'브라우저가 보관 강화를 허용하지 않았습니다. 전체 백업 파일을 함께 보관해 주세요.')};
+$('#exportQuestionShare').onclick=()=>{
+  const parts=[...document.querySelectorAll('[data-share-part]:checked')].map(input=>Number(input.dataset.sharePart)).filter(part=>partStates[part].questions.length);
+  if(!parts.length){alert('공유할 Part를 하나 이상 선택해 주세요.');return}
+  const sharedParts={};parts.forEach(part=>{sharedParts[part]=partStates[part].questions.map(question=>cleanSharedQuestion(question,part))});
+  const pack={format:'talktag-toeic-question-share',version:1,title:`TalkTag TOEIC ${parts.map(part=>`Part ${part}`).join(' · ')} 문제공유`,exportedAt:new Date().toISOString(),parts:sharedParts};
+  downloadJson(pack,`talktag-toeic-question-share-${parts.map(part=>`p${part}`).join('-')}-${new Date().toISOString().slice(0,10)}.json`);
+};
+$('#questionShareFile').onchange=async event=>{
+  const file=event.target.files?.[0];if(!file)return;
+  try{
+    const pack=JSON.parse(await file.text());
+    if(!pack||pack.format!=='talktag-toeic-question-share'||pack.version!==1||!pack.parts||typeof pack.parts!=='object')throw new Error('TalkTag TOEIC 문제공유 파일이 아닙니다.');
+    const prepared={},summary=[],skipped=[];
+    for(const part of [5,6,7]){
+      const raw=pack.parts[part]||[];if(!Array.isArray(raw))throw new Error(`Part ${part} 데이터가 배열이 아닙니다.`);
+      const existing=new Set(partStates[part].questions.map(question=>questionSignature(question,part))),accepted=[];
+      raw.forEach((question,index)=>{const normalized=normalizeSharedQuestion(question,part,index),signature=questionSignature(normalized,part);if(existing.has(signature)){skipped.push(`Part ${part} ${index+1}번`);return}existing.add(signature);accepted.push(normalized)});
+      if(accepted.length){prepared[part]=accepted;summary.push(`Part ${part} ${accepted.length}문제`)}
+    }
+    if(!summary.length){alert('새로 추가할 문제가 없습니다. 이미 같은 문제가 등록되어 있습니다.');return}
+    if(!confirm(`${summary.join(' · ')}를 현재 문제 목록에 추가할까요?\n기존 문제와 학습 기록은 그대로 유지됩니다.${skipped.length?`\n중복 ${skipped.length}문제는 제외됩니다.`:''}`))return;
+    for(const part of Object.keys(prepared).map(Number)){partStates[part].questions.push(...prepared[part]);partStates[part].filter='all';localStorage.setItem(`part${part}-desk-v1`,JSON.stringify(partStates[part]));await snapshotSafely(part,partStates[part],'문제공유 불러오기')}
+    activePart=Number(Object.keys(prepared)[0]);state=partStates[activePart];localStorage.setItem('toeic-active-part',activePart);currentIndex=0;render();await refreshVault();alert(`${summary.join(' · ')}를 추가했습니다.${skipped.length?` 중복 ${skipped.length}문제는 제외했습니다.`:''}`);
+  }catch(error){alert(`문제공유 파일을 불러오지 못했습니다.\n${error.message}`)}finally{event.target.value=''}
+};
 $('#exportBackup').onclick=async()=>{
-  try{const backup=await ToeicVault.exportBackup(partStates),blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`talktag-toeic-backup-${new Date().toISOString().slice(0,10)}.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}catch(error){alert(`백업 파일을 만들지 못했습니다.\n${error.message}`)}
+  try{const backup=await ToeicVault.exportBackup(partStates);downloadJson(backup,`talktag-toeic-backup-${new Date().toISOString().slice(0,10)}.json`)}catch(error){alert(`백업 파일을 만들지 못했습니다.\n${error.message}`)}
 };
 $('#backupFile').onchange=async event=>{
   const file=event.target.files?.[0];if(!file)return;
