@@ -9,13 +9,41 @@ state = partStates[activePart];
 let currentIndex = 0;
 const $ = s => document.querySelector(s);
 function save(){localStorage.setItem(`part${activePart}-desk-v1`, JSON.stringify(state));}
+function copyState(value){return JSON.parse(JSON.stringify(value))}
+function replacePartState(part,nextState){
+  const target=partStates[part];
+  target.questions=Array.isArray(nextState?.questions)?copyState(nextState.questions):[];
+  target.results=nextState?.results&&typeof nextState.results==='object'?copyState(nextState.results):{};
+  target.starred=Array.isArray(nextState?.starred)?copyState(nextState.starred):[];
+  target.filter=['all','correct','incorrect','starred'].includes(nextState?.filter)?nextState.filter:'all';
+  localStorage.setItem(`part${part}-desk-v1`,JSON.stringify(target));
+  if(activePart===part)state=target;
+}
+async function snapshotSafely(part,targetState,reason){
+  try{await ToeicVault.snapshot(part,targetState,reason)}catch(error){console.warn('TOEIC 보관함 저장 실패:',error)}
+}
+async function archiveRemoval(questions,reason){
+  if(!questions.length)return true;
+  const ids=new Set(questions.map(q=>q.id));
+  const removedState={questions:copyState(questions),results:Object.fromEntries(Object.entries(state.results).filter(([id])=>ids.has(id))),starred:state.starred.filter(id=>ids.has(id)),filter:'all'};
+  try{
+    await ToeicVault.snapshot(activePart,state,`${reason} 전 안전 저장`);
+    await ToeicVault.trash(activePart,removedState,reason);
+    return true;
+  }catch(error){
+    alert(`문제 보관함에 저장하지 못해 삭제를 중단했습니다.\n${error.message}`);
+    return false;
+  }
+}
 function filtered(){return state.questions.filter(q=>state.filter==='all'||(state.filter==='starred'&&state.starred.includes(q.id))||(state.filter==='correct'&&state.results[q.id]?.correct)||(state.filter==='incorrect'&&state.results[q.id]&&!state.results[q.id].correct));}
-function keepReviewQuestionsOnly(){
+async function keepReviewQuestionsOnly(){
   const starredIds=new Set(state.starred);
   const reviewIds=new Set(state.questions.filter(q=>state.results[q.id]?.correct===false||starredIds.has(q.id)).map(q=>q.id));
   const removedCount=state.questions.length-reviewIds.size;
-  const message=`Part ${activePart}에서 오답 또는 별표된 ${reviewIds.size}문제만 남기고 나머지 ${removedCount}문제를 삭제할까요?\n삭제한 문제와 기록은 되돌릴 수 없습니다.`;
+  const message=`Part ${activePart}에서 오답 또는 별표된 ${reviewIds.size}문제만 남기고 나머지 ${removedCount}문제를 삭제할까요?\n삭제한 문제는 문제 보관함에서 복원할 수 있습니다.`;
   if(!confirm(message))return;
+  const removed=state.questions.filter(q=>!reviewIds.has(q.id));
+  if(!await archiveRemoval(removed,'오답·별표만 남기기'))return;
   state.questions=state.questions.filter(q=>reviewIds.has(q.id));
   state.results=Object.fromEntries(Object.entries(state.results).filter(([id])=>reviewIds.has(id)));
   state.starred=state.starred.filter(id=>reviewIds.has(id));
@@ -30,10 +58,10 @@ if(q.part===7){node.querySelector('.number').textContent=`PART 7 · ${q.question
 
 if(q.passage){const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passageType} · ${q.setTitle}`;const passage=node.querySelector('.passage');q.passage.split(/(\[\d+\])/g).forEach(piece=>{if(piece===`[${q.blank}]`){const mark=document.createElement('mark');mark.textContent=piece;passage.append(mark)}else passage.append(document.createTextNode(piece))});}
 const star=node.querySelector('.star');star.textContent=state.starred.includes(q.id)?'★':'☆';star.classList.toggle('active',state.starred.includes(q.id));star.onclick=()=>{state.starred.includes(q.id)?state.starred=state.starred.filter(id=>id!==q.id):state.starred.push(q.id);save();render()};const choices=node.querySelector('.choices');q.choices.forEach((text,i)=>{const b=document.createElement('button');b.className='choice';const circleSvg=(result&&i===q.answer)?'<svg class="circleMark" viewBox="0 0 60 60" preserveAspectRatio="none"><path d="M38,16 C54,17 57,32 47,41 C37,50 18,50 9,40 C0,30 3,16 16,12 C25,9 33,10 38,15 L30,9"/></svg>':'';const wrongMark=(result&&!result.correct&&i===result.selected)?'<svg class="wrongMark" viewBox="0 0 60 60" preserveAspectRatio="none"><path d="M14,14 C23,24 35,36 47,48"/><path d="M47,13 C36,24 25,36 13,48"/></svg>':'';b.innerHTML=`<strong>${'ABCD'[i]}${circleSvg}${wrongMark}</strong><span>${escapeHtml(text)}</span>`;if(result){b.disabled=true;if(i===q.answer){b.classList.add('correct')}else{b.classList.add('faded');if(i===result.selected)b.classList.add('selectedWrong')}}else b.onclick=()=>answer(q,i);choices.appendChild(b)});if(result){const feedback=node.querySelector('.feedback');feedback.classList.remove('hidden');feedback.classList.toggle('wrong',!result.correct);const translationHtml=q.translation?`<p class="translation"><strong>${q.part===7?'질문·정답 해석':'문장 해석'}</strong> ${escapeHtml(q.translation)}</p>`:'';const vocabHtml=q.vocab?`<p class="vocab"><strong>${q.part===7?'보기 및 핵심 표현':'보기 단어 뜻 & 예문'}</strong> ${escapeHtml(q.vocab)}</p>`:'';feedback.innerHTML=`<h3>${result.correct?'정답이에요. 잘했어요!':'아쉬워요. 정답은 '+ 'ABCD'[q.answer]+'입니다.'}</h3>${translationHtml}${vocabHtml}<p>${escapeHtml(q.explanation)}</p>`;if(q.part===7){const evidence=document.createElement('div');evidence.className='answerEvidence';const heading=document.createElement('h4');heading.textContent='정답 근거 및 보기별 검수';evidence.append(heading);q.evidence.forEach(item=>{const line=document.createElement('p');line.textContent=`문서 ${item.document}: “${item.quote}” — ${item.reason}`;evidence.append(line)});q.optionReasons.forEach((reason,i)=>{const line=document.createElement('p');line.textContent=`${'ABCD'[i]} · ${i===q.answer?'정답':'오답'}: ${reason}`;evidence.append(line)});const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='전체 지문 해석';details.append(summary);q.passages.forEach((doc,i)=>{const para=document.createElement('p');para.textContent=`문서 ${i+1} · ${doc.translation}`;details.append(para)});evidence.append(details);feedback.append(evidence)}}node.querySelector('.status').textContent=result?(result.correct?'✓ 맞힌 문제':'↺ 다시 복습할 문제'):'아직 풀지 않음';node.querySelector('.prevButton').onclick=()=>{currentIndex=(currentIndex-1+qs.length)%qs.length;render()};node.querySelector('.nextButton').onclick=()=>{currentIndex=(currentIndex+1)%qs.length;render()};$('#questionArea').replaceChildren(node)}
-$('#questionArea').onclick=e=>{if(!e.target.matches('.deleteButton'))return;const q=filtered()[currentIndex];if(q&&confirm('이 문제를 삭제할까요? 정오답 기록도 함께 삭제됩니다.')){state.questions=state.questions.filter(item=>item.id!==q.id);delete state.results[q.id];state.starred=state.starred.filter(id=>id!==q.id);save();render()}};
+$('#questionArea').onclick=async e=>{if(!e.target.matches('.deleteButton'))return;const q=filtered()[currentIndex];if(q&&confirm('이 문제를 삭제할까요? 삭제 후에도 문제 보관함에서 복원할 수 있습니다.')){if(!await archiveRemoval([q],'현재 문제 삭제'))return;state.questions=state.questions.filter(item=>item.id!==q.id);delete state.results[q.id];state.starred=state.starred.filter(id=>id!==q.id);save();render()}};
 function answer(q,selected){state.results[q.id]={selected,correct:selected===q.answer,at:Date.now()};save();render()}
 function insertQuestions(newQs){if(!newQs.length)return;const shuffle=confirm(`새 문제 ${newQs.length}개를 추가합니다.\n확인: 기존 문제와 무작위로 섞기\n취소: 기존 문제 뒤에 순서대로 추가`);state.questions=[...state.questions,...newQs];if(shuffle){for(let i=state.questions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.questions[i],state.questions[j]]=[state.questions[j],state.questions[i]]}}}
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;currentIndex=0;save();render()});$('#retryMode').onchange=e=>{if(e.target.checked){state.results={};save();render()}};$('#resetCurrent').onclick=()=>{const q=filtered()[currentIndex];if(q){delete state.results[q.id];save();render()}};$('#resetAll').onclick=()=>{if(confirm('모든 문제의 정오답 기록을 초기화할까요? 문제 목록은 그대로 남습니다.')){state.results={};currentIndex=0;save();render()}};$('#keepReviewOnly').onclick=keepReviewQuestionsOnly;$('#deleteAll').onclick=()=>{if(confirm('등록된 모든 문제와 학습 기록을 삭제할까요? 이 작업은 되돌릴 수 없습니다.')){state.questions=[];state.results={};state.starred=[];state.filter='all';currentIndex=0;save();render()}};
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;currentIndex=0;save();render()});$('#retryMode').onchange=e=>{if(e.target.checked){state.results={};save();render()}};$('#resetCurrent').onclick=()=>{const q=filtered()[currentIndex];if(q){delete state.results[q.id];save();render()}};$('#resetAll').onclick=()=>{if(confirm('모든 문제의 정오답 기록을 초기화할까요? 문제 목록은 그대로 남습니다.')){state.results={};currentIndex=0;save();render()}};$('#keepReviewOnly').onclick=keepReviewQuestionsOnly;$('#deleteAll').onclick=async()=>{if(confirm('등록된 모든 문제와 학습 기록을 삭제할까요? 삭제 후에도 문제 보관함에서 복원할 수 있습니다.')){if(!await archiveRemoval([...state.questions],'전체 문제 삭제'))return;state.questions=[];state.results={};state.starred=[];state.filter='all';currentIndex=0;save();render()}};
 function updateBroadcastDock(){const qs=filtered();$('#broadcastProgress').textContent=`Part ${activePart} · ${qs.length?currentIndex+1:0} / ${qs.length}`}
 function setBroadcastMode(on){document.body.classList.toggle('broadcast',on);$('#toggleBroadcast').classList.toggle('active',on);$('#toggleBroadcast .deckButtonTitle').textContent=on?'방송 모드 종료':'세로 방송 모드';updateBroadcastDock();window.scrollTo({top:0,behavior:'smooth'})}
 $('#toggleBroadcast').onclick=()=>setBroadcastMode(!document.body.classList.contains('broadcast'));
@@ -41,7 +69,7 @@ $('#broadcastExit').onclick=()=>setBroadcastMode(false);
 $('#broadcastPrev').onclick=()=>document.querySelector('#questionArea .prevButton')?.click();
 $('#broadcastNext').onclick=()=>document.querySelector('#questionArea .nextButton')?.click();
 $('#openAdd').onclick=()=>$('#addDialog').showModal();$('#closeAdd').onclick=()=>$('#addDialog').close();
-$('#addForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target), q={id:crypto.randomUUID(),question:f.get('question'),choices:['a','b','c','d'].map(x=>f.get(x)),answer:Number(f.get('answer')),translation:f.get('translation'),vocab:f.get('vocab'),explanation:f.get('explanation')};insertQuestions([q]);state.filter='all';currentIndex=0;save();$('#addDialog').close();e.target.reset();render()};
+$('#addForm').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target), q={id:crypto.randomUUID(),part:5,question:f.get('question'),choices:['a','b','c','d'].map(x=>f.get(x)),answer:Number(f.get('answer')),translation:f.get('translation'),vocab:f.get('vocab'),explanation:f.get('explanation')};insertQuestions([q]);state.filter='all';currentIndex=0;save();await snapshotSafely(activePart,state,'수동 문제 추가');$('#addDialog').close();e.target.reset();render()};
 const originalImportPrompt=$('#aiPrompt').textContent.trim();
 const promptSection=(start,end)=>{const from=originalImportPrompt.indexOf(start),to=end?originalImportPrompt.indexOf(end,from):originalImportPrompt.length;return originalImportPrompt.slice(from,to).trim()};
 const importMeta={
@@ -325,7 +353,7 @@ function parseImportedJson(raw){
   if(recovered.length)return {items:recovered,recovered:true,normalized:normalized!==candidate};
   throw Error('응답이 중간에서 끊겨 완성된 문제 객체를 찾지 못했습니다. 더 짧은 분할 요청을 사용해 주세요.');
 }
-$('#importForm').onsubmit=e=>{
+$('#importForm').onsubmit=async e=>{
   e.preventDefault();
   const raw=$('#importText').value.trim();
   try{
@@ -370,6 +398,7 @@ $('#importForm').onsubmit=e=>{
     const targetState=partStates[importPart];
     targetState.questions.push(...valid);targetState.filter='all';
     localStorage.setItem(`part${importPart}-desk-v1`,JSON.stringify(targetState));
+    await snapshotSafely(importPart,targetState,`Part ${importPart} 문제 업로드`);
     activePart=importPart;state=targetState;localStorage.setItem('toeic-active-part',activePart);currentIndex=0;
     $('#importDialog').close();$('#importText').value='';$('#importFile').value='';render();
   }catch(err){
@@ -378,6 +407,61 @@ $('#importForm').onsubmit=e=>{
 };
 
 document.querySelectorAll('[data-part]').forEach(button=>button.onclick=()=>{save();activePart=Number(button.dataset.part);state=partStates[activePart];localStorage.setItem('toeic-active-part',activePart);currentIndex=0;$('#retryMode').checked=false;render()});
+function vaultDate(timestamp){return new Intl.DateTimeFormat('ko-KR',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(timestamp))}
+function vaultBytes(bytes){if(!bytes)return '사용량 계산 전';if(bytes<1024*1024)return `${Math.max(1,Math.round(bytes/1024))} KB 사용`;return `${(bytes/1024/1024).toFixed(1)} MB 사용`}
+function makeVaultItem(record,type){
+  const item=document.createElement('article');item.className='vaultItem';
+  const copy=document.createElement('div'),title=document.createElement('strong'),meta=document.createElement('span'),button=document.createElement('button');
+  title.textContent=`Part ${record.part} · ${record.reason}`;
+  meta.textContent=`${record.state?.questions?.length||0}문제 · ${vaultDate(type==='snapshot'?record.createdAt:record.deletedAt)}`;
+  button.type='button';button.textContent='복원';button.dataset.vaultId=record.id;button.dataset.vaultType=type;
+  copy.append(title,meta);item.append(copy,button);return item;
+}
+async function refreshVault(){
+  const [snapshots,trash,storage]=await Promise.all([ToeicVault.listSnapshots(),ToeicVault.listTrash(),ToeicVault.storageInfo()]);
+  $('#vaultSummary').replaceChildren(...[5,6,7].map(part=>{const box=document.createElement('div');box.className='vaultCount';box.innerHTML=`<span>PART ${part}</span><strong>${partStates[part].questions.length}문제</strong>`;return box}));
+  $('#vaultStorageStatus').textContent=storage.persisted?`이 브라우저가 보관함을 자동 정리하지 않도록 보호 중입니다. · ${vaultBytes(storage.usage)}`:`브라우저 종료 후에도 유지됩니다. ‘로컬 보관 강화’를 누르면 자동 정리 위험을 더 줄일 수 있습니다. · ${vaultBytes(storage.usage)}`;
+  $('#strengthenStorage').classList.toggle('hidden',storage.persisted);
+  const snapshotList=$('#snapshotList'),trashList=$('#trashList');snapshotList.replaceChildren();trashList.replaceChildren();
+  if(snapshots.length)snapshots.forEach(record=>snapshotList.append(makeVaultItem(record,'snapshot')));else snapshotList.innerHTML='<p class="vaultEmpty">아직 저장본이 없습니다.</p>';
+  if(trash.length)trash.forEach(record=>trashList.append(makeVaultItem(record,'trash')));else trashList.innerHTML='<p class="vaultEmpty">삭제한 문제가 없습니다.</p>';
+}
+async function openVault(){
+  try{await ToeicVault.init(partStates);await refreshVault();$('#vaultDialog').showModal()}catch(error){alert(`문제 보관함을 열지 못했습니다.\n${error.message}`)}
+}
+async function restoreSnapshot(id){
+  const record=await ToeicVault.getSnapshot(id);if(!record)return;
+  if(!confirm(`Part ${record.part}의 현재 목록을 ${record.state.questions.length}문제가 들어 있는 저장본으로 바꿀까요?\n현재 목록도 복원 전에 새 저장본으로 남습니다.`))return;
+  await ToeicVault.snapshot(record.part,partStates[record.part],'저장본 복원 전 안전 저장');
+  replacePartState(record.part,record.state);activePart=record.part;state=partStates[activePart];localStorage.setItem('toeic-active-part',activePart);currentIndex=0;render();await refreshVault();
+}
+async function restoreTrash(id){
+  const record=await ToeicVault.getTrash(id);if(!record)return;
+  const target=partStates[record.part],existing=new Set(target.questions.map(q=>q.id)),questions=record.state.questions.filter(q=>!existing.has(q.id));
+  if(!questions.length){alert('이 문제들은 이미 현재 목록에 있습니다.');return}
+  await ToeicVault.snapshot(record.part,target,'휴지통 복원 전 안전 저장');
+  target.questions.push(...copyState(questions));Object.assign(target.results,copyState(record.state.results||{}));target.starred=[...new Set([...target.starred,...(record.state.starred||[])])];target.filter='all';
+  localStorage.setItem(`part${record.part}-desk-v1`,JSON.stringify(target));await ToeicVault.removeTrash(id);await ToeicVault.snapshot(record.part,target,'삭제한 문제 복원');
+  activePart=record.part;state=target;localStorage.setItem('toeic-active-part',activePart);currentIndex=0;render();await refreshVault();
+}
+$('#openVault').onclick=openVault;$('#closeVault').onclick=()=>$('#vaultDialog').close();
+$('#vaultDialog').onclick=async event=>{const button=event.target.closest('[data-vault-id]');if(!button)return;try{button.disabled=true;if(button.dataset.vaultType==='snapshot')await restoreSnapshot(button.dataset.vaultId);else await restoreTrash(button.dataset.vaultId)}catch(error){alert(`복원하지 못했습니다.\n${error.message}`)}finally{button.disabled=false}};
+$('#strengthenStorage').onclick=async()=>{const persisted=await ToeicVault.requestPersistence();await refreshVault();alert(persisted?'로컬 보관이 강화되었습니다.':'브라우저가 보관 강화를 허용하지 않았습니다. 전체 백업 파일을 함께 보관해 주세요.')};
+$('#exportBackup').onclick=async()=>{
+  try{const backup=await ToeicVault.exportBackup(partStates),blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`talktag-toeic-backup-${new Date().toISOString().slice(0,10)}.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}catch(error){alert(`백업 파일을 만들지 못했습니다.\n${error.message}`)}
+};
+$('#backupFile').onchange=async event=>{
+  const file=event.target.files?.[0];if(!file)return;
+  try{
+    const backup=ToeicVault.validateBackup(JSON.parse(await file.text()));
+    const counts=[5,6,7].map(part=>`Part ${part} ${backup.states[part].questions.length}문제`).join(' · ');
+    if(!confirm(`백업 파일을 불러오면 현재 문제 목록을 교체합니다.\n${counts}\n현재 목록도 먼저 안전 저장합니다.`))return;
+    for(const part of [5,6,7])await ToeicVault.snapshot(part,partStates[part],'백업 파일 복원 전 안전 저장');
+    for(const part of [5,6,7])replacePartState(part,backup.states[part]);
+    await ToeicVault.importArchiveRecords(backup);state=partStates[activePart];currentIndex=0;render();await refreshVault();alert('백업 파일을 불러왔습니다.');
+  }catch(error){alert(`백업 파일을 불러오지 못했습니다.\n${error.message}`)}finally{event.target.value=''}
+};
+ToeicVault.init(partStates).catch(error=>console.warn('TOEIC 보관함 초기화 실패:',error));
 let examSession=null;
 let examClock=null;
 function examNumber(q,index){return q._examNumber||q.questionNumber||q.blank||(101+index)}
