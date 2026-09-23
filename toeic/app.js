@@ -536,13 +536,9 @@ function appendExamQuestion(container,q,index){
   const number=document.createElement('span');number.className='examQuestionNumber';number.textContent=examNumber(q,index)+'.';
   const question=document.createElement('p');question.className='examQuestionText';question.textContent=q.question;header.append(number,question);
   const choices=document.createElement('div');choices.className='examChoices';
-  const interactive=examSession.mode==='paper',key=examAnswerKey(q),selected=examSession.answers[key],checked=examSession.checkedSpreads.has(examSession.spreadIndex);
   q.choices.forEach((text,choiceIndex)=>{
-    const row=document.createElement(interactive?'button':'div');row.className='examChoice';
-    if(interactive){row.type='button';row.setAttribute('aria-pressed',selected===choiceIndex?'true':'false');if(selected===choiceIndex)row.classList.add('selected')}
-    if(checked){if(choiceIndex===q.answer)row.classList.add('correct');else if(choiceIndex===selected)row.classList.add('selectedWrong');else row.classList.add('faded');if(interactive)row.disabled=true}
+    const row=document.createElement('div');row.className='examChoice';
     row.innerHTML=`<span class="examChoiceLetter">${'ABCD'[choiceIndex]}</span><span>${escapeHtml(text)}</span>`;
-    if(interactive&&!checked)row.onclick=()=>{examSession.answers[key]=choiceIndex;choices.querySelectorAll('.examChoice').forEach((choice,i)=>{choice.classList.toggle('selected',i===choiceIndex);choice.setAttribute('aria-pressed',i===choiceIndex?'true':'false')})};
     choices.append(row)
   });
   item.append(header,choices);container.append(item);
@@ -570,12 +566,12 @@ function buildPhysicalPages(parts){
   return pages;
 }
 function partDirections(part){
-  if(part===5)return examSession.mode==='paper'?'빈칸에 가장 알맞은 단어나 구를 골라 화면의 보기를 선택하세요.':'빈칸에 가장 알맞은 단어나 구를 고르세요. 답은 별도의 종이 답안지에 표시합니다.';
+  if(part===5)return '빈칸에 가장 알맞은 단어나 구를 고르세요. 답은 별도의 종이 답안지에 표시합니다.';
   if(part===6)return '각 지문의 문맥을 읽고 빈칸에 가장 알맞은 선택지를 고르세요.';
   return '각 지문을 읽고 이어지는 질문에 가장 알맞은 답을 고르세요.';
 }
 function renderPhysicalPage(page,pageIndex,totalPages){
-  const sheet=document.createElement('article');sheet.className=`bookPage part${page.part} ${examSession.mode==='paper'?'interactive':'staticAnswers'}`;
+  const sheet=document.createElement('article');sheet.className=`bookPage part${page.part} staticAnswers`;
   if(page.isPartStart){const directions=document.createElement('section');directions.className='bookDirections';directions.innerHTML=`<strong>PART ${page.part}</strong><p>${partDirections(page.part)}</p>`;sheet.append(directions)}
   if(page.part===5){const grid=document.createElement('div');grid.className='examQuestionGrid';page.questions.forEach((q,index)=>appendExamQuestion(grid,q,index));sheet.append(grid)}
   else{
@@ -591,18 +587,17 @@ function renderExamPaper(){
   const totalSpreads=Math.ceil(examSession.pages.length/2),current=examSession.spreadIndex+1;
   $('#examPageStatus').textContent=`${current} / ${totalSpreads} 펼침면`;
   $('#previousSpread').disabled=current===1;$('#nextSpread').disabled=current===totalSpreads;
-  $('#showPageAnswers').classList.toggle('hidden',examSession.mode==='mock');
-  $('#finishExam').textContent=examSession.mode==='mock'?'시험 종료 · 전체 답지 보기':'전체 답지·해설 보기';
+  $('#finishExam').textContent='시험 종료 · 전체 답지 보기';
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function startExam(mode){
-  const parts=mode==='mock'?[5,6,7]:[activePart],questions=collectExamQuestions(parts),pages=buildPhysicalPages(parts);
+function startExam(){
+  const parts=[5,6,7],questions=collectExamQuestions(parts),pages=buildPhysicalPages(parts);
   if(!questions.length){alert('시험을 시작할 문제가 없습니다.');return}
-  examSession={mode,parts,questions,pages,spreadIndex:0,startedAt:Date.now(),elapsed:0,answers:{},checkedSpreads:new Set()};
-  $('#examPartLabel').textContent=mode==='mock'?'READING TEST':`PART ${activePart}`;
-  $('#examModeLabel').textContent=mode==='mock'?'모의고사 모드':'시험지 모드';
-  $('#examModeNotice').textContent=mode==='mock'?'화면에서는 답을 선택하지 않습니다. 종이 답안지에 표시하고 시험 종료 후 전체 답지와 해설로 자가 채점하세요.':'화면에서 답을 선택한 뒤 “현재 페이지 정답 확인”을 누르면 이 펼침면을 즉시 채점하고 해설을 보여 줍니다.';
-  renderExamPaper();setExamView('exam');history.pushState({toeicExam:true,toeicArea:'rc'},'',mode==='mock'?'?mode=rc#mock-exam':`?mode=rc#part${activePart}-paper`);
+  examSession={mode:'mock',parts,questions,pages,spreadIndex:0,startedAt:Date.now(),elapsed:0,answers:{},checkedSpreads:new Set()};
+  $('#examPartLabel').textContent='READING TEST';
+  $('#examModeLabel').textContent='모의고사 모드';
+  $('#examModeNotice').textContent='화면에서는 답을 선택하지 않습니다. 종이 답안지에 표시하고 시험 종료 후 전체 답지와 해설로 자가 채점하세요.';
+  renderExamPaper();setExamView('exam');history.pushState({toeicExam:true,toeicArea:'rc'},'','?mode=rc#mock-exam');
   clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000);
 }
 function resultExplanation(q){
@@ -632,35 +627,26 @@ function updateSelfScore(){
   const correct=document.querySelectorAll('.selfGradeInput:checked').length,total=examSession.questions.length;
   $('#resultScore').textContent=correct;$('#resultTotal').textContent=` / ${total} 자가 채점`;$('#resultRate').textContent=`정답률 ${Math.round(correct/total*100)}%`;
 }
-function showCurrentPageAnswers(){
-  const content=$('#pageAnswersContent'),start=examSession.spreadIndex*2,questions=examSession.pages.slice(start,start+2).flatMap(page=>page.questions);content.replaceChildren();
-  examSession.checkedSpreads.add(examSession.spreadIndex);renderExamPaper();
-  const key=document.createElement('div');key.className='pageAnswerKey';questions.forEach(q=>{const selected=examSession.answers[examAnswerKey(q)],chip=document.createElement('span');chip.classList.add(selected===q.answer?'correct':'wrong');chip.textContent=`${examNumber(q)} ${selected===q.answer?'정답':'오답'} · ${'ABCD'[q.answer]}`;key.append(chip)});content.append(key);
-  questions.forEach(q=>content.append(createAnswerDetail(q,false,{selected:examSession.answers[examAnswerKey(q)]})));$('#pageAnswersDialog').showModal();
-}
 function renderExamResults(){
   clearInterval(examClock);examClock=null;
   examSession.elapsed=Date.now()-examSession.startedAt;
   const total=examSession.questions.length;
-  const isPaper=examSession.mode==='paper',correct=isPaper?examSession.questions.filter(q=>examSession.answers[examAnswerKey(q)]===q.answer).length:0;
-  $('#resultPartLabel').textContent=isPaper?`Part ${examSession.parts[0]} 시험지 모드 자동 채점`:'Part 5 · 6 · 7 모의고사 자가 채점';
-  document.querySelector('.scoreSummary>p').textContent=isPaper?'화면에서 선택한 답안을 자동으로 채점했습니다.':'종이 답안지와 대조해 맞힌 문제를 직접 체크하세요.';
-  $('#resultScore').textContent=correct;$('#resultTotal').textContent=isPaper?` / ${total} 자동 채점`:` / ${total} 자가 채점`;$('#resultRate').textContent=`정답률 ${Math.round(correct/total*100)}%`;$('#resultTime').textContent=`총 시험시간 ${formatExamTime(examSession.elapsed)}`;
+  $('#resultPartLabel').textContent='Part 5 · 6 · 7 모의고사 자가 채점';
+  document.querySelector('.scoreSummary>p').textContent='종이 답안지와 대조해 맞힌 문제를 직접 체크하세요.';
+  $('#resultScore').textContent=0;$('#resultTotal').textContent=` / ${total} 자가 채점`;$('#resultRate').textContent='정답률 0%';$('#resultTime').textContent=`총 시험시간 ${formatExamTime(examSession.elapsed)}`;
   const nav=$('#resultNavigator'),list=$('#resultQuestions');nav.replaceChildren();list.replaceChildren();
-  examSession.questions.forEach(q=>{const number=examNumber(q),selected=examSession.answers[examAnswerKey(q)],link=document.createElement('a');link.href=`#result-q-${q.part}-${q.id}`;link.className='answerKeyChip';if(isPaper)link.classList.add(selected===q.answer?'correct':'wrong');link.textContent=isPaper?`${number} ${selected===undefined?'–':'ABCD'[selected]}`:`${number} ${'ABCD'[q.answer]}`;nav.append(link);list.append(createAnswerDetail(q,!isPaper,isPaper?{selected}:null))});
-  if(!isPaper)list.querySelectorAll('.selfGradeInput').forEach(input=>input.onchange=updateSelfScore);
-  setExamView('results');window.scrollTo(0,0);history.pushState({toeicResults:true,toeicArea:'rc'},'',examSession.mode==='mock'?'?mode=rc#mock-answers':`?mode=rc#part${examSession.parts[0]}-answers`);
+  examSession.questions.forEach(q=>{const number=examNumber(q),link=document.createElement('a');link.href=`#result-q-${q.part}-${q.id}`;link.className='answerKeyChip';link.textContent=`${number} ${'ABCD'[q.answer]}`;nav.append(link);list.append(createAnswerDetail(q,true))});
+  list.querySelectorAll('.selfGradeInput').forEach(input=>input.onchange=updateSelfScore);
+  setExamView('results');window.scrollTo(0,0);history.pushState({toeicResults:true,toeicArea:'rc'},'','?mode=rc#mock-answers');
 }
 function leaveExam(){
   if(examSession&&!confirm('시험을 종료하고 학습 화면으로 돌아갈까요? 현재 시험시간은 저장되지 않습니다.'))return;
   examSession=null;history.pushState({toeicArea:'rc'},'',`${location.pathname}?mode=rc`);setExamView('practice');
 }
-$('#openPaperExam').onclick=()=>startExam('paper');
-$('#openMockExam').onclick=()=>startExam('mock');
+$('#openMockExam').onclick=startExam;
 $('#exitExam').onclick=leaveExam;
 $('#previousSpread').onclick=()=>{if(examSession.spreadIndex>0){examSession.spreadIndex--;renderExamPaper()}};
 $('#nextSpread').onclick=()=>{if(examSession.spreadIndex<Math.ceil(examSession.pages.length/2)-1){examSession.spreadIndex++;renderExamPaper()}};
-$('#showPageAnswers').onclick=showCurrentPageAnswers;$('#closePageAnswers').onclick=()=>$('#pageAnswersDialog').close();
 $('#finishExam').onclick=()=>{const last=Math.ceil(examSession.pages.length/2)-1;if(examSession.spreadIndex<last&&!confirm('아직 보지 않은 페이지가 있습니다. 시험을 종료하고 전체 답지를 볼까요?'))return;renderExamResults()};
 $('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Date.now();examSession.elapsed=0;examSession.answers={};examSession.checkedSpreads=new Set();renderExamPaper();setExamView('exam');clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
 function closeExamResults(){examSession=null;history.pushState({toeicArea:'rc'},'',`${location.pathname}?mode=rc`);setExamView('practice')}

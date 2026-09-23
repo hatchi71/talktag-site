@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영어만점 TOEIC · LC & RC</title>
-    <link rel="stylesheet" href="style.css?v=8" />
+    <link rel="stylesheet" href="style.css?v=9" />
     <link rel="stylesheet" href="import.css?v=2" />
     <link rel="stylesheet" href="delete.css?v=4" />
     <link rel="stylesheet" href="vault.css?v=2" />
@@ -32,7 +32,7 @@
         </button>
         <button id="openRcHub" class="toeicTrack rcTrack" type="button">
           <span class="trackNumber">02 · READING</span><em>OPEN</em><h2>RC</h2>
-          <strong>읽고 근거를 찾는 훈련</strong><p>Part 5·6·7 문제 풀이, 시험지 모드와 모의고사 모드로 실전 감각을 만듭니다.</p><span class="trackAction">RC 시작하기 →</span>
+          <strong>읽고 근거를 찾는 훈련</strong><p>Part 5·6·7 문제 풀이와 모의고사 모드로 실전 감각을 만듭니다.</p><span class="trackAction">RC 시작하기 →</span>
         </button>
       </section>
     </main>
@@ -42,8 +42,7 @@
       <div class="progress" aria-label="학습 현황"><span id="progressText">0문제 학습</span><div><i id="progressBar"></i></div></div>
       <button class="deckHome" id="backToeicLanding" type="button"><span aria-hidden="true">←</span> TOEIC 홈</button>
       <nav class="modeControls" aria-label="학습 모드 선택">
-        <button class="deckButton primary" id="openPaperExam" type="button"><span class="deckIcon" aria-hidden="true">▤</span><span><small>PAGE TRAINING</small><strong>시험지 모드</strong></span><i>현재 Part</i></button>
-        <button class="deckButton" id="openMockExam" type="button"><span class="deckIcon" aria-hidden="true">◷</span><span><small>FULL MISSION</small><strong>모의고사 모드</strong></span><i>Part 5–7</i></button>
+        <button class="deckButton primary" id="openMockExam" type="button"><span class="deckIcon" aria-hidden="true">◷</span><span><small>FULL MISSION</small><strong>모의고사 모드</strong></span><i>Part 5–7</i></button>
         <button class="deckButton" id="toggleBroadcast" type="button"><span class="deckIcon" aria-hidden="true">◉</span><span><small>CREATOR VIEW</small><strong class="deckButtonTitle">세로 방송 모드</strong></span><i>9:16</i></button>
       </nav>
       <div class="headerActions" aria-label="문제 관리"><span class="utilityLabel">CONTENT BAY</span><button class="utilityButton" id="openVault" type="button"><b aria-hidden="true">▣</b> 문제 보관함</button><button class="utilityButton" id="openImport" type="button"><b aria-hidden="true">⇧</b> 파트별 문제 업로드</button><button class="utilityButton" id="openAdd" type="button"><b aria-hidden="true">＋</b> 문제 추가</button></div>
@@ -67,7 +66,7 @@
 
     <main id="examMain" class="examShell hidden" aria-live="polite">
       <header class="examBar">
-        <div><strong id="examPartLabel">PART 5</strong><span id="examModeLabel">시험지 모드</span></div>
+        <div><strong id="examPartLabel">READING TEST</strong><span id="examModeLabel">모의고사 모드</span></div>
         <div class="examStatus"><span id="examPageStatus">1 / 1 펼침면</span><time id="examTimer">00:00</time><button id="exitExam" class="examExit">시험 종료</button></div>
       </header>
       <div class="bookStage" id="examBook">
@@ -75,15 +74,10 @@
       </div>
       <nav class="bookControls" aria-label="시험지 페이지 이동">
         <button id="previousSpread" class="bookNavButton">← 이전 페이지</button>
-        <button id="showPageAnswers" class="bookAnswerButton">현재 페이지 정답 확인</button>
         <button id="nextSpread" class="bookNavButton">다음 페이지 →</button>
         <button id="finishExam" class="bookFinishButton">시험 종료 · 전체 답지 보기</button>
       </nav>
       <p id="examModeNotice" class="examModeNotice"></p>
-      <dialog id="pageAnswersDialog" class="pageAnswersDialog">
-        <header><div><small>PAGE ANSWERS</small><h2>현재 페이지 정답과 해설</h2></div><button id="closePageAnswers" class="iconButton" aria-label="닫기">×</button></header>
-        <div id="pageAnswersContent"></div>
-      </dialog>
     </main>
 
     <main id="examResults" class="examShell resultsShell hidden" aria-live="polite">
@@ -332,6 +326,6 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
       </article>
     </template>
     <script src="toeic-vault.js?v=1"></script>
-    <script src="app.js?v=27"></script>
+    <script src="app.js?v=28"></script>
   </body>
 </html>
