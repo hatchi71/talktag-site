@@ -1,0 +1,53 @@
+.hero-visual {
+  position: relative;
+  margin: 0;
+}
+
+.hero-visual img {
+  display: block;
+  width: min(100%, 463px);
+  max-height: none;
+}
+
+.block-labels {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(100%, 463px);
+  aspect-ratio: 1200 / 1400;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.block-label {
+  position: absolute;
+  left: 34.5%;
+  width: 29%;
+  transform: translate(-50%, -50%);
+  color: #143d78;
+  text-align: center;
+  font-family: "Noto Sans JP", "Noto Sans KR", Inter, system-ui, sans-serif;
+  font-size: clamp(7px, .78vw, 11px);
+  font-weight: 950;
+  line-height: 1.16;
+  letter-spacing: -.06em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+.label-goal {
+  top: 39%;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(108, 50, 0, .32);
+}
+
+.label-fluent { top: 49.3%; }
+.label-natural { top: 58.1%; }
+.label-logic { top: 67.2%; }
+.label-chunks { top: 76.3%; }
+.label-daily { top: 85.4%; }
+
+@media (max-width: 800px) {
+  .block-label {
+    font-size: clamp(8px, 2.2vw, 12px);
+  }
+}
