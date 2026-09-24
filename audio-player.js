@@ -17,11 +17,11 @@
   var completeState = document.getElementById("completeState");
   var prevButton = document.getElementById("prevButton");
   var nextButton = document.getElementById("nextButton");
-  var lessons = (window.TalkTagAudioLessons || []).filter(function (item) { return item.available !== false && item.type === "guided"; });
+  var allLessons = (window.TalkTagAudioLessons || []).filter(function (item) { return item.available !== false && item.type === "guided"; });
   var requestedId = new URLSearchParams(location.search).get("id");
-  var lessonIndex = lessons.findIndex(function (item) { return item.id === requestedId; });
-  if (lessonIndex < 0) lessonIndex = 0;
-  var lesson = lessons[lessonIndex];
+  var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
+  var lessons = allLessons.filter(function (item) { return item.level === lesson.level; });
+  var lessonIndex = lessons.findIndex(function (item) { return item.id === lesson.id; });
   var previousLesson = lessons[lessonIndex - 1] || null;
   var nextLesson = lessons[lessonIndex + 1] || null;
   var storageKey = "talktag-audio:" + lesson.id;
