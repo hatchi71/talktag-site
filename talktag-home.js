@@ -275,6 +275,11 @@
           if (link.classList.contains('active')) link.setAttribute('aria-current', 'page');
         });
       }
+      if (isKoreanHome) {
+        const qrShareScript = document.createElement('script');
+        qrShareScript.src = 'landing-share-qr.js?v=1';
+        document.body.appendChild(qrShareScript);
+      }
     }
     return;
   }
