@@ -276,6 +276,21 @@
         });
       }
       if (isKoreanHome) {
+        const snowPalLabel = document.querySelector('.nav-button[data-view="leader"] span:last-child');
+        if (snowPalLabel) snowPalLabel.textContent = 'SnowPal';
+
+        const commonTalkTagUrl = 'index.html?view=talktag';
+        if (new URLSearchParams(location.search).get('view') === 'talktag') {
+          location.replace(commonTalkTagUrl);
+          return;
+        }
+        document.addEventListener('click', event => {
+          if (!event.target.closest('.nav-button[data-view="talktag"]')) return;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          location.href = commonTalkTagUrl;
+        }, true);
+
         const qrShareScript = document.createElement('script');
         qrShareScript.src = 'landing-share-qr.js?v=1';
         document.body.appendChild(qrShareScript);
