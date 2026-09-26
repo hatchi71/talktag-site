@@ -12,12 +12,14 @@
     description: "꼭 알아야 하는 실용적인 표현을 원어민의 음성을 듣고 따라하며 소리로 숙달합니다."
   } : {
     eyebrow: "AUDIO ESSAYS & ARTICLES",
-    title: "Natural Listening",
-    description: "반복 없이 이슈와 주제에 관한 글을 자연스럽게 듣습니다."
+    title: "Essays & Articles",
+    description: "이야기를 듣고, 요약하고, 다시 불러내어 자신의 언어로 다시 이야기해 봅니다."
   };
   document.getElementById("libraryEyebrow").textContent = copy.eyebrow;
   document.getElementById("libraryTitle").textContent = copy.title;
   document.getElementById("libraryDescription").textContent = copy.description;
+  document.title = copy.title + " · TalkTag Audio Library";
+  document.getElementById("essayGuide").hidden = type !== "plain";
   document.getElementById(type === "guided" ? "guidedSwitch" : "plainSwitch").classList.add("active");
   document.getElementById("guidedSwitch").href = "audio-library.html?type=guided&level=" + level;
   document.getElementById("plainSwitch").href = "audio-library.html?type=plain&level=" + level;
@@ -42,6 +44,6 @@
       return '<article class="lesson-card"><div class="lesson-art">' + escapeHtml(lesson.art) + '</div><div class="lesson-copy"><small>' + escapeHtml(lesson.level) + ' · PART ' + lesson.part + ' · CHAPTER ' + lesson.chapter + ' · UNIT ' + lesson.unit + '</small><h2>' + escapeHtml(lesson.title) + '</h2><p>' + escapeHtml(lesson.description) + '</p><div class="lesson-meta"><span>' + escapeHtml(lesson.durationLabel) + '</span><span>Provider-edited</span><span>Offline class prep</span></div></div><a class="lesson-action" href="audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></article>';
     }).join("");
   } else {
-    list.innerHTML = '<article class="empty-card"><h2>' + level + ' 자료를 준비하고 있습니다.</h2><p>관리자 업로드 기능이 연결되면 게시된 음원이 이곳에 자동으로 표시됩니다.</p></article>';
+    list.innerHTML = '<article class="empty-card"><h2>' + level + ' 자료를 준비하고 있습니다.</h2><p>' + (type === "plain" ? '새로운 이야기가 준비되면 이곳에서 만나보실 수 있습니다.' : '관리자 업로드 기능이 연결되면 게시된 음원이 이곳에 자동으로 표시됩니다.') + '</p></article>';
   }
 })();

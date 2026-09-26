@@ -1,0 +1,15 @@
+.essay-guide[hidden]{display:none}
+.essay-guide{margin-top:32px;padding:clamp(20px,3vw,34px);border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,#fff,#f0f6ff);box-shadow:var(--shadow)}
+.essay-intro{max-width:780px}.essay-intro h2{margin:12px 0 16px;color:var(--navy);font-size:clamp(27px,3.5vw,40px);line-height:1.3;letter-spacing:-.04em;word-break:keep-all;overflow-wrap:anywhere}
+.essay-intro p{font-size:15px;line-height:1.8;color:var(--muted);margin:8px 0}.essay-intro strong{color:var(--ink)}
+.essay-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:26px;align-items:start}
+.essay-step{min-width:0;padding:22px 20px;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:18px;background:#fff;box-shadow:0 6px 0 #dce7f3}
+.essay-step:nth-child(2){border-top-color:#d4a31b}.essay-step:nth-child(3){border-top-color:#248153}
+.essay-step-number{color:var(--blue);font-size:11px;font-weight:900;letter-spacing:.09em}.essay-step:nth-child(2) .essay-step-number{color:#856313}.essay-step:nth-child(3) .essay-step-number{color:#248153}
+.essay-step h3{min-height:58px;margin:12px 0 8px;color:var(--navy);font-size:20px;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+.essay-step-goal{color:var(--muted);font-size:13px;line-height:1.7;margin:0 0 12px}
+.essay-guide summary{padding:12px 0;min-height:44px;cursor:pointer;color:var(--blue);font-size:13px;font-weight:800;line-height:1.6}
+.essay-guide summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px;border-radius:4px}
+.essay-step-detail{border-top:1px solid var(--line);padding-top:4px;color:var(--ink);font-size:14px;line-height:1.85;word-break:keep-all;overflow-wrap:anywhere}.essay-step-detail ul{padding-left:20px}.essay-motto{color:var(--blue);font-weight:750}
+.essay-purpose{margin-top:24px;border-top:1px solid var(--line);padding-top:8px}.essay-purpose summary{color:var(--navy);font-size:16px}.essay-purpose>div{max-width:780px;font-size:14px;line-height:1.85;color:var(--muted)}.essay-purpose strong{color:var(--ink)}
+@media(max-width:850px){.essay-steps{grid-template-columns:1fr}.essay-step h3{min-height:0}.essay-intro p{font-size:14px}.essay-guide{margin-top:25px}.catalog-head p{line-height:1.75}}
