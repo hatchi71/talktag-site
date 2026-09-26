@@ -3,7 +3,7 @@
 html[data-appearance] .tt-themed-header img[src$="talktag-logo.png"] {
   object-fit:cover;
   clip-path:inset(6% round 18%);
-  transform:scale(1.12);
+  scale:1.12;
   transform-origin:center;
 }
 html[data-appearance] { --tt-bg:#f5f2eb; --tt-card:#fffcf5; --tt-raised:#eee9df; --tt-text:#23354d; --tt-muted:#5d6979; --tt-border:#d8d4ca; --tt-accent:#1768d5; color-scheme:light; }
@@ -85,4 +85,24 @@ html[data-appearance=bright] .avatar { background:#914623; color:#fff; }
   html[data-appearance] .top-actions,html[data-appearance] .head-links { width:100%; justify-content:flex-end; }
   html[data-appearance] .top-actions .tt-theme-switch { margin-left:auto; }
   html[data-appearance] .top-brand { max-width:none!important; }
+}
+/* Home header: two predictable rows instead of three wrapped action rows. */
+@media(max-width:620px) {
+  html[data-appearance] header.topbar:has(.top-brand) {
+    display:grid; grid-template-columns:minmax(0,1fr) auto;
+    gap:8px 10px; padding:10px 12px!important; min-height:0;
+  }
+  html[data-appearance] .topbar .top-brand { grid-row:1; grid-column:1; max-width:none; min-width:0; gap:8px; }
+  html[data-appearance] .topbar .top-brand>a { width:44px; height:44px; flex-basis:44px; border-radius:12px; }
+  html[data-appearance] .topbar .mobile-logo { left:0; top:0; width:44px!important; height:44px!important; object-fit:contain; transform:none; scale:1.12; clip-path:inset(3% round 15%); }
+  html[data-appearance] .topbar .catchphrase { font-size:11px; line-height:1.15; max-width:130px; }
+  html[data-appearance] .topbar .top-actions { display:contents; }
+  html[data-appearance] .topbar .top-actions .tt-theme-switch { grid-row:1; grid-column:2; margin:0; padding:2px; gap:0; border-radius:13px; }
+  html[data-appearance] .topbar .tt-theme-switch button { min-width:54px; min-height:44px; padding:0 5px; font-size:10px; border-radius:10px; }
+  html[data-appearance] .topbar .language-switch.language-tabs { grid-row:2; grid-column:1; width:100%; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+  html[data-appearance] .topbar .language-tabs-label { display:none; }
+  html[data-appearance] .topbar .language-switch.language-tabs a { min-width:0; width:auto; height:44px; padding:0 5px; font-size:10px; border-radius:11px; box-shadow:0 2px 0 var(--tt-border); }
+  html[data-appearance] .topbar .floating-share { grid-row:2; grid-column:2; justify-self:end; width:44px; height:44px; border-radius:11px; box-shadow:none; }
+  html[data-appearance] .topbar .floating-share svg { width:19px; height:19px; }
+  html[data-appearance] .topbar .share-menu { top:100%; right:12px; }
 }
