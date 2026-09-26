@@ -14,8 +14,8 @@
   apply(preference);
   window.addEventListener('storage', event => { if (event.key === key) apply(event.newValue); });
   document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('header.topbar, header.top, header.site-head, header.site-header');
-    if (!header) return;
+    const headers = document.querySelectorAll('header.topbar, header.top, header.site-head, header.site-header, header.toeicLandingHeader, header.examBar');
+    for (const header of headers) {
     header.classList.add('tt-themed-header');
     const group = document.createElement('div');
     group.className = 'tt-theme-switch';
@@ -33,6 +33,7 @@
       group.append(button);
     }
     (header.querySelector('.top-actions, .head-links') || header).append(group);
+    }
     apply(root.dataset.appearance);
   });
 })();

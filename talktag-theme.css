@@ -1,4 +1,11 @@
-/* Local pilot: cream daylight / stratosphere navy. No image inversion. */
+/* Shared appearance. Explicit surface/text pairs; never invert learning images. */
+/* Trim only the logo's outer white margin; preserve the original artwork. */
+html[data-appearance] .tt-themed-header img[src$="talktag-logo.png"] {
+  object-fit:cover;
+  clip-path:inset(6% round 18%);
+  transform:scale(1.12);
+  transform-origin:center;
+}
 html[data-appearance] { --tt-bg:#f5f2eb; --tt-card:#fffcf5; --tt-raised:#eee9df; --tt-text:#23354d; --tt-muted:#5d6979; --tt-border:#d8d4ca; --tt-accent:#1768d5; color-scheme:light; }
 html[data-appearance=dark] { --tt-bg:#030916; --tt-card:#0b172b; --tt-raised:#13243d; --tt-text:#e6ecf6; --tt-muted:#adbcd0; --tt-border:#2a3c56; --tt-accent:#87b9ff; color-scheme:dark; }
 html[data-appearance] body { background:radial-gradient(ellipse at 50% 0%,#fffcf6 0%,var(--tt-bg) 75%); color:var(--tt-text); }
@@ -31,6 +38,47 @@ html[data-appearance=dark] .exam.live { background:var(--tt-raised); color:var(-
 html[data-appearance=dark] .share-qr { background:white; }
 html[data-appearance=dark] .logic-block { color:#183455; }
 html[data-appearance] .top-actions,html[data-appearance] .head-links { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+/* Learning surfaces: a light card must never inherit dark-mode light lettering. */
+html[data-appearance] :is(.item,.shared-layer,.method,.method li,.flow>div,.camp-card,.level-card,.stage-card,.series,.output,.recall,.refresh,.variable,.var-task,.rule,.readingDocument,.passagePanel,.feedback,.vaultDialog,.vaultPanel,.vaultItem,.importPanel,.hero-panel,.benefit,.library-card,.bridge,.essay-guide,.essay-step,.lesson-card,.empty,dialog) {
+  background:var(--tt-card)!important; color:var(--tt-text); border-color:var(--tt-border)!important;
+}
+html[data-appearance=dark] :is(.lesson-nav a,.nav a,.stage-nav a,.player-tools button,.flow>div,.pill,.badge,.audio-status,.level-tabs a,.levels a,.tabs a,.chip,.kr-toggle,.kr,.refresh,.variable,.var-task,.rule,.tab b,.partButton,.utilityButton,.vaultAction,.vaultClose,.vaultFile,.selfGradeInput) {
+  background:var(--tt-raised)!important; color:var(--tt-text)!important; border-color:var(--tt-border)!important;
+}
+html[data-appearance=dark] :is(.class-bridge strong,.cue b,.ey,.eyebrow,.level,.camp-kicker,.num,.stage-number,.stage-footer,.output,.card-link,.shared-layer a,.bottom-nav a,.subtitle,.meaning,.script,.quiet,.footnote,.complete-state,.avatar) { color:var(--tt-text)!important; }
+html[data-appearance=dark] .planet { color:#183455!important; }
+html[data-appearance=dark] :is(.step,.full,.script,.script-list,.passage,.readingDocument) p { color:var(--tt-text)!important; }
+html[data-appearance=dark] :is(a,button,input,textarea,select,summary):focus-visible { outline:3px solid #a8caff; outline-offset:3px; }
+/* TOEIC retains separate correct/wrong states, with readable dark surfaces. */
+html[data-appearance=dark] { --green:#91dec0; --red:#ffaaa4; --light:#15392e; --pink:#3b202c; }
+html[data-appearance=dark] :is(.toeicLanding,.toeicTrack,.youtubeBridge,.examShell,.examPaper,.resultPaper,.examPassage,.examChoice,.resultChoice,.resultItem,.resultExplanation,.vaultShell,.vaultSectionCopy,.importHint) { background:var(--tt-card)!important; color:var(--tt-text)!important; border-color:var(--tt-border)!important; }
+html[data-appearance=dark] :is(.toeicTrack p,.toeicTrack span,.toeicTrack small,.vaultItem span,.vaultItem small,.vaultNote,.vaultStatus,.feedback p,.resultLabel,.examQuestionText,.examInstructions p,.examStatus time,.examBar strong) { color:var(--tt-text)!important; }
+html[data-appearance=dark] :is(.primary,.partButton.active,.sharePrimary,.examSubmit) { background:#245bad!important; color:#fff!important; border-color:#87b9ff!important; }
+html[data-appearance=dark] :is(.choice.correct,.choice.correct strong,.resultChoice.correct) { color:#9fc6ff!important; }
+html[data-appearance=dark] :is(.choice.selectedWrong,.choice.selectedWrong strong,.resultChoice.userWrong) { color:#ffaaa4!important; }
+html[data-appearance=dark] :is(.examChoice.selected,.resultChoice.correct,.resultChoice.userWrong) { background:var(--tt-raised)!important; }
+html[data-appearance=dark] mark { background:#ffe3a0; color:#17243b; }
+html[data-appearance=dark] :is(.type-switch a,.filter-bar a,.bridge-flow div,.benefit b,.kr-panel) { background:var(--tt-raised)!important; color:var(--tt-text)!important; border-color:var(--tt-border)!important; }
+html[data-appearance=dark] :is(.type-switch a.active,.filter-bar a.active,.stage-nav a[aria-current=page],.player-tools button[aria-pressed=true]) { background:#245bad!important; color:#fff!important; border-color:#87b9ff!important; }
+html[data-appearance] :is(.snow-step,.step-text,.own-task,.step-kr,.coming) { background:var(--tt-card)!important; color:var(--tt-text)!important; border-color:var(--tt-border)!important; }
+html[data-appearance=dark] :is(.level,.status,.complete-state,.avatar,.bottom-nav a,.toeicTrack em) { background:var(--tt-raised)!important; color:var(--tt-text)!important; }
+html[data-appearance=dark] :is(.nav-button,.refresh span,.variable span,.toeicBack,.toeicLandingHeader span,.start span) { color:var(--tt-text)!important; }
+html[data-appearance=dark] .lesson-action { background:#245bad!important; color:#fff!important; }
+html[data-appearance=dark] .own-task b { color:#ffbc8e!important; }
+html[data-appearance=bright] { --muted:#5d6979; --m:#5d6979; --orange:#a5450c; --o:#a5450c; }
+html[data-appearance=bright] :is(.intro,.summary,.topic,.guide,.time-row,dt,.brand small,.item p,.lesson-card p,.lesson-meta span,.section-tag,.band span,.band em,.complete-state,.toeicBack,.toeicTrack em,.empty) { color:#5d6979!important; }
+html[data-appearance=bright] :is(.card,.space,.section,.cefr,.recall,.full,.story,.method,.camp-card,.series) p { color:#5d6979!important; }
+html[data-appearance=bright] :is(.num,.step small,.step-label,.camp-open,.open,.own-task b) { color:#a5450c!important; }
+html[data-appearance=bright] .cue b { color:#24543e; }
+html[data-appearance=bright] .type-switch a:not(.active) { color:#5d6979; }
+html[data-appearance=bright] :is(.benefit b,.planet.p1) { color:#1255b0; }
+html[data-appearance=bright] .space.test { background:#0b2855!important; }
+html[data-appearance=bright] .space.test :is(h3,p,.number,.open) { color:#e6ecf6!important; }
+html[data-appearance=dark] :is(.deckLabel span,.deckLabel strong,.deckButton small,.essay-step-number) { color:var(--tt-text)!important; }
+html[data-appearance=dark] :is(.deckButton:not(.primary),.deckButton i) { background:var(--tt-raised)!important; color:var(--tt-text)!important; border-color:var(--tt-border)!important; }
+html[data-appearance=bright] :is(.nav-button,.nav-sub,#view-description,.language-tabs-label) { color:#5d6979!important; }
+html[data-appearance=bright] .nav-button.active { color:#1255b0!important; }
+html[data-appearance=bright] .avatar { background:#914623; color:#fff; }
 @media(max-width:700px) {
   html[data-appearance] .tt-themed-header { padding-left:12px!important; padding-right:12px!important; }
   html[data-appearance] .tt-themed-header>.tt-theme-switch { margin-left:auto; }
