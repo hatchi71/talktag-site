@@ -87,6 +87,16 @@ html[data-appearance=bright] .avatar { background:#914623; color:#fff; }
   html[data-appearance] .top-brand { max-width:none!important; }
 }
 /* Home header: two predictable rows instead of three wrapped action rows. */
+/* Home news is injected as feature-card, not home-news-card. Override its gradients as a pair. */
+html[data-appearance=dark] body .home-news .feature-card {
+  background:#0b172b!important;
+  border:1px solid #344b68!important;
+  color:#e6ecf6!important;
+}
+html[data-appearance=dark] body .home-news .feature-card h3 { color:#e6ecf6!important; }
+html[data-appearance=dark] body .home-news .feature-card p { color:#c3cede!important; }
+html[data-appearance=dark] body .home-news .feature-card .news-label { color:#ffbc8e!important; }
+html[data-appearance=dark] body .home-news .feature-card strong { color:#a8caff!important; }
 @media(max-width:620px) {
   html[data-appearance] header.topbar:has(.top-brand) {
     display:grid; grid-template-columns:minmax(0,1fr) auto;
