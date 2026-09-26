@@ -41,6 +41,9 @@
   });
   if (lessons.length) {
     list.innerHTML = lessons.map(function (lesson) {
+      if (lesson.type === "plain") {
+        return '<article class="lesson-card"><div class="lesson-art">聴</div><div class="lesson-copy"><small>' + escapeHtml(lesson.level + ' · ' + lesson.genre) + '</small><h2>' + escapeHtml(lesson.title) + '</h2><p>' + escapeHtml(lesson.description) + '</p><div class="lesson-meta"><span>' + escapeHtml(lesson.durationLabel) + '</span><span>Listen · Rebuild · Tell</span></div></div><a class="lesson-action" href="audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></article>';
+      }
       return '<article class="lesson-card"><div class="lesson-art">' + escapeHtml(lesson.art) + '</div><div class="lesson-copy"><small>' + escapeHtml(lesson.level) + ' · PART ' + lesson.part + ' · CHAPTER ' + lesson.chapter + ' · UNIT ' + lesson.unit + '</small><h2>' + escapeHtml(lesson.title) + '</h2><p>' + escapeHtml(lesson.description) + '</p><div class="lesson-meta"><span>' + escapeHtml(lesson.durationLabel) + '</span><span>Provider-edited</span><span>Offline class prep</span></div></div><a class="lesson-action" href="audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></article>';
     }).join("");
   } else {

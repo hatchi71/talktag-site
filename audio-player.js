@@ -17,10 +17,10 @@
   var completeState = document.getElementById("completeState");
   var prevButton = document.getElementById("prevButton");
   var nextButton = document.getElementById("nextButton");
-  var allLessons = (window.TalkTagAudioLessons || []).filter(function (item) { return item.available !== false && item.type === "guided"; });
+  var allLessons = (window.TalkTagAudioLessons || []).filter(function (item) { return item.available !== false; });
   var requestedId = new URLSearchParams(location.search).get("id");
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
-  var lessons = allLessons.filter(function (item) { return item.level === lesson.level; });
+  var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type; });
   var lessonIndex = lessons.findIndex(function (item) { return item.id === lesson.id; });
   var previousLesson = lessons[lessonIndex - 1] || null;
   var nextLesson = lessons[lessonIndex + 1] || null;
@@ -37,16 +37,26 @@
 
   document.title = "TalkTag · " + lesson.level + " " + lesson.title;
   document.getElementById("playerHeaderMeta").textContent = lesson.level + " · OFFLINE CLASS PREP";
-  document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + " · GUIDED PRACTICE";
+  document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
   document.getElementById("lessonSummary").textContent = lesson.summary;
   document.getElementById("infoLevel").textContent = "CEFR " + lesson.level;
-  document.getElementById("infoLocation").textContent = "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
+  document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
   document.getElementById("infoDuration").textContent = lesson.durationLong;
   document.getElementById("duration").textContent = lesson.durationLabel;
-  document.getElementById("libraryBack").href = "audio-library.html?type=guided&level=" + lesson.level;
+  document.getElementById("libraryBack").href = "audio-library.html?type=" + lesson.type + "&level=" + lesson.level;
   document.getElementById("libraryBack").textContent = "← " + lesson.level + " Library";
-  document.getElementById("infoLibraryBack").href = "audio-library.html?type=guided&level=" + lesson.level;
+  document.getElementById("infoLibraryBack").href = "audio-library.html?type=" + lesson.type + "&level=" + lesson.level;
+  if (lesson.type === "plain") {
+    document.body.classList.add("essay-player");
+    document.querySelector(".brand strong").textContent = "Essays & Articles";
+    var info = document.querySelectorAll(".lesson-info dd");
+    info[0].textContent = "Essays & Articles";
+    info[2].textContent = lesson.genre;
+    info[5].textContent = "Original audio";
+    document.querySelector("#scriptPanel h2").textContent = "English script";
+    document.querySelector(".class-bridge p").textContent = "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
+  }
   audio.src = lesson.audio;
   appendList("scriptList", lesson.expressions);
   appendList("meaningList", lesson.meanings);
@@ -99,6 +109,7 @@
 
   function applyInitialResume() {
     duration.textContent = formatTime(audio.duration);
+    document.getElementById("infoDuration").textContent = formatTime(audio.duration);
     var resumeAt = resumePending;
     if (resumeAt > 0 && resumeAt < audio.duration - 5) {
       audio.currentTime = resumeAt;
