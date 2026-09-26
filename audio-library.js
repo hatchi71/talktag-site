@@ -9,7 +9,7 @@
   var copy = type === "guided" ? {
     eyebrow: "GUIDED LISTEN & REPEAT",
     title: "Guided Practice",
-    description: "반복·누적·침묵이 이미 편집된 완성 음원을 그대로 재생합니다."
+    description: "꼭 알아야 하는 실용적인 표현을 원어민의 음성을 듣고 따라하며 소리로 숙달합니다."
   } : {
     eyebrow: "AUDIO ESSAYS & ARTICLES",
     title: "Natural Listening",
