@@ -1,0 +1,12 @@
+.sync-pilot{margin-top:24px;padding:22px;background:#fff;border:1px solid #d8e4f0;border-radius:22px}
+.sync-pilot h2{margin:0;color:#102f66;font-size:22px}
+.sync-pilot p{font-size:13px;color:#62758b}
+.sync-toolbar{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0;align-items:center}
+.sync-toolbar button,.sync-toolbar label{padding:12px;border:1px solid #d8e4f0;border-radius:12px;background:#f4f7fc;color:#123667;font-size:13px}
+.sync-lines{max-height:360px;overflow-y:auto;scroll-behavior:smooth;overscroll-behavior:contain;display:grid;gap:8px;padding:4px}
+.sync-line{width:100%;text-align:left;border:2px solid transparent;border-radius:12px;background:#f5f7fb;padding:14px;color:#344e70;line-height:1.6;cursor:pointer}
+.sync-line span{display:block}.sync-line .sync-ko{font-size:13px;color:#65758a;margin-top:6px}
+.sync-line.active{border-color:#1b69e8;background:#eaf3ff;color:#102f66}
+.sync-line:focus-visible{outline:3px solid #f28c28;outline-offset:2px}
+.sync-lines.hide-ko .sync-ko{display:none}
+@media(prefers-reduced-motion:reduce){.sync-lines{scroll-behavior:auto}}
