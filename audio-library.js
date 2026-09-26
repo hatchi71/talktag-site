@@ -21,6 +21,7 @@
   document.title = copy.title + " · TalkTag Audio Library";
   document.getElementById("essayGuide").hidden = type !== "plain";
   document.getElementById(type === "guided" ? "guidedSwitch" : "plainSwitch").classList.add("active");
+  function renderLevel() {
   document.getElementById("guidedSwitch").href = "audio-library.html?type=guided&level=" + level;
   document.getElementById("plainSwitch").href = "audio-library.html?type=plain&level=" + level;
 
@@ -28,6 +29,8 @@
     var value = link.getAttribute("data-level");
     link.href = "audio-library.html?type=" + type + "&level=" + value;
     link.classList.toggle("active", value === level);
+    if (value === level) link.setAttribute("aria-current", "true");
+    else link.removeAttribute("aria-current");
   });
 
   function escapeHtml(value) {
@@ -49,4 +52,30 @@
   } else {
     list.innerHTML = '<article class="empty-card"><h2>' + level + ' 자료를 준비하고 있습니다.</h2><p>' + (type === "plain" ? '새로운 이야기가 준비되면 이곳에서 만나보실 수 있습니다.' : '관리자 업로드 기능이 연결되면 게시된 음원이 이곳에 자동으로 표시됩니다.') + '</p></article>';
   }
+  }
+  renderLevel();
+
+  function changeLevel(value) {
+    level = validLevels.indexOf(value) === -1 ? "A1" : value;
+    var list = document.getElementById("lessonList");
+    // Keep the document from shrinking under the learner's current position.
+    list.style.minHeight = list.getBoundingClientRect().height + "px";
+    renderLevel();
+  }
+  document.getElementById("lessonList").setAttribute("aria-live", "polite");
+  document.querySelectorAll("[data-level]").forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      var value = link.getAttribute("data-level");
+      if (value === level) return;
+      var url = new URL(location.href);
+      url.searchParams.set("level", value);
+      history.pushState(null, "", url);
+      changeLevel(value);
+    });
+  });
+  window.addEventListener("popstate", function () {
+    changeLevel((new URLSearchParams(location.search).get("level") || "A1").toUpperCase());
+  });
 })();
