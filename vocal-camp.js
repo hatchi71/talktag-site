@@ -64,7 +64,7 @@
   var index = data.stages.indexOf(stage);
   foot.append(index ? link("← " + data.stages[index - 1].id + " 이전 단계", stageURL(data.stages[index - 1].id)) : link("← Vocal Camp", "vocal-camp.html"));
   if (index < data.stages.length - 1) foot.append(link(data.stages[index + 1].id + " 다음 단계 →", stageURL(data.stages[index + 1].id)));
-  else foot.append(link("Story Camp에서 재구성하기 →", "bootcamp.html#story-camp"));
+  else foot.append(link("Story Camp에서 재구성하기 →", "story-camp.html"));
   view.append(foot);
 
   function renderLesson(lesson) {
