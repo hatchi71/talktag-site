@@ -101,6 +101,7 @@
   }
   var initial = readState();
   var resumePending = Number(initial.position || 0);
+  audio.addEventListener("talktag-audio-seek", function () { resumePending = 0; });
   audio.loop = Boolean(initial.loop);
   loopButton.classList.toggle("on", audio.loop);
   loopButton.setAttribute("aria-checked", String(audio.loop));

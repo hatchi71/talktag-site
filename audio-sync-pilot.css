@@ -1,5 +1,7 @@
 .sync-pilot{margin-top:24px;padding:22px;background:#fff;border:1px solid #d8e4f0;border-radius:22px}
 .sync-pilot h2{margin:0;color:#102f66;font-size:22px}
+.sync-enable{padding:14px 20px;min-height:48px;background:#123667;color:#fff;border:0;border-radius:12px;font-weight:700;cursor:pointer}
+#syncContent[hidden]{display:none}
 .sync-pilot p{font-size:13px;color:#62758b}
 .sync-toolbar{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0;align-items:center}
 .sync-toolbar button,.sync-toolbar label{padding:12px;border:1px solid #d8e4f0;border-radius:12px;background:#f4f7fc;color:#123667;font-size:13px}
