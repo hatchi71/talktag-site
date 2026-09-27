@@ -147,11 +147,6 @@
           <button type="button" class="importPartButton" data-import-part="7">Part 7</button>
         </div>
         <p class="importIntro" id="importIntro"></p>
-        <div class="promptModes" id="promptModes" aria-label="AI 생성 분량 선택">
-          <button type="button" class="promptModeButton" data-prompt-mode="full">전체 30문항</button>
-          <button type="button" class="promptModeButton" data-prompt-mode="first">1차 · 101–115</button>
-          <button type="button" class="promptModeButton" data-prompt-mode="second">2차 · 116–130</button>
-        </div>
         <p class="geminiNotice" id="geminiNotice"><b>Gemini에서는 생성이 원활하지 않습니다.</b> ChatGPT 혹은 Claude를 사용하세요.</p>
         <div class="promptBox"><code id="aiPrompt">TOEIC 실전 연습 문제를 한 번의 응답으로 총 100문항 생성해 주세요. 반드시 Part 5 30문항(101~130)과 Part 6 16문항(131~146), Part 7 54문항(147~200)을 모두 포함하고, 일부만 출력하거나 “계속”을 요청하지 마세요.
 
@@ -333,8 +328,8 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
     </template>
     <script src="toeic-vault.js?v=1"></script>
     <script src="part6-prompt.js?v=1"></script>
-    <script src="part5-prompt.js?v=1"></script>
-    <script src="app.js?v=33"></script>
+    <script src="part5-prompt.js?v=20260927-stable2"></script>
+    <script src="app.js?v=20260927-full30"></script>
     <script src="compact-tools.js?v=2"></script>
   </body>
 </html>

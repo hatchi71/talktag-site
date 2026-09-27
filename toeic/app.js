@@ -106,32 +106,16 @@ ${answerGuide}
 - 모든 오답을 문장 또는 지문에 실제로 대입하여 배제 이유를 확인하고, answer, translation, vocab, explanation이 최종 선택지 순서와 일치하는지 다시 검사하세요.`;
 });
 let importPart=activePart;
-let importPlan='full';
-const part5Plans={
-  full:{count:30,range:'101~130',distribution:'A 8개, B 8개, C 7개, D 7개'},
-  first:{count:15,range:'101~115',distribution:'A 4개, B 4개, C 4개, D 3개'},
-  second:{count:15,range:'116~130',distribution:'A 4개, B 4개, C 3개, D 4개'}
-};
-function promptForPlan(part,plan){
+function promptForPart(part){
   if(Number(part)===5)return window.TOEIC_PART5_PROMPT;
   if(Number(part)===6)return window.TOEIC_PART6_PROMPT;
-  const meta=importMeta[part];
-  if(part!==5||plan==='full')return meta.prompt+`\n\n[출력 규칙 엄수]\n- 절대로 마크다운 코드블록 태그를 붙이지 마세요.\n- 첫 번째 글자는 반드시 [ 이어야 하고, 마지막 글자는 반드시 ] 이어야 합니다.`;
-  const selected=part5Plans[plan];
-  return meta.prompt
-    .replace(`정확히 ${meta.count}문항(${meta.range})`, `정확히 ${selected.count}문항(${selected.range})`)
-    .replace(`- 정확히 30문항, 순서는 101~130입니다.`, `- 이번에는 정확히 ${selected.count}문항만 생성하며, 순서는 ${selected.range}입니다.`)
-    .replace(`Part 5 객체 ${meta.count}개만`, `Part 5 객체 ${selected.count}개만`)
-    .replaceAll(meta.distribution,selected.distribution)
-    +`\n\n[분할 생성 범위]\n- 이번 응답은 ${selected.range} 범위만 생성하세요. 다른 번호 범위의 문제는 포함하지 마세요.\n- 이 배열은 다른 절반과 웹앱에서 자동으로 이어 붙입니다.\n\n[출력 규칙 엄수]\n- 절대로 마크다운 코드블록 태그를 붙이지 마세요.\n- 첫 번째 글자는 반드시 [ 이어야 하고, 마지막 글자는 반드시 ] 이어야 합니다.`;
+  return importMeta[part].prompt+`\n\n[출력 규칙 엄수]\n- 절대로 마크다운 코드블록 태그를 붙이지 마세요.\n- 첫 번째 글자는 반드시 [ 이어야 하고, 마지막 글자는 반드시 ] 이어야 합니다.`;
 }
-function selectImportPlan(plan){
-  importPlan='full'; // New Part 5 blueprint requires all 30 slots together.
-  document.querySelectorAll('[data-prompt-mode]').forEach(button=>button.classList.toggle('active',button.dataset.promptMode===importPlan));
-  const selected=importPart===5?part5Plans[importPlan]:importMeta[importPart];
-  $('#importIntro').innerHTML=importPart===5&&importPlan!=='full'?`Part 5 <b>${selected.range} · ${selected.count}문항</b> 배열을 붙여넣으세요. 먼저 등록한 문제는 그대로 유지됩니다.`:`Part ${importPart} <b>${selected.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
-  $('#aiPrompt').textContent=promptForPlan(importPart,importPlan);
-  $('#importHint').textContent=importPart===5&&importPlan!=='full'?`${selected.range} ${selected.count}문항을 검사한 뒤 기존 문제 뒤에 이어서 저장합니다.`:`Part ${importPart} ${selected.count}문항의 형식과 정답 분포를 검사한 뒤 Part ${importPart}에만 추가합니다.`;
+function refreshImportPrompt(){
+  const selected=importMeta[importPart];
+  $('#importIntro').innerHTML=`Part ${importPart} <b>${selected.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
+  $('#aiPrompt').textContent=promptForPart(importPart);
+  $('#importHint').textContent=`Part ${importPart} ${selected.count}문항의 형식과 정답 분포를 검사한 뒤 Part ${importPart}에만 추가합니다.`;
 }
 function selectImportPart(part){
   importPart=part;
@@ -139,15 +123,13 @@ function selectImportPart(part){
   document.querySelectorAll('[data-import-part]').forEach(button=>{const selected=Number(button.dataset.importPart)===part;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected))});
   $('#importTitle').textContent=`Part ${part} 문제 업로드`;
   $('#importIntro').innerHTML=`Part ${part} <b>${meta.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
-  $('#promptModes').classList.add('hidden');
   $('#geminiNotice').classList.remove('hidden');
-  selectImportPlan('full');
+  refreshImportPrompt();
   $('#importSubmit').textContent=`Part ${part} 등록하기`;
   $('#importError').classList.add('hidden');
   $('#clearImport').classList.add('hidden');
 }
 document.querySelectorAll('[data-import-part]').forEach(button=>button.onclick=()=>selectImportPart(Number(button.dataset.importPart)));
-document.querySelectorAll('[data-prompt-mode]').forEach(button=>button.onclick=()=>selectImportPlan(button.dataset.promptMode));
 $('#openImport').onclick=()=>{selectImportPart(activePart);$('#importDialog').showModal()};$('#closeImport').onclick=()=>$('#importDialog').close();
 function hideImportError(){$('#importError').classList.add('hidden');$('#clearImport').classList.add('hidden')}
 function showImportError(message){$('#importError').textContent=message;$('#importError').classList.remove('hidden');$('#clearImport').classList.remove('hidden')}
@@ -356,7 +338,7 @@ function parseImportedJson(raw){
   }
   const recovered=completeJsonObjects(normalized);
   if(recovered.length)return {items:recovered,recovered:true,normalized:normalized!==candidate};
-  throw Error('응답이 중간에서 끊겨 완성된 문제 객체를 찾지 못했습니다. 더 짧은 분할 요청을 사용해 주세요.');
+  throw Error('응답이 중간에서 끊겨 완성된 문제 객체를 찾지 못했습니다. 완성된 JSON 응답을 다시 생성해 주세요.');
 }
 $('#importForm').onsubmit=async e=>{
   e.preventDefault();
@@ -390,10 +372,9 @@ $('#importForm').onsubmit=async e=>{
       return {id:crypto.randomUUID(),part,question:q.question,choices:q.choices.map(String),answer,translation:q.translation,vocab:q.vocab,explanation:q.explanation,...(part===6?{passage:q.passage,setTitle:q.setTitle,passageType:q.passageType,blank:q.blank}:{}),...(part===7?{questionNumber:q.questionNumber,setId:q.setId,setTitle:q.setTitle,questionType:q.questionType,passages:q.passages,evidence:q.evidence,optionReasons:q.optionReasons}:{})};
     });
     let warnings=[];
-    const planned=importPart===5?part5Plans[importPlan]:importMeta[importPart];
+    const planned=importMeta[importPart];
     if(valid.length===planned.count){
-      if(importPart===5&&importPlan!=='full')warnings=[validateDistribution(valid,planned.distribution.match(/\d+/g).map(Number),`Part 5 ${planned.range}`),validateAnswerRun(valid,`Part 5 ${planned.range}`)].filter(Boolean);
-      else warnings=validateImportedPart(valid,importPart);
+      warnings=validateImportedPart(valid,importPart);
     }else{
       if(valid.length>importMeta[importPart].count)throw Error(`Part ${importPart}는 한 번에 최대 ${importMeta[importPart].count}문항까지 등록할 수 있습니다.`);
       warnings.push(`요청 분량은 ${planned.count}문항이지만 완성된 ${valid.length}문항만 확인되었습니다. 이 ${valid.length}문항만 저장합니다.`);
