@@ -113,6 +113,7 @@ const part5Plans={
   second:{count:15,range:'116~130',distribution:'A 4개, B 4개, C 3개, D 4개'}
 };
 function promptForPlan(part,plan){
+  if(Number(part)===6)return window.TOEIC_PART6_PROMPT;
   const meta=importMeta[part];
   if(part!==5||plan==='full')return meta.prompt+`\n\n[출력 규칙 엄수]\n- 절대로 마크다운 코드블록 태그를 붙이지 마세요.\n- 첫 번째 글자는 반드시 [ 이어야 하고, 마지막 글자는 반드시 ] 이어야 합니다.`;
   const selected=part5Plans[plan];

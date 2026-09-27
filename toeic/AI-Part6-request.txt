@@ -1,0 +1,133 @@
+TASK
+Create ONE original TOEIC-style Part 6 practice set for direct import into a learning application.
+Return a valid JSON array containing EXACTLY 16 question objects: FOUR passages with FOUR questions each.
+Write passages, questions, and choices in English. Write translations, vocabulary explanations, and answer explanations in natural, friendly Korean.
+
+PRIORITY
+1. Valid JSON and exact application schema.
+2. Exactly 16 questions with unique numbers 131–146.
+3. One unambiguously correct answer per question.
+4. Passage coherence and explanation accuracy.
+5. Difficulty balance and answer-position distribution.
+Do not sacrifice correctness to satisfy an answer-position target. Reorder choices instead, then update all dependent fields.
+
+1. FIXED OUTPUT MANIFEST
+Allocate these 16 slots before writing. Do not add any other slots.
+Passage 1 → array positions 1–4 → blank 131, 132, 133, 134
+Passage 2 → array positions 5–8 → blank 135, 136, 137, 138
+Passage 3 → array positions 9–12 → blank 139, 140, 141, 142
+Passage 4 → array positions 13–16 → blank 143, 144, 145, 146
+There must be exactly FOUR unique passage groups. Do not create a fifth passage.
+REVISION RULE: If a passage or question needs revision, REPLACE it in its existing slot. Never append a corrected version, alternative passage, bonus question, or replacement set to the final array.
+Question 146 is the final question. Close the array immediately after its object.
+
+2. CONTENT DESIGN
+Create four original workplace or everyday-life documents with different topics and document types, such as an email, notice, letter, and article.
+Each passage:
+- Approximately 100–160 words, excluding its heading.
+- Exactly four blanks.
+- Three word-or-phrase completion questions.
+- One complete-sentence insertion question.
+- Enough context to establish one best answer for every blank.
+- At least one word-or-phrase question requiring information beyond the sentence containing the blank.
+Across the set:
+- Use an upper-intermediate difficulty profile: approximately 3 moderate, 10 upper-intermediate, and 3 challenging questions.
+- Test grammar, vocabulary/collocation, and discourse connections.
+- Increase difficulty through context and plausible distractors, not obscure vocabulary or specialist knowledge.
+- Keep names, dates, quantities, pronoun references, and event sequences internally consistent.
+- Do not copy or closely paraphrase published test questions.
+For sentence insertion:
+- The blank must accept a complete sentence.
+- The correct sentence must fit both the preceding and following context.
+- Distractors may be grammatical but must fail for a specific contextual reason.
+- Do not use a generic sentence that could fit almost anywhere.
+
+3. EXACT BLANK FORMAT
+Use this exact format: [131] -------
+The hyphen sequence must contain exactly SEVEN ASCII hyphens.
+Passage 1 must contain each of these exactly once:
+[131] -------  [132] -------  [133] -------  [134] -------
+Passage 2:
+[135] -------  [136] -------  [137] -------  [138] -------
+Passage 3:
+[139] -------  [140] -------  [141] -------  [142] -------
+Passage 4:
+[143] -------  [144] -------  [145] -------  [146] -------
+Place the four markers at their actual positions in the passage, not together in a list.
+Do not use additional bracketed numbers or seven-hyphen sequences elsewhere in the passage.
+The blank field must contain the actual question number: 131–146, never 1–4.
+Within each group of four objects, copy setTitle, passageType, and passage IDENTICALLY, including spacing, punctuation, and line breaks.
+Do not regenerate or paraphrase the passage for each question.
+
+4. REQUIRED JSON SCHEMA
+Every object must have these fields and types:
+part: Integer. Always 6.
+setTitle: String. The passage title.
+passageType: String. The document type, such as "Email" or "Notice".
+passage: String. The complete English passage with all four blank markers.
+blank: Integer. The unique question number, 131–146.
+question: String. Use "Select the best option for blank [131]." Replace 131 with this object's blank number.
+choices: Array of exactly four nonempty strings, in A/B/C/D order. Do not prefix the strings with "(A)", "(B)", "(C)", or "(D)".
+answer: Integer index: 0 = A, 1 = B, 2 = C, 3 = D.
+translation: String. Natural Korean translation of the complete sentence containing the correct answer. For sentence insertion, translate the complete inserted sentence. If another blank occurs in the same sentence, resolve that blank with its correct answer before translating.
+vocab: String. Explain all four choices in final A/B/C/D order. For word-or-phrase questions, include Korean meanings and brief natural English examples. For sentence insertion, explain the meaning and key expressions of each option.
+explanation: String. Follow the mandatory four-section format below.
+Do not add alternate schemas, nested question arrays, comments, or additional question objects.
+
+5. KOREAN ANSWER EXPLANATION
+Every explanation must contain these FOUR labeled sections, in this exact order:
+{number}. 정답: ({letter}) {exact correct choice}
+원어민의 감각: ...
+핵심 문법 포인트: ...
+문장 한글 해석: ...
+Use JSON-escaped newlines between sections.
+A. 정답: Use the actual blank number, the letter corresponding to answer, and the exact text of choices[answer].
+B. 원어민의 감각: Explain the situation before introducing technical terminology. Help the learner imagine why someone would naturally say this. Use friendly Korean 존댓말.
+Tone examples: "이런 상황이라면 어떻게 말할까요?", "두 표현은 찰떡궁합이에요."
+Use such expressions selectively. Avoid exaggeration and repetitive stock phrases.
+C. 핵심 문법 포인트: State the precise reason the answer works: grammar, word form, meaning, collocation, or discourse connection. Explain necessary technical terms in plain Korean.
+For context or sentence-insertion questions, retain this heading but explain textual evidence and logical connections rather than inventing a grammar rule.
+Briefly explain why the distractors fail in THIS context. Do not claim a word or construction is universally incorrect when it is valid in other contexts.
+D. 문장 한글 해석: Provide the same complete Korean translation as the translation field. Preserve tense, negation, conditions, and important details.
+Style illustration only; do NOT include it as an extra question:
+"팬들이 새 소설을 어떤 마음으로 기다릴까요? 빨리 읽고 싶어서 손꼽아 기다리겠죠. 그 기대감을 담아주는 표현이 eagerly awaiting이에요."
+
+6. ANSWER POSITION BALANCE
+Across the final 16 objects: A = 4, B = 4, C = 4, D = 4.
+Do not place the same answer letter three times consecutively.
+Avoid a conspicuous repeating pattern such as ABCD ABCD ABCD ABCD.
+First establish the genuinely correct answer. Then reorder choices to achieve the target distribution.
+Whenever choices are reordered, update answer, the answer letter and expression in explanation, and all A/B/C/D references in vocab and explanation.
+Recheck the question after reordering.
+
+7. VALIDATE BEFORE FINAL OUTPUT
+Perform these checks internally. Do not output the checking process.
+STRUCTURE CHECK
+- The top-level value is an array with length exactly 16.
+- Every part equals 6.
+- In array order, blank values equal [131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146].
+- There are no duplicate or missing numbers.
+- There are exactly four passage groups, each with four objects.
+- Each group uses its assigned four numbers only.
+- Repeated passage fields are identical within the group.
+- Each passage has exactly four correctly formatted blank markers.
+- Every choices array has four strings.
+- Every answer is an integer from 0 through 3.
+CONTENT CHECK
+- Solve every question again without relying on the drafted answer.
+- Substitute every option into its blank.
+- Confirm one and only one best answer.
+- Confirm sentence-insertion answers fit both sides of the blank.
+- Confirm all explanations refer to the final choices.
+- Confirm all four explanation sections are present.
+- Confirm translations accurately reflect the completed sentences.
+- Confirm A/B/C/D counts are 4/4/4/4 and no triple run exists.
+If any check fails, repair the existing slot and repeat the checks. Never append a repair to the array. Never silently include an unresolved ambiguous question.
+OUTPUT CHECK
+- Valid JSON only; double quotes for keys and strings.
+- Escape quotation marks and line breaks inside strings.
+- No trailing commas, Markdown fences, preface, afterword, or validation report.
+- No placeholders, ellipses, or "same as above".
+- First non-whitespace character: [
+- Last non-whitespace character: ]
+Return the final validated 16-object JSON array only.
