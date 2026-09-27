@@ -675,5 +675,5 @@ function syncToeicAreaFromState(state){
   document.body.classList.toggle('toeic-app-open',isRc);
 }
 window.addEventListener('popstate',event=>syncToeicAreaFromState(event.state));
-history.replaceState({toeicArea:'landing'},'',location.pathname);
+history.replaceState({toeicArea:new URLSearchParams(location.search).get('mode')==='rc'?'rc':'landing'},'',location.href);
 syncToeicAreaFromState(history.state);

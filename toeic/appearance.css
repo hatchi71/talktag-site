@@ -1,0 +1,19 @@
+/* TOEIC headers share the existing theme controls and saved preference. */
+html[data-appearance] body:not(.broadcast) :is(.toeicLandingHeader,.topbar,.examBar,.top) > .tt-theme-switch {
+  display:inline-flex!important;
+  justify-self:end;
+  margin-left:auto;
+  flex-shrink:0;
+}
+/* RC tools use a grid: put appearance before tools, in its own compact row. */
+html[data-appearance] body:not(.broadcast) > .topbar > .tt-theme-switch {
+  order:-2;
+  grid-column:1 / -1;
+  grid-row:1;
+}
+html[data-appearance] body.broadcast .tt-theme-switch { display:none!important; }
+html[data-appearance] .examBar { flex-wrap:wrap; }
+@media(max-width:650px){
+  html[data-appearance] :is(.toeicLandingHeader,.examBar,.top) > .tt-theme-switch { grid-column:1 / -1; }
+  html[data-appearance] .tt-theme-switch button { min-width:60px;min-height:44px;padding:0 8px;font-size:12px; }
+}

@@ -1,0 +1,28 @@
+body:not(.broadcast)>.topbar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;max-width:1100px;margin:auto}
+body:not(.broadcast)>.topbar .brand{width:44px;height:44px}
+body:not(.broadcast)>.topbar .deckLabel strong,body:not(.broadcast)>.topbar .progress{display:none}
+body:not(.broadcast)>.topbar .deckLabel{margin-right:auto}
+html[data-appearance] body:not(.broadcast)>.topbar>.tt-theme-switch{order:0;grid-row:auto;margin-left:0;padding:2px}
+body:not(.broadcast)>.topbar .deckHome{min-height:44px;padding:8px;font-size:12px}
+#rcTools{order:1;flex:0 0 100%;border:1px solid var(--tt-border);border-radius:12px;background:var(--tt-card);color:var(--tt-text)}
+#rcTools summary{min-height:44px;padding:10px 14px;font-size:14px;font-weight:700;cursor:pointer}
+#rcTools summary::after{content:'펼치기';float:right;font-size:12px;font-weight:400}
+#rcTools[open] summary::after{content:'접기'}
+.rc-tools-content{padding:8px 12px 12px;display:grid;gap:12px}
+#rcTools .modeControls,#rcTools .headerActions{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0}
+#rcTools .deckButton,#rcTools .utilityButton{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;gap:6px;font-size:13px;border-radius:10px;box-shadow:none}
+#rcTools .deckButton strong{font-size:13px}
+#rcTools .deckIcon,#rcTools small,#rcTools .deckButton i,#rcTools .utilityLabel{display:none}
+#rcTools .controls{display:flex;flex-wrap:wrap;gap:8px;margin:0;border-top:1px solid var(--tt-border);padding-top:12px}
+#rcTools .controls button,#rcTools .controls label{min-height:44px;padding:8px;font-size:13px;display:inline-flex;align-items:center;gap:8px}
+body:not(.broadcast) .partToolbar{margin:16px auto 0;padding:0 16px;gap:8px}
+body:not(.broadcast) .partToolbar p{margin:0;font-size:13px}
+body:not(.broadcast) .partButton{min-height:44px;padding:8px 16px;font-size:14px}
+body:not(.broadcast) .toolbar{margin:8px auto;padding:0 16px;gap:8px}
+body:not(.broadcast) .tabs{display:flex;flex-wrap:wrap;gap:8px}
+body:not(.broadcast) .tab{min-height:44px;padding:8px;font-size:14px}
+body:not(.broadcast) .questionWrap{padding:16px}
+body:not(.broadcast) .question{font-size:22px;line-height:1.6}
+body:not(.broadcast) .choice{font-size:18px;line-height:1.6;min-height:48px}
+body.broadcast #rcTools{display:none!important}
+@media(max-width:650px){body:not(.broadcast)>.topbar .deckLabel{font-size:12px}html[data-appearance] body:not(.broadcast)>.topbar .tt-theme-switch button{min-width:54px;padding:0 5px;font-size:11px}body:not(.broadcast)>.topbar .brand{display:none}body:not(.broadcast) .partButtons{display:grid;grid-template-columns:repeat(3,1fr);width:100%}}
