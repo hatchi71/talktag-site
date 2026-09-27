@@ -77,6 +77,7 @@ const importMeta={
   6:{count:16,range:'131~146',distribution:'A 4개, B 4개, C 4개, D 4개',section:promptSection('[Part 6]','[공통 출력 규칙]')},
   7:{count:54,range:'147~200',distribution:'A 14개, B 14개, C 13개, D 13개',section:promptSection('[Part 7 —')}
 };
+const answerGuide="[정답지 작성 가이드 — 필수 4단계]\n모든 explanation은 다음 네 항목을 순서대로 포함하는 하나의 문자열로 작성하세요. 항목 사이 줄바꿈은 JSON에서 \\n으로 이스케이프하세요.\n1. 문항 번호 및 정답: 예) 101. 정답: (A) eagerly. 실제 문항 번호, 최종 answer에 대응하는 알파벳과 정답 보기 전문을 쓰세요.\n2. 원어민의 감각: 문장의 상황과 전달하려는 의미를 장면처럼 떠올리게 설명하세요. 친근한 존댓말로 “이런 상황이라면 어떻게 말할까요?”, “두 표현은 찰떡궁합이에요” 같은 자연스러운 구어체를 활용하되 과장하거나 같은 표현을 반복하지 마세요.\n3. 핵심 문법 포인트: 정답을 결정하는 구조·품사·의미·연어를 정확히 짚고 필요한 문법 용어는 쉽게 풀어 설명하세요. 오답은 이 문맥에서 배제되는 이유를 짧게 설명하고, 다른 상황에서 가능한 표현까지 무조건 틀렸다고 하지 마세요. Part 6·7의 문맥·독해 문제는 문법을 억지로 붙이지 말고 이 항목에서 지문 근거·정보 연결·추론을 설명하세요. Part 7의 evidence와 optionReasons도 기존 규칙대로 유지하세요.\n4. 문장 한글 해석: Part 5는 정답을 넣은 문장 전체, Part 6는 정답을 넣은 해당 문장(문장 삽입은 삽입 문장), Part 7은 질문과 정답 보기 전체를 자연스럽게 번역하세요. 시제·부정·조건을 빠뜨리지 마세요. translation 필드에도 같은 해석을 저장하고 Part 7 passages의 전체 번역은 유지하세요.\n문법 용어만 나열하지 말고 상황 이해 → 정확한 근거 → 자연스러운 해석으로 이어지게 하세요. 기존 explanation의 문장 수·서술 순서 안내와 충돌하면 이 4단계를 우선합니다. 기존 필드명과 자료형은 바꾸지 마세요.\n복수 정답이나 근거 부족은 내부 검수에서 “문항 검수 필요”로 표시하고 문항을 수정·재검수하세요. 해결하지 못한 문항은 완성 문항으로 출력하지 마세요.\n\n[말투와 구성 예시 — 예시를 실제 문제로 복제하지 마세요]\n문제: Fans are ______ awaiting the author's next novel.\n보기: (A) eagerly (B) eager (C) eagerness (D) eagernesses\n101. 정답: (A) eagerly\n원어민의 감각: 좋아하는 작가의 새 소설이 나온다니 어떤 마음으로 기다릴까요? “빨리 읽고 싶다!” 하며 손꼽아 기다리겠죠. 그 기대감을 담아주는 표현이 eagerly awaiting이에요.\n핵심 문법 포인트: “어떤 마음으로 기다리는지”를 설명하므로 동작을 꾸미는 부사 eagerly가 필요해요. eagerly await는 “간절히 기다리다”라는 뜻으로 자연스럽게 함께 쓰입니다. eager는 형용사, eagerness는 명사라 이 자리에 맞지 않아요.\n문장 한글 해석: 팬들은 그 작가의 다음 소설을 손꼽아 기다리고 있습니다.";
 Object.entries(importMeta).forEach(([part,meta])=>{
   let section=meta.section.replaceAll('100문항 전체',`Part ${part} ${meta.count}문항 전체`);
   if(Number(part)===7)section=section.replace('Part 5·6도 오답을 실제 빈칸에 하나씩 넣어 문법·의미·연어를 모두 검토하세요.','');
@@ -93,6 +94,8 @@ Object.entries(importMeta).forEach(([part,meta])=>{
 - 사무·인사·구매·배송·제조·품질관리·금융·청구·회의·행사·여행·숙박·시설관리·고객서비스 등 TOEIC에서 다루는 일반적인 상황을 고르게 사용하되, 한 업종에 치우치지 마세요.
 
 ${section}
+
+${answerGuide}
 
 [출력 및 최종 검수]
 - Part ${part} 객체 ${meta.count}개만 들어 있는 하나의 JSON 배열로 출력하세요.
