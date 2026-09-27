@@ -113,6 +113,7 @@ const part5Plans={
   second:{count:15,range:'116~130',distribution:'A 4개, B 4개, C 3개, D 4개'}
 };
 function promptForPlan(part,plan){
+  if(Number(part)===5)return window.TOEIC_PART5_PROMPT;
   if(Number(part)===6)return window.TOEIC_PART6_PROMPT;
   const meta=importMeta[part];
   if(part!==5||plan==='full')return meta.prompt+`\n\n[출력 규칙 엄수]\n- 절대로 마크다운 코드블록 태그를 붙이지 마세요.\n- 첫 번째 글자는 반드시 [ 이어야 하고, 마지막 글자는 반드시 ] 이어야 합니다.`;
@@ -125,7 +126,7 @@ function promptForPlan(part,plan){
     +`\n\n[분할 생성 범위]\n- 이번 응답은 ${selected.range} 범위만 생성하세요. 다른 번호 범위의 문제는 포함하지 마세요.\n- 이 배열은 다른 절반과 웹앱에서 자동으로 이어 붙입니다.\n\n[출력 규칙 엄수]\n- 절대로 마크다운 코드블록 태그를 붙이지 마세요.\n- 첫 번째 글자는 반드시 [ 이어야 하고, 마지막 글자는 반드시 ] 이어야 합니다.`;
 }
 function selectImportPlan(plan){
-  importPlan=importPart===5&&part5Plans[plan]?plan:'full';
+  importPlan='full'; // New Part 5 blueprint requires all 30 slots together.
   document.querySelectorAll('[data-prompt-mode]').forEach(button=>button.classList.toggle('active',button.dataset.promptMode===importPlan));
   const selected=importPart===5?part5Plans[importPlan]:importMeta[importPart];
   $('#importIntro').innerHTML=importPart===5&&importPlan!=='full'?`Part 5 <b>${selected.range} · ${selected.count}문항</b> 배열을 붙여넣으세요. 먼저 등록한 문제는 그대로 유지됩니다.`:`Part ${importPart} <b>${selected.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
@@ -138,7 +139,7 @@ function selectImportPart(part){
   document.querySelectorAll('[data-import-part]').forEach(button=>{const selected=Number(button.dataset.importPart)===part;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected))});
   $('#importTitle').textContent=`Part ${part} 문제 업로드`;
   $('#importIntro').innerHTML=`Part ${part} <b>${meta.count}문항</b>만 들어 있는 JSON 파일을 선택하거나 내용을 붙여넣으세요.`;
-  $('#promptModes').classList.toggle('hidden',part!==5);
+  $('#promptModes').classList.add('hidden');
   $('#geminiNotice').classList.remove('hidden');
   selectImportPlan('full');
   $('#importSubmit').textContent=`Part ${part} 등록하기`;
