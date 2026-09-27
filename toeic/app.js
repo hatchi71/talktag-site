@@ -667,7 +667,7 @@ function openToeicLanding(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 $('#openRcHub').onclick=openToeicRc;
-$('#openLcHub').onclick=()=>alert('LC 학습 공간은 준비 중입니다.');
+$('#openLcHub').onclick=()=>{ location.href='lc.html'; };
 $('#backToeicLanding').onclick=openToeicLanding;
 function syncToeicAreaFromState(state){
   const isRc=state?.toeicArea==='rc';
