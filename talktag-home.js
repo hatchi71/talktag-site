@@ -106,7 +106,7 @@
         </figure>
         <section class="home-news${bootNews ? ' home-news-three' : ''}">
           ${bootNews}
-          <a class="feature-card snow" href="snowballing-studio.html">
+          <a class="feature-card snow" href="${isKoreanHome ? 'korean-learning.html' : 'snowballing-studio.html'}">
             <div class="news-label">${copy.snowLabel}</div>
             <h3>${copy.snowTitle}</h3>
             <p>${copy.snowBody}</p>

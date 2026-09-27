@@ -1,4 +1,20 @@
 /* Shared appearance. Explicit surface/text pairs; never invert learning images. */
+/* Audit fixes: keep compact controls, with accessible touch surfaces. */
+html[data-appearance=dark] body :is(.mission-body,.mission-ko) b { color:var(--tt-accent)!important; }
+.tt-preview-notice { padding:14px 16px; margin:0 0 20px; border:1px solid var(--tt-border); border-radius:12px; background:var(--tt-raised); color:var(--tt-text); font:400 16px/1.6 system-ui,sans-serif; }
+html[data-appearance] body :is(.kr-toggle,.type-switch a,.level-tabs a,.levels a,.lesson-nav a,.text-actions button,.player-tools button) { min-height:44px; min-width:44px; box-sizing:border-box; }
+html[data-appearance] body :is(.type-switch a,.level-tabs a,.levels a,.lesson-nav a) { display:inline-flex; align-items:center; justify-content:center; }
+html[data-appearance] body :is(.type-switch,.level-tabs,.levels,.lesson-nav,.text-actions,.player-tools) { gap:8px; flex-wrap:wrap; }
+html[data-appearance] #speedSelect { min-height:44px; min-width:64px; font-size:16px; }
+html[data-appearance] #progress { min-height:44px; }
+html[data-appearance] #loopButton { min-width:44px; min-height:44px; }
+html[data-appearance] #loopButton { background:transparent!important; padding:0; }
+html[data-appearance] #loopButton::before { content:""; position:absolute; width:42px; height:24px; left:1px; top:10px; border-radius:99px; background:var(--tt-border); }
+html[data-appearance] #loopButton.on::before { background:var(--tt-accent); }
+html[data-appearance] #loopButton::after { top:13px; left:4px; }
+html[data-appearance] #loopButton.on::after { left:22px; }
+html[data-appearance] .filter-bar a { display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; box-sizing:border-box; }
+html[data-appearance] .filter-bar { gap:8px; flex-wrap:wrap; }
 /* Trim only the logo's outer white margin; preserve the original artwork. */
 html[data-appearance] .tt-themed-header img[src$="talktag-logo.png"] {
   object-fit:cover;
