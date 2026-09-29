@@ -28,8 +28,8 @@
         secondLabel: 'NEW · LANGUAGE EXCHANGE',
         secondTitle: 'Learn together,<br>through real exchange.',
         secondBody: 'Korean speakers and international learners share languages, culture, and useful everyday expressions in one community.',
-        secondAction: 'EXPLORE LEADER SPACE →',
-        secondHref: 'korean.html?view=leader'
+        secondAction: 'EXPLORE TALK & TAG →',
+        secondHref: 'korean.html?view=talktag'
       } : isJapaneseHome ? {
         title: '日本語を、<br>ひとつずつ、<br><em>自分のものに。</em>',
         lead: '일본어를 익히는 것은 작은 조각을<br>하나씩 차근차근 쌓아가는 것과 같아요.',
@@ -279,17 +279,7 @@
         const snowPalLabel = document.querySelector('.nav-button[data-view="leader"] span:last-child');
         if (snowPalLabel) snowPalLabel.textContent = 'SnowPal';
 
-        const commonTalkTagUrl = 'index.html?view=talktag';
-        if (new URLSearchParams(location.search).get('view') === 'talktag') {
-          location.replace(commonTalkTagUrl);
-          return;
-        }
-        document.addEventListener('click', event => {
-          if (!event.target.closest('.nav-button[data-view="talktag"]')) return;
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          location.href = commonTalkTagUrl;
-        }, true);
+        // Korean navigation stays in korean.html; language switches are explicit.
 
         const qrShareScript = document.createElement('script');
         qrShareScript.src = 'landing-share-qr.js?v=1';
