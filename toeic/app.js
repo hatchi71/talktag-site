@@ -696,16 +696,26 @@ async function chooseSet(setId){
   rememberPosition();save();
   if(setId==='local-legacy'){
     selectedSetId=setId;localStorage.setItem(SELECTED_SET_KEY,setId);applySetStates(legacyPartStates);
+    renderSetButtons();
     $('#setStatus').textContent='이 기기에 이전에 저장된 문제를 표시합니다.';return;
   }
   const info=contentManifest?.sets.find(item=>item.id===setId&&item.published);
   if(!info)return;
   $('#setSelect').disabled=true;$('#setStatus').textContent=`${info.title}을 불러오고 있습니다.`;
   try{
-    const states=await loadOfficialSet(info);selectedSetId=setId;localStorage.setItem(SELECTED_SET_KEY,setId);applySetStates(states);
+    const states=await loadOfficialSet(info);selectedSetId=setId;localStorage.setItem(SELECTED_SET_KEY,setId);applySetStates(states);renderSetButtons();
     $('#setStatus').textContent=`${info.title} · ${info.questionCounts.total}문항 · 읽기 전용 공식 세트`;
   }catch(error){console.error(error);$('#setStatus').textContent='세트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';$('#setSelect').value='local-legacy';await chooseSet('local-legacy')}
   finally{$('#setSelect').disabled=false}
+}
+function renderSetButtons(){
+  const box=$('#setButtons');if(!box||!contentManifest)return;box.replaceChildren();
+  contentManifest.sets.forEach((item,index)=>{
+    const button=document.createElement('button');button.type='button';button.className='setButton';button.dataset.setId=item.id;
+    button.innerHTML=`<span>연습문제 ${index+1}</span>${item.published?'':'<small>준비 중</small>'}`;
+    button.disabled=!item.published;button.classList.toggle('active',item.id===selectedSetId);button.setAttribute('aria-pressed',String(item.id===selectedSetId));
+    if(item.published)button.onclick=()=>{const select=$('#setSelect');select.value=item.id;chooseSet(item.id)};box.append(button);
+  });
 }
 async function loadSetCatalog(){
   try{
@@ -713,12 +723,12 @@ async function loadSetCatalog(){
     contentManifest=await response.json();const select=$('#setSelect');select.replaceChildren();
     const hasLegacy=[5,6,7].some(part=>legacyPartStates[part].questions.length);
     if(hasLegacy){const option=new Option('기존 저장 문제','local-legacy');select.add(option)}
-    contentManifest.sets.forEach(item=>{const option=new Option(`${item.title}${item.published?'':' · 준비 중'}`,item.id);option.disabled=!item.published;select.add(option)});
+    contentManifest.sets.forEach(item=>{const option=new Option(`${item.title}${item.published?'':' · 준비 중'}`,item.id);option.disabled=!item.published;select.add(option)});renderSetButtons();
     const published=contentManifest.sets.filter(item=>item.published);
     const preferred=published.some(item=>item.id===selectedSetId)?selectedSetId:(contentManifest.defaultSetId&&published.some(item=>item.id===contentManifest.defaultSetId)?contentManifest.defaultSetId:published[0]?.id);
     if(preferred){select.value=preferred;await chooseSet(preferred)}
-    else if(hasLegacy){select.value='local-legacy';await chooseSet('local-legacy');$('#setStatus').textContent='공식 5세트는 준비 중입니다. 현재는 기존 저장 문제를 표시합니다.'}
-    else{select.disabled=true;$('#setStatus').textContent='공식 5세트의 콘텐츠 검수와 게시를 준비 중입니다.';state={questions:[],results:{},starred:[],filter:'all'};partStates[activePart]=state;render()}
+    else if(hasLegacy){select.value='local-legacy';await chooseSet('local-legacy');$('#setStatus').textContent='연습문제 10세트는 준비 중입니다. 현재는 기존 저장 문제를 표시합니다.'}
+    else{select.disabled=true;$('#setStatus').textContent='연습문제 10세트의 콘텐츠 검수와 게시를 준비 중입니다.';state={questions:[],results:{},starred:[],filter:'all'};partStates[activePart]=state;render()}
     select.onchange=()=>chooseSet(select.value);
   }catch(error){console.error(error);$('#setStatus').textContent='세트 목록을 불러오지 못했습니다. 기존 저장 문제를 표시합니다.'}
 }
