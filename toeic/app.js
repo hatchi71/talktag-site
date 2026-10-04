@@ -7,8 +7,26 @@ let part7State = JSON.parse(localStorage.getItem('part7-desk-v1') || 'null') || 
 const partStates = {5:part5State,6:part6State,7:part7State};
 state = partStates[activePart];
 let currentIndex = 0;
+const POSITION_KEY = 'toeic-practice-position-v1';
+let practicePositions = {};
+try{
+  const savedPositions=JSON.parse(localStorage.getItem(POSITION_KEY)||'{}');
+  if(savedPositions&&typeof savedPositions==='object'&&!Array.isArray(savedPositions))practicePositions=savedPositions;
+}catch(error){console.warn('TOEIC 학습 위치를 불러오지 못했습니다:',error)}
 const $ = s => document.querySelector(s);
 function save(){localStorage.setItem(`part${activePart}-desk-v1`, JSON.stringify(state));}
+function rememberPosition(qs=filtered()){
+  const question=qs[currentIndex];
+  practicePositions[activePart]={questionId:question?.id||null,index:question?currentIndex:0};
+  try{localStorage.setItem(POSITION_KEY,JSON.stringify(practicePositions))}catch(error){console.warn('TOEIC 학습 위치를 저장하지 못했습니다:',error)}
+}
+function restorePosition(){
+  const qs=filtered(),saved=practicePositions[activePart];
+  if(!qs.length){currentIndex=0;return}
+  const savedIndex=Number(saved?.index);
+  const questionIndex=saved?.questionId?qs.findIndex(question=>question.id===saved.questionId):-1;
+  currentIndex=questionIndex>=0?questionIndex:Math.min(Math.max(Number.isFinite(savedIndex)?savedIndex:0,0),qs.length-1);
+}
 function copyState(value){return JSON.parse(JSON.stringify(value))}
 function replacePartState(part,nextState){
   const target=partStates[part];
@@ -53,7 +71,7 @@ async function keepReviewQuestionsOnly(){
   render();
 }
 function updateCounts(){const qs=state.questions, r=state.results; $('#countAll').textContent=qs.length;$('#countCorrect').textContent=qs.filter(q=>r[q.id]?.correct).length;$('#countIncorrect').textContent=qs.filter(q=>r[q.id]&&!r[q.id].correct).length;$('#countStarred').textContent=state.starred.length;const solved=qs.filter(q=>r[q.id]).length;$('#progressText').textContent=`${solved} / ${qs.length}문제 학습`;$('#progressBar').style.width=qs.length?`${solved/qs.length*100}%`:'0'}
-function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:`Part 5 · 단문 빈칸 채우기 ${state.questions.length}문항`;$('#openAdd').classList.toggle('hidden',activePart!==5);document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex>=qs.length)currentIndex=0;$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);updateBroadcastDock();if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
+function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:`Part 5 · 단문 빈칸 채우기 ${state.questions.length}문항`;$('#openAdd').classList.toggle('hidden',activePart!==5);document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex<0||currentIndex>=qs.length)currentIndex=qs.length?Math.min(Math.max(currentIndex,0),qs.length-1):0;rememberPosition(qs);$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);updateBroadcastDock();if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
 if(q.part===7){node.querySelector('.number').textContent=`PART 7 · ${q.questionNumber} · ${currentIndex+1} / ${qs.length}`;const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passages.length===1?'단일':q.passages.length===2?'이중':'삼중'} 지문 · ${q.setTitle}`;const container=node.querySelector('.passage');q.passages.forEach((doc,i)=>{const article=document.createElement('section');article.className='readingDocument';const heading=document.createElement('h3');heading.textContent=`문서 ${i+1} · ${doc.title}`;const body=document.createElement('div');body.textContent=doc.text;article.append(heading,body);container.append(article)});}
 
 if(q.passage){const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passageType} · ${q.setTitle}`;const passage=node.querySelector('.passage');q.passage.split(/(\[\d+\])/g).forEach(piece=>{if(piece===`[${q.blank}]`){const mark=document.createElement('mark');mark.textContent=piece;passage.append(mark)}else passage.append(document.createTextNode(piece))});}
@@ -392,7 +410,7 @@ $('#importForm').onsubmit=async e=>{
   }
 };
 
-document.querySelectorAll('[data-part]').forEach(button=>button.onclick=()=>{save();activePart=Number(button.dataset.part);state=partStates[activePart];localStorage.setItem('toeic-active-part',activePart);currentIndex=0;$('#retryMode').checked=false;render()});
+document.querySelectorAll('[data-part]').forEach(button=>button.onclick=()=>{rememberPosition();save();activePart=Number(button.dataset.part);state=partStates[activePart];localStorage.setItem('toeic-active-part',activePart);restorePosition();$('#retryMode').checked=false;render()});
 function vaultDate(timestamp){return new Intl.DateTimeFormat('ko-KR',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(timestamp))}
 function vaultBytes(bytes){if(!bytes)return '사용량 계산 전';if(bytes<1024*1024)return `${Math.max(1,Math.round(bytes/1024))} KB 사용`;return `${(bytes/1024/1024).toFixed(1)} MB 사용`}
 function downloadJson(data,filename){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=filename;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
@@ -637,6 +655,8 @@ $('#finishExam').onclick=()=>{const last=Math.ceil(examSession.pages.length/2)-1
 $('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Date.now();examSession.elapsed=0;examSession.answers={};examSession.checkedSpreads=new Set();renderExamPaper();setExamView('exam');clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
 function closeExamResults(){examSession=null;history.pushState({toeicArea:'rc'},'',`${location.pathname}?mode=rc`);setExamView('practice')}
 $('#closeResults').onclick=closeExamResults;$('#finishResults').onclick=closeExamResults;
+window.addEventListener('pagehide',()=>rememberPosition());
+restorePosition();
 render();
 
 function openToeicRc(){
