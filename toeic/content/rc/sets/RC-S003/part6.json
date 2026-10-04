@@ -1,1 +1,338 @@
-[]
+[
+  {
+    "id": "RC-S003-P6-Q131",
+    "part": 6,
+    "questionNumber": 131,
+    "setId": "RC-S003-P6-G1",
+    "setTitle": "Update on Regional Logistics Network Expansion",
+    "passageType": "Email",
+    "passage": "From: Marcus Vance, Operations Director (m.vance@apexlogistics.com)\nTo: Regional Managers (all.managers@apexlogistics.com)\nDate: October 14, 2026\nSubject: Update on Regional Logistics Network Expansion\n\nDear Regional Managers,\n\nI am writing to provide an update regarding our ongoing logistics network expansion across the northern territory. Over the past six months, our engineering teams have worked tirelessly to upgrade regional distribution hubs. We are pleased to announce that construction on the primary hub in Hartford is nearly finished. [131]-------, full operations are expected to commence early next month.\n\nThis facility incorporates automated sorting machinery that will [132]------- reduce order processing times. By streamlining package routing, we anticipate a thirty percent increase in daily delivery throughput. [133]-------. \n\nPlease review the attached operational schedule and share it with your local staff. If you have any questions regarding staff scheduling or vehicle allocation, do not hesitate to contact my office. Thank you for your continued [134]------- during this transitional phase.\n\nSincerely,\nMarcus Vance",
+    "blank": 131,
+    "question": "- A) Consequently",
+    "choices": [
+      "Consequently",
+      "Conversely",
+      "Otherwise",
+      "Nevertheless"
+    ],
+    "answer": 0,
+    "translation": "그 결과, 다음 달 초에 정식 가동이 시작될 것으로 예상됩니다.",
+    "vocab": "",
+    "explanation": "앞 문장에서 공사가 마무리되었다는 원인을 말하고, 그 결과 가동이 시작된다는 인과관계를 연결하므로 'Consequently(그 결과)'가 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q132",
+    "part": 6,
+    "questionNumber": 132,
+    "setId": "RC-S003-P6-G1",
+    "setTitle": "Update on Regional Logistics Network Expansion",
+    "passageType": "Email",
+    "passage": "From: Marcus Vance, Operations Director (m.vance@apexlogistics.com)\nTo: Regional Managers (all.managers@apexlogistics.com)\nDate: October 14, 2026\nSubject: Update on Regional Logistics Network Expansion\n\nDear Regional Managers,\n\nI am writing to provide an update regarding our ongoing logistics network expansion across the northern territory. Over the past six months, our engineering teams have worked tirelessly to upgrade regional distribution hubs. We are pleased to announce that construction on the primary hub in Hartford is nearly finished. [131]-------, full operations are expected to commence early next month.\n\nThis facility incorporates automated sorting machinery that will [132]------- reduce order processing times. By streamlining package routing, we anticipate a thirty percent increase in daily delivery throughput. [133]-------. \n\nPlease review the attached operational schedule and share it with your local staff. If you have any questions regarding staff scheduling or vehicle allocation, do not hesitate to contact my office. Thank you for your continued [134]------- during this transitional phase.\n\nSincerely,\nMarcus Vance",
+    "blank": 132,
+    "question": "- A) marginally",
+    "choices": [
+      "marginally",
+      "substantially",
+      "hesitantly",
+      "suspiciously"
+    ],
+    "answer": 1,
+    "translation": "이 시설은 주문 처리 시간을 상당폭 줄여 줄 자동 분류 기계를 도입하고 있습니다.",
+    "vocab": "",
+    "explanation": "자동 분류 기계 도입으로 처리 시간이 '상당폭(substantially)' 감소한다는 긍정적 성능 향상을 설명해 주므로 B가 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q133",
+    "part": 6,
+    "questionNumber": 133,
+    "setId": "RC-S003-P6-G1",
+    "setTitle": "Update on Regional Logistics Network Expansion",
+    "passageType": "Email",
+    "passage": "From: Marcus Vance, Operations Director (m.vance@apexlogistics.com)\nTo: Regional Managers (all.managers@apexlogistics.com)\nDate: October 14, 2026\nSubject: Update on Regional Logistics Network Expansion\n\nDear Regional Managers,\n\nI am writing to provide an update regarding our ongoing logistics network expansion across the northern territory. Over the past six months, our engineering teams have worked tirelessly to upgrade regional distribution hubs. We are pleased to announce that construction on the primary hub in Hartford is nearly finished. [131]-------, full operations are expected to commence early next month.\n\nThis facility incorporates automated sorting machinery that will [132]------- reduce order processing times. By streamlining package routing, we anticipate a thirty percent increase in daily delivery throughput. [133]-------. \n\nPlease review the attached operational schedule and share it with your local staff. If you have any questions regarding staff scheduling or vehicle allocation, do not hesitate to contact my office. Thank you for your continued [134]------- during this transitional phase.\n\nSincerely,\nMarcus Vance",
+    "blank": 133,
+    "question": "- A) We are considering canceling all future equipment upgrades in the territory.",
+    "choices": [
+      "We are considering canceling all future equipment upgrades in the territory.",
+      "The construction budget was exceeded due to unexpected material costs.",
+      "This efficiency gain will enable our network to process peak holiday order volumes seamlessly.",
+      "Local warehouse workers have requested additional overtime pay for the weekend."
+    ],
+    "answer": 2,
+    "translation": "이러한 효율성 향상 덕분에 우리 물류망은 연말 휴가철 성수기의 주문량을 차질 없이 처리할 수 있을 것입니다.",
+    "vocab": "",
+    "explanation": "앞 문장의 배송 능력 30% 증가 성과에 이어, 이러한 효율성 향상이 성수기 주문 처리를 원활하게 해줄 것이라는 C번 문장이 가장 매끄럽게 연결됩니다."
+  },
+  {
+    "id": "RC-S003-P6-Q134",
+    "part": 6,
+    "questionNumber": 134,
+    "setId": "RC-S003-P6-G1",
+    "setTitle": "Update on Regional Logistics Network Expansion",
+    "passageType": "Email",
+    "passage": "From: Marcus Vance, Operations Director (m.vance@apexlogistics.com)\nTo: Regional Managers (all.managers@apexlogistics.com)\nDate: October 14, 2026\nSubject: Update on Regional Logistics Network Expansion\n\nDear Regional Managers,\n\nI am writing to provide an update regarding our ongoing logistics network expansion across the northern territory. Over the past six months, our engineering teams have worked tirelessly to upgrade regional distribution hubs. We are pleased to announce that construction on the primary hub in Hartford is nearly finished. [131]-------, full operations are expected to commence early next month.\n\nThis facility incorporates automated sorting machinery that will [132]------- reduce order processing times. By streamlining package routing, we anticipate a thirty percent increase in daily delivery throughput. [133]-------. \n\nPlease review the attached operational schedule and share it with your local staff. If you have any questions regarding staff scheduling or vehicle allocation, do not hesitate to contact my office. Thank you for your continued [134]------- during this transitional phase.\n\nSincerely,\nMarcus Vance",
+    "blank": 134,
+    "question": "- A) resistance",
+    "choices": [
+      "resistance",
+      "reluctance",
+      "suspicion",
+      "cooperation"
+    ],
+    "answer": 3,
+    "translation": "이 전환 기간 동안 계속해서 협조해 주심에 감사드립니다.",
+    "vocab": "",
+    "explanation": "과도기적 전환 기간 동안 직원들이 보여준 지속적인 '협조(cooperation)'에 감사를 표하는 마무리가 가장 적절합니다."
+  },
+  {
+    "id": "RC-S003-P6-Q135",
+    "part": 6,
+    "questionNumber": 135,
+    "setId": "RC-S003-P6-G2",
+    "setTitle": "Mandatory Energy Conservation Initiative",
+    "passageType": "Notice",
+    "passage": "NOTICE: Mandatory Energy Conservation Initiative\n\nIn accordance with our corporate sustainability goals, Crestview Enterprises will implement a mandatory energy conservation policy across all corporate offices starting November 1. This initiative aims to reduce carbon emissions and operational expenditure. All personnel are requested to [135]------- their energy usage by turning off lights and workstations at the end of each working day.\n\nFacilities management has installed smart thermostat sensors in all conference rooms. These devices automatically adjust indoor climate control based on room [136]-------, ensuring optimal energy efficiency without compromising comfort.\n\nDepartment managers are instructed to monitor compliance within their respective divisions. [137]-------. Employees who identify potential energy wastage or offer innovative green solutions are encouraged to submit their ideas to the sustainability task force. We [138]------- appreciate your commitment to a greener workplace.",
+    "blank": 135,
+    "question": "- A) maximize",
+    "choices": [
+      "maximize",
+      "minimize",
+      "duplicate",
+      "neglect"
+    ],
+    "answer": 1,
+    "translation": "모든 직원들은 퇴근 시 전등과 워크스테이션 전원을 끔으로써 에너지 사용을 최소화하도록 요청받습니다.",
+    "vocab": "",
+    "explanation": "에너지 절약 수칙이므로 사용량을 '최소화(minimize)'하라는 지시가 문맥상 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q136",
+    "part": 6,
+    "questionNumber": 136,
+    "setId": "RC-S003-P6-G2",
+    "setTitle": "Mandatory Energy Conservation Initiative",
+    "passageType": "Notice",
+    "passage": "NOTICE: Mandatory Energy Conservation Initiative\n\nIn accordance with our corporate sustainability goals, Crestview Enterprises will implement a mandatory energy conservation policy across all corporate offices starting November 1. This initiative aims to reduce carbon emissions and operational expenditure. All personnel are requested to [135]------- their energy usage by turning off lights and workstations at the end of each working day.\n\nFacilities management has installed smart thermostat sensors in all conference rooms. These devices automatically adjust indoor climate control based on room [136]-------, ensuring optimal energy efficiency without compromising comfort.\n\nDepartment managers are instructed to monitor compliance within their respective divisions. [137]-------. Employees who identify potential energy wastage or offer innovative green solutions are encouraged to submit their ideas to the sustainability task force. We [138]------- appreciate your commitment to a greener workplace.",
+    "blank": 136,
+    "question": "- A) occupancy",
+    "choices": [
+      "occupancy",
+      "hesitation",
+      "suspicion",
+      "reluctance"
+    ],
+    "answer": 0,
+    "translation": "이 장치들은 회의실 수용 인원/사용 여부에 따라 실내 냉난방을 자동으로 조절합니다.",
+    "vocab": "",
+    "explanation": "센서가 회의실의 '수용 인원/사용 여부(occupancy)'를 감지하여 온도를 조절한다는 내용이므로 A가 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q137",
+    "part": 6,
+    "questionNumber": 137,
+    "setId": "RC-S003-P6-G2",
+    "setTitle": "Mandatory Energy Conservation Initiative",
+    "passageType": "Notice",
+    "passage": "NOTICE: Mandatory Energy Conservation Initiative\n\nIn accordance with our corporate sustainability goals, Crestview Enterprises will implement a mandatory energy conservation policy across all corporate offices starting November 1. This initiative aims to reduce carbon emissions and operational expenditure. All personnel are requested to [135]------- their energy usage by turning off lights and workstations at the end of each working day.\n\nFacilities management has installed smart thermostat sensors in all conference rooms. These devices automatically adjust indoor climate control based on room [136]-------, ensuring optimal energy efficiency without compromising comfort.\n\nDepartment managers are instructed to monitor compliance within their respective divisions. [137]-------. Employees who identify potential energy wastage or offer innovative green solutions are encouraged to submit their ideas to the sustainability task force. We [138]------- appreciate your commitment to a greener workplace.",
+    "blank": 137,
+    "question": "- A) Building maintenance will replace all office carpeting during the upcoming weekend.",
+    "choices": [
+      "Building maintenance will replace all office carpeting during the upcoming weekend.",
+      "Free parking passes will be issued to employees who commute by car.",
+      "Monthly audit reports detailing division performance will be published on the portal.",
+      "Weekly compliance evaluations will be conducted to track department progress."
+    ],
+    "answer": 3,
+    "translation": "부서별 진행 상황을 추적하기 위해 매주 준수 여부 평가가 실시될 것입니다.",
+    "vocab": "",
+    "explanation": "앞 문장의 부서별 감독 지시에 이어, 구체적인 후속 점검 절차인 매주 준수 평가 실시(D)가 가장 들어맞습니다."
+  },
+  {
+    "id": "RC-S003-P6-Q138",
+    "part": 6,
+    "questionNumber": 138,
+    "setId": "RC-S003-P6-G2",
+    "setTitle": "Mandatory Energy Conservation Initiative",
+    "passageType": "Notice",
+    "passage": "NOTICE: Mandatory Energy Conservation Initiative\n\nIn accordance with our corporate sustainability goals, Crestview Enterprises will implement a mandatory energy conservation policy across all corporate offices starting November 1. This initiative aims to reduce carbon emissions and operational expenditure. All personnel are requested to [135]------- their energy usage by turning off lights and workstations at the end of each working day.\n\nFacilities management has installed smart thermostat sensors in all conference rooms. These devices automatically adjust indoor climate control based on room [136]-------, ensuring optimal energy efficiency without compromising comfort.\n\nDepartment managers are instructed to monitor compliance within their respective divisions. [137]-------. Employees who identify potential energy wastage or offer innovative green solutions are encouraged to submit their ideas to the sustainability task force. We [138]------- appreciate your commitment to a greener workplace.",
+    "blank": 138,
+    "question": "- A) briefly",
+    "choices": [
+      "briefly",
+      "sincerely",
+      "marginally",
+      "reluctantly"
+    ],
+    "answer": 1,
+    "translation": "더 친환경적인 일터를 만들기 위한 여러분의 헌신에 진심으로 감사드립니다.",
+    "vocab": "",
+    "explanation": "'appreciate'를 자연스럽게 수식하면서 공지문의 감사 인사를 완성하는 부사는 'sincerely(진심으로)'입니다. briefly(간단히), marginally(미미하게), reluctantly(마지못해)는 문맥상 적절하지 않습니다."
+  },
+  {
+    "id": "RC-S003-P6-Q139",
+    "part": 6,
+    "questionNumber": 139,
+    "setId": "RC-S003-P6-G3",
+    "setTitle": "Invitation to Annual Corporate Leadership Summit",
+    "passageType": "Letter",
+    "passage": "Dr. Elena Rostova\nInstitute for Executive Development\n450 University Avenue, Suite 800\nSeattle, WA 98101\n\nDear Dr. Rostova,\n\nOn behalf of the Global Business Forum, I am delighted to invite you as a keynote speaker at our upcoming Annual Leadership Summit. The event will take place from March 15 to March 17 at the Grand Plaza Hotel in San Francisco. This year’s summit will focus on sustainable corporate governance and digital transformation.\n\nGiven your distinguished research and [139]------- expertise in executive leadership, we believe your insights would be invaluable to our attendees. We would be honored if you could deliver a 45-minute address on the opening morning.\n\n[140]-------, the organizing committee will cover all travel and lodging expenses and provide an honorarium. [141]-------.\n\nPlease confirm your availability by November 30 so that we may finalize the conference schedule. [142]------- we hope your busy schedule permits your attendance, we understand if prior obligations prevent you from accepting.\n\nWarm regards,\n\nArthur Pendelton\nExecutive Chair, Global Business Forum",
+    "blank": 139,
+    "question": "- A) extravagant",
+    "choices": [
+      "extravagant",
+      "hesitant",
+      "extensive",
+      "suspicious"
+    ],
+    "answer": 2,
+    "translation": "경영진 리더십 분야에서의 뛰어난 연구와 풍부한 전문 지식을 고려할 때, 귀하의 식견은 참석자들에게 매우 귀중할 것입니다.",
+    "vocab": "",
+    "explanation": "연사의 뛰어난 역량을 칭찬하며 '풍부한(extensive)' 전문 지식을 언급하는 C가 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q140",
+    "part": 6,
+    "questionNumber": 140,
+    "setId": "RC-S003-P6-G3",
+    "setTitle": "Invitation to Annual Corporate Leadership Summit",
+    "passageType": "Letter",
+    "passage": "Dr. Elena Rostova\nInstitute for Executive Development\n450 University Avenue, Suite 800\nSeattle, WA 98101\n\nDear Dr. Rostova,\n\nOn behalf of the Global Business Forum, I am delighted to invite you as a keynote speaker at our upcoming Annual Leadership Summit. The event will take place from March 15 to March 17 at the Grand Plaza Hotel in San Francisco. This year’s summit will focus on sustainable corporate governance and digital transformation.\n\nGiven your distinguished research and [139]------- expertise in executive leadership, we believe your insights would be invaluable to our attendees. We would be honored if you could deliver a 45-minute address on the opening morning.\n\n[140]-------, the organizing committee will cover all travel and lodging expenses and provide an honorarium. [141]-------.\n\nPlease confirm your availability by November 30 so that we may finalize the conference schedule. [142]------- we hope your busy schedule permits your attendance, we understand if prior obligations prevent you from accepting.\n\nWarm regards,\n\nArthur Pendelton\nExecutive Chair, Global Business Forum",
+    "blank": 140,
+    "question": "- A) Conversely",
+    "choices": [
+      "Conversely",
+      "Otherwise",
+      "Nevertheless",
+      "Additionally"
+    ],
+    "answer": 3,
+    "translation": "또한, 조직위원회는 모든 여행 및 숙박 비용을 부담하고 강연 사례비도 제공할 것입니다.",
+    "vocab": "",
+    "explanation": "기조 연설 요청에 이어, 조직위원회가 부담할 비용과 사례비라는 추가 지원 내용을 덧붙이므로 'Additionally(게다가, 또한)'가 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q141",
+    "part": 6,
+    "questionNumber": 141,
+    "setId": "RC-S003-P6-G3",
+    "setTitle": "Invitation to Annual Corporate Leadership Summit",
+    "passageType": "Letter",
+    "passage": "Dr. Elena Rostova\nInstitute for Executive Development\n450 University Avenue, Suite 800\nSeattle, WA 98101\n\nDear Dr. Rostova,\n\nOn behalf of the Global Business Forum, I am delighted to invite you as a keynote speaker at our upcoming Annual Leadership Summit. The event will take place from March 15 to March 17 at the Grand Plaza Hotel in San Francisco. This year’s summit will focus on sustainable corporate governance and digital transformation.\n\nGiven your distinguished research and [139]------- expertise in executive leadership, we believe your insights would be invaluable to our attendees. We would be honored if you could deliver a 45-minute address on the opening morning.\n\n[140]-------, the organizing committee will cover all travel and lodging expenses and provide an honorarium. [141]-------.\n\nPlease confirm your availability by November 30 so that we may finalize the conference schedule. [142]------- we hope your busy schedule permits your attendance, we understand if prior obligations prevent you from accepting.\n\nWarm regards,\n\nArthur Pendelton\nExecutive Chair, Global Business Forum",
+    "blank": 141,
+    "question": "- A) A detailed itinerary and formal speaker agreement are enclosed for your review.",
+    "choices": [
+      "A detailed itinerary and formal speaker agreement are enclosed for your review.",
+      "We regret to inform you that the conference has been canceled this year.",
+      "Please send us your registration fee at your earliest convenience.",
+      "The hotel does not offer complimentary breakfast for conference guests."
+    ],
+    "answer": 0,
+    "translation": "검토하실 수 있도록 구체적인 일정표와 정식 연사 협약서를 동봉합니다.",
+    "vocab": "",
+    "explanation": "지원 혜택 안내 뒤에, 서신에 동봉된 세부 일정표와 연사 협약서를 확인해 달라는 A번 문장이 가장 정중하게 이어집니다."
+  },
+  {
+    "id": "RC-S003-P6-Q142",
+    "part": 6,
+    "questionNumber": 142,
+    "setId": "RC-S003-P6-G3",
+    "setTitle": "Invitation to Annual Corporate Leadership Summit",
+    "passageType": "Letter",
+    "passage": "Dr. Elena Rostova\nInstitute for Executive Development\n450 University Avenue, Suite 800\nSeattle, WA 98101\n\nDear Dr. Rostova,\n\nOn behalf of the Global Business Forum, I am delighted to invite you as a keynote speaker at our upcoming Annual Leadership Summit. The event will take place from March 15 to March 17 at the Grand Plaza Hotel in San Francisco. This year’s summit will focus on sustainable corporate governance and digital transformation.\n\nGiven your distinguished research and [139]------- expertise in executive leadership, we believe your insights would be invaluable to our attendees. We would be honored if you could deliver a 45-minute address on the opening morning.\n\n[140]-------, the organizing committee will cover all travel and lodging expenses and provide an honorarium. [141]-------.\n\nPlease confirm your availability by November 30 so that we may finalize the conference schedule. [142]------- we hope your busy schedule permits your attendance, we understand if prior obligations prevent you from accepting.\n\nWarm regards,\n\nArthur Pendelton\nExecutive Chair, Global Business Forum",
+    "blank": 142,
+    "question": "- A) Because",
+    "choices": [
+      "Because",
+      "While",
+      "Unless",
+      "Prior to"
+    ],
+    "answer": 1,
+    "translation": "바쁘신 일정 속에서도 참석이 가능하기를 바라지만, 선약으로 인해 응하지 못하시더라도 이해하겠습니다.",
+    "vocab": "",
+    "explanation": "'While I hope..., I understand...' 양보 및 배려의 문맥을 이루는 접속사 'While'이 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q143",
+    "part": 6,
+    "questionNumber": 143,
+    "setId": "RC-S003-P6-G4",
+    "setTitle": "Apex Pharmaceuticals Receives Regulatory Approval",
+    "passageType": "Article",
+    "passage": "Apex Pharmaceuticals Receives Regulatory Approval\n\nBOSTON — Apex Pharmaceuticals announced yesterday that its flagship cardiovascular medication, CardiaPure, has received official regulatory approval from the Federal Health Authority. This major milestone comes after three years of extensive clinical trials involving over five thousand patients nationwide. [143]-------, the drug demonstrated remarkable efficacy in lowering blood pressure without causing significant side effects.\n\nIndustry analysts predict that CardiaPure will capture a [144]------- share of the global pharmaceutical market within its first year of release. Apex plans to initiate commercial production at its state-of-the-art facility in New Jersey next month, with global distribution slated for early spring.\n\nThe company has pledged to keep the retail price reasonable to ensure patient access. [145]-------. CEO Jonathan Sterling stated in a press briefing that expanding access to life-saving treatments remains the firm's top priority. [146]-------, Apex will offer financial assistance programs for low-income patients who qualify.",
+    "blank": 143,
+    "question": "- A) Conversely",
+    "choices": [
+      "Conversely",
+      "Otherwise",
+      "Nevertheless",
+      "Notably"
+    ],
+    "answer": 3,
+    "translation": "특히, 이 약물은 심각한 부작용을 일으키지 않으면서 혈압을 낮추는 데 뛰어난 효능을 입증했습니다.",
+    "vocab": "",
+    "explanation": "임상시험의 두드러진 성과를 강조하여 부각하므로 부사 'Notably(특히, 두드러지게)'가 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q144",
+    "part": 6,
+    "questionNumber": 144,
+    "setId": "RC-S003-P6-G4",
+    "setTitle": "Apex Pharmaceuticals Receives Regulatory Approval",
+    "passageType": "Article",
+    "passage": "Apex Pharmaceuticals Receives Regulatory Approval\n\nBOSTON — Apex Pharmaceuticals announced yesterday that its flagship cardiovascular medication, CardiaPure, has received official regulatory approval from the Federal Health Authority. This major milestone comes after three years of extensive clinical trials involving over five thousand patients nationwide. [143]-------, the drug demonstrated remarkable efficacy in lowering blood pressure without causing significant side effects.\n\nIndustry analysts predict that CardiaPure will capture a [144]------- share of the global pharmaceutical market within its first year of release. Apex plans to initiate commercial production at its state-of-the-art facility in New Jersey next month, with global distribution slated for early spring.\n\nThe company has pledged to keep the retail price reasonable to ensure patient access. [145]-------. CEO Jonathan Sterling stated in a press briefing that expanding access to life-saving treatments remains the firm's top priority. [146]-------, Apex will offer financial assistance programs for low-income patients who qualify.",
+    "blank": 144,
+    "question": "- A) marginal",
+    "choices": [
+      "marginal",
+      "suspicious",
+      "substantial",
+      "hesitant"
+    ],
+    "answer": 2,
+    "translation": "업계 분석가들은 카디아퓨어가 출시 첫해 내에 세계 제약 시장에서 상당한 점유율을 차지할 것으로 예측합니다.",
+    "vocab": "",
+    "explanation": "점유율의 '상당한(substantial)' 확대를 전망하는 긍정적 시장 예측 문맥이므로 C가 정답입니다."
+  },
+  {
+    "id": "RC-S003-P6-Q145",
+    "part": 6,
+    "questionNumber": 145,
+    "setId": "RC-S003-P6-G4",
+    "setTitle": "Apex Pharmaceuticals Receives Regulatory Approval",
+    "passageType": "Article",
+    "passage": "Apex Pharmaceuticals Receives Regulatory Approval\n\nBOSTON — Apex Pharmaceuticals announced yesterday that its flagship cardiovascular medication, CardiaPure, has received official regulatory approval from the Federal Health Authority. This major milestone comes after three years of extensive clinical trials involving over five thousand patients nationwide. [143]-------, the drug demonstrated remarkable efficacy in lowering blood pressure without causing significant side effects.\n\nIndustry analysts predict that CardiaPure will capture a [144]------- share of the global pharmaceutical market within its first year of release. Apex plans to initiate commercial production at its state-of-the-art facility in New Jersey next month, with global distribution slated for early spring.\n\nThe company has pledged to keep the retail price reasonable to ensure patient access. [145]-------. CEO Jonathan Sterling stated in a press briefing that expanding access to life-saving treatments remains the firm's top priority. [146]-------, Apex will offer financial assistance programs for low-income patients who qualify.",
+    "blank": 145,
+    "question": "- A) Several competitor firms have filed lawsuits claiming patent infringement.",
+    "choices": [
+      "Several competitor firms have filed lawsuits claiming patent infringement.",
+      "This pricing strategy ensures that the medication remains affordable to those in need.",
+      "Clinical trials for a second cardiovascular drug have been suspended indefinitely.",
+      "The company plans to double its marketing budget for television commercials."
+    ],
+    "answer": 1,
+    "translation": "이러한 가격 책정 전략은 약물이 그것을 필요로 하는 사람들에게 부담 없는 가격으로 유지되도록 보장합니다.",
+    "vocab": "",
+    "explanation": "앞 문장의 적정 가격 약속에 이어, 이 가격 전략이 부담 없는 약가를 보장해 준다는 B번 문장이 가장 매끄럽게 연결됩니다."
+  },
+  {
+    "id": "RC-S003-P6-Q146",
+    "part": 6,
+    "questionNumber": 146,
+    "setId": "RC-S003-P6-G4",
+    "setTitle": "Apex Pharmaceuticals Receives Regulatory Approval",
+    "passageType": "Article",
+    "passage": "Apex Pharmaceuticals Receives Regulatory Approval\n\nBOSTON — Apex Pharmaceuticals announced yesterday that its flagship cardiovascular medication, CardiaPure, has received official regulatory approval from the Federal Health Authority. This major milestone comes after three years of extensive clinical trials involving over five thousand patients nationwide. [143]-------, the drug demonstrated remarkable efficacy in lowering blood pressure without causing significant side effects.\n\nIndustry analysts predict that CardiaPure will capture a [144]------- share of the global pharmaceutical market within its first year of release. Apex plans to initiate commercial production at its state-of-the-art facility in New Jersey next month, with global distribution slated for early spring.\n\nThe company has pledged to keep the retail price reasonable to ensure patient access. [145]-------. CEO Jonathan Sterling stated in a press briefing that expanding access to life-saving treatments remains the firm's top priority. [146]-------, Apex will offer financial assistance programs for low-income patients who qualify.",
+    "blank": 146,
+    "question": "- A) Additionally",
+    "choices": [
+      "Additionally",
+      "Conversely",
+      "Otherwise",
+      "Nevertheless"
+    ],
+    "answer": 0,
+    "translation": "게다가, 에이펙스는 자격을 갖춘 저소득층 환자들을 위한 재정 지원 프로그램도 제공할 것입니다.",
+    "vocab": "",
+    "explanation": "적정 가격 책정에 이어 저소득층 대상 재정 지원이라는 추가 혜택을 소개하므로 'Additionally(게다가, 또한)'가 정답입니다."
+  }
+]

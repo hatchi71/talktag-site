@@ -1,1 +1,1714 @@
-[]
+[
+  {
+    "id": "RC-S003-P7-Q147",
+    "part": 7,
+    "questionNumber": 147,
+    "setId": "RC-S003-P7-G01",
+    "setTitle": "Single Passage: Notice",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Notice 1",
+        "text": "[NOTICE] Facility Maintenance & Elevator Suspension\n\nPlease be advised that scheduled elevator maintenance will take place at the Crestview Business Center on Saturday, November 12, from 8:00 AM to 4:00 PM. During this period, all passenger elevators in Tower A will be temporarily out of service.\n\nBuilding tenants and visitors are advised to use the service elevator located near the loading dock or the central stairwells. Technicians from Apex Elevator Solutions will be on-site to complete routine safety inspections and software updates.\n\nWe apologize for any inconvenience this temporary suspension may cause and appreciate your cooperation in maintaining facility safety.\n\nFacilities Management Office\nCrestview Business Center",
+        "translation": ""
+      }
+    ],
+    "question": "What is the main purpose of the notice?",
+    "choices": [
+      "To announce a disruption in elevator service",
+      "To hire new maintenance technicians",
+      "To report a power outage in Tower A",
+      "To schedule a tenant meeting"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "지문 첫 문장에서 엘리베이터 점검으로 인한 일시 중단(out of service)을 안내하고 있으므로 A가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q148",
+    "part": 7,
+    "questionNumber": 148,
+    "setId": "RC-S003-P7-G01",
+    "setTitle": "Single Passage: Notice",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Notice 1",
+        "text": "[NOTICE] Facility Maintenance & Elevator Suspension\n\nPlease be advised that scheduled elevator maintenance will take place at the Crestview Business Center on Saturday, November 12, from 8:00 AM to 4:00 PM. During this period, all passenger elevators in Tower A will be temporarily out of service.\n\nBuilding tenants and visitors are advised to use the service elevator located near the loading dock or the central stairwells. Technicians from Apex Elevator Solutions will be on-site to complete routine safety inspections and software updates.\n\nWe apologize for any inconvenience this temporary suspension may cause and appreciate your cooperation in maintaining facility safety.\n\nFacilities Management Office\nCrestview Business Center",
+        "translation": ""
+      }
+    ],
+    "question": "What are tenants instructed to do during the maintenance window?",
+    "choices": [
+      "Avoid entering Tower A completely",
+      "Use the service elevator or central stairwell",
+      "Contact Facilities Management for parking passes",
+      "Reschedule all weekend business appointments"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락에서 로딩 독 근처의 승강기(service elevator)나 중앙 계단(central stairwells)을 이용하라고 지시하므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q149",
+    "part": 7,
+    "questionNumber": 149,
+    "setId": "RC-S003-P7-G02",
+    "setTitle": "Single Passage: Text Message Chain",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Text Message Discussion",
+        "text": "[Text Message Discussion]\n\nLiam Vance (10:14 AM): Hi Sarah, did you get a chance to review the revised presentation slides for the Solaria Energy pitch?\nSarah Jenkins (10:16 AM): Yes, I just finished reading them. The financial projections in section 3 look great, but I noticed a typo on slide 12 regarding the Q4 expansion date.\nLiam Vance (10:17 AM): Thanks for catching that! I'll fix it right away. Are we still good to meet the client at 2:00 PM in Conference Room B?\nSarah Jenkins (10:19 AM): Actually, Mr. Aris Thorne requested to move the meeting to 3:00 PM because his flight was delayed by an hour.\nLiam Vance (10:20 AM): Got it. I'll update the room reservation and inform the rest of the team.",
+        "translation": ""
+      }
+    ],
+    "question": "At 10:17 AM, what does Liam Vance mean when he writes, 'Thanks for catching that'?",
+    "choices": [
+      "He appreciates Sarah finding an error in the slides.",
+      "He is glad Sarah arrived on time for the meeting.",
+      "He confirms receiving the updated pitch document.",
+      "He thanks Sarah for contacting the client directly."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "직전 메시지에서 Sarah가 슬라이드 12번의 오타(typo)를 지적했으므로, 이를 발견해 준 것에 감사하는 A가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q150",
+    "part": 7,
+    "questionNumber": 150,
+    "setId": "RC-S003-P7-G02",
+    "setTitle": "Single Passage: Text Message Chain",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Text Message Discussion",
+        "text": "[Text Message Discussion]\n\nLiam Vance (10:14 AM): Hi Sarah, did you get a chance to review the revised presentation slides for the Solaria Energy pitch?\nSarah Jenkins (10:16 AM): Yes, I just finished reading them. The financial projections in section 3 look great, but I noticed a typo on slide 12 regarding the Q4 expansion date.\nLiam Vance (10:17 AM): Thanks for catching that! I'll fix it right away. Are we still good to meet the client at 2:00 PM in Conference Room B?\nSarah Jenkins (10:19 AM): Actually, Mr. Aris Thorne requested to move the meeting to 3:00 PM because his flight was delayed by an hour.\nLiam Vance (10:20 AM): Got it. I'll update the room reservation and inform the rest of the team.",
+        "translation": ""
+      }
+    ],
+    "question": "Why has the meeting time been changed?",
+    "choices": [
+      "Conference Room B was unavailable.",
+      "The presentation slides were incomplete.",
+      "A client experienced a flight delay.",
+      "Sarah had a scheduling conflict."
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Sarah의 10:19 AM 메시지에서 고객인 Mr. Aris Thorne의 비행기가 1시간 지연되어 회의가 3시로 변경되었다고 설명하므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q151",
+    "part": 7,
+    "questionNumber": 151,
+    "setId": "RC-S003-P7-G03",
+    "setTitle": "Single Passage: Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Email 1",
+        "text": "To: All Department Heads <heads@novapharma.com>\nFrom: Dr. Aris Thorne, Chief Executive Officer <a.thorne@novapharma.com>\nDate: November 3, 2026\nSubject: Annual Executive Retreat\n\nDear Team,\n\nI am pleased to announce that our Annual Executive Retreat will be held from December 5 to December 7 at the Pinecrest Mountain Resort. This year’s retreat will focus on developing our strategic roadmap for international expansion in 2027.\n\nPlease ensure that all department performance reports are submitted to my office no later than November 25. These documents will form the basis of our roundtable discussions. Accommodation details and transportation schedules will be forwarded by Ms. Clara Bennett next week.\n\nBest regards,\nDr. Aris Thorne",
+        "translation": ""
+      }
+    ],
+    "question": "What is the purpose of the email?",
+    "choices": [
+      "To request budget approvals for 2027",
+      "To announce details about an executive retreat",
+      "To hire a new international marketing director",
+      "To cancel a scheduled board meeting"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "임원 워크숍(Annual Executive Retreat)의 개최 일정과 주관 부서 지침을 공유하고 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q152",
+    "part": 7,
+    "questionNumber": 152,
+    "setId": "RC-S003-P7-G03",
+    "setTitle": "Single Passage: Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Email 1",
+        "text": "To: All Department Heads <heads@novapharma.com>\nFrom: Dr. Aris Thorne, Chief Executive Officer <a.thorne@novapharma.com>\nDate: November 3, 2026\nSubject: Annual Executive Retreat\n\nDear Team,\n\nI am pleased to announce that our Annual Executive Retreat will be held from December 5 to December 7 at the Pinecrest Mountain Resort. This year’s retreat will focus on developing our strategic roadmap for international expansion in 2027.\n\nPlease ensure that all department performance reports are submitted to my office no later than November 25. These documents will form the basis of our roundtable discussions. Accommodation details and transportation schedules will be forwarded by Ms. Clara Bennett next week.\n\nBest regards,\nDr. Aris Thorne",
+        "translation": ""
+      }
+    ],
+    "question": "What are department heads required to do by November 25?",
+    "choices": [
+      "Book their own hotel rooms at Pinecrest",
+      "Submit department performance reports",
+      "Contact Ms. Clara Bennett regarding transportation",
+      "Finalize the 2027 international marketing plan"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "11월 25일까지 부서 실적 보고서(department performance reports)를 CEO 사무실로 제출해야 한다고 명시되어 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q153",
+    "part": 7,
+    "questionNumber": 153,
+    "setId": "RC-S003-P7-G04",
+    "setTitle": "Single Passage: Webpage",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Webpage 1",
+        "text": "www.solariaenergy.com/careers/engineering\n\nCareers at Solaria Energy Solutions\n\nSolaria Energy Solutions is a global leader in renewable solar technology. We are currently seeking a Senior Solar Systems Engineer to join our dynamic research and development team at our headquarters in Austin, Texas.\n\n[Key Responsibilities]\n- Design and optimize high-efficiency photovoltaic power systems.\n- Conduct feasibility studies for large-scale commercial installations.\n- Collaborate with cross-functional teams to streamline manufacturing processes.\n\n[Qualifications]\n- Bachelor’s degree in Electrical or Mechanical Engineering (Master’s preferred).\n- Minimum of five years of professional experience in solar system design.\n- Proficiency in CAD software and simulation tools.\n\n[Benefits]\nWe offer competitive salaries, comprehensive medical and dental coverage, matching 401(k) plans, and flexible remote work options. Interested candidates should submit a cover letter and resume to careers@solariaenergy.com by November 30.",
+        "translation": ""
+      }
+    ],
+    "question": "What type of business is Solaria Energy Solutions?",
+    "choices": [
+      "A software development firm",
+      "A renewable energy technology company",
+      "A commercial real estate agency",
+      "A financial consulting group"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "지문 첫 단락에서 재생 가능 태양광 기술의 세계적 선도 기업(global leader in renewable solar technology)이라고 설명하므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q154",
+    "part": 7,
+    "questionNumber": 154,
+    "setId": "RC-S003-P7-G04",
+    "setTitle": "Single Passage: Webpage",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Webpage 1",
+        "text": "www.solariaenergy.com/careers/engineering\n\nCareers at Solaria Energy Solutions\n\nSolaria Energy Solutions is a global leader in renewable solar technology. We are currently seeking a Senior Solar Systems Engineer to join our dynamic research and development team at our headquarters in Austin, Texas.\n\n[Key Responsibilities]\n- Design and optimize high-efficiency photovoltaic power systems.\n- Conduct feasibility studies for large-scale commercial installations.\n- Collaborate with cross-functional teams to streamline manufacturing processes.\n\n[Qualifications]\n- Bachelor’s degree in Electrical or Mechanical Engineering (Master’s preferred).\n- Minimum of five years of professional experience in solar system design.\n- Proficiency in CAD software and simulation tools.\n\n[Benefits]\nWe offer competitive salaries, comprehensive medical and dental coverage, matching 401(k) plans, and flexible remote work options. Interested candidates should submit a cover letter and resume to careers@solariaenergy.com by November 30.",
+        "translation": ""
+      }
+    ],
+    "question": "What is NOT mentioned as a job requirement for the position?",
+    "choices": [
+      "An engineering degree",
+      "At least five years of relevant experience",
+      "Proficiency in CAD software",
+      "Fluency in multiple foreign languages"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "학위(Degree), 5년 경력(5 years experience), CAD 소프트웨어 숙련도(Proficiency in CAD)는 자격 요건으로 언급되었으나, 외국어 유창성은 언급되지 않았으므로 D가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q155",
+    "part": 7,
+    "questionNumber": 155,
+    "setId": "RC-S003-P7-G04",
+    "setTitle": "Single Passage: Webpage",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Webpage 1",
+        "text": "www.solariaenergy.com/careers/engineering\n\nCareers at Solaria Energy Solutions\n\nSolaria Energy Solutions is a global leader in renewable solar technology. We are currently seeking a Senior Solar Systems Engineer to join our dynamic research and development team at our headquarters in Austin, Texas.\n\n[Key Responsibilities]\n- Design and optimize high-efficiency photovoltaic power systems.\n- Conduct feasibility studies for large-scale commercial installations.\n- Collaborate with cross-functional teams to streamline manufacturing processes.\n\n[Qualifications]\n- Bachelor’s degree in Electrical or Mechanical Engineering (Master’s preferred).\n- Minimum of five years of professional experience in solar system design.\n- Proficiency in CAD software and simulation tools.\n\n[Benefits]\nWe offer competitive salaries, comprehensive medical and dental coverage, matching 401(k) plans, and flexible remote work options. Interested candidates should submit a cover letter and resume to careers@solariaenergy.com by November 30.",
+        "translation": ""
+      }
+    ],
+    "question": "How should applicants apply for the job?",
+    "choices": [
+      "By calling the human resources office",
+      "By visiting the Austin headquarters in person",
+      "By emailing their resume and cover letter",
+      "By filling out an online form on the website"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "마지막 문장에서 이력서와 자기소개서를 지정된 이메일 주소로 제출하라고 나와 있으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q156",
+    "part": 7,
+    "questionNumber": 156,
+    "setId": "RC-S003-P7-G05",
+    "setTitle": "Single Passage: Advertisement",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Advertisement 1",
+        "text": "Apex Business Productivity Suite 5.0\n\nBoost your organization's workflow with Apex Business Productivity Suite 5.0! Designed specifically for small and mid-sized enterprises, our software seamlessly integrates project management, automated invoicing, and real-time client communication into one intuitive interface.\n\nKey Features:\n- Cloud-based document sharing with end-to-end encryption.\n- Automated financial tracking and customizable tax reporting.\n- 24/7 dedicated technical support and free platform updates.\n\nSign up for a 30-day free trial today at www.apexsoftware.com/trial. No credit card required! Upgrade your business efficiency effortlessly with Apex.",
+        "translation": ""
+      }
+    ],
+    "question": "Who is the advertised product primarily designed for?",
+    "choices": [
+      "Freelance graphic designers",
+      "Small and mid-sized enterprises",
+      "Individual university students",
+      "Large government agencies"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "첫 단락에서 중소기업(small and mid-sized enterprises)을 위해 특별히 설계되었다고 명시되어 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q157",
+    "part": 7,
+    "questionNumber": 157,
+    "setId": "RC-S003-P7-G05",
+    "setTitle": "Single Passage: Advertisement",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Advertisement 1",
+        "text": "Apex Business Productivity Suite 5.0\n\nBoost your organization's workflow with Apex Business Productivity Suite 5.0! Designed specifically for small and mid-sized enterprises, our software seamlessly integrates project management, automated invoicing, and real-time client communication into one intuitive interface.\n\nKey Features:\n- Cloud-based document sharing with end-to-end encryption.\n- Automated financial tracking and customizable tax reporting.\n- 24/7 dedicated technical support and free platform updates.\n\nSign up for a 30-day free trial today at www.apexsoftware.com/trial. No credit card required! Upgrade your business efficiency effortlessly with Apex.",
+        "translation": ""
+      }
+    ],
+    "question": "What is indicated about the 30-day trial?",
+    "choices": [
+      "It requires a credit card upon registration.",
+      "It includes only basic project management tools.",
+      "It can be accessed without providing payment information.",
+      "It is available only to current clients."
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "마지막 단락에서 'No credit card required!(신용카드 등록 필요 없음)'라고 밝혔으므로 결제 정보 없이 이용 가능한 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q158",
+    "part": 7,
+    "questionNumber": 158,
+    "setId": "RC-S003-P7-G06",
+    "setTitle": "Single Passage: Article",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Article 1",
+        "text": "Crestview Logistics Expands Fleet with Electric Vehicles\n\nDALLAS — Crestview Logistics, a leading regional distribution provider, announced yesterday that it will invest $25 million to replace forty percent of its delivery fleet with zero-emission electric vans over the next eighteen months.\n\nThe initiative is part of the company's broader sustainability program aimed at reducing overall carbon emissions by fifty percent before 2030. [1] \"Transitioning to electric vehicles is not only environmentally responsible but also economically advantageous in the long run due to lower fuel and maintenance costs,\" said Marcus Vance, Chief Operations Officer at Crestview. [2]\n\nIn addition to acquiring new vehicles, Crestview will build charging infrastructure at its regional fulfillment centers in Dallas, Houston, and San Antonio. [3] Construction of the first charging station in Dallas is scheduled to begin early next month. [4] Local environmental groups have lauded the move as a major step forward for green transportation in Texas.",
+        "translation": ""
+      }
+    ],
+    "question": "What is Crestview Logistics planning to do?",
+    "choices": [
+      "Construct a new headquarters in Houston",
+      "Replace part of its delivery fleet with electric vans",
+      "Sell its regional distribution centers",
+      "Increase shipping rates across Texas"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "첫 단락에서 배송 차량의 40%를 전기 밴으로 교체하기 위해 2,500만 달러를 투자한다고 했으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q159",
+    "part": 7,
+    "questionNumber": 159,
+    "setId": "RC-S003-P7-G06",
+    "setTitle": "Single Passage: Article",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Article 1",
+        "text": "Crestview Logistics Expands Fleet with Electric Vehicles\n\nDALLAS — Crestview Logistics, a leading regional distribution provider, announced yesterday that it will invest $25 million to replace forty percent of its delivery fleet with zero-emission electric vans over the next eighteen months.\n\nThe initiative is part of the company's broader sustainability program aimed at reducing overall carbon emissions by fifty percent before 2030. [1] \"Transitioning to electric vehicles is not only environmentally responsible but also economically advantageous in the long run due to lower fuel and maintenance costs,\" said Marcus Vance, Chief Operations Officer at Crestview. [2]\n\nIn addition to acquiring new vehicles, Crestview will build charging infrastructure at its regional fulfillment centers in Dallas, Houston, and San Antonio. [3] Construction of the first charging station in Dallas is scheduled to begin early next month. [4] Local environmental groups have lauded the move as a major step forward for green transportation in Texas.",
+        "translation": ""
+      }
+    ],
+    "question": "According to Marcus Vance, what is a financial benefit of electric vehicles?",
+    "choices": [
+      "Reduced insurance premiums",
+      "Lower fuel and maintenance expenses",
+      "Federal tax exemption grants",
+      "Higher resale market values"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락에서 Marcus Vance의 발언 중 'lower fuel and maintenance costs(더 낮은 연료비 및 정비비)'가 경제적 이점으로 직접 언급되었으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q160",
+    "part": 7,
+    "questionNumber": 160,
+    "setId": "RC-S003-P7-G06",
+    "setTitle": "Single Passage: Article",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Article 1",
+        "text": "Crestview Logistics Expands Fleet with Electric Vehicles\n\nDALLAS — Crestview Logistics, a leading regional distribution provider, announced yesterday that it will invest $25 million to replace forty percent of its delivery fleet with zero-emission electric vans over the next eighteen months.\n\nThe initiative is part of the company's broader sustainability program aimed at reducing overall carbon emissions by fifty percent before 2030. [1] \"Transitioning to electric vehicles is not only environmentally responsible but also economically advantageous in the long run due to lower fuel and maintenance costs,\" said Marcus Vance, Chief Operations Officer at Crestview. [2]\n\nIn addition to acquiring new vehicles, Crestview will build charging infrastructure at its regional fulfillment centers in Dallas, Houston, and San Antonio. [3] Construction of the first charging station in Dallas is scheduled to begin early next month. [4] Local environmental groups have lauded the move as a major step forward for green transportation in Texas.",
+        "translation": ""
+      }
+    ],
+    "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+    "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "제시문은 충전소(charging stations)가 8월까지 완공되어 가동될 것이라는 내용입니다. [4] 위치 앞 문장에서 첫 충전소 건설이 다음 달 시작된다는 내용이 나오므로, 그 바로 뒤인 [4] 위치에 들어가는 것이 자연스럽습니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q161",
+    "part": 7,
+    "questionNumber": 161,
+    "setId": "RC-S003-P7-G07",
+    "setTitle": "Single Passage: Memo",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Memo 1",
+        "text": "MEMORANDUM\n\nTo: All Corporate Staff\nFrom: Facilities Management\nDate: November 8, 2026\nSubject: Implementation of New Security Badge Protocol\n\nEffective December 1, all employees must display their official security identification badges at all times while inside the corporate office building. This updated policy is designed to enhance workplace security and prevent unauthorized access to sensitive operational areas.\n\nStarting next week, human resources will issue new smart access badges equipped with RFID technology. Staff members are requested to visit the HR office on the 2nd floor between 9:00 AM and 4:00 PM to have their photo taken and receive their new badge.\n\nPlease note that old access cards will be permanently deactivated on November 30. If you lose your security badge, you must report it immediately to the building security desk on the ground floor.\n\nThank you for your cooperation in maintaining a safe work environment.",
+        "translation": ""
+      }
+    ],
+    "question": "What is the main focus of the memorandum?",
+    "choices": [
+      "Announcing new office hours",
+      "Introducing a new security badge policy",
+      "Scheduling fire safety drills",
+      "Relocating the human resources department"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "새로운 보안 출입증 지침(security badge protocol)의 시행을 안내하고 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q162",
+    "part": 7,
+    "questionNumber": 162,
+    "setId": "RC-S003-P7-G07",
+    "setTitle": "Single Passage: Memo",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Memo 1",
+        "text": "MEMORANDUM\n\nTo: All Corporate Staff\nFrom: Facilities Management\nDate: November 8, 2026\nSubject: Implementation of New Security Badge Protocol\n\nEffective December 1, all employees must display their official security identification badges at all times while inside the corporate office building. This updated policy is designed to enhance workplace security and prevent unauthorized access to sensitive operational areas.\n\nStarting next week, human resources will issue new smart access badges equipped with RFID technology. Staff members are requested to visit the HR office on the 2nd floor between 9:00 AM and 4:00 PM to have their photo taken and receive their new badge.\n\nPlease note that old access cards will be permanently deactivated on November 30. If you lose your security badge, you must report it immediately to the building security desk on the ground floor.\n\nThank you for your cooperation in maintaining a safe work environment.",
+        "translation": ""
+      }
+    ],
+    "question": "What should employees do at the HR office next week?",
+    "choices": [
+      "Submit their monthly attendance logs",
+      "Have a new photo taken for their badge",
+      "Pick up parking authorization passes",
+      "Return their old office keys"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락에서 2층 HR 사무실에 방문하여 사진을 찍고 새 출입증을 받으라고 명시되어 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q163",
+    "part": 7,
+    "questionNumber": 163,
+    "setId": "RC-S003-P7-G07",
+    "setTitle": "Single Passage: Memo",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Memo 1",
+        "text": "MEMORANDUM\n\nTo: All Corporate Staff\nFrom: Facilities Management\nDate: November 8, 2026\nSubject: Implementation of New Security Badge Protocol\n\nEffective December 1, all employees must display their official security identification badges at all times while inside the corporate office building. This updated policy is designed to enhance workplace security and prevent unauthorized access to sensitive operational areas.\n\nStarting next week, human resources will issue new smart access badges equipped with RFID technology. Staff members are requested to visit the HR office on the 2nd floor between 9:00 AM and 4:00 PM to have their photo taken and receive their new badge.\n\nPlease note that old access cards will be permanently deactivated on November 30. If you lose your security badge, you must report it immediately to the building security desk on the ground floor.\n\nThank you for your cooperation in maintaining a safe work environment.",
+        "translation": ""
+      }
+    ],
+    "question": "What will happen on November 30?",
+    "choices": [
+      "The HR office will close early.",
+      "Old access cards will cease to work.",
+      "Building maintenance will upgrade elevators.",
+      "New employees will undergo orientation."
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "세 번째 단락에서 기존 출입 카드가 11월 30일에 영구 비활성화(permanently deactivated)된다고 했으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q164",
+    "part": 7,
+    "questionNumber": 164,
+    "setId": "RC-S003-P7-G08",
+    "setTitle": "Single Passage: Schedule & Event Information",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Schedule & Event Information 1",
+        "text": "Solaria Global Energy Innovation Forum 2026\nDate: December 10, 2026\nVenue: San Francisco Convention Center\n\n[Morning Program Schedule]\n- 08:30 AM - 09:15 AM: Registration & Networking Breakfast (Main Foyer)\n- 09:15 AM - 10:30 AM: Keynote Address: 'The Future of Renewable Grid Storage'\n  Speaker: Dr. Elena Rostova, Director of Energy Research, Solaria Institute\n- 10:45 AM - 12:00 PM: Panel Discussion: 'Commercial Solar Integration & Grid Efficiency'\n  Moderator: Marcus Vance, VP of Engineering, Vanguard Tech\n- 12:00 PM - 01:30 PM: Executive Luncheon & Product Exhibition (Grand Ballroom)\n\n[Exhibition Highlights]\nOver thirty international vendors will showcase cutting-edge clean energy solutions, including high-capacity lithium-sulfur batteries, smart residential solar tiles, and AI-driven grid optimization software.\n\nAdmission to the keynote address and panel discussions requires a VIP Pass. Standard attendees may access the exhibition floor starting at 11:00 AM.",
+        "translation": ""
+      }
+    ],
+    "question": "Who is scheduled to deliver the keynote address?",
+    "choices": [
+      "Marcus Vance",
+      "Dr. Elena Rostova",
+      "Aris Thorne",
+      "Clara Bennett"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "일정표 09:15 AM 기조연설 발표자로 Dr. Elena Rostova가 명시되어 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q165",
+    "part": 7,
+    "questionNumber": 165,
+    "setId": "RC-S003-P7-G08",
+    "setTitle": "Single Passage: Schedule & Event Information",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Schedule & Event Information 1",
+        "text": "Solaria Global Energy Innovation Forum 2026\nDate: December 10, 2026\nVenue: San Francisco Convention Center\n\n[Morning Program Schedule]\n- 08:30 AM - 09:15 AM: Registration & Networking Breakfast (Main Foyer)\n- 09:15 AM - 10:30 AM: Keynote Address: 'The Future of Renewable Grid Storage'\n  Speaker: Dr. Elena Rostova, Director of Energy Research, Solaria Institute\n- 10:45 AM - 12:00 PM: Panel Discussion: 'Commercial Solar Integration & Grid Efficiency'\n  Moderator: Marcus Vance, VP of Engineering, Vanguard Tech\n- 12:00 PM - 01:30 PM: Executive Luncheon & Product Exhibition (Grand Ballroom)\n\n[Exhibition Highlights]\nOver thirty international vendors will showcase cutting-edge clean energy solutions, including high-capacity lithium-sulfur batteries, smart residential solar tiles, and AI-driven grid optimization software.\n\nAdmission to the keynote address and panel discussions requires a VIP Pass. Standard attendees may access the exhibition floor starting at 11:00 AM.",
+        "translation": ""
+      }
+    ],
+    "question": "What topic will be discussed during the panel session starting at 10:45 AM?",
+    "choices": [
+      "The Future of Renewable Grid Storage",
+      "Commercial Solar Integration & Grid Efficiency",
+      "AI-driven Marketing Strategies",
+      "Global Logistics Fleet Management"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "10:45 AM 패널 토론 주제가 'Commercial Solar Integration & Grid Efficiency'로 나와 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q166",
+    "part": 7,
+    "questionNumber": 166,
+    "setId": "RC-S003-P7-G08",
+    "setTitle": "Single Passage: Schedule & Event Information",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Schedule & Event Information 1",
+        "text": "Solaria Global Energy Innovation Forum 2026\nDate: December 10, 2026\nVenue: San Francisco Convention Center\n\n[Morning Program Schedule]\n- 08:30 AM - 09:15 AM: Registration & Networking Breakfast (Main Foyer)\n- 09:15 AM - 10:30 AM: Keynote Address: 'The Future of Renewable Grid Storage'\n  Speaker: Dr. Elena Rostova, Director of Energy Research, Solaria Institute\n- 10:45 AM - 12:00 PM: Panel Discussion: 'Commercial Solar Integration & Grid Efficiency'\n  Moderator: Marcus Vance, VP of Engineering, Vanguard Tech\n- 12:00 PM - 01:30 PM: Executive Luncheon & Product Exhibition (Grand Ballroom)\n\n[Exhibition Highlights]\nOver thirty international vendors will showcase cutting-edge clean energy solutions, including high-capacity lithium-sulfur batteries, smart residential solar tiles, and AI-driven grid optimization software.\n\nAdmission to the keynote address and panel discussions requires a VIP Pass. Standard attendees may access the exhibition floor starting at 11:00 AM.",
+        "translation": ""
+      }
+    ],
+    "question": "What is indicated about standard attendees?",
+    "choices": [
+      "They can attend the networking breakfast at 8:30 AM.",
+      "They must pay an extra fee for lunch.",
+      "They can enter the exhibition floor from 11:00 AM.",
+      "They are granted VIP access passes automatically."
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "마지막 문장에서 일반 참가자(Standard attendees)는 오전 11시부터 전시장 입장이 가능하다고 명시되어 있으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q167",
+    "part": 7,
+    "questionNumber": 167,
+    "setId": "RC-S003-P7-G08",
+    "setTitle": "Single Passage: Schedule & Event Information",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Schedule & Event Information 1",
+        "text": "Solaria Global Energy Innovation Forum 2026\nDate: December 10, 2026\nVenue: San Francisco Convention Center\n\n[Morning Program Schedule]\n- 08:30 AM - 09:15 AM: Registration & Networking Breakfast (Main Foyer)\n- 09:15 AM - 10:30 AM: Keynote Address: 'The Future of Renewable Grid Storage'\n  Speaker: Dr. Elena Rostova, Director of Energy Research, Solaria Institute\n- 10:45 AM - 12:00 PM: Panel Discussion: 'Commercial Solar Integration & Grid Efficiency'\n  Moderator: Marcus Vance, VP of Engineering, Vanguard Tech\n- 12:00 PM - 01:30 PM: Executive Luncheon & Product Exhibition (Grand Ballroom)\n\n[Exhibition Highlights]\nOver thirty international vendors will showcase cutting-edge clean energy solutions, including high-capacity lithium-sulfur batteries, smart residential solar tiles, and AI-driven grid optimization software.\n\nAdmission to the keynote address and panel discussions requires a VIP Pass. Standard attendees may access the exhibition floor starting at 11:00 AM.",
+        "translation": ""
+      }
+    ],
+    "question": "Where will the product exhibition take place?",
+    "choices": [
+      "Main Foyer",
+      "Conference Room B",
+      "Grand Ballroom",
+      "Tower A Executive Lounge"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "12:00 PM - 01:30 PM 세션 장소가 Grand Ballroom으로 안내되어 있으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q168",
+    "part": 7,
+    "questionNumber": 168,
+    "setId": "RC-S003-P7-G09",
+    "setTitle": "Single Passage: Executive Summary",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Executive Summary 1",
+        "text": "Executive Summary: Q3 Market Analysis & Growth Strategy\nPrepared by: Apex Consulting Group\nDate: October 20, 2026\n\n1. Overview\nDuring the third quarter of 2026, corporate demand for enterprise cloud security solutions expanded by twenty-two percent across North America. This surge was primarily driven by increasing regulatory compliance mandates and heightened awareness of cyber threats among financial institutions.\n\n2. Competitive Landscape\nNova Tech maintained its market leadership with a thirty-five percent market share, followed closely by Solaria Systems at twenty-eight percent. However, small-scale regional providers face significant margin compression due to rising infrastructure investment costs.\n\n3. Strategic Recommendations\nTo capture emerging opportunities in the European market, we recommend that clients invest in localized data centers and form strategic partnerships with established regional telecom operators. Furthermore, expanding AI-driven automated threat detection features will be critical for retaining high-value enterprise accounts.",
+        "translation": ""
+      }
+    ],
+    "question": "What factor drove the increase in demand for enterprise cloud security?",
+    "choices": [
+      "A reduction in software subscription prices",
+      "Regulatory compliance mandates and cyber threat awareness",
+      "Government subsidies for new tech startups",
+      "A shortage of qualified IT security engineers"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "1항에서 수요 증가의 원인으로 규제 준수 의무(regulatory compliance mandates)와 사이버 위협 인식 고조를 밝히고 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q169",
+    "part": 7,
+    "questionNumber": 169,
+    "setId": "RC-S003-P7-G09",
+    "setTitle": "Single Passage: Executive Summary",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Executive Summary 1",
+        "text": "Executive Summary: Q3 Market Analysis & Growth Strategy\nPrepared by: Apex Consulting Group\nDate: October 20, 2026\n\n1. Overview\nDuring the third quarter of 2026, corporate demand for enterprise cloud security solutions expanded by twenty-two percent across North America. This surge was primarily driven by increasing regulatory compliance mandates and heightened awareness of cyber threats among financial institutions.\n\n2. Competitive Landscape\nNova Tech maintained its market leadership with a thirty-five percent market share, followed closely by Solaria Systems at twenty-eight percent. However, small-scale regional providers face significant margin compression due to rising infrastructure investment costs.\n\n3. Strategic Recommendations\nTo capture emerging opportunities in the European market, we recommend that clients invest in localized data centers and form strategic partnerships with established regional telecom operators. Furthermore, expanding AI-driven automated threat detection features will be critical for retaining high-value enterprise accounts.",
+        "translation": ""
+      }
+    ],
+    "question": "Which company holds the largest market share in cloud security?",
+    "choices": [
+      "Apex Consulting Group",
+      "Solaria Systems",
+      "Nova Tech",
+      "Crestview Enterprises"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "2항에서 Nova Tech가 35%의 시장 점유율로 선두를 유지하고 있다(market leadership)고 나와 있으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q170",
+    "part": 7,
+    "questionNumber": 170,
+    "setId": "RC-S003-P7-G09",
+    "setTitle": "Single Passage: Executive Summary",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Executive Summary 1",
+        "text": "Executive Summary: Q3 Market Analysis & Growth Strategy\nPrepared by: Apex Consulting Group\nDate: October 20, 2026\n\n1. Overview\nDuring the third quarter of 2026, corporate demand for enterprise cloud security solutions expanded by twenty-two percent across North America. This surge was primarily driven by increasing regulatory compliance mandates and heightened awareness of cyber threats among financial institutions.\n\n2. Competitive Landscape\nNova Tech maintained its market leadership with a thirty-five percent market share, followed closely by Solaria Systems at twenty-eight percent. However, small-scale regional providers face significant margin compression due to rising infrastructure investment costs.\n\n3. Strategic Recommendations\nTo capture emerging opportunities in the European market, we recommend that clients invest in localized data centers and form strategic partnerships with established regional telecom operators. Furthermore, expanding AI-driven automated threat detection features will be critical for retaining high-value enterprise accounts.",
+        "translation": ""
+      }
+    ],
+    "question": "What recommendation is given for expanding into the European market?",
+    "choices": [
+      "Acquiring regional telecom operators completely",
+      "Investing in localized data centers and partnerships",
+      "Lowering retail software prices by fifteen percent",
+      "Replacing human analysts with automated software"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "3항에서 유럽 시장 진출 전략으로 현지화된 데이터 센터 투자 및 지역 통신사와의 전략적 파트너십 구축을 권고하므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q171",
+    "part": 7,
+    "questionNumber": 171,
+    "setId": "RC-S003-P7-G09",
+    "setTitle": "Single Passage: Executive Summary",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Executive Summary 1",
+        "text": "Executive Summary: Q3 Market Analysis & Growth Strategy\nPrepared by: Apex Consulting Group\nDate: October 20, 2026\n\n1. Overview\nDuring the third quarter of 2026, corporate demand for enterprise cloud security solutions expanded by twenty-two percent across North America. This surge was primarily driven by increasing regulatory compliance mandates and heightened awareness of cyber threats among financial institutions.\n\n2. Competitive Landscape\nNova Tech maintained its market leadership with a thirty-five percent market share, followed closely by Solaria Systems at twenty-eight percent. However, small-scale regional providers face significant margin compression due to rising infrastructure investment costs.\n\n3. Strategic Recommendations\nTo capture emerging opportunities in the European market, we recommend that clients invest in localized data centers and form strategic partnerships with established regional telecom operators. Furthermore, expanding AI-driven automated threat detection features will be critical for retaining high-value enterprise accounts.",
+        "translation": ""
+      }
+    ],
+    "question": "The word 'surge' in paragraph 1 is closest in meaning to",
+    "choices": [
+      "fluctuation",
+      "rapid increase",
+      "unexpected delay",
+      "gradual decline"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "본문에서 surge는 수요가 22% 확장된 '급증, 빠른 증가(rapid increase)'를 뜻하므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q172",
+    "part": 7,
+    "questionNumber": 172,
+    "setId": "RC-S003-P7-G10",
+    "setTitle": "Single Passage: Report & Form",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Report & Form 1",
+        "text": "Vanguard Quality Assurance Report & Inspector Assessment\n\nFacility: Vanguard Electronics Assembly Plant #4 (Austin, TX)\nInspection Date: November 2, 2026\nLead Inspector: Sarah Jenkins, Senior QA Specialist\n\n[Inspection Findings]\n1. Assembly Line #2: All automated soldering tools functioned within optimal tolerance limits. Calibration logs were up to date.\n2. Packaging Division: Minor labeling errors were detected on three production batches due to a misconfigured barcode printer. The printer was recalibrated immediately during the inspection.\n3. Component Storage: Environmental controls maintained required temperature and humidity levels consistently over the past thirty days.\n\n[Overall Assessment & Recommendation]\nPlant #4 demonstrates high compliance with ISO 9001 quality standards. It is recommended that the facility management team implement bi-weekly barcode printer checks to prevent future labeling discrepancies.",
+        "translation": ""
+      }
+    ],
+    "question": "What was the main purpose of the QA inspection?",
+    "choices": [
+      "To evaluate compliance with quality standards",
+      "To install new automated soldering machinery",
+      "To calculate annual factory maintenance costs",
+      "To train new assembly line workers"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "품질 보증 보고서(Quality Assurance Report)로서 공장의 품질 표준 준수 여부를 평가하기 위한 목적이므로 A가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q173",
+    "part": 7,
+    "questionNumber": 173,
+    "setId": "RC-S003-P7-G10",
+    "setTitle": "Single Passage: Report & Form",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Report & Form 1",
+        "text": "Vanguard Quality Assurance Report & Inspector Assessment\n\nFacility: Vanguard Electronics Assembly Plant #4 (Austin, TX)\nInspection Date: November 2, 2026\nLead Inspector: Sarah Jenkins, Senior QA Specialist\n\n[Inspection Findings]\n1. Assembly Line #2: All automated soldering tools functioned within optimal tolerance limits. Calibration logs were up to date.\n2. Packaging Division: Minor labeling errors were detected on three production batches due to a misconfigured barcode printer. The printer was recalibrated immediately during the inspection.\n3. Component Storage: Environmental controls maintained required temperature and humidity levels consistently over the past thirty days.\n\n[Overall Assessment & Recommendation]\nPlant #4 demonstrates high compliance with ISO 9001 quality standards. It is recommended that the facility management team implement bi-weekly barcode printer checks to prevent future labeling discrepancies.",
+        "translation": ""
+      }
+    ],
+    "question": "Where was an issue detected during the inspection?",
+    "choices": [
+      "Assembly Line #2",
+      "Packaging Division",
+      "Component Storage",
+      "Main Server Room"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "결과 2항에서 포장 부서(Packaging Division)에서 바코드 프린터 설정 오류로 라벨링 오류가 발견되었다고 했으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q174",
+    "part": 7,
+    "questionNumber": 174,
+    "setId": "RC-S003-P7-G10",
+    "setTitle": "Single Passage: Report & Form",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Report & Form 1",
+        "text": "Vanguard Quality Assurance Report & Inspector Assessment\n\nFacility: Vanguard Electronics Assembly Plant #4 (Austin, TX)\nInspection Date: November 2, 2026\nLead Inspector: Sarah Jenkins, Senior QA Specialist\n\n[Inspection Findings]\n1. Assembly Line #2: All automated soldering tools functioned within optimal tolerance limits. Calibration logs were up to date.\n2. Packaging Division: Minor labeling errors were detected on three production batches due to a misconfigured barcode printer. The printer was recalibrated immediately during the inspection.\n3. Component Storage: Environmental controls maintained required temperature and humidity levels consistently over the past thirty days.\n\n[Overall Assessment & Recommendation]\nPlant #4 demonstrates high compliance with ISO 9001 quality standards. It is recommended that the facility management team implement bi-weekly barcode printer checks to prevent future labeling discrepancies.",
+        "translation": ""
+      }
+    ],
+    "question": "What action was taken during the inspection to resolve the problem?",
+    "choices": [
+      "The soldering tools were replaced.",
+      "The environmental controls were turned off.",
+      "The barcode printer was recalibrated.",
+      "The three production batches were destroyed."
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "결과 2항 끝에서 프린터가 점검 도중 즉시 재교정되었다(recalibrated immediately)고 나왔으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q175",
+    "part": 7,
+    "questionNumber": 175,
+    "setId": "RC-S003-P7-G10",
+    "setTitle": "Single Passage: Report & Form",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Single Passage: Report & Form 1",
+        "text": "Vanguard Quality Assurance Report & Inspector Assessment\n\nFacility: Vanguard Electronics Assembly Plant #4 (Austin, TX)\nInspection Date: November 2, 2026\nLead Inspector: Sarah Jenkins, Senior QA Specialist\n\n[Inspection Findings]\n1. Assembly Line #2: All automated soldering tools functioned within optimal tolerance limits. Calibration logs were up to date.\n2. Packaging Division: Minor labeling errors were detected on three production batches due to a misconfigured barcode printer. The printer was recalibrated immediately during the inspection.\n3. Component Storage: Environmental controls maintained required temperature and humidity levels consistently over the past thirty days.\n\n[Overall Assessment & Recommendation]\nPlant #4 demonstrates high compliance with ISO 9001 quality standards. It is recommended that the facility management team implement bi-weekly barcode printer checks to prevent future labeling discrepancies.",
+        "translation": ""
+      }
+    ],
+    "question": "What does Sarah Jenkins recommend for the facility?",
+    "choices": [
+      "Purchasing new temperature control sensors",
+      "Conducting bi-weekly barcode printer checks",
+      "Hiring additional quality assurance specialists",
+      "Suspending Assembly Line #2 operations"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "권고 사항에서 미래의 라벨링 오류를 막기 위해 격주 바코드 프린터 점검(bi-weekly barcode printer checks)을 실시하라고 권고하므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q176",
+    "part": 7,
+    "questionNumber": 176,
+    "setId": "RC-S003-P7-G11",
+    "setTitle": "Double Passage: Webpage & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.apexhotel.com/events/packages\n\nApex Grand Hotel - Event & Catering Packages\n\nThe Apex Grand Hotel offers luxury venue options for corporate conferences, trade banquets, and formal galas in downtown Chicago.\n\n[Package Options]\n1. Silver Package ($2,500)\n- Grand Salon room rental for up to 4 hours (Capacity: 100 guests).\n- Standard audio/visual equipment (projector, wireless microphones).\n- Complimentary coffee and tea service.\n\n2. Gold Package ($4,800)\n- Crystal Ballroom room rental for up to 6 hours (Capacity: 250 guests).\n- Premium A/V system with dedicated technician on-site.\n- Three-course catered buffet lunch or dinner.\n\n3. Platinum Package ($7,500)\n- Imperial Suite & Terrace rental for full day (Capacity: 400 guests).\n- Full audio/visual system with stage lighting, multi-screen display, and a dedicated event coordinator.\n- Four-course plated dinner and open beverage bar.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Events Office <events@apexhotel.com>\nFrom: Liam Vance <l.vance@solariaglobal.com>\nDate: November 15, 2026\nSubject: Catering Package Inquiry for Annual Gala\n\nDear Apex Events Team,\n\nI am writing on behalf of Solaria Global to inquire about booking a venue for our upcoming Annual Employee Recognition Gala on Saturday, January 16. We expect approximately 200 employees to attend the event.\n\nWe would like to reserve a package that includes a catered dinner and on-site technical support for our keynote presentation. Our budget for venue rental and catering is under $6,000. \n\nCould you please confirm if the Crystal Ballroom is available on January 16? Furthermore, we would like to know if we can schedule a site visit next Tuesday afternoon at 2:00 PM.\n\nSincerely,\nLiam Vance\nSpecial Events Manager, Solaria Global",
+        "translation": ""
+      }
+    ],
+    "question": "Which package is Liam Vance most likely interested in booking?",
+    "choices": [
+      "Silver Package",
+      "Gold Package",
+      "Platinum Package",
+      "Custom Executive Package"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일에서 참석 인원이 200명이고, 저녁 식사 및 기술 지원 포함, 예산이 6,000달러 미만이며 Crystal Ballroom을 물어보았으므로 조건(250명 수용, 4,800달러, 뷔페 식사 및 전담 기술자)에 들어맞는 Gold Package(B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q177",
+    "part": 7,
+    "questionNumber": 177,
+    "setId": "RC-S003-P7-G11",
+    "setTitle": "Double Passage: Webpage & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.apexhotel.com/events/packages\n\nApex Grand Hotel - Event & Catering Packages\n\nThe Apex Grand Hotel offers luxury venue options for corporate conferences, trade banquets, and formal galas in downtown Chicago.\n\n[Package Options]\n1. Silver Package ($2,500)\n- Grand Salon room rental for up to 4 hours (Capacity: 100 guests).\n- Standard audio/visual equipment (projector, wireless microphones).\n- Complimentary coffee and tea service.\n\n2. Gold Package ($4,800)\n- Crystal Ballroom room rental for up to 6 hours (Capacity: 250 guests).\n- Premium A/V system with dedicated technician on-site.\n- Three-course catered buffet lunch or dinner.\n\n3. Platinum Package ($7,500)\n- Imperial Suite & Terrace rental for full day (Capacity: 400 guests).\n- Full audio/visual system with stage lighting, multi-screen display, and a dedicated event coordinator.\n- Four-course plated dinner and open beverage bar.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Events Office <events@apexhotel.com>\nFrom: Liam Vance <l.vance@solariaglobal.com>\nDate: November 15, 2026\nSubject: Catering Package Inquiry for Annual Gala\n\nDear Apex Events Team,\n\nI am writing on behalf of Solaria Global to inquire about booking a venue for our upcoming Annual Employee Recognition Gala on Saturday, January 16. We expect approximately 200 employees to attend the event.\n\nWe would like to reserve a package that includes a catered dinner and on-site technical support for our keynote presentation. Our budget for venue rental and catering is under $6,000. \n\nCould you please confirm if the Crystal Ballroom is available on January 16? Furthermore, we would like to know if we can schedule a site visit next Tuesday afternoon at 2:00 PM.\n\nSincerely,\nLiam Vance\nSpecial Events Manager, Solaria Global",
+        "translation": ""
+      }
+    ],
+    "question": "What feature is included in ALL event packages at Apex Grand Hotel?",
+    "choices": [
+      "Audio/visual equipment",
+      "Four-course plated dinner",
+      "Dedicated event coordinator",
+      "Open beverage bar"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Silver, Gold, Platinum 패키지 안내 모두에 A/V 장비(Standard A/V, Premium A/V system, multi-screen display)가 명시되어 있으므로 A가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q178",
+    "part": 7,
+    "questionNumber": 178,
+    "setId": "RC-S003-P7-G11",
+    "setTitle": "Double Passage: Webpage & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.apexhotel.com/events/packages\n\nApex Grand Hotel - Event & Catering Packages\n\nThe Apex Grand Hotel offers luxury venue options for corporate conferences, trade banquets, and formal galas in downtown Chicago.\n\n[Package Options]\n1. Silver Package ($2,500)\n- Grand Salon room rental for up to 4 hours (Capacity: 100 guests).\n- Standard audio/visual equipment (projector, wireless microphones).\n- Complimentary coffee and tea service.\n\n2. Gold Package ($4,800)\n- Crystal Ballroom room rental for up to 6 hours (Capacity: 250 guests).\n- Premium A/V system with dedicated technician on-site.\n- Three-course catered buffet lunch or dinner.\n\n3. Platinum Package ($7,500)\n- Imperial Suite & Terrace rental for full day (Capacity: 400 guests).\n- Full audio/visual system with stage lighting, multi-screen display, and a dedicated event coordinator.\n- Four-course plated dinner and open beverage bar.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Events Office <events@apexhotel.com>\nFrom: Liam Vance <l.vance@solariaglobal.com>\nDate: November 15, 2026\nSubject: Catering Package Inquiry for Annual Gala\n\nDear Apex Events Team,\n\nI am writing on behalf of Solaria Global to inquire about booking a venue for our upcoming Annual Employee Recognition Gala on Saturday, January 16. We expect approximately 200 employees to attend the event.\n\nWe would like to reserve a package that includes a catered dinner and on-site technical support for our keynote presentation. Our budget for venue rental and catering is under $6,000. \n\nCould you please confirm if the Crystal Ballroom is available on January 16? Furthermore, we would like to know if we can schedule a site visit next Tuesday afternoon at 2:00 PM.\n\nSincerely,\nLiam Vance\nSpecial Events Manager, Solaria Global",
+        "translation": ""
+      }
+    ],
+    "question": "What is the primary purpose of Liam Vance's email?",
+    "choices": [
+      "To submit a formal job application",
+      "To request venue availability and a site visit",
+      "To cancel a previous hotel reservation",
+      "To negotiate a refund for an event"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일에서 1월 16일 예약 가능 여부 확인 및 다음 주 화요일 현장 방문(site visit) 예약을 요청하고 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q179",
+    "part": 7,
+    "questionNumber": 179,
+    "setId": "RC-S003-P7-G11",
+    "setTitle": "Double Passage: Webpage & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.apexhotel.com/events/packages\n\nApex Grand Hotel - Event & Catering Packages\n\nThe Apex Grand Hotel offers luxury venue options for corporate conferences, trade banquets, and formal galas in downtown Chicago.\n\n[Package Options]\n1. Silver Package ($2,500)\n- Grand Salon room rental for up to 4 hours (Capacity: 100 guests).\n- Standard audio/visual equipment (projector, wireless microphones).\n- Complimentary coffee and tea service.\n\n2. Gold Package ($4,800)\n- Crystal Ballroom room rental for up to 6 hours (Capacity: 250 guests).\n- Premium A/V system with dedicated technician on-site.\n- Three-course catered buffet lunch or dinner.\n\n3. Platinum Package ($7,500)\n- Imperial Suite & Terrace rental for full day (Capacity: 400 guests).\n- Full audio/visual system with stage lighting, multi-screen display, and a dedicated event coordinator.\n- Four-course plated dinner and open beverage bar.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Events Office <events@apexhotel.com>\nFrom: Liam Vance <l.vance@solariaglobal.com>\nDate: November 15, 2026\nSubject: Catering Package Inquiry for Annual Gala\n\nDear Apex Events Team,\n\nI am writing on behalf of Solaria Global to inquire about booking a venue for our upcoming Annual Employee Recognition Gala on Saturday, January 16. We expect approximately 200 employees to attend the event.\n\nWe would like to reserve a package that includes a catered dinner and on-site technical support for our keynote presentation. Our budget for venue rental and catering is under $6,000. \n\nCould you please confirm if the Crystal Ballroom is available on January 16? Furthermore, we would like to know if we can schedule a site visit next Tuesday afternoon at 2:00 PM.\n\nSincerely,\nLiam Vance\nSpecial Events Manager, Solaria Global",
+        "translation": ""
+      }
+    ],
+    "question": "When does Solaria Global plan to hold its gala?",
+    "choices": [
+      "November 15",
+      "November 30",
+      "January 16",
+      "February 1"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 첫 단락에서 행사가 1월 16일 토요일(Saturday, January 16)에 열릴 예정이라고 명시했으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q180",
+    "part": 7,
+    "questionNumber": 180,
+    "setId": "RC-S003-P7-G11",
+    "setTitle": "Double Passage: Webpage & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.apexhotel.com/events/packages\n\nApex Grand Hotel - Event & Catering Packages\n\nThe Apex Grand Hotel offers luxury venue options for corporate conferences, trade banquets, and formal galas in downtown Chicago.\n\n[Package Options]\n1. Silver Package ($2,500)\n- Grand Salon room rental for up to 4 hours (Capacity: 100 guests).\n- Standard audio/visual equipment (projector, wireless microphones).\n- Complimentary coffee and tea service.\n\n2. Gold Package ($4,800)\n- Crystal Ballroom room rental for up to 6 hours (Capacity: 250 guests).\n- Premium A/V system with dedicated technician on-site.\n- Three-course catered buffet lunch or dinner.\n\n3. Platinum Package ($7,500)\n- Imperial Suite & Terrace rental for full day (Capacity: 400 guests).\n- Full audio/visual system with stage lighting, multi-screen display, and a dedicated event coordinator.\n- Four-course plated dinner and open beverage bar.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Events Office <events@apexhotel.com>\nFrom: Liam Vance <l.vance@solariaglobal.com>\nDate: November 15, 2026\nSubject: Catering Package Inquiry for Annual Gala\n\nDear Apex Events Team,\n\nI am writing on behalf of Solaria Global to inquire about booking a venue for our upcoming Annual Employee Recognition Gala on Saturday, January 16. We expect approximately 200 employees to attend the event.\n\nWe would like to reserve a package that includes a catered dinner and on-site technical support for our keynote presentation. Our budget for venue rental and catering is under $6,000. \n\nCould you please confirm if the Crystal Ballroom is available on January 16? Furthermore, we would like to know if we can schedule a site visit next Tuesday afternoon at 2:00 PM.\n\nSincerely,\nLiam Vance\nSpecial Events Manager, Solaria Global",
+        "translation": ""
+      }
+    ],
+    "question": "In the email, the word 'inquire' in paragraph 1 is closest in meaning to",
+    "choices": [
+      "ask",
+      "demand",
+      "complain",
+      "announce"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "'inquire'는 '~에 대해 문의하다, 묻다'라는 뜻이므로 'ask'가 가장 가까운 의미입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q181",
+    "part": 7,
+    "questionNumber": 181,
+    "setId": "RC-S003-P7-G12",
+    "setTitle": "Double Passage: Advertisement & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Advertisement",
+        "text": "[Document 1: Advertisement]\nCrestview Professional Office Space for Lease\n\nLooking for modern, flexible office space in the heart of Seattle's technology district? Crestview Business Center offers premium commercial suites tailored to expanding businesses.\n\n[Available Properties]\n1. Suite 302: 1,200 sq. ft. / 4 private offices, open reception / $3,200/month\n2. Suite 405: 2,500 sq. ft. / 8 private offices, dedicated conference room / $6,000/month\n3. Suite 600 (Penthouse): 4,000 sq. ft. / Full floor, executive boardroom, panoramic view / $10,500/month\n\nAll leases include high-speed fiber internet, night security service, and access to the underground parking garage. Flexible 12-month or 36-month lease terms available. Visit www.crestviewrealty.com for floor plans.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Rental Office <leasing@crestviewrealty.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 18, 2026\nSubject: Lease Inquiry for Suite 405\n\nDear Leasing Office,\n\nI am writing on behalf of Nova Tech. Our company is currently expanding our software consulting team in Seattle and requires a new office space starting January 1.\n\nWe reviewed your advertisement and are very interested in Suite 405. The size and dedicated conference room match our operational requirements perfectly. However, we would like to negotiate a 36-month lease term in exchange for a five percent discount on the monthly rental rate.\n\nAdditionally, we will require ten assigned parking spaces in the underground garage. Please let us know if Suite 405 is available for a walkthrough this Thursday at 10:00 AM.\n\nSincerely,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "What type of business is advertising space?",
+    "choices": [
+      "An office furniture supplier",
+      "A commercial real estate leasing agency",
+      "An interior design firm",
+      "A cloud storage provider"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "광고 지문은 사무실 임대(Office Space for Lease)를 다루고 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q182",
+    "part": 7,
+    "questionNumber": 182,
+    "setId": "RC-S003-P7-G12",
+    "setTitle": "Double Passage: Advertisement & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Advertisement",
+        "text": "[Document 1: Advertisement]\nCrestview Professional Office Space for Lease\n\nLooking for modern, flexible office space in the heart of Seattle's technology district? Crestview Business Center offers premium commercial suites tailored to expanding businesses.\n\n[Available Properties]\n1. Suite 302: 1,200 sq. ft. / 4 private offices, open reception / $3,200/month\n2. Suite 405: 2,500 sq. ft. / 8 private offices, dedicated conference room / $6,000/month\n3. Suite 600 (Penthouse): 4,000 sq. ft. / Full floor, executive boardroom, panoramic view / $10,500/month\n\nAll leases include high-speed fiber internet, night security service, and access to the underground parking garage. Flexible 12-month or 36-month lease terms available. Visit www.crestviewrealty.com for floor plans.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Rental Office <leasing@crestviewrealty.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 18, 2026\nSubject: Lease Inquiry for Suite 405\n\nDear Leasing Office,\n\nI am writing on behalf of Nova Tech. Our company is currently expanding our software consulting team in Seattle and requires a new office space starting January 1.\n\nWe reviewed your advertisement and are very interested in Suite 405. The size and dedicated conference room match our operational requirements perfectly. However, we would like to negotiate a 36-month lease term in exchange for a five percent discount on the monthly rental rate.\n\nAdditionally, we will require ten assigned parking spaces in the underground garage. Please let us know if Suite 405 is available for a walkthrough this Thursday at 10:00 AM.\n\nSincerely,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "Which feature is included in all lease agreements at Crestview Business Center?",
+    "choices": [
+      "Free coffee service",
+      "High-speed fiber internet",
+      "Daily janitorial cleaning",
+      "Executive boardroom access"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "광고 지문 하단에서 모든 임대 계약에 초고속 광인터넷(high-speed fiber internet)이 포함된다고 했으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q183",
+    "part": 7,
+    "questionNumber": 183,
+    "setId": "RC-S003-P7-G12",
+    "setTitle": "Double Passage: Advertisement & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Advertisement",
+        "text": "[Document 1: Advertisement]\nCrestview Professional Office Space for Lease\n\nLooking for modern, flexible office space in the heart of Seattle's technology district? Crestview Business Center offers premium commercial suites tailored to expanding businesses.\n\n[Available Properties]\n1. Suite 302: 1,200 sq. ft. / 4 private offices, open reception / $3,200/month\n2. Suite 405: 2,500 sq. ft. / 8 private offices, dedicated conference room / $6,000/month\n3. Suite 600 (Penthouse): 4,000 sq. ft. / Full floor, executive boardroom, panoramic view / $10,500/month\n\nAll leases include high-speed fiber internet, night security service, and access to the underground parking garage. Flexible 12-month or 36-month lease terms available. Visit www.crestviewrealty.com for floor plans.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Rental Office <leasing@crestviewrealty.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 18, 2026\nSubject: Lease Inquiry for Suite 405\n\nDear Leasing Office,\n\nI am writing on behalf of Nova Tech. Our company is currently expanding our software consulting team in Seattle and requires a new office space starting January 1.\n\nWe reviewed your advertisement and are very interested in Suite 405. The size and dedicated conference room match our operational requirements perfectly. However, we would like to negotiate a 36-month lease term in exchange for a five percent discount on the monthly rental rate.\n\nAdditionally, we will require ten assigned parking spaces in the underground garage. Please let us know if Suite 405 is available for a walkthrough this Thursday at 10:00 AM.\n\nSincerely,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "According to the email, why is Nova Tech seeking new office space?",
+    "choices": [
+      "It is downsizing its administrative workforce.",
+      "It is expanding its software consulting team.",
+      "Its previous building underwent emergency repairs.",
+      "It is relocating its corporate headquarters from Dallas."
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 첫 단락에서 시애틀의 소프트웨어 컨설팅 팀을 확장 중(expanding our software consulting team)이라고 밝혔으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q184",
+    "part": 7,
+    "questionNumber": 184,
+    "setId": "RC-S003-P7-G12",
+    "setTitle": "Double Passage: Advertisement & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Advertisement",
+        "text": "[Document 1: Advertisement]\nCrestview Professional Office Space for Lease\n\nLooking for modern, flexible office space in the heart of Seattle's technology district? Crestview Business Center offers premium commercial suites tailored to expanding businesses.\n\n[Available Properties]\n1. Suite 302: 1,200 sq. ft. / 4 private offices, open reception / $3,200/month\n2. Suite 405: 2,500 sq. ft. / 8 private offices, dedicated conference room / $6,000/month\n3. Suite 600 (Penthouse): 4,000 sq. ft. / Full floor, executive boardroom, panoramic view / $10,500/month\n\nAll leases include high-speed fiber internet, night security service, and access to the underground parking garage. Flexible 12-month or 36-month lease terms available. Visit www.crestviewrealty.com for floor plans.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Rental Office <leasing@crestviewrealty.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 18, 2026\nSubject: Lease Inquiry for Suite 405\n\nDear Leasing Office,\n\nI am writing on behalf of Nova Tech. Our company is currently expanding our software consulting team in Seattle and requires a new office space starting January 1.\n\nWe reviewed your advertisement and are very interested in Suite 405. The size and dedicated conference room match our operational requirements perfectly. However, we would like to negotiate a 36-month lease term in exchange for a five percent discount on the monthly rental rate.\n\nAdditionally, we will require ten assigned parking spaces in the underground garage. Please let us know if Suite 405 is available for a walkthrough this Thursday at 10:00 AM.\n\nSincerely,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "If Crestview Realty accepts Sarah Jenkins' rent proposal, how much will Nova Tech pay monthly for Suite 405?",
+    "choices": [
+      "$3,040",
+      "$3,200",
+      "$5,700",
+      "$6,000"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Suite 405의 기존 월세는 $6,000입니다. 이메일에서 5% 할인을 요구했으므로, $6,000의 5%인 $300를 뺀 $5,700(C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q185",
+    "part": 7,
+    "questionNumber": 185,
+    "setId": "RC-S003-P7-G12",
+    "setTitle": "Double Passage: Advertisement & Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Advertisement",
+        "text": "[Document 1: Advertisement]\nCrestview Professional Office Space for Lease\n\nLooking for modern, flexible office space in the heart of Seattle's technology district? Crestview Business Center offers premium commercial suites tailored to expanding businesses.\n\n[Available Properties]\n1. Suite 302: 1,200 sq. ft. / 4 private offices, open reception / $3,200/month\n2. Suite 405: 2,500 sq. ft. / 8 private offices, dedicated conference room / $6,000/month\n3. Suite 600 (Penthouse): 4,000 sq. ft. / Full floor, executive boardroom, panoramic view / $10,500/month\n\nAll leases include high-speed fiber internet, night security service, and access to the underground parking garage. Flexible 12-month or 36-month lease terms available. Visit www.crestviewrealty.com for floor plans.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Email",
+        "text": "[Document 2: Email]\nTo: Rental Office <leasing@crestviewrealty.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 18, 2026\nSubject: Lease Inquiry for Suite 405\n\nDear Leasing Office,\n\nI am writing on behalf of Nova Tech. Our company is currently expanding our software consulting team in Seattle and requires a new office space starting January 1.\n\nWe reviewed your advertisement and are very interested in Suite 405. The size and dedicated conference room match our operational requirements perfectly. However, we would like to negotiate a 36-month lease term in exchange for a five percent discount on the monthly rental rate.\n\nAdditionally, we will require ten assigned parking spaces in the underground garage. Please let us know if Suite 405 is available for a walkthrough this Thursday at 10:00 AM.\n\nSincerely,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "What does Sarah Jenkins request for Thursday morning?",
+    "choices": [
+      "A lease agreement contract draft",
+      "A property walkthrough of Suite 405",
+      "A meeting with the building's night security supervisor",
+      "An invoice for parking garage permits"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 마지막 문장에서 목요일 오전 10시에 투어/점검(walkthrough)이 가능한지 물었으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q186",
+    "part": 7,
+    "questionNumber": 186,
+    "setId": "RC-S003-P7-G13",
+    "setTitle": "Triple Passage: Article, Schedule, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Article",
+        "text": "[Document 1: Article]\nSeattle Technology Journal - November 1, 2026\n\nVanguard Tech to Launch Annual AI & Robotics Exposition\n\nSEATTLE — Vanguard Tech, a prominent software and automation developer, announced that its 8th Annual AI & Robotics Exposition will be held from December 12 to December 14 at the Seattle Trade Center. The event will bring together over two thousand industry professionals, researchers, and venture capitalists.\n\nHighlighting this year’s exposition is a series of technical workshops focusing on industrial automation, autonomous logistics, and machine learning security. Admission to the exhibition floor is $150 for a standard 3-day pass, while premium workshop registration costs $350.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Workshop Schedule",
+        "text": "[Document 2: Workshop Schedule]\nVanguard AI & Robotics Exposition - Technical Workshop Schedule (December 13)\n\n- Room 101 (09:30 AM - 11:30 AM): 'AI-Driven Automated Quality Inspection' / Presenter: Dr. Elena Rostova\n- Room 102 (01:00 PM - 03:00 PM): 'Autonomous Logistics & Fleet Management' / Presenter: Marcus Vance\n- Room 103 (03:30 PM - 05:30 PM): 'Cybersecurity Vulnerabilities in Robotic Networks' / Presenter: Aris Thorne\n\nNote: All workshop attendees must present their Premium Registration Badge at the entrance of each session room.",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Vanguard Event Registration <register@vanguardtech.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 20, 2026\nSubject: Group Premium Registration Inquiry\n\nDear Registration Team,\n\nI am writing on behalf of Nova Tech to register five of our senior systems engineers for the Vanguard AI & Robotics Exposition on December 13.\n\nWe have already completed the online payment for five Premium Workshop Passes. Our engineers are particularly eager to attend the afternoon session on autonomous logistics led by Mr. Marcus Vance, as well as the late afternoon cybersecurity session.\n\nCould you please confirm if group badges can be collected at the express desk on December 12?\n\nBest regards,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "Where will the Vanguard AI & Robotics Exposition take place?",
+    "choices": [
+      "Austin Assembly Plant",
+      "Seattle Trade Center",
+      "San Francisco Grand Hotel",
+      "Dallas Distribution Center"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 1(기사) 첫 단락에서 행사가 시애틀 트레이드 센터(Seattle Trade Center)에서 열린다고 명시되어 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q187",
+    "part": 7,
+    "questionNumber": 187,
+    "setId": "RC-S003-P7-G13",
+    "setTitle": "Triple Passage: Article, Schedule, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Article",
+        "text": "[Document 1: Article]\nSeattle Technology Journal - November 1, 2026\n\nVanguard Tech to Launch Annual AI & Robotics Exposition\n\nSEATTLE — Vanguard Tech, a prominent software and automation developer, announced that its 8th Annual AI & Robotics Exposition will be held from December 12 to December 14 at the Seattle Trade Center. The event will bring together over two thousand industry professionals, researchers, and venture capitalists.\n\nHighlighting this year’s exposition is a series of technical workshops focusing on industrial automation, autonomous logistics, and machine learning security. Admission to the exhibition floor is $150 for a standard 3-day pass, while premium workshop registration costs $350.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Workshop Schedule",
+        "text": "[Document 2: Workshop Schedule]\nVanguard AI & Robotics Exposition - Technical Workshop Schedule (December 13)\n\n- Room 101 (09:30 AM - 11:30 AM): 'AI-Driven Automated Quality Inspection' / Presenter: Dr. Elena Rostova\n- Room 102 (01:00 PM - 03:00 PM): 'Autonomous Logistics & Fleet Management' / Presenter: Marcus Vance\n- Room 103 (03:30 PM - 05:30 PM): 'Cybersecurity Vulnerabilities in Robotic Networks' / Presenter: Aris Thorne\n\nNote: All workshop attendees must present their Premium Registration Badge at the entrance of each session room.",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Vanguard Event Registration <register@vanguardtech.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 20, 2026\nSubject: Group Premium Registration Inquiry\n\nDear Registration Team,\n\nI am writing on behalf of Nova Tech to register five of our senior systems engineers for the Vanguard AI & Robotics Exposition on December 13.\n\nWe have already completed the online payment for five Premium Workshop Passes. Our engineers are particularly eager to attend the afternoon session on autonomous logistics led by Mr. Marcus Vance, as well as the late afternoon cybersecurity session.\n\nCould you please confirm if group badges can be collected at the express desk on December 12?\n\nBest regards,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "How much did Nova Tech pay in total for the five workshop passes?",
+    "choices": [
+      "$750",
+      "$1,000",
+      "$1,750",
+      "$2,000"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 1에서 워크숍 패스 가격이 1인당 $350라고 나와 있고, 문서 3에서 Nova Tech가 5명의 엔지니어를 위해 결제했으므로, $350 x 5 = $1,750(C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q188",
+    "part": 7,
+    "questionNumber": 188,
+    "setId": "RC-S003-P7-G13",
+    "setTitle": "Triple Passage: Article, Schedule, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Article",
+        "text": "[Document 1: Article]\nSeattle Technology Journal - November 1, 2026\n\nVanguard Tech to Launch Annual AI & Robotics Exposition\n\nSEATTLE — Vanguard Tech, a prominent software and automation developer, announced that its 8th Annual AI & Robotics Exposition will be held from December 12 to December 14 at the Seattle Trade Center. The event will bring together over two thousand industry professionals, researchers, and venture capitalists.\n\nHighlighting this year’s exposition is a series of technical workshops focusing on industrial automation, autonomous logistics, and machine learning security. Admission to the exhibition floor is $150 for a standard 3-day pass, while premium workshop registration costs $350.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Workshop Schedule",
+        "text": "[Document 2: Workshop Schedule]\nVanguard AI & Robotics Exposition - Technical Workshop Schedule (December 13)\n\n- Room 101 (09:30 AM - 11:30 AM): 'AI-Driven Automated Quality Inspection' / Presenter: Dr. Elena Rostova\n- Room 102 (01:00 PM - 03:00 PM): 'Autonomous Logistics & Fleet Management' / Presenter: Marcus Vance\n- Room 103 (03:30 PM - 05:30 PM): 'Cybersecurity Vulnerabilities in Robotic Networks' / Presenter: Aris Thorne\n\nNote: All workshop attendees must present their Premium Registration Badge at the entrance of each session room.",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Vanguard Event Registration <register@vanguardtech.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 20, 2026\nSubject: Group Premium Registration Inquiry\n\nDear Registration Team,\n\nI am writing on behalf of Nova Tech to register five of our senior systems engineers for the Vanguard AI & Robotics Exposition on December 13.\n\nWe have already completed the online payment for five Premium Workshop Passes. Our engineers are particularly eager to attend the afternoon session on autonomous logistics led by Mr. Marcus Vance, as well as the late afternoon cybersecurity session.\n\nCould you please confirm if group badges can be collected at the express desk on December 12?\n\nBest regards,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "Who is presenting the workshop on 'Autonomous Logistics & Fleet Management'?",
+    "choices": [
+      "Dr. Elena Rostova",
+      "Marcus Vance",
+      "Aris Thorne",
+      "Sarah Jenkins"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 2(일정표) Room 102 세션의 발표자로 Marcus Vance가 지정되어 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q189",
+    "part": 7,
+    "questionNumber": 189,
+    "setId": "RC-S003-P7-G13",
+    "setTitle": "Triple Passage: Article, Schedule, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Article",
+        "text": "[Document 1: Article]\nSeattle Technology Journal - November 1, 2026\n\nVanguard Tech to Launch Annual AI & Robotics Exposition\n\nSEATTLE — Vanguard Tech, a prominent software and automation developer, announced that its 8th Annual AI & Robotics Exposition will be held from December 12 to December 14 at the Seattle Trade Center. The event will bring together over two thousand industry professionals, researchers, and venture capitalists.\n\nHighlighting this year’s exposition is a series of technical workshops focusing on industrial automation, autonomous logistics, and machine learning security. Admission to the exhibition floor is $150 for a standard 3-day pass, while premium workshop registration costs $350.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Workshop Schedule",
+        "text": "[Document 2: Workshop Schedule]\nVanguard AI & Robotics Exposition - Technical Workshop Schedule (December 13)\n\n- Room 101 (09:30 AM - 11:30 AM): 'AI-Driven Automated Quality Inspection' / Presenter: Dr. Elena Rostova\n- Room 102 (01:00 PM - 03:00 PM): 'Autonomous Logistics & Fleet Management' / Presenter: Marcus Vance\n- Room 103 (03:30 PM - 05:30 PM): 'Cybersecurity Vulnerabilities in Robotic Networks' / Presenter: Aris Thorne\n\nNote: All workshop attendees must present their Premium Registration Badge at the entrance of each session room.",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Vanguard Event Registration <register@vanguardtech.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 20, 2026\nSubject: Group Premium Registration Inquiry\n\nDear Registration Team,\n\nI am writing on behalf of Nova Tech to register five of our senior systems engineers for the Vanguard AI & Robotics Exposition on December 13.\n\nWe have already completed the online payment for five Premium Workshop Passes. Our engineers are particularly eager to attend the afternoon session on autonomous logistics led by Mr. Marcus Vance, as well as the late afternoon cybersecurity session.\n\nCould you please confirm if group badges can be collected at the express desk on December 12?\n\nBest regards,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "Which session room will Nova Tech engineers visit at 3:30 PM on December 13?",
+    "choices": [
+      "Room 101",
+      "Room 102",
+      "Room 103",
+      "Grand Ballroom"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 3에서 늦은 오후 사이버 보안 세션에 참석한다고 했고, 문서 2 일정표에서 해당 세션('Cybersecurity Vulnerabilities in Robotic Networks')이 03:30 PM에 Room 103에서 진행되므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q190",
+    "part": 7,
+    "questionNumber": 190,
+    "setId": "RC-S003-P7-G13",
+    "setTitle": "Triple Passage: Article, Schedule, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Article",
+        "text": "[Document 1: Article]\nSeattle Technology Journal - November 1, 2026\n\nVanguard Tech to Launch Annual AI & Robotics Exposition\n\nSEATTLE — Vanguard Tech, a prominent software and automation developer, announced that its 8th Annual AI & Robotics Exposition will be held from December 12 to December 14 at the Seattle Trade Center. The event will bring together over two thousand industry professionals, researchers, and venture capitalists.\n\nHighlighting this year’s exposition is a series of technical workshops focusing on industrial automation, autonomous logistics, and machine learning security. Admission to the exhibition floor is $150 for a standard 3-day pass, while premium workshop registration costs $350.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Workshop Schedule",
+        "text": "[Document 2: Workshop Schedule]\nVanguard AI & Robotics Exposition - Technical Workshop Schedule (December 13)\n\n- Room 101 (09:30 AM - 11:30 AM): 'AI-Driven Automated Quality Inspection' / Presenter: Dr. Elena Rostova\n- Room 102 (01:00 PM - 03:00 PM): 'Autonomous Logistics & Fleet Management' / Presenter: Marcus Vance\n- Room 103 (03:30 PM - 05:30 PM): 'Cybersecurity Vulnerabilities in Robotic Networks' / Presenter: Aris Thorne\n\nNote: All workshop attendees must present their Premium Registration Badge at the entrance of each session room.",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Vanguard Event Registration <register@vanguardtech.com>\nFrom: Sarah Jenkins <s.jenkins@novatech.com>\nDate: November 20, 2026\nSubject: Group Premium Registration Inquiry\n\nDear Registration Team,\n\nI am writing on behalf of Nova Tech to register five of our senior systems engineers for the Vanguard AI & Robotics Exposition on December 13.\n\nWe have already completed the online payment for five Premium Workshop Passes. Our engineers are particularly eager to attend the afternoon session on autonomous logistics led by Mr. Marcus Vance, as well as the late afternoon cybersecurity session.\n\nCould you please confirm if group badges can be collected at the express desk on December 12?\n\nBest regards,\nSarah Jenkins\nOperations Manager, Nova Tech",
+        "translation": ""
+      }
+    ],
+    "question": "What does Sarah Jenkins request in her email?",
+    "choices": [
+      "A full refund for one registration pass",
+      "Confirmation regarding badge collection at the express desk",
+      "A change in workshop presentation topics",
+      "Hotel accommodation discounts for her team"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 3 이메일 마지막 문장에서 12월 12일에 익스프레스 데스크에서 그룹 배지를 수령할 수 있는지 확인을 요청하고 있으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q191",
+    "part": 7,
+    "questionNumber": 191,
+    "setId": "RC-S003-P7-G14",
+    "setTitle": "Triple Passage: Memo, Form, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Memorandum",
+        "text": "[Document 1: Memorandum]\nSolaria Energy Corporate Travel & Expense Policy\n\nTo: All Department Staff\nFrom: Finance Department\nDate: October 5, 2026\n\nEmployees traveling on official company business are entitled to reimbursement for travel expenses, lodging, and client entertainment, provided that all expenditures strictly comply with corporate limits.\n\nReimbursement Rules:\n1. Daily Meal Allowance: Up to $80 per day (itemized receipts required).\n2. Lodging Allowance: Up to $220 per night for standard hotel rooms.\n3. Expense Report Deadline: All reimbursement forms along with original receipts must be submitted within 14 business days following the return from travel. Late submissions will require approval from the Finance Director.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Expense Reimbursement Form",
+        "text": "[Document 2: Expense Reimbursement Form]\nEmployee Name: Liam Vance / Department: Business Development\nTravel Destination: Chicago, IL / Travel Dates: November 3 - November 6, 2026\n\n[Itemized Expenses]\n- Nov 3: Flight Ticket (Austin -> Chicago) / $340.00\n- Nov 3 - Nov 5 (3 nights): Grand Plaza Hotel ($210/night) / $630.00\n- Nov 4: Client Dinner with Apex Logistics Executive / $145.00\n- Nov 5: Taxi & Ground Transportation / $55.00\n- Total Expense Claimed: $1,170.00\n- Submission Date: November 18, 2026",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Liam Vance <l.vance@solariaenergy.com>\nFrom: Clara Bennett, Finance Specialist <c.bennett@solariaenergy.com>\nDate: November 22, 2026\nSubject: Notice Regarding Expense Claim #4092\n\nDear Liam,\n\nI have reviewed your expense reimbursement claim #4092 for your recent business trip to Chicago. Most of your items, including your flight and hotel stay at $210 per night, fall well within our corporate guidelines.\n\nHowever, please note that your claim for client dinner on November 4 ($145.00) exceeds our standard single-meal threshold of $100 for client entertainment without prior supervisory pre-authorization. To process this specific item, please forward an approval email from your department head by November 28.\n\nBest regards,\nClara Bennett",
+        "translation": ""
+      }
+    ],
+    "question": "According to Document 1, what is the maximum nightly lodging allowance?",
+    "choices": [
+      "$80",
+      "$100",
+      "$210",
+      "$220"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 1(메모) 규정 2항에서 1박당 숙박비 한도(Lodging Allowance)가 $220라고 밝히고 있으므로 D가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q192",
+    "part": 7,
+    "questionNumber": 192,
+    "setId": "RC-S003-P7-G14",
+    "setTitle": "Triple Passage: Memo, Form, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Memorandum",
+        "text": "[Document 1: Memorandum]\nSolaria Energy Corporate Travel & Expense Policy\n\nTo: All Department Staff\nFrom: Finance Department\nDate: October 5, 2026\n\nEmployees traveling on official company business are entitled to reimbursement for travel expenses, lodging, and client entertainment, provided that all expenditures strictly comply with corporate limits.\n\nReimbursement Rules:\n1. Daily Meal Allowance: Up to $80 per day (itemized receipts required).\n2. Lodging Allowance: Up to $220 per night for standard hotel rooms.\n3. Expense Report Deadline: All reimbursement forms along with original receipts must be submitted within 14 business days following the return from travel. Late submissions will require approval from the Finance Director.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Expense Reimbursement Form",
+        "text": "[Document 2: Expense Reimbursement Form]\nEmployee Name: Liam Vance / Department: Business Development\nTravel Destination: Chicago, IL / Travel Dates: November 3 - November 6, 2026\n\n[Itemized Expenses]\n- Nov 3: Flight Ticket (Austin -> Chicago) / $340.00\n- Nov 3 - Nov 5 (3 nights): Grand Plaza Hotel ($210/night) / $630.00\n- Nov 4: Client Dinner with Apex Logistics Executive / $145.00\n- Nov 5: Taxi & Ground Transportation / $55.00\n- Total Expense Claimed: $1,170.00\n- Submission Date: November 18, 2026",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Liam Vance <l.vance@solariaenergy.com>\nFrom: Clara Bennett, Finance Specialist <c.bennett@solariaenergy.com>\nDate: November 22, 2026\nSubject: Notice Regarding Expense Claim #4092\n\nDear Liam,\n\nI have reviewed your expense reimbursement claim #4092 for your recent business trip to Chicago. Most of your items, including your flight and hotel stay at $210 per night, fall well within our corporate guidelines.\n\nHowever, please note that your claim for client dinner on November 4 ($145.00) exceeds our standard single-meal threshold of $100 for client entertainment without prior supervisory pre-authorization. To process this specific item, please forward an approval email from your department head by November 28.\n\nBest regards,\nClara Bennett",
+        "translation": ""
+      }
+    ],
+    "question": "Did Liam Vance submit his expense form within the company deadline?",
+    "choices": [
+      "Yes, because he submitted it within 14 business days after returning.",
+      "No, because he submitted it more than a month late.",
+      "Yes, because he submitted it on the exact day he returned.",
+      "No, because reimbursement forms must be submitted prior to travel."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Liam의 출장 복귀일은 11월 6일이고 제출일은 11월 18일입니다. 일반적인 월~금 기준으로 계산하면 복귀 다음 영업일부터 제출일까지 8영업일이므로 회사가 정한 14영업일 이내입니다. 따라서 A가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q193",
+    "part": 7,
+    "questionNumber": 193,
+    "setId": "RC-S003-P7-G14",
+    "setTitle": "Triple Passage: Memo, Form, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Memorandum",
+        "text": "[Document 1: Memorandum]\nSolaria Energy Corporate Travel & Expense Policy\n\nTo: All Department Staff\nFrom: Finance Department\nDate: October 5, 2026\n\nEmployees traveling on official company business are entitled to reimbursement for travel expenses, lodging, and client entertainment, provided that all expenditures strictly comply with corporate limits.\n\nReimbursement Rules:\n1. Daily Meal Allowance: Up to $80 per day (itemized receipts required).\n2. Lodging Allowance: Up to $220 per night for standard hotel rooms.\n3. Expense Report Deadline: All reimbursement forms along with original receipts must be submitted within 14 business days following the return from travel. Late submissions will require approval from the Finance Director.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Expense Reimbursement Form",
+        "text": "[Document 2: Expense Reimbursement Form]\nEmployee Name: Liam Vance / Department: Business Development\nTravel Destination: Chicago, IL / Travel Dates: November 3 - November 6, 2026\n\n[Itemized Expenses]\n- Nov 3: Flight Ticket (Austin -> Chicago) / $340.00\n- Nov 3 - Nov 5 (3 nights): Grand Plaza Hotel ($210/night) / $630.00\n- Nov 4: Client Dinner with Apex Logistics Executive / $145.00\n- Nov 5: Taxi & Ground Transportation / $55.00\n- Total Expense Claimed: $1,170.00\n- Submission Date: November 18, 2026",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Liam Vance <l.vance@solariaenergy.com>\nFrom: Clara Bennett, Finance Specialist <c.bennett@solariaenergy.com>\nDate: November 22, 2026\nSubject: Notice Regarding Expense Claim #4092\n\nDear Liam,\n\nI have reviewed your expense reimbursement claim #4092 for your recent business trip to Chicago. Most of your items, including your flight and hotel stay at $210 per night, fall well within our corporate guidelines.\n\nHowever, please note that your claim for client dinner on November 4 ($145.00) exceeds our standard single-meal threshold of $100 for client entertainment without prior supervisory pre-authorization. To process this specific item, please forward an approval email from your department head by November 28.\n\nBest regards,\nClara Bennett",
+        "translation": ""
+      }
+    ],
+    "question": "Why is Clara Bennett requesting additional approval for the November 4 expense?",
+    "choices": [
+      "The itemized receipt was missing.",
+      "The hotel rate exceeded the $220 limit.",
+      "The client dinner cost exceeded the pre-authorization threshold.",
+      "Ground transportation was not covered by policy."
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 3 이메일에서 11월 4일 고객 식사비($145)가 사전 승인 없는 단일 식사 한도인 $100를 초과했기 때문이라고 밝히고 있으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q194",
+    "part": 7,
+    "questionNumber": 194,
+    "setId": "RC-S003-P7-G14",
+    "setTitle": "Triple Passage: Memo, Form, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Memorandum",
+        "text": "[Document 1: Memorandum]\nSolaria Energy Corporate Travel & Expense Policy\n\nTo: All Department Staff\nFrom: Finance Department\nDate: October 5, 2026\n\nEmployees traveling on official company business are entitled to reimbursement for travel expenses, lodging, and client entertainment, provided that all expenditures strictly comply with corporate limits.\n\nReimbursement Rules:\n1. Daily Meal Allowance: Up to $80 per day (itemized receipts required).\n2. Lodging Allowance: Up to $220 per night for standard hotel rooms.\n3. Expense Report Deadline: All reimbursement forms along with original receipts must be submitted within 14 business days following the return from travel. Late submissions will require approval from the Finance Director.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Expense Reimbursement Form",
+        "text": "[Document 2: Expense Reimbursement Form]\nEmployee Name: Liam Vance / Department: Business Development\nTravel Destination: Chicago, IL / Travel Dates: November 3 - November 6, 2026\n\n[Itemized Expenses]\n- Nov 3: Flight Ticket (Austin -> Chicago) / $340.00\n- Nov 3 - Nov 5 (3 nights): Grand Plaza Hotel ($210/night) / $630.00\n- Nov 4: Client Dinner with Apex Logistics Executive / $145.00\n- Nov 5: Taxi & Ground Transportation / $55.00\n- Total Expense Claimed: $1,170.00\n- Submission Date: November 18, 2026",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Liam Vance <l.vance@solariaenergy.com>\nFrom: Clara Bennett, Finance Specialist <c.bennett@solariaenergy.com>\nDate: November 22, 2026\nSubject: Notice Regarding Expense Claim #4092\n\nDear Liam,\n\nI have reviewed your expense reimbursement claim #4092 for your recent business trip to Chicago. Most of your items, including your flight and hotel stay at $210 per night, fall well within our corporate guidelines.\n\nHowever, please note that your claim for client dinner on November 4 ($145.00) exceeds our standard single-meal threshold of $100 for client entertainment without prior supervisory pre-authorization. To process this specific item, please forward an approval email from your department head by November 28.\n\nBest regards,\nClara Bennett",
+        "translation": ""
+      }
+    ],
+    "question": "What should Liam Vance do by November 28 to receive full reimbursement?",
+    "choices": [
+      "Resubmit his entire travel form",
+      "Forward an approval email from his department head",
+      "Pay a late processing penalty fee",
+      "Return his corporate credit card"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 3 이메일 끝에서 부서장의 승인 이메일(approval email from your department head)을 11월 28일까지 전달하라고 했으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q195",
+    "part": 7,
+    "questionNumber": 195,
+    "setId": "RC-S003-P7-G14",
+    "setTitle": "Triple Passage: Memo, Form, Email",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Memorandum",
+        "text": "[Document 1: Memorandum]\nSolaria Energy Corporate Travel & Expense Policy\n\nTo: All Department Staff\nFrom: Finance Department\nDate: October 5, 2026\n\nEmployees traveling on official company business are entitled to reimbursement for travel expenses, lodging, and client entertainment, provided that all expenditures strictly comply with corporate limits.\n\nReimbursement Rules:\n1. Daily Meal Allowance: Up to $80 per day (itemized receipts required).\n2. Lodging Allowance: Up to $220 per night for standard hotel rooms.\n3. Expense Report Deadline: All reimbursement forms along with original receipts must be submitted within 14 business days following the return from travel. Late submissions will require approval from the Finance Director.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Expense Reimbursement Form",
+        "text": "[Document 2: Expense Reimbursement Form]\nEmployee Name: Liam Vance / Department: Business Development\nTravel Destination: Chicago, IL / Travel Dates: November 3 - November 6, 2026\n\n[Itemized Expenses]\n- Nov 3: Flight Ticket (Austin -> Chicago) / $340.00\n- Nov 3 - Nov 5 (3 nights): Grand Plaza Hotel ($210/night) / $630.00\n- Nov 4: Client Dinner with Apex Logistics Executive / $145.00\n- Nov 5: Taxi & Ground Transportation / $55.00\n- Total Expense Claimed: $1,170.00\n- Submission Date: November 18, 2026",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Email",
+        "text": "[Document 3: Email]\nTo: Liam Vance <l.vance@solariaenergy.com>\nFrom: Clara Bennett, Finance Specialist <c.bennett@solariaenergy.com>\nDate: November 22, 2026\nSubject: Notice Regarding Expense Claim #4092\n\nDear Liam,\n\nI have reviewed your expense reimbursement claim #4092 for your recent business trip to Chicago. Most of your items, including your flight and hotel stay at $210 per night, fall well within our corporate guidelines.\n\nHowever, please note that your claim for client dinner on November 4 ($145.00) exceeds our standard single-meal threshold of $100 for client entertainment without prior supervisory pre-authorization. To process this specific item, please forward an approval email from your department head by November 28.\n\nBest regards,\nClara Bennett",
+        "translation": ""
+      }
+    ],
+    "question": "In Document 1, the word 'entitled' in paragraph 2 is closest in meaning to",
+    "choices": [
+      "eligible",
+      "required",
+      "forbidden",
+      "advised"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "'be entitled to'는 '~을 받을 자격이 있다'라는 뜻이므로 'eligible(자격이 있는)'이 가장 가까운 의미입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q196",
+    "part": 7,
+    "questionNumber": 196,
+    "setId": "RC-S003-P7-G15",
+    "setTitle": "Triple Passage: Webpage, Invoice, Review",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.crestviewfurniture.com/office/ergonomic\n\nCrestview Office Furniture - Ergonomic Series\n\nUpgrade your workspace with Crestview's top-rated ergonomic office furniture! Designed for health, posture support, and durability.\n\nFeatured Products:\n1. Model E-100 Ergonomic Task Chair ($280) - Breathable mesh back, adjustable armrests, lumbar support.\n2. Model E-200 Executive Leather Chair ($450) - Premium leather upholstery, memory foam cushion, 360-degree swivel.\n3. Model D-500 Electric Standing Desk ($620) - Dual-motor height adjustment, digital memory preset, scratch-resistant oak top.\n\nShipping Policy: Free standard delivery on orders over $500. Orders below $500 incur a flat $40 shipping fee.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Invoice",
+        "text": "[Document 2: Invoice]\nCrestview Office Furniture - Invoice #8821\nCustomer Name: Aris Thorne / Delivery Address: 750 Business Park Way, San Francisco, CA\nInvoice Date: November 10, 2026\n\n[Purchased Items]\n- Item 1: Model E-200 Executive Leather Chair (Qty: 2) @ $450.00 = $900.00\n- Item 2: Model D-500 Electric Standing Desk (Qty: 1) @ $620.00 = $620.00\n- Subtotal: $1,520.00\n- Promotional Discount (Code: SAVE10): -$152.00\n- Delivery Fee: $0.00\n- Total Amount Paid: $1,368.00",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Customer Review",
+        "text": "[Document 3: Customer Review]\nPosted by: Aris Thorne (November 18, 2026)\nRating: ★★★★☆ (4 out of 5 stars)\n\nI recently purchased two Model E-200 Executive Leather Chairs and one Model D-500 Electric Standing Desk for our executive suite at Nova Pharma.\n\nThe order arrived within four business days, and the packaging was extremely secure. The standing desk is smooth, quiet, and very sturdy. The leather chairs are very comfortable for long hours of desk work.\n\nMy only minor complaint is that one of the chair boxes was missing assembly instructions, so we had to download the PDF manual from the website. Otherwise, excellent build quality and fast shipping!",
+        "translation": ""
+      }
+    ],
+    "question": "Why was Aris Thorne eligible for free delivery?",
+    "choices": [
+      "He used a promotional discount code.",
+      "His total order value exceeded $500.",
+      "He registered as a premium VIP member.",
+      "He picked up the items directly at the warehouse."
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 1(웹페이지)에서 $500 초과 주문 시 무료 배송(Free standard delivery on orders over $500)이라고 나와 있고, 문서 2 영수증의 총 주문 금액이 $1,520이므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q197",
+    "part": 7,
+    "questionNumber": 197,
+    "setId": "RC-S003-P7-G15",
+    "setTitle": "Triple Passage: Webpage, Invoice, Review",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.crestviewfurniture.com/office/ergonomic\n\nCrestview Office Furniture - Ergonomic Series\n\nUpgrade your workspace with Crestview's top-rated ergonomic office furniture! Designed for health, posture support, and durability.\n\nFeatured Products:\n1. Model E-100 Ergonomic Task Chair ($280) - Breathable mesh back, adjustable armrests, lumbar support.\n2. Model E-200 Executive Leather Chair ($450) - Premium leather upholstery, memory foam cushion, 360-degree swivel.\n3. Model D-500 Electric Standing Desk ($620) - Dual-motor height adjustment, digital memory preset, scratch-resistant oak top.\n\nShipping Policy: Free standard delivery on orders over $500. Orders below $500 incur a flat $40 shipping fee.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Invoice",
+        "text": "[Document 2: Invoice]\nCrestview Office Furniture - Invoice #8821\nCustomer Name: Aris Thorne / Delivery Address: 750 Business Park Way, San Francisco, CA\nInvoice Date: November 10, 2026\n\n[Purchased Items]\n- Item 1: Model E-200 Executive Leather Chair (Qty: 2) @ $450.00 = $900.00\n- Item 2: Model D-500 Electric Standing Desk (Qty: 1) @ $620.00 = $620.00\n- Subtotal: $1,520.00\n- Promotional Discount (Code: SAVE10): -$152.00\n- Delivery Fee: $0.00\n- Total Amount Paid: $1,368.00",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Customer Review",
+        "text": "[Document 3: Customer Review]\nPosted by: Aris Thorne (November 18, 2026)\nRating: ★★★★☆ (4 out of 5 stars)\n\nI recently purchased two Model E-200 Executive Leather Chairs and one Model D-500 Electric Standing Desk for our executive suite at Nova Pharma.\n\nThe order arrived within four business days, and the packaging was extremely secure. The standing desk is smooth, quiet, and very sturdy. The leather chairs are very comfortable for long hours of desk work.\n\nMy only minor complaint is that one of the chair boxes was missing assembly instructions, so we had to download the PDF manual from the website. Otherwise, excellent build quality and fast shipping!",
+        "translation": ""
+      }
+    ],
+    "question": "How much discount did Aris Thorne receive using the code SAVE10?",
+    "choices": [
+      "$40.00",
+      "$100.00",
+      "$152.00",
+      "$280.00"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 2 영수증에서 할인 코드 SAVE10에 의해 -$152.00의 할인이 적용된 것으로 명시되어 있으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q198",
+    "part": 7,
+    "questionNumber": 198,
+    "setId": "RC-S003-P7-G15",
+    "setTitle": "Triple Passage: Webpage, Invoice, Review",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.crestviewfurniture.com/office/ergonomic\n\nCrestview Office Furniture - Ergonomic Series\n\nUpgrade your workspace with Crestview's top-rated ergonomic office furniture! Designed for health, posture support, and durability.\n\nFeatured Products:\n1. Model E-100 Ergonomic Task Chair ($280) - Breathable mesh back, adjustable armrests, lumbar support.\n2. Model E-200 Executive Leather Chair ($450) - Premium leather upholstery, memory foam cushion, 360-degree swivel.\n3. Model D-500 Electric Standing Desk ($620) - Dual-motor height adjustment, digital memory preset, scratch-resistant oak top.\n\nShipping Policy: Free standard delivery on orders over $500. Orders below $500 incur a flat $40 shipping fee.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Invoice",
+        "text": "[Document 2: Invoice]\nCrestview Office Furniture - Invoice #8821\nCustomer Name: Aris Thorne / Delivery Address: 750 Business Park Way, San Francisco, CA\nInvoice Date: November 10, 2026\n\n[Purchased Items]\n- Item 1: Model E-200 Executive Leather Chair (Qty: 2) @ $450.00 = $900.00\n- Item 2: Model D-500 Electric Standing Desk (Qty: 1) @ $620.00 = $620.00\n- Subtotal: $1,520.00\n- Promotional Discount (Code: SAVE10): -$152.00\n- Delivery Fee: $0.00\n- Total Amount Paid: $1,368.00",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Customer Review",
+        "text": "[Document 3: Customer Review]\nPosted by: Aris Thorne (November 18, 2026)\nRating: ★★★★☆ (4 out of 5 stars)\n\nI recently purchased two Model E-200 Executive Leather Chairs and one Model D-500 Electric Standing Desk for our executive suite at Nova Pharma.\n\nThe order arrived within four business days, and the packaging was extremely secure. The standing desk is smooth, quiet, and very sturdy. The leather chairs are very comfortable for long hours of desk work.\n\nMy only minor complaint is that one of the chair boxes was missing assembly instructions, so we had to download the PDF manual from the website. Otherwise, excellent build quality and fast shipping!",
+        "translation": ""
+      }
+    ],
+    "question": "What company does Aris Thorne work for?",
+    "choices": [
+      "Crestview Office Furniture",
+      "Nova Pharma",
+      "Solaria Energy",
+      "Vanguard Tech"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 3 리뷰 첫 문장에서 Nova Pharma의 임원실을 위해 제품을 구매했다고 밝혔으므로 B가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q199",
+    "part": 7,
+    "questionNumber": 199,
+    "setId": "RC-S003-P7-G15",
+    "setTitle": "Triple Passage: Webpage, Invoice, Review",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.crestviewfurniture.com/office/ergonomic\n\nCrestview Office Furniture - Ergonomic Series\n\nUpgrade your workspace with Crestview's top-rated ergonomic office furniture! Designed for health, posture support, and durability.\n\nFeatured Products:\n1. Model E-100 Ergonomic Task Chair ($280) - Breathable mesh back, adjustable armrests, lumbar support.\n2. Model E-200 Executive Leather Chair ($450) - Premium leather upholstery, memory foam cushion, 360-degree swivel.\n3. Model D-500 Electric Standing Desk ($620) - Dual-motor height adjustment, digital memory preset, scratch-resistant oak top.\n\nShipping Policy: Free standard delivery on orders over $500. Orders below $500 incur a flat $40 shipping fee.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Invoice",
+        "text": "[Document 2: Invoice]\nCrestview Office Furniture - Invoice #8821\nCustomer Name: Aris Thorne / Delivery Address: 750 Business Park Way, San Francisco, CA\nInvoice Date: November 10, 2026\n\n[Purchased Items]\n- Item 1: Model E-200 Executive Leather Chair (Qty: 2) @ $450.00 = $900.00\n- Item 2: Model D-500 Electric Standing Desk (Qty: 1) @ $620.00 = $620.00\n- Subtotal: $1,520.00\n- Promotional Discount (Code: SAVE10): -$152.00\n- Delivery Fee: $0.00\n- Total Amount Paid: $1,368.00",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Customer Review",
+        "text": "[Document 3: Customer Review]\nPosted by: Aris Thorne (November 18, 2026)\nRating: ★★★★☆ (4 out of 5 stars)\n\nI recently purchased two Model E-200 Executive Leather Chairs and one Model D-500 Electric Standing Desk for our executive suite at Nova Pharma.\n\nThe order arrived within four business days, and the packaging was extremely secure. The standing desk is smooth, quiet, and very sturdy. The leather chairs are very comfortable for long hours of desk work.\n\nMy only minor complaint is that one of the chair boxes was missing assembly instructions, so we had to download the PDF manual from the website. Otherwise, excellent build quality and fast shipping!",
+        "translation": ""
+      }
+    ],
+    "question": "What problem did Aris Thorne experience with his order?",
+    "choices": [
+      "One of the chairs arrived with damaged leather.",
+      "The standing desk motor failed to operate.",
+      "Assembly instructions were missing from one box.",
+      "Delivery was delayed by two weeks."
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문서 3 리뷰 세 번째 단락에서 의자 상자 중 하나에 조립 설명서(assembly instructions)가 누락되어 있었다고 했으므로 C가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S003-P7-Q200",
+    "part": 7,
+    "questionNumber": 200,
+    "setId": "RC-S003-P7-G15",
+    "setTitle": "Triple Passage: Webpage, Invoice, Review",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1: Webpage",
+        "text": "[Document 1: Webpage]\nwww.crestviewfurniture.com/office/ergonomic\n\nCrestview Office Furniture - Ergonomic Series\n\nUpgrade your workspace with Crestview's top-rated ergonomic office furniture! Designed for health, posture support, and durability.\n\nFeatured Products:\n1. Model E-100 Ergonomic Task Chair ($280) - Breathable mesh back, adjustable armrests, lumbar support.\n2. Model E-200 Executive Leather Chair ($450) - Premium leather upholstery, memory foam cushion, 360-degree swivel.\n3. Model D-500 Electric Standing Desk ($620) - Dual-motor height adjustment, digital memory preset, scratch-resistant oak top.\n\nShipping Policy: Free standard delivery on orders over $500. Orders below $500 incur a flat $40 shipping fee.",
+        "translation": ""
+      },
+      {
+        "title": "Document 2: Invoice",
+        "text": "[Document 2: Invoice]\nCrestview Office Furniture - Invoice #8821\nCustomer Name: Aris Thorne / Delivery Address: 750 Business Park Way, San Francisco, CA\nInvoice Date: November 10, 2026\n\n[Purchased Items]\n- Item 1: Model E-200 Executive Leather Chair (Qty: 2) @ $450.00 = $900.00\n- Item 2: Model D-500 Electric Standing Desk (Qty: 1) @ $620.00 = $620.00\n- Subtotal: $1,520.00\n- Promotional Discount (Code: SAVE10): -$152.00\n- Delivery Fee: $0.00\n- Total Amount Paid: $1,368.00",
+        "translation": ""
+      },
+      {
+        "title": "Document 3: Customer Review",
+        "text": "[Document 3: Customer Review]\nPosted by: Aris Thorne (November 18, 2026)\nRating: ★★★★☆ (4 out of 5 stars)\n\nI recently purchased two Model E-200 Executive Leather Chairs and one Model D-500 Electric Standing Desk for our executive suite at Nova Pharma.\n\nThe order arrived within four business days, and the packaging was extremely secure. The standing desk is smooth, quiet, and very sturdy. The leather chairs are very comfortable for long hours of desk work.\n\nMy only minor complaint is that one of the chair boxes was missing assembly instructions, so we had to download the PDF manual from the website. Otherwise, excellent build quality and fast shipping!",
+        "translation": ""
+      }
+    ],
+    "question": "In Document 3, the word 'sturdy' in paragraph 2 is closest in meaning to",
+    "choices": [
+      "strong and solid",
+      "expensive",
+      "heavy and noisy",
+      "temporary"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "'sturdy'는 가구이나 물건이 '튼튼한, 견고한'이라는 뜻이므로 'strong and solid'가 가장 가까운 의미입니다.",
+    "evidence": [],
+    "optionReasons": []
+  }
+]
