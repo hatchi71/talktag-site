@@ -21,6 +21,11 @@
   }
   if (!data || !data.cues.length) return;
   var audio = document.getElementById("audio");
+  var isJapanese = data.language === "ja";
+  var readingVisible = false;
+  if (isJapanese) {
+    try { readingVisible = localStorage.getItem("talktag-japanese:show-reading") === "true"; } catch (error) {}
+  }
   var enabled = false;
   var active = -1;
   var section = document.createElement("section");
@@ -30,6 +35,7 @@
   var content = section.querySelector("#syncContent");
   var toggle = section.querySelector(".sync-enable");
   var lines = section.querySelector(".sync-lines");
+  if (isJapanese) lines.classList.toggle("hide-reading", !readingVisible);
   var follow = section.querySelector("#syncFollow");
   var play = section.querySelector("#syncPlay");
   var status = section.querySelector(".sync-status");
@@ -52,15 +58,15 @@
       var button = document.createElement("button");
       button.type = "button";
       button.className = "sync-line";
-      button.setAttribute("aria-label", (index + 1) + "번 문장부터 재생: " + line.en);
+      button.setAttribute("aria-label", (index + 1) + "번 문장부터 재생: " + String(line.en || "").normalize("NFKC"));
       var english = document.createElement("span");
       if (data.language) english.lang = data.language;
-      english.textContent = line.en;
+      english.textContent = String(line.en || "").normalize("NFKC");
       if (line.reading) {
         var reading = document.createElement("span");
         reading.className = "sync-reading";
         reading.lang = "ja";
-        reading.textContent = line.reading;
+        reading.textContent = String(line.reading || "").normalize("NFKC");
         button.append(english, reading);
       } else button.append(english);
       var korean = document.createElement("span");
@@ -131,5 +137,13 @@
     lines.classList.toggle("hide-ko", !event.target.checked);
     active = -1; update();
   });
+  if (isJapanese) {
+    window.addEventListener("talktag-japanese-reading-change", function (event) {
+      readingVisible = Boolean(event.detail && event.detail.visible);
+      lines.classList.toggle("hide-reading", !readingVisible);
+      active = -1;
+      update();
+    });
+  }
   follow.addEventListener("change", function () { active = -1; update(); });
 })();

@@ -9,15 +9,15 @@
   <link rel="stylesheet" href="../content-completion.css?v=1">
   <link rel="stylesheet" href="structure.css?v=local1">
   <link rel="stylesheet" href="mode-nav.css?v=local1">
-  <link rel="stylesheet" href="n4-listen-repeat.css?v=3">
-  <link rel="stylesheet" href="../audio-sync-pilot.css?v=3">
+  <link rel="stylesheet" href="n4-listen-repeat.css?v=4">
+  <link rel="stylesheet" href="../audio-sync-pilot.css?v=4">
   <script src="../talktag-theme.js?v=2"></script>
   <script src="n4-audio-lessons.js?v=1" defer></script>
   <script src="n4-script-data.js?v=1" defer></script>
   <script src="n4-sync-data.js?v=1" defer></script>
   <script src="../content-completion.js?v=1" defer></script>
-  <script src="n4-audio-player.js?v=1" defer></script>
-  <script src="../audio-sync.js?v=2" defer></script>
+  <script src="n4-audio-player.js?v=2" defer></script>
+  <script src="../audio-sync.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">본문 바로가기</a>
@@ -47,6 +47,7 @@
         <div class="options">
           <label class="option">PLAYBACK SPEED<select id="speedSelect" aria-label="재생 속도"><option value="0.75">0.75×</option><option value="0.9">0.9×</option><option value="1" selected>1.0×</option><option value="1.1">1.1×</option><option value="1.25">1.25×</option></select></label>
           <div class="option"><span>LOOP LESSON</span><button class="switch" id="loopButton" type="button" role="switch" aria-checked="false" aria-label="음원 반복 재생"></button></div>
+          <div class="option n4-reading-option"><span>HIRAGANA <small>읽는 법</small></span><button class="switch" id="readingToggle" type="button" role="switch" aria-checked="false" aria-label="히라가나 읽는 법 표시"></button></div>
         </div>
         <p class="n4-player-status" id="audioStatus" role="status">재생할 준비가 되었습니다.</p>
         <div class="text-actions"><button id="scriptButton" type="button" aria-expanded="false">JAPANESE SCRIPT</button><button id="translationButton" type="button" aria-expanded="false">KOREAN TRANSLATION</button></div>

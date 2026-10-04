@@ -16,3 +16,5 @@
 
 @media(max-width:850px){.n4-library-page{padding-bottom:42px}.n4-catalog-head{margin-top:22px}.n4-catalog-head .type-switch a{min-height:44px;display:inline-flex;align-items:center}.n4-player-page{padding-top:20px}.n4-player-page>.ja-crumb{margin-bottom:16px}}
 @media(max-width:470px){.n4-catalog-head h1{font-size:42px}.n4-catalog-head p{font-size:16px}.n4-source-note{align-items:flex-start}.lesson-card{padding:18px}.lesson-copy h2{font-size:22px}.lesson-action{width:100%}.player-card{padding:18px}.player-card h1{font-size:36px}.wave{height:76px;margin:24px 0 14px}.transport{gap:8px}.control{min-height:52px}.text-actions button{min-height:48px}.lesson-info{padding:18px}.toggle-panel{padding:18px}.n4-bilingual-list strong,.n4-translation-list li{font-size:16px}}
+
+.n4-reading-option small{display:block;margin-top:2px;color:var(--muted);font-size:9px;font-weight:750}.n4-reading{display:none}.n4-show-reading .n4-reading{display:block}.n4-reading-option .switch:focus-visible{outline:3px solid var(--orange);outline-offset:3px}

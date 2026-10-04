@@ -17,6 +17,7 @@
   var duration = document.getElementById("duration");
   var speedSelect = document.getElementById("speedSelect");
   var loopButton = document.getElementById("loopButton");
+  var readingToggle = document.getElementById("readingToggle");
   var completeButton = document.getElementById("completeButton");
   var completeState = document.getElementById("completeState");
   var status = document.getElementById("audioStatus");
@@ -25,6 +26,26 @@
   var scriptPanel = document.getElementById("scriptPanel");
   var translationPanel = document.getElementById("translationPanel");
   var storageKey = "talktag-japanese-n4:" + lesson.id;
+  var readingStorageKey = "talktag-japanese:show-reading";
+
+  function normalizeJapanese(value) {
+    return String(value || "").normalize("NFKC");
+  }
+
+  function readReadingPreference() {
+    try { return localStorage.getItem(readingStorageKey) === "true"; } catch (error) { return false; }
+  }
+
+  function updateReadingPreference(show, persist) {
+    document.documentElement.classList.toggle("n4-show-reading", show);
+    readingToggle.classList.toggle("on", show);
+    readingToggle.setAttribute("aria-checked", String(show));
+    readingToggle.setAttribute("aria-label", show ? "히라가나 읽는 법 숨기기" : "히라가나 읽는 법 표시");
+    if (persist) {
+      try { localStorage.setItem(readingStorageKey, String(show)); } catch (error) {}
+    }
+    window.dispatchEvent(new CustomEvent("talktag-japanese-reading-change", { detail: { visible: show } }));
+  }
 
   function formatTime(value) {
     if (!Number.isFinite(value)) return "00:00";
@@ -91,9 +112,10 @@
     var japanese = document.createElement("strong");
     var reading = document.createElement("span");
     japanese.lang = "ja";
-    japanese.textContent = item.script;
+    japanese.textContent = normalizeJapanese(item.script);
+    reading.className = "n4-reading";
     reading.lang = "ja";
-    reading.textContent = item.reading;
+    reading.textContent = normalizeJapanese(item.reading);
     scriptRow.appendChild(japanese);
     scriptRow.appendChild(reading);
     document.getElementById("scriptList").appendChild(scriptRow);
@@ -105,6 +127,7 @@
   });
 
   var initial = readState();
+  updateReadingPreference(readReadingPreference(), false);
   var resumePending = Number(initial.position || 0);
   audio.loop = Boolean(initial.loop);
   loopButton.classList.toggle("on", audio.loop);
@@ -151,6 +174,7 @@
   progress.addEventListener("input", function () { if (audio.duration) { audio.currentTime = (Number(progress.value) / 1000) * audio.duration; resumePending = 0; } });
   speedSelect.addEventListener("change", function () { audio.playbackRate = Number(speedSelect.value); saveState({ speed: audio.playbackRate }); });
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
+  readingToggle.addEventListener("click", function () { updateReadingPreference(readingToggle.getAttribute("aria-checked") !== "true", true); });
   completeButton.addEventListener("click", function () { var done = !Boolean(readState().completed); saveState({ completed: done }); if (window.TalkTagCompletion) window.TalkTagCompletion.set("japanese:n4:" + lesson.id, done, storageKey); updateCompletion(done); });
   scriptButton.addEventListener("click", function () { togglePanel(scriptButton, scriptPanel, translationButton, translationPanel); });
   translationButton.addEventListener("click", function () { togglePanel(translationButton, translationPanel, scriptButton, scriptPanel); });
