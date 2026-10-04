@@ -51,10 +51,15 @@
         <button class="deckButton primary" id="openMockExam" type="button"><span class="deckIcon" aria-hidden="true">◷</span><span><small>FULL MISSION</small><strong>모의고사 모드</strong></span><i>Part 5–7</i></button>
         <button class="deckButton" id="toggleBroadcast" type="button"><span class="deckIcon" aria-hidden="true">◉</span><span><small>CREATOR VIEW</small><strong class="deckButtonTitle">세로 모드</strong></span><i>9:16</i></button>
       </nav>
-      <div class="headerActions" aria-label="문제 관리"><span class="utilityLabel">CONTENT BAY</span><button class="utilityButton" id="openVault" type="button"><b aria-hidden="true">▣</b> 문제 보관함</button><button class="utilityButton" id="openImport" type="button"><b aria-hidden="true">⇧</b> 파트별 문제 업로드</button><button class="utilityButton" id="openAdd" type="button"><b aria-hidden="true">＋</b> 문제 추가</button></div>
+      <div class="headerActions" aria-label="콘텐츠 안내"><span class="utilityLabel">OFFICIAL CONTENT</span><span class="officialContentNotice">문제는 검수된 공식 세트로 제공됩니다.</span></div>
     </header>
 
     <main id="practiceMain">
+      <section class="setToolbar" aria-label="TOEIC RC 세트 선택">
+        <label for="setSelect"><span>RC PRACTICE SET</span><strong>학습 세트 선택</strong></label>
+        <select id="setSelect" aria-describedby="setStatus"><option value="local-legacy">기존 저장 문제</option></select>
+        <p id="setStatus" role="status">공식 세트 목록을 확인하고 있습니다.</p>
+      </section>
       <section class="partToolbar" aria-label="파트 선택"><div class="partButtons"><button class="partButton" data-part="5">Part 5</button><button class="partButton" data-part="6">Part 6</button><button class="partButton" data-part="7">Part 7</button></div><p id="partDescription"></p></section>
       <section class="toolbar" aria-label="문제 필터">
         <div class="tabs" role="tablist">
@@ -66,7 +71,7 @@
         <div class="controls"><label>다시 풀기 <input type="checkbox" id="retryMode" /></label><button id="resetCurrent" class="textButton">현재 기록 초기화</button><button id="resetAll" class="textButton">전체 기록 초기화</button><button id="keepReviewOnly" class="textButton dangerButton">오답·별표만 남기기</button><button id="deleteAll" class="textButton dangerButton">전체 문제 삭제</button></div>
       </section>
 
-      <section id="emptyState" class="empty hidden"><h2>아직 이 목록에는 문제가 없어요.</h2><p>다른 필터를 선택하거나 새 문제를 추가해 보세요.</p></section>
+      <section id="emptyState" class="empty hidden"><h2>아직 이 목록에는 문제가 없어요.</h2><p>공식 세트가 게시되면 여기에서 바로 학습할 수 있습니다.</p></section>
       <section id="questionArea" class="questionWrap" aria-live="polite"></section>
     </main>
 
@@ -329,7 +334,7 @@ Part 7의 모든 quote가 지정한 문서 text에 정확히 있고 reason이 �
     <script src="toeic-vault.js?v=1"></script>
     <script src="part6-prompt.js?v=1"></script>
     <script src="part5-prompt.js?v=20260929-v5-en"></script>
-    <script src="app.js?v=20261004-resume-position"></script>
-    <script src="compact-tools.js?v=20261004-portrait-mode"></script>
+    <script src="app.js?v=20261004-official-sets"></script>
+    <script src="compact-tools.js?v=20261004-official-sets"></script>
   </body>
 </html>

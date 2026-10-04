@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://talktag.co.kr/schemas/talktag-toeic-rc-v1.schema.json",
+  "title": "TalkTag TOEIC RC five-set batch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "batchId", "createdAt", "sets"],
+  "properties": {
+    "schemaVersion": {"const": "talktag-toeic-rc-v1"},
+    "batchId": {"type": "string", "minLength": 1},
+    "createdAt": {"type": "string", "format": "date"},
+    "sets": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"$ref": "#/$defs/set"}}
+  },
+  "$defs": {
+    "choices": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "string", "minLength": 1}},
+    "common": {
+      "type": "object",
+      "required": ["id", "part", "questionNumber", "question", "choices", "answer", "translation", "vocab", "explanation"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^RC-S00[1-5]-P[567]-Q(1[0-9]{2}|200)$"},
+        "part": {"enum": [5, 6, 7]},
+        "questionNumber": {"type": "integer", "minimum": 101, "maximum": 200},
+        "question": {"type": "string", "minLength": 1},
+        "choices": {"$ref": "#/$defs/choices"},
+        "answer": {"type": "integer", "minimum": 0, "maximum": 3},
+        "translation": {"type": "string"},
+        "vocab": {"type": "string"},
+        "explanation": {"type": "string", "minLength": 1},
+        "reviewRequired": {"type": "boolean"},
+        "reviewNote": {"type": "string"}
+      }
+    },
+    "part5": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "properties": {"part": {"const": 5}, "questionNumber": {"minimum": 101, "maximum": 130}}
+    },
+    "part6": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "required": ["setId", "setTitle", "passageType", "passage", "blank"],
+      "properties": {"part": {"const": 6}, "questionNumber": {"minimum": 131, "maximum": 146}, "setId": {"type": "string"}, "setTitle": {"type": "string"}, "passageType": {"type": "string"}, "passage": {"type": "string"}, "blank": {"type": "integer", "minimum": 131, "maximum": 146}}
+    },
+    "document": {"type": "object", "additionalProperties": false, "required": ["title", "text", "translation"], "properties": {"title": {"type": "string"}, "text": {"type": "string"}, "translation": {"type": "string"}}},
+    "evidence": {"type": "object", "additionalProperties": false, "required": ["document", "quote", "reason"], "properties": {"document": {"type": "integer", "minimum": 1, "maximum": 3}, "quote": {"type": "string"}, "reason": {"type": "string"}}},
+    "part7": {
+      "allOf": [{"$ref": "#/$defs/common"}],
+      "required": ["setId", "setTitle", "questionType", "passages", "evidence", "optionReasons"],
+      "properties": {"part": {"const": 7}, "questionNumber": {"minimum": 147, "maximum": 200}, "setId": {"type": "string"}, "setTitle": {"type": "string"}, "questionType": {"type": "string"}, "passages": {"type": "array", "minItems": 1, "maxItems": 3, "items": {"$ref": "#/$defs/document"}}, "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}}, "optionReasons": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "string"}}}
+    },
+    "set": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["setId", "title", "version", "parts"],
+      "properties": {
+        "setId": {"type": "string", "pattern": "^RC-S00[1-5]$"},
+        "title": {"type": "string", "minLength": 1},
+        "version": {"type": "integer", "minimum": 1},
+        "parts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["part5", "part6", "part7"],
+          "properties": {
+            "part5": {"type": "array", "minItems": 30, "maxItems": 30, "items": {"$ref": "#/$defs/part5"}},
+            "part6": {"type": "array", "minItems": 16, "maxItems": 16, "items": {"$ref": "#/$defs/part6"}},
+            "part7": {"type": "array", "minItems": 54, "maxItems": 54, "items": {"$ref": "#/$defs/part7"}}
+          }
+        }
+      }
+    }
+  }
+}

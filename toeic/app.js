@@ -5,8 +5,17 @@ let part5State = state;
 let part6State = JSON.parse(localStorage.getItem('part6-desk-v1') || 'null') || {questions:[],results:{},starred:[],filter:'all'};
 let part7State = JSON.parse(localStorage.getItem('part7-desk-v1') || 'null') || {questions:[],results:{},starred:[],filter:'all'};
 const partStates = {5:part5State,6:part6State,7:part7State};
+const legacyPartStates = {5:part5State,6:part6State,7:part7State};
 state = partStates[activePart];
 let currentIndex = 0;
+const CONTENT_ROOT='content/rc/';
+const SELECTED_SET_KEY='toeic-selected-official-set-v1';
+let selectedSetId=localStorage.getItem(SELECTED_SET_KEY)||'local-legacy';
+let contentManifest=null;
+const officialSetCache=new Map();
+const isOfficialSet=()=>selectedSetId!=='local-legacy';
+const positionSlot=()=>`${selectedSetId}:part${activePart}`;
+const progressKey=part=>`toeic-official-progress-v1:${selectedSetId}:part${part}`;
 const POSITION_KEY = 'toeic-practice-position-v1';
 let practicePositions = {};
 try{
@@ -14,14 +23,17 @@ try{
   if(savedPositions&&typeof savedPositions==='object'&&!Array.isArray(savedPositions))practicePositions=savedPositions;
 }catch(error){console.warn('TOEIC 학습 위치를 불러오지 못했습니다:',error)}
 const $ = s => document.querySelector(s);
-function save(){localStorage.setItem(`part${activePart}-desk-v1`, JSON.stringify(state));}
+function save(){
+  if(isOfficialSet())localStorage.setItem(progressKey(activePart),JSON.stringify({results:state.results,starred:state.starred,filter:state.filter}));
+  else localStorage.setItem(`part${activePart}-desk-v1`, JSON.stringify(state));
+}
 function rememberPosition(qs=filtered()){
   const question=qs[currentIndex];
-  practicePositions[activePart]={questionId:question?.id||null,index:question?currentIndex:0};
+  practicePositions[positionSlot()]={questionId:question?.id||null,index:question?currentIndex:0};
   try{localStorage.setItem(POSITION_KEY,JSON.stringify(practicePositions))}catch(error){console.warn('TOEIC 학습 위치를 저장하지 못했습니다:',error)}
 }
 function restorePosition(){
-  const qs=filtered(),saved=practicePositions[activePart];
+  const qs=filtered(),saved=practicePositions[positionSlot()]||(!isOfficialSet()?practicePositions[activePart]:null);
   if(!qs.length){currentIndex=0;return}
   const savedIndex=Number(saved?.index);
   const questionIndex=saved?.questionId?qs.findIndex(question=>question.id===saved.questionId):-1;
@@ -71,11 +83,11 @@ async function keepReviewQuestionsOnly(){
   render();
 }
 function updateCounts(){const qs=state.questions, r=state.results; $('#countAll').textContent=qs.length;$('#countCorrect').textContent=qs.filter(q=>r[q.id]?.correct).length;$('#countIncorrect').textContent=qs.filter(q=>r[q.id]&&!r[q.id].correct).length;$('#countStarred').textContent=state.starred.length;const solved=qs.filter(q=>r[q.id]).length;$('#progressText').textContent=`${solved} / ${qs.length}문제 학습`;$('#progressBar').style.width=qs.length?`${solved/qs.length*100}%`:'0'}
-function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:`Part 5 · 단문 빈칸 채우기 ${state.questions.length}문항`;$('#openAdd').classList.toggle('hidden',activePart!==5);document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex<0||currentIndex>=qs.length)currentIndex=qs.length?Math.min(Math.max(currentIndex,0),qs.length-1):0;rememberPosition(qs);$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);updateBroadcastDock();if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
+function render(){updateCounts();document.querySelectorAll('[data-part]').forEach(b=>{b.classList.toggle('active',Number(b.dataset.part)===activePart);b.setAttribute('aria-pressed',String(Number(b.dataset.part)===activePart))});$('#partDescription').textContent=activePart===7?`Part 7 · 독해 ${state.questions.length}문항`:activePart===6?`Part 6 · 문맥 빈칸 채우기 ${state.questions.length}문항`:`Part 5 · 단문 빈칸 채우기 ${state.questions.length}문항`;const openAdd=$('#openAdd');if(openAdd)openAdd.classList.toggle('hidden',activePart!==5);$('#keepReviewOnly').hidden=isOfficialSet();$('#deleteAll').hidden=isOfficialSet();document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.filter===state.filter));const qs=filtered();if(currentIndex<0||currentIndex>=qs.length)currentIndex=qs.length?Math.min(Math.max(currentIndex,0),qs.length-1):0;rememberPosition(qs);$('#emptyState').classList.toggle('hidden',!!qs.length);$('#questionArea').classList.toggle('hidden',!qs.length);updateBroadcastDock();if(!qs.length)return;const q=qs[currentIndex], result=state.results[q.id];const node=$('#questionTemplate').content.cloneNode(true);const card=node.querySelector('.card');node.querySelector('.number').textContent=`QUESTION ${String(currentIndex+1).padStart(2,'0')} · ${qs.length}`;node.querySelector('.question').textContent=q.question;
 if(q.part===7){node.querySelector('.number').textContent=`PART 7 · ${q.questionNumber} · ${currentIndex+1} / ${qs.length}`;const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passages.length===1?'단일':q.passages.length===2?'이중':'삼중'} 지문 · ${q.setTitle}`;const container=node.querySelector('.passage');q.passages.forEach((doc,i)=>{const article=document.createElement('section');article.className='readingDocument';const heading=document.createElement('h3');heading.textContent=`문서 ${i+1} · ${doc.title}`;const body=document.createElement('div');body.textContent=doc.text;article.append(heading,body);container.append(article)});}
 
 if(q.passage){const panel=node.querySelector('.passagePanel');panel.classList.remove('hidden');node.querySelector('.passageTitle').textContent=`${q.passageType} · ${q.setTitle}`;const passage=node.querySelector('.passage');q.passage.split(/(\[\d+\])/g).forEach(piece=>{if(piece===`[${q.blank}]`){const mark=document.createElement('mark');mark.textContent=piece;passage.append(mark)}else passage.append(document.createTextNode(piece))});}
-const star=node.querySelector('.star');star.textContent=state.starred.includes(q.id)?'★':'☆';star.classList.toggle('active',state.starred.includes(q.id));star.onclick=()=>{state.starred.includes(q.id)?state.starred=state.starred.filter(id=>id!==q.id):state.starred.push(q.id);save();render()};const choices=node.querySelector('.choices');q.choices.forEach((text,i)=>{const b=document.createElement('button');b.className='choice';const circleSvg=(result&&i===q.answer)?'<svg class="circleMark" viewBox="0 0 60 60" preserveAspectRatio="none"><path d="M38,16 C54,17 57,32 47,41 C37,50 18,50 9,40 C0,30 3,16 16,12 C25,9 33,10 38,15 L30,9"/></svg>':'';const wrongMark=(result&&!result.correct&&i===result.selected)?'<svg class="wrongMark" viewBox="0 0 60 60" preserveAspectRatio="none"><path d="M14,14 C23,24 35,36 47,48"/><path d="M47,13 C36,24 25,36 13,48"/></svg>':'';b.innerHTML=`<strong>${'ABCD'[i]}${circleSvg}${wrongMark}</strong><span>${escapeHtml(text)}</span>`;if(result){b.disabled=true;if(i===q.answer){b.classList.add('correct')}else{b.classList.add('faded');if(i===result.selected)b.classList.add('selectedWrong')}}else b.onclick=()=>answer(q,i);choices.appendChild(b)});if(result){const feedback=node.querySelector('.feedback');feedback.classList.remove('hidden');feedback.classList.toggle('wrong',!result.correct);const translationHtml=q.translation?`<p class="translation"><strong>${q.part===7?'질문·정답 해석':'문장 해석'}</strong> ${escapeHtml(q.translation)}</p>`:'';const vocabHtml=q.vocab?`<p class="vocab"><strong>${q.part===7?'보기 및 핵심 표현':'보기 단어 뜻 & 예문'}</strong> ${escapeHtml(q.vocab)}</p>`:'';feedback.innerHTML=`<h3>${result.correct?'정답이에요. 잘했어요!':'아쉬워요. 정답은 '+ 'ABCD'[q.answer]+'입니다.'}</h3>${translationHtml}${vocabHtml}<p>${escapeHtml(q.explanation)}</p>`;if(q.part===7){const evidence=document.createElement('div');evidence.className='answerEvidence';const heading=document.createElement('h4');heading.textContent='정답 근거 및 보기별 검수';evidence.append(heading);q.evidence.forEach(item=>{const line=document.createElement('p');line.textContent=`문서 ${item.document}: “${item.quote}” — ${item.reason}`;evidence.append(line)});q.optionReasons.forEach((reason,i)=>{const line=document.createElement('p');line.textContent=`${'ABCD'[i]} · ${i===q.answer?'정답':'오답'}: ${reason}`;evidence.append(line)});const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='전체 지문 해석';details.append(summary);q.passages.forEach((doc,i)=>{const para=document.createElement('p');para.textContent=`문서 ${i+1} · ${doc.translation}`;details.append(para)});evidence.append(details);feedback.append(evidence)}}node.querySelector('.status').textContent=result?(result.correct?'✓ 맞힌 문제':'↺ 다시 복습할 문제'):'아직 풀지 않음';node.querySelector('.prevButton').onclick=()=>{currentIndex=(currentIndex-1+qs.length)%qs.length;render()};node.querySelector('.nextButton').onclick=()=>{currentIndex=(currentIndex+1)%qs.length;render()};$('#questionArea').replaceChildren(node)}
+const star=node.querySelector('.star');star.textContent=state.starred.includes(q.id)?'★':'☆';star.classList.toggle('active',state.starred.includes(q.id));star.onclick=()=>{state.starred.includes(q.id)?state.starred=state.starred.filter(id=>id!==q.id):state.starred.push(q.id);save();render()};const deleteButton=node.querySelector('.deleteButton');if(isOfficialSet())deleteButton.remove();const choices=node.querySelector('.choices');q.choices.forEach((text,i)=>{const b=document.createElement('button');b.className='choice';const circleSvg=(result&&i===q.answer)?'<svg class="circleMark" viewBox="0 0 60 60" preserveAspectRatio="none"><path d="M38,16 C54,17 57,32 47,41 C37,50 18,50 9,40 C0,30 3,16 16,12 C25,9 33,10 38,15 L30,9"/></svg>':'';const wrongMark=(result&&!result.correct&&i===result.selected)?'<svg class="wrongMark" viewBox="0 0 60 60" preserveAspectRatio="none"><path d="M14,14 C23,24 35,36 47,48"/><path d="M47,13 C36,24 25,36 13,48"/></svg>':'';b.innerHTML=`<strong>${'ABCD'[i]}${circleSvg}${wrongMark}</strong><span>${escapeHtml(text)}</span>`;if(result){b.disabled=true;if(i===q.answer){b.classList.add('correct')}else{b.classList.add('faded');if(i===result.selected)b.classList.add('selectedWrong')}}else b.onclick=()=>answer(q,i);choices.appendChild(b)});if(result){const feedback=node.querySelector('.feedback');feedback.classList.remove('hidden');feedback.classList.toggle('wrong',!result.correct);const translationHtml=q.translation?`<p class="translation"><strong>${q.part===7?'질문·정답 해석':'문장 해석'}</strong> ${escapeHtml(q.translation)}</p>`:'';const vocabHtml=q.vocab?`<p class="vocab"><strong>${q.part===7?'보기 및 핵심 표현':'보기 단어 뜻 & 예문'}</strong> ${escapeHtml(q.vocab)}</p>`:'';feedback.innerHTML=`<h3>${result.correct?'정답이에요. 잘했어요!':'아쉬워요. 정답은 '+ 'ABCD'[q.answer]+'입니다.'}</h3>${translationHtml}${vocabHtml}<p>${escapeHtml(q.explanation)}</p>`;if(q.part===7){const evidence=document.createElement('div');evidence.className='answerEvidence';const heading=document.createElement('h4');heading.textContent='정답 근거 및 보기별 검수';evidence.append(heading);q.evidence.forEach(item=>{const line=document.createElement('p');line.textContent=`문서 ${item.document}: “${item.quote}” — ${item.reason}`;evidence.append(line)});q.optionReasons.forEach((reason,i)=>{const line=document.createElement('p');line.textContent=`${'ABCD'[i]} · ${i===q.answer?'정답':'오답'}: ${reason}`;evidence.append(line)});const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='전체 지문 해석';details.append(summary);q.passages.forEach((doc,i)=>{const para=document.createElement('p');para.textContent=`문서 ${i+1} · ${doc.translation}`;details.append(para)});evidence.append(details);feedback.append(evidence)}}node.querySelector('.status').textContent=result?(result.correct?'✓ 맞힌 문제':'↺ 다시 복습할 문제'):'아직 풀지 않음';node.querySelector('.prevButton').onclick=()=>{currentIndex=(currentIndex-1+qs.length)%qs.length;render()};node.querySelector('.nextButton').onclick=()=>{currentIndex=(currentIndex+1)%qs.length;render()};$('#questionArea').replaceChildren(node)}
 $('#questionArea').onclick=async e=>{if(!e.target.matches('.deleteButton'))return;const q=filtered()[currentIndex];if(q&&confirm('이 문제를 삭제할까요? 삭제 후에도 문제 보관함에서 복원할 수 있습니다.')){if(!await archiveRemoval([q],'현재 문제 삭제'))return;state.questions=state.questions.filter(item=>item.id!==q.id);delete state.results[q.id];state.starred=state.starred.filter(id=>id!==q.id);save();render()}};
 function answer(q,selected){state.results[q.id]={selected,correct:selected===q.answer,at:Date.now()};save();render()}
 function insertQuestions(newQs){if(!newQs.length)return;const shuffle=confirm(`새 문제 ${newQs.length}개를 추가합니다.\n확인: 기존 문제와 무작위로 섞기\n취소: 기존 문제 뒤에 순서대로 추가`);state.questions=[...state.questions,...newQs];if(shuffle){for(let i=state.questions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.questions[i],state.questions[j]]=[state.questions[j],state.questions[i]]}}}
@@ -86,7 +98,7 @@ $('#toggleBroadcast').onclick=()=>setBroadcastMode(!document.body.classList.cont
 $('#broadcastExit').onclick=()=>setBroadcastMode(false);
 $('#broadcastPrev').onclick=()=>document.querySelector('#questionArea .prevButton')?.click();
 $('#broadcastNext').onclick=()=>document.querySelector('#questionArea .nextButton')?.click();
-$('#openAdd').onclick=()=>$('#addDialog').showModal();$('#closeAdd').onclick=()=>$('#addDialog').close();
+if($('#openAdd'))$('#openAdd').onclick=()=>$('#addDialog').showModal();$('#closeAdd').onclick=()=>$('#addDialog').close();
 $('#addForm').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target), q={id:crypto.randomUUID(),part:5,question:f.get('question'),choices:['a','b','c','d'].map(x=>f.get(x)),answer:Number(f.get('answer')),translation:f.get('translation'),vocab:f.get('vocab'),explanation:f.get('explanation')};insertQuestions([q]);state.filter='all';currentIndex=0;save();await snapshotSafely(activePart,state,'수동 문제 추가');$('#addDialog').close();e.target.reset();render()};
 const originalImportPrompt=$('#aiPrompt').textContent.trim();
 const promptSection=(start,end)=>{const from=originalImportPrompt.indexOf(start),to=end?originalImportPrompt.indexOf(end,from):originalImportPrompt.length;return originalImportPrompt.slice(from,to).trim()};
@@ -148,7 +160,7 @@ function selectImportPart(part){
   $('#clearImport').classList.add('hidden');
 }
 document.querySelectorAll('[data-import-part]').forEach(button=>button.onclick=()=>selectImportPart(Number(button.dataset.importPart)));
-$('#openImport').onclick=()=>{selectImportPart(activePart);$('#importDialog').showModal()};$('#closeImport').onclick=()=>$('#importDialog').close();
+if($('#openImport'))$('#openImport').onclick=()=>{selectImportPart(activePart);$('#importDialog').showModal()};$('#closeImport').onclick=()=>$('#importDialog').close();
 function hideImportError(){$('#importError').classList.add('hidden');$('#clearImport').classList.add('hidden')}
 function showImportError(message){$('#importError').textContent=message;$('#importError').classList.remove('hidden');$('#clearImport').classList.remove('hidden')}
 $('#clearImport').onclick=()=>{$('#importText').value='';$('#importFile').value='';hideImportError();$('#importText').focus()};
@@ -465,7 +477,7 @@ async function restoreTrash(id){
   localStorage.setItem(`part${record.part}-desk-v1`,JSON.stringify(target));await ToeicVault.removeTrash(id);await ToeicVault.snapshot(record.part,target,'삭제한 문제 복원');
   activePart=record.part;state=target;localStorage.setItem('toeic-active-part',activePart);currentIndex=0;render();await refreshVault();
 }
-$('#openVault').onclick=openVault;$('#closeVault').onclick=()=>$('#vaultDialog').close();
+if($('#openVault'))$('#openVault').onclick=openVault;$('#closeVault').onclick=()=>$('#vaultDialog').close();
 $('#vaultDialog').onclick=async event=>{const button=event.target.closest('[data-vault-id]');if(!button)return;try{button.disabled=true;if(button.dataset.vaultType==='snapshot')await restoreSnapshot(button.dataset.vaultId);else await restoreTrash(button.dataset.vaultId)}catch(error){alert(`복원하지 못했습니다.\n${error.message}`)}finally{button.disabled=false}};
 $('#strengthenStorage').onclick=async()=>{const persisted=await ToeicVault.requestPersistence();await refreshVault();alert(persisted?'로컬 보관이 강화되었습니다.':'브라우저가 보관 강화를 허용하지 않았습니다. 전체 백업 파일을 함께 보관해 주세요.')};
 $('#exportQuestionShare').onclick=()=>{
@@ -655,9 +667,65 @@ $('#finishExam').onclick=()=>{const last=Math.ceil(examSession.pages.length/2)-1
 $('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Date.now();examSession.elapsed=0;examSession.answers={};examSession.checkedSpreads=new Set();renderExamPaper();setExamView('exam');clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000)};
 function closeExamResults(){examSession=null;history.pushState({toeicArea:'rc'},'',`${location.pathname}?mode=rc`);setExamView('practice')}
 $('#closeResults').onclick=closeExamResults;$('#finishResults').onclick=closeExamResults;
+function applySetStates(nextStates){
+  for(const part of [5,6,7])partStates[part]=nextStates[part];
+  state=partStates[activePart];
+  currentIndex=0;
+  restorePosition();
+  $('#retryMode').checked=false;
+  render();
+}
+function officialState(setId,part,questions){
+  let progress={};
+  try{progress=JSON.parse(localStorage.getItem(`toeic-official-progress-v1:${setId}:part${part}`)||'{}')||{}}catch{}
+  return {questions,results:progress.results&&typeof progress.results==='object'?progress.results:{},starred:Array.isArray(progress.starred)?progress.starred:[],filter:['all','correct','incorrect','starred'].includes(progress.filter)?progress.filter:'all'};
+}
+async function loadOfficialSet(setInfo){
+  if(officialSetCache.has(setInfo.id))return officialSetCache.get(setInfo.id);
+  const entries=await Promise.all([5,6,7].map(async part=>{
+    const response=await fetch(`${CONTENT_ROOT}${setInfo.files[`part${part}`]}`,{cache:'no-cache'});
+    if(!response.ok)throw new Error(`Part ${part} 파일을 불러오지 못했습니다.`);
+    const questions=await response.json();
+    if(!Array.isArray(questions)||questions.length!==setInfo.questionCounts[`part${part}`])throw new Error(`Part ${part} 문항 수가 manifest와 다릅니다.`);
+    questions.forEach((question,index)=>{question.part=part;question.id=question.id||`${setInfo.id}-P${part}-Q${question.questionNumber||question.blank||index+1}`});
+    return [part,officialState(setInfo.id,part,questions)];
+  }));
+  const states=Object.fromEntries(entries);officialSetCache.set(setInfo.id,states);return states;
+}
+async function chooseSet(setId){
+  rememberPosition();save();
+  if(setId==='local-legacy'){
+    selectedSetId=setId;localStorage.setItem(SELECTED_SET_KEY,setId);applySetStates(legacyPartStates);
+    $('#setStatus').textContent='이 기기에 이전에 저장된 문제를 표시합니다.';return;
+  }
+  const info=contentManifest?.sets.find(item=>item.id===setId&&item.published);
+  if(!info)return;
+  $('#setSelect').disabled=true;$('#setStatus').textContent=`${info.title}을 불러오고 있습니다.`;
+  try{
+    const states=await loadOfficialSet(info);selectedSetId=setId;localStorage.setItem(SELECTED_SET_KEY,setId);applySetStates(states);
+    $('#setStatus').textContent=`${info.title} · ${info.questionCounts.total}문항 · 읽기 전용 공식 세트`;
+  }catch(error){console.error(error);$('#setStatus').textContent='세트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';$('#setSelect').value='local-legacy';await chooseSet('local-legacy')}
+  finally{$('#setSelect').disabled=false}
+}
+async function loadSetCatalog(){
+  try{
+    const response=await fetch(`${CONTENT_ROOT}manifest.json`,{cache:'no-cache'});if(!response.ok)throw new Error('manifest 오류');
+    contentManifest=await response.json();const select=$('#setSelect');select.replaceChildren();
+    const hasLegacy=[5,6,7].some(part=>legacyPartStates[part].questions.length);
+    if(hasLegacy){const option=new Option('기존 저장 문제','local-legacy');select.add(option)}
+    contentManifest.sets.forEach(item=>{const option=new Option(`${item.title}${item.published?'':' · 준비 중'}`,item.id);option.disabled=!item.published;select.add(option)});
+    const published=contentManifest.sets.filter(item=>item.published);
+    const preferred=published.some(item=>item.id===selectedSetId)?selectedSetId:(contentManifest.defaultSetId&&published.some(item=>item.id===contentManifest.defaultSetId)?contentManifest.defaultSetId:published[0]?.id);
+    if(preferred){select.value=preferred;await chooseSet(preferred)}
+    else if(hasLegacy){select.value='local-legacy';await chooseSet('local-legacy');$('#setStatus').textContent='공식 5세트는 준비 중입니다. 현재는 기존 저장 문제를 표시합니다.'}
+    else{select.disabled=true;$('#setStatus').textContent='공식 5세트의 콘텐츠 검수와 게시를 준비 중입니다.';state={questions:[],results:{},starred:[],filter:'all'};partStates[activePart]=state;render()}
+    select.onchange=()=>chooseSet(select.value);
+  }catch(error){console.error(error);$('#setStatus').textContent='세트 목록을 불러오지 못했습니다. 기존 저장 문제를 표시합니다.'}
+}
 window.addEventListener('pagehide',()=>rememberPosition());
 restorePosition();
 render();
+loadSetCatalog();
 
 function openToeicRc(){
   document.body.classList.add('toeic-app-open');
