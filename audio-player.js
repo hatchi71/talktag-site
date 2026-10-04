@@ -83,6 +83,7 @@
     completeState.classList.toggle("done", done);
     completeButton.textContent = done ? "✓ COMPLETED · MARK NOT COMPLETED" : "MARK AS COMPLETED";
     completeButton.classList.toggle("done", done);
+    completeButton.setAttribute("aria-pressed", String(done));
   }
   function togglePanel(button, panel, otherButton, otherPanel) {
     var opening = panel.hidden;
@@ -132,7 +133,7 @@
     playButton.textContent = "▶ PLAY";
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });
-  audio.addEventListener("ended", function () { if (!audio.loop) updateCompletion(Boolean(saveState({ position: 0, completed: true }).completed)); });
+  audio.addEventListener("ended", function () { if (!audio.loop) { updateCompletion(Boolean(saveState({ position: 0, completed: true }).completed)); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, true, storageKey); } });
   playButton.addEventListener("click", function () {
     if (audio.paused) {
       var resumeAt = resumePending;
@@ -154,7 +155,7 @@
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
   scriptButton.addEventListener("click", function () { togglePanel(scriptButton, scriptPanel, meaningButton, meaningPanel); });
   meaningButton.addEventListener("click", function () { togglePanel(meaningButton, meaningPanel, scriptButton, scriptPanel); });
-  completeButton.addEventListener("click", function () { var done = !Boolean(readState().completed); saveState({ completed: done }); updateCompletion(done); });
+  completeButton.addEventListener("click", function () { var done = !Boolean(readState().completed); saveState({ completed: done }); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, done, storageKey); updateCompletion(done); });
   window.addEventListener("beforeunload", function () {
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });

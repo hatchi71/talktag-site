@@ -45,13 +45,14 @@
   if (lessons.length) {
     list.innerHTML = lessons.map(function (lesson) {
       if (lesson.type === "plain") {
-        return '<article class="lesson-card"><div class="lesson-art">聴</div><div class="lesson-copy"><small>' + escapeHtml(lesson.level + ' · ' + lesson.genre) + '</small><h2>' + escapeHtml(lesson.title) + '</h2><p>' + escapeHtml(lesson.description) + '</p><div class="lesson-meta"><span>' + escapeHtml(lesson.durationLabel) + '</span><span>Listen · Rebuild · Tell</span></div></div><a class="lesson-action" href="audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></article>';
+        return '<article class="lesson-card" data-completion-id="audio:' + escapeHtml(lesson.id) + '" data-completion-legacy-key="talktag-audio:' + escapeHtml(lesson.id) + '"><div class="lesson-art">聴</div><div class="lesson-copy"><small>' + escapeHtml(lesson.level + ' · ' + lesson.genre) + '</small><h2>' + escapeHtml(lesson.title) + '</h2><p>' + escapeHtml(lesson.description) + '</p><div class="lesson-meta"><span>' + escapeHtml(lesson.durationLabel) + '</span><span>Listen · Rebuild · Tell</span></div></div><div class="lesson-card-actions" data-completion-actions><a class="lesson-action" href="audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></div></article>';
       }
-      return '<article class="lesson-card"><div class="lesson-art">' + escapeHtml(lesson.art) + '</div><div class="lesson-copy"><small>' + escapeHtml(lesson.level) + ' · PART ' + lesson.part + ' · CHAPTER ' + lesson.chapter + ' · UNIT ' + lesson.unit + '</small><h2>' + escapeHtml(lesson.title) + '</h2><p>' + escapeHtml(lesson.description) + '</p><div class="lesson-meta"><span>' + escapeHtml(lesson.durationLabel) + '</span><span>Provider-edited</span><span>Offline class prep</span></div></div><a class="lesson-action" href="audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></article>';
+      return '<article class="lesson-card" data-completion-id="audio:' + escapeHtml(lesson.id) + '" data-completion-legacy-key="talktag-audio:' + escapeHtml(lesson.id) + '"><div class="lesson-art">' + escapeHtml(lesson.art) + '</div><div class="lesson-copy"><small>' + escapeHtml(lesson.level) + ' · PART ' + lesson.part + ' · CHAPTER ' + lesson.chapter + ' · UNIT ' + lesson.unit + '</small><h2>' + escapeHtml(lesson.title) + '</h2><p>' + escapeHtml(lesson.description) + '</p><div class="lesson-meta"><span>' + escapeHtml(lesson.durationLabel) + '</span><span>Provider-edited</span><span>Offline class prep</span></div></div><div class="lesson-card-actions" data-completion-actions><a class="lesson-action" href="audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></div></article>';
     }).join("");
   } else {
     list.innerHTML = '<article class="empty-card"><h2>' + level + ' 자료를 준비하고 있습니다.</h2><p>' + (type === "plain" ? '새로운 이야기가 준비되면 이곳에서 만나보실 수 있습니다.' : '관리자 업로드 기능이 연결되면 게시된 음원이 이곳에 자동으로 표시됩니다.') + '</p></article>';
   }
+  if (window.TalkTagCompletion) window.TalkTagCompletion.mount(list);
   }
   renderLevel();
 

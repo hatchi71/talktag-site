@@ -51,6 +51,7 @@
     completeState.classList.toggle("done", done);
     completeButton.textContent = done ? "✓ COMPLETED · MARK NOT COMPLETED" : "MARK AS COMPLETED";
     completeButton.classList.toggle("done", done);
+    completeButton.setAttribute("aria-pressed", String(done));
   }
 
   function togglePanel(button, panel, otherButton, otherPanel) {
@@ -133,7 +134,7 @@
   });
   audio.addEventListener("play", function () { playButton.textContent = "❚❚ PAUSE"; status.textContent = "재생 중입니다."; });
   audio.addEventListener("pause", function () { playButton.textContent = "▶ PLAY"; if (audio.currentTime > 0) saveState({ position: audio.currentTime }); });
-  audio.addEventListener("ended", function () { if (!audio.loop) { saveState({ position: 0, completed: true }); updateCompletion(true); status.textContent = "학습을 마쳤습니다. 다시 듣거나 다음 음원으로 이동하세요."; } });
+  audio.addEventListener("ended", function () { if (!audio.loop) { saveState({ position: 0, completed: true }); if (window.TalkTagCompletion) window.TalkTagCompletion.set("japanese:n4:" + lesson.id, true, storageKey); updateCompletion(true); status.textContent = "학습을 마쳤습니다. 다시 듣거나 다음 음원으로 이동하세요."; } });
   audio.addEventListener("error", function () { status.textContent = "음원을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요."; });
 
   playButton.addEventListener("click", function () {
@@ -150,7 +151,7 @@
   progress.addEventListener("input", function () { if (audio.duration) { audio.currentTime = (Number(progress.value) / 1000) * audio.duration; resumePending = 0; } });
   speedSelect.addEventListener("change", function () { audio.playbackRate = Number(speedSelect.value); saveState({ speed: audio.playbackRate }); });
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
-  completeButton.addEventListener("click", function () { var done = !Boolean(readState().completed); saveState({ completed: done }); updateCompletion(done); });
+  completeButton.addEventListener("click", function () { var done = !Boolean(readState().completed); saveState({ completed: done }); if (window.TalkTagCompletion) window.TalkTagCompletion.set("japanese:n4:" + lesson.id, done, storageKey); updateCompletion(done); });
   scriptButton.addEventListener("click", function () { togglePanel(scriptButton, scriptPanel, translationButton, translationPanel); });
   translationButton.addEventListener("click", function () { togglePanel(translationButton, translationPanel, scriptButton, scriptPanel); });
 
