@@ -1,2 +1,18 @@
-audio{display:block;width:100%;margin:20px 0;min-height:54px}.n4-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.n4-controls button,.n4-controls select{min-height:44px;padding:8px 12px;border:1px solid var(--tt-border);border-radius:10px;background:var(--tt-card);color:var(--tt-text);font:inherit}.n4-controls label{display:flex;gap:8px;align-items:center}.n4-track{min-height:88px;font:inherit;text-align:left;cursor:pointer}.n4-track[aria-pressed="true"]{border:2px solid var(--tt-accent);background:var(--tt-raised)}#audioStatus{color:var(--tt-muted)}@media(max-width:620px){.ja-empty{padding:16px}.n4-track{padding:20px}}
-.ja-hero>a{display:inline-flex;align-items:center;min-height:44px}
+:root{
+  --navy:var(--tt-text,#082b68);
+  --blue:var(--tt-accent,#1768e9);
+  --orange:#ff6a10;
+  --ink:var(--tt-text,#183455);
+  --muted:var(--tt-muted,#667891);
+  --paper:var(--tt-bg,#f8faf8);
+  --line:var(--tt-border,#dbe5ef);
+  --card:var(--tt-card,#fff);
+  --shadow:0 18px 48px rgba(24,52,85,.12);
+}
+
+.n4-library-page{padding-bottom:64px}.n4-catalog-head{margin-top:34px}.n4-catalog-head>div:first-child{max-width:760px}.n4-catalog-head p{font-size:16px;line-height:1.65}.n4-filter{margin-bottom:12px}.n4-source-note{display:flex;align-items:center;gap:8px;margin:0 0 24px;color:var(--muted);font-size:13px}.n4-source-note span{color:#2a9b63;font-size:10px}.lesson-card,.player-card,.lesson-info,.toggle-panel{background:var(--card)}.lesson-art{color:var(--navy)}.lesson-action{min-height:44px;display:inline-flex;align-items:center;justify-content:center}.lesson-meta{flex-wrap:wrap}.n4-library-page .ja-related{margin-top:46px}
+
+.n4-player-page{padding:28px 0 68px}.n4-player-page>.ja-crumb{padding-top:0;margin-bottom:22px}.n4-player-shell{align-items:start}.player-card audio{display:none}.n4-player-status{min-height:26px;margin:14px 0 0;color:var(--muted);font-size:13px;line-height:1.55}.progress{min-height:44px;cursor:pointer}.control,.text-actions button,.complete-button,.option select,.switch,.lesson-nav a{min-height:44px}.n4-script-panel{scroll-margin-top:24px}.n4-bilingual-list li{display:grid;gap:5px}.n4-bilingual-list strong{color:var(--ink);font-size:16px;font-weight:800;line-height:1.65}.n4-bilingual-list span{color:var(--muted);font-size:14px;line-height:1.6}.n4-translation-list li{font-size:16px;line-height:1.65}.n4-script-panel .script-list li:before{align-self:start}.class-bridge{background:color-mix(in srgb,var(--tt-accent,#1768e9) 10%,var(--tt-card,#fff))}.class-bridge strong{color:var(--ink)}.class-bridge p{color:var(--muted)}
+
+@media(max-width:850px){.n4-library-page{padding-bottom:42px}.n4-catalog-head{margin-top:22px}.n4-catalog-head .type-switch a{min-height:44px;display:inline-flex;align-items:center}.n4-player-page{padding-top:20px}.n4-player-page>.ja-crumb{margin-bottom:16px}}
+@media(max-width:470px){.n4-catalog-head h1{font-size:42px}.n4-catalog-head p{font-size:16px}.n4-source-note{align-items:flex-start}.lesson-card{padding:18px}.lesson-copy h2{font-size:22px}.lesson-action{width:100%}.player-card{padding:18px}.player-card h1{font-size:36px}.wave{height:76px;margin:24px 0 14px}.transport{gap:8px}.control{min-height:52px}.text-actions button{min-height:48px}.lesson-info{padding:18px}.toggle-panel{padding:18px}.n4-bilingual-list strong,.n4-translation-list li{font-size:16px}}
