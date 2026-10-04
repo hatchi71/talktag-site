@@ -1,1 +1,1514 @@
-[]
+[
+  {
+    "id": "RC-S001-P7-Q147",
+    "part": 7,
+    "questionNumber": 147,
+    "setId": "RC-S001-P7-G1",
+    "setTitle": "Questions 147-148",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "ATTENTION ALL TENANTS: Scheduled Elevator Maintenance\n\nPlease be advised that the passenger elevators in Tower B will undergo comprehensive safety testing and routine cable maintenance on Saturday, November 14, between 8:00 A.M. and 2:00 P.M. During this six-hour window, all three Tower B elevators will be temporarily out of service.\n\nTenants and visitors are encouraged to use the service elevator located near the rear loading dock or the central stairwell. If you require special mobility assistance or expect heavy freight deliveries during this period, please contact the Building Operations Office at extension 402 by 5:00 P.M. on Friday.\n\nWe apologize for any temporary inconvenience and appreciate your cooperation in maintaining building safety standards.",
+        "translation": ""
+      }
+    ],
+    "question": "What is the main purpose of the notice?",
+    "choices": [
+      "To announce a disruption in elevator service",
+      "To hire a new maintenance contractor",
+      "To report a mechanical breakdown",
+      "To outline rules for loading dock usage"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "공지문 첫 단락에서 토요일 8시~14시 사이에 승객용 엘리베이터 점검으로 인한 일시적 중단을 알리고 있으므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q148",
+    "part": 7,
+    "questionNumber": 148,
+    "setId": "RC-S001-P7-G1",
+    "setTitle": "Questions 147-148",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "ATTENTION ALL TENANTS: Scheduled Elevator Maintenance\n\nPlease be advised that the passenger elevators in Tower B will undergo comprehensive safety testing and routine cable maintenance on Saturday, November 14, between 8:00 A.M. and 2:00 P.M. During this six-hour window, all three Tower B elevators will be temporarily out of service.\n\nTenants and visitors are encouraged to use the service elevator located near the rear loading dock or the central stairwell. If you require special mobility assistance or expect heavy freight deliveries during this period, please contact the Building Operations Office at extension 402 by 5:00 P.M. on Friday.\n\nWe apologize for any temporary inconvenience and appreciate your cooperation in maintaining building safety standards.",
+        "translation": ""
+      }
+    ],
+    "question": "What should tenants expecting freight deliveries do?",
+    "choices": [
+      "Reschedule the deliveries for Sunday",
+      "Use the main entrance stairs",
+      "Notify building operations by Friday afternoon",
+      "Pay an additional service fee"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락에서 화물 배송이 예정된 경우 금요일 오후 5시까지 건물운영실(extension 402)에 연락하라고 언급되었으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q149",
+    "part": 7,
+    "questionNumber": 149,
+    "setId": "RC-S001-P7-G2",
+    "setTitle": "Questions 149-150",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Liam Patel (9:15 A.M.): Hi Sarah, are you still at the client site in Westford?\nSarah Jenkins (9:17 A.M.): Yes, I just finished the preliminary presentation with Mr. Hollis. It went extremely well!\nLiam Patel (9:18 A.M.): Great news! Did he sign the revised service agreement?\nSarah Jenkins (9:20 A.M.): He agreed to all terms, but his legal counsel wants to review clause 4 regarding liability caps before signing. They promised to email the signed copy by 3:00 P.M. today.\nLiam Patel (9:22 A.M.): That sounds manageable. Could you drop off the printed project specs at my desk when you return?\nSarah Jenkins (9:24 A.M.): Sure thing. I'll be back in the office around 11:30 A.M.",
+        "translation": ""
+      }
+    ],
+    "question": "Why has Mr. Hollis NOT signed the agreement yet?",
+    "choices": [
+      "He requested a discount on service fees.",
+      "He was absent from the presentation.",
+      "The project specs were printed incorrectly.",
+      "His legal team needs to examine a specific clause."
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Sarah의 9:20 A.M. 메시지에서 법률 자문이 책임 한도 관련 4번 조항을 검토하고자 한다고 했으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q150",
+    "part": 7,
+    "questionNumber": 150,
+    "setId": "RC-S001-P7-G2",
+    "setTitle": "Questions 149-150",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Liam Patel (9:15 A.M.): Hi Sarah, are you still at the client site in Westford?\nSarah Jenkins (9:17 A.M.): Yes, I just finished the preliminary presentation with Mr. Hollis. It went extremely well!\nLiam Patel (9:18 A.M.): Great news! Did he sign the revised service agreement?\nSarah Jenkins (9:20 A.M.): He agreed to all terms, but his legal counsel wants to review clause 4 regarding liability caps before signing. They promised to email the signed copy by 3:00 P.M. today.\nLiam Patel (9:22 A.M.): That sounds manageable. Could you drop off the printed project specs at my desk when you return?\nSarah Jenkins (9:24 A.M.): Sure thing. I'll be back in the office around 11:30 A.M.",
+        "translation": ""
+      }
+    ],
+    "question": "At 9:24 A.M., what does Sarah mean when she writes, 'Sure thing'?",
+    "choices": [
+      "She agrees to deliver documents to Liam's desk.",
+      "She will sign the contract herself.",
+      "She will extend her meeting with the client.",
+      "She confirms that the contract arrived by email."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "바로 앞 Liam의 메시지(인쇄된 프로젝트 명세서를 책상에 놓아줄 수 있는지)에 대한 수락 의미이므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q151",
+    "part": 7,
+    "questionNumber": 151,
+    "setId": "RC-S001-P7-G3",
+    "setTitle": "Questions 151-152",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "To: All Staff <staff@ironbridgetech.com>\nFrom: IT Security Team <security@ironbridgetech.com>\nDate: November 3, 2026\nSubject: Mandatory Cybersecurity Awareness Training\n\nDear Employees,\n\nAs part of our commitment to safeguarding corporate data, all personnel are required to complete the 2026 Online Cybersecurity Refresher Course by November 25. This interactive training covers phishing identification, password management, and secure remote access protocols.\n\nThe course takes approximately 45 minutes to complete and can be accessed through the employee portal under the 'Professional Development' tab. Upon completing the final module quiz with a score of 80% or higher, a completion certificate will automatically be generated for your department records.\n\nFailure to complete the training by the deadline may result in temporary suspension of remote network access privileges. Thank you for your prompt compliance.",
+        "translation": ""
+      }
+    ],
+    "question": "What is the primary purpose of the email?",
+    "choices": [
+      "To introduce a new IT department manager",
+      "To announce required employee training",
+      "To report a breach in network security",
+      "To upgrade company computer hardware"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 첫 단락에서 11월 25일까지 온라인 사이버 보안 재교육 과정을 완료할 것을 요구하고 있으므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q152",
+    "part": 7,
+    "questionNumber": 152,
+    "setId": "RC-S001-P7-G3",
+    "setTitle": "Questions 151-152",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "To: All Staff <staff@ironbridgetech.com>\nFrom: IT Security Team <security@ironbridgetech.com>\nDate: November 3, 2026\nSubject: Mandatory Cybersecurity Awareness Training\n\nDear Employees,\n\nAs part of our commitment to safeguarding corporate data, all personnel are required to complete the 2026 Online Cybersecurity Refresher Course by November 25. This interactive training covers phishing identification, password management, and secure remote access protocols.\n\nThe course takes approximately 45 minutes to complete and can be accessed through the employee portal under the 'Professional Development' tab. Upon completing the final module quiz with a score of 80% or higher, a completion certificate will automatically be generated for your department records.\n\nFailure to complete the training by the deadline may result in temporary suspension of remote network access privileges. Thank you for your prompt compliance.",
+        "translation": ""
+      }
+    ],
+    "question": "What consequence is mentioned for missing the deadline?",
+    "choices": [
+      "Deduction from annual bonuses",
+      "Mandatory weekend office work",
+      "Suspension from current client projects",
+      "Temporary loss of remote network access"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "마지막 단락에서 데드라인을 놓칠 경우 원격 네트워크 접속 권한이 일시 정지될 수 있다고 명시되었으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q153",
+    "part": 7,
+    "questionNumber": 153,
+    "setId": "RC-S001-P7-G4",
+    "setTitle": "Questions 153-155",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.summitexecutiveretreats.com/packages\n\nSummit Executive Retreat Center\nElevate Your Leadership Vision in the Heart of the Rockies\n\nLooking for an inspiring venue for your annual corporate planning session? Summit Executive Retreat Center offers state-of-the-art meeting facilities combined with luxury alpine lodging. Located just 45 minutes from Denver International Airport, our secluded resort provides the perfect setting for team building and strategic alignment.\n\nPackage Options:\n• Executive Day Workshop: Full access to high-tech conference rooms, gourmet catered lunch, and audio-visual support. ($120 per attendee)\n• Weekend Leadership Package: Includes 2-night luxury chalet lodging, all meals, private conference suite, and guided team-building outdoor activities. ($450 per attendee, minimum 10 guests)\n• Custom Strategic Immersion: Tailored multi-day itineraries including guest facilitators and spa wellness access. (Contact sales for custom quote)\n\nSpecial Promotion: Reserve any weekend package for Q1 2027 before December 1 and receive a 15% early-bird discount on total lodging fees!",
+        "translation": ""
+      }
+    ],
+    "question": "What is highlighted about the retreat center's location?",
+    "choices": [
+      "It is close to an international airport.",
+      "It is directly connected to a convention center.",
+      "It is situated in downtown Denver.",
+      "It is accessible only by train."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "지문에서 덴버 국제공항에서 단 45분 거리에 위치해 있다고 언급되었으므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q154",
+    "part": 7,
+    "questionNumber": 154,
+    "setId": "RC-S001-P7-G4",
+    "setTitle": "Questions 153-155",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.summitexecutiveretreats.com/packages\n\nSummit Executive Retreat Center\nElevate Your Leadership Vision in the Heart of the Rockies\n\nLooking for an inspiring venue for your annual corporate planning session? Summit Executive Retreat Center offers state-of-the-art meeting facilities combined with luxury alpine lodging. Located just 45 minutes from Denver International Airport, our secluded resort provides the perfect setting for team building and strategic alignment.\n\nPackage Options:\n• Executive Day Workshop: Full access to high-tech conference rooms, gourmet catered lunch, and audio-visual support. ($120 per attendee)\n• Weekend Leadership Package: Includes 2-night luxury chalet lodging, all meals, private conference suite, and guided team-building outdoor activities. ($450 per attendee, minimum 10 guests)\n• Custom Strategic Immersion: Tailored multi-day itineraries including guest facilitators and spa wellness access. (Contact sales for custom quote)\n\nSpecial Promotion: Reserve any weekend package for Q1 2027 before December 1 and receive a 15% early-bird discount on total lodging fees!",
+        "translation": ""
+      }
+    ],
+    "question": "What requirement applies to the Weekend Leadership Package?",
+    "choices": [
+      "Attendees must bring their own equipment.",
+      "Reservations must be made six months in advance.",
+      "A minimum of ten participants is required.",
+      "Full payment is due at the time of booking."
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "패키지 설명 중 'minimum 10 guests'라고 명시되어 있으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q155",
+    "part": 7,
+    "questionNumber": 155,
+    "setId": "RC-S001-P7-G4",
+    "setTitle": "Questions 153-155",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.summitexecutiveretreats.com/packages\n\nSummit Executive Retreat Center\nElevate Your Leadership Vision in the Heart of the Rockies\n\nLooking for an inspiring venue for your annual corporate planning session? Summit Executive Retreat Center offers state-of-the-art meeting facilities combined with luxury alpine lodging. Located just 45 minutes from Denver International Airport, our secluded resort provides the perfect setting for team building and strategic alignment.\n\nPackage Options:\n• Executive Day Workshop: Full access to high-tech conference rooms, gourmet catered lunch, and audio-visual support. ($120 per attendee)\n• Weekend Leadership Package: Includes 2-night luxury chalet lodging, all meals, private conference suite, and guided team-building outdoor activities. ($450 per attendee, minimum 10 guests)\n• Custom Strategic Immersion: Tailored multi-day itineraries including guest facilitators and spa wellness access. (Contact sales for custom quote)\n\nSpecial Promotion: Reserve any weekend package for Q1 2027 before December 1 and receive a 15% early-bird discount on total lodging fees!",
+        "translation": ""
+      }
+    ],
+    "question": "How can clients qualify for a 15% discount?",
+    "choices": [
+      "By booking a custom immersion package",
+      "By reserving a Q1 2027 weekend package before December 1",
+      "By referring another corporate client",
+      "By choosing the day workshop package"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "하단 특별 프로모션에서 12월 1일 이전에 2027년 1분기 주말 패키지를 예약하면 15% 할인을 받는다고 나와 있으므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q156",
+    "part": 7,
+    "questionNumber": 156,
+    "setId": "RC-S001-P7-G5",
+    "setTitle": "Questions 156-158",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Green Horizon Energy Expands Solar Footprint\n\nAUSTIN (November 10) — Green Horizon Energy, a leading renewable power developer in Texas, announced yesterday that construction has officially begun on its Solaria Prairie solar farm in Travis County. The 250-megawatt facility will span over 1,200 acres and is slated to become one of the largest solar harvesting installations in the region upon completion in late 2027.\n\nOnce fully operational, Solaria Prairie is expected to generate enough clean electricity to power more than 45,000 residential homes annually. Furthermore, the project is projected to offset nearly 300,000 metric tons of carbon dioxide emissions each year, supporting regional sustainability targets.\n\nLocal municipal leaders have enthusiastically welcomed the development, noting that the project will create approximately 300 temporary construction jobs and 25 permanent engineering and maintenance positions. Green Horizon Energy CEO Nadia Castellano stated during the groundbreaking ceremony that the company remains dedicated to boosting local economic growth while accelerating the transition to clean power.",
+        "translation": ""
+      }
+    ],
+    "question": "When is the Solaria Prairie facility expected to be finished?",
+    "choices": [
+      "In early 2026",
+      "In mid-2026",
+      "In early 2027",
+      "In late 2027"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "첫 번째 단락 끝부분에서 'upon completion in late 2027'이라고 밝히고 있으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q157",
+    "part": 7,
+    "questionNumber": 157,
+    "setId": "RC-S001-P7-G5",
+    "setTitle": "Questions 156-158",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Green Horizon Energy Expands Solar Footprint\n\nAUSTIN (November 10) — Green Horizon Energy, a leading renewable power developer in Texas, announced yesterday that construction has officially begun on its Solaria Prairie solar farm in Travis County. The 250-megawatt facility will span over 1,200 acres and is slated to become one of the largest solar harvesting installations in the region upon completion in late 2027.\n\nOnce fully operational, Solaria Prairie is expected to generate enough clean electricity to power more than 45,000 residential homes annually. Furthermore, the project is projected to offset nearly 300,000 metric tons of carbon dioxide emissions each year, supporting regional sustainability targets.\n\nLocal municipal leaders have enthusiastically welcomed the development, noting that the project will create approximately 300 temporary construction jobs and 25 permanent engineering and maintenance positions. Green Horizon Energy CEO Nadia Castellano stated during the groundbreaking ceremony that the company remains dedicated to boosting local economic growth while accelerating the transition to clean power.",
+        "translation": ""
+      }
+    ],
+    "question": "What environmental benefit of the project is mentioned?",
+    "choices": [
+      "It will reduce carbon dioxide emissions significantly.",
+      "It will restore local wetland habitats.",
+      "It will recycle industrial wastewater.",
+      "It will eliminate noise pollution in Austin."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락에서 연간 약 300,000 metric tons의 이산화탄소 배출을 상쇄할 것이라 했으므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q158",
+    "part": 7,
+    "questionNumber": 158,
+    "setId": "RC-S001-P7-G5",
+    "setTitle": "Questions 156-158",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Green Horizon Energy Expands Solar Footprint\n\nAUSTIN (November 10) — Green Horizon Energy, a leading renewable power developer in Texas, announced yesterday that construction has officially begun on its Solaria Prairie solar farm in Travis County. The 250-megawatt facility will span over 1,200 acres and is slated to become one of the largest solar harvesting installations in the region upon completion in late 2027.\n\nOnce fully operational, Solaria Prairie is expected to generate enough clean electricity to power more than 45,000 residential homes annually. Furthermore, the project is projected to offset nearly 300,000 metric tons of carbon dioxide emissions each year, supporting regional sustainability targets.\n\nLocal municipal leaders have enthusiastically welcomed the development, noting that the project will create approximately 300 temporary construction jobs and 25 permanent engineering and maintenance positions. Green Horizon Energy CEO Nadia Castellano stated during the groundbreaking ceremony that the company remains dedicated to boosting local economic growth while accelerating the transition to clean power.",
+        "translation": ""
+      }
+    ],
+    "question": "According to Ms. Castellano, what is a goal of Green Horizon Energy?",
+    "choices": [
+      "To lower residential water tariffs",
+      "To acquire international energy firms",
+      "To foster local economic growth while providing clean power",
+      "To construct fossil-fuel power plants"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "마지막 단락 CEO 발언에서 지역 경제 성장 조성과 청정 에너지 전환 가속화를 언급했으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q159",
+    "part": 7,
+    "questionNumber": 159,
+    "setId": "RC-S001-P7-G6",
+    "setTitle": "Questions 159-162",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "To: Department Heads <dept.heads@vanguardcorp.com>\nFrom: Daniel Whitfield, CFO <d.whitfield@vanguardcorp.com>\nDate: November 15, 2026\nSubject: Q4 Budget Review and Travel Expenditure Guidelines\n\nDear Department Heads,\n\nAs we approach the final month of the fiscal year, I would like to remind everyone to conduct a thorough audit of your team’s remaining operating budget. [1] While overall corporate revenue has increased by 8% this quarter, rising travel and accommodation expenses have exceeded our initial projections. [2] Consequently, effective December 1, all non-essential business travel must receive prior written approval from the Finance Committee.\n\nWhen submitting travel authorization requests, managers must demonstrate that the remote video conferencing option is inadequate for the business objective. [3] Furthermore, all hotel bookings must adhere strictly to the corporate rate directory available on the intranet. [4] Exceptions will only be granted for international trade expos where pre-approved partner hotels are designated.\n\nThank you for your cooperation in maintaining financial discipline as we conclude a prosperous year.\n\nSincerely,\nDaniel Whitfield",
+        "translation": ""
+      }
+    ],
+    "question": "What problem does Mr. Whitfield point out?",
+    "choices": [
+      "Overall corporate revenue declined by 8%.",
+      "Software license fees were paid late.",
+      "Department heads missed the budget audit deadline.",
+      "Travel and lodging expenses surpassed budgeted estimates."
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "첫 단락에서 출장 및 숙박 비용이 초기 추정치를 초과했다고 지적했으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q160",
+    "part": 7,
+    "questionNumber": 160,
+    "setId": "RC-S001-P7-G6",
+    "setTitle": "Questions 159-162",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "To: Department Heads <dept.heads@vanguardcorp.com>\nFrom: Daniel Whitfield, CFO <d.whitfield@vanguardcorp.com>\nDate: November 15, 2026\nSubject: Q4 Budget Review and Travel Expenditure Guidelines\n\nDear Department Heads,\n\nAs we approach the final month of the fiscal year, I would like to remind everyone to conduct a thorough audit of your team’s remaining operating budget. [1] While overall corporate revenue has increased by 8% this quarter, rising travel and accommodation expenses have exceeded our initial projections. [2] Consequently, effective December 1, all non-essential business travel must receive prior written approval from the Finance Committee.\n\nWhen submitting travel authorization requests, managers must demonstrate that the remote video conferencing option is inadequate for the business objective. [3] Furthermore, all hotel bookings must adhere strictly to the corporate rate directory available on the intranet. [4] Exceptions will only be granted for international trade expos where pre-approved partner hotels are designated.\n\nThank you for your cooperation in maintaining financial discipline as we conclude a prosperous year.\n\nSincerely,\nDaniel Whitfield",
+        "translation": ""
+      }
+    ],
+    "question": "What requirement is introduced for non-essential business travel starting December 1?",
+    "choices": [
+      "It must be booked through an external agency.",
+      "It must be approved in writing by the Finance Committee.",
+      "It must be paid for using personal credit cards.",
+      "It must be limited to local train transit."
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "첫 단락 끝에서 12월 1일부터 재무위원회의 사전 서면 승인이 필수적이라 명시했으므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q161",
+    "part": 7,
+    "questionNumber": 161,
+    "setId": "RC-S001-P7-G6",
+    "setTitle": "Questions 159-162",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "To: Department Heads <dept.heads@vanguardcorp.com>\nFrom: Daniel Whitfield, CFO <d.whitfield@vanguardcorp.com>\nDate: November 15, 2026\nSubject: Q4 Budget Review and Travel Expenditure Guidelines\n\nDear Department Heads,\n\nAs we approach the final month of the fiscal year, I would like to remind everyone to conduct a thorough audit of your team’s remaining operating budget. [1] While overall corporate revenue has increased by 8% this quarter, rising travel and accommodation expenses have exceeded our initial projections. [2] Consequently, effective December 1, all non-essential business travel must receive prior written approval from the Finance Committee.\n\nWhen submitting travel authorization requests, managers must demonstrate that the remote video conferencing option is inadequate for the business objective. [3] Furthermore, all hotel bookings must adhere strictly to the corporate rate directory available on the intranet. [4] Exceptions will only be granted for international trade expos where pre-approved partner hotels are designated.\n\nThank you for your cooperation in maintaining financial discipline as we conclude a prosperous year.\n\nSincerely,\nDaniel Whitfield",
+        "translation": ""
+      }
+    ],
+    "question": "What are managers required to show when requesting travel authorization?",
+    "choices": [
+      "That the trip was planned six months ago",
+      "That client sales will double within a month",
+      "That all team members will attend the event",
+      "That video conferencing is insufficient for the objective"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락 첫 문장에서 화상 회의 옵션이 목적 달성에 불충분함을 입증해야 한다고 언급했으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q162",
+    "part": 7,
+    "questionNumber": 162,
+    "setId": "RC-S001-P7-G6",
+    "setTitle": "Questions 159-162",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "To: Department Heads <dept.heads@vanguardcorp.com>\nFrom: Daniel Whitfield, CFO <d.whitfield@vanguardcorp.com>\nDate: November 15, 2026\nSubject: Q4 Budget Review and Travel Expenditure Guidelines\n\nDear Department Heads,\n\nAs we approach the final month of the fiscal year, I would like to remind everyone to conduct a thorough audit of your team’s remaining operating budget. [1] While overall corporate revenue has increased by 8% this quarter, rising travel and accommodation expenses have exceeded our initial projections. [2] Consequently, effective December 1, all non-essential business travel must receive prior written approval from the Finance Committee.\n\nWhen submitting travel authorization requests, managers must demonstrate that the remote video conferencing option is inadequate for the business objective. [3] Furthermore, all hotel bookings must adhere strictly to the corporate rate directory available on the intranet. [4] Exceptions will only be granted for international trade expos where pre-approved partner hotels are designated.\n\nThank you for your cooperation in maintaining financial discipline as we conclude a prosperous year.\n\nSincerely,\nDaniel Whitfield",
+        "translation": ""
+      }
+    ],
+    "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+    "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "제시된 문장은 승인 신청 시 규정 준수를 돕기 위해 신청 서식에 필수 사유 체크리스트가 업데이트되었다는 내용입니다. 출장 승인 요청 시 화상 회의가 왜 불충분한지 입증하라는 지시 바로 뒤인 [3] 위치에 들어가는 것이 가장 매끄럽습니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q163",
+    "part": 7,
+    "questionNumber": 163,
+    "setId": "RC-S001-P7-G7",
+    "setTitle": "Questions 163-166",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Annual Commercial Real Estate Market Overview: Mid-Atlantic Region\n\nThe Mid-Atlantic commercial real estate sector experienced robust growth throughout 2026, driven by sustained demand for logistics facilities and suburban office parks. According to the latest industry report published by Harbor Realty Advisors, prime industrial leasing rates surged by 12% year-over-year, largely fueled by e-commerce fulfillment centers expanding their regional footprint.\n\nIn contrast, urban high-rise office towers faced elevated vacancy rates averaging 16.5%. However, properties offering modernized amenities—such as smart HVAC systems, touchless access controls, and on-site wellness centers—maintained high tenant retention rates exceeding 90%. Property owners who invested in eco-friendly retrofits were able to command rental premiums of 8% to 10% above market averages.\n\nLooking ahead to 2027, industry analysts project a steady stabilization of office lease rates, accompanied by continued capital investment in suburban mixed-use developments. Financial institutions are expected to maintain prudent lending standards for speculative commercial projects while offering competitive terms for green-certified renovations.",
+        "translation": ""
+      }
+    ],
+    "question": "What sector saw a 12% increase in leasing rates?",
+    "choices": [
+      "Prime industrial logistics facilities",
+      "Urban high-rise residential apartments",
+      "Rural agricultural farmland",
+      "Suburban retail shopping malls"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "첫 단락에서 물류/전자상거래 풀필먼트 센터 확장으로 주요 산업 시설 임대료가 12% 상승했다고 기술되어 있으므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q164",
+    "part": 7,
+    "questionNumber": 164,
+    "setId": "RC-S001-P7-G7",
+    "setTitle": "Questions 163-166",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Annual Commercial Real Estate Market Overview: Mid-Atlantic Region\n\nThe Mid-Atlantic commercial real estate sector experienced robust growth throughout 2026, driven by sustained demand for logistics facilities and suburban office parks. According to the latest industry report published by Harbor Realty Advisors, prime industrial leasing rates surged by 12% year-over-year, largely fueled by e-commerce fulfillment centers expanding their regional footprint.\n\nIn contrast, urban high-rise office towers faced elevated vacancy rates averaging 16.5%. However, properties offering modernized amenities—such as smart HVAC systems, touchless access controls, and on-site wellness centers—maintained high tenant retention rates exceeding 90%. Property owners who invested in eco-friendly retrofits were able to command rental premiums of 8% to 10% above market averages.\n\nLooking ahead to 2027, industry analysts project a steady stabilization of office lease rates, accompanied by continued capital investment in suburban mixed-use developments. Financial institutions are expected to maintain prudent lending standards for speculative commercial projects while offering competitive terms for green-certified renovations.",
+        "translation": ""
+      }
+    ],
+    "question": "What feature helped urban office buildings achieve high tenant retention?",
+    "choices": [
+      "Complimentary valet parking",
+      "Unlimited free cafeteria dining",
+      "Discounted short-term lease terms",
+      "Modernized amenities like smart HVAC and wellness centers"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락에서 스마트 냉난방, 무접촉 출입, 웰니스 센터 등 현대화된 편의시설을 갖춘 건물이 90% 이상의 높은 임차인 유지율을 기록했다고 언급되어 있으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q165",
+    "part": 7,
+    "questionNumber": 165,
+    "setId": "RC-S001-P7-G7",
+    "setTitle": "Questions 163-166",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Annual Commercial Real Estate Market Overview: Mid-Atlantic Region\n\nThe Mid-Atlantic commercial real estate sector experienced robust growth throughout 2026, driven by sustained demand for logistics facilities and suburban office parks. According to the latest industry report published by Harbor Realty Advisors, prime industrial leasing rates surged by 12% year-over-year, largely fueled by e-commerce fulfillment centers expanding their regional footprint.\n\nIn contrast, urban high-rise office towers faced elevated vacancy rates averaging 16.5%. However, properties offering modernized amenities—such as smart HVAC systems, touchless access controls, and on-site wellness centers—maintained high tenant retention rates exceeding 90%. Property owners who invested in eco-friendly retrofits were able to command rental premiums of 8% to 10% above market averages.\n\nLooking ahead to 2027, industry analysts project a steady stabilization of office lease rates, accompanied by continued capital investment in suburban mixed-use developments. Financial institutions are expected to maintain prudent lending standards for speculative commercial projects while offering competitive terms for green-certified renovations.",
+        "translation": ""
+      }
+    ],
+    "question": "What rental advantage did eco-friendly retrofits provide property owners?",
+    "choices": [
+      "Full exemption from property taxes",
+      "Rental premiums of 8% to 10% above market averages",
+      "Guaranteed 10-year lease agreements",
+      "Subsidized utility payments from local government"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락 끝부분에서 친환경 개보수에 투자한 건물주들이 시장 평균보다 8~10% 높은 임대료 프리미엄을 적용할 수 있었다고 명시되어 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q166",
+    "part": 7,
+    "questionNumber": 166,
+    "setId": "RC-S001-P7-G7",
+    "setTitle": "Questions 163-166",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Annual Commercial Real Estate Market Overview: Mid-Atlantic Region\n\nThe Mid-Atlantic commercial real estate sector experienced robust growth throughout 2026, driven by sustained demand for logistics facilities and suburban office parks. According to the latest industry report published by Harbor Realty Advisors, prime industrial leasing rates surged by 12% year-over-year, largely fueled by e-commerce fulfillment centers expanding their regional footprint.\n\nIn contrast, urban high-rise office towers faced elevated vacancy rates averaging 16.5%. However, properties offering modernized amenities—such as smart HVAC systems, touchless access controls, and on-site wellness centers—maintained high tenant retention rates exceeding 90%. Property owners who invested in eco-friendly retrofits were able to command rental premiums of 8% to 10% above market averages.\n\nLooking ahead to 2027, industry analysts project a steady stabilization of office lease rates, accompanied by continued capital investment in suburban mixed-use developments. Financial institutions are expected to maintain prudent lending standards for speculative commercial projects while offering competitive terms for green-certified renovations.",
+        "translation": ""
+      }
+    ],
+    "question": "What is predicted for financial institutions in 2027?",
+    "choices": [
+      "They will offer competitive loan terms for green-certified renovations.",
+      "They will stop funding all commercial developments.",
+      "They will lower residential mortgage interest rates.",
+      "They will merge with e-commerce logistics firms."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "마지막 단락에서 친환경 인증 개보수 공사에 대해 경쟁력 있는 대출 조건을 제공할 것으로 전망되므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q167",
+    "part": 7,
+    "questionNumber": 167,
+    "setId": "RC-S001-P7-G8",
+    "setTitle": "Questions 167-171",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "NOTICE: Metropolitan Transit Authority (MTA) Track Maintenance\n\nStarting Monday, October 5, the MTA will undertake essential track replacement along the Red Line corridor between Central Station and Oakridge Stop. To minimize commuting disruptions, all heavy trackwork will be conducted during night hours (10:00 P.M. to 5:00 A.M.).\n\nDuring maintenance hours, express train services will be suspended, and shuttle buses will operate every 15 minutes between affected stops. Commuters are advised to allow an extra 20 minutes of travel time. Regular train service will resume promptly at 5:00 A.M. each morning.\n\n---------------------------------------------------\nMTA Nighttime Shuttle Bus Schedule (October 5 - October 16)\n\n• Shuttle Route A: Central Station -> North Plaza -> Park Hill -> Oakridge Stop\n• Departure Interval: Every 15 minutes from 10:15 P.M. until 4:45 A.M.\n• Boarding Locations: Designated yellow-marked bus bays outside main station exits.\n• Fare Information: Standard MTA transit passes and contactless fare payments are accepted. Passengers transferring from the Blue Line travel free of charge upon presenting a valid transfer ticket.",
+        "translation": ""
+      }
+    ],
+    "question": "Why is the MTA undertaking track maintenance?",
+    "choices": [
+      "To expand the transit line to a new airport",
+      "To build a new bus terminal at Central Station",
+      "To replace aging tracks along the Red Line corridor",
+      "To test new automated high-speed trains"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "공지문 첫 단락에서 레드 라인 구간의 필수 선로 교체 작업을 수행한다고 명시되어 있으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q168",
+    "part": 7,
+    "questionNumber": 168,
+    "setId": "RC-S001-P7-G8",
+    "setTitle": "Questions 167-171",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "NOTICE: Metropolitan Transit Authority (MTA) Track Maintenance\n\nStarting Monday, October 5, the MTA will undertake essential track replacement along the Red Line corridor between Central Station and Oakridge Stop. To minimize commuting disruptions, all heavy trackwork will be conducted during night hours (10:00 P.M. to 5:00 A.M.).\n\nDuring maintenance hours, express train services will be suspended, and shuttle buses will operate every 15 minutes between affected stops. Commuters are advised to allow an extra 20 minutes of travel time. Regular train service will resume promptly at 5:00 A.M. each morning.\n\n---------------------------------------------------\nMTA Nighttime Shuttle Bus Schedule (October 5 - October 16)\n\n• Shuttle Route A: Central Station -> North Plaza -> Park Hill -> Oakridge Stop\n• Departure Interval: Every 15 minutes from 10:15 P.M. until 4:45 A.M.\n• Boarding Locations: Designated yellow-marked bus bays outside main station exits.\n• Fare Information: Standard MTA transit passes and contactless fare payments are accepted. Passengers transferring from the Blue Line travel free of charge upon presenting a valid transfer ticket.",
+        "translation": ""
+      }
+    ],
+    "question": "At what time will regular train service resume each morning?",
+    "choices": [
+      "At 4:45 A.M.",
+      "At 5:00 A.M.",
+      "At 6:00 A.M.",
+      "At 8:00 A.M."
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "두 번째 단락 끝에서 매일 아침 5:00 A.M.에 정규 열차 운행이 재개된다고 기술되어 있으므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q169",
+    "part": 7,
+    "questionNumber": 169,
+    "setId": "RC-S001-P7-G8",
+    "setTitle": "Questions 167-171",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "NOTICE: Metropolitan Transit Authority (MTA) Track Maintenance\n\nStarting Monday, October 5, the MTA will undertake essential track replacement along the Red Line corridor between Central Station and Oakridge Stop. To minimize commuting disruptions, all heavy trackwork will be conducted during night hours (10:00 P.M. to 5:00 A.M.).\n\nDuring maintenance hours, express train services will be suspended, and shuttle buses will operate every 15 minutes between affected stops. Commuters are advised to allow an extra 20 minutes of travel time. Regular train service will resume promptly at 5:00 A.M. each morning.\n\n---------------------------------------------------\nMTA Nighttime Shuttle Bus Schedule (October 5 - October 16)\n\n• Shuttle Route A: Central Station -> North Plaza -> Park Hill -> Oakridge Stop\n• Departure Interval: Every 15 minutes from 10:15 P.M. until 4:45 A.M.\n• Boarding Locations: Designated yellow-marked bus bays outside main station exits.\n• Fare Information: Standard MTA transit passes and contactless fare payments are accepted. Passengers transferring from the Blue Line travel free of charge upon presenting a valid transfer ticket.",
+        "translation": ""
+      }
+    ],
+    "question": "How often do shuttle buses depart during maintenance hours?",
+    "choices": [
+      "Every 5 minutes",
+      "Every 8 minutes",
+      "Every 10 minutes",
+      "Every 15 minutes"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "일정표 상단 Departure Interval에 'Every 15 minutes'라고 나와 있으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q170",
+    "part": 7,
+    "questionNumber": 170,
+    "setId": "RC-S001-P7-G8",
+    "setTitle": "Questions 167-171",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "NOTICE: Metropolitan Transit Authority (MTA) Track Maintenance\n\nStarting Monday, October 5, the MTA will undertake essential track replacement along the Red Line corridor between Central Station and Oakridge Stop. To minimize commuting disruptions, all heavy trackwork will be conducted during night hours (10:00 P.M. to 5:00 A.M.).\n\nDuring maintenance hours, express train services will be suspended, and shuttle buses will operate every 15 minutes between affected stops. Commuters are advised to allow an extra 20 minutes of travel time. Regular train service will resume promptly at 5:00 A.M. each morning.\n\n---------------------------------------------------\nMTA Nighttime Shuttle Bus Schedule (October 5 - October 16)\n\n• Shuttle Route A: Central Station -> North Plaza -> Park Hill -> Oakridge Stop\n• Departure Interval: Every 15 minutes from 10:15 P.M. until 4:45 A.M.\n• Boarding Locations: Designated yellow-marked bus bays outside main station exits.\n• Fare Information: Standard MTA transit passes and contactless fare payments are accepted. Passengers transferring from the Blue Line travel free of charge upon presenting a valid transfer ticket.",
+        "translation": ""
+      }
+    ],
+    "question": "Where should shuttle bus passengers board?",
+    "choices": [
+      "At yellow-marked bus bays outside main exits",
+      "Inside the main train platform",
+      "At the central parking garage",
+      "Near the taxi stand on Park Hill"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "일정표 Boarding Locations에서 주요 출구 밖 노란색 표시 버스 베이라고 명시되어 있으므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q171",
+    "part": 7,
+    "questionNumber": 171,
+    "setId": "RC-S001-P7-G8",
+    "setTitle": "Questions 167-171",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "NOTICE: Metropolitan Transit Authority (MTA) Track Maintenance\n\nStarting Monday, October 5, the MTA will undertake essential track replacement along the Red Line corridor between Central Station and Oakridge Stop. To minimize commuting disruptions, all heavy trackwork will be conducted during night hours (10:00 P.M. to 5:00 A.M.).\n\nDuring maintenance hours, express train services will be suspended, and shuttle buses will operate every 15 minutes between affected stops. Commuters are advised to allow an extra 20 minutes of travel time. Regular train service will resume promptly at 5:00 A.M. each morning.\n\n---------------------------------------------------\nMTA Nighttime Shuttle Bus Schedule (October 5 - October 16)\n\n• Shuttle Route A: Central Station -> North Plaza -> Park Hill -> Oakridge Stop\n• Departure Interval: Every 15 minutes from 10:15 P.M. until 4:45 A.M.\n• Boarding Locations: Designated yellow-marked bus bays outside main station exits.\n• Fare Information: Standard MTA transit passes and contactless fare payments are accepted. Passengers transferring from the Blue Line travel free of charge upon presenting a valid transfer ticket.",
+        "translation": ""
+      }
+    ],
+    "question": "Who is eligible for free shuttle travel?",
+    "choices": [
+      "Senior citizens over age 65",
+      "Students carrying local university IDs",
+      "Passengers transferring from the Blue Line with a valid ticket",
+      "MTA maintenance workers only"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "일정표 하단 Fare Information에서 유효한 승차권을 제시한 블루 라인 환승객은 무료 승차 대상이라고 밝히고 있으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q172",
+    "part": 7,
+    "questionNumber": 172,
+    "setId": "RC-S001-P7-G9",
+    "setTitle": "Questions 172-175",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Online Community Board: Metro Tech Forum\nTopic: Troubleshooting Firmware Update v4.2 for Zentra Router\n\nDavid_K (10:02 A.M.): Has anyone experienced intermittent connection drops after updating their Zentra AX3000 router to firmware v4.2 yesterday?\nTechGuru_Sam (10:05 A.M.): Yes, David! My speed dropped by 50% immediately after the patch installed automatically.\nElena_M (10:08 A.M.): Same here. I called Zentra technical support this morning. They confirmed there's a bug in the DHCP allocation routine of v4.2.\nDavid_K (10:10 A.M.): Did they offer a temporary workaround until a hotfix is released?\nElena_M (10:12 A.M.): Yes! You need to log into the router admin portal, navigate to 'Advanced Network Settings', and manually assign static IP addresses to your connected devices. That completely resolved the drops for me.\nTechGuru_Sam (10:15 A.M.): Thanks, Elena! I just applied static IPs and my speed is back to normal. Zentra support told me they plan to push official firmware v4.2.1 by tomorrow evening.",
+        "translation": ""
+      }
+    ],
+    "question": "What product is being discussed on the forum?",
+    "choices": [
+      "A wireless internet router",
+      "A smart television",
+      "A desktop gaming computer",
+      "A mobile phone application"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "토론 주제와 첫 메시지에서 Zentra AX3000 라우터 펌웨어 업데이트 문제를 이야기하고 있으므로 무선 인터넷 라우터인 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q173",
+    "part": 7,
+    "questionNumber": 173,
+    "setId": "RC-S001-P7-G9",
+    "setTitle": "Questions 172-175",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Online Community Board: Metro Tech Forum\nTopic: Troubleshooting Firmware Update v4.2 for Zentra Router\n\nDavid_K (10:02 A.M.): Has anyone experienced intermittent connection drops after updating their Zentra AX3000 router to firmware v4.2 yesterday?\nTechGuru_Sam (10:05 A.M.): Yes, David! My speed dropped by 50% immediately after the patch installed automatically.\nElena_M (10:08 A.M.): Same here. I called Zentra technical support this morning. They confirmed there's a bug in the DHCP allocation routine of v4.2.\nDavid_K (10:10 A.M.): Did they offer a temporary workaround until a hotfix is released?\nElena_M (10:12 A.M.): Yes! You need to log into the router admin portal, navigate to 'Advanced Network Settings', and manually assign static IP addresses to your connected devices. That completely resolved the drops for me.\nTechGuru_Sam (10:15 A.M.): Thanks, Elena! I just applied static IPs and my speed is back to normal. Zentra support told me they plan to push official firmware v4.2.1 by tomorrow evening.",
+        "translation": ""
+      }
+    ],
+    "question": "What problem did TechGuru_Sam encounter?",
+    "choices": [
+      "The router would not turn on.",
+      "Internet speed decreased by 50% after the update.",
+      "The admin password was erased.",
+      "The device emitted a loud noise."
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "TechGuru_Sam의 10:05 A.M. 메시지에서 패치 설치 직후 속도가 50% 저하되었다고 언급했으므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q174",
+    "part": 7,
+    "questionNumber": 174,
+    "setId": "RC-S001-P7-G9",
+    "setTitle": "Questions 172-175",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Online Community Board: Metro Tech Forum\nTopic: Troubleshooting Firmware Update v4.2 for Zentra Router\n\nDavid_K (10:02 A.M.): Has anyone experienced intermittent connection drops after updating their Zentra AX3000 router to firmware v4.2 yesterday?\nTechGuru_Sam (10:05 A.M.): Yes, David! My speed dropped by 50% immediately after the patch installed automatically.\nElena_M (10:08 A.M.): Same here. I called Zentra technical support this morning. They confirmed there's a bug in the DHCP allocation routine of v4.2.\nDavid_K (10:10 A.M.): Did they offer a temporary workaround until a hotfix is released?\nElena_M (10:12 A.M.): Yes! You need to log into the router admin portal, navigate to 'Advanced Network Settings', and manually assign static IP addresses to your connected devices. That completely resolved the drops for me.\nTechGuru_Sam (10:15 A.M.): Thanks, Elena! I just applied static IPs and my speed is back to normal. Zentra support told me they plan to push official firmware v4.2.1 by tomorrow evening.",
+        "translation": ""
+      }
+    ],
+    "question": "What workaround did Elena_M suggest?",
+    "choices": [
+      "Returning the router to the retail store",
+      "Downgrading to firmware v3.0",
+      "Purchasing a new ethernet cable",
+      "Manually assigning static IP addresses"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Elena_M의 10:12 A.M. 메시지에서 관리자 포털에 접속해 수동으로 고정 IP 주소를 할당하라고 권장했으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q175",
+    "part": 7,
+    "questionNumber": 175,
+    "setId": "RC-S001-P7-G9",
+    "setTitle": "Questions 172-175",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Online Community Board: Metro Tech Forum\nTopic: Troubleshooting Firmware Update v4.2 for Zentra Router\n\nDavid_K (10:02 A.M.): Has anyone experienced intermittent connection drops after updating their Zentra AX3000 router to firmware v4.2 yesterday?\nTechGuru_Sam (10:05 A.M.): Yes, David! My speed dropped by 50% immediately after the patch installed automatically.\nElena_M (10:08 A.M.): Same here. I called Zentra technical support this morning. They confirmed there's a bug in the DHCP allocation routine of v4.2.\nDavid_K (10:10 A.M.): Did they offer a temporary workaround until a hotfix is released?\nElena_M (10:12 A.M.): Yes! You need to log into the router admin portal, navigate to 'Advanced Network Settings', and manually assign static IP addresses to your connected devices. That completely resolved the drops for me.\nTechGuru_Sam (10:15 A.M.): Thanks, Elena! I just applied static IPs and my speed is back to normal. Zentra support told me they plan to push official firmware v4.2.1 by tomorrow evening.",
+        "translation": ""
+      }
+    ],
+    "question": "According to TechGuru_Sam, when will the official fix (v4.2.1) be released?",
+    "choices": [
+      "In two weeks",
+      "Next month",
+      "By tomorrow evening",
+      "Immediately after restarting"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "TechGuru_Sam의 10:15 A.M. 메시지 끝에서 내일 저녁까지 공식 펌웨어 v4.2.1이 배포될 예정이라 했으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q176",
+    "part": 7,
+    "questionNumber": 176,
+    "setId": "RC-S001-P7-G10",
+    "setTitle": "Questions 176-180",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.veritascatering.com/corporate-menus\n\nVeritas Corporate Catering Services\nServing the Greater Boston Area for over 15 years!\n\nMenu Packages:\n1. Executive Breakfast Buffet: Freshly baked pastries, seasonal fruit platter, gourmet coffee & tea station. ($18 per person, min. 15 people)\n2. Artisanal Sandwich Platter: Assorted specialty sandwiches, organic green salad, house-made chips, and dessert tray. ($24 per person, min. 10 people)\n3. Hot International Buffet: Choice of two hot entrees (Grilled Salmon, Stuffed Chicken, or Vegetarian Pasta), roasted seasonal vegetables, pilaf rice, and premium dessert. ($35 per person, min. 20 people)\n\nCustomization & Policies:\n• Dietary Substitutions: Gluten-free and vegan options available upon request at no extra charge.\n• Delivery Fee: Complimentary delivery for orders within Boston city limits exceeding $300; otherwise, a flat $35 delivery fee applies.\n• Cancellation Policy: Full refund for cancellations made at least 48 hours prior to the event.\n\n---------------------------------------------------\nTo: Orders <orders@veritascatering.com>\nFrom: Clara Hughes <c.hughes@beaconbiotech.com>\nDate: November 18, 2026\nSubject: Catering Request for Annual Investor Luncheon - Dec 2\n\nDear Veritas Catering Team,\n\nI would like to place a catering order for our annual investor luncheon on Wednesday, December 2, at 12:30 P.M. Our office is located at 120 Beacon Street in downtown Boston.\n\nWe have 25 confirmed attendees and would like to order the Hot International Buffet package. For our two hot entree selections, we would prefer the Grilled Salmon and the Vegetarian Pasta. Additionally, three of our guests require gluten-free desserts, so please ensure those are included.\n\nPlease send the itemized invoice including any applicable fees to my attention. Once received, our accounting department will process payment via corporate credit card.\n\nBest regards,\nClara Hughes, Event Coordinator",
+        "translation": ""
+      }
+    ],
+    "question": "According to the webpage, what is true about dietary substitutions?",
+    "choices": [
+      "They require a $5 per person surcharge.",
+      "They must be ordered two weeks in advance.",
+      "They are limited to breakfast buffets.",
+      "They are available at no additional charge."
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "웹페이지 Customization & Policies에서 'at no extra charge'라고 명시되어 있으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q177",
+    "part": 7,
+    "questionNumber": 177,
+    "setId": "RC-S001-P7-G10",
+    "setTitle": "Questions 176-180",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.veritascatering.com/corporate-menus\n\nVeritas Corporate Catering Services\nServing the Greater Boston Area for over 15 years!\n\nMenu Packages:\n1. Executive Breakfast Buffet: Freshly baked pastries, seasonal fruit platter, gourmet coffee & tea station. ($18 per person, min. 15 people)\n2. Artisanal Sandwich Platter: Assorted specialty sandwiches, organic green salad, house-made chips, and dessert tray. ($24 per person, min. 10 people)\n3. Hot International Buffet: Choice of two hot entrees (Grilled Salmon, Stuffed Chicken, or Vegetarian Pasta), roasted seasonal vegetables, pilaf rice, and premium dessert. ($35 per person, min. 20 people)\n\nCustomization & Policies:\n• Dietary Substitutions: Gluten-free and vegan options available upon request at no extra charge.\n• Delivery Fee: Complimentary delivery for orders within Boston city limits exceeding $300; otherwise, a flat $35 delivery fee applies.\n• Cancellation Policy: Full refund for cancellations made at least 48 hours prior to the event.\n\n---------------------------------------------------\nTo: Orders <orders@veritascatering.com>\nFrom: Clara Hughes <c.hughes@beaconbiotech.com>\nDate: November 18, 2026\nSubject: Catering Request for Annual Investor Luncheon - Dec 2\n\nDear Veritas Catering Team,\n\nI would like to place a catering order for our annual investor luncheon on Wednesday, December 2, at 12:30 P.M. Our office is located at 120 Beacon Street in downtown Boston.\n\nWe have 25 confirmed attendees and would like to order the Hot International Buffet package. For our two hot entree selections, we would prefer the Grilled Salmon and the Vegetarian Pasta. Additionally, three of our guests require gluten-free desserts, so please ensure those are included.\n\nPlease send the itemized invoice including any applicable fees to my attention. Once received, our accounting department will process payment via corporate credit card.\n\nBest regards,\nClara Hughes, Event Coordinator",
+        "translation": ""
+      }
+    ],
+    "question": "Which menu package did Ms. Hughes select for the luncheon?",
+    "choices": [
+      "Executive Breakfast Buffet",
+      "Hot International Buffet",
+      "Artisanal Sandwich Platter",
+      "Custom Dessert Tray"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 두 번째 단락에서 25명 인원에 대해 Hot International Buffet 패키지를 주문하고 싶다고 명시했으므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q178",
+    "part": 7,
+    "questionNumber": 178,
+    "setId": "RC-S001-P7-G10",
+    "setTitle": "Questions 176-180",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.veritascatering.com/corporate-menus\n\nVeritas Corporate Catering Services\nServing the Greater Boston Area for over 15 years!\n\nMenu Packages:\n1. Executive Breakfast Buffet: Freshly baked pastries, seasonal fruit platter, gourmet coffee & tea station. ($18 per person, min. 15 people)\n2. Artisanal Sandwich Platter: Assorted specialty sandwiches, organic green salad, house-made chips, and dessert tray. ($24 per person, min. 10 people)\n3. Hot International Buffet: Choice of two hot entrees (Grilled Salmon, Stuffed Chicken, or Vegetarian Pasta), roasted seasonal vegetables, pilaf rice, and premium dessert. ($35 per person, min. 20 people)\n\nCustomization & Policies:\n• Dietary Substitutions: Gluten-free and vegan options available upon request at no extra charge.\n• Delivery Fee: Complimentary delivery for orders within Boston city limits exceeding $300; otherwise, a flat $35 delivery fee applies.\n• Cancellation Policy: Full refund for cancellations made at least 48 hours prior to the event.\n\n---------------------------------------------------\nTo: Orders <orders@veritascatering.com>\nFrom: Clara Hughes <c.hughes@beaconbiotech.com>\nDate: November 18, 2026\nSubject: Catering Request for Annual Investor Luncheon - Dec 2\n\nDear Veritas Catering Team,\n\nI would like to place a catering order for our annual investor luncheon on Wednesday, December 2, at 12:30 P.M. Our office is located at 120 Beacon Street in downtown Boston.\n\nWe have 25 confirmed attendees and would like to order the Hot International Buffet package. For our two hot entree selections, we would prefer the Grilled Salmon and the Vegetarian Pasta. Additionally, three of our guests require gluten-free desserts, so please ensure those are included.\n\nPlease send the itemized invoice including any applicable fees to my attention. Once received, our accounting department will process payment via corporate credit card.\n\nBest regards,\nClara Hughes, Event Coordinator",
+        "translation": ""
+      }
+    ],
+    "question": "What will be the total food cost for Ms. Hughes's order before delivery fees?",
+    "choices": [
+      "$450",
+      "$600",
+      "$875",
+      "$1,000"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Hot International Buffet 단가는 1인당 $35이며, 참석자가 25명이므로 35 x 25 = $875입니다. 따라서 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q179",
+    "part": 7,
+    "questionNumber": 179,
+    "setId": "RC-S001-P7-G10",
+    "setTitle": "Questions 176-180",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.veritascatering.com/corporate-menus\n\nVeritas Corporate Catering Services\nServing the Greater Boston Area for over 15 years!\n\nMenu Packages:\n1. Executive Breakfast Buffet: Freshly baked pastries, seasonal fruit platter, gourmet coffee & tea station. ($18 per person, min. 15 people)\n2. Artisanal Sandwich Platter: Assorted specialty sandwiches, organic green salad, house-made chips, and dessert tray. ($24 per person, min. 10 people)\n3. Hot International Buffet: Choice of two hot entrees (Grilled Salmon, Stuffed Chicken, or Vegetarian Pasta), roasted seasonal vegetables, pilaf rice, and premium dessert. ($35 per person, min. 20 people)\n\nCustomization & Policies:\n• Dietary Substitutions: Gluten-free and vegan options available upon request at no extra charge.\n• Delivery Fee: Complimentary delivery for orders within Boston city limits exceeding $300; otherwise, a flat $35 delivery fee applies.\n• Cancellation Policy: Full refund for cancellations made at least 48 hours prior to the event.\n\n---------------------------------------------------\nTo: Orders <orders@veritascatering.com>\nFrom: Clara Hughes <c.hughes@beaconbiotech.com>\nDate: November 18, 2026\nSubject: Catering Request for Annual Investor Luncheon - Dec 2\n\nDear Veritas Catering Team,\n\nI would like to place a catering order for our annual investor luncheon on Wednesday, December 2, at 12:30 P.M. Our office is located at 120 Beacon Street in downtown Boston.\n\nWe have 25 confirmed attendees and would like to order the Hot International Buffet package. For our two hot entree selections, we would prefer the Grilled Salmon and the Vegetarian Pasta. Additionally, three of our guests require gluten-free desserts, so please ensure those are included.\n\nPlease send the itemized invoice including any applicable fees to my attention. Once received, our accounting department will process payment via corporate credit card.\n\nBest regards,\nClara Hughes, Event Coordinator",
+        "translation": ""
+      }
+    ],
+    "question": "Will Ms. Hughes's order be charged a delivery fee?",
+    "choices": [
+      "No, because the order total exceeds $300 and is within Boston.",
+      "Yes, a flat $35 fee applies.",
+      "Yes, because it is an international menu.",
+      "No, because she paid in cash."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "웹페이지 규정에 따르면 보스턴 시내이고 $300 초과 시 배달비가 무료입니다. 주문 금액이 $875이고 다운타운 보스턴 주소이므로 배달비는 무료입니다. 따라서 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q180",
+    "part": 7,
+    "questionNumber": 180,
+    "setId": "RC-S001-P7-G10",
+    "setTitle": "Questions 176-180",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.veritascatering.com/corporate-menus\n\nVeritas Corporate Catering Services\nServing the Greater Boston Area for over 15 years!\n\nMenu Packages:\n1. Executive Breakfast Buffet: Freshly baked pastries, seasonal fruit platter, gourmet coffee & tea station. ($18 per person, min. 15 people)\n2. Artisanal Sandwich Platter: Assorted specialty sandwiches, organic green salad, house-made chips, and dessert tray. ($24 per person, min. 10 people)\n3. Hot International Buffet: Choice of two hot entrees (Grilled Salmon, Stuffed Chicken, or Vegetarian Pasta), roasted seasonal vegetables, pilaf rice, and premium dessert. ($35 per person, min. 20 people)\n\nCustomization & Policies:\n• Dietary Substitutions: Gluten-free and vegan options available upon request at no extra charge.\n• Delivery Fee: Complimentary delivery for orders within Boston city limits exceeding $300; otherwise, a flat $35 delivery fee applies.\n• Cancellation Policy: Full refund for cancellations made at least 48 hours prior to the event.\n\n---------------------------------------------------\nTo: Orders <orders@veritascatering.com>\nFrom: Clara Hughes <c.hughes@beaconbiotech.com>\nDate: November 18, 2026\nSubject: Catering Request for Annual Investor Luncheon - Dec 2\n\nDear Veritas Catering Team,\n\nI would like to place a catering order for our annual investor luncheon on Wednesday, December 2, at 12:30 P.M. Our office is located at 120 Beacon Street in downtown Boston.\n\nWe have 25 confirmed attendees and would like to order the Hot International Buffet package. For our two hot entree selections, we would prefer the Grilled Salmon and the Vegetarian Pasta. Additionally, three of our guests require gluten-free desserts, so please ensure those are included.\n\nPlease send the itemized invoice including any applicable fees to my attention. Once received, our accounting department will process payment via corporate credit card.\n\nBest regards,\nClara Hughes, Event Coordinator",
+        "translation": ""
+      }
+    ],
+    "question": "What special request did Ms. Hughes include for three of her guests?",
+    "choices": [
+      "Organic green salads",
+      "Extra coffee stations",
+      "Stuffed chicken entrees",
+      "Gluten-free desserts"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 두 번째 단락에서 손님 3명을 위한 글루텐 프리 디저트를 포함해 달라고 요청했으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q181",
+    "part": 7,
+    "questionNumber": 181,
+    "setId": "RC-S001-P7-G11",
+    "setTitle": "Questions 181-185",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "New World Office Furniture Clearance Sale!\n\nUpgrade your corporate workspace with premium ergonomic office furniture at unbeatable prices! New World Office Furniture is liquidating floor models and overstock inventory at our Chicago warehouse from November 10 to November 20.\n\nFeatured Items:\n• ErgoFlex Executive Mesh Chair: Fully adjustable lumbar support & armrests. Was $450 -> NOW $220\n• Executive Mahogany Conference Table (10-seater): Solid wood finish. Was $1,800 -> NOW $950\n• Modular Standing Desk (Motorized): Digital height memory presets. Was $700 -> NOW $380\n• Locking 3-Drawer Mobile File Cabinet: Heavy-duty steel. Was $200 -> NOW $110\n\nBonus Offer: Purchase 5 or more ErgoFlex Mesh Chairs and receive free white-glove assembly and delivery within 30 miles!\n\n---------------------------------------------------\nTo: Sales <sales@newworldfurniture.com>\nFrom: Raymond Zhou <r.zhou@larkconsulting.com>\nDate: November 12, 2026\nSubject: Order Inquiry and Bonus Qualification\n\nDear Sales Team,\n\nI visited your clearance web catalog and would like to place an order for our newly expanded accounting department in downtown Chicago (12 miles from your warehouse).\n\nWe wish to purchase 6 ErgoFlex Executive Mesh Chairs and 2 Modular Standing Desks. Based on your promotion, we understand that our chair quantity qualifies us for the complimentary assembly and delivery bonus.\n\nPlease confirm item availability and send a formal pro-forma invoice so we can issue a purchase order. We hope to schedule delivery for next Tuesday morning, November 17.\n\nSincerely,\nRaymond Zhou, Office Administrator",
+        "translation": ""
+      }
+    ],
+    "question": "What is the original retail price of the Modular Standing Desk?",
+    "choices": [
+      "$220",
+      "$380",
+      "$700",
+      "$1,800"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "광고지에서 모터식 스탠딩 데스크의 할인 전 원래 가격은 'Was $700'으로 나와 있으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q182",
+    "part": 7,
+    "questionNumber": 182,
+    "setId": "RC-S001-P7-G11",
+    "setTitle": "Questions 181-185",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "New World Office Furniture Clearance Sale!\n\nUpgrade your corporate workspace with premium ergonomic office furniture at unbeatable prices! New World Office Furniture is liquidating floor models and overstock inventory at our Chicago warehouse from November 10 to November 20.\n\nFeatured Items:\n• ErgoFlex Executive Mesh Chair: Fully adjustable lumbar support & armrests. Was $450 -> NOW $220\n• Executive Mahogany Conference Table (10-seater): Solid wood finish. Was $1,800 -> NOW $950\n• Modular Standing Desk (Motorized): Digital height memory presets. Was $700 -> NOW $380\n• Locking 3-Drawer Mobile File Cabinet: Heavy-duty steel. Was $200 -> NOW $110\n\nBonus Offer: Purchase 5 or more ErgoFlex Mesh Chairs and receive free white-glove assembly and delivery within 30 miles!\n\n---------------------------------------------------\nTo: Sales <sales@newworldfurniture.com>\nFrom: Raymond Zhou <r.zhou@larkconsulting.com>\nDate: November 12, 2026\nSubject: Order Inquiry and Bonus Qualification\n\nDear Sales Team,\n\nI visited your clearance web catalog and would like to place an order for our newly expanded accounting department in downtown Chicago (12 miles from your warehouse).\n\nWe wish to purchase 6 ErgoFlex Executive Mesh Chairs and 2 Modular Standing Desks. Based on your promotion, we understand that our chair quantity qualifies us for the complimentary assembly and delivery bonus.\n\nPlease confirm item availability and send a formal pro-forma invoice so we can issue a purchase order. We hope to schedule delivery for next Tuesday morning, November 17.\n\nSincerely,\nRaymond Zhou, Office Administrator",
+        "translation": ""
+      }
+    ],
+    "question": "How many ErgoFlex Mesh Chairs does Mr. Zhou want to order?",
+    "choices": [
+      "2",
+      "5",
+      "6",
+      "10"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 두 번째 단락에서 의자 6개를 주문하고자 한다고 밝혔으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q183",
+    "part": 7,
+    "questionNumber": 183,
+    "setId": "RC-S001-P7-G11",
+    "setTitle": "Questions 181-185",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "New World Office Furniture Clearance Sale!\n\nUpgrade your corporate workspace with premium ergonomic office furniture at unbeatable prices! New World Office Furniture is liquidating floor models and overstock inventory at our Chicago warehouse from November 10 to November 20.\n\nFeatured Items:\n• ErgoFlex Executive Mesh Chair: Fully adjustable lumbar support & armrests. Was $450 -> NOW $220\n• Executive Mahogany Conference Table (10-seater): Solid wood finish. Was $1,800 -> NOW $950\n• Modular Standing Desk (Motorized): Digital height memory presets. Was $700 -> NOW $380\n• Locking 3-Drawer Mobile File Cabinet: Heavy-duty steel. Was $200 -> NOW $110\n\nBonus Offer: Purchase 5 or more ErgoFlex Mesh Chairs and receive free white-glove assembly and delivery within 30 miles!\n\n---------------------------------------------------\nTo: Sales <sales@newworldfurniture.com>\nFrom: Raymond Zhou <r.zhou@larkconsulting.com>\nDate: November 12, 2026\nSubject: Order Inquiry and Bonus Qualification\n\nDear Sales Team,\n\nI visited your clearance web catalog and would like to place an order for our newly expanded accounting department in downtown Chicago (12 miles from your warehouse).\n\nWe wish to purchase 6 ErgoFlex Executive Mesh Chairs and 2 Modular Standing Desks. Based on your promotion, we understand that our chair quantity qualifies us for the complimentary assembly and delivery bonus.\n\nPlease confirm item availability and send a formal pro-forma invoice so we can issue a purchase order. We hope to schedule delivery for next Tuesday morning, November 17.\n\nSincerely,\nRaymond Zhou, Office Administrator",
+        "translation": ""
+      }
+    ],
+    "question": "Why does Mr. Zhou's order qualify for free delivery and assembly?",
+    "choices": [
+      "He purchased a conference table.",
+      "He paid cash in advance.",
+      "He is a first-time online buyer.",
+      "He ordered 6 chairs (5 or more) and is within 30 miles."
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "광고의 Bonus Offer에 의하면 의자 5개 이상 구매 시 30마일 이내 무료 배송/조립이 제공됩니다. Mr. Zhou는 의자 6개를 주문했고 거리도 12마일이므로 요건을 충족하여 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q184",
+    "part": 7,
+    "questionNumber": 184,
+    "setId": "RC-S001-P7-G11",
+    "setTitle": "Questions 181-185",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "New World Office Furniture Clearance Sale!\n\nUpgrade your corporate workspace with premium ergonomic office furniture at unbeatable prices! New World Office Furniture is liquidating floor models and overstock inventory at our Chicago warehouse from November 10 to November 20.\n\nFeatured Items:\n• ErgoFlex Executive Mesh Chair: Fully adjustable lumbar support & armrests. Was $450 -> NOW $220\n• Executive Mahogany Conference Table (10-seater): Solid wood finish. Was $1,800 -> NOW $950\n• Modular Standing Desk (Motorized): Digital height memory presets. Was $700 -> NOW $380\n• Locking 3-Drawer Mobile File Cabinet: Heavy-duty steel. Was $200 -> NOW $110\n\nBonus Offer: Purchase 5 or more ErgoFlex Mesh Chairs and receive free white-glove assembly and delivery within 30 miles!\n\n---------------------------------------------------\nTo: Sales <sales@newworldfurniture.com>\nFrom: Raymond Zhou <r.zhou@larkconsulting.com>\nDate: November 12, 2026\nSubject: Order Inquiry and Bonus Qualification\n\nDear Sales Team,\n\nI visited your clearance web catalog and would like to place an order for our newly expanded accounting department in downtown Chicago (12 miles from your warehouse).\n\nWe wish to purchase 6 ErgoFlex Executive Mesh Chairs and 2 Modular Standing Desks. Based on your promotion, we understand that our chair quantity qualifies us for the complimentary assembly and delivery bonus.\n\nPlease confirm item availability and send a formal pro-forma invoice so we can issue a purchase order. We hope to schedule delivery for next Tuesday morning, November 17.\n\nSincerely,\nRaymond Zhou, Office Administrator",
+        "translation": ""
+      }
+    ],
+    "question": "What total discounted price will Mr. Zhou pay for the items (excluding tax)?",
+    "choices": [
+      "$1,320",
+      "$2,080",
+      "$2,500",
+      "$4,100"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "의자 6개 ($220 x 6 = $1,320) + 스탠딩 데스크 2개 ($380 x 2 = $760) = $1,320 + $760 = $2,080 이므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q185",
+    "part": 7,
+    "questionNumber": 185,
+    "setId": "RC-S001-P7-G11",
+    "setTitle": "Questions 181-185",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "New World Office Furniture Clearance Sale!\n\nUpgrade your corporate workspace with premium ergonomic office furniture at unbeatable prices! New World Office Furniture is liquidating floor models and overstock inventory at our Chicago warehouse from November 10 to November 20.\n\nFeatured Items:\n• ErgoFlex Executive Mesh Chair: Fully adjustable lumbar support & armrests. Was $450 -> NOW $220\n• Executive Mahogany Conference Table (10-seater): Solid wood finish. Was $1,800 -> NOW $950\n• Modular Standing Desk (Motorized): Digital height memory presets. Was $700 -> NOW $380\n• Locking 3-Drawer Mobile File Cabinet: Heavy-duty steel. Was $200 -> NOW $110\n\nBonus Offer: Purchase 5 or more ErgoFlex Mesh Chairs and receive free white-glove assembly and delivery within 30 miles!\n\n---------------------------------------------------\nTo: Sales <sales@newworldfurniture.com>\nFrom: Raymond Zhou <r.zhou@larkconsulting.com>\nDate: November 12, 2026\nSubject: Order Inquiry and Bonus Qualification\n\nDear Sales Team,\n\nI visited your clearance web catalog and would like to place an order for our newly expanded accounting department in downtown Chicago (12 miles from your warehouse).\n\nWe wish to purchase 6 ErgoFlex Executive Mesh Chairs and 2 Modular Standing Desks. Based on your promotion, we understand that our chair quantity qualifies us for the complimentary assembly and delivery bonus.\n\nPlease confirm item availability and send a formal pro-forma invoice so we can issue a purchase order. We hope to schedule delivery for next Tuesday morning, November 17.\n\nSincerely,\nRaymond Zhou, Office Administrator",
+        "translation": ""
+      }
+    ],
+    "question": "On what date does Mr. Zhou request delivery?",
+    "choices": [
+      "November 10",
+      "November 12",
+      "November 17",
+      "November 20"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 마지막 단락에서 다음 주 화요일 아침인 11월 17일에 배송받기를 원한다고 명시했으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q186",
+    "part": 7,
+    "questionNumber": 186,
+    "setId": "RC-S001-P7-G12",
+    "setTitle": "Questions 186-190",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Seattle Tech Expo Returns to Washington State Convention Center\n\nSEATTLE (Oct 1) — The annual Pacific Northwest Technology Exposition will open its doors on November 5 for a three-day showcase of cutting-edge artificial intelligence, enterprise software, and green energy innovations. Over 150 international vendors and 10,000 industry professionals are expected to attend.\n\nEvent Director Sandra Miller announced that this year's expo will feature four specialized workshop tracks led by prominent industry pioneers. Online pre-registration is open through October 25, offering discounted full-access conference passes for $299.\n\n---------------------------------------------------\nPacific NW Tech Expo Workshop Schedule (Day 2: November 6)\n\n• Room 101 (9:30 A.M. - 11:00 A.M.): 'Scaling Cloud Infrastructure Security' - Speaker: Dr. Aris Thorne\n• Room 102 (11:15 A.M. - 12:45 P.M.): 'AI-Driven Supply Chain Optimization' - Speaker: Maya Lin\n• Room 103 (2:00 P.M. - 3:30 P.M.): 'Next-Gen Renewable Energy Storage' - Speaker: Benjamin Vance\n• Room 104 (3:45 P.M. - 5:15 P.M.): 'Enterprise Data Governance & Compliance' - Speaker: Rachel Green\n\n---------------------------------------------------\nTo: Sandra Miller <s.miller@pnwtechexpo.org>\nFrom: Benjamin Vance <b.vance@solarenergycorp.com>\nDate: October 20, 2026\nSubject: Speaker Schedule Confirmation & Registration\n\nDear Ms. Miller,\n\nThank you for inviting me to represent Solar Energy Corp at this year's expo. I have completed my discounted online pre-registration and confirmed my travel arrangements to Seattle.\n\nI reviewed the Day 2 schedule and am looking forward to delivering my 2:00 P.M. presentation in Room 103. Could your technical team confirm that a high-definition projector and wireless lapel microphone will be set up in the room prior to my session?\n\nBest regards,\nBenjamin Vance, VP of Technology",
+        "translation": ""
+      }
+    ],
+    "question": "What is the deadline for discounted pre-registration for the expo?",
+    "choices": [
+      "October 1",
+      "October 20",
+      "October 25",
+      "November 5"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "기사 두 번째 단락에서 온라인 사전 등록 할인이 10월 25일까지 진행된다고 명시되었으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q187",
+    "part": 7,
+    "questionNumber": 187,
+    "setId": "RC-S001-P7-G12",
+    "setTitle": "Questions 186-190",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Seattle Tech Expo Returns to Washington State Convention Center\n\nSEATTLE (Oct 1) — The annual Pacific Northwest Technology Exposition will open its doors on November 5 for a three-day showcase of cutting-edge artificial intelligence, enterprise software, and green energy innovations. Over 150 international vendors and 10,000 industry professionals are expected to attend.\n\nEvent Director Sandra Miller announced that this year's expo will feature four specialized workshop tracks led by prominent industry pioneers. Online pre-registration is open through October 25, offering discounted full-access conference passes for $299.\n\n---------------------------------------------------\nPacific NW Tech Expo Workshop Schedule (Day 2: November 6)\n\n• Room 101 (9:30 A.M. - 11:00 A.M.): 'Scaling Cloud Infrastructure Security' - Speaker: Dr. Aris Thorne\n• Room 102 (11:15 A.M. - 12:45 P.M.): 'AI-Driven Supply Chain Optimization' - Speaker: Maya Lin\n• Room 103 (2:00 P.M. - 3:30 P.M.): 'Next-Gen Renewable Energy Storage' - Speaker: Benjamin Vance\n• Room 104 (3:45 P.M. - 5:15 P.M.): 'Enterprise Data Governance & Compliance' - Speaker: Rachel Green\n\n---------------------------------------------------\nTo: Sandra Miller <s.miller@pnwtechexpo.org>\nFrom: Benjamin Vance <b.vance@solarenergycorp.com>\nDate: October 20, 2026\nSubject: Speaker Schedule Confirmation & Registration\n\nDear Ms. Miller,\n\nThank you for inviting me to represent Solar Energy Corp at this year's expo. I have completed my discounted online pre-registration and confirmed my travel arrangements to Seattle.\n\nI reviewed the Day 2 schedule and am looking forward to delivering my 2:00 P.M. presentation in Room 103. Could your technical team confirm that a high-definition projector and wireless lapel microphone will be set up in the room prior to my session?\n\nBest regards,\nBenjamin Vance, VP of Technology",
+        "translation": ""
+      }
+    ],
+    "question": "In the schedule, who is listed as the speaker for 'AI-Driven Supply Chain Optimization'?",
+    "choices": [
+      "Maya Lin",
+      "Dr. Aris Thorne",
+      "Benjamin Vance",
+      "Rachel Green"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "일정표 Room 102의 발표자명이 Maya Lin으로 표기되어 있으므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q188",
+    "part": 7,
+    "questionNumber": 188,
+    "setId": "RC-S001-P7-G12",
+    "setTitle": "Questions 186-190",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Seattle Tech Expo Returns to Washington State Convention Center\n\nSEATTLE (Oct 1) — The annual Pacific Northwest Technology Exposition will open its doors on November 5 for a three-day showcase of cutting-edge artificial intelligence, enterprise software, and green energy innovations. Over 150 international vendors and 10,000 industry professionals are expected to attend.\n\nEvent Director Sandra Miller announced that this year's expo will feature four specialized workshop tracks led by prominent industry pioneers. Online pre-registration is open through October 25, offering discounted full-access conference passes for $299.\n\n---------------------------------------------------\nPacific NW Tech Expo Workshop Schedule (Day 2: November 6)\n\n• Room 101 (9:30 A.M. - 11:00 A.M.): 'Scaling Cloud Infrastructure Security' - Speaker: Dr. Aris Thorne\n• Room 102 (11:15 A.M. - 12:45 P.M.): 'AI-Driven Supply Chain Optimization' - Speaker: Maya Lin\n• Room 103 (2:00 P.M. - 3:30 P.M.): 'Next-Gen Renewable Energy Storage' - Speaker: Benjamin Vance\n• Room 104 (3:45 P.M. - 5:15 P.M.): 'Enterprise Data Governance & Compliance' - Speaker: Rachel Green\n\n---------------------------------------------------\nTo: Sandra Miller <s.miller@pnwtechexpo.org>\nFrom: Benjamin Vance <b.vance@solarenergycorp.com>\nDate: October 20, 2026\nSubject: Speaker Schedule Confirmation & Registration\n\nDear Ms. Miller,\n\nThank you for inviting me to represent Solar Energy Corp at this year's expo. I have completed my discounted online pre-registration and confirmed my travel arrangements to Seattle.\n\nI reviewed the Day 2 schedule and am looking forward to delivering my 2:00 P.M. presentation in Room 103. Could your technical team confirm that a high-definition projector and wireless lapel microphone will be set up in the room prior to my session?\n\nBest regards,\nBenjamin Vance, VP of Technology",
+        "translation": ""
+      }
+    ],
+    "question": "What workshop topic will Benjamin Vance present?",
+    "choices": [
+      "Cloud Infrastructure Security",
+      "Next-Gen Renewable Energy Storage",
+      "AI-Driven Supply Chain",
+      "Enterprise Data Governance"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Benjamin Vance는 이메일에서 Day 2 일정의 2:00 P.M. Room 103 발표를 맡는다고 했습니다. 일정표에서 Room 103 2:00 P.M. 세션의 주제는 'Next-Gen Renewable Energy Storage'이므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q189",
+    "part": 7,
+    "questionNumber": 189,
+    "setId": "RC-S001-P7-G12",
+    "setTitle": "Questions 186-190",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Seattle Tech Expo Returns to Washington State Convention Center\n\nSEATTLE (Oct 1) — The annual Pacific Northwest Technology Exposition will open its doors on November 5 for a three-day showcase of cutting-edge artificial intelligence, enterprise software, and green energy innovations. Over 150 international vendors and 10,000 industry professionals are expected to attend.\n\nEvent Director Sandra Miller announced that this year's expo will feature four specialized workshop tracks led by prominent industry pioneers. Online pre-registration is open through October 25, offering discounted full-access conference passes for $299.\n\n---------------------------------------------------\nPacific NW Tech Expo Workshop Schedule (Day 2: November 6)\n\n• Room 101 (9:30 A.M. - 11:00 A.M.): 'Scaling Cloud Infrastructure Security' - Speaker: Dr. Aris Thorne\n• Room 102 (11:15 A.M. - 12:45 P.M.): 'AI-Driven Supply Chain Optimization' - Speaker: Maya Lin\n• Room 103 (2:00 P.M. - 3:30 P.M.): 'Next-Gen Renewable Energy Storage' - Speaker: Benjamin Vance\n• Room 104 (3:45 P.M. - 5:15 P.M.): 'Enterprise Data Governance & Compliance' - Speaker: Rachel Green\n\n---------------------------------------------------\nTo: Sandra Miller <s.miller@pnwtechexpo.org>\nFrom: Benjamin Vance <b.vance@solarenergycorp.com>\nDate: October 20, 2026\nSubject: Speaker Schedule Confirmation & Registration\n\nDear Ms. Miller,\n\nThank you for inviting me to represent Solar Energy Corp at this year's expo. I have completed my discounted online pre-registration and confirmed my travel arrangements to Seattle.\n\nI reviewed the Day 2 schedule and am looking forward to delivering my 2:00 P.M. presentation in Room 103. Could your technical team confirm that a high-definition projector and wireless lapel microphone will be set up in the room prior to my session?\n\nBest regards,\nBenjamin Vance, VP of Technology",
+        "translation": ""
+      }
+    ],
+    "question": "What amount did Mr. Vance pay for his conference pass?",
+    "choices": [
+      "$150",
+      "$200",
+      "$250",
+      "$299"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "기사에서 할인 사전 등록 패스 가격이 $299로 지정되어 있고, Mr. Vance는 이메일에서 할인 온라인 사전 등록을 마쳤다고 하였으므로 $299인 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q190",
+    "part": 7,
+    "questionNumber": 190,
+    "setId": "RC-S001-P7-G12",
+    "setTitle": "Questions 186-190",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "Seattle Tech Expo Returns to Washington State Convention Center\n\nSEATTLE (Oct 1) — The annual Pacific Northwest Technology Exposition will open its doors on November 5 for a three-day showcase of cutting-edge artificial intelligence, enterprise software, and green energy innovations. Over 150 international vendors and 10,000 industry professionals are expected to attend.\n\nEvent Director Sandra Miller announced that this year's expo will feature four specialized workshop tracks led by prominent industry pioneers. Online pre-registration is open through October 25, offering discounted full-access conference passes for $299.\n\n---------------------------------------------------\nPacific NW Tech Expo Workshop Schedule (Day 2: November 6)\n\n• Room 101 (9:30 A.M. - 11:00 A.M.): 'Scaling Cloud Infrastructure Security' - Speaker: Dr. Aris Thorne\n• Room 102 (11:15 A.M. - 12:45 P.M.): 'AI-Driven Supply Chain Optimization' - Speaker: Maya Lin\n• Room 103 (2:00 P.M. - 3:30 P.M.): 'Next-Gen Renewable Energy Storage' - Speaker: Benjamin Vance\n• Room 104 (3:45 P.M. - 5:15 P.M.): 'Enterprise Data Governance & Compliance' - Speaker: Rachel Green\n\n---------------------------------------------------\nTo: Sandra Miller <s.miller@pnwtechexpo.org>\nFrom: Benjamin Vance <b.vance@solarenergycorp.com>\nDate: October 20, 2026\nSubject: Speaker Schedule Confirmation & Registration\n\nDear Ms. Miller,\n\nThank you for inviting me to represent Solar Energy Corp at this year's expo. I have completed my discounted online pre-registration and confirmed my travel arrangements to Seattle.\n\nI reviewed the Day 2 schedule and am looking forward to delivering my 2:00 P.M. presentation in Room 103. Could your technical team confirm that a high-definition projector and wireless lapel microphone will be set up in the room prior to my session?\n\nBest regards,\nBenjamin Vance, VP of Technology",
+        "translation": ""
+      }
+    ],
+    "question": "What equipment does Mr. Vance request for his room?",
+    "choices": [
+      "A laptop computer and laser pointer",
+      "A whiteboard and marker set",
+      "A high-definition projector and wireless lapel microphone",
+      "A video recording camera"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 두 번째 단락에서 HD 프로젝터와 무선 핀 마이크가 설치되어 있는지 확인해 달라고 요청했으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q191",
+    "part": 7,
+    "questionNumber": 191,
+    "setId": "RC-S001-P7-G13",
+    "setTitle": "Questions 191-195",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "MEMORANDUM\n\nTo: Facility Operations Staff\nFrom: Karen Reynolds, Facilities Manager\nDate: October 12, 2026\nSubject: Annual HVAC System Upgrade and Vendor Selection\n\nWe are preparing to replace the centralized HVAC climate control units in Buildings A and B during the winter maintenance window. To ensure transparency, all vendor proposals must be evaluated using Form 402 (Equipment Requisition & Review).\n\nSelection Criteria:\n• Energy Efficiency: Minimum SEER 18 rating\n• Warranty Coverage: At least 5 years on major compressor parts\n• Installation Timeline: Must be completed within 14 business days\n\n---------------------------------------------------\nForm 402: Vendor Requisition Summary\n\nVendor Name: ClimateAir Solutions\nProposed Model: EcoChill Pro-500\nSEER Efficiency Rating: 20 SEER\nCompressor Warranty: 7 Years full parts and labor\nEstimated Installation Duration: 10 Business Days\nQuoted Total Price: $85,000 (Includes old unit removal & disposal)\nReview Status: Recommended by Lead Engineer Marcus Ellison\n\n---------------------------------------------------\nTo: Karen Reynolds <k.reynolds@cedarpointcorp.com>\nFrom: Marcus Ellison <m.ellison@cedarpointcorp.com>\nDate: October 18, 2026\nSubject: Recommendation for HVAC Upgrade Contract\n\nDear Karen,\n\nI completed the Form 402 evaluation for ClimateAir Solutions. As noted on the form, their EcoChill Pro-500 model surpasses all three criteria established in your October 12 memo.\n\nSpecifically, its 20 SEER rating will reduce our quarterly power bill by an estimated 15%, and the 10-day installation timeframe fits comfortably within our 14-day limit. Furthermore, they agreed to waive the $3,000 removal fee for our old units.\n\nI strongly advise signing their contract before October 31 to lock in the quoted $85,000 rate.\n\nRegards,\nMarcus Ellison",
+        "translation": ""
+      }
+    ],
+    "question": "How many years longer is ClimateAir's compressor warranty than the minimum required in the memo?",
+    "choices": [
+      "1 year",
+      "2 years",
+      "5 years",
+      "7 years"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "메모는 최소 5년의 보증을 요구하고, Form 402에서 ClimateAir는 7년 보증을 제시했으므로 7 − 5 = 2년 더 깁니다. 따라서 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q192",
+    "part": 7,
+    "questionNumber": 192,
+    "setId": "RC-S001-P7-G13",
+    "setTitle": "Questions 191-195",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "MEMORANDUM\n\nTo: Facility Operations Staff\nFrom: Karen Reynolds, Facilities Manager\nDate: October 12, 2026\nSubject: Annual HVAC System Upgrade and Vendor Selection\n\nWe are preparing to replace the centralized HVAC climate control units in Buildings A and B during the winter maintenance window. To ensure transparency, all vendor proposals must be evaluated using Form 402 (Equipment Requisition & Review).\n\nSelection Criteria:\n• Energy Efficiency: Minimum SEER 18 rating\n• Warranty Coverage: At least 5 years on major compressor parts\n• Installation Timeline: Must be completed within 14 business days\n\n---------------------------------------------------\nForm 402: Vendor Requisition Summary\n\nVendor Name: ClimateAir Solutions\nProposed Model: EcoChill Pro-500\nSEER Efficiency Rating: 20 SEER\nCompressor Warranty: 7 Years full parts and labor\nEstimated Installation Duration: 10 Business Days\nQuoted Total Price: $85,000 (Includes old unit removal & disposal)\nReview Status: Recommended by Lead Engineer Marcus Ellison\n\n---------------------------------------------------\nTo: Karen Reynolds <k.reynolds@cedarpointcorp.com>\nFrom: Marcus Ellison <m.ellison@cedarpointcorp.com>\nDate: October 18, 2026\nSubject: Recommendation for HVAC Upgrade Contract\n\nDear Karen,\n\nI completed the Form 402 evaluation for ClimateAir Solutions. As noted on the form, their EcoChill Pro-500 model surpasses all three criteria established in your October 12 memo.\n\nSpecifically, its 20 SEER rating will reduce our quarterly power bill by an estimated 15%, and the 10-day installation timeframe fits comfortably within our 14-day limit. Furthermore, they agreed to waive the $3,000 removal fee for our old units.\n\nI strongly advise signing their contract before October 31 to lock in the quoted $85,000 rate.\n\nRegards,\nMarcus Ellison",
+        "translation": ""
+      }
+    ],
+    "question": "What SEER rating does the proposed EcoChill Pro-500 model have?",
+    "choices": [
+      "15 SEER",
+      "16 SEER",
+      "18 SEER",
+      "20 SEER"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Form 402 양식의 SEER Efficiency Rating에 '20 SEER'로 기재되어 있으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q193",
+    "part": 7,
+    "questionNumber": 193,
+    "setId": "RC-S001-P7-G13",
+    "setTitle": "Questions 191-195",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "MEMORANDUM\n\nTo: Facility Operations Staff\nFrom: Karen Reynolds, Facilities Manager\nDate: October 12, 2026\nSubject: Annual HVAC System Upgrade and Vendor Selection\n\nWe are preparing to replace the centralized HVAC climate control units in Buildings A and B during the winter maintenance window. To ensure transparency, all vendor proposals must be evaluated using Form 402 (Equipment Requisition & Review).\n\nSelection Criteria:\n• Energy Efficiency: Minimum SEER 18 rating\n• Warranty Coverage: At least 5 years on major compressor parts\n• Installation Timeline: Must be completed within 14 business days\n\n---------------------------------------------------\nForm 402: Vendor Requisition Summary\n\nVendor Name: ClimateAir Solutions\nProposed Model: EcoChill Pro-500\nSEER Efficiency Rating: 20 SEER\nCompressor Warranty: 7 Years full parts and labor\nEstimated Installation Duration: 10 Business Days\nQuoted Total Price: $85,000 (Includes old unit removal & disposal)\nReview Status: Recommended by Lead Engineer Marcus Ellison\n\n---------------------------------------------------\nTo: Karen Reynolds <k.reynolds@cedarpointcorp.com>\nFrom: Marcus Ellison <m.ellison@cedarpointcorp.com>\nDate: October 18, 2026\nSubject: Recommendation for HVAC Upgrade Contract\n\nDear Karen,\n\nI completed the Form 402 evaluation for ClimateAir Solutions. As noted on the form, their EcoChill Pro-500 model surpasses all three criteria established in your October 12 memo.\n\nSpecifically, its 20 SEER rating will reduce our quarterly power bill by an estimated 15%, and the 10-day installation timeframe fits comfortably within our 14-day limit. Furthermore, they agreed to waive the $3,000 removal fee for our old units.\n\nI strongly advise signing their contract before October 31 to lock in the quoted $85,000 rate.\n\nRegards,\nMarcus Ellison",
+        "translation": ""
+      }
+    ],
+    "question": "How many business days shorter is ClimateAir's estimated installation than the maximum allowed in the memo?",
+    "choices": [
+      "2 business days",
+      "4 business days",
+      "10 business days",
+      "14 business days"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "메모는 14 영업일 이내 완료를 요구하고, Form 402에서 ClimateAir는 10 영업일을 제시했으므로 14 − 10 = 4일 짧습니다. 따라서 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q194",
+    "part": 7,
+    "questionNumber": 194,
+    "setId": "RC-S001-P7-G13",
+    "setTitle": "Questions 191-195",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "MEMORANDUM\n\nTo: Facility Operations Staff\nFrom: Karen Reynolds, Facilities Manager\nDate: October 12, 2026\nSubject: Annual HVAC System Upgrade and Vendor Selection\n\nWe are preparing to replace the centralized HVAC climate control units in Buildings A and B during the winter maintenance window. To ensure transparency, all vendor proposals must be evaluated using Form 402 (Equipment Requisition & Review).\n\nSelection Criteria:\n• Energy Efficiency: Minimum SEER 18 rating\n• Warranty Coverage: At least 5 years on major compressor parts\n• Installation Timeline: Must be completed within 14 business days\n\n---------------------------------------------------\nForm 402: Vendor Requisition Summary\n\nVendor Name: ClimateAir Solutions\nProposed Model: EcoChill Pro-500\nSEER Efficiency Rating: 20 SEER\nCompressor Warranty: 7 Years full parts and labor\nEstimated Installation Duration: 10 Business Days\nQuoted Total Price: $85,000 (Includes old unit removal & disposal)\nReview Status: Recommended by Lead Engineer Marcus Ellison\n\n---------------------------------------------------\nTo: Karen Reynolds <k.reynolds@cedarpointcorp.com>\nFrom: Marcus Ellison <m.ellison@cedarpointcorp.com>\nDate: October 18, 2026\nSubject: Recommendation for HVAC Upgrade Contract\n\nDear Karen,\n\nI completed the Form 402 evaluation for ClimateAir Solutions. As noted on the form, their EcoChill Pro-500 model surpasses all three criteria established in your October 12 memo.\n\nSpecifically, its 20 SEER rating will reduce our quarterly power bill by an estimated 15%, and the 10-day installation timeframe fits comfortably within our 14-day limit. Furthermore, they agreed to waive the $3,000 removal fee for our old units.\n\nI strongly advise signing their contract before October 31 to lock in the quoted $85,000 rate.\n\nRegards,\nMarcus Ellison",
+        "translation": ""
+      }
+    ],
+    "question": "What additional incentive did ClimateAir Solutions offer?",
+    "choices": [
+      "Waiving the $3,000 removal fee for old units",
+      "Free monthly air filter replacements for three years",
+      "Extending the installation deadline by a month",
+      "Providing free solar panels for Building A"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "Marcus Ellison의 이메일 두 번째 단락에서 기존 장비 철거비 $3,000를 면제해 주기로 합의했다고 나와 있으므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q195",
+    "part": 7,
+    "questionNumber": 195,
+    "setId": "RC-S001-P7-G13",
+    "setTitle": "Questions 191-195",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "MEMORANDUM\n\nTo: Facility Operations Staff\nFrom: Karen Reynolds, Facilities Manager\nDate: October 12, 2026\nSubject: Annual HVAC System Upgrade and Vendor Selection\n\nWe are preparing to replace the centralized HVAC climate control units in Buildings A and B during the winter maintenance window. To ensure transparency, all vendor proposals must be evaluated using Form 402 (Equipment Requisition & Review).\n\nSelection Criteria:\n• Energy Efficiency: Minimum SEER 18 rating\n• Warranty Coverage: At least 5 years on major compressor parts\n• Installation Timeline: Must be completed within 14 business days\n\n---------------------------------------------------\nForm 402: Vendor Requisition Summary\n\nVendor Name: ClimateAir Solutions\nProposed Model: EcoChill Pro-500\nSEER Efficiency Rating: 20 SEER\nCompressor Warranty: 7 Years full parts and labor\nEstimated Installation Duration: 10 Business Days\nQuoted Total Price: $85,000 (Includes old unit removal & disposal)\nReview Status: Recommended by Lead Engineer Marcus Ellison\n\n---------------------------------------------------\nTo: Karen Reynolds <k.reynolds@cedarpointcorp.com>\nFrom: Marcus Ellison <m.ellison@cedarpointcorp.com>\nDate: October 18, 2026\nSubject: Recommendation for HVAC Upgrade Contract\n\nDear Karen,\n\nI completed the Form 402 evaluation for ClimateAir Solutions. As noted on the form, their EcoChill Pro-500 model surpasses all three criteria established in your October 12 memo.\n\nSpecifically, its 20 SEER rating will reduce our quarterly power bill by an estimated 15%, and the 10-day installation timeframe fits comfortably within our 14-day limit. Furthermore, they agreed to waive the $3,000 removal fee for our old units.\n\nI strongly advise signing their contract before October 31 to lock in the quoted $85,000 rate.\n\nRegards,\nMarcus Ellison",
+        "translation": ""
+      }
+    ],
+    "question": "By what date does Mr. Ellison suggest signing the contract?",
+    "choices": [
+      "October 12",
+      "October 18",
+      "October 31",
+      "November 15"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 마지막 단락에서 $85,000의 확정 금액 유지를 위해 10월 31일 이전에 계약할 것을 권고했으므로 (C)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q196",
+    "part": 7,
+    "questionNumber": 196,
+    "setId": "RC-S001-P7-G14",
+    "setTitle": "Questions 196-200",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.luminalighting.com/warranty-and-returns\n\nLumina Lighting Customer Support & Warranty Policy\n\nAt Lumina Lighting, we stand behind the quality of our commercial LED fixtures. All indoor fixtures carry a 3-year limited warranty from the original date of purchase.\n\nReturn & Exchange Conditions:\n• Returns within 30 days of delivery receive a 100% full refund to the original payment method.\n• Returns made between 31 and 60 days are subject to a 15% restocking fee.\n• Items damaged during installation or modified by third-party electricians are ineligible for return.\nTo initiate a return, customers must email support@luminalighting.com with their order number and original sales receipt.\n\n---------------------------------------------------\nINVOICE #LL-89042\nLumina Lighting Sales Inc.\nDate of Purchase: October 5, 2026\nDate of Delivery: October 9, 2026\nCustomer: Harrison Architecture Studio (Attn: David Harrison)\n\nItems Purchased:\n1. Model L-100 Architectural Pendant Light (4 units @ $150) = $600\n2. Model L-250 Recessed LED Downlight Strip (10 units @ $40) = $400\nSubtotal: $1,000\nStandard Shipping: $50\nTotal Paid: $1,050 (Paid via Visa Credit Card)\n\n---------------------------------------------------\nCustomer Review posted on Metro Design Forum\nReviewer: David Harrison (Harrison Architecture Studio)\nDate: November 15, 2026\nRating: 4/5 Stars\n\nReview: We purchased several L-100 pendant lights and L-250 LED strips for a client office renovation in October. The fixtures look stunning and the build quality is top-notch. However, our client decided to change the conference room layout, so we ended up needing only 2 of the L-100 pendant lights.\n\nI initiated a return for the 2 unused, unopened L-100 pendant lights on November 12. Since it was 34 days after the October 9 delivery date, Lumina applied the 15% restocking fee as stated in their policy. The return process was smooth, and customer service issued the credit promptly to my Visa card. I would definitely purchase from Lumina again.",
+        "translation": ""
+      }
+    ],
+    "question": "According to the webpage, what warranty duration applies to indoor fixtures?",
+    "choices": [
+      "3 years",
+      "4 years",
+      "5 years",
+      "10 years"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "웹페이지 첫 단락에서 실내 조명 기구에 대해 3년 제한 보증이 제공된다고 기재되어 있으므로 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q197",
+    "part": 7,
+    "questionNumber": 197,
+    "setId": "RC-S001-P7-G14",
+    "setTitle": "Questions 196-200",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.luminalighting.com/warranty-and-returns\n\nLumina Lighting Customer Support & Warranty Policy\n\nAt Lumina Lighting, we stand behind the quality of our commercial LED fixtures. All indoor fixtures carry a 3-year limited warranty from the original date of purchase.\n\nReturn & Exchange Conditions:\n• Returns within 30 days of delivery receive a 100% full refund to the original payment method.\n• Returns made between 31 and 60 days are subject to a 15% restocking fee.\n• Items damaged during installation or modified by third-party electricians are ineligible for return.\nTo initiate a return, customers must email support@luminalighting.com with their order number and original sales receipt.\n\n---------------------------------------------------\nINVOICE #LL-89042\nLumina Lighting Sales Inc.\nDate of Purchase: October 5, 2026\nDate of Delivery: October 9, 2026\nCustomer: Harrison Architecture Studio (Attn: David Harrison)\n\nItems Purchased:\n1. Model L-100 Architectural Pendant Light (4 units @ $150) = $600\n2. Model L-250 Recessed LED Downlight Strip (10 units @ $40) = $400\nSubtotal: $1,000\nStandard Shipping: $50\nTotal Paid: $1,050 (Paid via Visa Credit Card)\n\n---------------------------------------------------\nCustomer Review posted on Metro Design Forum\nReviewer: David Harrison (Harrison Architecture Studio)\nDate: November 15, 2026\nRating: 4/5 Stars\n\nReview: We purchased several L-100 pendant lights and L-250 LED strips for a client office renovation in October. The fixtures look stunning and the build quality is top-notch. However, our client decided to change the conference room layout, so we ended up needing only 2 of the L-100 pendant lights.\n\nI initiated a return for the 2 unused, unopened L-100 pendant lights on November 12. Since it was 34 days after the October 9 delivery date, Lumina applied the 15% restocking fee as stated in their policy. The return process was smooth, and customer service issued the credit promptly to my Visa card. I would definitely purchase from Lumina again.",
+        "translation": ""
+      }
+    ],
+    "question": "On what date were the lighting items delivered to Harrison Architecture Studio?",
+    "choices": [
+      "October 5",
+      "October 9",
+      "November 12",
+      "November 15"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "송장(Invoice)의 Date of Delivery 항목에 'October 9, 2026'으로 명시되어 있으므로 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q198",
+    "part": 7,
+    "questionNumber": 198,
+    "setId": "RC-S001-P7-G14",
+    "setTitle": "Questions 196-200",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.luminalighting.com/warranty-and-returns\n\nLumina Lighting Customer Support & Warranty Policy\n\nAt Lumina Lighting, we stand behind the quality of our commercial LED fixtures. All indoor fixtures carry a 3-year limited warranty from the original date of purchase.\n\nReturn & Exchange Conditions:\n• Returns within 30 days of delivery receive a 100% full refund to the original payment method.\n• Returns made between 31 and 60 days are subject to a 15% restocking fee.\n• Items damaged during installation or modified by third-party electricians are ineligible for return.\nTo initiate a return, customers must email support@luminalighting.com with their order number and original sales receipt.\n\n---------------------------------------------------\nINVOICE #LL-89042\nLumina Lighting Sales Inc.\nDate of Purchase: October 5, 2026\nDate of Delivery: October 9, 2026\nCustomer: Harrison Architecture Studio (Attn: David Harrison)\n\nItems Purchased:\n1. Model L-100 Architectural Pendant Light (4 units @ $150) = $600\n2. Model L-250 Recessed LED Downlight Strip (10 units @ $40) = $400\nSubtotal: $1,000\nStandard Shipping: $50\nTotal Paid: $1,050 (Paid via Visa Credit Card)\n\n---------------------------------------------------\nCustomer Review posted on Metro Design Forum\nReviewer: David Harrison (Harrison Architecture Studio)\nDate: November 15, 2026\nRating: 4/5 Stars\n\nReview: We purchased several L-100 pendant lights and L-250 LED strips for a client office renovation in October. The fixtures look stunning and the build quality is top-notch. However, our client decided to change the conference room layout, so we ended up needing only 2 of the L-100 pendant lights.\n\nI initiated a return for the 2 unused, unopened L-100 pendant lights on November 12. Since it was 34 days after the October 9 delivery date, Lumina applied the 15% restocking fee as stated in their policy. The return process was smooth, and customer service issued the credit promptly to my Visa card. I would definitely purchase from Lumina again.",
+        "translation": ""
+      }
+    ],
+    "question": "Which items did Mr. Harrison return to Lumina Lighting?",
+    "choices": [
+      "10 Recessed LED Downlight Strips",
+      "4 Architectural Pendant Lights",
+      "All shipping containers",
+      "2 Architectural Pendant Lights"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "고객 리뷰 두 번째 단락에서 미사용된 L-100 펜던트 조명 2개를 반품했다고 밝혔으므로 (D)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q199",
+    "part": 7,
+    "questionNumber": 199,
+    "setId": "RC-S001-P7-G14",
+    "setTitle": "Questions 196-200",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.luminalighting.com/warranty-and-returns\n\nLumina Lighting Customer Support & Warranty Policy\n\nAt Lumina Lighting, we stand behind the quality of our commercial LED fixtures. All indoor fixtures carry a 3-year limited warranty from the original date of purchase.\n\nReturn & Exchange Conditions:\n• Returns within 30 days of delivery receive a 100% full refund to the original payment method.\n• Returns made between 31 and 60 days are subject to a 15% restocking fee.\n• Items damaged during installation or modified by third-party electricians are ineligible for return.\nTo initiate a return, customers must email support@luminalighting.com with their order number and original sales receipt.\n\n---------------------------------------------------\nINVOICE #LL-89042\nLumina Lighting Sales Inc.\nDate of Purchase: October 5, 2026\nDate of Delivery: October 9, 2026\nCustomer: Harrison Architecture Studio (Attn: David Harrison)\n\nItems Purchased:\n1. Model L-100 Architectural Pendant Light (4 units @ $150) = $600\n2. Model L-250 Recessed LED Downlight Strip (10 units @ $40) = $400\nSubtotal: $1,000\nStandard Shipping: $50\nTotal Paid: $1,050 (Paid via Visa Credit Card)\n\n---------------------------------------------------\nCustomer Review posted on Metro Design Forum\nReviewer: David Harrison (Harrison Architecture Studio)\nDate: November 15, 2026\nRating: 4/5 Stars\n\nReview: We purchased several L-100 pendant lights and L-250 LED strips for a client office renovation in October. The fixtures look stunning and the build quality is top-notch. However, our client decided to change the conference room layout, so we ended up needing only 2 of the L-100 pendant lights.\n\nI initiated a return for the 2 unused, unopened L-100 pendant lights on November 12. Since it was 34 days after the October 9 delivery date, Lumina applied the 15% restocking fee as stated in their policy. The return process was smooth, and customer service issued the credit promptly to my Visa card. I would definitely purchase from Lumina again.",
+        "translation": ""
+      }
+    ],
+    "question": "Why was a 15% restocking fee applied to Mr. Harrison's return?",
+    "choices": [
+      "The return was initiated 34 days after delivery (between 31 and 60 days).",
+      "The items were returned without the original box.",
+      "The fixtures were damaged during transit.",
+      "The purchase was made with a promotional coupon."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "배송일(10/9)로부터 반품 요청일(11/12)까지 34일이 경과했으므로 웹페이지의 '31~60일 이내 반품 시 15% 재고보충비 부과' 규정에 따라 (A)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  },
+  {
+    "id": "RC-S001-P7-Q200",
+    "part": 7,
+    "questionNumber": 200,
+    "setId": "RC-S001-P7-G14",
+    "setTitle": "Questions 196-200",
+    "questionType": "reading-comprehension",
+    "passages": [
+      {
+        "title": "Document 1",
+        "text": "http://www.luminalighting.com/warranty-and-returns\n\nLumina Lighting Customer Support & Warranty Policy\n\nAt Lumina Lighting, we stand behind the quality of our commercial LED fixtures. All indoor fixtures carry a 3-year limited warranty from the original date of purchase.\n\nReturn & Exchange Conditions:\n• Returns within 30 days of delivery receive a 100% full refund to the original payment method.\n• Returns made between 31 and 60 days are subject to a 15% restocking fee.\n• Items damaged during installation or modified by third-party electricians are ineligible for return.\nTo initiate a return, customers must email support@luminalighting.com with their order number and original sales receipt.\n\n---------------------------------------------------\nINVOICE #LL-89042\nLumina Lighting Sales Inc.\nDate of Purchase: October 5, 2026\nDate of Delivery: October 9, 2026\nCustomer: Harrison Architecture Studio (Attn: David Harrison)\n\nItems Purchased:\n1. Model L-100 Architectural Pendant Light (4 units @ $150) = $600\n2. Model L-250 Recessed LED Downlight Strip (10 units @ $40) = $400\nSubtotal: $1,000\nStandard Shipping: $50\nTotal Paid: $1,050 (Paid via Visa Credit Card)\n\n---------------------------------------------------\nCustomer Review posted on Metro Design Forum\nReviewer: David Harrison (Harrison Architecture Studio)\nDate: November 15, 2026\nRating: 4/5 Stars\n\nReview: We purchased several L-100 pendant lights and L-250 LED strips for a client office renovation in October. The fixtures look stunning and the build quality is top-notch. However, our client decided to change the conference room layout, so we ended up needing only 2 of the L-100 pendant lights.\n\nI initiated a return for the 2 unused, unopened L-100 pendant lights on November 12. Since it was 34 days after the October 9 delivery date, Lumina applied the 15% restocking fee as stated in their policy. The return process was smooth, and customer service issued the credit promptly to my Visa card. I would definitely purchase from Lumina again.",
+        "translation": ""
+      }
+    ],
+    "question": "What refund amount did Mr. Harrison receive for the 2 returned pendant lights?",
+    "choices": [
+      "$225",
+      "$255",
+      "$285",
+      "$300"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "반품한 펜던트 조명 2개의 금액은 2 x $150 = $300 입니다. 여기에 15% 재고보충비($300 x 0.15 = $45)가 공제되므로 실제 환불 금액은 $300 - $45 = $255 가 됩니다. 따라서 (B)가 정답입니다.",
+    "evidence": [],
+    "optionReasons": []
+  }
+]

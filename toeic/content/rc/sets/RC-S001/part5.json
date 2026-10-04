@@ -1,1 +1,482 @@
-[]
+[
+  {
+    "id": "RC-S001-P5-Q101",
+    "part": 5,
+    "questionNumber": 101,
+    "question": "------- the unexpected delay in international freight transit, the assembly team completed the prototype on schedule.",
+    "choices": [
+      "Although",
+      "Whereas",
+      "Despite",
+      "Even if"
+    ],
+    "answer": 2,
+    "translation": "국제 화물 수송의 예기치 않은 지연에도 불구하고, 조립 팀은 예정대로 시제품을 완성했습니다.",
+    "vocab": "despite (~에도 불구하고), freight transit (화물 수송), prototype (시제품), on schedule (정시에)",
+    "explanation": "빈칸 뒤에 주어+동사가 없는 명사구(the unexpected delay in international freight transit)가 이어지므로 전치사가 필요합니다. (C) Despite는 명사구를 받는 전치사로 '지연에도 불구하고 성과를 냈다는' 양보의 의미를 매끄럽게 연결합니다. (A), (B), (D)는 모두 접속사이므로 명사구 앞에 위치할 수 없습니다."
+  },
+  {
+    "id": "RC-S001-P5-Q102",
+    "part": 5,
+    "questionNumber": 102,
+    "question": "The senior compliance auditor promised a ------- response to all inquiries submitted via the regulatory portal.",
+    "choices": [
+      "prompt",
+      "gradual",
+      "spacious",
+      "hesitant"
+    ],
+    "answer": 0,
+    "translation": "수석 준수 감사관은 규제 포털을 통해 제출된 모든 문의에 대해 신속한 답변을 약속했습니다.",
+    "vocab": "compliance auditor (준수 감사관), prompt (신속한, 즉각적인), regulatory portal (규제 포털)",
+    "explanation": "명사 response를 수식하는 적절한 어휘를 고르는 문제입니다. 문의 사항에 대해 지체 없이 응답하겠다는 문맥이므로 '신속한'을 뜻하는 (A) prompt가 정답입니다. 'prompt response'는 비즈니스 빈출 연어입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q103",
+    "part": 5,
+    "questionNumber": 103,
+    "question": "The department director requested that the annual strategic plan ------- to the executive committee before Friday.",
+    "choices": [
+      "submits",
+      "will submit",
+      "has submitted",
+      "be submitted"
+    ],
+    "answer": 3,
+    "translation": "부서장은 연간 전략 계획서가 금요일 전에 집행 위원회에 제출되어야 한다고 요청했습니다.",
+    "vocab": "department director (부서장), requested that (~라고 요청하다), executive committee (집행 위원회)",
+    "explanation": "요청 동사 'request' 뒤의 that절에는 당위성을 나타내는 조동사 should가 생략되므로 [동사원형]이 와야 하며, 주어인 계획서(plan)는 제출되는 대상이므로 수동태 'be submitted'가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q104",
+    "part": 5,
+    "questionNumber": 104,
+    "question": "Meridian Solutions is actively recruiting an experienced database administrator ------- primary focus will be cloud migration.",
+    "choices": [
+      "who",
+      "whose",
+      "whom",
+      "which"
+    ],
+    "answer": 1,
+    "translation": "메리디언 솔루션즈는 주된 주안점이 클라우드 이전이 될 경력 있는 데이터베이스 관리자를 적극적으로 채용하고 있습니다.",
+    "vocab": "recruit (채용하다), database administrator (데이터베이스 관리자), primary focus (주된 주안점), cloud migration (클라우드 이전)",
+    "explanation": "선행사(an experienced database administrator)와 뒤의 명사구(primary focus) 사이의 소유 관계(~의 주된 주안점)를 이끄는 소유격 관계대명사 (B) whose가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q105",
+    "part": 5,
+    "questionNumber": 105,
+    "question": "By the time the commercial complex opens next autumn, the firm ------- the structural safety assessment.",
+    "choices": [
+      "finished",
+      "will have finished",
+      "finishes",
+      "has finished"
+    ],
+    "answer": 1,
+    "translation": "내년 가을에 상업 복합 단지가 개장할 때쯤이면, 그 회사는 구조 안전 진단을 끝내 놓았을 것입니다.",
+    "vocab": "commercial complex (상업 복합 단지), structural safety assessment (구조 안전 진단)",
+    "explanation": "'By the time + 현재시제(opens)'절이 미래의 기준 시점을 나타내므로, 주절에는 그 시점 이전의 완료를 나타내는 미래완료 시제 (B) will have finished가 와야 합니다."
+  },
+  {
+    "id": "RC-S001-P5-Q106",
+    "part": 5,
+    "questionNumber": 106,
+    "question": "The tentative conference itinerary posted on the intranet is ------- to alteration depending on keynote speaker availability.",
+    "choices": [
+      "capable",
+      "conditional",
+      "bound",
+      "subject"
+    ],
+    "answer": 3,
+    "translation": "사내망에 게시된 임시 컨퍼런스 일정은 기조 연설자의 참석 가능 여부에 따라 변경될 수 있습니다.",
+    "vocab": "tentative itinerary (임시 일정표), alteration (변동, 변경), keynote speaker (기조 연설자), be subject to (~의 영향을 받기 쉬운, 변경될 수 있는)",
+    "explanation": "'be subject to alteration/change'는 '변경될 수 있다'는 관용적 표현으로 (D) subject가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q107",
+    "part": 5,
+    "questionNumber": 107,
+    "question": "Only after the chief financial officer presented the revised budget ------- to authorize the expansion project.",
+    "choices": [
+      "did the board agree",
+      "the board agreed",
+      "agreed the board",
+      "has the board agreed"
+    ],
+    "answer": 0,
+    "translation": "최고 재무 책임자가 개정 예산안을 제출하고 나서야 비로소 이사회는 확장 프로젝트를 승인하는 데 동의했습니다.",
+    "vocab": "chief financial officer (최고 재무 책임자), revised budget (개정 예산안), authorize (승인하다)",
+    "explanation": "강조 어구인 'Only after ~'가 문두에 위치하면 주절에 도치(조동사+주어+동사원형)가 일어납니다. 과거 시제 사건이므로 (A) did the board agree가 올바른 도치 어순입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q108",
+    "part": 5,
+    "questionNumber": 108,
+    "question": "The plant manager expects all shift supervisors ------- the updated safety protocol before resuming production.",
+    "choices": [
+      "implement",
+      "implementing",
+      "to implement",
+      "implemented"
+    ],
+    "answer": 2,
+    "translation": "공장장은 모든 교대 근무 감독관들이 생산을 재개하기 전에 최신 안전 지침을 시행하기를 바랍니다.",
+    "vocab": "shift supervisor (교대 근무 감독관), implement (시행하다), safety protocol (안전 지침), resume (재개하다)",
+    "explanation": "'expect + 목적어 + to 동사원형' 문형으로 목적격 보어 자리에 to부정사인 (C) to implement가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q109",
+    "part": 5,
+    "questionNumber": 109,
+    "question": "Since the introduction of the streamlined inventory framework, operational costs ------- by nearly fifteen percent.",
+    "choices": [
+      "fell",
+      "falls",
+      "will fall",
+      "have fallen"
+    ],
+    "answer": 3,
+    "translation": "간소화된 재고 관리 체계가 도입된 이래로, 운영 비용이 15% 가까이 감소했습니다.",
+    "vocab": "introduction (도입), streamlined inventory framework (간소화된 재고 체계), operational costs (운영비)",
+    "explanation": "과거의 시작점을 나타내는 'Since + 명사' 구문과 호응하여 과거부터 현재까지 지속된 결과를 나타내는 현재완료 시제 (D) have fallen이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q110",
+    "part": 5,
+    "questionNumber": 110,
+    "question": "Ms. Sterling drafted the comprehensive merger agreement all by -------, earning commendation from the directors.",
+    "choices": [
+      "herself",
+      "she",
+      "her",
+      "hers"
+    ],
+    "answer": 0,
+    "translation": "스털링 씨는 남의 도움 없이 혼자 힘으로 종합 합병 계약서를 작성하여 이사들로부터 찬사를 받았습니다.",
+    "vocab": "draft (작성하다), comprehensive merger agreement (종합 합병 계약서), commendation (칭찬, 찬사)",
+    "explanation": "'all by oneself'는 '타인의 도움 없이 스스로'라는 관용구이므로 재귀대명사 (A) herself가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q111",
+    "part": 5,
+    "questionNumber": 111,
+    "question": "The newly installed automated assembly line functions so ------- that overall factory throughput has doubled.",
+    "choices": [
+      "efficient",
+      "efficiently",
+      "efficiency",
+      "efficiencies"
+    ],
+    "answer": 1,
+    "translation": "새로 설치된 자동 조립 라인이 매우 효율적으로 작동하여 전체 공장 생산량이 두 배로 늘었습니다.",
+    "vocab": "automated assembly line (자동 조립 라인), function (작동하다), throughput (생산량, 처리량)",
+    "explanation": "동사 'functions'를 수식하며 'so + 부사 + that' 결과를 이끄는 부사 (B) efficiently가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q112",
+    "part": 5,
+    "questionNumber": 112,
+    "question": "The executive committee decided to allocate capital not to short-term marketing ------- to long-term research.",
+    "choices": [
+      "and also",
+      "or else",
+      "but rather",
+      "nor even"
+    ],
+    "answer": 2,
+    "translation": "집행 위원회는 단기 마케팅이 아니라 오히려 장기 연구 개발에 자본을 배분하기로 결정했습니다.",
+    "vocab": "allocate capital (자본을 배분하다), long-term research (장기 연구)",
+    "explanation": "'not A but rather B' (A가 아니라 오히려 B) 구문을 형성하는 (C) but rather가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q113",
+    "part": 5,
+    "questionNumber": 113,
+    "question": "The newly appointed chief technology officer brings extensive ------- in cybersecurity infrastructure.",
+    "choices": [
+      "expert",
+      "expertly",
+      "expertise",
+      "expertness"
+    ],
+    "answer": 2,
+    "translation": "새로 임명된 최고 기술 책임자는 사이버 보안 인프라 분야에서 풍부한 전문 지식을 제공합니다.",
+    "vocab": "chief technology officer (최고 기술 책임자), extensive expertise (풍부한 전문 지식)",
+    "explanation": "형용사 'extensive'의 수식을 받는 불가산 명사로 '전문 지식'을 뜻하는 (C) expertise가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q114",
+    "part": 5,
+    "questionNumber": 114,
+    "question": "------- the volatility in commodity prices, the investment board advised hedging against currency risks.",
+    "choices": [
+      "Given",
+      "Provided",
+      "Whereas",
+      "Even if"
+    ],
+    "answer": 0,
+    "translation": "원자재 가격의 변동성을 고려할 때, 투자 위원회는 통화 위험에 대비해 헤지할 것을 권고했습니다.",
+    "vocab": "volatility (변동성), commodity prices (원자재 가격), hedge against (~에 대비해 헤지/위험회피하다)",
+    "explanation": "뒤에 명사구(the volatility in commodity prices)를 받아 '~를 고려해 볼 때'라는 의미를 나타내는 전치사 (A) Given이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q115",
+    "part": 5,
+    "questionNumber": 115,
+    "question": "A number of distinguished research fellows ------- scheduled to present their findings at the symposium.",
+    "choices": [
+      "is",
+      "was",
+      "has",
+      "are"
+    ],
+    "answer": 3,
+    "translation": "수많은 저명한 연구원들이 심포지엄에서 자신들의 연구 결과를 발표할 예정입니다.",
+    "vocab": "distinguished research fellows (저명한 연구원들), present findings (연구 결과를 발표하다)",
+    "explanation": "'A number of + 복수명사'는 복수 취급을 하므로 복수 동사인 (D) are가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q116",
+    "part": 5,
+    "questionNumber": 116,
+    "question": "Solace Health remains fully committed to ------- greenhouse gas emissions across all corporate facilities.",
+    "choices": [
+      "reduce",
+      "reducing",
+      "reduction",
+      "reduced"
+    ],
+    "answer": 1,
+    "translation": "솔라스 헬스는 모든 기업 시설에서 온실가스 배출량을 줄이는 데 전력을 다하고 있습니다.",
+    "vocab": "be committed to -ing (~에 전력을 다하다), greenhouse gas emissions (온실가스 배출)",
+    "explanation": "'be committed to'의 to는 전치사이므로 뒤에 목적어(greenhouse gas emissions)를 직접 취할 수 있는 동명사 (B) reducing이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q117",
+    "part": 5,
+    "questionNumber": 117,
+    "question": "The product design team was remarkably ------- to the constructive critiques submitted by beta testers.",
+    "choices": [
+      "receptive",
+      "reception",
+      "receipt",
+      "receptively"
+    ],
+    "answer": 0,
+    "translation": "제품 디자인 팀은 베타 테스터들이 제출한 건설적인 비판을 놀라울 정도로 잘 수용했습니다.",
+    "vocab": "remarkably receptive to (~에 놀라울 정도로 수용적인), constructive critique (건설적인 비판)",
+    "explanation": "be동사 뒤에서 주격 보어 역할을 하며 전치사 to와 어울려 '~를 잘 수용하는'을 뜻하는 형용사 (A) receptive가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q118",
+    "part": 5,
+    "questionNumber": 118,
+    "question": "Contractors may request an extension without penalty ------- they submit written justification three weeks prior.",
+    "choices": [
+      "regardless of",
+      "instead of",
+      "prior to",
+      "as long as"
+    ],
+    "answer": 3,
+    "translation": "계약업체들은 3주 전에 서면 사유서를 제출하기만 한다면 위약금 없이 연장을 요청할 수 있습니다.",
+    "vocab": "contractor (계약업체), extension (연장), written justification (서면 사유서)",
+    "explanation": "뒤에 [주어+동사] 절이 연결되므로 조건을 이끄는 접속사 (D) as long as (~하는 한, ~하기만 하면)가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q119",
+    "part": 5,
+    "questionNumber": 119,
+    "question": "To upgrade the manufacturing plant, the management decided to replace all obsolete ------- with robotic units.",
+    "choices": [
+      "machineries",
+      "machine",
+      "machinery",
+      "machinist"
+    ],
+    "answer": 2,
+    "translation": "제조 공장을 업그레이드하기 위해, 경영진은 모든 노후화된 기계 설비를 로봇 장비로 교체하기로 결정했습니다.",
+    "vocab": "obsolete machinery (노후화된 기계 설비), robotic units (로봇 장비)",
+    "explanation": "'machinery'는 기계류 전반을 뜻하는 불가산 명사이므로 단수 형태인 (C) machinery가 올바릅니다."
+  },
+  {
+    "id": "RC-S001-P5-Q120",
+    "part": 5,
+    "questionNumber": 120,
+    "question": "The key covenants of the loan agreement will be ------- in the upcoming financial disclosure report.",
+    "choices": [
+      "publish",
+      "published",
+      "publishing",
+      "publishes"
+    ],
+    "answer": 1,
+    "translation": "대출 계약의 주요 약정 조항들은 다가오는 재무 공시 보고서에 게재될 것입니다.",
+    "vocab": "key covenants (주요 약정 조항), loan agreement (대출 계약), financial disclosure (재무 공시)",
+    "explanation": "조동사 수동태 'will be + 과거분사' 구조로 주어인 조항들(covenants)이 공시 보고서에 '게재되다'의 의미를 완성하는 (B) published가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q121",
+    "part": 5,
+    "questionNumber": 121,
+    "question": "------- the chief engineer inspected the turbine logs earlier, the power outage would have been averted.",
+    "choices": [
+      "Had",
+      "If",
+      "Unless",
+      "Should"
+    ],
+    "answer": 0,
+    "translation": "수석 엔지니어가 터빈 정비 기록을 더 일찍 점검했더라면, 정전 사태를 막을 수 있었을 것입니다.",
+    "vocab": "turbine logs (터빈 정비 기록), power outage (정전), avert (막다, 피하다)",
+    "explanation": "가정법 과거완료에서 접속사 If가 생략되면서 [Had + 주어 + p.p.]로 도치된 문장이므로 (A) Had가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q122",
+    "part": 5,
+    "questionNumber": 122,
+    "question": "------- the revised corporate ethics charter, all officers must disclose potential conflicts of interest.",
+    "choices": [
+      "Instead of",
+      "As far as",
+      "In accordance with",
+      "Prior to"
+    ],
+    "answer": 2,
+    "translation": "개정된 기업 윤리 헌장에 따라, 모든 임원들은 잠재적인 이해충돌 가능성을 공개해야 합니다.",
+    "vocab": "corporate ethics charter (기업 윤리 헌장), conflict of interest (이해충돌)",
+    "explanation": "규정이나 지침 준수를 나타내는 전치사구 (C) In accordance with (~에 따라, 준수하여)가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q123",
+    "part": 5,
+    "questionNumber": 123,
+    "question": "Visitors must present a recognized form of ------- at the security checkpoint before obtaining a pass.",
+    "choices": [
+      "destination",
+      "circulation",
+      "prescription",
+      "identification"
+    ],
+    "answer": 3,
+    "translation": "방문객들은 통행증을 받기 전에 보안 검문소에서 공인된 신분증을 제시해야 합니다.",
+    "vocab": "recognized form of identification (공인된 신분증), security checkpoint (보안 검문소)",
+    "explanation": "'form of identification'은 '신분증'을 뜻하는 전형적인 연어 결합이므로 (D) identification이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q124",
+    "part": 5,
+    "questionNumber": 124,
+    "question": "The confidential audit files ------- on the boardroom table must be secured in the vault immediately.",
+    "choices": [
+      "leaving",
+      "left",
+      "leave",
+      "to leave"
+    ],
+    "answer": 1,
+    "translation": "이사 회의실 탁자 위에 방치된 기밀 감사 파일들은 즉시 금고에 보관되어야 합니다.",
+    "vocab": "confidential audit files (기밀 감사 파일), secured in the vault (금고에 보관된)",
+    "explanation": "명사 'files'를 뒤에서 수식하는 과거분사 (B) left (남겨진, 방치된)가 수동 의미 구조를 완성합니다."
+  },
+  {
+    "id": "RC-S001-P5-Q125",
+    "part": 5,
+    "questionNumber": 125,
+    "question": "The environmental agency intends to ------- substantial fines on facilities that breach emission standards.",
+    "choices": [
+      "impose",
+      "acquire",
+      "resume",
+      "undergo"
+    ],
+    "answer": 0,
+    "translation": "환경청은 배출 기준을 위반하는 시설들에 상당한 벌금을 부과할 계획입니다.",
+    "vocab": "environmental agency (환경청), substantial fine (상당한 벌금), breach emission standards (배출 기준을 위반하다)",
+    "explanation": "'impose + 벌금 + on' 구문으로 벌금을 부과하다를 뜻하는 (A) impose가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q126",
+    "part": 5,
+    "questionNumber": 126,
+    "question": "The empirical findings detailed in the annual report were ------- identical to the computer simulations.",
+    "choices": [
+      "mutually",
+      "abruptly",
+      "intensely",
+      "virtually"
+    ],
+    "answer": 3,
+    "translation": "연례 보고서에 상세히 기술된 실증적 연구 결과는 컴퓨터 시뮬레이션과 사실상 동일했습니다.",
+    "vocab": "empirical findings (실증적 연구 결과), virtually identical (사실상 동일한)",
+    "explanation": "'virtually identical'은 '사실상/거의 동일한'이라는 고정 연어 표현이므로 부사 (D) virtually가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q127",
+    "part": 5,
+    "questionNumber": 127,
+    "question": "------- completing the mandatory compliance module, trainees will be transferred to their assigned teams.",
+    "choices": [
+      "Because",
+      "During",
+      "Upon",
+      "Toward"
+    ],
+    "answer": 2,
+    "translation": "의무 준수 교육 모듈을 완료하자마자, 수습 직원들은 지정된 팀으로 전근될 것입니다.",
+    "vocab": "mandatory compliance module (의무 준수 교육 모듈), trainee (수습 직원, 교육생)",
+    "explanation": "'Upon + -ing'는 '~하자마자 / 완료하는 즉시'라는 시점의 연속성을 이끄는 전치사구로 (C) Upon이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q128",
+    "part": 5,
+    "questionNumber": 128,
+    "question": "The legal department drafted a ------- supplier contract to clarify intellectual property ownership.",
+    "choices": [
+      "comprehensively",
+      "comprehensive",
+      "comprehension",
+      "comprehensiveness"
+    ],
+    "answer": 1,
+    "translation": "법무 부서는 지적 재산권 소유권을 명확히 하기 위해 포괄적인 공급업체 계약서를 작성했습니다.",
+    "vocab": "legal department (법무 부서), comprehensive contract (포괄적인 계약서), intellectual property (지적 재산권)",
+    "explanation": "명사구 'supplier contract'를 꾸미는 형용사 (B) comprehensive (포괄적인, 종합적인)가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P5-Q129",
+    "part": 5,
+    "questionNumber": 129,
+    "question": "As soon as the chief medical officer ------- the clinical trial protocol, patient recruitment will commence.",
+    "choices": [
+      "approves",
+      "will approve",
+      "approved",
+      "has approving"
+    ],
+    "answer": 0,
+    "translation": "수석 의료 책임자가 임상시험 계획서를 승인하자마자, 환자 모집이 시작될 것입니다.",
+    "vocab": "chief medical officer (수석 의료 책임자), clinical trial protocol (임상시험 계획서), recruitment (모집)",
+    "explanation": "시간 부사절 'As soon as' 내에서는 주절 시제가 미래(will commence)이더라도 현재시제 (A) approves가 미래를 대신합니다."
+  },
+  {
+    "id": "RC-S001-P5-Q130",
+    "part": 5,
+    "questionNumber": 130,
+    "question": "Please direct any ------- inquiries regarding the tax incentive policy to the accounting group.",
+    "choices": [
+      "remain",
+      "remaining",
+      "remained",
+      "remainder"
+    ],
+    "answer": 1,
+    "translation": "세제 혜택 정책과 관련하여 남아 있는 문의 사항은 회계팀으로 전달해 주시기 바랍니다.",
+    "vocab": "tax incentive policy (세제 혜택 정책), accounting group (회계팀), remaining inquiries (남아 있는 문의 사항)",
+    "explanation": "명사 'inquiries'를 앞에서 수식하여 '남아 있는'의 의미를 만드는 분사 형용사 (B) remaining이 정답입니다."
+  }
+]

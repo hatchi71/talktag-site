@@ -1,1 +1,338 @@
-[]
+[
+  {
+    "id": "RC-S001-P6-Q131",
+    "part": 6,
+    "questionNumber": 131,
+    "setId": "RC-S001-P6-G1",
+    "setTitle": "Questions 131-134",
+    "passageType": "email",
+    "passage": "From: Gregory Hale, Operations Director (g.hale@northlinelogistics.com)\nTo: Regional Managers (all.managers@northlinelogistics.com)\nDate: October 14, 2026\nSubject: Update on Regional Logistics Network Expansion\n\nDear Regional Managers,\n\nI am writing to provide an update regarding our ongoing logistics network expansion across the northern territory. Over the past six months, our engineering teams have worked tirelessly to upgrade regional distribution hubs. We are pleased to announce that construction on the primary hub in Hartford is nearly finished. [131]-------, full operations are expected to commence early next month.\n\nThis facility incorporates automated sorting machinery that will [132]------- reduce order processing times, cutting each shipment's handling time nearly in half. By streamlining package routing, we anticipate a thirty percent increase in daily delivery throughput. [133]-------. \n\nPlease review the attached operational schedule and share it with your local staff. If you have any questions regarding staff scheduling or vehicle allocation, do not hesitate to contact my office. Thank you for your continued [134]------- during this transitional phase.\n\nSincerely,\nGregory Hale",
+    "blank": 131,
+    "question": "Choose the best answer for blank [131].",
+    "choices": [
+      "Instead",
+      "Previously",
+      "For example",
+      "Consequently"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "하트퍼드 허브 공사가 마무리 단계라는 원인에 따른 결과로 다음 달 가동을 발표하므로 인과 접속부사 (D) Consequently가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q132",
+    "part": 6,
+    "questionNumber": 132,
+    "setId": "RC-S001-P6-G1",
+    "setTitle": "Questions 131-134",
+    "passageType": "email",
+    "passage": "From: Gregory Hale, Operations Director (g.hale@northlinelogistics.com)\nTo: Regional Managers (all.managers@northlinelogistics.com)\nDate: October 14, 2026\nSubject: Update on Regional Logistics Network Expansion\n\nDear Regional Managers,\n\nI am writing to provide an update regarding our ongoing logistics network expansion across the northern territory. Over the past six months, our engineering teams have worked tirelessly to upgrade regional distribution hubs. We are pleased to announce that construction on the primary hub in Hartford is nearly finished. [131]-------, full operations are expected to commence early next month.\n\nThis facility incorporates automated sorting machinery that will [132]------- reduce order processing times, cutting each shipment's handling time nearly in half. By streamlining package routing, we anticipate a thirty percent increase in daily delivery throughput. [133]-------. \n\nPlease review the attached operational schedule and share it with your local staff. If you have any questions regarding staff scheduling or vehicle allocation, do not hesitate to contact my office. Thank you for your continued [134]------- during this transitional phase.\n\nSincerely,\nGregory Hale",
+    "blank": 132,
+    "question": "Choose the best answer for blank [132].",
+    "choices": [
+      "substantially",
+      "marginally",
+      "temporarily",
+      "occasionally"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "자동 분류 기계 도입으로 처리 시간이 '상당폭' 단축되고 배송량이 30% 증대될 것이라는 연결이 자연스러우므로 (A) substantially가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q133",
+    "part": 6,
+    "questionNumber": 133,
+    "setId": "RC-S001-P6-G1",
+    "setTitle": "Questions 131-134",
+    "passageType": "email",
+    "passage": "From: Gregory Hale, Operations Director (g.hale@northlinelogistics.com)\nTo: Regional Managers (all.managers@northlinelogistics.com)\nDate: October 14, 2026\nSubject: Update on Regional Logistics Network Expansion\n\nDear Regional Managers,\n\nI am writing to provide an update regarding our ongoing logistics network expansion across the northern territory. Over the past six months, our engineering teams have worked tirelessly to upgrade regional distribution hubs. We are pleased to announce that construction on the primary hub in Hartford is nearly finished. [131]-------, full operations are expected to commence early next month.\n\nThis facility incorporates automated sorting machinery that will [132]------- reduce order processing times, cutting each shipment's handling time nearly in half. By streamlining package routing, we anticipate a thirty percent increase in daily delivery throughput. [133]-------. \n\nPlease review the attached operational schedule and share it with your local staff. If you have any questions regarding staff scheduling or vehicle allocation, do not hesitate to contact my office. Thank you for your continued [134]------- during this transitional phase.\n\nSincerely,\nGregory Hale",
+    "blank": 133,
+    "question": "Choose the best answer for blank [133].",
+    "choices": [
+      "We are considering canceling all future equipment upgrades in the territory.",
+      "The construction budget was exceeded due to unexpected material costs.",
+      "This efficiency gain will enable our network to process peak holiday order volumes seamlessly.",
+      "Local warehouse workers have requested additional overtime pay for the weekend."
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "앞 문장의 처리 시간 단축 및 배송량 30% 향상 성과를 받아 '이러한 효율성 향상이 연말 성수기 물량을 차질 없이 처리하게 해 줄 것'이라는 이점을 종합하는 (C)번 문장이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q134",
+    "part": 6,
+    "questionNumber": 134,
+    "setId": "RC-S001-P6-G1",
+    "setTitle": "Questions 131-134",
+    "passageType": "email",
+    "passage": "From: Gregory Hale, Operations Director (g.hale@northlinelogistics.com)\nTo: Regional Managers (all.managers@northlinelogistics.com)\nDate: October 14, 2026\nSubject: Update on Regional Logistics Network Expansion\n\nDear Regional Managers,\n\nI am writing to provide an update regarding our ongoing logistics network expansion across the northern territory. Over the past six months, our engineering teams have worked tirelessly to upgrade regional distribution hubs. We are pleased to announce that construction on the primary hub in Hartford is nearly finished. [131]-------, full operations are expected to commence early next month.\n\nThis facility incorporates automated sorting machinery that will [132]------- reduce order processing times, cutting each shipment's handling time nearly in half. By streamlining package routing, we anticipate a thirty percent increase in daily delivery throughput. [133]-------. \n\nPlease review the attached operational schedule and share it with your local staff. If you have any questions regarding staff scheduling or vehicle allocation, do not hesitate to contact my office. Thank you for your continued [134]------- during this transitional phase.\n\nSincerely,\nGregory Hale",
+    "blank": 134,
+    "question": "Choose the best answer for blank [134].",
+    "choices": [
+      "competition",
+      "cooperation",
+      "expectation",
+      "hesitation"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "이메일 마무리에서 과도기적 전환 기간 동안 보여 준 지속적인 '협조'에 감사를 표하는 (B) cooperation이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q135",
+    "part": 6,
+    "questionNumber": 135,
+    "setId": "RC-S001-P6-G2",
+    "setTitle": "Questions 135-138",
+    "passageType": "notice",
+    "passage": "NOTICE: Mandatory Energy Conservation Initiative\n\nIn accordance with our corporate sustainability goals, Crestview Enterprises will implement a mandatory energy conservation policy across all corporate offices starting November 1. This initiative aims to reduce carbon emissions and operational expenditure. All personnel are requested to [135]------- their energy usage by turning off lights and workstations at the end of each working day.\n\nFacilities management has installed smart thermostat sensors in all conference rooms. These devices automatically adjust indoor climate control based on room [136]-------, ensuring optimal energy efficiency without compromising comfort.\n\nDepartment managers are instructed to monitor compliance within their respective divisions. [137]-------. Employees who identify potential energy wastage or offer innovative green solutions are encouraged to submit their ideas to the sustainability task force. We [138]------- appreciate your commitment to a greener workplace.",
+    "blank": 135,
+    "question": "Choose the best answer for blank [135].",
+    "choices": [
+      "maximize",
+      "minimize",
+      "duplicate",
+      "neglect"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "퇴근 시 전원을 차단하여 에너지 사용량을 '최소화'하라는 지시가 합당하므로 (B) minimize가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q136",
+    "part": 6,
+    "questionNumber": 136,
+    "setId": "RC-S001-P6-G2",
+    "setTitle": "Questions 135-138",
+    "passageType": "notice",
+    "passage": "NOTICE: Mandatory Energy Conservation Initiative\n\nIn accordance with our corporate sustainability goals, Crestview Enterprises will implement a mandatory energy conservation policy across all corporate offices starting November 1. This initiative aims to reduce carbon emissions and operational expenditure. All personnel are requested to [135]------- their energy usage by turning off lights and workstations at the end of each working day.\n\nFacilities management has installed smart thermostat sensors in all conference rooms. These devices automatically adjust indoor climate control based on room [136]-------, ensuring optimal energy efficiency without compromising comfort.\n\nDepartment managers are instructed to monitor compliance within their respective divisions. [137]-------. Employees who identify potential energy wastage or offer innovative green solutions are encouraged to submit their ideas to the sustainability task force. We [138]------- appreciate your commitment to a greener workplace.",
+    "blank": 136,
+    "question": "Choose the best answer for blank [136].",
+    "choices": [
+      "ownership",
+      "decoration",
+      "furniture",
+      "occupancy"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "온도 센서가 회의실의 사람이 들어차 있는 상태, 즉 '수용 인원/사용 여부(occupancy)'를 감지하여 조절하므로 (D) occupancy가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q137",
+    "part": 6,
+    "questionNumber": 137,
+    "setId": "RC-S001-P6-G2",
+    "setTitle": "Questions 135-138",
+    "passageType": "notice",
+    "passage": "NOTICE: Mandatory Energy Conservation Initiative\n\nIn accordance with our corporate sustainability goals, Crestview Enterprises will implement a mandatory energy conservation policy across all corporate offices starting November 1. This initiative aims to reduce carbon emissions and operational expenditure. All personnel are requested to [135]------- their energy usage by turning off lights and workstations at the end of each working day.\n\nFacilities management has installed smart thermostat sensors in all conference rooms. These devices automatically adjust indoor climate control based on room [136]-------, ensuring optimal energy efficiency without compromising comfort.\n\nDepartment managers are instructed to monitor compliance within their respective divisions. [137]-------. Employees who identify potential energy wastage or offer innovative green solutions are encouraged to submit their ideas to the sustainability task force. We [138]------- appreciate your commitment to a greener workplace.",
+    "blank": 137,
+    "question": "Choose the best answer for blank [137].",
+    "choices": [
+      "Weekly compliance evaluations will be conducted to track department progress.",
+      "Building maintenance will replace all office carpeting during the upcoming weekend.",
+      "Free parking passes will be issued to employees who commute by car.",
+      "Several vending machines will be relocated to the second-floor lounge."
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "앞 문장의 부서별 이행 감독 지시에 이어 '매주 준수 평가를 실시하여 부서별 진행을 추적할 것'이라는 점검 방침을 명시한 (A)번 문장이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q138",
+    "part": 6,
+    "questionNumber": 138,
+    "setId": "RC-S001-P6-G2",
+    "setTitle": "Questions 135-138",
+    "passageType": "notice",
+    "passage": "NOTICE: Mandatory Energy Conservation Initiative\n\nIn accordance with our corporate sustainability goals, Crestview Enterprises will implement a mandatory energy conservation policy across all corporate offices starting November 1. This initiative aims to reduce carbon emissions and operational expenditure. All personnel are requested to [135]------- their energy usage by turning off lights and workstations at the end of each working day.\n\nFacilities management has installed smart thermostat sensors in all conference rooms. These devices automatically adjust indoor climate control based on room [136]-------, ensuring optimal energy efficiency without compromising comfort.\n\nDepartment managers are instructed to monitor compliance within their respective divisions. [137]-------. Employees who identify potential energy wastage or offer innovative green solutions are encouraged to submit their ideas to the sustainability task force. We [138]------- appreciate your commitment to a greener workplace.",
+    "blank": 138,
+    "question": "Choose the best answer for blank [138].",
+    "choices": [
+      "comprehensively",
+      "formerly",
+      "sincerely",
+      "narrowly"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "문장 'We ------- appreciate your commitment…'에서 동사 appreciate를 수식하여 '진심으로 감사드린다'는 의미를 만드는 부사 (C) sincerely가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q139",
+    "part": 6,
+    "questionNumber": 139,
+    "setId": "RC-S001-P6-G3",
+    "setTitle": "Questions 139-142",
+    "passageType": "letter",
+    "passage": "Dr. Elena Rostova\nInstitute for Executive Development\n450 University Avenue, Suite 800\nSeattle, WA 98101\n\nDear Dr. Rostova,\n\nOn behalf of the Global Business Forum, I am delighted to invite you as a keynote speaker at our upcoming Annual Leadership Summit. The event will take place from March 15 to March 17 at the Grand Plaza Hotel in San Francisco. This year’s summit will focus on sustainable corporate governance and digital transformation.\n\nGiven your distinguished research and [139]------- expertise in executive leadership, we believe your insights would be invaluable to our attendees. We would be honored if you could deliver a 45-minute address on the opening morning.\n\n[140]-------, all travel expenses, luxury lodging, and an honorarium will be fully provided by the organizing committee. [141]-------.\n\nPlease confirm your availability by November 30 so that we may finalize the conference schedule. [142]------- we hope your busy schedule permits your attendance, we understand if prior obligations prevent you from accepting.\n\nWarm regards,\nArthur Pendelton, Executive Chair",
+    "blank": 139,
+    "question": "Choose the best answer for blank [139].",
+    "choices": [
+      "extensive",
+      "extravagant",
+      "temporary",
+      "defensive"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "저명한 연사의 '풍부한 전문 지식'을 높이 평가하는 문맥이므로 (A) extensive가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q140",
+    "part": 6,
+    "questionNumber": 140,
+    "setId": "RC-S001-P6-G3",
+    "setTitle": "Questions 139-142",
+    "passageType": "letter",
+    "passage": "Dr. Elena Rostova\nInstitute for Executive Development\n450 University Avenue, Suite 800\nSeattle, WA 98101\n\nDear Dr. Rostova,\n\nOn behalf of the Global Business Forum, I am delighted to invite you as a keynote speaker at our upcoming Annual Leadership Summit. The event will take place from March 15 to March 17 at the Grand Plaza Hotel in San Francisco. This year’s summit will focus on sustainable corporate governance and digital transformation.\n\nGiven your distinguished research and [139]------- expertise in executive leadership, we believe your insights would be invaluable to our attendees. We would be honored if you could deliver a 45-minute address on the opening morning.\n\n[140]-------, all travel expenses, luxury lodging, and an honorarium will be fully provided by the organizing committee. [141]-------.\n\nPlease confirm your availability by November 30 so that we may finalize the conference schedule. [142]------- we hope your busy schedule permits your attendance, we understand if prior obligations prevent you from accepting.\n\nWarm regards,\nArthur Pendelton, Executive Chair",
+    "blank": 140,
+    "question": "Choose the best answer for blank [140].",
+    "choices": [
+      "Alternatively",
+      "Additionally",
+      "Conversely",
+      "Nevertheless"
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "기조 연설 초청에 덧붙여 경비 전액 지원 및 강사료 지급 혜택을 추가 안내하는 순접 접속부사 (B) Additionally가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q141",
+    "part": 6,
+    "questionNumber": 141,
+    "setId": "RC-S001-P6-G3",
+    "setTitle": "Questions 139-142",
+    "passageType": "letter",
+    "passage": "Dr. Elena Rostova\nInstitute for Executive Development\n450 University Avenue, Suite 800\nSeattle, WA 98101\n\nDear Dr. Rostova,\n\nOn behalf of the Global Business Forum, I am delighted to invite you as a keynote speaker at our upcoming Annual Leadership Summit. The event will take place from March 15 to March 17 at the Grand Plaza Hotel in San Francisco. This year’s summit will focus on sustainable corporate governance and digital transformation.\n\nGiven your distinguished research and [139]------- expertise in executive leadership, we believe your insights would be invaluable to our attendees. We would be honored if you could deliver a 45-minute address on the opening morning.\n\n[140]-------, all travel expenses, luxury lodging, and an honorarium will be fully provided by the organizing committee. [141]-------.\n\nPlease confirm your availability by November 30 so that we may finalize the conference schedule. [142]------- we hope your busy schedule permits your attendance, we understand if prior obligations prevent you from accepting.\n\nWarm regards,\nArthur Pendelton, Executive Chair",
+    "blank": 141,
+    "question": "Choose the best answer for blank [141].",
+    "choices": [
+      "We regret to inform you that the conference has been canceled this year.",
+      "Please send us your registration fee at your earliest convenience.",
+      "The hotel does not offer complimentary breakfast for conference guests.",
+      "A detailed itinerary and formal speaker agreement are enclosed for your review."
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "경비 지원 안내 후 검토용 상세 일정표와 정식 연사 협약서가 동봉되어 있음을 안내하는 (D)번 문장이 자연스럽습니다."
+  },
+  {
+    "id": "RC-S001-P6-Q142",
+    "part": 6,
+    "questionNumber": 142,
+    "setId": "RC-S001-P6-G3",
+    "setTitle": "Questions 139-142",
+    "passageType": "letter",
+    "passage": "Dr. Elena Rostova\nInstitute for Executive Development\n450 University Avenue, Suite 800\nSeattle, WA 98101\n\nDear Dr. Rostova,\n\nOn behalf of the Global Business Forum, I am delighted to invite you as a keynote speaker at our upcoming Annual Leadership Summit. The event will take place from March 15 to March 17 at the Grand Plaza Hotel in San Francisco. This year’s summit will focus on sustainable corporate governance and digital transformation.\n\nGiven your distinguished research and [139]------- expertise in executive leadership, we believe your insights would be invaluable to our attendees. We would be honored if you could deliver a 45-minute address on the opening morning.\n\n[140]-------, all travel expenses, luxury lodging, and an honorarium will be fully provided by the organizing committee. [141]-------.\n\nPlease confirm your availability by November 30 so that we may finalize the conference schedule. [142]------- we hope your busy schedule permits your attendance, we understand if prior obligations prevent you from accepting.\n\nWarm regards,\nArthur Pendelton, Executive Chair",
+    "blank": 142,
+    "question": "Choose the best answer for blank [142].",
+    "choices": [
+      "Because",
+      "Unless",
+      "While",
+      "Prior to"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "연사의 참석을 희망하지만 선약이 있을 경우 거절해도 이해한다는 대비/양보 구문이므로 접속사 (C) While (~이기는 하지만)이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q143",
+    "part": 6,
+    "questionNumber": 143,
+    "setId": "RC-S001-P6-G4",
+    "setTitle": "Questions 143-146",
+    "passageType": "article",
+    "passage": "Apex Pharmaceuticals Receives Regulatory Approval\n\nBOSTON — Apex Pharmaceuticals announced yesterday that its flagship cardiovascular medication, CardiaPure, has received official regulatory approval from the Federal Health Authority. This major milestone comes after three years of extensive clinical trials involving over five thousand patients nationwide. [143]-------, the drug demonstrated remarkable efficacy in lowering blood pressure without causing significant side effects.\n\nIndustry analysts predict that CardiaPure will capture a [144]------- share of the global pharmaceutical market within its first year of release. Apex plans to initiate commercial production at its state-of-the-art facility in New Jersey next month, with global distribution slated for early spring.\n\nThe company has pledged to keep the retail price reasonable to ensure patient access. [145]-------. CEO Jonathan Marsh stated in a press briefing that expanding access to life-saving treatments remains the firm's top priority. [146]-------, Apex will offer financial assistance programs for low-income patients who qualify.",
+    "blank": 143,
+    "question": "Choose the best answer for blank [143].",
+    "choices": [
+      "Instead",
+      "Otherwise",
+      "Notably",
+      "Regrettably"
+    ],
+    "answer": 2,
+    "translation": "",
+    "vocab": "",
+    "explanation": "임상시험 결과 중 특기할 만한 우수 안전성과 효능을 강조하여 부각시키는 부사 (C) Notably (특히, 두드러지게)가 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q144",
+    "part": 6,
+    "questionNumber": 144,
+    "setId": "RC-S001-P6-G4",
+    "setTitle": "Questions 143-146",
+    "passageType": "article",
+    "passage": "Apex Pharmaceuticals Receives Regulatory Approval\n\nBOSTON — Apex Pharmaceuticals announced yesterday that its flagship cardiovascular medication, CardiaPure, has received official regulatory approval from the Federal Health Authority. This major milestone comes after three years of extensive clinical trials involving over five thousand patients nationwide. [143]-------, the drug demonstrated remarkable efficacy in lowering blood pressure without causing significant side effects.\n\nIndustry analysts predict that CardiaPure will capture a [144]------- share of the global pharmaceutical market within its first year of release. Apex plans to initiate commercial production at its state-of-the-art facility in New Jersey next month, with global distribution slated for early spring.\n\nThe company has pledged to keep the retail price reasonable to ensure patient access. [145]-------. CEO Jonathan Marsh stated in a press briefing that expanding access to life-saving treatments remains the firm's top priority. [146]-------, Apex will offer financial assistance programs for low-income patients who qualify.",
+    "blank": 144,
+    "question": "Choose the best answer for blank [144].",
+    "choices": [
+      "substantial",
+      "marginal",
+      "vacant",
+      "obsolete"
+    ],
+    "answer": 0,
+    "translation": "",
+    "vocab": "",
+    "explanation": "분석가들의 긍정적 전망을 담아 시장 점유율의 '상당한' 확대를 뜻하는 형용사 (A) substantial이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q145",
+    "part": 6,
+    "questionNumber": 145,
+    "setId": "RC-S001-P6-G4",
+    "setTitle": "Questions 143-146",
+    "passageType": "article",
+    "passage": "Apex Pharmaceuticals Receives Regulatory Approval\n\nBOSTON — Apex Pharmaceuticals announced yesterday that its flagship cardiovascular medication, CardiaPure, has received official regulatory approval from the Federal Health Authority. This major milestone comes after three years of extensive clinical trials involving over five thousand patients nationwide. [143]-------, the drug demonstrated remarkable efficacy in lowering blood pressure without causing significant side effects.\n\nIndustry analysts predict that CardiaPure will capture a [144]------- share of the global pharmaceutical market within its first year of release. Apex plans to initiate commercial production at its state-of-the-art facility in New Jersey next month, with global distribution slated for early spring.\n\nThe company has pledged to keep the retail price reasonable to ensure patient access. [145]-------. CEO Jonathan Marsh stated in a press briefing that expanding access to life-saving treatments remains the firm's top priority. [146]-------, Apex will offer financial assistance programs for low-income patients who qualify.",
+    "blank": 145,
+    "question": "Choose the best answer for blank [145].",
+    "choices": [
+      "Several competitor firms have filed lawsuits claiming patent infringement.",
+      "This pricing strategy ensures that the medication remains affordable to those in need.",
+      "Clinical trials for a second cardiovascular drug have been suspended indefinitely.",
+      "The company plans to double its marketing budget for television commercials."
+    ],
+    "answer": 1,
+    "translation": "",
+    "vocab": "",
+    "explanation": "앞 문장의 소비자가격 적정 수준 유지 약속에 이어 '이러한 가격 책정 전략이 환자들에게 부담 없는 가격을 보장한다'고 상술하는 (B)번 문장이 정답입니다."
+  },
+  {
+    "id": "RC-S001-P6-Q146",
+    "part": 6,
+    "questionNumber": 146,
+    "setId": "RC-S001-P6-G4",
+    "setTitle": "Questions 143-146",
+    "passageType": "article",
+    "passage": "Apex Pharmaceuticals Receives Regulatory Approval\n\nBOSTON — Apex Pharmaceuticals announced yesterday that its flagship cardiovascular medication, CardiaPure, has received official regulatory approval from the Federal Health Authority. This major milestone comes after three years of extensive clinical trials involving over five thousand patients nationwide. [143]-------, the drug demonstrated remarkable efficacy in lowering blood pressure without causing significant side effects.\n\nIndustry analysts predict that CardiaPure will capture a [144]------- share of the global pharmaceutical market within its first year of release. Apex plans to initiate commercial production at its state-of-the-art facility in New Jersey next month, with global distribution slated for early spring.\n\nThe company has pledged to keep the retail price reasonable to ensure patient access. [145]-------. CEO Jonathan Marsh stated in a press briefing that expanding access to life-saving treatments remains the firm's top priority. [146]-------, Apex will offer financial assistance programs for low-income patients who qualify.",
+    "blank": 146,
+    "question": "Choose the best answer for blank [146].",
+    "choices": [
+      "Instead",
+      "However",
+      "Otherwise",
+      "Furthermore"
+    ],
+    "answer": 3,
+    "translation": "",
+    "vocab": "",
+    "explanation": "적정 가격 책정에 덧붙여 저소득층 대상 재정 지원 프로그램 제공 혜택을 추가로 밝히고 있으므로 (D) Furthermore가 정답입니다."
+  }
+]
