@@ -25,14 +25,14 @@
   var audio = document.getElementById("audio");
   var isJapanese = data.language === "ja";
   var displayLevel = 0;
-  var displayLabels = ["한자", "한자와 히라가나", "한자와 히라가나와 한국어 해석"];
+  var displayLabels = ["한자", "한자와 후리가나", "한자와 후리가나와 한국어 해석"];
 
   var enabled = isJapanese;
   var active = -1;
   var section = document.createElement("section");
   section.className = isJapanese ? "sync-pilot sync-pilot-always-open" : "sync-pilot";
   if (isJapanese) {
-    section.innerHTML = '<div class="sync-display-control" data-level="0"><div class="sync-display-labels" aria-hidden="true"><span>한자</span><span>+ 히라가나</span><span>+ 한국어</span></div><input class="sync-display-range" id="syncDisplayLevel" type="range" min="0" max="2" step="1" value="0" aria-label="스크립트 표시 단계" aria-valuetext="한자"></div><p class="sync-status" role="status" aria-live="polite"></p><div class="sync-lines hide-reading hide-ko" aria-label="재생 위치와 항상 동기화된 문장별 스크립트"></div>';
+    section.innerHTML = '<div class="sync-display-control" data-level="0"><div class="sync-display-labels" aria-hidden="true"><span>한자</span><span>+ 후리가나</span><span>+ 한국어</span></div><input class="sync-display-range" id="syncDisplayLevel" type="range" min="0" max="2" step="1" value="0" aria-label="스크립트 표시 단계" aria-valuetext="한자"></div><p class="sync-status" role="status" aria-live="polite"></p><div class="sync-lines hide-reading hide-ko" aria-label="재생 위치와 항상 동기화된 문장별 스크립트"></div>';
   } else {
     section.innerHTML = '<h2>재생 스크립트</h2><p>재생 중인 문장이 자동으로 강조됩니다. 문장을 누르면 그 위치부터 다시 들을 수 있습니다.</p><button class="sync-enable" type="button" aria-expanded="false" aria-controls="syncContent">스크립트 싱크 열기</button><div id="syncContent" hidden><div class="sync-toolbar"><button type="button" id="syncPlay">▶ 재생</button><label><input type="checkbox" id="syncFollow" checked> 자동 따라가기</label><label><input type="checkbox" id="syncKorean"> 한국어 해석</label></div><p class="sync-status" role="status" aria-live="polite"></p><div class="sync-lines hide-ko" aria-label="재생 위치와 동기화된 문장별 스크립트"></div></div>';
   }
