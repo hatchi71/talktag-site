@@ -113,9 +113,13 @@
         return response.json();
       })
       .then(function (data) {
-        if (!data || !Array.isArray(data.stories) || data.stories.length !== 10) throw new Error("Unexpected story data.");
+        if (!data || !Array.isArray(data.stories)) throw new Error("Unexpected story data.");
+        var stories = data.stories.filter(function (story) {
+          return String(story.level || "").toLowerCase() === level;
+        });
+        if (stories.length !== 10) throw new Error("Unexpected story count.");
         var fragment = document.createDocumentFragment();
-        data.stories.forEach(function (story, index) { fragment.append(renderStory(story, index)); });
+        stories.forEach(function (story, index) { fragment.append(renderStory(story, index)); });
         container.replaceChildren(fragment);
       })
       .catch(function () {
