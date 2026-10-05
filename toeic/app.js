@@ -91,7 +91,20 @@ const star=node.querySelector('.star');star.textContent=state.starred.includes(q
 $('#questionArea').onclick=async e=>{if(!e.target.matches('.deleteButton'))return;const q=filtered()[currentIndex];if(q&&confirm('이 문제를 삭제할까요? 삭제 후에도 문제 보관함에서 복원할 수 있습니다.')){if(!await archiveRemoval([q],'현재 문제 삭제'))return;state.questions=state.questions.filter(item=>item.id!==q.id);delete state.results[q.id];state.starred=state.starred.filter(id=>id!==q.id);save();render()}};
 function answer(q,selected){state.results[q.id]={selected,correct:selected===q.answer,at:Date.now()};save();render()}
 function insertQuestions(newQs){if(!newQs.length)return;const shuffle=confirm(`새 문제 ${newQs.length}개를 추가합니다.\n확인: 기존 문제와 무작위로 섞기\n취소: 기존 문제 뒤에 순서대로 추가`);state.questions=[...state.questions,...newQs];if(shuffle){for(let i=state.questions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[state.questions[i],state.questions[j]]=[state.questions[j],state.questions[i]]}}}
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;currentIndex=0;save();render()});$('#retryMode').onchange=e=>{if(e.target.checked){state.results={};save();render()}};$('#resetCurrent').onclick=()=>{const q=filtered()[currentIndex];if(q){delete state.results[q.id];save();render()}};$('#resetAll').onclick=()=>{if(confirm('모든 문제의 정오답 기록을 초기화할까요? 문제 목록은 그대로 남습니다.')){state.results={};currentIndex=0;save();render()}};$('#keepReviewOnly').onclick=keepReviewQuestionsOnly;
+function resetSelectedSetProgress(){
+  if(!isOfficialSet())return;
+  const info=contentManifest?.sets.find(item=>item.id===selectedSetId);
+  if(!info||!confirm(`${info.title}의 Part 5·6·7 정오답 기록과 마지막 학습 위치를 초기화할까요?\n별표한 문제는 그대로 유지됩니다.`))return;
+  for(const part of [5,6,7]){
+    partStates[part].results={};partStates[part].filter='all';
+    localStorage.setItem(`toeic-official-progress-v1:${selectedSetId}:part${part}`,JSON.stringify({results:{},starred:partStates[part].starred,filter:'all'}));
+    delete practicePositions[`${selectedSetId}:part${part}`];
+  }
+  localStorage.setItem(POSITION_KEY,JSON.stringify(practicePositions));
+  state=partStates[activePart];currentIndex=0;render();
+  $('#setStatus').textContent=`${info.title}의 학습 기록을 초기화했습니다. 별표는 유지됩니다.`;
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;currentIndex=0;save();render()});$('#retryMode').onchange=e=>{if(e.target.checked){state.results={};save();render()}};$('#resetCurrent').onclick=()=>{const q=filtered()[currentIndex];if(q){delete state.results[q.id];save();render()}};$('#resetAll').onclick=()=>{if(confirm(`현재 Part ${activePart}의 정오답 기록을 초기화할까요? 문제 목록은 그대로 남습니다.`)){state.results={};currentIndex=0;save();render()}};$('#resetSet').onclick=resetSelectedSetProgress;$('#keepReviewOnly').onclick=keepReviewQuestionsOnly;
 function updateBroadcastDock(){const qs=filtered();$('#broadcastProgress').textContent=`Part ${activePart} · ${qs.length?currentIndex+1:0} / ${qs.length}`}
 function setBroadcastMode(on){document.body.classList.toggle('broadcast',on);$('#toggleBroadcast').classList.toggle('active',on);$('#toggleBroadcast .deckButtonTitle').textContent=on?'세로 모드 종료':'세로 모드';updateBroadcastDock();window.scrollTo({top:0,behavior:'smooth'})}
 $('#toggleBroadcast').onclick=()=>setBroadcastMode(!document.body.classList.contains('broadcast'));
@@ -708,14 +721,22 @@ async function chooseSet(setId){
   }catch(error){console.error(error);$('#setStatus').textContent='세트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';$('#setSelect').value='local-legacy';await chooseSet('local-legacy')}
   finally{$('#setSelect').disabled=false}
 }
+function updateSetResetLabel(){
+  const button=$('#resetSet');if(!button)return;
+  const info=contentManifest?.sets.find(item=>item.id===selectedSetId);
+  button.textContent=info?`${info.title} 기록 초기화`:'현재 세트 기록 초기화';
+  button.disabled=!isOfficialSet()||!info?.published;
+}
 function renderSetButtons(){
   const box=$('#setButtons');if(!box||!contentManifest)return;box.replaceChildren();
-  contentManifest.sets.forEach((item,index)=>{
+  contentManifest.sets.forEach(item=>{
     const button=document.createElement('button');button.type='button';button.className='setButton';button.dataset.setId=item.id;
-    button.innerHTML=`<span>연습문제 ${index+1}</span>${item.published?'':'<small>준비 중</small>'}`;
+    const label=document.createElement('span');label.textContent=item.title;button.append(label);
+    if(!item.published){const status=document.createElement('small');status.textContent='준비 중';button.append(status)}
     button.disabled=!item.published;button.classList.toggle('active',item.id===selectedSetId);button.setAttribute('aria-pressed',String(item.id===selectedSetId));
     if(item.published)button.onclick=()=>{const select=$('#setSelect');select.value=item.id;chooseSet(item.id)};box.append(button);
   });
+  updateSetResetLabel();
 }
 async function loadSetCatalog(){
   try{
