@@ -4,9 +4,10 @@
  const root=document.getElementById('lcPart');const id=Number(new URLSearchParams(location.search).get('part'));const p=parts[id-1];
  const el=(tag,text,cls)=>{const n=document.createElement(tag);n.textContent=text;n.className=cls||'';return n;};
  if(!p){root.append(el('h1','파트를 찾을 수 없습니다.'));const a=el('a','LC 전체 파트로 돌아가기');a.href='lc.html';root.append(a);return;}
- document.title='LC Part '+id+' · '+p[0]+' | TalkTag';
+ document.title='TalkTag TOEIC® 시험 대비 · LC Part '+id+' · '+p[0];
  const nav=el('nav','','lc-nav');nav.setAttribute('aria-label','LC 파트 선택');parts.forEach((_,i)=>{const a=el('a','Part '+(i+1));a.href='lc-part.html?part='+(i+1);if(i+1===id)a.setAttribute('aria-current','page');nav.append(a);});
- root.append(nav,el('div','TOEIC LISTENING · PART '+id,'ey'),el('h1',p[0]),el('p',p[1],'intro'),el('p','임시 학습 안내 · 음원과 영상은 추후 연결됩니다.','lc-notice'));
+ root.append(nav,el('div','TALKTAG ORIGINAL · LISTENING PART '+id,'ey'),el('h1',p[0]),el('p',p[1],'intro'),el('p','임시 학습 안내 · 음원과 영상은 추후 연결됩니다.','lc-notice'));
  const guide=el('section','','lc-panel');guide.append(el('h2','이렇게 연습해 보세요'));const ol=el('ol','');p.slice(2).forEach(t=>ol.append(el('li',t)));guide.append(ol);root.append(guide);
  const grid=el('div','','camp-grid');[['듣기 자료','파트별 음원을 준비하고 있습니다. 등록 후 이곳에서 재생할 수 있습니다.'],['영상 가이드','필요한 학습 영상이 있는 경우 이곳에서 선택해 볼 수 있도록 연결할 예정입니다.']].forEach(([title,desc])=>{const s=el('section','','camp-card vocal');s.append(el('div','콘텐츠 준비 중','camp-kicker'),el('h2',title),el('p',desc));grid.append(s);});root.append(grid);
+ const legal=el('footer','','toeic-legal');legal.setAttribute('aria-label','상표 및 콘텐츠 안내');legal.innerHTML='<strong>TalkTag 독립 제작 콘텐츠</strong><p>TOEIC®은 ETS의 등록상표입니다. TalkTag와 본 학습 콘텐츠는 ETS의 승인·후원·검수를 받은 공식 TOEIC® 시험 자료가 아닙니다. 연습 콘텐츠는 TalkTag가 독립적으로 제작합니다.</p><p lang="en">TOEIC® is a registered trademark of ETS. This product is not endorsed or approved by ETS.</p>';root.append(legal);
 })();

@@ -623,8 +623,8 @@ function startExam(){
   const parts=[5,6,7],questions=collectExamQuestions(parts),pages=buildPhysicalPages(parts);
   if(!questions.length){alert('시험을 시작할 문제가 없습니다.');return}
   examSession={mode:'mock',parts,questions,pages,spreadIndex:0,startedAt:Date.now(),elapsed:0,answers:{},checkedSpreads:new Set()};
-  $('#examPartLabel').textContent='READING TEST';
-  $('#examModeLabel').textContent='모의고사 모드';
+  $('#examPartLabel').textContent='TALKTAG RC PRACTICE';
+  $('#examModeLabel').textContent='100문항 실전 연습';
   $('#examModeNotice').textContent='화면에서는 답을 선택하지 않습니다. 종이 답안지에 표시하고 시험 종료 후 전체 답지와 해설로 자가 채점하세요.';
   renderExamPaper();setExamView('exam');history.pushState({toeicExam:true,toeicArea:'rc'},'','?mode=rc#mock-exam');
   clearInterval(examClock);$('#examTimer').textContent='00:00';examClock=setInterval(()=>{$('#examTimer').textContent=formatExamTime(Date.now()-examSession.startedAt)},1000);
@@ -717,7 +717,7 @@ async function chooseSet(setId){
   $('#setSelect').disabled=true;$('#setStatus').textContent=`${info.title}을 불러오고 있습니다.`;
   try{
     const states=await loadOfficialSet(info);selectedSetId=setId;localStorage.setItem(SELECTED_SET_KEY,setId);applySetStates(states);renderSetButtons();
-    $('#setStatus').textContent=`${info.title} · ${info.questionCounts.total}문항 · 읽기 전용 공식 세트`;
+    $('#setStatus').textContent=`${info.title} · ${info.questionCounts.total}문항 · 읽기 전용 독립 창작 연습 세트`;
   }catch(error){console.error(error);$('#setStatus').textContent='세트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';$('#setSelect').value='local-legacy';await chooseSet('local-legacy')}
   finally{$('#setSelect').disabled=false}
 }
