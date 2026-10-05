@@ -1,0 +1,482 @@
+[
+  {
+    "id": "RC-S002-P5-Q101",
+    "part": 5,
+    "questionNumber": 101,
+    "question": "The manufacturer announced a voluntary ------- after several customers reported overheating in the battery compartment.",
+    "choices": [
+      "recall",
+      "lease",
+      "settlement",
+      "membership"
+    ],
+    "answer": 0,
+    "translation": "여러 고객이 배터리 수납부의 과열을 신고한 후 제조사는 자발적 리콜을 발표했다.",
+    "vocab": "voluntary recall: 자발적 리콜 / battery compartment: 배터리 수납부",
+    "explanation": "제품에 안전 문제가 보고되어 제조사가 시중 제품을 회수하는 상황이다. 빈칸에는 결함 가능성이 있는 제품을 회수하는 조치를 뜻하는 명사가 필요하다.\n\n핵심 포인트: product recall은 결함이나 안전 문제로 판매된 제품을 회수하는 조치를 뜻한다.\n\n보기 분석\n(A) recall은 결함이나 안전 문제 때문에 판매된 제품을 회수하는 조치를 뜻해 문맥에 정확히 맞는다.\n(B) lease는 임대 계약을 뜻하므로 제품 안전 문제에 대한 조치가 아니다.\n(C) settlement는 합의나 정산을 뜻하므로 결함 제품을 회수하는 조치 자체를 의미하지 않는다.\n(D) membership는 회원 자격을 뜻하므로 제조사의 품질 조치와 연결되지 않는다."
+  },
+  {
+    "id": "RC-S002-P5-Q102",
+    "part": 5,
+    "questionNumber": 102,
+    "question": "Candidates who cannot attend on Tuesday should notify the recruiter ------- so another interview time can be arranged.",
+    "choices": [
+      "randomly",
+      "promptly",
+      "scarcely",
+      "jointly"
+    ],
+    "answer": 1,
+    "translation": "화요일에 참석할 수 없는 지원자는 다른 면접 시간을 정할 수 있도록 채용 담당자에게 신속히 알려야 한다.",
+    "vocab": "recruiter: 채용 담당자 / arrange another time: 다른 시간을 정하다",
+    "explanation": "면접 일정 변경이 필요한 경우 가능한 한 빨리 담당자에게 알려 대체 시간을 잡아야 하는 상황이다. notify의 방식을 자연스럽게 설명하는 부사가 필요하다.\n\n핵심 포인트: notify someone promptly는 필요한 정보를 지체 없이 알린다는 업무 표현이다.\n\n보기 분석\n(A) randomly는 '무작위로'라는 뜻이라 일정 변경 통보 방식과 맞지 않는다.\n(B) promptly는 '신속히, 지체 없이'라는 뜻으로 일정 조정을 위해 빨리 알린다는 의미에 적합하다.\n(C) scarcely는 '거의 ~않다'라는 뜻이라 notify를 자연스럽게 수식하지 못한다.\n(D) jointly는 '공동으로'라는 뜻으로 지원자가 담당자에게 알리는 상황과 맞지 않는다."
+  },
+  {
+    "id": "RC-S002-P5-Q103",
+    "part": 5,
+    "questionNumber": 103,
+    "question": "Orders received after 4 P.M. will ship the same day ------- warehouse capacity permits.",
+    "choices": [
+      "once",
+      "as though",
+      "wherever",
+      "if"
+    ],
+    "answer": 3,
+    "translation": "오후 4시 이후에 접수된 주문도 창고 처리 능력이 허용되면 당일 발송된다.",
+    "vocab": "warehouse capacity: 창고 처리 능력 / ship the same day: 당일 발송하다",
+    "explanation": "늦은 주문의 당일 발송은 항상 가능한 것이 아니라 창고 처리 능력이라는 조건에 달려 있다. 조건을 나타내는 접속사가 필요하다.\n\n핵심 포인트: if + 주어 + 동사는 어떤 행동이 가능한 조건을 나타낼 때 사용할 수 있다.\n\n보기 분석\n(A) once는 '~하자마자, 일단 ~하면'의 시간 또는 조건 의미가 있지만 여기서는 단순한 처리 가능 조건을 가장 직접적으로 나타내지 않는다.\n(B) as though는 '~인 것처럼'이라는 뜻으로 발송 가능 조건을 나타내지 못한다.\n(C) wherever는 장소와 관계없이 또는 어디든이라는 의미여서 창고 처리 능력 조건과 맞지 않는다.\n(D) if는 '~하면'이라는 조건을 나타내어 창고 처리 능력이 허용되는 경우 당일 발송된다는 의미를 완성한다."
+  },
+  {
+    "id": "RC-S002-P5-Q104",
+    "part": 5,
+    "questionNumber": 104,
+    "question": "By the time the directors entered the conference room, the assistant ------- copies of the agenda at every seat.",
+    "choices": [
+      "places",
+      "had placed",
+      "will place",
+      "is placing"
+    ],
+    "answer": 1,
+    "translation": "이사들이 회의실에 들어왔을 때에는 비서가 이미 모든 좌석에 회의 안건 사본을 놓아 둔 상태였다.",
+    "vocab": "agenda: 회의 안건 / at every seat: 모든 좌석에",
+    "explanation": "이사들이 회의실에 들어온 과거 시점보다 먼저 자료 배치가 완료된 상황이다. 두 과거 사건의 선후 관계를 나타내는 표현이 필요하다.\n\n핵심 포인트: 과거의 한 사건보다 더 먼저 완료된 일을 나타낼 때 had + 과거분사를 사용할 수 있다.\n\n보기 분석\n(A) places는 현재의 반복적 사실처럼 들려 과거 사건의 선후 관계와 맞지 않는다.\n(B) had placed는 이사들이 들어오기 전에 자료 배치가 이미 완료되었음을 나타내므로 정확하다.\n(C) will place는 미래를 나타내어 과거의 회의 상황과 맞지 않는다.\n(D) is placing은 현재 진행형이라 과거 시점 이전의 완료를 나타낼 수 없다."
+  },
+  {
+    "id": "RC-S002-P5-Q105",
+    "part": 5,
+    "questionNumber": 105,
+    "question": "The renovated entrance is now fully ------- to visitors using wheelchairs.",
+    "choices": [
+      "access",
+      "accessible",
+      "accessibility",
+      "accessibly"
+    ],
+    "answer": 1,
+    "translation": "개보수된 출입구는 이제 휠체어를 사용하는 방문객도 완전히 이용할 수 있다.",
+    "vocab": "renovated entrance: 개보수된 출입구 / wheelchair user: 휠체어 이용자",
+    "explanation": "개보수 후 출입구가 휠체어 이용자도 사용할 수 있는 상태가 되었다. be 동사 뒤에서 상태를 설명하는 형용사가 필요하다.\n\n핵심 포인트: be accessible to + 사람은 '~가 이용하거나 접근할 수 있다'라는 뜻이다.\n\n보기 분석\n(A) access는 명사 또는 동사로 쓰이며 is fully access라고 할 수 없다.\n(B) accessible은 '접근 가능한, 이용 가능한'이라는 형용사로 fully accessible이 자연스럽다.\n(C) accessibility는 '접근성'이라는 명사이므로 is 뒤에서 현재 구조를 완성하지 못한다.\n(D) accessibly는 부사이므로 출입구의 상태를 직접 설명하기에 적절하지 않다."
+  },
+  {
+    "id": "RC-S002-P5-Q106",
+    "part": 5,
+    "questionNumber": 106,
+    "question": "The license includes three add-on tools, two of ------- are designed for data visualization.",
+    "choices": [
+      "those",
+      "which",
+      "that",
+      "what"
+    ],
+    "answer": 1,
+    "translation": "그 라이선스에는 세 가지 추가 도구가 포함되어 있으며, 그중 두 개는 데이터 시각화용으로 설계되어 있다.",
+    "vocab": "add-on tool: 추가 기능 도구 / data visualization: 데이터 시각화",
+    "explanation": "앞의 three add-on tools 중 두 개를 이어 설명하는 관계절이다. 전치사 of 뒤에서 앞의 사물을 받는 관계대명사가 필요하다.\n\n핵심 포인트: 수량 표현 + of which는 앞에서 언급한 사물의 일부를 추가로 설명할 때 사용한다.\n\n보기 분석\n(A) those를 쓰면 two of those are ...라는 독립절이 되어 앞 절과 쉼표만으로 연결되는 문장 구조가 되므로 현재 문장에는 맞지 않는다.\n(B) which는 사물을 받는 관계대명사로 two of which are ... 구조를 자연스럽게 만든다.\n(C) that은 일반적으로 전치사 바로 뒤에 두어 two of that이라고 하지 않는다.\n(D) what은 선행사를 자체적으로 포함하는 표현이라 앞의 tools를 직접 받는 현재 구조와 맞지 않는다."
+  },
+  {
+    "id": "RC-S002-P5-Q107",
+    "part": 5,
+    "questionNumber": 107,
+    "question": "All warranty claims will receive an initial response ------- two business days.",
+    "choices": [
+      "within",
+      "between",
+      "through",
+      "beyond"
+    ],
+    "answer": 0,
+    "translation": "모든 보증 청구는 영업일 기준 이틀 이내에 최초 답변을 받게 된다.",
+    "vocab": "warranty claim: 보증 청구 / initial response: 최초 답변",
+    "explanation": "회사에서 고객 문의에 답변할 처리 기한을 안내하는 문장이다. 정해진 기간을 넘기지 않는다는 의미가 필요하다.\n\n핵심 포인트: within + 기간은 그 기간이 끝나기 전에 행동이 이루어진다는 뜻이다.\n\n보기 분석\n(A) within은 '이내에'라는 뜻으로 two business days라는 처리 기한과 자연스럽게 연결된다.\n(B) between은 두 지점이나 대상 사이를 나타내므로 하나의 기간 앞에서 현재 의미를 만들지 못한다.\n(C) through는 기간 전체에 걸친 의미가 중심이라 마감 범위를 나타내지 않는다.\n(D) beyond는 '~을 넘어서'라는 뜻으로 회사가 약속한 처리 기한 이내라는 의미와 맞지 않는다."
+  },
+  {
+    "id": "RC-S002-P5-Q108",
+    "part": 5,
+    "questionNumber": 108,
+    "question": "The company plans to ------- two additional technicians before the new branch opens.",
+    "choices": [
+      "occupy",
+      "derive",
+      "recruit",
+      "relocate"
+    ],
+    "answer": 2,
+    "translation": "회사는 새 지점이 문을 열기 전에 기술자 두 명을 추가로 채용할 계획이다.",
+    "vocab": "additional technician: 추가 기술자 / open a branch: 지점을 개설하다",
+    "explanation": "새 지점 운영을 위해 필요한 인력을 추가로 확보하는 상황이다. 사람을 새로 채용한다는 의미의 동사가 필요하다.\n\n핵심 포인트: recruit employees/technicians는 직원을 모집하거나 채용한다는 뜻으로 쓰인다.\n\n보기 분석\n(A) occupy는 공간이나 자리를 '차지하다'라는 뜻으로 사람을 채용한다는 의미가 아니다.\n(B) derive는 어떤 것에서 결과나 이익을 '얻다'라는 뜻이라 채용 상황과 맞지 않는다.\n(C) recruit는 필요한 인력을 '모집하다, 채용하다'라는 뜻으로 문맥에 정확히 맞는다.\n(D) relocate는 사람이나 시설을 다른 장소로 옮긴다는 뜻으로 신규 인력을 확보한다는 의미가 아니다."
+  },
+  {
+    "id": "RC-S002-P5-Q109",
+    "part": 5,
+    "questionNumber": 109,
+    "question": "Neither the survey results nor the final recommendation ------- available to the public yet.",
+    "choices": [
+      "are",
+      "were",
+      "is",
+      "have"
+    ],
+    "answer": 2,
+    "translation": "설문 결과도 최종 권고안도 아직 대중에게 공개되어 있지 않다.",
+    "vocab": "survey results: 설문 결과 / final recommendation: 최종 권고안",
+    "explanation": "neither A nor B로 두 대상을 연결한 문장이다. 동사와 가장 가까운 주어인 the final recommendation이 단수이므로 단수 동사가 필요하다.\n\n핵심 포인트: neither A nor B 구조에서는 시험형 문법에서 동사가 가까운 주어 B와 수를 맞추는 경우가 일반적이다.\n\n보기 분석\n(A) are는 복수 동사로 가까운 주어 recommendation과 맞지 않는다.\n(B) were는 복수이면서 과거형이라 현재 상태를 나타내는 yet와도 맞지 않는다.\n(C) is는 가까운 주어인 the final recommendation과 수가 일치하고 현재 상태를 자연스럽게 나타낸다.\n(D) have는 뒤의 available과 연결해 문장을 완성할 수 없다."
+  },
+  {
+    "id": "RC-S002-P5-Q110",
+    "part": 5,
+    "questionNumber": 110,
+    "question": "Temporary staff were assigned to reduce the support ------- that accumulated during the holiday closure.",
+    "choices": [
+      "backlog",
+      "receipt",
+      "branch",
+      "discount"
+    ],
+    "answer": 0,
+    "translation": "휴일 휴무 기간에 쌓인 고객지원 미처리 업무를 줄이기 위해 임시 직원들이 배치되었다.",
+    "vocab": "support backlog: 고객지원 미처리 업무 / holiday closure: 휴일 휴무",
+    "explanation": "휴무 기간 동안 처리되지 못한 지원 요청이 누적되어 추가 인력을 투입한 상황이다. 밀린 업무나 요청을 뜻하는 명사가 필요하다.\n\n핵심 포인트: backlog는 아직 처리되지 못하고 쌓여 있는 업무·주문·요청을 뜻한다.\n\n보기 분석\n(A) backlog는 처리되지 못하고 쌓인 업무나 주문을 뜻해 support backlog가 자연스럽다.\n(B) receipt는 영수증 또는 수령을 뜻해 미처리 업무를 나타내지 않는다.\n(C) branch는 지점이나 가지를 뜻하므로 누적된 지원 요청과 관계가 없다.\n(D) discount는 할인을 뜻해 업무 적체 상황과 맞지 않는다."
+  },
+  {
+    "id": "RC-S002-P5-Q111",
+    "part": 5,
+    "questionNumber": 111,
+    "question": "The new cooling system operates ------- quietly than the unit it replaced.",
+    "choices": [
+      "very",
+      "quite",
+      "rather",
+      "more"
+    ],
+    "answer": 3,
+    "translation": "새 냉각 시스템은 교체된 이전 장치보다 더 조용하게 작동한다.",
+    "vocab": "cooling system: 냉각 시스템 / operate quietly: 조용하게 작동하다",
+    "explanation": "새 장치와 이전 장치의 작동 소음을 비교하는 문장이다. 부사 quietly의 비교급을 만드는 표현이 필요하다.\n\n핵심 포인트: 두 음절 이상인 많은 부사는 more + 부사 형태로 비교급을 만든다.\n\n보기 분석\n(A) very는 정도를 강조할 수 있지만 than과 함께 비교급을 만들지는 못한다.\n(B) quite는 '꽤'라는 정도를 나타내지만 than 앞에서 비교급을 만들 수 없다.\n(C) rather는 '상당히'라는 정도를 나타낼 수 있지만 quietly than의 비교 구조를 완성하지 못한다.\n(D) more는 quietly와 함께 more quietly를 만들어 '더 조용하게'라는 비교 의미를 나타낸다."
+  },
+  {
+    "id": "RC-S002-P5-Q112",
+    "part": 5,
+    "questionNumber": 112,
+    "question": "The revised agreement cannot be ------- until both parties sign the final page.",
+    "choices": [
+      "enforced",
+      "enforce",
+      "enforcing",
+      "enforcement"
+    ],
+    "answer": 0,
+    "translation": "수정된 계약서는 양 당사자가 마지막 페이지에 서명하기 전까지 효력을 집행할 수 없다.",
+    "vocab": "revised agreement: 수정된 계약서 / both parties: 양 당사자",
+    "explanation": "계약이 실제로 효력을 갖고 집행되기 위해서는 양측의 서명이 필요한 상황이다. agreement가 집행되는 대상이므로 수동 형태가 필요하다.\n\n핵심 포인트: be enforced는 규정·계약·법 등이 실제로 집행되거나 적용된다는 뜻이다.\n\n보기 분석\n(A) enforced는 be와 함께 수동태를 만들어 계약이 집행되는 대상이라는 의미를 나타낸다.\n(B) enforce는 동사 원형으로 cannot be 뒤에서 수동 구조를 완성하지 못한다.\n(C) enforcing은 진행 형태로 계약 자체가 집행 행동을 하는 것처럼 보인다.\n(D) enforcement는 '집행'이라는 명사이므로 cannot be 뒤에서 현재 문장을 완성하지 못한다."
+  },
+  {
+    "id": "RC-S002-P5-Q113",
+    "part": 5,
+    "questionNumber": 113,
+    "question": "Participants will receive a handbook at registration and ------- copy by email afterward.",
+    "choices": [
+      "other",
+      "others",
+      "an additional",
+      "the others"
+    ],
+    "answer": 2,
+    "translation": "참가자들은 등록할 때 안내서를 한 부 받고 이후 이메일로 한 부를 더 받게 된다.",
+    "vocab": "at registration: 등록할 때 / an additional copy: 추가 사본 한 부",
+    "explanation": "이미 한 부의 handbook이 있고 같은 종류의 한 부를 추가로 제공하는 상황이다. 단수 가산명사 copy 앞에서 '하나 더'라는 뜻이 필요하다.\n\n핵심 포인트: an additional + 단수 가산명사는 같은 종류의 것을 하나 더 추가한다는 뜻이다.\n\n보기 분석\n(A) other는 단독으로 현재의 단수 가산명사 copy 앞에서 '한 부 더'라는 의미를 완성하지 못한다.\n(B) others는 대명사이므로 뒤에 copy를 직접 둘 수 없다.\n(C) an additional은 '추가로 하나의'라는 뜻으로 an additional copy가 자연스럽다.\n(D) the others는 여러 대상 중 나머지 여러 개를 가리키는 대명사라 copy 앞에 올 수 없다."
+  },
+  {
+    "id": "RC-S002-P5-Q114",
+    "part": 5,
+    "questionNumber": 114,
+    "question": "The purchasing director agreed ------- the supplier's revised quotation before making a decision.",
+    "choices": [
+      "review",
+      "reviewing",
+      "to review",
+      "reviewed"
+    ],
+    "answer": 2,
+    "translation": "구매 책임자는 결정을 내리기 전에 공급업체의 수정 견적서를 검토하기로 했다.",
+    "vocab": "revised quotation: 수정 견적서 / make a decision: 결정을 내리다",
+    "explanation": "구매 책임자가 어떤 행동을 하기로 동의한 상황이다. agree 뒤에서 앞으로 할 행동을 이어 주는 형태가 필요하다.\n\n핵심 포인트: agree to + 동사원형은 어떤 행동을 하기로 동의한다는 뜻이다.\n\n보기 분석\n(A) review를 동사 원형으로 바로 이어 agree review라고 하지 않는다.\n(B) reviewing은 동명사이지만 agree 뒤에서 일반적으로 행동을 연결하는 형태가 아니다.\n(C) to review는 agree to do 구조를 만들어 '검토하기로 동의하다'라는 의미를 자연스럽게 만든다.\n(D) reviewed는 과거형 또는 과거분사로 현재 구조와 맞지 않는다."
+  },
+  {
+    "id": "RC-S002-P5-Q115",
+    "part": 5,
+    "questionNumber": 115,
+    "question": "The outdoor demonstration was moved indoors ------- strong winds were forecast for the afternoon.",
+    "choices": [
+      "because",
+      "once",
+      "provided",
+      "yet"
+    ],
+    "answer": 0,
+    "translation": "오후에 강풍이 예보되어 야외 시연은 실내로 옮겨졌다.",
+    "vocab": "outdoor demonstration: 야외 시연 / strong winds: 강풍",
+    "explanation": "강한 바람 예보가 야외 행사를 실내로 옮긴 직접적인 이유다. 원인을 나타내는 접속사가 필요하다.\n\n핵심 포인트: because + 완전한 문장은 앞의 결과가 발생한 이유를 설명한다.\n\n보기 분석\n(A) because는 뒤의 완전한 문장을 원인으로 연결해 장소 변경의 이유를 정확히 나타낸다.\n(B) once는 시간이나 조건을 나타내므로 강풍 예보가 장소 변경의 원인이라는 의미를 만들지 못한다.\n(C) provided는 조건을 나타내므로 예보 때문에 장소를 옮겼다는 인과 관계와 다르다.\n(D) yet은 대조를 나타내어 강풍 예보와 실내 이동의 인과 관계를 만들지 못한다."
+  },
+  {
+    "id": "RC-S002-P5-Q116",
+    "part": 5,
+    "questionNumber": 116,
+    "question": "The finance team has ------- completed its review of the quarterly expense projections.",
+    "choices": [
+      "success",
+      "successful",
+      "successfully",
+      "succeed"
+    ],
+    "answer": 2,
+    "translation": "재무팀은 분기별 비용 전망에 대한 검토를 성공적으로 완료했다.",
+    "vocab": "expense projection: 비용 전망 / complete a review: 검토를 완료하다",
+    "explanation": "completed라는 동작이 어떤 방식으로 이루어졌는지 설명하는 말이 필요하다. 동사를 수식하는 부사가 적절하다.\n\n핵심 포인트: 동사의 수행 방식이나 결과를 설명할 때 부사를 사용할 수 있다.\n\n보기 분석\n(A) success는 '성공'이라는 명사이므로 completed를 직접 수식하지 못한다.\n(B) successful은 형용사로 명사를 설명할 때 자연스럽지만 동작 completed를 직접 수식하지 못한다.\n(C) successfully는 '성공적으로'라는 부사로 completed를 자연스럽게 수식한다.\n(D) succeed는 '성공하다'라는 동사로 has와 completed 사이에 넣을 수 없다."
+  },
+  {
+    "id": "RC-S002-P5-Q117",
+    "part": 5,
+    "questionNumber": 117,
+    "question": "The delivery ------- arrive later than expected if customs officials request additional documentation.",
+    "choices": [
+      "may",
+      "needs to",
+      "was to",
+      "has"
+    ],
+    "answer": 0,
+    "translation": "세관 당국이 추가 서류를 요구하면 배송이 예상보다 늦게 도착할 수 있다.",
+    "vocab": "customs official: 세관 당국자 / additional documentation: 추가 서류",
+    "explanation": "추가 서류 요청이 발생할 경우 배송 지연 가능성이 있다는 안내다. 확정된 의무가 아니라 가능성을 나타내야 한다.\n\n핵심 포인트: may + 동사원형은 어떤 일이 발생할 가능성을 나타낼 때 사용한다.\n\n보기 분석\n(A) may는 '~할 수 있다'라는 가능성을 나타내어 조건부 지연 가능성과 잘 맞는다.\n(B) needs to는 필요나 의무를 나타내어 단순한 지연 가능성과 의미가 다르다.\n(C) was to는 과거에 예정되어 있던 일을 나타내는 표현이라 현재의 조건부 가능성과 맞지 않는다.\n(D) has는 뒤의 arrive와 결합해 올바른 동사 구조를 만들 수 없다."
+  },
+  {
+    "id": "RC-S002-P5-Q118",
+    "part": 5,
+    "questionNumber": 118,
+    "question": "Damaged items should be photographed ------- disposal so the claim can be documented properly.",
+    "choices": [
+      "across",
+      "prior to",
+      "beneath",
+      "except"
+    ],
+    "answer": 1,
+    "translation": "손해 청구 내용을 적절히 기록할 수 있도록 손상된 물품은 폐기 전에 사진을 찍어야 한다.",
+    "vocab": "damaged item: 손상된 물품 / document a claim: 청구 내용을 기록하다",
+    "explanation": "손상 물품을 버리기 전에 증거 사진을 남겨야 하는 절차를 설명한다. 시간상 선행 관계를 나타내는 표현이 필요하다.\n\n핵심 포인트: prior to + 명사(구)는 공식적인 문맥에서 '~전에'라는 뜻으로 쓰인다.\n\n보기 분석\n(A) across는 공간을 가로지르는 의미가 중심이라 disposal과 시간 관계를 만들지 못한다.\n(B) prior to는 '~에 앞서, ~전에'라는 뜻으로 폐기 전에 사진을 찍는 절차를 정확히 나타낸다.\n(C) beneath는 '~아래에'라는 위치 의미라 시간 순서와 관계가 없다.\n(D) except는 '~을 제외하고'라는 뜻으로 폐기 시점과의 관계를 나타내지 못한다."
+  },
+  {
+    "id": "RC-S002-P5-Q119",
+    "part": 5,
+    "questionNumber": 119,
+    "question": "Customers were ------- with the revised return process, according to the follow-up survey.",
+    "choices": [
+      "satisfy",
+      "satisfied",
+      "satisfying",
+      "satisfaction"
+    ],
+    "answer": 1,
+    "translation": "후속 설문에 따르면 고객들은 수정된 반품 절차에 만족했다.",
+    "vocab": "return process: 반품 절차 / follow-up survey: 후속 설문",
+    "explanation": "고객의 감정이나 상태를 설명하는 문장이다. 사람이 어떤 것에 만족한 상태를 나타내는 형용사적 표현이 필요하다.\n\n핵심 포인트: 사람의 감정 상태는 be satisfied with처럼 -ed 형태의 형용사로 표현하는 경우가 많다.\n\n보기 분석\n(A) satisfy는 '만족시키다'라는 동사이므로 were 뒤에서 현재 구조를 완성하지 못한다.\n(B) satisfied는 사람이 만족한 상태를 나타내며 be satisfied with가 자연스럽다.\n(C) satisfying은 어떤 것이 만족감을 주는 성질을 나타내므로 customers 자체의 감정을 설명하기에 맞지 않는다.\n(D) satisfaction은 '만족'이라는 명사라 were 뒤에 직접 올 수 없다."
+  },
+  {
+    "id": "RC-S002-P5-Q120",
+    "part": 5,
+    "questionNumber": 120,
+    "question": "The buyer contacted a second supplier ------- the first one could not guarantee delivery by Friday.",
+    "choices": [
+      "instead",
+      "in addition",
+      "given that",
+      "owing to"
+    ],
+    "answer": 2,
+    "translation": "첫 번째 공급업체가 금요일까지 배송을 보장할 수 없었기 때문에 구매 담당자는 두 번째 공급업체에 연락했다.",
+    "vocab": "second supplier: 대체 공급업체 / guarantee delivery: 배송을 보장하다",
+    "explanation": "첫 번째 공급업체의 납기 보장이 불가능하다는 사실을 근거로 대체 업체에 연락한 상황이다. 이미 알려진 이유를 제시하는 표현이 필요하다.\n\n핵심 포인트: given that + 완전한 문장은 이미 알려진 사실을 근거 또는 이유로 제시한다.\n\n보기 분석\n(A) instead는 보통 별도의 부사로 쓰이거나 instead of 형태가 필요해 뒤의 절을 이유로 연결하지 못한다.\n(B) in addition은 추가 정보를 연결하는 부사구로 뒤의 절을 직접 이유로 만들지 못한다.\n(C) given that은 '~라는 점을 고려하면, ~이므로'라는 뜻으로 알려진 사실을 이유로 제시할 때 자연스럽다.\n(D) owing to는 뒤에 명사구가 와야 하므로 the first one could not ... 같은 완전한 절과 직접 연결되지 않는다."
+  },
+  {
+    "id": "RC-S002-P5-Q121",
+    "part": 5,
+    "questionNumber": 121,
+    "question": "The company has two service centers, and ------- are open on Saturdays.",
+    "choices": [
+      "either",
+      "neither",
+      "each",
+      "both"
+    ],
+    "answer": 3,
+    "translation": "그 회사에는 서비스 센터가 두 곳 있으며 두 곳 모두 토요일에 운영한다.",
+    "vocab": "service center: 서비스 센터 / open on Saturdays: 토요일에 운영하다",
+    "explanation": "두 개의 서비스 센터가 모두 토요일에 문을 연다는 의미다. 두 대상을 함께 가리키는 표현이 필요하다.\n\n핵심 포인트: both는 두 사람이나 사물이 모두 해당될 때 사용하며 복수 동사와 연결된다.\n\n보기 분석\n(A) either는 둘 중 어느 하나를 뜻하며 뒤의 are와도 수가 맞지 않는다.\n(B) neither는 둘 다 아니라는 뜻으로 문장의 의미와 반대다.\n(C) each는 각각을 단수로 다루므로 are와 바로 연결되지 않는다.\n(D) both는 둘 모두를 뜻하고 복수 동사 are와 자연스럽게 연결된다."
+  },
+  {
+    "id": "RC-S002-P5-Q122",
+    "part": 5,
+    "questionNumber": 122,
+    "question": "The auditors ------- at the main office at 9 A.M. tomorrow, according to the confirmation email.",
+    "choices": [
+      "are arriving",
+      "had arrived",
+      "have arrived",
+      "will have arrived"
+    ],
+    "answer": 0,
+    "translation": "확인 이메일에 따르면 감사 담당자들은 내일 오전 9시에 본사에 도착할 예정이다.",
+    "vocab": "auditor: 감사 담당자 / confirmation email: 확인 이메일",
+    "explanation": "이미 확인된 내일의 방문 일정을 설명하고 있다. 정해진 가까운 미래의 계획을 자연스럽게 나타내는 표현이 필요하다.\n\n핵심 포인트: 현재진행형은 이미 정해진 가까운 미래의 일정이나 약속을 나타낼 수 있다.\n\n보기 분석\n(A) are arriving은 확정된 가까운 미래의 일정이나 약속을 나타낼 수 있어 문맥에 적합하다.\n(B) had arrived는 과거의 다른 시점보다 먼저 도착한 일을 나타내므로 내일 일정과 맞지 않는다.\n(C) have arrived는 이미 현재까지 도착이 완료되었다는 뜻이라 tomorrow와 충돌한다.\n(D) will have arrived는 미래의 특정 기준 시점까지 도착이 완료될 것임을 나타내지만 at 9 A.M.이라는 도착 시각 자체를 말하는 현재 문맥에는 맞지 않는다."
+  },
+  {
+    "id": "RC-S002-P5-Q123",
+    "part": 5,
+    "questionNumber": 123,
+    "question": "The client requested an itemized ------- showing all charges for the renovation project.",
+    "choices": [
+      "warehouse",
+      "benefit",
+      "shift",
+      "statement"
+    ],
+    "answer": 3,
+    "translation": "고객은 개보수 프로젝트의 모든 비용이 표시된 항목별 명세서를 요청했다.",
+    "vocab": "itemized statement: 항목별 명세서 / renovation project: 개보수 프로젝트",
+    "explanation": "프로젝트 비용의 각 항목을 확인하려는 상황이다. 개별 청구 내역이 정리된 문서를 뜻하는 명사가 필요하다.\n\n핵심 포인트: itemized statement는 각 비용 항목을 세부적으로 나열한 명세서를 뜻한다.\n\n보기 분석\n(A) warehouse는 창고를 뜻하므로 비용 문서와 관계가 없다.\n(B) benefit는 혜택이나 이익을 뜻해 청구 내역 문서가 아니다.\n(C) shift는 근무 교대나 이동을 뜻하므로 비용 내역을 나타내지 않는다.\n(D) statement는 거래나 비용 내역을 정리한 명세서를 뜻할 수 있어 itemized statement가 자연스럽다."
+  },
+  {
+    "id": "RC-S002-P5-Q124",
+    "part": 5,
+    "questionNumber": 124,
+    "question": "The branch installed additional signs in order ------- visitors toward the temporary entrance.",
+    "choices": [
+      "guiding",
+      "guided",
+      "guide",
+      "to guide"
+    ],
+    "answer": 3,
+    "translation": "그 지점은 방문객을 임시 출입구 쪽으로 안내하기 위해 추가 표지판을 설치했다.",
+    "vocab": "temporary entrance: 임시 출입구 / additional sign: 추가 표지판",
+    "explanation": "추가 표지판을 설치한 목적이 방문객 안내임을 설명하는 문장이다. 목적을 나타내는 to부정사가 필요하다.\n\n핵심 포인트: in order to + 동사원형은 앞의 행동을 한 목적을 분명하게 나타낸다.\n\n보기 분석\n(A) guiding을 넣으면 in order guiding이 되어 올바른 구조가 아니다.\n(B) guided를 넣으면 in order guided가 되어 문법적으로 맞지 않는다.\n(C) guide를 넣으면 in order guide가 되어 목적을 나타내는 표현이 완성되지 않는다.\n(D) to guide를 넣으면 in order to guide가 되어 '방문객을 안내하기 위해'라는 목적을 정확히 나타낸다."
+  },
+  {
+    "id": "RC-S002-P5-Q125",
+    "part": 5,
+    "questionNumber": 125,
+    "question": "The warranty will remain valid ------- the equipment is serviced by an authorized technician.",
+    "choices": [
+      "on condition that",
+      "as opposed to",
+      "owing to",
+      "irrespective of"
+    ],
+    "answer": 0,
+    "translation": "해당 장비가 공인 기술자에게 정비된다는 조건으로 보증은 계속 유효하다.",
+    "vocab": "remain valid: 유효한 상태를 유지하다 / authorized technician: 공인 기술자",
+    "explanation": "보증 효력이 유지되기 위해 반드시 충족해야 하는 조건을 제시하는 문장이다. 완전한 절을 이끄는 조건 표현이 필요하다.\n\n핵심 포인트: on condition that + 완전한 문장은 계약·규정에서 필수 조건을 제시할 때 사용할 수 있다.\n\n보기 분석\n(A) on condition that은 '~라는 조건으로'라는 뜻으로 보증 유지 조건을 정확히 나타낸다.\n(B) as opposed to는 '~와 대조적으로'라는 뜻이라 조건을 만들지 못한다.\n(C) owing to는 원인을 나타내며 뒤에 명사구가 필요하므로 현재 구조와 의미에 맞지 않는다.\n(D) irrespective of는 '~와 관계없이'라는 뜻으로 특정 조건을 충족해야 한다는 의미와 반대가 된다."
+  },
+  {
+    "id": "RC-S002-P5-Q126",
+    "part": 5,
+    "questionNumber": 126,
+    "question": "The committee requested further ------- of the cost estimates before approving the proposal.",
+    "choices": [
+      "verify",
+      "verified",
+      "verification",
+      "verifiably"
+    ],
+    "answer": 2,
+    "translation": "위원회는 제안서를 승인하기 전에 비용 추정치에 대한 추가 검증을 요청했다.",
+    "vocab": "cost estimate: 비용 추정치 / further verification: 추가 검증",
+    "explanation": "위원회가 요구한 대상은 행동 자체를 수행하는 사람이 아니라 '추가 검증'이라는 절차다. further 뒤에서 명사 역할을 하는 표현이 필요하다.\n\n핵심 포인트: further + 명사는 추가적인 검토·조사·검증 등을 나타낼 때 자주 쓰인다.\n\n보기 분석\n(A) verify는 '검증하다'라는 동사로 requested further 뒤에서 목적어 역할을 할 수 없다.\n(B) verified는 과거분사 또는 형용사로 further와 함께 검증 절차 자체를 나타내지 못한다.\n(C) verification은 '검증'이라는 명사로 further verification이 자연스럽다.\n(D) verifiably는 부사로 명사 자리에 올 수 없다."
+  },
+  {
+    "id": "RC-S002-P5-Q127",
+    "part": 5,
+    "questionNumber": 127,
+    "question": "The logistics coordinator is responsible ------- arranging customs documents for overseas shipments.",
+    "choices": [
+      "to",
+      "with",
+      "by",
+      "for"
+    ],
+    "answer": 3,
+    "translation": "물류 담당자는 해외 배송을 위한 통관 서류 준비를 책임지고 있다.",
+    "vocab": "customs document: 통관 서류 / overseas shipment: 해외 배송",
+    "explanation": "담당 업무의 책임 범위를 설명하는 문장이다. responsible과 자연스럽게 연결되는 전치사가 필요하다.\n\n핵심 포인트: be responsible for + 명사/-ing는 어떤 업무나 행동을 담당한다는 뜻이다.\n\n보기 분석\n(A) responsible to는 특정 상급자에게 보고 책임이 있다는 의미로 쓰일 수 있지만 뒤의 arranging과 현재 의미에는 맞지 않는다.\n(B) responsible with는 일반적인 결합이 아니다.\n(C) responsible by는 자연스러운 표현이 아니다.\n(D) responsible for는 '~을 담당하는, ~에 책임이 있는'이라는 뜻으로 arranging과 자연스럽게 연결된다."
+  },
+  {
+    "id": "RC-S002-P5-Q128",
+    "part": 5,
+    "questionNumber": 128,
+    "question": "The revised application form requires ------- information than the previous version.",
+    "choices": [
+      "fewer",
+      "less",
+      "fewest",
+      "least"
+    ],
+    "answer": 1,
+    "translation": "수정된 신청서는 이전 버전보다 더 적은 정보를 요구한다.",
+    "vocab": "application form: 신청서 / previous version: 이전 버전",
+    "explanation": "새 신청서와 이전 버전이 요구하는 정보의 양을 비교하고 있다. information은 셀 수 없는 명사이므로 양이 더 적다는 비교 표현이 필요하다.\n\n핵심 포인트: 셀 수 없는 명사의 양을 비교해 더 적다고 할 때 less + 명사를 사용한다.\n\n보기 분석\n(A) fewer는 셀 수 있는 복수 명사의 수가 더 적을 때 사용하므로 information과 맞지 않는다.\n(B) less는 셀 수 없는 양이 더 적다는 뜻으로 less information이 자연스럽다.\n(C) fewest는 셀 수 있는 복수 명사의 최상급 표현이라 두 버전의 단순 비교와 맞지 않는다.\n(D) least는 가장 적은 양을 나타내는 최상급이므로 than과 함께 현재 비교 구조를 만들지 못한다."
+  },
+  {
+    "id": "RC-S002-P5-Q129",
+    "part": 5,
+    "questionNumber": 129,
+    "question": "The new distribution center is near the highway, ------- trucks can enter without crossing downtown traffic.",
+    "choices": [
+      "when",
+      "why",
+      "where",
+      "how"
+    ],
+    "answer": 2,
+    "translation": "새 물류센터는 고속도로 근처에 있어 트럭들이 도심 교통을 통과하지 않고 진입할 수 있다.",
+    "vocab": "distribution center: 물류센터 / downtown traffic: 도심 교통",
+    "explanation": "앞의 distribution center라는 장소를 이어 설명하며 그 장소에서 가능한 일을 말하고 있다. 장소를 나타내는 관계부사가 필요하다.\n\n핵심 포인트: where는 장소를 나타내는 선행사를 뒤의 설명과 연결하는 관계부사로 사용할 수 있다.\n\n보기 분석\n(A) when은 시간을 나타내는 선행사를 설명할 때 사용하므로 장소인 center와 맞지 않는다.\n(B) why는 이유를 설명할 때 사용하므로 장소 설명과 맞지 않는다.\n(C) where는 장소를 나타내는 선행사를 이어 설명해 '그곳에서'라는 의미를 자연스럽게 만든다.\n(D) how는 방식의 의미이며 현재와 같은 관계절 연결에 사용할 수 없다."
+  },
+  {
+    "id": "RC-S002-P5-Q130",
+    "part": 5,
+    "questionNumber": 130,
+    "question": "Before approving the expansion, the board asked an outside firm to ------- a feasibility study.",
+    "choices": [
+      "turn down",
+      "bring over",
+      "put aside",
+      "carry out"
+    ],
+    "answer": 3,
+    "translation": "확장안을 승인하기 전에 이사회는 외부 업체에 사업성 조사를 수행해 달라고 요청했다.",
+    "vocab": "feasibility study: 사업성 조사 / approve an expansion: 확장안을 승인하다",
+    "explanation": "확장 여부를 결정하기 전에 외부 전문 업체가 사업성 조사를 실제로 수행하는 상황이다. study와 자연스럽게 연결되는 동사구가 필요하다.\n\n핵심 포인트: carry out a study/inspection/review는 조사·점검·검토를 수행한다는 뜻으로 자주 쓰인다.\n\n보기 분석\n(A) turn down은 제안이나 요청을 '거절하다'라는 뜻으로 study를 수행한다는 의미가 아니다.\n(B) bring over는 사람이나 물건을 데려오거나 가져온다는 뜻으로 조사 수행과 맞지 않는다.\n(C) put aside는 잠시 미루거나 따로 두다는 뜻으로 사업성 조사 실행을 나타내지 않는다.\n(D) carry out은 계획·조사·연구 등을 '수행하다'라는 뜻으로 carry out a feasibility study가 자연스럽다."
+  }
+]

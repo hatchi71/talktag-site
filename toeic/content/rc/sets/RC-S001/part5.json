@@ -1,0 +1,482 @@
+[
+  {
+    "id": "RC-S001-P5-Q101",
+    "part": 5,
+    "questionNumber": 101,
+    "question": "The consultant submitted a ------- summary of the safety findings before Friday's management meeting.",
+    "choices": [
+      "concisely",
+      "concision",
+      "concise",
+      "conciseness"
+    ],
+    "answer": 2,
+    "translation": "그 컨설턴트는 금요일 경영진 회의 전에 안전 점검 결과를 간결하게 정리한 요약본을 제출했다.",
+    "vocab": "safety findings: 안전 점검 결과 / concise summary: 간결한 요약",
+    "explanation": "안전 점검 결과를 경영진에게 전달하는 상황이다. 빈칸에는 summary 자체가 어떤 문서인지 설명하는 의미가 필요하다.\n\n핵심 포인트: 문서의 특징을 말할 때 concise report, concise summary처럼 표현할 수 있다.\n\n보기 분석\n(A) concisely는 '간결하게'라는 뜻으로 행동 방식을 설명할 때 자연스럽지만 summary 자체의 성격을 바로 나타내지 못한다.\n(B) concision은 '간결함'이라는 뜻의 말이라 a concision summary라는 조합은 자연스럽지 않다.\n(C) concise는 '간결한'이라는 뜻으로 concise summary라고 하면 핵심만 정리된 요약본이라는 의미가 자연스럽다.\n(D) conciseness는 '간결성'이라는 뜻이므로 summary를 바로 설명하는 표현으로는 맞지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q102",
+    "part": 5,
+    "questionNumber": 102,
+    "question": "To avoid another delay, the purchasing team asked the vendor to ------- the damaged filters immediately.",
+    "choices": [
+      "reserve",
+      "estimate",
+      "postpone",
+      "replace"
+    ],
+    "answer": 3,
+    "translation": "추가 지연을 피하기 위해 구매팀은 공급업체에 손상된 필터를 즉시 교체해 달라고 요청했다.",
+    "vocab": "purchasing team: 구매팀 / replace a damaged item: 손상된 물품을 교체하다",
+    "explanation": "납품받은 필터가 손상되어 있고 추가 지연을 막아야 한다. 따라서 손상된 제품을 새 제품으로 바꾼다는 의미가 필요하다.\n\n핵심 포인트: replace a damaged item은 '손상된 물품을 교체하다'라는 실무 표현이다.\n\n보기 분석\n(A) reserve는 물건이나 자리를 '예약해 두다'라는 뜻으로 손상된 제품을 바꾼다는 의미가 아니다.\n(B) estimate는 비용이나 수량 등을 '추산하다'라는 뜻이라 손상된 필터를 처리하는 행동이 아니다.\n(C) postpone은 '연기하다'라는 뜻이므로 지연을 피하려는 목적과 반대가 된다.\n(D) replace는 손상되거나 사용할 수 없는 물건을 다른 것으로 '교체하다'라는 뜻이어서 상황과 정확히 맞는다."
+  },
+  {
+    "id": "RC-S001-P5-Q103",
+    "part": 5,
+    "questionNumber": 103,
+    "question": "By the time the new booking system goes live, staff ------- both required training modules.",
+    "choices": [
+      "have completed",
+      "had completed",
+      "are completing",
+      "will have completed"
+    ],
+    "answer": 3,
+    "translation": "새 예약 시스템이 실제로 가동될 때까지 직원들은 필수 교육 모듈 두 개를 모두 이수한 상태가 될 것이다.",
+    "vocab": "go live: 시스템이 정식으로 가동되다 / training module: 교육 모듈, 교육 단위",
+    "explanation": "앞으로 시스템이 가동되는 기준 시점이 있고, 두 교육 모듈의 이수는 그보다 먼저 완료되어 있어야 한다. 미래의 특정 시점까지 완료될 일을 나타내는 표현이 필요하다.\n\n핵심 포인트: 미래의 특정 기준 시점까지 완료되어 있을 일을 나타낼 때 will have + 과거분사를 사용한다.\n\n보기 분석\n(A) have completed는 현재완료로 현재까지의 완료를 나타내므로 앞으로의 시스템 가동 시점을 기준으로 한 완료 관계와 맞지 않는다.\n(B) had completed는 과거완료로 과거의 다른 시점보다 먼저 끝난 일을 나타내므로 미래 일정과 맞지 않는다.\n(C) are completing은 현재 진행 중인 동작을 나타내어 미래 기준 시점까지 이미 완료된 상태라는 의미를 만들지 못한다.\n(D) will have completed는 미래의 시스템 가동 시점까지 두 교육 모듈의 이수가 완료되어 있을 것이라는 의미를 정확히 나타낸다."
+  },
+  {
+    "id": "RC-S001-P5-Q104",
+    "part": 5,
+    "questionNumber": 104,
+    "question": "The express shuttle is ------- more convenient for employees who finish after the last regular bus.",
+    "choices": [
+      "enough",
+      "considerably",
+      "most",
+      "too"
+    ],
+    "answer": 1,
+    "translation": "급행 셔틀은 마지막 일반 버스 이후에 퇴근하는 직원들에게 훨씬 더 편리하다.",
+    "vocab": "express shuttle: 급행 셔틀버스 / considerably more convenient: 상당히 더 편리한",
+    "explanation": "늦은 시간대 직원들에게 급행 셔틀이 일반 교통편보다 더 편리하다는 설명이다. more convenient의 차이를 자연스럽게 강조하는 말이 필요하다.\n\n핵심 포인트: 비교되는 차이가 크다는 뜻으로 considerably more, significantly more, much more 등을 쓸 수 있다.\n\n보기 분석\n(A) enough는 '충분히'라는 뜻이지만 enough more convenient라는 연결은 자연스럽지 않다.\n(B) considerably는 '상당히, 훨씬'이라는 뜻으로 considerably more convenient가 자연스럽다.\n(C) most는 최고 수준을 나타내는 말이라 more와 함께 most more convenient라고 하지 않는다.\n(D) too는 '지나치게'라는 뜻이지만 too more convenient라는 조합은 자연스럽지 않다."
+  },
+  {
+    "id": "RC-S001-P5-Q105",
+    "part": 5,
+    "questionNumber": 105,
+    "question": "The refund was issued ------- the store's policy for duplicate online charges.",
+    "choices": [
+      "on behalf of",
+      "in place of",
+      "in accordance with",
+      "by means of"
+    ],
+    "answer": 2,
+    "translation": "그 환불은 온라인 중복 결제에 관한 매장 정책에 따라 처리되었다.",
+    "vocab": "duplicate charge: 중복 청구 또는 중복 결제 / in accordance with: ~에 따라",
+    "explanation": "고객의 중복 결제에 대해 매장이 정해진 정책을 근거로 환불을 처리한 상황이다. '정책에 따라'라는 의미가 필요하다.\n\n핵심 포인트: in accordance with a policy는 '정책에 따라'라는 공식적인 업무 표현이다.\n\n보기 분석\n(A) on behalf of는 '누구를 대신하여'라는 뜻이므로 정책을 근거로 행동한다는 의미가 아니다.\n(B) in place of는 '~을 대신하여'라는 뜻이어서 환불 정책과의 관계를 설명하지 못한다.\n(C) in accordance with는 '~에 따라, ~에 맞추어'라는 뜻으로 회사 정책에 따른 조치를 설명할 때 자연스럽다.\n(D) by means of는 '~을 수단으로 이용하여'라는 뜻이라 정책을 기준으로 환불했다는 의미와 다르다."
+  },
+  {
+    "id": "RC-S001-P5-Q106",
+    "part": 5,
+    "questionNumber": 106,
+    "question": "------- the speaker's flight was delayed, the workshop still began on time with a local moderator.",
+    "choices": [
+      "Although",
+      "Because of",
+      "Therefore",
+      "Unless"
+    ],
+    "answer": 0,
+    "translation": "연사의 항공편이 지연되었지만, 워크숍은 현지 진행자와 함께 예정대로 시작되었다.",
+    "vocab": "local moderator: 현지 진행자 / begin on time: 정시에 시작하다",
+    "explanation": "연사가 늦었지만 행사는 예정대로 진행되었다. 두 상황이 서로 반대 방향이라는 점을 연결해야 한다.\n\n핵심 포인트: 예상되는 결과와 실제 결과가 반대일 때 although, even though 등을 사용할 수 있다.\n\n보기 분석\n(A) Although는 '비록 ~이지만'이라는 뜻으로 항공편 지연과 정상적인 워크숍 진행의 대조를 자연스럽게 보여 준다.\n(B) Because of는 뒤에 완전한 문장을 바로 연결하지 않으며, 의미도 단순 원인을 나타낸다.\n(C) Therefore는 '그러므로'라는 결과를 나타내는데 이 문장의 대조 관계와 맞지 않는다.\n(D) Unless는 '~하지 않는 한'이라는 조건을 나타내므로 현재 상황의 대조를 설명하지 못한다."
+  },
+  {
+    "id": "RC-S001-P5-Q107",
+    "part": 5,
+    "questionNumber": 107,
+    "question": "The two branch managers compared their schedules and chose a date that suited ------- both.",
+    "choices": [
+      "their",
+      "theirs",
+      "themselves",
+      "them"
+    ],
+    "answer": 3,
+    "translation": "두 지점장은 서로 일정을 비교한 뒤 두 사람 모두에게 적합한 날짜를 선택했다.",
+    "vocab": "compare schedules: 일정을 서로 비교하다 / suit someone: 누구에게 적합하다",
+    "explanation": "두 명의 지점장이 함께 참석할 수 있는 날짜를 찾고 있다. '그 두 사람 모두에게 적합한'이라는 의미가 자연스럽게 이어져야 한다.\n\n핵심 포인트: suit someone은 '누구에게 적합하다, 편리하다'라는 뜻으로 suit them both처럼 사용할 수 있다.\n\n보기 분석\n(A) their는 뒤에 일정이나 날짜 같은 대상이 이어져야 자연스럽다. suited their both라고 하지 않는다.\n(B) theirs는 '그들의 것'이라는 뜻이므로 날짜가 사람들에게 적합하다는 의미를 만들 수 없다.\n(C) themselves는 행동이 다시 행위자 자신에게 돌아가는 상황에서 주로 쓰여 이 문장에는 어울리지 않는다.\n(D) suited them both는 '그 두 사람 모두에게 적합했다'라는 자연스러운 표현이다."
+  },
+  {
+    "id": "RC-S001-P5-Q108",
+    "part": 5,
+    "questionNumber": 108,
+    "question": "The service desk promised to ------- the issue within one business day.",
+    "choices": [
+      "perform",
+      "resolve",
+      "reach",
+      "arrange"
+    ],
+    "answer": 1,
+    "translation": "서비스 지원팀은 한 영업일 이내에 해당 문제를 해결하겠다고 약속했다.",
+    "vocab": "service desk: 서비스 지원 창구 / resolve an issue: 문제를 해결하다",
+    "explanation": "기술적인 문제를 신고받은 지원팀이 처리 기한을 제시하고 있다. issue와 자연스럽게 연결되어 '문제를 해결하다'라는 의미가 필요하다.\n\n핵심 포인트: resolve an issue, address an issue, fix a problem은 고객 지원 상황에서 자주 쓰이는 표현이다.\n\n보기 분석\n(A) perform은 업무나 작업을 '수행하다'라는 뜻이지만 issue 자체를 perform한다고 하지 않는다.\n(B) resolve는 문제나 분쟁을 '해결하다'라는 뜻으로 resolve the issue가 매우 자연스럽다.\n(C) reach는 목표나 합의 등에 도달할 때 사용되며 reach the issue는 맞지 않는다.\n(D) arrange는 일정이나 준비를 '조정하다, 마련하다'라는 뜻이므로 문제 해결의 의미가 아니다."
+  },
+  {
+    "id": "RC-S001-P5-Q109",
+    "part": 5,
+    "questionNumber": 109,
+    "question": "The committee chose to extend the pilot ------- launch the service company-wide in November.",
+    "choices": [
+      "due to",
+      "in addition to",
+      "rather than",
+      "as well as"
+    ],
+    "answer": 2,
+    "translation": "위원회는 11월에 서비스를 전사적으로 출시하기보다는 시범 운영 기간을 연장하기로 했다.",
+    "vocab": "extend the pilot: 시범 운영 기간을 연장하다 / company-wide: 회사 전체에 걸친",
+    "explanation": "위원회가 두 가지 선택지 중 즉시 전사 출시가 아니라 시범 운영 연장을 택한 상황이다.\n\n핵심 포인트: A rather than B는 'B보다는 A를 선택하다'라는 대안 선택의 의미를 나타낸다.\n\n보기 분석\n(A) due to는 '~ 때문에'라는 원인을 나타내므로 두 선택지를 대비시키지 못한다.\n(B) in addition to는 '~에 더하여'라는 뜻이라 두 행동을 모두 한다는 의미가 된다.\n(C) rather than은 '~하기보다는'이라는 뜻으로 두 선택지 중 하나를 택했다는 상황과 정확히 맞는다.\n(D) as well as는 '~뿐만 아니라 ~도'라는 뜻이라 두 행동을 모두 한다는 의미가 된다."
+  },
+  {
+    "id": "RC-S001-P5-Q110",
+    "part": 5,
+    "questionNumber": 110,
+    "question": "Because stock levels fell below the minimum, the warehouse supervisor submitted a ------- order for additional packaging.",
+    "choices": [
+      "maintenance",
+      "recruitment",
+      "attendance",
+      "replenishment"
+    ],
+    "answer": 3,
+    "translation": "재고 수준이 최소 기준 아래로 떨어졌기 때문에 창고 관리자는 추가 포장재를 보충하기 위한 주문을 제출했다.",
+    "vocab": "stock level: 재고 수준 / replenishment order: 재고 보충 주문",
+    "explanation": "창고의 포장재 재고가 부족해 추가 물량을 주문해야 한다. 부족한 재고를 다시 채운다는 의미가 필요하다.\n\n핵심 포인트: 재고가 일정 수준 이하로 떨어졌을 때 replenishment, restocking, reorder 같은 표현이 사용된다.\n\n보기 분석\n(A) maintenance는 시설이나 장비의 '유지 보수'를 뜻해 추가 포장재를 주문하는 목적과 다르다.\n(B) recruitment는 직원 '채용'과 관련된 말이라 포장재 주문과 관계가 없다.\n(C) attendance는 '출석, 참석'을 의미하므로 물류나 재고 주문과 연결되지 않는다.\n(D) replenishment는 부족해진 재고를 다시 채우는 것을 뜻해 replenishment order가 자연스럽다."
+  },
+  {
+    "id": "RC-S001-P5-Q111",
+    "part": 5,
+    "questionNumber": 111,
+    "question": "The list of approved suppliers ------- on the procurement portal every Monday morning.",
+    "choices": [
+      "appear",
+      "appears",
+      "appearing",
+      "have appeared"
+    ],
+    "answer": 1,
+    "translation": "승인된 공급업체 목록은 매주 월요일 아침 구매 포털에 표시된다.",
+    "vocab": "approved supplier: 승인된 공급업체 / procurement portal: 구매·조달 포털",
+    "explanation": "구매팀이 정기적으로 확인하는 공급업체 목록을 설명한다. 실제로 화면에 나타나는 대상은 suppliers가 아니라 하나의 list이다.\n\n핵심 포인트: of 뒤에 복수 명사가 있어도 실제로 동작하는 중심 대상이 하나라면 그 대상에 맞춰 표현한다.\n\n보기 분석\n(A) appear는 여러 대상이 주어일 때 자연스럽지만 여기서 핵심 대상은 하나의 list이다.\n(B) appears는 하나의 list가 매주 표시된다는 의미가 되어 자연스럽다.\n(C) appearing은 문장을 완성하는 중심 동작으로 바로 쓰기 어렵다.\n(D) have appeared는 과거부터 지금까지의 경험이나 결과를 강조하는데 every Monday라는 정기 일정 설명과 맞지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q112",
+    "part": 5,
+    "questionNumber": 112,
+    "question": "Visitors ------- by an employee may enter the research wing without a temporary badge.",
+    "choices": [
+      "accompanying",
+      "accompanied",
+      "accompany",
+      "accompanies"
+    ],
+    "answer": 1,
+    "translation": "직원의 동행을 받는 방문객은 임시 출입증 없이 연구동에 들어갈 수 있다.",
+    "vocab": "research wing: 연구동 / temporary badge: 임시 출입증",
+    "explanation": "방문객이 혼자 들어가는 것이 아니라 직원의 동행을 받는 상황이다. 방문객이 행동을 하는 쪽이 아니라 동행을 받는 쪽이라는 의미가 필요하다.\n\n핵심 포인트: 누군가가 '동행을 받는' 상황에서는 accompanied by가 자연스럽다.\n\n보기 분석\n(A) accompanying은 방문객이 다른 사람을 동행하는 의미로 읽히기 쉬워 상황이 반대가 된다.\n(B) accompanied는 방문객이 직원의 동행을 받는다는 의미가 되어 정확하다.\n(C) accompany는 그대로 넣으면 문장의 구조가 자연스럽게 이어지지 않는다.\n(D) accompanies는 visitors와도 맞지 않고 문장 구조도 완성되지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q113",
+    "part": 5,
+    "questionNumber": 113,
+    "question": "Once the client ------- the revised proposal, the design team will begin detailed planning.",
+    "choices": [
+      "approves",
+      "will approve",
+      "approved",
+      "has approving"
+    ],
+    "answer": 0,
+    "translation": "고객이 수정 제안서를 승인하면 디자인팀은 세부 계획을 시작할 것이다.",
+    "vocab": "revised proposal: 수정 제안서 / detailed planning: 세부 계획 수립",
+    "explanation": "앞으로 고객의 승인이 먼저 이루어지고 그다음 디자인팀이 일을 시작한다. 미래 일정이지만 once 뒤에는 승인 시점을 자연스럽게 나타내는 표현이 필요하다.\n\n핵심 포인트: once, when, after 등으로 미래의 시점을 말할 때 그 절에서는 현재 형태를 쓰는 것이 자연스럽다.\n\n보기 분석\n(A) approves는 앞으로 일어날 승인 시점을 자연스럽게 나타내며 뒤의 will begin과 잘 연결된다.\n(B) will approve를 쓰면 once 뒤에서 미래 시점을 표현하는 방식이 부자연스럽다.\n(C) approved는 이미 승인이 끝난 과거 사건처럼 들려 앞으로의 프로젝트 일정과 맞지 않는다.\n(D) has approving은 자연스러운 표현이 아니다."
+  },
+  {
+    "id": "RC-S001-P5-Q114",
+    "part": 5,
+    "questionNumber": 114,
+    "question": "During the inspection, the backup generator remained ------- despite repeated voltage fluctuations.",
+    "choices": [
+      "operation",
+      "operate",
+      "operational",
+      "operationally"
+    ],
+    "answer": 2,
+    "translation": "점검 중 반복적인 전압 변동에도 불구하고 비상 발전기는 정상 가동 상태를 유지했다.",
+    "vocab": "backup generator: 비상 발전기 / voltage fluctuation: 전압 변동",
+    "explanation": "전압이 불안정했지만 발전기가 계속 사용할 수 있는 상태였다는 뜻이다. remained 뒤에는 상태 자체를 나타내는 말이 필요하다.\n\n핵심 포인트: remain operational은 '정상 가동 상태를 유지하다'라는 시설·장비 관련 표현이다.\n\n보기 분석\n(A) operation은 '작동, 운영'이라는 뜻이지만 remained operation이라고 하지 않는다.\n(B) operate는 '작동하다'라는 행동을 뜻해 remained 뒤의 상태 설명에 맞지 않는다.\n(C) operational은 '정상 작동 가능한'이라는 상태를 뜻해 remained operational이 자연스럽다.\n(D) operationally는 '운영상, 작동 면에서'라는 뜻으로 상태를 바로 설명하기에는 맞지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q115",
+    "part": 5,
+    "questionNumber": 115,
+    "question": "The facilities manager had a technician ------- the unusual noise coming from the rooftop unit.",
+    "choices": [
+      "inspect",
+      "inspected",
+      "inspecting",
+      "inspection"
+    ],
+    "answer": 0,
+    "translation": "시설 관리자는 기술자에게 옥상 장치에서 나는 이상한 소음을 점검하게 했다.",
+    "vocab": "facilities manager: 시설 관리자 / rooftop unit: 옥상 설치 장치",
+    "explanation": "관리자가 직접 점검한 것이 아니라 기술자에게 점검을 맡긴 상황이다. 기술자가 실제로 수행한 행동을 나타내는 말이 필요하다.\n\n핵심 포인트: have someone do something은 '누구에게 어떤 일을 하게 하다'라는 업무 위임 표현이다.\n\n보기 분석\n(A) inspect를 쓰면 '기술자에게 점검하게 했다'라는 의미가 자연스럽게 완성된다.\n(B) inspected는 기술자가 이미 점검된 대상처럼 보이거나 구조가 어색해진다.\n(C) inspecting은 이 구조에서 관리자가 점검을 맡겼다는 뜻을 자연스럽게 만들지 못한다.\n(D) inspection은 '점검'이라는 이름이라 technician이 실제로 한 행동을 나타내지 못한다."
+  },
+  {
+    "id": "RC-S001-P5-Q116",
+    "part": 5,
+    "questionNumber": 116,
+    "question": "Applicants ------- portfolios demonstrate relevant project experience will be invited to a second interview.",
+    "choices": [
+      "who",
+      "whom",
+      "which",
+      "whose"
+    ],
+    "answer": 3,
+    "translation": "포트폴리오에서 관련 프로젝트 경험이 드러나는 지원자들은 2차 면접에 초대될 것이다.",
+    "vocab": "relevant project experience: 관련 프로젝트 경험 / second interview: 2차 면접",
+    "explanation": "지원자 자체가 아니라 그 지원자들의 portfolios가 어떤 내용을 보여 주는지 설명하고 있다. 사람과 그 사람의 소유 관계를 연결해야 한다.\n\n핵심 포인트: 사람과 그 사람이 가진 것 사이의 관계를 연결할 때 whose를 사용할 수 있다.\n\n보기 분석\n(A) who는 지원자 자신이 바로 행동하는 구조에 적합하지만 여기서는 portfolios와의 소유 관계가 필요하다.\n(B) whom은 사람을 대상으로 받을 때 쓰이지만 portfolios와의 관계를 만들지 못한다.\n(C) which는 사물을 가리키는 말이라 applicants와 바로 연결되지 않는다.\n(D) whose는 '그 사람의'라는 의미로 applicants와 portfolios를 자연스럽게 연결한다."
+  },
+  {
+    "id": "RC-S001-P5-Q117",
+    "part": 5,
+    "questionNumber": 117,
+    "question": "Only ------- seats remain for Thursday's software workshop, so employees are encouraged to register today.",
+    "choices": [
+      "little",
+      "much",
+      "a few",
+      "another"
+    ],
+    "answer": 2,
+    "translation": "목요일 소프트웨어 워크숍에는 좌석이 몇 자리만 남아 있어 직원들에게 오늘 등록할 것을 권하고 있다.",
+    "vocab": "workshop: 실습형 교육·워크숍 / register: 등록하다",
+    "explanation": "남은 좌석 수가 적어서 빠른 등록을 권하고 있다. seats처럼 셀 수 있는 여러 자리가 소수 남았다는 의미가 필요하다.\n\n핵심 포인트: 셀 수 있는 복수 대상이 소수 남았을 때 a few를 사용할 수 있다.\n\n보기 분석\n(A) little은 양을 셀 수 없는 대상에 '거의 없는'이라는 뜻으로 쓰여 seats와 맞지 않는다.\n(B) much는 큰 양을 나타내며 seats와도 자연스럽게 연결되지 않는다.\n(C) a few는 셀 수 있는 대상이 몇 개 남았다는 뜻으로 문맥과 정확히 맞는다.\n(D) another는 '또 하나의'라는 뜻이라 복수 seats 앞에서 현재 의미를 만들지 못한다."
+  },
+  {
+    "id": "RC-S001-P5-Q118",
+    "part": 5,
+    "questionNumber": 118,
+    "question": "Expense reports for September must be submitted ------- October 5 to be included in this month's reimbursement cycle.",
+    "choices": [
+      "no later than",
+      "as long as",
+      "apart from",
+      "rather than"
+    ],
+    "answer": 0,
+    "translation": "9월 경비 보고서는 이번 달 비용 환급 처리에 포함되려면 늦어도 10월 5일까지 제출되어야 한다.",
+    "vocab": "expense report: 경비 보고서 / reimbursement cycle: 비용 환급 처리 주기",
+    "explanation": "비용 환급 처리에 포함되기 위한 최종 제출 기한을 안내하는 문장이다. '늦어도 그 날짜까지'라는 의미가 필요하다.\n\n핵심 포인트: 마감 기한을 명확하게 말할 때 no later than + 날짜를 사용할 수 있다.\n\n보기 분석\n(A) no later than은 '늦어도 ~까지'라는 뜻으로 마감일을 정확히 나타낸다.\n(B) as long as는 '~하는 한'이라는 조건의 의미라 날짜 앞에서 마감 기한을 나타내지 못한다.\n(C) apart from은 '~을 제외하고, ~뿐 아니라'라는 의미라 날짜와 맞지 않는다.\n(D) rather than은 '~보다는'이라는 선택 의미라 제출 기한과 관계가 없다."
+  },
+  {
+    "id": "RC-S001-P5-Q119",
+    "part": 5,
+    "questionNumber": 119,
+    "question": "Additional security cameras will be ------- near the loading dock before the holiday season begins.",
+    "choices": [
+      "install",
+      "installed",
+      "installation",
+      "installing"
+    ],
+    "answer": 1,
+    "translation": "연말 성수기가 시작되기 전에 하역장 근처에 추가 보안 카메라가 설치될 것이다.",
+    "vocab": "loading dock: 하역장 / security camera: 보안 카메라",
+    "explanation": "카메라가 스스로 어떤 행동을 하는 것이 아니라 시설팀에 의해 설치되는 상황이다. 앞으로 설치 완료될 대상을 나타내는 말이 필요하다.\n\n핵심 포인트: 사물이 누군가에 의해 설치되는 상황은 be installed로 표현한다.\n\n보기 분석\n(A) install은 누군가가 카메라를 설치한다는 행동을 나타내므로 cameras가 주체인 현재 구조와 맞지 않는다.\n(B) installed는 카메라가 설치되는 대상이라는 의미를 자연스럽게 만든다.\n(C) installation은 '설치'라는 이름이라 will be 뒤에서 실제 설치 상태를 만들지 못한다.\n(D) installing은 카메라가 무엇인가를 설치하고 있는 것처럼 읽혀 상황과 맞지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q120",
+    "part": 5,
+    "questionNumber": 120,
+    "question": "Customers can avoid ------- their deliveries by confirming the address before the order is shipped.",
+    "choices": [
+      "delay",
+      "delayed",
+      "delaying",
+      "to delay"
+    ],
+    "answer": 2,
+    "translation": "고객은 주문이 발송되기 전에 주소를 확인함으로써 배송이 지연되는 일을 피할 수 있다.",
+    "vocab": "confirm the address: 주소를 확인하다 / be shipped: 발송되다",
+    "explanation": "주소 오류 때문에 배송이 늦어지는 문제를 미리 막는 상황이다. avoid 뒤에는 피하고 싶은 행동이나 상황을 자연스럽게 이어야 한다.\n\n핵심 포인트: avoid 뒤에는 피하려는 행동을 -ing 형태로 이어 주는 것이 자연스럽다.\n\n보기 분석\n(A) delay를 그대로 쓰면 avoid 뒤의 연결이 자연스럽지 않다.\n(B) delayed는 '지연된'이라는 상태를 나타내며 deliveries와의 관계도 현재 문장에서는 맞지 않는다.\n(C) delaying은 '배송을 지연시키는 것'이라는 뜻으로 avoid와 자연스럽게 연결된다.\n(D) to delay는 avoid와 일반적으로 자연스럽게 연결되지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q121",
+    "part": 5,
+    "questionNumber": 121,
+    "question": "The revised launch schedule was agreed upon ------- the marketing, sales, and logistics teams.",
+    "choices": [
+      "among",
+      "beside",
+      "toward",
+      "throughout"
+    ],
+    "answer": 0,
+    "translation": "수정된 출시 일정은 마케팅, 영업, 물류 세 팀 간에 합의되었다.",
+    "vocab": "launch schedule: 출시 일정 / agree upon: ~에 합의하다",
+    "explanation": "세 개 부서가 하나의 일정에 합의한 상황이다. 여러 집단 사이의 합의 관계를 나타내는 말이 필요하다.\n\n핵심 포인트: 세 개 이상의 사람이나 집단 사이의 관계를 말할 때 among이 자연스럽다.\n\n보기 분석\n(A) among은 세 개 이상의 대상 사이의 관계를 나타내며 여러 팀 간 합의라는 의미에 맞는다.\n(B) beside는 '~옆에'라는 위치 의미라 부서 간 합의를 나타내지 못한다.\n(C) toward는 '~을 향해'라는 방향을 나타내므로 현재 의미와 맞지 않는다.\n(D) throughout은 '~전체에 걸쳐'라는 뜻으로 합의 당사자 사이의 관계를 나타내지 못한다."
+  },
+  {
+    "id": "RC-S001-P5-Q122",
+    "part": 5,
+    "questionNumber": 122,
+    "question": "Employees may access the internal database from home ------- they use the company's secure network.",
+    "choices": [
+      "even though",
+      "provided that",
+      "whereas",
+      "instead of"
+    ],
+    "answer": 1,
+    "translation": "직원들은 회사의 보안 네트워크를 사용하는 조건으로 집에서도 내부 데이터베이스에 접속할 수 있다.",
+    "vocab": "internal database: 사내 데이터베이스 / secure network: 보안 네트워크",
+    "explanation": "재택 접속이 무조건 허용되는 것이 아니라 보안 네트워크 사용이라는 조건이 붙어 있다. 허용 조건을 나타내는 표현이 필요하다.\n\n핵심 포인트: provided that은 규정이나 허용 조건을 제시할 때 자주 쓰이는 표현이다.\n\n보기 분석\n(A) even though는 '비록 ~이지만'이라는 대조를 나타내므로 허용 조건을 만들지 못한다.\n(B) provided that은 '~라는 조건으로'라는 뜻으로 보안 네트워크 사용 조건을 정확히 나타낸다.\n(C) whereas는 두 사실을 대비할 때 쓰여 조건 의미가 아니다.\n(D) instead of는 '~대신에'라는 뜻이라 접속 허용 조건과 맞지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q123",
+    "part": 5,
+    "questionNumber": 123,
+    "question": "The project team worked overtime last week to ------- the revised client deadline.",
+    "choices": [
+      "meet",
+      "attend",
+      "reach out",
+      "serve"
+    ],
+    "answer": 0,
+    "translation": "프로젝트팀은 수정된 고객 마감일을 맞추기 위해 지난주 초과 근무를 했다.",
+    "vocab": "work overtime: 초과 근무하다 / meet a deadline: 마감일을 지키다",
+    "explanation": "고객이 정한 새 마감일까지 일을 끝내기 위해 추가 근무를 한 상황이다. deadline과 자연스럽게 연결되는 행동이 필요하다.\n\n핵심 포인트: meet a deadline은 업무 일정에서 핵심적으로 쓰이는 연어 표현이다.\n\n보기 분석\n(A) meet a deadline은 '마감일을 지키다, 맞추다'라는 매우 자연스러운 표현이다.\n(B) attend는 회의나 행사에 '참석하다'라는 뜻이라 deadline과 연결되지 않는다.\n(C) reach out은 누군가에게 연락을 취한다는 뜻으로 마감일을 지킨다는 의미가 아니다.\n(D) serve는 고객을 응대하거나 기능을 제공한다는 뜻이라 deadline과 자연스럽게 연결되지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q124",
+    "part": 5,
+    "questionNumber": 124,
+    "question": "Final ------- from the finance director is required before the equipment order can be placed.",
+    "choices": [
+      "approve",
+      "approved",
+      "approving",
+      "approval"
+    ],
+    "answer": 3,
+    "translation": "장비 주문을 넣기 전에 재무 책임자의 최종 승인이 필요하다.",
+    "vocab": "finance director: 재무 책임자 / place an order: 주문을 넣다",
+    "explanation": "장비 구매 전에 재무 책임자의 허가가 필요한 상황이다. 빈칸에는 사람의 행동 자체보다 '승인'이라는 절차나 결과를 나타내는 말이 필요하다.\n\n핵심 포인트: final approval, written approval, prior approval처럼 approval은 업무 승인 절차를 나타낼 때 자주 쓰인다.\n\n보기 분석\n(A) approve는 '승인하다'라는 행동을 뜻해 Final 뒤에서 필요한 절차 자체를 나타내지 못한다.\n(B) approved는 '승인된'이라는 상태를 뜻해 final approved라고 하면 의미가 완성되지 않는다.\n(C) approving은 '승인하는'이라는 진행 의미라 required의 대상이 되는 승인 절차를 나타내지 못한다.\n(D) approval은 '승인'이라는 뜻으로 final approval이 자연스럽다."
+  },
+  {
+    "id": "RC-S001-P5-Q125",
+    "part": 5,
+    "questionNumber": 125,
+    "question": "Original receipts ------- be attached to the travel claim when any single expense exceeds $100.",
+    "choices": [
+      "must",
+      "might",
+      "would",
+      "could"
+    ],
+    "answer": 0,
+    "translation": "한 건의 비용이 100달러를 초과하면 출장비 청구서에 원본 영수증을 반드시 첨부해야 한다.",
+    "vocab": "original receipt: 원본 영수증 / travel claim: 출장비 청구서",
+    "explanation": "회사 비용 정산 규정에서 특정 금액 이상이면 반드시 원본 영수증을 제출하도록 요구하고 있다. 선택이 아니라 의무를 나타내야 한다.\n\n핵심 포인트: 회사 규정이나 필수 절차를 안내할 때 must가 자주 사용된다.\n\n보기 분석\n(A) must는 규정상 반드시 해야 하는 의무를 나타내므로 가장 적절하다.\n(B) might는 가능성을 뜻해 제출이 선택 사항처럼 들린다.\n(C) would는 가정이나 과거 관점의 미래 등 다른 의미가 중심이라 규정상 의무를 나타내지 않는다.\n(D) could는 가능이나 허용을 나타내어 반드시 첨부해야 한다는 뜻이 약해진다."
+  },
+  {
+    "id": "RC-S001-P5-Q126",
+    "part": 5,
+    "questionNumber": 126,
+    "question": "Customer complaints about login failures ------- sharply since the authentication update was released.",
+    "choices": [
+      "decrease",
+      "decreased",
+      "have decreased",
+      "are decreasing"
+    ],
+    "answer": 2,
+    "translation": "인증 업데이트가 배포된 이후 로그인 실패에 대한 고객 불만이 크게 감소했다.",
+    "vocab": "login failure: 로그인 실패 / authentication update: 인증 시스템 업데이트",
+    "explanation": "업데이트가 배포된 과거 시점부터 지금까지 불만 건수가 줄어든 변화를 설명한다. 과거부터 현재까지 이어지는 결과를 나타내는 표현이 필요하다.\n\n핵심 포인트: since + 과거 시점이 나오면 그 시점부터 현재까지 이어진 변화를 현재완료로 표현하는 경우가 많다.\n\n보기 분석\n(A) decrease는 일반적인 사실처럼 들려 since가 만든 시간 범위를 충분히 보여 주지 못한다.\n(B) decreased는 과거의 한 시점에서 끝난 변화처럼 들려 지금까지의 결과와 연결이 약하다.\n(C) have decreased는 과거 업데이트 이후 지금까지 감소한 변화를 자연스럽게 나타낸다.\n(D) are decreasing은 현재 진행 중인 감소만 강조해 since 이후 누적된 변화라는 의미가 약하다."
+  },
+  {
+    "id": "RC-S001-P5-Q127",
+    "part": 5,
+    "questionNumber": 127,
+    "question": "Online ad clicks increased in September, ------- actual purchases remained nearly unchanged.",
+    "choices": [
+      "because",
+      "while",
+      "unless",
+      "therefore"
+    ],
+    "answer": 1,
+    "translation": "9월 온라인 광고 클릭 수는 증가했지만 실제 구매는 거의 변하지 않았다.",
+    "vocab": "ad click: 광고 클릭 / remain unchanged: 변하지 않은 상태로 유지되다",
+    "explanation": "광고 클릭은 늘었지만 구매 성과는 그대로인 서로 다른 결과를 비교하고 있다. 두 지표의 대조를 자연스럽게 연결해야 한다.\n\n핵심 포인트: 두 수치나 상황을 대비할 때 while을 '반면에'라는 의미로 사용할 수 있다.\n\n보기 분석\n(A) because는 원인을 나타내므로 클릭 증가가 구매 정체의 원인이라는 뜻이 되어 문맥과 맞지 않는다.\n(B) while은 여기서 '반면에'라는 뜻으로 두 결과의 차이를 자연스럽게 보여 준다.\n(C) unless는 '~하지 않는 한'이라는 조건이라 두 지표를 비교하지 못한다.\n(D) therefore는 결과를 나타내므로 구매가 그대로인 것이 클릭 증가의 결과라는 부자연스러운 의미가 된다."
+  },
+  {
+    "id": "RC-S001-P5-Q128",
+    "part": 5,
+    "questionNumber": 128,
+    "question": "The assistant updated the travel ------- after the client's office moved the meeting to Wednesday afternoon.",
+    "choices": [
+      "inventory",
+      "itinerary",
+      "invoice",
+      "warranty"
+    ],
+    "answer": 1,
+    "translation": "고객사 사무실이 회의를 수요일 오후로 옮긴 후 비서는 출장 일정을 수정했다.",
+    "vocab": "travel itinerary: 출장·여행 일정표 / move a meeting: 회의 일정을 옮기다",
+    "explanation": "출장 중 회의 시간이 바뀌어 이동과 일정 계획을 수정하는 상황이다. 여행의 세부 일정표를 뜻하는 말이 필요하다.\n\n핵심 포인트: travel itinerary는 항공, 숙박, 회의 등 출장 일정을 정리한 계획표를 뜻한다.\n\n보기 분석\n(A) inventory는 '재고'를 뜻하므로 출장 일정과 관계가 없다.\n(B) itinerary는 여행이나 출장의 세부 일정표를 뜻해 상황과 정확히 맞는다.\n(C) invoice는 '청구서'라는 뜻으로 일정 변경과 직접 관련이 없다.\n(D) warranty는 '보증'이라는 뜻으로 출장 계획을 나타내지 않는다."
+  },
+  {
+    "id": "RC-S001-P5-Q129",
+    "part": 5,
+    "questionNumber": 129,
+    "question": "Before submitting the final draft, the two editors reviewed ------- comments for unclear wording.",
+    "choices": [
+      "each other's",
+      "one's",
+      "themselves",
+      "their own one"
+    ],
+    "answer": 0,
+    "translation": "최종 원고를 제출하기 전에 두 편집자는 표현이 불명확한 부분을 찾기 위해 서로의 의견을 검토했다.",
+    "vocab": "final draft: 최종 원고 / unclear wording: 불명확한 표현",
+    "explanation": "두 편집자가 자기 의견만 보는 것이 아니라 상대방이 남긴 의견을 서로 검토한 상황이다. 상호 관계를 나타내는 표현이 필요하다.\n\n핵심 포인트: 두 사람이나 집단이 서로의 것을 가리킬 때 each other's를 사용할 수 있다.\n\n보기 분석\n(A) each other's는 '서로의'라는 뜻으로 두 사람이 상대방의 comments를 본다는 의미가 정확하다.\n(B) one's는 일반적으로 '누군가의'라는 뜻이라 두 편집자의 상호 관계를 나타내지 못한다.\n(C) themselves는 사람 자체를 가리키므로 comments 앞에서 소유 관계를 만들지 못한다.\n(D) their own one은 comments와 자연스럽게 연결되지 않으며 의미도 부자연스럽다."
+  },
+  {
+    "id": "RC-S001-P5-Q130",
+    "part": 5,
+    "questionNumber": 130,
+    "question": "------- the heavy rain, the outdoor registration desk remained open until all guests had checked in.",
+    "choices": [
+      "Although",
+      "Because",
+      "Unless",
+      "Despite"
+    ],
+    "answer": 3,
+    "translation": "폭우에도 불구하고 야외 등록 데스크는 모든 참가자가 체크인을 마칠 때까지 운영되었다.",
+    "vocab": "registration desk: 등록 데스크 / check in: 도착 등록을 하다",
+    "explanation": "날씨가 매우 좋지 않았지만 등록 데스크는 계속 운영되었다. 뒤에 heavy rain이라는 대상이 바로 이어지므로 '그럼에도 불구하고'라는 의미의 표현이 필요하다.\n\n핵심 포인트: despite + 명사(구)는 불리한 조건에도 결과가 유지되었다는 뜻을 나타낸다.\n\n보기 분석\n(A) Although는 뒤에 완전한 문장이 이어질 때 자연스러워 heavy rain만 바로 뒤에 두기 어렵다.\n(B) Because는 원인을 나타내므로 폭우 때문에 데스크를 계속 열었다는 부자연스러운 의미가 된다.\n(C) Unless는 '~하지 않는 한'이라는 조건을 나타내므로 현재 의미와 맞지 않는다.\n(D) Despite는 뒤에 명사나 명사구를 바로 두어 '~에도 불구하고'라는 대조를 자연스럽게 만든다."
+  }
+]
