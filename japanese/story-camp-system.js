@@ -43,21 +43,13 @@
     details.append(summary);
     var body = document.createElement("div");
     body.className = "story-body";
-    body.append(text("story-instruction", "한 장씩 집중해서 누적하고, 마지막에는 나의 이야기로 다시 말해 보세요.", "ko"));
     var deck = document.createElement("div");
     deck.className = "story-deck";
-    var deckHead = document.createElement("div");
-    deckHead.className = "story-deck-head";
     var deckStatus = document.createElement("div");
     deckStatus.className = "story-deck-status";
     var deckCount = document.createElement("strong");
     var deckLabel = document.createElement("span");
     deckStatus.append(deckCount, deckLabel);
-    var restartTop = document.createElement("button");
-    restartTop.type = "button";
-    restartTop.className = "story-deck-restart";
-    restartTop.textContent = "처음으로";
-    deckHead.append(deckStatus, restartTop);
     var progressTrack = document.createElement("div");
     progressTrack.className = "story-deck-track";
     var progress = document.createElement("span");
@@ -71,22 +63,23 @@
       var article = document.createElement("article");
       article.className = "story-deck-slide";
       article.dataset.label = label;
-      var purposeNode = text("story-deck-purpose", purpose, "ko");
-      var headingNode = document.createElement("h3");
-      headingNode.textContent = heading;
-      article.append(purposeNode, headingNode, text("story-deck-guide", guide, "ko"));
+      if (purpose) article.append(text("story-deck-purpose", purpose, "ko"));
+      if (heading) {
+        var headingNode = document.createElement("h3");
+        headingNode.textContent = heading;
+        article.append(headingNode);
+      }
+      if (guide) article.append(text("story-deck-guide", guide, "ko"));
       return article;
     }
     (story.snowballCards || []).forEach(function (card, cardIndex, sourceCards) {
-      var article = slide("누적 " + (cardIndex + 1), "1 · SNOWBALL · " + (cardIndex + 1) + "/" + sourceCards.length, cardIndex === sourceCards.length - 1 ? "누적 이야기 완성" : "처음부터 다시 누적하기", "이번 내용까지 확인한 뒤, 이야기의 처음부터 현재 단계까지 다시 말하거나 써 보세요.");
+      var article = slide("누적 " + (cardIndex + 1) + (cardIndex === sourceCards.length - 1 ? " · 이야기 완성" : ""), "", "", "");
+      article.classList.add("is-snowball");
       var cardBody = document.createElement("div");
       cardBody.className = "story-card";
-      var label = document.createElement("span");
-      label.className = "story-card-label";
-      label.textContent = card.label || String(card.step || "");
-      cardBody.append(label);
       addLayeredText(cardBody, card, "story-card");
       article.append(cardBody);
+      article.append(text("story-deck-cue story-snowball-cue", "이 문장까지 이야기의 처음부터 다시 말하거나 써 보세요.", "ko"));
       slides.append(article);
     });
     var finalCard = (story.snowballCards || []).slice(-1)[0] || {};
@@ -151,7 +144,10 @@
     var listButton = document.createElement("button");
     listButton.type = "button";
     listButton.textContent = "이야기 목록으로";
-    menuPanel.append(restart, listButton);
+    var jumpTitle = document.createElement("p");
+    jumpTitle.className = "story-deck-menu-title";
+    jumpTitle.textContent = "단계 이동";
+    menuPanel.append(restart, listButton, jumpTitle, jump);
     menu.append(menuSummary, menuPanel);
     var previous = document.createElement("button");
     previous.type = "button";
@@ -161,7 +157,7 @@
     next.className = "primary";
     next.textContent = "다음 →";
     actions.append(menu, previous, next);
-    deck.append(deckHead, progressTrack, jump, slides, actions);
+    deck.append(deckStatus, progressTrack, slides, actions);
     body.append(deck);
     details.append(body);
     var slideNodes = Array.prototype.slice.call(slides.children);
@@ -187,8 +183,8 @@
         button.classList.toggle("is-seen", itemIndex < current);
         button.setAttribute("aria-current", itemIndex === current ? "step" : "false");
       });
-      deckCount.textContent = (current + 1) + " / " + slideNodes.length;
-      deckLabel.textContent = slideNodes[current].dataset.label;
+      deckCount.textContent = (current + 1) + "/" + slideNodes.length + " · " + slideNodes[current].dataset.label;
+      deckLabel.textContent = "";
       progress.style.width = ((current + 1) / slideNodes.length * 100) + "%";
       previous.disabled = current === 0;
       next.textContent = current === slideNodes.length - 1 ? "학습 마치기" : "다음 →";
@@ -200,7 +196,7 @@
       if (current === slideNodes.length - 1) { details.open = false; details.scrollIntoView({behavior:"smooth", block:"start"}); return; }
       show(current + 1);
     });
-    [restart, restartTop].forEach(function (button) { button.addEventListener("click", function () { menu.open = false; show(0); }); });
+    restart.addEventListener("click", function () { menu.open = false; show(0); });
     listButton.addEventListener("click", function () { menu.open = false; details.open = false; details.scrollIntoView({behavior:"smooth", block:"start"}); });
     show(current);
     return details;
