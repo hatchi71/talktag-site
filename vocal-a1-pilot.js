@@ -73,8 +73,38 @@
   let repeatTimer = 0;
   let countdownTimer = 0;
   let activeIndex = -1;
+  let playbackPhase = 'idle';
+  let recallObjectUrl = '';
   const audioPlayer = new Audio();
+  const recallPlayer = new Audio();
   audioPlayer.preload = 'auto';
+  recallPlayer.preload = 'auto';
+  audioPlayer.playsInline = true;
+  recallPlayer.playsInline = true;
+
+  function setMediaPlaybackState(value) {
+    if ('mediaSession' in navigator) navigator.mediaSession.playbackState = value;
+  }
+  function releaseRecallAudio() {
+    recallPlayer.pause();
+    recallPlayer.removeAttribute('src');
+    recallPlayer.load();
+    if (recallObjectUrl) URL.revokeObjectURL(recallObjectUrl);
+    recallObjectUrl = '';
+  }
+  function silentWavUrl(durationMs) {
+    const sampleRate = 8000;
+    const samples = Math.max(1, Math.ceil(sampleRate * durationMs / 1000));
+    const buffer = new ArrayBuffer(44 + samples);
+    const view = new DataView(buffer);
+    const text = (offset, value) => [...value].forEach((char, index) => view.setUint8(offset + index, char.charCodeAt(0)));
+    text(0, 'RIFF'); view.setUint32(4, 36 + samples, true); text(8, 'WAVE');
+    text(12, 'fmt '); view.setUint32(16, 16, true); view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true); view.setUint32(24, sampleRate, true); view.setUint32(28, sampleRate, true);
+    view.setUint16(32, 1, true); view.setUint16(34, 8, true); text(36, 'data'); view.setUint32(40, samples, true);
+    new Uint8Array(buffer, 44).fill(128);
+    return URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' }));
+  }
 
   function save() { try { localStorage.setItem(key, JSON.stringify(state)); } catch (_) {} }
   function clearTimers() {
@@ -82,6 +112,7 @@
     window.clearInterval(countdownTimer);
     repeatTimer=0;
     countdownTimer=0;
+    releaseRecallAudio();
   }
   function stopSound(message) {
     runToken+=1;
@@ -89,6 +120,8 @@
     audioPlayer.pause();
     audioPlayer.removeAttribute('src');
     audioPlayer.load();
+    playbackPhase='idle';
+    setMediaPlaybackState('none');
     window.speechSynthesis?.cancel();
     document.querySelectorAll('.sound-step').forEach(button=>{
       button.classList.remove('is-playing','is-waiting');
@@ -115,6 +148,8 @@
     const status = document.getElementById('soundStatus');
     const waitMs=Math.max(500,Math.round(audioDurationMs*SILENCE_MULTIPLIER));
     const finishAt=Date.now()+waitMs;
+    let completed=false;
+    playbackPhase='recall';
     button.classList.remove('is-playing');
     button.classList.add('is-waiting');
     button.querySelector('em').textContent='…';
@@ -124,7 +159,9 @@
     };
     update();
     countdownTimer=window.setInterval(update,500);
-    repeatTimer=window.setTimeout(()=>{
+    const finishRecall=()=>{
+      if(completed)return;
+      completed=true;
       if(token!==runToken)return;
       clearTimers();
       button.classList.remove('is-waiting');
@@ -145,15 +182,23 @@
       }else{
         speakRound(index,button,token);
       }
-    },waitMs);
+    };
+    recallObjectUrl=silentWavUrl(waitMs);
+    recallPlayer.src=recallObjectUrl;
+    recallPlayer.onended=finishRecall;
+    recallPlayer.onerror=()=>{repeatTimer=window.setTimeout(finishRecall,Math.max(0,finishAt-Date.now()));};
+    recallPlayer.play().then(()=>setMediaPlaybackState('playing')).catch(()=>{
+      repeatTimer=window.setTimeout(finishRecall,Math.max(0,finishAt-Date.now()));
+    });
   }
   function speakRound(index, button, token) {
     if(token!==runToken)return;
     const status=document.getElementById('soundStatus');
+    playbackPhase='audio';
     document.querySelectorAll('.sound-step').forEach(item=>item.classList.remove('is-playing','is-waiting'));
     const track=unit.audioSteps?.[index];
     if(track?.url){
-      audioPlayer.onplaying=()=>{if(token!==runToken)return;button.classList.add('is-playing');button.querySelector('em').textContent='■';status.textContent=`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
+      audioPlayer.onplaying=()=>{if(token!==runToken)return;setMediaPlaybackState('playing');button.classList.add('is-playing');button.querySelector('em').textContent='■';status.textContent=`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
       audioPlayer.onended=()=>{if(token!==runToken)return;const duration=Math.max(500,(Number(audioPlayer.duration)||Number(track.duration)||.5)*1000);state.counts[index]=Math.min(REPEAT_TARGET,state.counts[index]+1);document.querySelector(`[data-repeat-count="${index}"]`).textContent=state.counts[index];save();waitForRecall(index,button,token,duration);};
       audioPlayer.onerror=()=>{if(token!==runToken)return;stopSound('음원을 불러오지 못했습니다. 연결을 확인하고 다시 눌러 주세요.');};
       if(audioPlayer.src!==track.url)audioPlayer.src=track.url;
@@ -196,6 +241,25 @@
   previous.addEventListener('click',()=>showCard(state.card-1));
   next.addEventListener('click',()=>{if(state.card===cards.length-1){menu.open=true;return}showCard(state.card+1)});
   document.getElementById('restartButton').addEventListener('click',()=>{stopSound();state.card=0;state.counts=lines.map(()=>0);document.querySelectorAll('[data-repeat-count]').forEach(node=>node.textContent='0');document.querySelectorAll('.sound-step').forEach(button=>button.classList.remove('is-complete'));menu.open=false;save();showCard(0)});
-  window.addEventListener('pagehide',()=>stopSound());
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: unit.englishTitle || unit.title,
+      artist: `TalkTag Vocal Camp · ${unit.level}`,
+      album: 'Vocal Camp'
+    });
+    const mediaAction = (name, handler) => { try { navigator.mediaSession.setActionHandler(name, handler); } catch (_) {} };
+    mediaAction('play', () => {
+      const player = playbackPhase === 'recall' ? recallPlayer : audioPlayer;
+      player.play().then(()=>setMediaPlaybackState('playing')).catch(()=>{});
+    });
+    mediaAction('pause', () => {
+      audioPlayer.pause();
+      recallPlayer.pause();
+      setMediaPlaybackState('paused');
+    });
+    mediaAction('stop', () => stopSound('백그라운드 재생을 멈췄습니다.'));
+  }
+  window.addEventListener('pagehide',save);
+  window.addEventListener('beforeunload',save);
   showCard(Number(state.card)||0);
 })();
