@@ -121,9 +121,18 @@
         </section>
         <div class="home-contact">Contact : <a href="mailto:talktagadmin@gmail.com">talktagadmin@gmail.com</a></div>`;
 
+      if (!isJapaneseHome && !isKoreanHome) {
+        home.innerHTML = `
+          <section class="landing-hero">
+            <img src="assets/talktag-landing-confidence-v2.png" alt="말과 표현을 한 조각씩 쌓아가는 TalkTag 학습 이미지" width="1536" height="1536">
+            <p>언어를 익히는 것은 조그마한 조각을<br>차근차근 쌓아가는 것과 같아요.</p>
+          </section>`;
+      }
+
       const style = document.createElement('style');
       style.textContent = `
         #home .mission-home{min-width:0;min-height:960px;position:relative;padding:52px 46px 40px;overflow:auto}
+        .landing-hero{max-width:980px;margin:0 auto;text-align:center}.landing-hero img{display:block;width:min(100%,860px);height:auto;margin:0 auto;border-radius:28px;box-shadow:0 20px 50px rgba(24,52,85,.13)}.landing-hero p{margin:26px auto 0;color:#082b68;font-size:clamp(20px,2.1vw,30px);font-weight:850;line-height:1.45;letter-spacing:-.04em}
         #home{overflow:auto}
         #home+.ai-panel,.view#home .ai-panel{display:none!important}
         .topbar{height:84px;padding:0 24px}.top-brand{gap:11px}.top-brand>div{min-width:0}.top-brand>a{position:relative;display:block;width:62px;height:62px;flex:0 0 62px;overflow:hidden;border-radius:50%;background:#fff}.mobile-logo{display:block!important;position:absolute;left:50%;top:-16px;width:150px!important;height:auto!important;max-width:none;transform:translateX(-50%)}.catchphrase{font-size:19px;line-height:1.08;white-space:normal;max-width:290px}.crumb{font-size:11px}.top-actions{position:relative}.sidebar>a:first-child{display:none}.side-logo{display:none!important}.nav{margin-top:4px}
@@ -150,7 +159,7 @@
         .home-contact{position:absolute;left:46px;right:46px;bottom:15px;display:flex;align-items:center;justify-content:center;gap:6px;color:#71839d;font-size:13px;font-weight:750}.home-contact a{min-height:44px;display:inline-flex;align-items:center;color:#1768e9;text-decoration:none;font-weight:850}.home-contact a:hover{text-decoration:underline}.home-contact a:focus-visible{outline:3px solid rgba(23,104,233,.28);outline-offset:3px;border-radius:6px}
         @media(max-width:820px){
           .topbar{height:78px;padding:0 10px}.top-brand{gap:7px}.top-brand>a{width:52px;height:52px;flex-basis:52px}.mobile-logo{top:-13px;width:128px!important}.catchphrase{font-size:14px;line-height:1.12;max-width:clamp(120px,26vw,190px)}.view{min-height:calc(100dvh - 150px)}
-          #home .mission-home{min-height:1540px;padding:28px 20px 34px;overflow:hidden}
+          #home .mission-home{min-height:0;padding:16px 16px 92px;overflow:hidden}.landing-hero img{width:100%;border-radius:20px}.landing-hero p{margin-top:18px;font-size:19px;line-height:1.5}
           .mission-copy{width:100%}.mission-kicker{font-size:9px;margin-bottom:12px}.mission-copy h1{font-size:47px;line-height:.96;margin-bottom:20px}
           .mission-lead{font-size:17px;line-height:1.48;margin-bottom:12px}.mission-body{font-size:13px;line-height:1.62}.mission-foot{font-size:7px;letter-spacing:.16em}.mission-rule{margin:18px 0 10px}
           .character-visual{position:relative;right:auto;top:auto;width:min(100%,560px);margin:24px auto 0}.block-label{font-size:clamp(9px,2.5vw,13px)}
