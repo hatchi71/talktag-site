@@ -14,6 +14,36 @@
   apply(preference);
   window.addEventListener('storage', event => { if (event.key === key) apply(event.newValue); });
   document.addEventListener('DOMContentLoaded', () => {
+    const japaneseNav = document.querySelector('.ja-mode-nav');
+    if (japaneseNav) {
+      const file = location.pathname.split('/').pop() || 'index.html';
+      const section = file === 'index.html' ? 'home'
+        : file === 'myspace.html' ? 'myspace'
+        : file === 'talktag.html' ? 'talktag'
+        : file === 'discussions.html' ? 'discussions'
+        : /^(?:test-preppers|jlpt|jpt)/.test(file) ? 'tests'
+        : 'studio';
+      const items = [
+        ['home', 'index.html', '⌂', '홈'],
+        ['myspace', 'myspace.html', '◉', '마이스페이스'],
+        ['talktag', 'talktag.html', '#', '톡&태그'],
+        ['studio', 'snowballing.html', '↗', '스튜디오'],
+        ['discussions', 'discussions.html', '◌', '토론'],
+        ['tests', 'test-preppers.html', '◇', '시험대비']
+      ];
+      japaneseNav.replaceChildren(...items.map(([keyName, href, icon, label]) => {
+        const link = document.createElement('a');
+        link.href = href;
+        if (keyName === section) link.setAttribute('aria-current', 'page');
+        const iconSpan = document.createElement('span');
+        iconSpan.setAttribute('aria-hidden', 'true');
+        iconSpan.textContent = icon;
+        const labelSpan = document.createElement('span');
+        labelSpan.textContent = label;
+        link.append(iconSpan, labelSpan);
+        return link;
+      }));
+    }
     // These spaces currently display examples, not saved personal records.
     for (const id of ['myspace', 'talktag', 'discussions', 'leader']) {
       const view = document.getElementById(id);
