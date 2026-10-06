@@ -1,0 +1,46 @@
+{
+  "id": "/",
+  "name": "TalkTag — Where Words Become Talks and Tags",
+  "short_name": "TalkTag",
+  "description": "영어·일본어·한국어를 작은 조각부터 차근차근 쌓아가는 TalkTag 학습 공간",
+  "lang": "ko",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#f8f5ee",
+  "theme_color": "#082b68",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/talktag-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/talktag-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "English",
+      "short_name": "English",
+      "url": "/?view=home"
+    },
+    {
+      "name": "日本語",
+      "short_name": "日本語",
+      "url": "/japanese/"
+    },
+    {
+      "name": "한국어",
+      "short_name": "한국어",
+      "url": "/korean.html"
+    }
+  ]
+}
