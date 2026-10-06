@@ -25,7 +25,26 @@
   const url = (t,e,s) => 'vocal-camp.html' + (t ? '?topic='+t : '') + (e ? '&episode='+e : '') + (s ? '&stage='+s : '');
   const A = (text, href, cls) => {const a = E('a',cls,text); a.href = href; return a;};
   root.replaceChildren(); root.hidden = false; root.classList.add('vocal-browser');
-  const note = E('p','vb-notice','미리보기 · 주제와 에피소드는 예시입니다. 음원은 준비 중이며 추후 연결됩니다.');
+  if (!topic && !episode && !stage) {
+    const pilotSection=E('section','vb-pilot-section');
+    const pilotHead=E('div','vb-pilot-head');pilotHead.append(E('span','vb-pilot-kicker','V1 · A1–C2 · 18 AUDIO LESSONS'),E('h2','','소리로 시작하는 Vocal Camp'));
+    const pilotCatalog=E('div','vb-pilot-catalog');
+    const pilots=window.TalkTagVocalPilots||[];
+    ['A1','A2','B1','B2','C1','C2'].forEach(level=>{
+      const levelBlock=E('section','vb-level-block');
+      const levelHead=E('div','vb-level-head');levelHead.append(E('h3','',level),E('p','','쉬움에서 도전까지 · 3개 음원'));
+      const pilotList=E('div','vb-pilot-list');
+      pilots.filter(item=>item.level===level).forEach(item=>{
+        const pilot=A('',`vocal-a1-pilot.html?unit=${encodeURIComponent(item.id)}`,'vb-pilot');
+        const pilotCopy=E('div','vb-pilot-copy');
+        pilotCopy.append(E('span','vb-pilot-kicker',`${item.level} · ${item.difficultyLabel||''}`),E('h3','',item.title),E('small','vb-pilot-english',item.englishTitle||''),E('p','',item.mission));
+        pilot.append(pilotCopy,E('strong','vb-pilot-open','훈련 시작 →'));pilotList.append(pilot);
+      });
+      levelBlock.append(levelHead,pilotList);pilotCatalog.append(levelBlock);
+    });
+    pilotSection.append(pilotHead,pilotCatalog);root.append(pilotSection);
+  }
+  const note = E('p','vb-notice','V1 정식 음원 · 한 번 시작하면 각 누적 단계를 10회 반복하고 자동으로 다음 단계로 이동합니다.');
   root.append(note);
   const selectedTopic = episode ? topics.find(t=>t.id===episode.topic) : topic;
   const nav = E('nav','vb-breadcrumb'); nav.setAttribute('aria-label','현재 위치');
