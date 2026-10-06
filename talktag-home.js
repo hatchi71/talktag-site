@@ -126,13 +126,34 @@
           <section class="landing-hero">
             <img src="assets/talktag-landing-confidence-v2.png" alt="말과 표현을 한 조각씩 쌓아가는 TalkTag 학습 이미지" width="1536" height="1536">
             <p>언어를 익히는 것은 조그마한 조각을<br>차근차근 쌓아가는 것과 같아요.</p>
-          </section>`;
+          </section>
+          <section class="home-news home-news-three landing-news" aria-label="TalkTag 새 소식">
+            <a class="feature-card boot" href="bootcamp.html">
+              <div class="news-label">새 소식 · BOOT CAMP</div>
+              <h3>이야기를 읽고,<br>나의 언어로 다시 말해요.</h3>
+              <p>A1부터 C2까지 이야기를 기억하고 재구성해 파트너에게 전달합니다.</p>
+              <strong>BOOT CAMP 시작하기 →</strong>
+            </a>
+            <a class="feature-card snow" href="snowballing-studio.html">
+              <div class="news-label">새 소식 · 스노우볼링 스튜디오</div>
+              <h3>듣고 따라 말하며<br>영어를 내 것으로 만들어요.</h3>
+              <p>작은 표현부터 반복하고 연결하며 실제로 말할 수 있는 영어를 만듭니다.</p>
+              <strong>스노우볼링 스튜디오 둘러보기 →</strong>
+            </a>
+            <a class="feature-card readable" href="toeic/">
+              <div class="news-label">새 소식 · 토익 실전 연습</div>
+              <h3>실전처럼 풀고,<br>바로 확인하세요.</h3>
+              <p>웹에서 문제를 풀고 정답과 해설을 확인하며 시험 감각을 키웁니다.</p>
+              <strong>토익 실전 연습 시작하기 →</strong>
+            </a>
+          </section>
+          <div class="home-contact">Contact : <a href="mailto:talktagadmin@gmail.com">talktagadmin@gmail.com</a></div>`;
       }
 
       const style = document.createElement('style');
       style.textContent = `
         #home .mission-home{min-width:0;min-height:960px;position:relative;padding:52px 46px 40px;overflow:auto}
-        .landing-hero{max-width:980px;margin:0 auto;text-align:center}.landing-hero img{display:block;width:min(100%,860px);height:auto;margin:0 auto;border-radius:28px;box-shadow:0 20px 50px rgba(24,52,85,.13)}.landing-hero p{margin:26px auto 0;color:#082b68;font-size:clamp(20px,2.1vw,30px);font-weight:850;line-height:1.45;letter-spacing:-.04em}
+        .landing-hero{max-width:980px;margin:0 auto;text-align:center}.landing-hero img{display:block;width:min(100%,860px);height:auto;margin:0 auto;border-radius:28px;box-shadow:0 20px 50px rgba(24,52,85,.13)}.landing-hero p{margin:26px auto 0;color:#082b68;font-size:clamp(20px,2.1vw,30px);font-weight:850;line-height:1.45;letter-spacing:-.04em}.landing-news.home-news{position:relative;left:auto;right:auto;top:auto;max-width:980px;margin:38px auto 0;padding-bottom:28px}.landing-news+.home-contact{position:relative;left:auto;right:auto;bottom:auto;margin:0 auto 20px}
         #home{overflow:auto}
         #home+.ai-panel,.view#home .ai-panel{display:none!important}
         .topbar{height:84px;padding:0 24px}.top-brand{gap:11px}.top-brand>div{min-width:0}.top-brand>a{position:relative;display:block;width:62px;height:62px;flex:0 0 62px;overflow:hidden;border-radius:50%;background:#fff}.mobile-logo{display:block!important;position:absolute;left:50%;top:-16px;width:150px!important;height:auto!important;max-width:none;transform:translateX(-50%)}.catchphrase{font-size:19px;line-height:1.08;white-space:normal;max-width:290px}.crumb{font-size:11px}.top-actions{position:relative}.sidebar>a:first-child{display:none}.side-logo{display:none!important}.nav{margin-top:4px}
