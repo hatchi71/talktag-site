@@ -8,6 +8,8 @@
 .lesson-card-actions .lesson-action{display:flex;align-items:center;justify-content:center;text-align:center}
 .lesson-card-actions .tt-completion-button{width:100%}
 .tt-completion-card>.item{padding-bottom:70px!important}
+.tt-completion-card>.family-card{padding-bottom:68px!important}
+.family-catalog>.tt-completion-card.is-completed>.tt-completion-button{left:auto;right:4px;bottom:4px;min-width:44px;width:44px;height:44px;padding:0;border-radius:50%;font-size:0}.family-catalog>.tt-completion-card.is-completed>.tt-completion-button::before{margin:0;font-size:17px}
 .tt-completion-button{min-width:76px;min-height:44px;padding:9px 14px;border:1px solid #b8c7d7;border-radius:999px;background:#fff;color:#36516d;font:800 13px/1.2 Inter,"Noto Sans KR",system-ui,sans-serif;letter-spacing:-.01em;cursor:pointer;box-shadow:0 5px 14px rgba(24,52,85,.1);transition:background .16s,border-color .16s,color .16s,transform .16s}
 .tt-completion-button:hover{transform:translateY(-1px);border-color:#579873;color:#176849}
 .tt-completion-button:focus-visible{outline:3px solid #77afff;outline-offset:3px}
