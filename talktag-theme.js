@@ -14,6 +14,60 @@
   apply(preference);
   window.addEventListener('storage', event => { if (event.key === key) apply(event.newValue); });
   document.addEventListener('DOMContentLoaded', () => {
+    const path = location.pathname;
+    const topLanding = path === '/' || path === '/index.html' || path === '/japanese/' || path === '/japanese/index.html' || /\/korean\.html$/.test(path);
+    if (!topLanding && !document.querySelector('.tt-route-tools')) {
+      const japanese = path.startsWith('/japanese/');
+      const routes = japanese ? [
+        [/story-camp/, '/japanese/story-camp.html', 'Story Camp'],
+        [/vocal/, '/japanese/vocal-camp.html', 'Vocal Camp'],
+        [/(?:guided|listen-repeat|audio-essays)/, '/japanese/listen-repeat.html', 'Listen & Repeat'],
+        [/readable/, '/japanese/readable.html', 'Readable'],
+        [/(?:jlpt|jpt|test-preppers)/, '/japanese/test-preppers.html', '시험대비'],
+        [/discussions/, '/japanese/discussions.html', '토론'],
+        [/snowballing|bootcamp/, '/japanese/snowballing.html', '스노우볼링'],
+        [/.*/, '/japanese/', '일본어 홈']
+      ] : [
+        [/storycamp|story-camp/, '/story-camp.html', 'Story Camp'],
+        [/vocal/, '/vocal-camp.html', 'Vocal Camp'],
+        [/(?:audio-library|audio-player|listen-repeat)/, '/listen-repeat.html', 'Listen & Repeat'],
+        [/readable/, '/readable.html', 'Readable'],
+        [/toeic/, '/toeic/', 'TOEIC RC'],
+        [/test-preppers/, '/test-preppers.html', 'Test Preppers'],
+        [/discussions/, '/discussions.html', 'Discussions'],
+        [/snowballing|bootcamp/, '/snowballing-studio.html', 'Snowballing Studio'],
+        [/.*/, '/', 'TalkTag 홈']
+      ];
+      const route = routes.find(([pattern]) => pattern.test(path));
+      const tools = document.createElement('nav');
+      tools.className = 'tt-route-tools';
+      tools.setAttribute('aria-label', '페이지 이동');
+      const previous = document.createElement('button');
+      previous.type = 'button';
+      previous.className = 'tt-route-previous';
+      previous.innerHTML = '<span aria-hidden="true">←</span><b>이전으로</b>';
+      previous.addEventListener('click', () => {
+        if (history.length > 1) history.back();
+        else location.href = route[1];
+      });
+      const category = document.createElement('a');
+      category.className = 'tt-route-category';
+      category.href = route[1];
+      category.innerHTML = `<span aria-hidden="true">⌂</span><b>${route[2]}</b>`;
+      tools.append(previous, category);
+      const header = document.querySelector('body > header, main > header, .workspace > header');
+      const main = document.querySelector('main');
+      if (header) header.insertAdjacentElement('afterend', tools);
+      else if (main) main.prepend(tools);
+      else document.body.prepend(tools);
+    }
+
+    document.querySelectorAll('.levels, .level-tabs, .filter-bar, .ja-grid, .vb-level-grid').forEach(group => {
+      const links = [...group.querySelectorAll(':scope > a')];
+      const levelLinks = links.filter(link => /(?:^|[-_/])(a1|a2|b1|b2|c1|c2|n[1-5])(?:[-_.?/]|$)/i.test(link.getAttribute('href') || '') || /[?&]level=(?:A1|A2|B1|B2|C1|C2|N[1-5])(?:&|$)/i.test(link.getAttribute('href') || '') || /^(?:A1|A2|B1|B2|C1|C2|N[1-5])(?:\b|\s|·)/.test(link.textContent.trim()));
+      if (levelLinks.length && levelLinks.length === links.length) group.classList.add('tt-level-postits');
+    });
+
     const japaneseNav = document.querySelector('.ja-mode-nav');
     if (japaneseNav) {
       const file = location.pathname.split('/').pop() || 'index.html';
