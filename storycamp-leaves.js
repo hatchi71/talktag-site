@@ -1,6 +1,9 @@
 (() => {
   'use strict';
-  const choose = document.getElementById('story-camp');
+  const vocal = document.body.dataset.camp === 'vocal';
+  const prefix = vocal ? 'vocalcamp-family:' : 'storycamp-family:';
+  const familyRoute = vocal ? 'vocalcamp-family.html' : 'storycamp-family.html';
+  const choose = document.getElementById(vocal ? 'vocal-camp' : 'story-camp');
   const shelf = document.createElement('section');
   const leafArt = '<svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M38 7C39 25 31 39 15 37C7 36 6 29 9 23C13 14 26 14 38 7Z" fill="#C78A45"/><path d="M38 7C35 24 26 32 12 39M28 22L20 21M23 29L24 19M18 34L12 30" stroke="#80572F" stroke-width="1.7" stroke-linecap="round"/></svg>';
   shelf.className = 'story-leaf-shelf';
@@ -12,9 +15,9 @@
   const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   function refresh() {
     renderCatalog();
-    const completed = families.filter(item => window.TalkTagCompletion.get(`storycamp-family:${item.number}`));
+    const completed = families.filter(item => window.TalkTagCompletion.get(`${prefix}${item.number}`));
     shelf.querySelector('.story-leaf-count').textContent = `${completed.length}`;
-    list.innerHTML = completed.map(item => `<div class="story-leaf-row"><span class="story-leaf-mini">${leafArt}</span><a href="storycamp-family.html?family=${item.number}"><small>${item.number}</small><strong>${escape(item.title)}</strong></a><button type="button" data-undo="${item.number}" aria-label="${escape(item.title)} 완료 취소">완료 취소</button></div>`).join('') || '<p class="story-leaf-empty">한 편을 마치면, 작은 낙엽 하나가 이곳에 남습니다.</p>';
+    list.innerHTML = completed.map(item => `<div class="story-leaf-row"><span class="story-leaf-mini">${leafArt}</span><a href="${familyRoute}?family=${item.number}"><small>${item.number}</small><strong>${escape(item.title)}</strong></a><button type="button" data-undo="${item.number}" aria-label="${escape(item.title)} 완료 취소">완료 취소</button></div>`).join('') || '<p class="story-leaf-empty">한 편을 마치면, 작은 낙엽 하나가 이곳에 남습니다.</p>';
   }
   toggle.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') !== 'true';
@@ -24,11 +27,11 @@
   list.addEventListener('click', event => {
     const button = event.target.closest('[data-undo]');
     if (!button) return;
-    window.TalkTagCompletion.set(`storycamp-family:${button.dataset.undo}`, false);
+    window.TalkTagCompletion.set(`${prefix}${button.dataset.undo}`, false);
     toggle.focus();
   });
   window.addEventListener('talktag:completion-change', event => {
-    if (!event.detail.id.startsWith('storycamp-family:')) return;
+    if (!event.detail.id.startsWith(prefix)) return;
     clearTimeout(timer);
     if (event.detail.completed) {
       const card = [...catalog.querySelectorAll('.tt-completion-card')].find(node => node.dataset.completionId === event.detail.id);
