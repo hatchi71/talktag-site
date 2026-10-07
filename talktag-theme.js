@@ -1,5 +1,11 @@
 /* Shared appearance preference. Does not touch learning or audio state. */
 (() => {
+  if (!document.querySelector('script[src*="/pwa.js"]')) {
+    const pwa = document.createElement('script');
+    pwa.src = '/pwa.js?v=20261007-2';
+    document.head.append(pwa);
+  }
+
   const key = 'talktag-appearance';
   const root = document.documentElement;
   const valid = value => value === 'dark' ? 'dark' : 'bright';

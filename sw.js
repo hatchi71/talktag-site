@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261006-1';
+const CACHE_VERSION = 'talktag-pwa-20261007-2';
 const APP_SHELL = [
   '/',
   '/index.html',
@@ -28,6 +28,16 @@ self.addEventListener('message', event => {
   if (event.data?.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
+const changed = (cached, fresh) => {
+  if (!cached || !fresh) return false;
+  const cachedTag = cached.headers.get('etag') || cached.headers.get('last-modified');
+  const freshTag = fresh.headers.get('etag') || fresh.headers.get('last-modified');
+  return Boolean(cachedTag && freshTag && cachedTag !== freshTag);
+};
+
+const notifyContentUpdated = url => self.clients.matchAll({ type: 'window', includeUncontrolled: true })
+  .then(clients => clients.forEach(client => client.postMessage({ type: 'CONTENT_UPDATED', url })));
+
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
@@ -36,7 +46,21 @@ self.addEventListener('fetch', event => {
   if (url.origin !== self.location.origin) return;
 
   if (request.mode === 'navigate') {
-    event.respondWith(fetch(request).catch(() => caches.match('/offline.html')));
+    event.respondWith(
+      caches.open(CACHE_VERSION).then(async cache => {
+        const cached = await cache.match(request);
+        try {
+          const fresh = await fetch(request);
+          if (fresh.ok) {
+            if (changed(cached, fresh)) notifyContentUpdated(request.url);
+            cache.put(request, fresh.clone());
+          }
+          return fresh;
+        } catch (_) {
+          return cached || caches.match('/offline.html');
+        }
+      })
+    );
     return;
   }
 
@@ -45,7 +69,10 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(request).then(cached => {
       const fresh = fetch(request).then(response => {
-        if (response.ok) caches.open(CACHE_VERSION).then(cache => cache.put(request, response.clone()));
+        if (response.ok) {
+          if (changed(cached, response)) notifyContentUpdated(request.url);
+          caches.open(CACHE_VERSION).then(cache => cache.put(request, response.clone()));
+        }
         return response;
       }).catch(() => cached);
       return cached || fresh;
