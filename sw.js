@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261007-readable-card';
+const CACHE_VERSION = 'talktag-pwa-20261007-horizontal-method';
 const APP_SHELL = [
   '/',
   '/index.html',
