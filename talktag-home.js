@@ -3,6 +3,8 @@
   const isKoreanHome = /\/korean\.html$/.test(location.pathname);
   const isHome = location.pathname === '/' || /\/index\.html$/.test(location.pathname) || isJapaneseHome || isKoreanHome;
 
+  document.querySelectorAll('a[href="japanese.html"]').forEach((link) => link.setAttribute('href', 'japanese/'));
+
   if (isHome) {
     const home = document.querySelector('#home .stage');
     if (home && !home.classList.contains('mission-home')) {
@@ -13,8 +15,8 @@
         title: 'Learn Korean,<br>one piece<br><em>at a time.</em>',
         lead: 'Learning Korean is like building with small pieces,<br>one clear step at a time.',
         body: 'TalkTag helps Korean learners build strong language <b>LOGIC</b><br>through English guidance—then turn it into<br>Korean they can actually use.',
-        figureLabel: 'Small Korean learning steps building toward confident communication',
-        imageAlt: 'A learner stacking colorful Korean language learning blocks',
+        figureLabel: 'A mother and daughter building small Korean learning steps toward confident communication',
+        imageAlt: 'A warm mother and daughter stacking colorful Korean language learning blocks together',
         goal: '더 자신 있는<br>한국어 화자',
         fluent: '자연스러운<br>한국어 표현',
         natural: '진짜 한국어<br>소통',
@@ -94,7 +96,7 @@
           <div class="mission-foot">A BRIGHTER YOU THROUGH A RICHER TOMORROW</div>
         </section>
         <figure class="character-visual" aria-label="${copy.figureLabel}">
-          <img src="assets/talktag-woman-learning-blocks.png" alt="${copy.imageAlt}">
+          <img src="${isKoreanHome ? 'assets/talktag-korean-family-learning-blocks-v2.png' : 'assets/talktag-woman-learning-blocks.png'}" alt="${copy.imageAlt}">
           <div class="block-labels" aria-label="TalkTag learning progression">
             <span class="block-label label-goal">${copy.goal}</span>
             <span class="block-label label-fluent">${copy.fluent}</span>
@@ -169,7 +171,7 @@
         .character-visual>img{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 26px rgba(30,64,104,.14))}
         .block-labels{position:absolute;inset:0;z-index:2;pointer-events:none}.block-label{position:absolute;left:34.5%;width:28%;transform:translate(-50%,-50%);color:#143d78;text-align:center;font-size:clamp(8px,.9vw,12px);font-weight:950;line-height:1.05;letter-spacing:-.025em;text-shadow:0 1px 0 rgba(255,255,255,.3)}.label-goal{top:39%;color:#fff;text-shadow:0 1px 2px rgba(108,50,0,.32)}.label-fluent{top:49.3%}.label-natural{top:58.1%}.label-logic{top:67.2%}.label-chunks{top:76.3%}.label-daily{top:85.4%}
         .mission-home-ja .mission-copy h1{font-family:"Noto Sans JP","Noto Sans KR",Inter,system-ui,sans-serif;font-size:clamp(46px,5.1vw,72px);letter-spacing:-.055em}.mission-home-ja .mission-lead,.mission-home-ja .mission-body,.mission-home-ja .feature-card{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif}.mission-home-ja .block-label{font-family:"Noto Sans KR","Noto Sans JP",Inter,system-ui,sans-serif;font-size:clamp(7px,.78vw,11px);line-height:1.16;letter-spacing:-.06em}
-        .mission-home-ko .mission-copy h1{font-size:clamp(46px,5.2vw,74px)}.mission-home-ko .block-label{font-size:clamp(7px,.75vw,10px);line-height:1.12}.mission-home-ko .label-goal{font-size:clamp(6px,.67vw,9px)}
+        .mission-home-ko .mission-copy h1{font-size:clamp(46px,5.2vw,74px)}.mission-home-ko .block-label{left:46%;font-size:clamp(7px,.75vw,10px);line-height:1.12}.mission-home-ko .label-goal{top:30.7%;font-size:clamp(6px,.67vw,9px)}.mission-home-ko .label-fluent{top:43.6%}.mission-home-ko .label-natural{top:53.5%}.mission-home-ko .label-logic{top:62.3%}.mission-home-ko .label-chunks{top:71.5%}.mission-home-ko .label-daily{top:80.9%}
         .floating-share{position:relative;right:auto;top:auto;z-index:30;width:42px;height:42px;display:grid;place-items:center;flex:0 0 42px;padding:0;border:1px solid rgba(181,205,238,.95);border-radius:13px;background:rgba(255,255,255,.94);color:#1768e9;box-shadow:0 5px 15px rgba(24,52,85,.1);cursor:pointer;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}.floating-share:hover,.floating-share[aria-expanded="true"]{transform:translateY(-2px);background:#edf5ff;box-shadow:0 8px 20px rgba(24,52,85,.16)}.floating-share:focus-visible{outline:3px solid rgba(23,104,233,.28);outline-offset:3px}.floating-share svg{width:20px;height:20px;display:block}
         .language-switch.language-tabs{height:auto;display:flex;align-items:center;gap:6px;padding:0;border:0;background:transparent}.language-tabs-label{margin-right:2px;color:#71839d;font-size:10px;font-weight:900;letter-spacing:.04em;white-space:nowrap}.language-switch.language-tabs a{min-width:80px;height:42px;display:grid;place-items:center;padding:0 12px;border:1px solid #d7e2f0;border-radius:13px;background:linear-gradient(180deg,#fff 0%,#f6f9fd 100%);box-shadow:0 3px 0 #dbe5f1,0 7px 16px rgba(24,52,85,.09),inset 0 1px 0 #fff;color:#29476e;text-decoration:none;font-size:11px;font-weight:900;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}.language-switch.language-tabs a:hover{transform:translateY(-1px);border-color:#a9c5eb;box-shadow:0 4px 0 #d2deec,0 9px 20px rgba(24,52,85,.12),inset 0 1px 0 #fff}.language-switch.language-tabs a:focus-visible{outline:3px solid rgba(23,104,233,.28);outline-offset:3px}.language-switch.language-tabs a.active{border-color:#1768e9;background:linear-gradient(180deg,#3487f5 0%,#1768e9 100%);box-shadow:0 3px 0 #0d4fae,0 8px 18px rgba(23,104,233,.22),inset 0 1px 0 rgba(255,255,255,.4);color:#fff}.language-switch.language-tabs a.active:hover{box-shadow:0 4px 0 #0d4fae,0 10px 22px rgba(23,104,233,.26),inset 0 1px 0 rgba(255,255,255,.4)}
         .share-menu{position:absolute;right:24px;top:94px;z-index:31;width:190px;padding:8px;border:1px solid #dce6f3;border-radius:18px;background:rgba(255,255,255,.98);box-shadow:0 20px 48px rgba(24,52,85,.2);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}.share-menu[hidden]{display:none}.share-option{width:100%;display:flex;align-items:center;gap:11px;border:0;border-radius:12px;background:transparent;padding:10px 11px;color:#183455;font-size:13px;font-weight:800;text-align:left;cursor:pointer}.share-option:hover,.share-option:focus-visible{background:#eef5ff;outline:0}.share-option-icon{width:28px;height:28px;display:grid;place-items:center;flex:0 0 28px;border-radius:9px;background:#eaf2ff;color:#1768e9;font-size:13px;font-weight:950}.share-option[data-share="kakao"] .share-option-icon{background:#fee500;color:#2d251c}.share-option[data-share="email"] .share-option-icon{background:#fff0e5;color:#e86113}.share-toast{position:absolute;right:24px;top:288px;z-index:32;padding:10px 14px;border-radius:12px;background:#082b68;color:#fff;font-size:12px;font-weight:800;box-shadow:0 12px 30px rgba(24,52,85,.22);opacity:0;transform:translateY(-5px);pointer-events:none;transition:opacity .18s ease,transform .18s ease}.share-toast.show{opacity:1;transform:translateY(0)}
