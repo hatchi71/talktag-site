@@ -8,7 +8,7 @@
   const lines = unit.fullText || [];
   const REPEAT_TARGET = 10;
   const SILENCE_MULTIPLIER = 2.5;
-  document.title = `${unit.level} · ${unit.title} | TalkTag Vocal Camp`;
+  document.title = `${unit.familyNumber} · ${unit.level} · ${unit.title} | TalkTag Vocal Camp`;
 
   const key = `talktag-vocal-pilot-simple-${unit.id}`;
   const state = { card: 0, counts: lines.map(() => 0) };
@@ -48,7 +48,7 @@
 
   app.innerHTML = `
     <section class="pilot-intro">
-      <p class="pilot-kicker">${esc(unit.level)} · ${esc(unit.difficultyLabel || '')} · SOUND FIRST</p>
+      <p class="pilot-kicker">${esc(unit.familyNumber)} · ${esc(unit.level)} · SOUND FIRST</p>
       <h1>${esc(unit.title)}</h1>
       ${unit.englishTitle ? `<p class="pilot-english-title">${esc(unit.englishTitle)}</p>` : ''}
       <p class="pilot-mission">${esc(unit.mission)}</p>
