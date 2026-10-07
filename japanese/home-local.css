@@ -4,6 +4,7 @@
 .learning-card h3{margin-top:24px}
 .learning-card p{font-size:16px;line-height:1.6}
 .hero-actions{flex-wrap:wrap}
+.hero-visual .block-label{left:44.4%}
 
 /* English landing header parity: one row on desktop, two stable rows on phones. */
 .site-header{
