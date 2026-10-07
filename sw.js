@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261007-sound-check';
+const CACHE_VERSION = 'talktag-pwa-20261007-basecamp-card';
 const APP_SHELL = [
   '/',
   '/index.html',
