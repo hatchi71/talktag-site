@@ -42,4 +42,7 @@ html[data-appearance=dark] .tt-meetup-free{background:linear-gradient(135deg,#43
 .tt-meetup-contact-copy>span:first-child{font-size:14px}
 #talktag .tt-first-meetup .tt-meetup-number{font-size:18px;font-weight:850;margin:0;text-align:left;color:var(--tt-text,#183455);white-space:nowrap}
 .tt-meetup-contact>span:last-child{flex-shrink:0;margin-left:12px}
+.tt-meetup-contact.tt-meetup-chat{margin-top:12px;background:#fee500;border-color:#e9d461;color:#332619}
+.tt-meetup-contact.tt-meetup-chat:hover{background:#f7df26;box-shadow:0 5px 18px #6f5c161a}
+html[data-appearance=dark] .tt-meetup-contact.tt-meetup-chat{background:#e3cc38;color:#282316;border-color:#b7a633}
 @media(max-width:700px){#talktag{padding:22px 16px calc(110px + env(safe-area-inset-bottom))!important}#talktag .page-heading{margin-bottom:22px}#talktag .tt-first-meetup{padding:24px 20px;border-radius:22px}.tt-meetup-schedules{grid-template-columns:1fr}.tt-meetup-format span{margin:0 3px}}
