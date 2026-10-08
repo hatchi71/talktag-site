@@ -1,0 +1,13 @@
+/* Compact notes only in Guided Practice; other libraries retain their layout. */
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:12px!important;padding:10px 5px 14px!important}
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a{min-height:76px!important;padding:16px 12px 12px!important;align-items:center!important;font-size:16px!important;line-height:1.4!important;color:#243a58!important;background:#fff2a8!important;border-radius:4px 4px 10px 4px!important;box-shadow:0 5px 10px #3f361d16,inset 0 1px #ffffffa6!important}
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a:nth-child(3n+2){background:#dff3ff!important}
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a:nth-child(3n){background:#e5f4df!important}
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a::before{width:24px;height:10px;top:-5px}
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a:hover{transform:translateY(-1px) rotate(0);box-shadow:0 7px 13px #3f361d20!important}
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a:is(.active,[aria-current]){outline-width:2px;outline-offset:2px}
+@media(max-width:620px){
+ html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+ html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a{min-height:56px!important;padding:14px 10px 10px!important;font-size:14px!important}
+ html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a::before{width:20px;height:9px}
+}

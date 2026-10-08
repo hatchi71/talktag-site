@@ -2,6 +2,7 @@
   "use strict";
   var params = new URLSearchParams(location.search);
   var type = params.get("type") === "plain" ? "plain" : "guided";
+  document.body.dataset.audioType = type;
   var level = (params.get("level") || "A1").toUpperCase();
   var validLevels = ["A1", "A2", "B1", "B2", "C1", "C2"];
   if (validLevels.indexOf(level) === -1) level = "A1";
