@@ -23,7 +23,7 @@
     {
       label: '1 · SOUND',
       title: '소리가 조금씩 자랍니다',
-      guide: '한 번 시작하면 10회 반복하고 다음 누적으로 자동 이동합니다. 소리가 끝난 뒤에는 음원 길이의 2.5배 동안 그대로 말해 보세요.',
+      guide: '원어민의 음성을 듣고 따라하세요, 한 문장씩 소리가 자라납니다. 이야기의 끝까지 따라가 보세요!',
       body: `<div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? '한 문장' : `1–${index+1} 누적`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET}회</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">첫 소리를 누르면 전체 누적 훈련이 자동으로 이어집니다.</p>`
     },
     {
