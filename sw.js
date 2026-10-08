@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-studio-cefr';
+const CACHE_VERSION = 'talktag-pwa-20261008-sandwich-audio';
 const APP_SHELL = [
   '/',
   '/index.html',

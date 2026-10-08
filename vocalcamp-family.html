@@ -8,7 +8,7 @@
   <link rel="icon" href="talktag-logo.png" type="image/png">
   <link rel="stylesheet" href="camp-landing.css?v=20261007-family1">
   <script src="/talktag-home.js?v=20260922h" defer></script>
-  <script src="vocalcamp-manifest.js?v=20261007-001"></script>
+  <script src="vocalcamp-manifest.js?v=20261008-audio"></script>
   <link rel="stylesheet" href="talktag-theme.css?v=20261007-route-postits6">
   <script src="talktag-theme.js?v=20261007-pwa-update7"></script>
 </head>
@@ -19,14 +19,14 @@
     <h1 id="familyTitle">이야기 불러오는 중…</h1>
     <p class="intro" id="familyTheme"></p>
     <section class="method"><h2>같은 이야기, 소리부터 쌓아갑니다</h2><div class="flow story-flow"><div>A1<br>기억</div><div>A2<br>연결</div><div>B1<br>설명</div><div>B2<br>해석</div><div>C1<br>관점화</div><div>C2<br>재해석</div></div></section>
-    <p><a class="back" href="storycamp-family.html?family=001">같은 이야기 · Story Camp →</a></p><p class="intro">음원 준비 중 · 누적 10회 반복 · 말하기 여유는 음원 길이의 2.5배 · 다음 누적으로 자동 이동</p><section class="choose"><div class="ey">A1–C2 · LEVEL PROGRESSION</div><h2>훈련할 레벨을 선택하세요</h2><div class="levels" id="levelCatalog"></div></section>
+    <p><a class="back" href="storycamp-family.html?family=001">같은 이야기 · Story Camp →</a></p><p class="intro">누적 10회 반복 · 말하기 여유는 음원 길이의 2.5배 · 다음 누적으로 자동 이동</p><section class="choose"><div class="ey">A1–C2 · LEVEL PROGRESSION</div><h2>훈련할 레벨을 선택하세요</h2><div class="levels" id="levelCatalog"></div></section>
     <p class="notice">레벨 표시는 CEFR 학습 난이도 가이드이며 공식 등급 판정이 아닙니다.</p>
   </main>
   <script>
     const descriptions={A1:'짧고 분명한 일상 사건을 시간 순서대로 다시 말합니다.',A2:'원인과 결과가 연결된 친숙한 이야기를 자연스럽게 재구성합니다.',B1:'경험과 감정, 변화의 계기를 연결해 완결된 이야기로 말합니다.',B2:'선택과 그 결과의 의미를 포함해 이야기를 재구성합니다.',C1:'관계의 변화와 숨은 동기를 여러 관점에서 살펴봅니다.',C2:'작은 호의와 관계에 관한 처음의 해석을 다시 생각합니다.'};
     const params=new URLSearchParams(location.search),number=String(params.get('family')||'001').padStart(3,'0');
     const metadata=(window.TALKTAG_VOCALCAMP_MANIFEST?.families||[]).find(item=>item.number===number&&item.status==='published');
-    if(metadata){document.title=`${metadata.number} ${metadata.title} · TalkTag Vocal Camp`;familyNumber.textContent=`${metadata.number} · STORY FAMILY`;familyTitle.textContent=metadata.title;familyTheme.textContent=metadata.theme;levelCatalog.innerHTML=Object.keys(descriptions).filter(level=>metadata.levels.includes(level)).map(level=>`<a class="level-card" href="vocalcamp-player.html?level=${level}&family=${metadata.number}"><div class="level">${metadata.number} · ${level}</div><h3>${level} ${metadata.title}</h3><p>${descriptions[level]}</p><span class="open">음원 준비 중 →</span></a>`).join('')}else{familyTitle.textContent='자료를 불러오지 못했습니다.';familyTheme.textContent='Story Family 번호를 확인해 주세요.'}
+    if(metadata){document.title=`${metadata.number} ${metadata.title} · TalkTag Vocal Camp`;familyNumber.textContent=`${metadata.number} · STORY FAMILY`;familyTitle.textContent=metadata.title;familyTheme.textContent=metadata.theme;levelCatalog.innerHTML=Object.keys(descriptions).filter(level=>metadata.levels.includes(level)).map(level=>`<a class="level-card" href="vocalcamp-player.html?level=${level}&family=${metadata.number}"><div class="level">${metadata.number} · ${level}</div><h3>${level} ${metadata.title}</h3><p>${descriptions[level]}</p><span class="open">${metadata.audioStatus==='ready'?level+' 시작하기':'음원 준비 중'} →</span></a>`).join('')}else{familyTitle.textContent='자료를 불러오지 못했습니다.';familyTheme.textContent='Story Family 번호를 확인해 주세요.'}
   </script>
 </body>
 </html>

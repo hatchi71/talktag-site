@@ -77,10 +77,23 @@
   let recallObjectUrl = '';
   const audioPlayer = new Audio();
   const recallPlayer = new Audio();
+  const cuePlayer = new Audio();
   audioPlayer.preload = 'auto';
   recallPlayer.preload = 'auto';
   audioPlayer.playsInline = true;
   recallPlayer.playsInline = true;
+  cuePlayer.playsInline = true;
+
+  function playCue(times, token, finish) {
+    if (!unit.audioCue?.url) { finish(); return; }
+    playbackPhase='cue';
+    let remaining=times;
+    const complete=()=>{if(token!==runToken)return;cuePlayer.onended=null;cuePlayer.onerror=null;finish();};
+    const play=()=>{if(token!==runToken)return;cuePlayer.src=unit.audioCue.url;cuePlayer.currentTime=0;cuePlayer.play().catch(complete);};
+    cuePlayer.onended=()=>{if(token!==runToken)return;if(--remaining>0)repeatTimer=window.setTimeout(play,120);else complete();};
+    cuePlayer.onerror=complete;
+    play();
+  }
 
   function setMediaPlaybackState(value) {
     if ('mediaSession' in navigator) navigator.mediaSession.playbackState = value;
@@ -120,6 +133,9 @@
     audioPlayer.pause();
     audioPlayer.removeAttribute('src');
     audioPlayer.load();
+    cuePlayer.pause();
+    cuePlayer.removeAttribute('src');
+    cuePlayer.load();
     playbackPhase='idle';
     setMediaPlaybackState('none');
     window.speechSynthesis?.cancel();
@@ -178,6 +194,7 @@
         }else{
           activeIndex=-1;
           status.textContent='모든 누적 소리훈련을 마쳤습니다. 이제 휴대폰을 내려놓고 처음부터 말해 보세요.';
+          playCue(2,token,()=>{playbackPhase='idle';setMediaPlaybackState('none');});
         }
       }else{
         speakRound(index,button,token);
@@ -223,7 +240,8 @@
     if(state.counts[index]>=REPEAT_TARGET){state.counts[index]=0;document.querySelector(`[data-repeat-count="${index}"]`).textContent='0';button.classList.remove('is-complete');}
     activeIndex=index;
     const token=runToken;
-    speakRound(index,button,token);
+    if(index===0&&state.counts[0]===0)playCue(1,token,()=>speakRound(index,button,token));
+    else speakRound(index,button,token);
   }
 
   document.querySelectorAll('.sound-step').forEach(button => {
@@ -250,12 +268,13 @@
     });
     const mediaAction = (name, handler) => { try { navigator.mediaSession.setActionHandler(name, handler); } catch (_) {} };
     mediaAction('play', () => {
-      const player = playbackPhase === 'recall' ? recallPlayer : audioPlayer;
+      const player = playbackPhase === 'recall' ? recallPlayer : playbackPhase === 'cue' ? cuePlayer : audioPlayer;
       player.play().then(()=>setMediaPlaybackState('playing')).catch(()=>{});
     });
     mediaAction('pause', () => {
       audioPlayer.pause();
       recallPlayer.pause();
+      cuePlayer.pause();
       setMediaPlaybackState('paused');
     });
     mediaAction('stop', () => stopSound('백그라운드 재생을 멈췄습니다.'));
