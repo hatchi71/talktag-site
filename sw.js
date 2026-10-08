@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-talk-and-tag-label';
+const CACHE_VERSION = 'talktag-pwa-20261008-contact-box';
 const APP_SHELL = [
   '/',
   '/index.html',
