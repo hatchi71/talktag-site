@@ -12,7 +12,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "9:22",
     "durationLong": "9:22",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/a1-01/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/a1-01/training-10.mp3",
     "expressions": [
       "Put the milk in the fridge.",
       "Keep the ice cream in the freezer.",
@@ -38,7 +38,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 561.8941043083901
+      "endingCueStart": 561.8950113378685
     }
   },
   {
@@ -54,7 +54,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "8:29",
     "durationLong": "8:29",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/a1-02/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/a1-02/training-10.mp3",
     "expressions": [
       "Peel the apple first.",
       "Cut it into small pieces.",
@@ -80,7 +80,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 508.8657596371882
+      "endingCueStart": 508.86643990929707
     }
   },
   {
@@ -96,7 +96,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "12:05",
     "durationLong": "12:05",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/a2-01/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/a2-01/training-10.mp3",
     "expressions": [
       "I'm making breakfast before work.",
       "Can you boil some water for me?",
@@ -126,7 +126,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 724.6374149659864
+      "endingCueStart": 724.6371882086167
     }
   },
   {
@@ -142,7 +142,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "13:49",
     "durationLong": "13:49",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/a2-02/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/a2-02/training-10.mp3",
     "expressions": [
       "I'm getting dinner ready now.",
       "Please rinse the vegetables under cold water.",
@@ -172,7 +172,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 827.9517006802721
+      "endingCueStart": 827.9578231292517
     }
   },
   {
@@ -188,7 +188,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "17:43",
     "durationLong": "17:43",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/b1-01/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/b1-01/training-10.mp3",
     "expressions": [
       "We don't have much food left, so let's use what we have.",
       "I found some vegetables that need to be used up today.",
@@ -218,7 +218,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1062.9231292517006
+      "endingCueStart": 1062.9242630385488
     }
   },
   {
@@ -234,7 +234,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "14:20",
     "durationLong": "14:20",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/b1-02/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/b1-02/training-10.mp3",
     "expressions": [
       "Go ahead and help yourself.",
       "Can you pass me the rice, please?",
@@ -280,7 +280,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "21:00",
     "durationLong": "21:00",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/b2-01/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/b2-01/training-10.mp3",
     "expressions": [
       "I got home late, so I need to make something quick.",
       "Instead of cooking from scratch, I'm using a few things I already prepared.",
@@ -326,7 +326,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "20:45",
     "durationLong": "20:45",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/b2-02/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/b2-02/training-10.mp3",
     "expressions": [
       "A few friends are coming over, so I'm keeping the menu simple.",
       "I'm making one main dish and a couple of easy sides.",
@@ -372,7 +372,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "28:36",
     "durationLong": "28:36",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/c1-01/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/c1-01/training-10.mp3",
     "expressions": [
       "I don't cook at home because I think every meal has to be healthy or impressive.",
       "I mostly do it because I like knowing what goes into my food.",
@@ -402,7 +402,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1715.722902494331
+      "endingCueStart": 1715.7238095238095
     }
   },
   {
@@ -418,7 +418,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "28:58",
     "durationLong": "28:58",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/c1-02/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/c1-02/training-10.mp3",
     "expressions": [
       "A special meal doesn't always have to be expensive or carefully planned.",
       "Sometimes it's just familiar food served at the right moment.",
@@ -448,7 +448,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1737.6655328798186
+      "endingCueStart": 1737.6775510204081
     }
   },
   {
@@ -464,7 +464,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "32:45",
     "durationLong": "32:45",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/c2-01/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/c2-01/training-10.mp3",
     "expressions": [
       "Convenience in the kitchen is usually treated as a simple good, and most of the time it is.",
       "Pre-cut vegetables, delivery apps, and prepared meals can save time when life is busy.",
@@ -494,7 +494,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1964.4086167800453
+      "endingCueStart": 1964.409977324263
     }
   },
   {
@@ -510,7 +510,7 @@ window.TalkTagAudioLessons = [
     "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
     "durationLabel": "33:50",
     "durationLong": "33:50",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261008-12episodes/c2-02/training-10.mp3",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/c2-02/training-10.mp3",
     "expressions": [
       "Food does more than solve hunger; it gives people a reason to gather without needing a formal agenda.",
       "A shared meal creates a natural structure for conversation because everyone is doing something together.",
@@ -540,7 +540,7 @@ window.TalkTagAudioLessons = [
       "defaultReps": 10,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 2029.3231292517007
+      "endingCueStart": 2029.3238095238096
     }
   }
 ];
