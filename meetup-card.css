@@ -15,6 +15,12 @@
 .tt-meetup-schedules h4{margin:0 0 10px;color:var(--tt-text,#183455);font-size:16px}
 .tt-meetup-schedules p{margin:0 0 6px!important;color:var(--tt-text,#183455)!important;font-size:18px!important;font-weight:800}
 .tt-meetup-schedules small{color:var(--tt-muted,#5d6979);font-size:13px}
+.tt-meetup-place{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:18px 0;border-top:1px solid var(--tt-border,#dbe5ee);border-bottom:1px solid var(--tt-border,#dbe5ee)}
+.tt-meetup-place small{display:block;color:var(--tt-muted,#5d6979);font-size:12px;margin-bottom:4px}
+.tt-meetup-place strong{color:var(--tt-text,#183455);font-size:17px}
+.tt-meetup-place a{display:flex;align-items:center;min-height:44px;padding:9px 12px;border:1px solid var(--tt-border,#dbe5ee);border-radius:12px;color:var(--tt-accent,#1768e9);font-size:13px;font-weight:800;text-decoration:none;gap:8px}
+.tt-meetup-place a:focus-visible{outline:3px solid var(--tt-accent,#1768e9);outline-offset:3px}
+.tt-map-new-window{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 .tt-meetup-contact{display:flex;align-items:center;justify-content:space-between;min-height:50px;margin-top:28px;padding:12px 18px;border:1px solid var(--tt-border,#dbe5ee);border-radius:14px;background:var(--tt-raised,#eef4f8);color:var(--tt-text,#183455);font-size:16px;font-weight:850;text-decoration:none;transition:box-shadow .18s,background .18s}
 .tt-meetup-contact:hover{box-shadow:0 5px 18px #1768e91a}
 .tt-meetup-contact:focus-visible{outline:3px solid var(--tt-accent,#1768e9);outline-offset:3px}
