@@ -5,6 +5,12 @@
     pwa.src = '/pwa.js?v=20261008-unified';
     document.head.append(pwa);
   }
+  if (!document.querySelector('script[data-talktag-myspace]')) {
+    const activity = document.createElement('script');
+    activity.src = '/myspace.js?v=20261008-1';
+    activity.dataset.talktagMyspace = 'true';
+    document.head.append(activity);
+  }
 
   const key = 'talktag-appearance';
   const root = document.documentElement;
@@ -145,7 +151,7 @@
     // These spaces currently display examples, not saved personal records.
     for (const id of ['myspace', 'talktag', 'discussions', 'leader']) {
       const view = document.getElementById(id);
-      if (!view || view.querySelector('.tt-preview-notice') || (id === 'talktag' && view.querySelector('.tt-first-meetup'))) continue;
+      if (!view || id === 'myspace' || view.querySelector('.tt-preview-notice') || (id === 'talktag' && view.querySelector('.tt-first-meetup'))) continue;
       const notice = document.createElement('p');
       notice.className = 'tt-preview-notice';
       notice.textContent = '준비 중 · Coming soon — 현재는 화면 미리보기입니다. 개인 기록 저장, 진도 추적, 대화 참여 기능은 아직 제공되지 않습니다.';

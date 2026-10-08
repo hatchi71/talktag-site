@@ -1,6 +1,8 @@
 const STORAGE_KEY = 'part5-desk-v1';
 let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || {questions:[],results:{},starred:[],filter:'all'};
-let activePart = [5,6,7].includes(Number(localStorage.getItem('toeic-active-part'))) ? Number(localStorage.getItem('toeic-active-part')) : 5;
+const resumeParams=new URLSearchParams(location.search);
+let activePart = [5,6,7].includes(Number(resumeParams.get('part'))) ? Number(resumeParams.get('part')) : ([5,6,7].includes(Number(localStorage.getItem('toeic-active-part'))) ? Number(localStorage.getItem('toeic-active-part')) : 5);
+localStorage.setItem('toeic-active-part',String(activePart));
 let part5State = state;
 let part6State = JSON.parse(localStorage.getItem('part6-desk-v1') || 'null') || {questions:[],results:{},starred:[],filter:'all'};
 let part7State = JSON.parse(localStorage.getItem('part7-desk-v1') || 'null') || {questions:[],results:{},starred:[],filter:'all'};
@@ -10,7 +12,8 @@ state = partStates[activePart];
 let currentIndex = 0;
 const CONTENT_ROOT='content/rc/';
 const SELECTED_SET_KEY='toeic-selected-official-set-v1';
-let selectedSetId=localStorage.getItem(SELECTED_SET_KEY)||'local-legacy';
+let selectedSetId=/^RC-S\d{3}$/.test(resumeParams.get('set')||'')?resumeParams.get('set'):(localStorage.getItem(SELECTED_SET_KEY)||'local-legacy');
+let activeContentReady=selectedSetId==='local-legacy';
 let contentManifest=null;
 const officialSetCache=new Map();
 const isOfficialSet=()=>selectedSetId!=='local-legacy';
@@ -24,13 +27,16 @@ try{
 }catch(error){console.warn('TOEIC 학습 위치를 불러오지 못했습니다:',error)}
 const $ = s => document.querySelector(s);
 function save(){
+  if(!activeContentReady)return;
   if(isOfficialSet())localStorage.setItem(progressKey(activePart),JSON.stringify({results:state.results,starred:state.starred,filter:state.filter}));
   else localStorage.setItem(`part${activePart}-desk-v1`, JSON.stringify(state));
 }
 function rememberPosition(qs=filtered()){
   const question=qs[currentIndex];
+  if(!activeContentReady||!question)return;
   practicePositions[positionSlot()]={questionId:question?.id||null,index:question?currentIndex:0};
   try{localStorage.setItem(POSITION_KEY,JSON.stringify(practicePositions))}catch(error){console.warn('TOEIC 학습 위치를 저장하지 못했습니다:',error)}
+  window.TalkTagMySpace?.record();
 }
 function restorePosition(){
   const qs=filtered(),saved=practicePositions[positionSlot()]||(!isOfficialSet()?practicePositions[activePart]:null);
@@ -681,6 +687,7 @@ $('#retryExam').onclick=()=>{examSession.spreadIndex=0;examSession.startedAt=Dat
 function closeExamResults(){examSession=null;history.pushState({toeicArea:'rc'},'',`${location.pathname}?mode=rc`);setExamView('practice')}
 $('#closeResults').onclick=closeExamResults;$('#finishResults').onclick=closeExamResults;
 function applySetStates(nextStates){
+  activeContentReady=true;document.documentElement.dataset.toeicSetReady='true';
   for(const part of [5,6,7])partStates[part]=nextStates[part];
   state=partStates[activePart];
   currentIndex=0;
@@ -707,6 +714,7 @@ async function loadOfficialSet(setInfo){
 }
 async function chooseSet(setId){
   rememberPosition();save();
+  activeContentReady=false;
   if(setId==='local-legacy'){
     selectedSetId=setId;localStorage.setItem(SELECTED_SET_KEY,setId);applySetStates(legacyPartStates);
     renderSetButtons();

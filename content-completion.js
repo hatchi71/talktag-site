@@ -4,9 +4,12 @@
   function readAll() { try { var value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); return value && typeof value === "object" ? value : {}; } catch (error) { return {}; } }
   function legacyCompleted(key) { if (!key) return false; try { var value = JSON.parse(localStorage.getItem(key) || "{}"); return Boolean(value && value.completed); } catch (error) { return false; } }
   function isCompleted(id, legacyKey) { return Boolean(readAll()[id]) || legacyCompleted(legacyKey); }
-  function setCompleted(id, done, legacyKey) {
+  function setCompleted(id, done, legacyKey, options) {
     var values = readAll();
-    if (done) values[id] = { completedAt: new Date().toISOString() }; else delete values[id];
+    if (done) {
+      var automatic = options && options.source === "automatic";
+      if (!(automatic && values[id] && values[id].source === "manual")) values[id] = { completedAt: new Date().toISOString(), source: automatic ? "automatic" : "manual" };
+    } else delete values[id];
     localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
     if (legacyKey) { try { var legacy = JSON.parse(localStorage.getItem(legacyKey) || "{}"); legacy.completed = done; localStorage.setItem(legacyKey, JSON.stringify(legacy)); } catch (error) { localStorage.setItem(legacyKey, JSON.stringify({ completed: done })); } }
     window.dispatchEvent(new CustomEvent("talktag:completion-change", { detail: { id: id, completed: done } }));

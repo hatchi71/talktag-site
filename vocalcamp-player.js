@@ -119,7 +119,7 @@
     return URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' }));
   }
 
-  function save() { try { localStorage.setItem(key, JSON.stringify(state)); } catch (_) {} }
+  function save() { try { localStorage.setItem(key, JSON.stringify(state)); } catch (_) {} window.TalkTagMySpace?.record(); }
   function clearTimers() {
     window.clearTimeout(repeatTimer);
     window.clearInterval(countdownTimer);

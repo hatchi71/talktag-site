@@ -133,7 +133,7 @@
     playButton.textContent = "▶ PLAY";
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });
-  audio.addEventListener("ended", function () { if (!audio.loop) { updateCompletion(Boolean(saveState({ position: 0, completed: true }).completed)); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, true, storageKey); } });
+  audio.addEventListener("ended", function () { if (!audio.loop) { updateCompletion(Boolean(saveState({ position: 0, completed: true }).completed)); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, true, storageKey, {source:"automatic"}); } });
   playButton.addEventListener("click", function () {
     if (audio.paused) {
       var resumeAt = resumePending;
