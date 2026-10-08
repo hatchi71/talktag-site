@@ -30,7 +30,7 @@
       label: '2 · SAY & WRITE',
       title: '이제 휴대폰을 내려놓으세요',
       guide: '방금 들은 내용을 처음부터 그대로 말해 보고, 기억나는 내용을 노트에 써 봅니다.',
-      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>먼저 말하고,<br>그 다음 노트에 씁니다.</p><small>필요할 때만 아래 확인 자료를 엽니다.</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">스크립트 확인</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">해석·해설 확인</button></div><section class="reference-panel" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
+      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>먼저 말하고,<br>그 다음 노트에 씁니다.</p><small>필요할 때만 아래 확인 자료를 엽니다.</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">EN · 스크립트</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">KR · 한글 해석</button></div><section class="reference-panel" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel camp-kr-panel" lang="ko" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
     },
     {
       label: '3 · MY STORY',
@@ -255,7 +255,7 @@
     const open=panel.hidden;
     panel.hidden=!open;
     button.setAttribute('aria-expanded',String(open));
-    button.textContent=button.dataset.reference === 'script' ? (open ? '스크립트 닫기' : '스크립트 확인') : (open ? '해석·해설 닫기' : '해석·해설 확인');
+    button.textContent=button.dataset.reference === 'script' ? (open ? 'EN · 닫기' : 'EN · 스크립트') : (open ? 'KR · 닫기' : 'KR · 한글 해석');
   }));
   previous.addEventListener('click',()=>showCard(state.card-1));
   next.addEventListener('click',()=>{if(state.card===cards.length-1){menu.open=true;return}showCard(state.card+1)});

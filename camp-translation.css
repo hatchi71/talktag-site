@@ -1,0 +1,10 @@
+.camp-kr-toggle{min-width:48px;min-height:44px;padding:8px 14px;border:1px solid var(--tt-border,#d8d9d2);border-radius:12px;background:var(--tt-card,#fffdf7);color:var(--tt-text,#23354b);font:inherit;font-size:12px;font-weight:850;cursor:pointer}
+.camp-kr-toggle[aria-expanded="true"]{background:var(--tt-raised,#edf2f5);box-shadow:inset 0 1px 3px #0000000d}
+.camp-kr-toggle:focus-visible{outline:2px solid #6387a6;outline-offset:3px}
+.camp-kr-panel{margin-top:18px;padding:16px;border:1px solid var(--tt-border,#d8d9d2);border-radius:14px;background:var(--tt-card,#fffdf7);color:var(--tt-text,#23354b);text-align:left}
+.camp-kr-panel[hidden]{display:none!important}
+.camp-kr-panel p,.deck-slide .snow-step .step-text .camp-kr-panel p{font-size:16px!important;line-height:1.7!important;font-weight:400;margin:0 0 8px}
+.camp-kr-panel p:last-child{margin-bottom:0}
+.camp-kr-panel .camp-kr-note{font-size:12px!important;color:var(--tt-muted,#65758a);margin-bottom:12px}
+.camp-family-translation{margin:0 0 18px}.camp-family-translation .camp-kr-panel{max-width:680px}
+.camp-kr-panel strong{display:block;margin-bottom:8px}

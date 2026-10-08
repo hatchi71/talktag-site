@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-meetup-kakao-chat';
+const CACHE_VERSION = 'talktag-pwa-20261008-bootcamp-kr1';
 const APP_SHELL = [
   '/',
   '/index.html',
