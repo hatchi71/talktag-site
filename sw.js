@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-bootcamp-qc1';
+const CACHE_VERSION = 'talktag-pwa-20261008-first-meetup';
 const APP_SHELL = [
   '/',
   '/index.html',

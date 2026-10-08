@@ -1,0 +1,22 @@
+#talktag .meetup-board{display:block;max-width:880px;margin:0 auto;padding:0}
+#talktag .tt-first-meetup{padding:clamp(24px,4vw,42px);border:1px solid var(--tt-border,#dbe5ee);border-radius:26px;background:var(--tt-card,#fffdf8);box-shadow:0 16px 40px #1834550c}
+.tt-meetup-kicker{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--tt-accent,#1768e9);font-size:11px;font-weight:900;letter-spacing:.12em}
+.tt-meetup-kicker span:last-child{padding:7px 12px;border-radius:999px;background:var(--tt-raised,#eef4f8);color:var(--tt-text,#183455);letter-spacing:0}
+#talktag .tt-first-meetup h3{margin:24px 0 20px;color:var(--tt-text,#082b68);font-size:clamp(25px,3vw,38px);line-height:1.35;letter-spacing:-.045em}
+#talktag .tt-first-meetup>p{font-size:16px;line-height:1.7;color:var(--tt-muted,#5d6979);margin:18px 0}
+#talktag .tt-first-meetup .tt-meetup-lead{color:var(--tt-text,#183455);font-weight:700}
+.tt-meetup-format{padding:17px 18px;border:1px solid var(--tt-border,#dbe5ee);border-radius:15px;background:var(--tt-raised,#f3f6fa);color:var(--tt-text,#183455);font-size:15px;font-weight:800;line-height:1.65}
+.tt-meetup-format span{color:var(--tt-accent,#1768e9);margin:0 8px}
+.tt-meetup-flow{display:flex;flex-wrap:wrap;list-style:none;padding:0;margin:25px 0;gap:8px}
+.tt-meetup-flow li{padding:7px 11px;border-radius:10px;background:var(--tt-raised,#eef4f8);color:var(--tt-text,#183455);font-size:13px;font-weight:750}
+#talktag .tt-first-meetup .tt-meetup-message{padding-left:16px;border-left:3px solid #e98946;color:var(--tt-text,#183455)}
+.tt-meetup-schedules{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+.tt-meetup-schedules section{padding:20px;border:1px solid var(--tt-border,#dbe5ee);border-radius:17px;background:var(--tt-raised,#f3f6fa)}
+.tt-meetup-schedules h4{margin:0 0 10px;color:var(--tt-text,#183455);font-size:16px}
+.tt-meetup-schedules p{margin:0 0 6px!important;color:var(--tt-text,#183455)!important;font-size:18px!important;font-weight:800}
+.tt-meetup-schedules small{color:var(--tt-muted,#5d6979);font-size:13px}
+.tt-meetup-contact{display:flex;align-items:center;justify-content:space-between;min-height:50px;margin-top:28px;padding:12px 18px;border:1px solid var(--tt-border,#dbe5ee);border-radius:14px;background:var(--tt-raised,#eef4f8);color:var(--tt-text,#183455);font-size:16px;font-weight:850;text-decoration:none;transition:box-shadow .18s,background .18s}
+.tt-meetup-contact:hover{box-shadow:0 5px 18px #1768e91a}
+.tt-meetup-contact:focus-visible{outline:3px solid var(--tt-accent,#1768e9);outline-offset:3px}
+#talktag .tt-first-meetup .tt-meetup-email{font-size:12px;margin:9px 0 0;text-align:center;overflow-wrap:anywhere}
+@media(max-width:700px){#talktag{padding:22px 16px calc(110px + env(safe-area-inset-bottom))!important}#talktag .page-heading{margin-bottom:22px}#talktag .tt-first-meetup{padding:24px 20px;border-radius:22px}.tt-meetup-schedules{grid-template-columns:1fr}.tt-meetup-format span{margin:0 3px}}
