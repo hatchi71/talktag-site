@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-first-meetup-venue-fee';
+const CACHE_VERSION = 'talktag-pwa-20261008-talk-and-tag-label';
 const APP_SHELL = [
   '/',
   '/index.html',
