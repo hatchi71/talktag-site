@@ -72,7 +72,7 @@
       if (value === level) return;
       var url = new URL(location.href);
       url.searchParams.set("level", value);
-      history.pushState(null, "", url);
+      history.replaceState(null, "", url);
       changeLevel(value);
     });
   });

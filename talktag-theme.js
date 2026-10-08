@@ -44,7 +44,46 @@
         [/snowballing|bootcamp/, '/snowballing-studio.html', 'Snowballing Studio'],
         [/.*/, '/', 'TalkTag 홈']
       ];
-      const route = routes.find(([pattern]) => pattern.test(path));
+      const route = /^\/korean(?:[/.\-])/.test(path) ? [null,'/korean.html','한국어 홈'] : routes.find(([pattern]) => pattern.test(path));
+      const parentLanding = () => {
+        const file=path.split('/').pop()||'index.html',params=new URLSearchParams(location.search);
+        const family=/^\d{3}$/.test(params.get('family')||'')?params.get('family'):'001';
+        const level=/^(A1|A2|B1|B2|C1|C2)$/.test(params.get('level')||'')?params.get('level'):'A1';
+        if(/^\/korean(?:[/.\-])/.test(path))return '/korean.html';
+        if(japanese){
+          if(file==='jlpt-n4-audio-player.html')return '/japanese/jlpt-n4-listen-repeat.html';
+          if(file==='jlpt-n4-listen-repeat.html')return '/japanese/jlpt-n4.html';
+          if(/^jlpt-n[1-5]\.html$/.test(file))return '/japanese/jlpt.html';
+          if(/^jpt-(reading|listening)\.html$/.test(file))return '/japanese/jpt.html';
+          if(file==='jlpt.html'||file==='jpt.html')return '/japanese/test-preppers.html';
+          if(/^guided-[abc][12]\.html$/.test(file))return '/japanese/guided.html';
+          if(/^audio-essays-[abc][12]\.html$/.test(file))return '/japanese/audio-essays.html';
+          if(file==='guided.html'||file==='audio-essays.html')return '/japanese/listen-repeat.html';
+          if(/^story-camp-[abc][12]\.html$/.test(file))return '/japanese/story-camp.html';
+          if(/^readable-[abc][12]\.html$/.test(file))return '/japanese/readable.html';
+          if(/^vocal-v\d+\.html$/.test(file))return '/japanese/vocal-camp.html';
+          if(file==='vocal-camp.html'||file==='story-camp.html')return '/japanese/bootcamp.html';
+          if(['listen-repeat.html','readable.html','bootcamp.html'].includes(file))return '/japanese/snowballing.html';
+          return '/japanese/';
+        }
+        if(file==='audio-library.html')return '/listen-repeat.html';
+        if(file==='audio-player.html'){
+          const lesson=(window.TalkTagAudioLessons||[]).find(item=>item.id===params.get('id'));
+          return '/audio-library.html?type='+(lesson?.type==='plain'?'plain':'guided')+'&level='+encodeURIComponent(lesson?.level||level);
+        }
+        if(file==='vocalcamp-player.html')return '/vocalcamp-family.html?family='+family;
+        if(file==='storycamp-reader.html')return '/storycamp-family.html?family='+family;
+        if(file==='vocalcamp-family.html'||file==='vocal-a1-pilot.html')return '/vocal-camp.html';
+        if(file==='storycamp-family.html'||file==='storycamp-level.html')return '/story-camp.html';
+        if(file==='vocal-camp.html'||file==='story-camp.html')return '/bootcamp.html';
+        if(file==='bootcamp-level.html'&&params.get('mode')==='readable')return '/readable.html';
+        if(file==='bootcamp-story.html'&&params.get('mode')==='readable')return '/bootcamp-level.html?mode=readable&level='+level;
+        if(/readable-/.test(file))return '/readable.html';
+        if(['bootcamp.html','listen-repeat.html','readable.html'].includes(file))return '/snowballing-studio.html';
+        if(file==='snowballing-studio.html')return '/';
+        if(path===route[1]||path===route[1]+'index.html')return /toeic/.test(path)?'/test-preppers.html':'/';
+        return route[1];
+      };
       const tools = document.createElement('nav');
       tools.className = 'tt-route-tools';
       tools.setAttribute('aria-label', '페이지 이동');
@@ -53,8 +92,7 @@
       previous.className = 'tt-route-previous';
       previous.innerHTML = '<span aria-hidden="true">←</span><b>이전으로</b>';
       previous.addEventListener('click', () => {
-        if (history.length > 1) history.back();
-        else location.href = route[1];
+        location.href = parentLanding();
       });
       const category = document.createElement('a');
       category.className = 'tt-route-category';

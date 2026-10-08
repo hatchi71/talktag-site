@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-unified-update';
+const CACHE_VERSION = 'talktag-pwa-20261008-parent-navigation';
 const APP_SHELL = [
   '/',
   '/index.html',
