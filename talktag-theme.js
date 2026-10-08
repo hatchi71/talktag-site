@@ -2,7 +2,7 @@
 (() => {
   if (!document.querySelector('script[src*="/pwa.js"]')) {
     const pwa = document.createElement('script');
-    pwa.src = '/pwa.js?v=20261007-2';
+    pwa.src = '/pwa.js?v=20261008-unified';
     document.head.append(pwa);
   }
 
