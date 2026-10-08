@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-sound-guide';
+const CACHE_VERSION = 'talktag-pwa-20261008-completed-missions';
 const APP_SHELL = [
   '/',
   '/index.html',
