@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-myspace-lists';
+const CACHE_VERSION = 'talktag-pwa-20261008-guided12';
 const APP_SHELL = [
   '/',
   '/index.html',

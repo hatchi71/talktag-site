@@ -4,6 +4,10 @@
   var id = new URLSearchParams(location.search).get("id");
   if (!id && (window.TalkTagN4AudioLessons || []).length) id = window.TalkTagN4AudioLessons[0].id;
   var data = (window.TalkTagAudioSync || {})[id];
+  var guided = (window.TalkTagAudioLessons || []).find(function (item) { return item.id === id && item.training; });
+  if (guided) {
+    data = {lines:guided.expressions.map(function (line) { return {en:line,ko:""}; }),cues:guided.training.cues,language:"en"};
+  }
   if (!data && (window.TalkTagN4AudioSync || {})[id]) {
     var lesson = (window.TalkTagN4AudioLessons || []).find(function (item) { return item.id === id; });
     var timing = window.TalkTagN4AudioSync[id];
