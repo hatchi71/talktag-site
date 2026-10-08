@@ -1,5 +1,5 @@
 window.TALKTAG_VOCALCAMP = {
-  "version": "2026-10-08-audio",
+  "version": "2026-10-08-dings",
   "families": [
     {
       "number": "001",
@@ -296,8 +296,8 @@ window.TALKTAG_VOCALCAMP = {
         }
       },
       "audioCue": {
-        "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/chime.mp3",
-        "duration": 0.32
+        "startUrl": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/start.mp3",
+        "endUrl": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/ending.mp3"
       }
     }
   ]

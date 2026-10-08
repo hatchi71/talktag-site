@@ -6,6 +6,6 @@
 
 For later uploads, each `audioSteps` entry must supply the cumulative speech recording for lines 1 through that step. Add the verified R2 URL and duration, then set that level's status to `ready`. No synthetic speech is used as a substitute while waiting.
 
-The cue is a separate asset, played once at the start of a fresh unit and twice after completing the final cumulative recall interval. It is not embedded in speech recordings.
+The user's Start.mp3 and Ending.mp3 are separate assets. Start plays once before the first clip in a fresh unit. Ending plays once after the tenth repetition and final recall interval of the last cumulative clip. Neither cue plays between intermediate steps or repeats, and neither is embedded in the reusable speech recordings.
 
 Playback retains 10 repetitions, speech-duration × 2.5 recall space, and automatic advancement. Upload speech and start/end chimes as separate assets. Completion uses the independent `vocalcamp-family:001` key; Story completion is unaffected.

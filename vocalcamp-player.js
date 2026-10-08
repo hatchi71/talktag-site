@@ -84,13 +84,13 @@
   recallPlayer.playsInline = true;
   cuePlayer.playsInline = true;
 
-  function playCue(times, token, finish) {
-    if (!unit.audioCue?.url) { finish(); return; }
+  function playCue(kind, token, finish) {
+    const url=kind==='start'?unit.audioCue?.startUrl:unit.audioCue?.endUrl;
+    if (!url) { finish(); return; }
     playbackPhase='cue';
-    let remaining=times;
     const complete=()=>{if(token!==runToken)return;cuePlayer.onended=null;cuePlayer.onerror=null;finish();};
-    const play=()=>{if(token!==runToken)return;cuePlayer.src=unit.audioCue.url;cuePlayer.currentTime=0;cuePlayer.play().catch(complete);};
-    cuePlayer.onended=()=>{if(token!==runToken)return;if(--remaining>0)repeatTimer=window.setTimeout(play,120);else complete();};
+    const play=()=>{if(token!==runToken)return;cuePlayer.src=url;cuePlayer.currentTime=0;cuePlayer.play().catch(complete);};
+    cuePlayer.onended=complete;
     cuePlayer.onerror=complete;
     play();
   }
@@ -194,7 +194,7 @@
         }else{
           activeIndex=-1;
           status.textContent='모든 누적 소리훈련을 마쳤습니다. 이제 휴대폰을 내려놓고 처음부터 말해 보세요.';
-          playCue(2,token,()=>{playbackPhase='idle';setMediaPlaybackState('none');});
+          playCue('end',token,()=>{playbackPhase='idle';setMediaPlaybackState('none');});
         }
       }else{
         speakRound(index,button,token);
@@ -240,7 +240,7 @@
     if(state.counts[index]>=REPEAT_TARGET){state.counts[index]=0;document.querySelector(`[data-repeat-count="${index}"]`).textContent='0';button.classList.remove('is-complete');}
     activeIndex=index;
     const token=runToken;
-    if(index===0&&state.counts[0]===0)playCue(1,token,()=>speakRound(index,button,token));
+    if(index===0&&state.counts[0]===0)playCue('start',token,()=>speakRound(index,button,token));
     else speakRound(index,button,token);
   }
 
