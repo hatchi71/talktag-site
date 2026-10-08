@@ -6,7 +6,7 @@
   var data = (window.TalkTagAudioSync || {})[id];
   var guided = (window.TalkTagAudioLessons || []).find(function (item) { return item.id === id && item.training; });
   if (guided) {
-    data = {lines:guided.expressions.map(function (line) { return {en:line,ko:""}; }),cues:guided.training.cues,language:"en"};
+    data = {lines:guided.expressions.map(function (line,index) { return {en:line,ko:guided.meanings[index]||""}; }),cues:guided.training.cues,language:"en"};
   }
   if (!data && (window.TalkTagN4AudioSync || {})[id]) {
     var lesson = (window.TalkTagN4AudioLessons || []).find(function (item) { return item.id === id; });

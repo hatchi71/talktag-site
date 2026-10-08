@@ -23,7 +23,16 @@ window.TalkTagAudioLessons = [
       "Throw the empty box away.",
       "Let's clean up the kitchen."
     ],
-    "meanings": [],
+    "meanings": [
+      "우유를 냉장고에 넣으세요.",
+      "아이스크림은 냉동실에 보관하세요.",
+      "냉동실에서 닭고기를 꺼내세요.",
+      "사과는 먹기 전에 씻으세요.",
+      "남은 음식은 용기에 담으세요.",
+      "냉장고 문을 닫으세요.",
+      "빈 상자는 버리세요.",
+      "주방을 정리합시다."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -56,7 +65,16 @@ window.TalkTagAudioLessons = [
       "Mix it all together.",
       "Now it's ready to eat."
     ],
-    "meanings": [],
+    "meanings": [
+      "먼저 사과 껍질을 벗기세요.",
+      "작은 조각으로 자르세요.",
+      "오이를 아주 얇게 써세요.",
+      "모두 그릇에 담으세요.",
+      "소금을 조금 넣으세요.",
+      "드레싱을 조금 부으세요.",
+      "모두 잘 섞으세요.",
+      "이제 먹을 준비가 됐어요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -91,7 +109,18 @@ window.TalkTagAudioLessons = [
       "I'll make coffee while the eggs cook.",
       "Breakfast will be ready in five minutes."
     ],
-    "meanings": [],
+    "meanings": [
+      "출근하기 전에 아침을 만들고 있어요.",
+      "물 좀 끓여 줄 수 있어요?",
+      "달걀 두 개를 깨서 그릇에 넣을게요.",
+      "잘 섞일 때까지 거품기로 저으세요.",
+      "팬을 중불로 달구세요.",
+      "달걀물을 팬에 부으세요.",
+      "빵 두 장을 토스트하세요.",
+      "토스트에 버터를 조금 바르세요.",
+      "달걀이 익는 동안 커피를 만들게요.",
+      "5분이면 아침이 준비될 거예요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -126,7 +155,18 @@ window.TalkTagAudioLessons = [
       "I'll serve the food in a minute.",
       "Let's save the leftovers for tomorrow."
     ],
-    "meanings": [],
+    "meanings": [
+      "지금 저녁을 준비하고 있어요.",
+      "채소를 찬물에 헹궈 주세요.",
+      "당근을 작은 조각으로 써세요.",
+      "버섯을 조금 더 얇게 써세요.",
+      "큰 팬에 기름을 조금 두르고 달구세요.",
+      "채소를 넣고 저어 가며 볶으세요.",
+      "너무 빨리 익기 시작하면 불을 낮추세요.",
+      "제가 요리를 마무리하는 동안 식탁을 차려 줄 수 있어요?",
+      "곧 음식을 내놓을게요.",
+      "남은 음식은 내일 먹을 수 있게 보관합시다."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -161,7 +201,18 @@ window.TalkTagAudioLessons = [
       "This actually turned out better than I expected.",
       "Pack the rest up so we can have it for lunch tomorrow."
     ],
-    "meanings": [],
+    "meanings": [
+      "남은 재료가 별로 없으니 있는 걸로 만들어 봐요.",
+      "오늘 안에 써야 할 채소를 좀 찾았어요.",
+      "잘게 썰어서 밥과 함께 요리해요.",
+      "단백질을 조금 더 보충하고 싶으면 달걀을 넣어도 돼요.",
+      "채소를 자르는 동안 제가 팬을 달굴게요.",
+      "불을 너무 세게 올리지 마세요. 그러면 마늘이 타요.",
+      "밥이 너무 뻑뻑하면 물을 조금 넣고 섞으세요.",
+      "소금을 더 넣기 전에 맛부터 봐요.",
+      "생각했던 것보다 훨씬 잘됐네요.",
+      "나머지는 내일 점심으로 먹을 수 있게 담아 두세요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -196,7 +247,18 @@ window.TalkTagAudioLessons = [
       "We can clear the table after everyone finishes.",
       "I'll put the leftovers away before we go to bed."
     ],
-    "meanings": [],
+    "meanings": [
+      "편하게 드세요.",
+      "밥 좀 건네주시겠어요?",
+      "국이 식기 전에 드셔 보세요.",
+      "맛있는데 소금을 조금 더 넣으면 좋겠어요.",
+      "저는 작은 조각 하나만 먹을게요.",
+      "더 드실래요, 아니면 배부르세요?",
+      "너무 배가 고파서 급하게 먹었어요.",
+      "디저트 먹을 배는 좀 남겨 두세요.",
+      "모두 식사를 마치면 식탁을 치우면 돼요.",
+      "자기 전에 남은 음식을 넣어 둘게요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -231,7 +293,18 @@ window.TalkTagAudioLessons = [
       "Once everything is hot, we can sit down and relax.",
       "On busy days, having a few basics ready makes a huge difference."
     ],
-    "meanings": [],
+    "meanings": [
+      "늦게 집에 와서 빨리 만들 수 있는 걸 해야겠어요.",
+      "처음부터 전부 요리하는 대신 미리 준비해 둔 재료 몇 가지를 쓰고 있어요.",
+      "밥을 데우는 동안 국을 데울게요.",
+      "채소는 이미 썰어 놓아서 시간을 많이 절약할 수 있어요.",
+      "소스가 너무 걸쭉해지면 물을 조금만 넣으세요.",
+      "팬에 눌어붙지 않도록 불을 꽤 약하게 유지하고 있어요.",
+      "오늘 저녁은 거창할 필요 없어요. 그냥 적당히 먹을 만한 게 있으면 돼요.",
+      "또 음식을 주문하느니 간단하게라도 만들어 먹겠어요.",
+      "음식이 모두 따뜻해지면 앉아서 편히 쉬어도 돼요.",
+      "바쁜 날에는 기본 재료 몇 가지를 준비해 두는 것만으로도 정말 큰 차이가 나요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -266,7 +339,18 @@ window.TalkTagAudioLessons = [
       "I like meals where people can serve themselves and try a little of everything.",
       "The food matters, but the point is really to spend time together."
     ],
-    "meanings": [],
+    "meanings": [
+      "친구 몇 명이 집에 올 예정이라 메뉴는 간단하게 준비하고 있어요.",
+      "메인 요리 하나와 간단한 곁들임 요리 두어 가지를 만들고 있어요.",
+      "친구 한 명이 고기를 먹지 않아서 별도 메뉴를 준비하고 있어요.",
+      "나중에 시간을 아끼려고 채소는 대부분 미리 썰어 뒀어요.",
+      "소스 맛을 보고 더 넣을 게 있는지 말해 줄래요?",
+      "모두가 먹기에 음식이 너무 맵지는 않았으면 좋겠어요.",
+      "마지막 사람이 올 때까지 음식은 따뜻하게 유지하면 돼요.",
+      "다 모이면 음식을 식탁 가운데에 놓을게요.",
+      "각자 덜어 먹으면서 이것저것 조금씩 맛볼 수 있는 식사가 좋아요.",
+      "음식도 중요하지만, 결국 함께 시간을 보내는 게 목적이죠."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -301,7 +385,18 @@ window.TalkTagAudioLessons = [
       "For me, cooking is practical first, but there's something satisfying about making an ordinary meal well.",
       "That's usually enough to make me want to do it again the next day."
     ],
-    "meanings": [],
+    "meanings": [
+      "매 끼니가 건강하거나 근사해야 한다고 생각해서 집에서 요리하는 건 아니에요.",
+      "주된 이유는 제가 먹는 음식에 무엇이 들어가는지 알고 싶어서예요.",
+      "직접 만들면 요리하면서 소금, 기름, 매운맛을 조절할 수 있어요.",
+      "요리를 하다 보면 제가 음식을 얼마나 낭비하는지도 더 의식하게 돼요.",
+      "어떤 날은 제대로 된 식사를 만들고, 어떤 날은 냉장고에 남은 재료로 대충 한 끼를 만들어요.",
+      "그런 융통성 덕분에 요리가 귀찮은 집안일처럼 느껴지지 않는 것 같아요.",
+      "재료가 상하기 전에 활용하는 데도 더 능숙해졌어요.",
+      "시간이 지나면서 집에서 요리를 제법 잘한다는 건 화려한 조리법보다 믿고 쓸 수 있는 몇 가지 조리 기술을 아는 데 달려 있다는 걸 배웠어요.",
+      "제게 요리는 우선 실용적인 일이지만, 평범한 한 끼를 잘 만들어 내는 데서도 뿌듯함을 느껴요.",
+      "그 정도면 보통 다음 날 또 요리하고 싶어지기에 충분해요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -336,7 +431,18 @@ window.TalkTagAudioLessons = [
       "For me, the best meals are the ones that make people slow down and stay at the table a little longer.",
       "The food gives everyone a reason to gather, but the conversation is what makes the meal memorable."
     ],
-    "meanings": [],
+    "meanings": [
+      "특별한 식사라고 해서 꼭 비싸거나 꼼꼼히 계획한 것이어야 하는 건 아니에요.",
+      "때로는 알맞은 순간에 차려 낸 익숙한 음식이면 돼요.",
+      "비싼 식당에서 먹은 저녁보다 더 선명하게 기억에 남는 소박한 식사도 있었어요.",
+      "대개 그 차이를 만든 건 함께한 사람들과 식탁의 분위기였어요.",
+      "물론 맛있는 음식도 도움이 되지만, 복잡한 요리일 필요는 없어요.",
+      "누군가 시간을 들여 나를 위해 만들어 줬다는 이유만으로도 음식은 의미가 생길 수 있어요.",
+      "어떤 장소나 사람, 또는 인생의 특정 시절을 떠올리게 할 수도 있어요.",
+      "그래서 어떤 냄새나 맛은 거의 순식간에 추억을 불러오기도 해요.",
+      "제게 가장 좋은 식사는 사람들이 서두르지 않고 식탁에 조금 더 오래 머물게 하는 식사예요.",
+      "음식은 함께 모일 이유를 만들어 주지만, 그 식사를 기억에 남게 하는 건 대화예요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -371,7 +477,18 @@ window.TalkTagAudioLessons = [
       "I think the best balance is to use convenience deliberately rather than automatically.",
       "Tools should make life easier without quietly making us less capable."
     ],
-    "meanings": [],
+    "meanings": [
+      "주방에서의 편리함은 대개 그저 좋은 것으로 여겨지고, 실제로 대부분은 그래요.",
+      "미리 손질한 채소, 배달 앱, 조리된 음식은 바쁜 일상에서 시간을 아껴 줄 수 있어요.",
+      "그 대신 편리함 때문에 기본 기술을 연습할 필요가 조금씩 사라질 수 있어요.",
+      "직접 썰거나 간을 하거나 처음부터 요리하는 일이 드물면, 그런 동작들이 실제보다 더 어렵게 느껴지기 시작할 수 있어요.",
+      "그렇다고 모두가 편리함을 거부하거나 요리를 취미로 삼아야 한다는 뜻은 아니에요.",
+      "몇 가지 기본 기술을 잃지 않고 유지하는 데 가치가 있다는 뜻일 뿐이에요.",
+      "간단한 한 끼를 만들 줄 알면 계획이 바뀌거나 돈이 빠듯하거나 그냥 음식을 주문하고 싶지 않을 때 선택지가 생겨요.",
+      "대단한 기술은 아니지만, 그 기술이 만들어 주는 자립성은 분명해요.",
+      "제 생각에 가장 좋은 균형은 편리함을 무심코 이용하기보다 의식적으로 선택해 활용하는 거예요.",
+      "도구는 우리도 모르는 사이에 우리의 능력을 약화시키지 않으면서 삶을 더 편하게 해 줘야 해요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
@@ -406,7 +523,18 @@ window.TalkTagAudioLessons = [
       "But it can create the conditions in which people are more willing to stay, listen, and talk.",
       "Sometimes the most important thing on the table isn't the food at all; it's the time people have decided to share."
     ],
-    "meanings": [],
+    "meanings": [
+      "음식은 허기를 해결하는 것 이상을 해요. 특별한 안건이 없어도 사람들이 모일 이유를 만들어 줘요.",
+      "함께 식사하면 모두가 같은 활동을 하고 있어서 대화가 자연스럽게 이어질 틀이 생겨요.",
+      "서로를 잘 모르는 사람들 사이에서는 그 점이 특히 중요해요.",
+      "먹는 일은 모두가 함께 집중할 대상을 만들어 주기 때문에 침묵이 덜 어색하고 대화도 덜 억지스럽게 느껴질 수 있어요.",
+      "식사 자체는 소박할 수 있어도, 사람들을 이어 주는 효과는 놀랄 만큼 클 수 있어요.",
+      "사람들은 음식을 건네고 맛에 반응하고 이야기를 나누면서 점차 서로 편안해져요.",
+      "그런 의미에서 음식은 종종 사람들을 이어 주는 다리 역할을 해요.",
+      "음식이 유대감을 보장하는 것은 아니고, 좋은 식사 한 번으로 모든 관계를 바로잡을 수도 없어요.",
+      "하지만 사람들이 기꺼이 머물고, 듣고, 이야기할 수 있는 여건을 만들어 줄 수는 있어요.",
+      "때로 식탁에서 가장 중요한 것은 음식이 아니라, 사람들이 함께 나누기로 한 시간이기도 해요."
+    ],
     "training": {
       "kind": "sentence-repeat",
       "defaultReps": 10,
