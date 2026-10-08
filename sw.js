@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-first-meetup-capacity';
+const CACHE_VERSION = 'talktag-pwa-20261008-first-meetup-kakao-only';
 const APP_SHELL = [
   '/',
   '/index.html',
