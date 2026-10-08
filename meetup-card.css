@@ -4,6 +4,7 @@
 .tt-meetup-kicker span:last-child{padding:7px 12px;border-radius:999px;background:var(--tt-raised,#eef4f8);color:var(--tt-text,#183455);letter-spacing:0}
 .tt-meetup-free{position:relative;display:inline-block;margin:24px 0 0;padding:12px 24px;border:1px solid #e6bf87;border-radius:8px;background:linear-gradient(135deg,#fff2c9,#ffe1a8);box-shadow:0 4px 0 #c69b5730,0 8px 20px #1834550a;color:#714316;font-size:18px;font-weight:900;letter-spacing:.03em;transform:rotate(-1deg)}
 .tt-meetup-free:before{content:"";position:absolute;top:-7px;left:calc(50% - 20px);width:40px;height:13px;background:#fffdf8aa;box-shadow:0 1px 3px #18345512;transform:rotate(3deg)}
+.tt-meetup-capacity{display:inline-block;margin-left:14px;color:var(--tt-muted,#5d6979);font-size:14px;font-weight:800;white-space:nowrap}
 html[data-appearance=dark] .tt-meetup-free{background:linear-gradient(135deg,#433523,#32291d);border-color:#886942;color:#ffe2b0;box-shadow:0 4px 0 #0003,0 8px 20px #0002}
 #talktag .tt-first-meetup h3{margin:24px 0 20px;color:var(--tt-text,#082b68);font-size:clamp(25px,3vw,38px);line-height:1.35;letter-spacing:-.045em}
 #talktag .tt-first-meetup>p{font-size:16px;line-height:1.7;color:var(--tt-muted,#5d6979);margin:18px 0}
