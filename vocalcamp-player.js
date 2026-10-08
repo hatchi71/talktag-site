@@ -284,7 +284,7 @@
   document.querySelectorAll('.sound-step').forEach(button=>{if(!unit.audioSteps?.[Number(button.dataset.soundStep)]?.url){button.disabled=true;button.querySelector('em').textContent='대기';}});
   document.getElementById('soundStatus').textContent=unit.audioStatus==='audio-pending'?'음원을 준비하고 있습니다. 업로드 후 누적 훈련이 시작됩니다.':'첫 소리를 누르면 누적 훈련이 이어집니다.';
   if(!unit.translation.length)document.querySelector('[data-reference="meaning"]').hidden=true;
-  const back=document.querySelector('.pilot-back');back.href='vocalcamp-family.html?family='+unit.familyNumber;
+  const back=document.querySelector('.pilot-back');back.href='vocalcamp-family.html?family='+unit.familyNumber;back.textContent='← '+unit.familyNumber;back.setAttribute('aria-label',unit.familyNumber+' '+unit.title+' 랜딩으로');
   menu.querySelectorAll('a').forEach(a=>a.remove());
   for(const [label,href] of [[unit.familyNumber+' '+unit.title+' 랜딩으로',back.href],['같은 번호 · 같은 레벨 Story Camp →','storycamp-reader.html?family='+unit.familyNumber+'&level='+unit.level]]){const a=document.createElement('a');a.href=href;a.textContent=label;menu.querySelector('.pilot-menu-panel').append(a);}
   showCard(Number(state.card)||0);

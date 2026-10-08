@@ -1,5 +1,5 @@
 window.TALKTAG_VOCALCAMP = {
-  "version": "2026-10-08-dings",
+  "version": "2026-10-08-qc1",
   "families": [
     {
       "number": "001",
@@ -18,27 +18,27 @@ window.TALKTAG_VOCALCAMP = {
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a1/step-01.mp3",
-              "duration": 2.05
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-01.mp3",
+              "duration": 2.076
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a1/step-02.mp3",
-              "duration": 3.269
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-02.mp3",
+              "duration": 3.3
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a1/step-03.mp3",
-              "duration": 5.106
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-03.mp3",
+              "duration": 5.124
             },
             {
               "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a1/step-04.mp3",
-              "duration": 7.085
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-04.mp3",
+              "duration": 7.116
             },
             {
               "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a1/step-05.mp3",
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-05.mp3",
               "duration": 9.091
             }
           ],
@@ -57,32 +57,32 @@ window.TALKTAG_VOCALCAMP = {
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a2/step-01.mp3",
-              "duration": 2.637
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-01.mp3",
+              "duration": 2.652
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a2/step-02.mp3",
-              "duration": 4.526
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-02.mp3",
+              "duration": 4.548
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a2/step-03.mp3",
-              "duration": 8.413
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-03.mp3",
+              "duration": 8.436
             },
             {
               "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a2/step-04.mp3",
-              "duration": 11.135
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-04.mp3",
+              "duration": 11.172
             },
             {
               "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a2/step-05.mp3",
-              "duration": 13.446
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-05.mp3",
+              "duration": 13.476
             },
             {
               "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/a2/step-06.mp3",
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-06.mp3",
               "duration": 15.569
             }
           ],
@@ -103,42 +103,42 @@ window.TALKTAG_VOCALCAMP = {
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b1/step-01.mp3",
-              "duration": 2.245
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-01.mp3",
+              "duration": 2.268
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b1/step-02.mp3",
-              "duration": 6.108
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-02.mp3",
+              "duration": 6.156
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b1/step-03.mp3",
-              "duration": 10.562
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-03.mp3",
+              "duration": 10.596
             },
             {
               "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b1/step-04.mp3",
-              "duration": 12.721
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-04.mp3",
+              "duration": 12.756
             },
             {
               "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b1/step-05.mp3",
-              "duration": 15.785
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-05.mp3",
+              "duration": 15.804
             },
             {
               "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b1/step-06.mp3",
-              "duration": 18.357
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-06.mp3",
+              "duration": 18.372
             },
             {
               "step": 7,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b1/step-07.mp3",
-              "duration": 21.322
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-07.mp3",
+              "duration": 21.348
             },
             {
               "step": 8,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b1/step-08.mp3",
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-08.mp3",
               "duration": 24.529
             }
           ],
@@ -158,37 +158,37 @@ window.TALKTAG_VOCALCAMP = {
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b2/step-01.mp3",
-              "duration": 5.63
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-01.mp3",
+              "duration": 5.652
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b2/step-02.mp3",
-              "duration": 10.653
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-02.mp3",
+              "duration": 10.668
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b2/step-03.mp3",
-              "duration": 13.686
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-03.mp3",
+              "duration": 13.716
             },
             {
               "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b2/step-04.mp3",
-              "duration": 18.587
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-04.mp3",
+              "duration": 18.612
             },
             {
               "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b2/step-05.mp3",
-              "duration": 21.468
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-05.mp3",
+              "duration": 21.492
             },
             {
               "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b2/step-06.mp3",
-              "duration": 25.31
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-06.mp3",
+              "duration": 25.332
             },
             {
               "step": 7,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/b2/step-07.mp3",
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-07.mp3",
               "duration": 30.198
             }
           ],
@@ -208,37 +208,37 @@ window.TALKTAG_VOCALCAMP = {
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c1/step-01.mp3",
-              "duration": 5.241
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-01.mp3",
+              "duration": 5.268
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c1/step-02.mp3",
-              "duration": 11.09
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-02.mp3",
+              "duration": 11.1
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c1/step-03.mp3",
-              "duration": 18.694
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-03.mp3",
+              "duration": 18.708
             },
             {
               "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c1/step-04.mp3",
-              "duration": 22.327
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-04.mp3",
+              "duration": 22.356
             },
             {
               "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c1/step-05.mp3",
-              "duration": 27.503
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-05.mp3",
+              "duration": 27.516
             },
             {
               "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c1/step-06.mp3",
-              "duration": 31.793
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-06.mp3",
+              "duration": 31.812
             },
             {
               "step": 7,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c1/step-07.mp3",
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-07.mp3",
               "duration": 39.079
             }
           ],
@@ -258,37 +258,37 @@ window.TALKTAG_VOCALCAMP = {
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c2/step-01.mp3",
-              "duration": 7.899
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-01.mp3",
+              "duration": 7.932
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c2/step-02.mp3",
-              "duration": 14.839
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-02.mp3",
+              "duration": 14.868
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c2/step-03.mp3",
-              "duration": 21.38
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-03.mp3",
+              "duration": 21.42
             },
             {
               "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c2/step-04.mp3",
-              "duration": 24.252
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-04.mp3",
+              "duration": 24.276
             },
             {
               "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c2/step-05.mp3",
-              "duration": 27.882
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-05.mp3",
+              "duration": 27.9
             },
             {
               "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c2/step-06.mp3",
-              "duration": 34.84
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-06.mp3",
+              "duration": 34.86
             },
             {
               "step": 7,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/c2/step-07.mp3",
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-07.mp3",
               "duration": 41.482
             }
           ],
@@ -298,7 +298,15 @@ window.TALKTAG_VOCALCAMP = {
       "audioCue": {
         "startUrl": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/start.mp3",
         "endUrl": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/ending.mp3"
-      }
+      },
+      "narrator": "Jessica",
+      "audioRevision": "20261008-qc1",
+      "storyFlow": [
+        "준비",
+        "뜻밖의 상황",
+        "작은 나눔",
+        "관계의 변화"
+      ]
     }
   ]
 };
