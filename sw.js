@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261008-first-meetup-map-sms';
+const CACHE_VERSION = 'talktag-pwa-20261008-first-meetup-both-classes';
 const APP_SHELL = [
   '/',
   '/index.html',
