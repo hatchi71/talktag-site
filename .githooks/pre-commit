@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+node scripts/update-home-news.mjs
+git add -- home-news-feed.json
