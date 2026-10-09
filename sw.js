@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261009-about';
+const CACHE_VERSION = 'talktag-pwa-20261009-card-dings-missions';
 const APP_SHELL = [
   '/',
   '/index.html',

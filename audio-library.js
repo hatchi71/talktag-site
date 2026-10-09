@@ -31,7 +31,7 @@ list.querySelectorAll('[data-content-draft]').forEach(card=>{card.removeAttribut
 window.TalkTagCompletion.mount(list);
 var completed=catalog.filter(done);
 document.getElementById("audioMissionCount").textContent=String(completed.length);
-shelf.innerHTML=completed.length?completed.map(l=>'<div class="audio-mission-row"><a href="'+url(l)+'"><small>'+esc(l.level)+' · '+number(l)+'</small><strong>'+esc(l.title)+'</strong></a><button type="button" data-undo="'+esc(l.id)+'" aria-label="'+esc(l.title)+' 완료 취소">완료 취소</button></div>').join(""):'<p class="audio-empty">직접 완료한 미션이 이곳에 모입니다.</p>';
+shelf.innerHTML=completed.length?completed.map(l=>'<div class="audio-mission-row"><a href="'+url(l)+'"><small>'+esc(l.level)+' · '+number(l)+'</small><strong>'+esc(l.title)+'</strong></a><button type="button" data-undo="'+esc(l.id)+'" aria-label="'+esc(l.title)+' 완료 취소">완료 취소</button></div>').join(""):'<p class="audio-empty">완료한 미션이 이곳에 모입니다.</p>';
 }
 toggle.addEventListener("click",()=>{var open=toggle.getAttribute("aria-expanded")!=="true";toggle.setAttribute("aria-expanded",String(open));shelf.hidden=!open;});
 shelf.addEventListener("click",event=>{var button=event.target.closest("[data-undo]");if(!button)return;var l=catalog.find(x=>x.id===button.dataset.undo);if(!l)return;window.TalkTagCompletion.set("audio:"+l.id,false,"talktag-audio:"+l.id);document.getElementById("audioMissionNotice").textContent=l.level+" · "+number(l)+" 완료를 취소했습니다."; (shelf.querySelector("button")||toggle).focus();});

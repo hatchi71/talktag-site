@@ -132,6 +132,10 @@
     document.getElementById("wave").appendChild(bar);
   }
   var initial = readState();
+  if (lesson.training && lesson.training.cardDings && !initial.cardDingsMigrated) {
+    initial.position = initial.position > 0 ? Number(initial.position) + Number(lesson.training.prependSeconds || 0) : 0;
+    saveState({ position: initial.position, cardDingsMigrated: true });
+  }
   var resumePending = Number(initial.position || 0);
   audio.addEventListener("talktag-audio-seek", function () { resumePending = 0; });
   audio.loop = Boolean(initial.loop);
@@ -165,7 +169,24 @@
     playButton.textContent = "▶ PLAY";
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });
-  audio.addEventListener("ended", function () { if (!audio.loop) saveState({ position: 0, listened: true, listenedAt: new Date().toISOString() }); });
+  function finishGuidedCard() {
+    if (lesson.type !== "guided") return;
+    saveState({ completed: true, listened: true, listenedAt: new Date().toISOString(), position: 0 });
+    if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, true, storageKey);
+    updateCompletion(true);
+  }
+  var loopPreviousTime = 0;
+  audio.addEventListener("timeupdate", function () {
+    if (audio.loop && audio.duration && loopPreviousTime > audio.duration - 1 && audio.currentTime < 1 && !audio.seeking) finishGuidedCard();
+    loopPreviousTime = audio.currentTime;
+  });
+  audio.addEventListener("seeking", function () { loopPreviousTime = 0; });
+  audio.addEventListener("ended", function () {
+    if (!audio.loop) {
+      saveState({ position: 0, listened: true, listenedAt: new Date().toISOString() });
+      finishGuidedCard();
+    }
+  });
   playButton.addEventListener("click", function () {
     if (audio.paused) {
       var resumeAt = resumePending;

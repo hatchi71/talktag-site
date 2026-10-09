@@ -11,6 +11,10 @@ for(const l of lessons){
  assert.equal(l.expressions.length,l.meanings.length,l.id+' translation coverage');
  assert.equal(l.training.defaultReps,/^[BC]/.test(l.level)?15:10);
  const cues=l.training.cues;assert(cues?.length,l.id+' cues missing');
+ assert(l.training.startCueEnd>0,l.id+' starting ding missing');
+ assert(cues[0].s>=l.training.startCueEnd-.06,l.id+' starting ding overlaps speech');
+ assert(l.training.endingCueStart>=cues.at(-1).e-.06,l.id+' ending ding overlaps training');
+ if(l.training.cardDings)assert(l.training.durationSeconds>l.training.endingCueStart+.05,l.id+' ending ding missing');
  assert(cues.at(-1).e<=661,l.id+' cue exceeds card duration');
  for(let i=0;i<l.expressions.length;i++){
  const sentence=cues.filter(c=>c.i===i);assert.equal(sentence.length,l.training.defaultReps,l.id+' incomplete repetition cycle');
