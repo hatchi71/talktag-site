@@ -14,23 +14,24 @@
 <link rel="stylesheet" href="camp-translation.css?v=20261008-kr1">
 <script src="content/bootcamp-korean.js?v=20261008-kr1"></script>
 <script src="camp-translation.js?v=20261008-kr1" defer></script>
+<link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
 </head>
-<body>
+<body class="family-simple">
   <header class="top"><div class="brand"><a href="index.html" aria-label="TalkTag Home"><img src="talktag-logo.png" alt="TalkTag Home"></a><b>Boot Camp · Story Camp</b></div><a class="back" href="story-camp.html">← Story Camp</a></header>
   <main class="wrap">
     <div class="ey" id="familyNumber">STORY FAMILY</div>
     <h1 id="familyTitle">이야기 불러오는 중…</h1>
     <p class="intro" id="familyTheme"></p>
-    <a class="back" id="vocalPeer" href="vocalcamp-family.html?family=001">같은 이야기 · Vocal Camp →</a>
-    <section class="method"><h2>같은 이야기, 더 깊어지는 언어 작업</h2><div class="flow story-flow"><div>A1<br>기억</div><div>A2<br>연결</div><div>B1<br>설명</div><div>B2<br>해석</div><div>C1<br>관점화</div><div>C2<br>재해석</div></div></section>
-    <section class="choose"><div class="ey">A1–C2 · LEVEL PROGRESSION</div><h2>훈련할 레벨을 선택하세요</h2><div class="levels" id="levelCatalog"></div></section>
+
+    <section class="choose"><div class="ey">LEVEL</div><h2>훈련할 레벨을 선택하세요</h2><div class="levels" id="levelCatalog"></div></section>
+    <div class="peer-link"><a class="back" id="vocalPeer" href="vocalcamp-family.html?family=001">같은 이야기 · Vocal Camp →</a></div>
     <p class="notice">레벨 표시는 CEFR 학습 난이도 가이드이며 공식 등급 판정이 아닙니다.</p>
   </main>
   <script>
     const descriptions={A1:'짧고 분명한 일상 사건을 시간 순서대로 다시 말합니다.',A2:'원인과 결과가 연결된 친숙한 이야기를 자연스럽게 재구성합니다.',B1:'경험과 감정, 변화의 계기를 연결해 완결된 이야기로 말합니다.',B2:'선택과 그 결과의 의미를 포함해 이야기를 재구성합니다.',C1:'사건의 의미와 숨은 동기를 여러 관점에서 살펴봅니다.',C2:'이야기에 담긴 가정과 처음의 해석을 다시 생각합니다.'};
     const params=new URLSearchParams(location.search),number=String(params.get('family')||'001').padStart(3,'0');
     const metadata=(window.TALKTAG_STORYCAMP_MANIFEST?.families||[]).find(item=>item.number===number&&item.status==='published');
-    if(metadata){document.getElementById('vocalPeer').href='vocalcamp-family.html?family='+number;document.title=`${metadata.number} ${metadata.title} · TalkTag Story Camp`;familyNumber.textContent=`${metadata.number} · STORY FAMILY`;familyTitle.textContent=metadata.title;familyTheme.textContent=metadata.theme;levelCatalog.innerHTML=Object.keys(descriptions).filter(level=>metadata.levels.includes(level)).map(level=>`<a class="level-card" href="storycamp-reader.html?level=${level}&family=${metadata.number}"><div class="level">${metadata.number} · ${level}</div><h3>${level} ${metadata.title}</h3><p>${descriptions[level]}</p><span class="open">${level} 시작하기 →</span></a>`).join('')}else{familyTitle.textContent='자료를 불러오지 못했습니다.';familyTheme.textContent='Story Family 번호를 확인해 주세요.'}
+    if(metadata){document.getElementById('vocalPeer').href='vocalcamp-family.html?family='+number;document.title=`${metadata.number} ${metadata.title} · TalkTag Story Camp`;familyNumber.textContent=`${metadata.number} · STORY FAMILY`;familyTitle.textContent=metadata.title;familyTheme.textContent=metadata.theme;levelCatalog.innerHTML=Object.keys(descriptions).filter(level=>metadata.levels.includes(level)).map(level=>`<a class="level-card" href="storycamp-reader.html?level=${level}&family=${metadata.number}"><h3>${level}</h3><p>${descriptions[level]}</p><span class="open">시작하기 →</span></a>`).join('')}else{familyTitle.textContent='자료를 불러오지 못했습니다.';familyTheme.textContent='Story Family 번호를 확인해 주세요.'}
   </script>
 </body>
 </html>

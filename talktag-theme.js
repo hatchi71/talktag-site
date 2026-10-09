@@ -7,7 +7,7 @@
   }
   if (!document.querySelector('script[data-talktag-myspace]')) {
     const activity = document.createElement('script');
-    activity.src = '/myspace.js?v=20261008-1';
+    activity.src = '/myspace.js?v=20261009-clarity';
     activity.dataset.talktagMyspace = 'true';
     document.head.append(activity);
   }

@@ -43,7 +43,11 @@
  function progress(entry){
   const u=new URL(entry.href,location.origin),p=u.searchParams;
   if(u.pathname.endsWith('/storycamp-reader.html')){
-   const stage=Number(value('talktag-storycamp-card-'+p.get('family')+'-'+p.get('level'))||0);
+   const key='talktag-storycamp-card-'+p.get('family')+'-'+p.get('level');
+   let stage=Number(value(key)||0);
+   const legacyCounts={'001':{A1:7,A2:8,B1:10,B2:12,C1:16,C2:21},'002':{A1:6,A2:7,B1:8,B2:8,C1:8,C2:8}};
+   const n=legacyCounts[p.get('family')]?.[p.get('level')];
+   if(n&&value(key+':schema')!=='2'){if(stage>=n+2)stage--;try{localStorage.setItem(key,String(stage));localStorage.setItem(key+':schema','2')}catch{}}
    return stage>0?{label:'이어서 '+(stage+1)+'단계',stage}:null;
   }
   if(u.pathname.endsWith('/vocalcamp-player.html')){
@@ -136,6 +140,7 @@
   if(storageUnavailable)host.querySelector('.tt-myspace-note').textContent='이 브라우저에서 기록을 저장하지 못하고 있습니다. 브라우저의 저장 설정 또는 남은 공간을 확인해 주세요.';
   const rows=Object.values(imported).filter(x=>x.language===mode&&valid(x.href)).sort((a,b)=>(b.visitedAt||0)-(a.visitedAt||0));
   fill(lists.recent,rows.filter(x=>x.visitedAt),'방문한 페이지가 여기에 표시됩니다. 도입 이전의 방문 이력은 복원하지 않습니다.',x=>new Date(x.visitedAt).toLocaleDateString('ko-KR'));
+  rows.forEach(x=>{if(x.href.includes('/storycamp-reader.html'))x.checkpoint=progress(x)});
   fill(lists.continue,rows.filter(x=>x.checkpoint),'저장된 훈련 단계나 재생 위치가 있는 항목이 여기에 표시됩니다.',x=>x.checkpoint.label);
   const done=Object.entries(read(COMPLETED)).filter(([id,x])=>x&&x.source!=='automatic'&&(!id.startsWith('audio:')||x.source==='manual')).map(([id,x])=>fallback(id,x)).filter(x=>x&&x.language===mode);
   done.sort((a,b)=>String(b.completedAt||'').localeCompare(String(a.completedAt||'')));

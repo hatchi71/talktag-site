@@ -38,7 +38,10 @@
   if (isJapanese) {
     section.innerHTML = '<div class="sync-display-control" data-level="0"><div class="sync-display-labels" aria-hidden="true"><span>한자</span><span>+ 후리가나</span><span>+ 한국어</span></div><input class="sync-display-range" id="syncDisplayLevel" type="range" min="0" max="2" step="1" value="0" aria-label="스크립트 표시 단계" aria-valuetext="한자"></div><p class="sync-status" role="status" aria-live="polite"></p><div class="sync-lines hide-reading hide-ko" aria-label="재생 위치와 항상 동기화된 문장별 스크립트"></div>';
   } else {
-    section.innerHTML = '<h2>재생 스크립트</h2><p>재생 중인 문장이 자동으로 강조됩니다. 문장을 누르면 그 위치부터 다시 들을 수 있습니다.</p><button class="sync-enable" type="button" aria-expanded="false" aria-controls="syncContent">스크립트 싱크 열기</button><div id="syncContent" hidden><div class="sync-toolbar"><button type="button" id="syncPlay">▶ 재생</button><label><input type="checkbox" id="syncFollow" checked> 자동 따라가기</label><label><input type="checkbox" id="syncKorean"> 한국어 해석</label></div><p class="sync-status" role="status" aria-live="polite"></p><div class="sync-lines hide-ko" aria-label="재생 위치와 동기화된 문장별 스크립트"></div></div>';
+    section.classList.add("unified-sync");
+    section.hidden=true;
+    section.id="unifiedScript";
+    section.innerHTML = '<div id="syncContent" hidden><div class="sync-toolbar"><label><input type="checkbox" id="syncFollow" checked> 현재 문장 따라가기</label></div><p class="sync-status" role="status" aria-live="polite"></p><div class="sync-lines hide-ko" aria-label="재생 위치와 동기화된 영어와 한국어 스크립트"></div></div>';
   }
   document.querySelector(".player-shell").after(section);
 
@@ -140,31 +143,30 @@
     displayRange.addEventListener("input", function () { setDisplayLevel(displayRange.value); });
     displayRange.addEventListener("change", function () { setDisplayLevel(displayRange.value); });
   } else {
-    toggle.addEventListener("click", function () {
-      enabled = !enabled;
+    var mode="";
+    var enButton=document.getElementById("scriptButton"),krButton=document.getElementById("meaningButton");
+    enButton.textContent="EN · 스크립트";krButton.textContent="KR · 한글 해석";
+    [enButton,krButton].forEach(function(button){button.setAttribute("aria-controls","unifiedScript");button.setAttribute("aria-expanded","false");});
+    document.getElementById("scriptPanel")?.remove();document.getElementById("meaningPanel")?.remove();
+    window.TalkTagAudioScript={show:function(requested){
+      enabled=!(enabled&&mode===requested);mode=requested;
+      section.hidden=!enabled;
       content.hidden = !enabled;
-      toggle.setAttribute("aria-expanded", String(enabled));
-      toggle.textContent = enabled ? "스크립트 싱크 닫기" : "스크립트 싱크 열기";
+      lines.classList.toggle("hide-ko",requested!=="kr");
+      enButton.setAttribute("aria-expanded",String(enabled&&mode==="en"));krButton.setAttribute("aria-expanded",String(enabled&&mode==="kr"));
+      enButton.classList.toggle("active",enabled&&mode==="en");krButton.classList.toggle("active",enabled&&mode==="kr");
       if (enabled) { buildLines(); active = -1; update(); }
       else {
         buttons.forEach(function (button) { button.classList.remove("active"); button.removeAttribute("aria-current"); });
         active = -1;
       }
-    });
+      if(enabled)section.scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+    }};
   }
 
   ["timeupdate", "seeked", "loadedmetadata", "ended"].forEach(function (event) { audio.addEventListener(event, update); });
   audio.addEventListener("play", function () {
     if (play) play.textContent = "❚❚ 일시정지";
-    if (!isJapanese && !enabled) {
-      enabled = true;
-      content.hidden = false;
-      toggle.setAttribute("aria-expanded", "true");
-      toggle.textContent = "스크립트 싱크 닫기";
-      buildLines();
-      active = -1;
-      update();
-    }
   });
   audio.addEventListener("pause", function () { if (play) play.textContent = "▶ 재생"; });
   if (play) {

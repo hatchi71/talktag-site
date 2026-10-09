@@ -1,0 +1,28 @@
+.tt-help{margin:16px 0 24px;border:1px solid var(--tt-border,#d9e2e8);border-radius:16px;background:var(--tt-card,#fffdf7);color:var(--tt-text,#23354b)}
+.tt-help>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:12px 16px;list-style:none;font-size:14px;font-weight:800;cursor:pointer}
+.tt-help>summary::-webkit-details-marker{display:none}
+.tt-help>summary:after{content:"＋";font-size:18px;color:var(--tt-muted,#687b92)}.tt-help[open]>summary:after{content:"−"}
+.tt-help>summary:focus-visible{outline:3px solid #7899b5;outline-offset:3px;border-radius:14px}
+.tt-help .method{margin:0;padding:16px;border:0;background:transparent;box-shadow:none}
+.tt-help .method h2{font-size:18px}.tt-help .flow{grid-template-columns:repeat(5,minmax(0,1fr))}
+body[data-camp=vocal] .tt-help .flow{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tt-help .essay-guide{margin:0;border:0;box-shadow:none}
+.tt-info{margin:24px 0;border:1px solid var(--tt-border,#d9e2e8);border-radius:16px;background:var(--tt-card,#fffdf7)}
+.tt-info>summary{min-height:48px;padding:12px 16px;cursor:pointer;font-weight:800;font-size:14px;color:var(--tt-text,#23354b)}
+.tt-info .lesson-info{margin:0;border:0;box-shadow:none}
+.unified-sync[hidden],.tt-help[hidden]{display:none!important}
+.unified-sync .sync-toolbar{margin-top:0}.unified-sync .sync-toolbar label{background:var(--tt-card,#fffdf7);color:var(--tt-text,#23354b)}
+.unified-sync .sync-lines{max-height:55vh}.unified-sync .sync-line .sync-ko{font-size:16px;line-height:1.6;color:var(--tt-muted,#65758a)}
+.player-shell{grid-template-columns:minmax(0,1fr)}.player-shell,.unified-sync,.tt-info{max-width:920px;margin-left:auto;margin-right:auto}
+html[data-appearance=dark] .unified-sync .sync-line.active{background:#1a3048;color:#edf2f8;border-color:#7899b5}
+body[data-camp] .wrap{padding-top:28px}body[data-camp] .intro{margin-bottom:12px}body[data-camp] .choose{margin-top:22px}
+.family-simple .wrap{padding-top:28px}.family-simple .choose{margin-top:18px}.family-simple .camp-family-translation{margin-bottom:12px}
+.family-simple #levelCatalog .level-card h3{font-size:24px}.family-simple .peer-link{margin-top:22px}
+.story-system-head{padding-bottom:0}.story-display-note:empty{display:none}
+.filter-bar.tt-level-postits{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:12px!important}
+.filter-bar.tt-level-postits>a{min-height:76px!important;padding:16px 12px 12px!important;font-size:16px!important}
+@media(max-width:650px){.tt-help .flow{grid-template-columns:1fr}.tt-help .flow div{padding:10px}.family-simple h1{font-size:36px}.tt-help{margin:12px 0 18px}.tt-info .lesson-info{padding:16px}
+body[data-camp=vocal] .tt-help .flow{grid-template-columns:1fr}
+.filter-bar.tt-level-postits{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}.filter-bar.tt-level-postits>a{min-height:56px!important;padding:14px 10px 10px!important;font-size:14px!important}
+html[data-appearance] body.family-simple .levels.tt-level-postits{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+body.family-simple .levels .level-card{min-height:164px;padding:16px!important}body.family-simple .levels .level-card h3{margin:4px 0 8px}body.family-simple .levels .level-card p{font-size:13px}.family-simple .levels .level-card .open{font-size:12px;margin-top:10px}}

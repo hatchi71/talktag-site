@@ -94,13 +94,10 @@
     reference.append(referenceSummary, referenceText);
     rewrite.append(reference);
     slides.append(rewrite);
-    var recall = slide("회상", "3 · RECALL", "가리고 회상해서 다시 써보기", "노트와 원문을 모두 가리고, 기억나는 내용과 이야기의 흐름을 그대로 다시 써 보세요.");
-    recall.append(text("story-deck-cue", "막힐 때만 시작–변화–결과의 순서를 떠올려 보세요.", "ko"));
-    slides.append(recall);
-    var retell = slide("말하기", "4 · RETELL", "스크립트 없이 말하기", "방금 쓴 내용도 다시 덮고, 이야기 전체를 처음부터 끝까지 자신의 표현으로 전달해 보세요.");
+    var retell = slide("기억해서 말해보기", "3 · RETELL", "기억해서 말해보기", "노트와 원문을 가리고, 기억나는 표현으로 이야기 전체를 처음부터 끝까지 말해 보세요.");
     retell.append(text("story-deck-cue", "멈추더라도 원문을 바로 보지 말고 기억나는 표현으로 끝까지 연결합니다.", "ko"));
     slides.append(retell);
-    var transform = slide("변형", "5 · TRANSFORM", "나의 이야기로 변형하기", "원문의 구성과 주제는 유지하면서 인물, 장소, 이유, 행동 또는 결과를 바꾸어 나의 이야기나 의견으로 다시 써 보세요.");
+    var transform = slide("변형", "4 · TRANSFORM", "나의 이야기로 변형하기", "원문의 구성과 주제는 유지하면서 인물, 장소, 이유, 행동 또는 결과를 바꾸어 나의 이야기나 의견으로 다시 써 보세요.");
     if (Array.isArray(story.map) && story.map.length) {
       var map = document.createElement("section");
       map.className = "story-map";
@@ -127,7 +124,7 @@
       transform.append(own);
     }
     slides.append(transform);
-    var share = slide("최종 말하기", "6 · SHARE", "새로 지은 이야기 말하기", "새로 쓴 나의 이야기나 의견을 다시 덮고, 파트너에게 스크립트 없이 자연스럽게 말해 보세요.");
+    var share = slide("최종 말하기", "5 · SHARE", "새로 지은 이야기 말하기", "새로 쓴 나의 이야기나 의견을 다시 덮고, 파트너에게 스크립트 없이 자연스럽게 말해 보세요.");
     share.append(text("story-deck-cue", "파트너가 없다면 혼자 녹음한 뒤, 빠진 흐름이 없는지 다시 들어 보세요.", "ko"));
     slides.append(share);
     var actions = document.createElement("div");
@@ -163,7 +160,14 @@
     var slideNodes = Array.prototype.slice.call(slides.children);
     var storageKeyForStory = "talktag-japanese-story-card-" + level + "-" + String(sequence.start + index);
     var current = 0;
-    try { current = Math.max(0, Math.min(slideNodes.length - 1, Number(localStorage.getItem(storageKeyForStory) || 0))); } catch (error) {}
+    try {
+      current=Number(localStorage.getItem(storageKeyForStory)||0);
+      if(localStorage.getItem(storageKeyForStory+':schema')!=='2'){
+        if(current>=(story.snowballCards||[]).length+2)current--;
+        localStorage.setItem(storageKeyForStory,String(current));localStorage.setItem(storageKeyForStory+':schema','2');
+      }
+      current=Math.max(0,Math.min(slideNodes.length-1,current));
+    } catch (error) {}
     slideNodes.forEach(function (slideNode, slideIndex) {
       var button = document.createElement("button");
       button.type = "button";
