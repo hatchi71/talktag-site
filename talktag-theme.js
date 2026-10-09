@@ -1,5 +1,6 @@
 /* Shared appearance preference. Does not touch learning or audio state. */
 (() => {
+  if(!document.querySelector('script[data-audio-accent]')){const accents=document.createElement('script');accents.src='/audio-accent.js?v=20261009-flags';accents.dataset.audioAccent='true';document.head.append(accents);}
   if (!document.querySelector('script[src*="/pwa.js"]')) {
     const pwa = document.createElement('script');
     pwa.src = '/pwa.js?v=20261008-unified';

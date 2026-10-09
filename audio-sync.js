@@ -3,7 +3,7 @@
 
   var id = new URLSearchParams(location.search).get("id");
   if (!id && (window.TalkTagN4AudioLessons || []).length) id = window.TalkTagN4AudioLessons[0].id;
-  var data = (window.TalkTagAudioSync || {})[id];
+  var data = (window.TalkTagAudioSync || {})[id] || (window.TalkTagEssayMedia || {})[id]?.sync;
   var guided = (window.TalkTagAudioLessons || []).find(function (item) { return item.id === id && item.training; });
   if (guided) {
     data = {lines:guided.expressions.map(function (line,index) { return {en:line,ko:guided.meanings[index]||""}; }),cues:guided.training.cues,language:"en"};
