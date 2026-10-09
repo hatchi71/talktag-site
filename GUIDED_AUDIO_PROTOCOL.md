@@ -16,3 +16,5 @@ Approved 2026-10-09. Applies to every current and future Guided L&R upload, incl
 - Do not publish administrator prototypes or unrelated local changes. Retain old R2 objects until replacements are live and verified; deletion requires scoped authorization.
 
 Validation: run `node scripts/validate-guided-cards.mjs` against the release directory. When adding an episode, generate its sentence-boundary parts and append them to `guided-card-parts.js` before running validation.
+
+V2 new-production rule (2026-10-09): new cards target 8:00-9:30 with a hard maximum of 600 seconds including cues. Shorter coherent recordings are welcome; do not add filler or slow speech to force the target. Existing legacy cards retain their previously approved <=660-second tolerance. New records carry `protocolVersion: 2`; validate actual MP3 duration <=600 as well as metadata/cues. Single-card additions may be loaded as their own content module before the parts module; include that module in the validator. Production handoff is scripts -> TTS -> operator-approved QC -> agent assembly, R2 upload and publication.
