@@ -144,17 +144,18 @@
     displayRange.addEventListener("change", function () { setDisplayLevel(displayRange.value); });
   } else {
     var mode="";
-    var enButton=document.getElementById("scriptButton"),krButton=document.getElementById("meaningButton");
-    enButton.textContent="EN · 스크립트";krButton.textContent="KR · 한글 해석";
+    var enButton=document.getElementById("scriptButton"),krButton=document.getElementById("meaningButton"),hideButton=document.getElementById("scriptHiddenButton");
+    enButton.textContent=hideButton?"EN":"EN · 스크립트";krButton.textContent=hideButton?"EN+KR":"KR · 한글 해석";
     [enButton,krButton].forEach(function(button){button.setAttribute("aria-controls","unifiedScript");button.setAttribute("aria-expanded","false");});
     document.getElementById("scriptPanel")?.remove();document.getElementById("meaningPanel")?.remove();
     window.TalkTagAudioScript={show:function(requested){
-      enabled=!(enabled&&mode===requested);mode=requested;
+      enabled=hideButton?requested!=="hidden":!(enabled&&mode===requested);mode=requested;
       section.hidden=!enabled;
       content.hidden = !enabled;
       lines.classList.toggle("hide-ko",requested!=="kr");
       enButton.setAttribute("aria-expanded",String(enabled&&mode==="en"));krButton.setAttribute("aria-expanded",String(enabled&&mode==="kr"));
       enButton.classList.toggle("active",enabled&&mode==="en");krButton.classList.toggle("active",enabled&&mode==="kr");
+      if(hideButton){hideButton.setAttribute("aria-pressed",String(!enabled));enButton.setAttribute("aria-pressed",String(enabled&&mode==="en"));krButton.setAttribute("aria-pressed",String(enabled&&mode==="kr"));}
       if (enabled) { buildLines(); active = -1; update(); }
       else {
         buttons.forEach(function (button) { button.classList.remove("active"); button.removeAttribute("aria-current"); });

@@ -182,6 +182,8 @@
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
   scriptButton.addEventListener("click", function () { if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("en");return;}togglePanel(scriptButton, scriptPanel, meaningButton, meaningPanel); });
   meaningButton.addEventListener("click", function () { if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("kr");return;}togglePanel(meaningButton, meaningPanel, scriptButton, scriptPanel); });
+  var hideScriptButton=document.getElementById("scriptHiddenButton");
+  if(hideScriptButton)hideScriptButton.addEventListener("click",function(){if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("hidden");return;}scriptPanel.hidden=true;meaningPanel.hidden=true;scriptButton.classList.remove("active");meaningButton.classList.remove("active");hideScriptButton.setAttribute("aria-pressed","true");scriptButton.setAttribute("aria-pressed","false");meaningButton.setAttribute("aria-pressed","false");});
   completeButton.addEventListener("click", function () { var done = !manualDone(); saveState({ completed: done }); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, done, storageKey); updateCompletion(done); });
   window.addEventListener("storage", function () { updateCompletion(manualDone()); });
   window.addEventListener("talktag:completion-change", function () { updateCompletion(manualDone()); });
