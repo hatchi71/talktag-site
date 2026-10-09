@@ -159,7 +159,7 @@
    }
    refresh();
    for(const src of ['/storycamp-manifest.js','/vocalcamp-manifest.js','/audio-lessons.js']){
-    const s=document.createElement('script');s.src=src+'?v=20261008-myspace';s.onload=refresh;document.head.append(s);
+    const s=document.createElement('script');s.src=src+'?v=20261009-family003';s.onload=refresh;document.head.append(s);
    }
    fetch('/toeic/content/rc/manifest.json',{cache:'no-cache'}).then(r=>{if(r.ok)return r.json()}).then(data=>{toeicCatalog=data;refresh()}).catch(()=>{});
   }else refresh();
