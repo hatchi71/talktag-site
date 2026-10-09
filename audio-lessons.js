@@ -185,10 +185,10 @@ window.TalkTagAudioLessons = [
     "title": "Dinner from What We Have",
     "art": "01",
     "description": "Improvising a meal with useful phrasal language",
-    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
-    "durationLabel": "17:43",
-    "durationLong": "17:43",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/b1-01/training-10.mp3",
+    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 15회 반복한 뒤 다음 문장으로 이어집니다.",
+    "durationLabel": "26:35",
+    "durationLong": "26:35",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc15/b1-01/training-15.mp3",
     "expressions": [
       "We don't have much food left, so let's use what we have.",
       "I found some vegetables that need to be used up today.",
@@ -215,10 +215,10 @@ window.TalkTagAudioLessons = [
     ],
     "training": {
       "kind": "sentence-repeat",
-      "defaultReps": 10,
+      "defaultReps": 15,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1062.9242630385488
+      "endingCueStart": 1594.1251700680273
     }
   },
   {
@@ -231,10 +231,10 @@ window.TalkTagAudioLessons = [
     "title": "Around the Dinner Table",
     "art": "02",
     "description": "Serving, eating, and reacting naturally",
-    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
-    "durationLabel": "14:20",
-    "durationLong": "14:20",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/b1-02/training-10.mp3",
+    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 15회 반복한 뒤 다음 문장으로 이어집니다.",
+    "durationLabel": "21:29",
+    "durationLong": "21:29",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc15/b1-02/training-15.mp3",
     "expressions": [
       "Go ahead and help yourself.",
       "Can you pass me the rice, please?",
@@ -261,10 +261,10 @@ window.TalkTagAudioLessons = [
     ],
     "training": {
       "kind": "sentence-repeat",
-      "defaultReps": 10,
+      "defaultReps": 15,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 859.0374149659864
+      "endingCueStart": 1288.2948979591836
     }
   },
   {
@@ -277,10 +277,10 @@ window.TalkTagAudioLessons = [
     "title": "Cooking When You're in a Hurry",
     "art": "01",
     "description": "Adjusting plans and explaining choices",
-    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
-    "durationLabel": "21:00",
-    "durationLong": "21:00",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/b2-01/training-10.mp3",
+    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 15회 반복한 뒤 다음 문장으로 이어집니다.",
+    "durationLabel": "31:30",
+    "durationLong": "31:30",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc15/b2-01/training-15.mp3",
     "expressions": [
       "I got home late, so I need to make something quick.",
       "Instead of cooking from scratch, I'm using a few things I already prepared.",
@@ -307,10 +307,10 @@ window.TalkTagAudioLessons = [
     ],
     "training": {
       "kind": "sentence-repeat",
-      "defaultReps": 10,
+      "defaultReps": 15,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1259.4945578231293
+      "endingCueStart": 1888.9806122448979
     }
   },
   {
@@ -323,10 +323,10 @@ window.TalkTagAudioLessons = [
     "title": "Having Friends Over",
     "art": "02",
     "description": "Hosting and adapting food for other people",
-    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
-    "durationLabel": "20:45",
-    "durationLong": "20:45",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/b2-02/training-10.mp3",
+    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 15회 반복한 뒤 다음 문장으로 이어집니다.",
+    "durationLabel": "31:08",
+    "durationLong": "31:08",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc15/b2-02/training-15.mp3",
     "expressions": [
       "A few friends are coming over, so I'm keeping the menu simple.",
       "I'm making one main dish and a couple of easy sides.",
@@ -353,10 +353,10 @@ window.TalkTagAudioLessons = [
     ],
     "training": {
       "kind": "sentence-repeat",
-      "defaultReps": 10,
+      "defaultReps": 15,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1244.8657596371881
+      "endingCueStart": 1867.0374149659865
     }
   },
   {
@@ -369,10 +369,10 @@ window.TalkTagAudioLessons = [
     "title": "Why I Cook at Home",
     "art": "01",
     "description": "Natural reflection on habits, control, and waste",
-    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
-    "durationLabel": "28:36",
-    "durationLong": "28:36",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/c1-01/training-10.mp3",
+    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 15회 반복한 뒤 다음 문장으로 이어집니다.",
+    "durationLabel": "42:54",
+    "durationLong": "42:54",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc15/c1-01/training-15.mp3",
     "expressions": [
       "I don't cook at home because I think every meal has to be healthy or impressive.",
       "I mostly do it because I like knowing what goes into my food.",
@@ -399,10 +399,10 @@ window.TalkTagAudioLessons = [
     ],
     "training": {
       "kind": "sentence-repeat",
-      "defaultReps": 10,
+      "defaultReps": 15,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1715.7238095238095
+      "endingCueStart": 2573.3244897959185
     }
   },
   {
@@ -415,10 +415,10 @@ window.TalkTagAudioLessons = [
     "title": "What Makes a Meal Feel Special",
     "art": "02",
     "description": "Spoken reflection on food, memory, and company",
-    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
-    "durationLabel": "28:58",
-    "durationLong": "28:58",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/c1-02/training-10.mp3",
+    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 15회 반복한 뒤 다음 문장으로 이어집니다.",
+    "durationLabel": "43:27",
+    "durationLong": "43:27",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc15/c1-02/training-15.mp3",
     "expressions": [
       "A special meal doesn't always have to be expensive or carefully planned.",
       "Sometimes it's just familiar food served at the right moment.",
@@ -445,10 +445,10 @@ window.TalkTagAudioLessons = [
     ],
     "training": {
       "kind": "sentence-repeat",
-      "defaultReps": 10,
+      "defaultReps": 15,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1737.6775510204081
+      "endingCueStart": 2606.2551020408164
     }
   },
   {
@@ -461,10 +461,10 @@ window.TalkTagAudioLessons = [
     "title": "Convenience and Cooking Skills",
     "art": "01",
     "description": "Nuanced spoken reflection on convenience and skill",
-    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
-    "durationLabel": "32:45",
-    "durationLong": "32:45",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/c2-01/training-10.mp3",
+    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 15회 반복한 뒤 다음 문장으로 이어집니다.",
+    "durationLabel": "49:07",
+    "durationLong": "49:07",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc15/c2-01/training-15.mp3",
     "expressions": [
       "Convenience in the kitchen is usually treated as a simple good, and most of the time it is.",
       "Pre-cut vegetables, delivery apps, and prepared meals can save time when life is busy.",
@@ -491,10 +491,10 @@ window.TalkTagAudioLessons = [
     ],
     "training": {
       "kind": "sentence-repeat",
-      "defaultReps": 10,
+      "defaultReps": 15,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 1964.409977324263
+      "endingCueStart": 2946.3537414965986
     }
   },
   {
@@ -507,10 +507,10 @@ window.TalkTagAudioLessons = [
     "title": "Why People Gather Around Food",
     "art": "02",
     "description": "Nuanced spoken reflection on social life and shared meals",
-    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 10회 반복한 뒤 다음 문장으로 이어집니다.",
-    "durationLabel": "33:50",
-    "durationLong": "33:50",
-    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc12/c2-02/training-10.mp3",
+    "summary": "원어민의 음성을 듣고 한 문장씩 따라하세요. 각 문장을 15회 반복한 뒤 다음 문장으로 이어집니다.",
+    "durationLabel": "50:44",
+    "durationLong": "50:44",
+    "audio": "https://audio.talktag.co.kr/English/guided/20261009-qc15/c2-02/training-15.mp3",
     "expressions": [
       "Food does more than solve hunger; it gives people a reason to gather without needing a formal agenda.",
       "A shared meal creates a natural structure for conversation because everyone is doing something together.",
@@ -537,10 +537,10 @@ window.TalkTagAudioLessons = [
     ],
     "training": {
       "kind": "sentence-repeat",
-      "defaultReps": 10,
+      "defaultReps": 15,
       "silenceMultiplier": 2.5,
       "startCueEnd": 0.5224489795918368,
-      "endingCueStart": 2029.3238095238096
+      "endingCueStart": 3043.7244897959185
     }
   }
 ];

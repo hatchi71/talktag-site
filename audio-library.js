@@ -11,7 +11,7 @@ document.body.dataset.audioView=level?"lessons":"levels";
 document.title=name+(level?" · "+level:"")+" · TalkTag";
 document.getElementById("libraryEyebrow").textContent="SOUND CHECK";
 document.getElementById("libraryTitle").textContent=name+(level?" · "+level:"");
-document.getElementById("libraryDescription").textContent=level?(type==="guided"?"문장별 10회 반복 · 듣고 따라하세요.":"듣고, 기억하고, 내 말로 이야기하세요."):"훈련할 레벨을 선택하세요.";
+document.getElementById("libraryDescription").textContent=level?(type==="guided"?"문장별 " + (/^[BC][12]$/.test(level) ? 15 : 10) + "회 반복 · 듣고 따라하세요.":"듣고, 기억하고, 내 말로 이야기하세요."):"훈련할 레벨을 선택하세요.";
 document.querySelector(".type-switch").hidden=true;
 document.getElementById("essayGuide").hidden=type!=="plain"||!level;
 document.getElementById("audioMissionScope").textContent=type==="guided"?"Guided L&R":"Essays";
@@ -25,7 +25,7 @@ function number(l){return String(l.unit||catalog.filter(x=>x.level===l.level).in
 function render(){
 var active=catalog.filter(l=>l.level===level&&!done(l));
 list.hidden=!level;
-list.innerHTML=!level?"":active.map(l=>'<article class="lesson-card" data-completion-manual-only="true" data-completion-id="audio:'+esc(l.id)+'" data-completion-legacy-key="talktag-audio:'+esc(l.id)+'"><a class="audio-lesson-open" href="'+url(l)+'"><span class="audio-lesson-number">'+number(l)+'</span><div class="lesson-copy"><h2>'+esc(l.title)+'</h2><p>'+esc(l.description)+'</p><div class="lesson-meta"><span>'+esc(l.durationLabel)+'</span><span>'+(type==="guided"?'문장별 10회 반복':'Listen · Rebuild · Tell')+'</span></div></div><span class="audio-lesson-arrow" aria-hidden="true">↗</span></a><div class="lesson-card-actions" data-completion-actions></div></article>').join("")||(level?'<p class="audio-empty">'+(catalog.some(l=>l.level===level)?'이 레벨의 미션을 모두 완료했습니다. 아래에서 다시 열거나 완료를 취소할 수 있습니다.':'새로운 음원을 준비하고 있습니다.')+'</p>':"");
+list.innerHTML=!level?"":active.map(l=>'<article class="lesson-card" data-completion-manual-only="true" data-completion-id="audio:'+esc(l.id)+'" data-completion-legacy-key="talktag-audio:'+esc(l.id)+'"><a class="audio-lesson-open" href="'+url(l)+'"><span class="audio-lesson-number">'+number(l)+'</span><div class="lesson-copy"><h2>'+esc(l.title)+'</h2><p>'+esc(l.description)+'</p><div class="lesson-meta"><span>'+esc(l.durationLabel)+'</span><span>'+(type==="guided"?'문장별 '+l.training.defaultReps+'회 반복':'Listen · Rebuild · Tell')+'</span></div></div><span class="audio-lesson-arrow" aria-hidden="true">↗</span></a><div class="lesson-card-actions" data-completion-actions></div></article>').join("")||(level?'<p class="audio-empty">'+(catalog.some(l=>l.level===level)?'이 레벨의 미션을 모두 완료했습니다. 아래에서 다시 열거나 완료를 취소할 수 있습니다.':'새로운 음원을 준비하고 있습니다.')+'</p>':"");
 window.TalkTagCompletion.mount(list);
 var completed=catalog.filter(done);
 document.getElementById("audioMissionCount").textContent=String(completed.length);
