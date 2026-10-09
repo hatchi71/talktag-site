@@ -22,7 +22,7 @@ if(level){var change=document.createElement("a");change.className="audio-change-
 function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function done(l){return l.available!==false&&window.TalkTagCompletion.getManual("audio:"+l.id,"talktag-audio:"+l.id);}
 function url(l){return (l.available===false?"audio-essay-preview.html":"audio-player.html")+"?id="+encodeURIComponent(l.id);}
-function number(l){return String(l.unit||catalog.filter(x=>x.level===l.level).indexOf(l)+1).padStart(2,"0");}
+function number(l){return String(l.unit||catalog.filter(x=>x.level===l.level).indexOf(l)+1).padStart(2,"0")+(l.partIndex?"–"+String(l.partIndex).padStart(2,"0"):"");}
 function render(){
 var active=catalog.filter(l=>l.level===level&&!done(l));
 list.hidden=!level;

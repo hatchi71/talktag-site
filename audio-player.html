@@ -8,14 +8,16 @@
   <link rel="stylesheet" href="content-completion.css?v=1">
   <script src="audio-lessons.js?v=20261009-guided-qc15" defer></script>
   <script src="guided-drill-data.js?v=20261009-qc15" defer></script>
+  <script src="guided-card-parts.js?v=20261009-short-cards" defer></script>
+  <script src="guided-progress-migration.js?v=20261009-short-cards" defer></script>
   <script src="audio-essays.js?v=1" defer></script>
   <script src="audio-essays-002-media.js?v=20261009-002-bk" defer></script>
   <script src="audio-essays-002.js?v=20261009-002-bk" defer></script>
   <link rel="stylesheet" href="essay-practice.css?v=20261009-002">
-  <script src="essay-practice.js?v=20261009-002" defer></script>
+  <script src="essay-practice.js?v=20261009-organized" defer></script>
   <script src="content-completion.js?v=20261009-sound-ux" defer></script>
   <link rel="stylesheet" href="guided-drill.css?v=20261008">
-  <script src="audio-player.js?v=20261009-motion" defer></script>
+  <script src="audio-player.js?v=20261009-short-cards" defer></script>
   <link rel="stylesheet" href="audio-sync-pilot.css?v=3">
   <script src="audio-sync-data.js?v=20261008-guided12" defer></script>
   <script src="audio-sync.js?v=20261009-compact-controls" defer></script>
@@ -24,7 +26,7 @@
 <script src="talktag-theme.js?v=20261009-mobile-spacing"></script>
 <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
 <link rel="stylesheet" href="sound-check.css?v=20261009-mobile-spacing">
-<link rel="stylesheet" href="player-compact-controls.css?v=20261009-compact">
+<link rel="stylesheet" href="player-compact-controls.css?v=20261009-organized">
 <link rel="stylesheet" href="player-wave-motion.css?v=20261009-motion">
 <script src="player-wave-motion.js?v=20261009-motion" defer></script>
 </head>
@@ -43,7 +45,7 @@
         <nav class="lesson-track-nav" aria-label="음원 이동"><button class="control" id="prevButton" type="button" disabled>← 이전 음원</button><button class="control" id="nextButton" type="button" disabled>다음 음원 →</button></nav>
         <div class="options compact-options"><label class="option speed-control"><span>속도</span><select id="speedSelect" aria-label="재생 속도"><option value="0.75">0.75×</option><option value="0.9">0.9×</option><option value="1" selected>1.0×</option><option value="1.1">1.1×</option><option value="1.25">1.25×</option></select></label><div class="option loop-control"><span>전체 반복</span><button class="switch" id="loopButton" type="button" role="switch" aria-checked="false" aria-label="전체 음원 다시 반복" title="문장별 반복이 아니라 전체 음원을 다시 재생합니다"></button></div></div>
         <div class="script-controls"><span class="script-controls-label">스크립트</span><div class="text-actions compact-script" role="group" aria-label="스크립트 표시"><button id="scriptHiddenButton" type="button" aria-pressed="true">숨김</button><button id="scriptButton" type="button" aria-pressed="false">EN</button><button id="meaningButton" type="button" aria-pressed="false">EN+KR</button></div></div>
-        <button class="complete-button" id="completeButton">MARK AS COMPLETED</button>
+        <div class="player-mission-actions"><button class="complete-button" id="completeButton">MARK AS COMPLETED</button></div>
       </section>
 
     </div>

@@ -15,3 +15,17 @@ html[data-appearance] body[data-audio-type] .player-card #completeButton{display
 html[data-appearance] body[data-audio-type] .player-card #completeButton.done{color:var(--tt-text)!important;border-color:#669386!important;background:color-mix(in srgb,#669386 10%,transparent)!important}
 html[data-appearance] body[data-audio-type] .player-card :is(#speedSelect,#loopButton,.compact-script button,#completeButton):focus-visible{outline:2px solid var(--tt-accent)!important;outline-offset:3px}
 @media(max-width:360px){html[data-appearance] body[data-audio-type] .player-card .compact-script button{padding:0 7px!important}}
+
+/* A single quiet settings surface, followed by balanced mission actions. */
+html[data-appearance] body[data-audio-type] .player-card .compact-options{gap:0!important;margin:12px 0 0!important;padding:4px 10px!important;border:1px solid var(--tt-border)!important;border-bottom:0!important;border-radius:14px 14px 0 0!important;background:color-mix(in srgb,var(--tt-raised) 45%,transparent)!important}
+html[data-appearance] body[data-audio-type] .player-card .compact-options .option{border:0!important;border-radius:0!important;padding:0 6px!important;justify-content:space-between!important;font-size:13px!important}
+html[data-appearance] body[data-audio-type] .player-card .compact-options .loop-control{border-left:1px solid var(--tt-border)!important;padding-left:12px!important}
+html[data-appearance] body[data-audio-type] .player-card .script-controls{margin:0!important;padding:8px 16px!important;border:1px solid var(--tt-border)!important;border-radius:0 0 14px 14px!important;background:color-mix(in srgb,var(--tt-raised) 45%,transparent)!important}
+html[data-appearance] body[data-audio-type] .player-card .compact-script{border:0!important;padding:2px!important;border-radius:10px!important}
+html[data-appearance] body[data-audio-type] .player-card .compact-script button{min-width:44px!important;padding:0 8px!important;border-radius:8px!important}
+.player-mission-actions{display:flex;align-items:stretch;gap:8px;margin-top:12px}
+html[data-appearance] body[data-audio-type] .player-card .player-mission-actions :is(#completeButton,.essay-practice-open){flex:1;display:flex!important;align-items:center;justify-content:center;width:auto!important;min-width:0!important;min-height:44px!important;margin:0!important;padding:10px 8px!important;font-size:13px!important;line-height:1.4!important;letter-spacing:0!important;border:1px solid var(--tt-border)!important;border-radius:11px!important;background:transparent!important;color:var(--tt-muted)!important;box-shadow:none!important}
+html[data-appearance] body[data-audio-type] .player-card .player-mission-actions .essay-practice-open{background:color-mix(in srgb,var(--tt-accent) 7%,var(--tt-card))!important;color:var(--tt-text)!important;font-weight:650!important}
+html[data-appearance] body[data-audio-type] .player-card .player-mission-actions #completeButton.done{background:color-mix(in srgb,#669386 12%,var(--tt-card))!important;color:var(--tt-text)!important;border-color:#669386!important}
+html[data-appearance] body[data-audio-type] .player-card .player-mission-actions button:focus-visible{outline:2px solid var(--tt-accent)!important;outline-offset:3px}
+@media(max-width:375px){html[data-appearance] body[data-audio-type] .player-card .script-controls{padding:8px 10px!important}.script-controls-label{font-size:13px}}
