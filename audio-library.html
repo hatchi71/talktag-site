@@ -9,21 +9,23 @@
   <link rel="stylesheet" href="content-completion.css?v=1">
   <script src="audio-lessons.js?v=20261009-guided-qc12" defer></script>
   <script src="audio-essays.js?v=1" defer></script>
-  <script src="content-completion.js?v=1" defer></script>
-  <script src="audio-library.js?v=20261008-small-postits" defer></script>
+  <script src="content-completion.js?v=20261009-sound-ux" defer></script>
+  <script src="audio-library.js?v=20261009-sound-ux" defer></script>
   <script src="/talktag-home.js?v=1" defer></script>
-<link rel="stylesheet" href="talktag-theme.css?v=20261007-route-postits6">
+<link rel="stylesheet" href="talktag-theme.css?v=20261009-sound-ux">
 <link rel="stylesheet" href="guided-library.css?v=20261008-small-postits">
-<script src="talktag-theme.js?v=20261007-pwa-update7"></script>
+<script src="talktag-theme.js?v=20261009-sound-ux"></script>
 <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
+<link rel="stylesheet" href="sound-check.css?v=20261009-sound-ux">
 </head>
 <body>
-  <header class="site-head"><a class="brand" href="listen-repeat.html"><img src="talktag-logo.png" alt="TalkTag"><span><strong>Audio Library</strong><small>LISTEN &amp; REPEAT</small></span></a><nav class="head-links"><a href="listen-repeat.html">← Audio Home</a><a href="index.html">TalkTag Home</a></nav></header>
+  <header class="site-head"><a class="brand" href="listen-repeat.html"><img src="talktag-logo.png" alt="TalkTag"><span><strong>Sound Check</strong><small>SNOWBALLING STUDIO</small></span></a><nav class="head-links"></nav></header>
   <main class="wrap">
     <section class="catalog-head"><div><div class="eyebrow" id="libraryEyebrow">GUIDED LISTEN &amp; REPEAT</div><h1 id="libraryTitle">Guided Practice</h1><p id="libraryDescription">제공자가 편집한 반복 훈련 음원을 그대로 재생합니다.</p></div><div class="type-switch"><a id="guidedSwitch" href="audio-library.html?type=guided&amp;level=A1">Guided L&amp;R</a><a id="plainSwitch" href="audio-library.html?type=plain&amp;level=A1">Essays &amp; Articles</a></div></section>
 
     <nav class="filter-bar" aria-label="CEFR level"><a data-level="A1">A1</a><a data-level="A2">A2</a><a data-level="B1">B1</a><a data-level="B2">B2</a><a data-level="C1">C1</a><a data-level="C2">C2</a></nav>
     <section class="lesson-list" id="lessonList"></section>
+    <section class="audio-missions" aria-label="이 트랙의 완료한 미션"><button class="audio-missions-toggle" id="audioMissionsToggle" aria-expanded="false" aria-controls="audioMissionList"><span aria-hidden="true">🍂</span><span>완료한 미션 <small id="audioMissionScope"></small></span><span id="audioMissionCount">0</span></button><div id="audioMissionList" hidden></div><p id="audioMissionNotice" class="audio-mission-notice" role="status"></p></section>
     <details class="tt-help" id="essayGuide" hidden><summary>에세이 활용 방법</summary><section class="essay-guide" aria-labelledby="essayGuideTitle">
       <div class="essay-intro"><div class="eyebrow">LISTEN → REBUILD → TELL</div><h2 id="essayGuideTitle">듣고, 기억하고,<br>내 말로 이야기하세요.</h2><p>영어를 이해하는 것과 <strong>내가 직접 영어로 이야기할 수 있는 것은 다릅니다.</strong></p><p>Audio Essays &amp; Articles에서는 짧은 이야기를 듣고 끝내지 않습니다. 세 단계를 거치며 들은 영어를 <strong>내가 사용할 수 있는 영어로 바꿔봅니다.</strong></p></div>
       <div class="essay-steps">

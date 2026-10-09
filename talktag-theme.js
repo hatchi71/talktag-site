@@ -18,6 +18,9 @@
   let preference = 'bright';
   try { preference = valid(localStorage.getItem(key)); } catch (_) {}
   function apply(value) {
+    root.classList.add('tt-theme-changing');
+    clearTimeout(window.ttThemeChangeTimer);
+    window.ttThemeChangeTimer = setTimeout(() => root.classList.remove('tt-theme-changing'), 220);
     root.dataset.appearance = valid(value);
     document.querySelectorAll('[data-theme-choice]').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.themeChoice === root.dataset.appearance));
@@ -42,7 +45,7 @@
       ] : [
         [/storycamp|story-camp/, '/story-camp.html', 'Story Camp'],
         [/vocal/, '/vocal-camp.html', 'Vocal Camp'],
-        [/(?:audio-library|audio-player|listen-repeat)/, '/listen-repeat.html', 'Listen & Repeat'],
+        [/(?:audio-library|audio-player|listen-repeat)/, '/listen-repeat.html', 'Sound Check'],
         [/readable/, '/readable.html', 'Readable'],
         [/toeic/, '/toeic/', 'TOEIC RC'],
         [/test-preppers/, '/test-preppers.html', 'Test Preppers'],
@@ -72,7 +75,7 @@
           if(['listen-repeat.html','readable.html','bootcamp.html'].includes(file))return '/japanese/snowballing.html';
           return '/japanese/';
         }
-        if(file==='audio-library.html')return '/listen-repeat.html';
+        if(file==='audio-library.html')return params.has('level')?'/audio-library.html?type='+(params.get('type')==='plain'?'plain':'guided'):'/listen-repeat.html';
         if(file==='audio-player.html'){
           const lesson=(window.TalkTagAudioLessons||[]).find(item=>item.id===params.get('id'));
           return '/audio-library.html?type='+(lesson?.type==='plain'?'plain':'guided')+'&level='+encodeURIComponent(lesson?.level||level);
@@ -168,7 +171,11 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.dataset.themeChoice = value;
-      button.textContent = label;
+      button.setAttribute('aria-label', value === 'bright' ? '밝은 화면 (Bright)' : '어두운 화면 (Dark)');
+      button.title = button.getAttribute('aria-label');
+      button.innerHTML = value === 'bright'
+        ? '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>'
+        : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 14.2A9 9 0 0 1 9.8 3.3 9 9 0 1 0 20.7 14.2Z"/></svg>';
       button.addEventListener('click', () => {
         apply(value);
         try { localStorage.setItem(key, value); } catch (_) {}

@@ -27,6 +27,7 @@
   var previousLesson = lessons[lessonIndex - 1] || null;
   var nextLesson = lessons[lessonIndex + 1] || null;
   var storageKey = "talktag-audio:" + lesson.id;
+  document.body.dataset.audioType = lesson.type;
 
   function appendList(targetId, items) {
     var target = document.getElementById(targetId);
@@ -51,7 +52,7 @@
   document.getElementById("infoLibraryBack").href = "audio-library.html?type=" + lesson.type + "&level=" + lesson.level;
   if (lesson.type === "plain") {
     document.body.classList.add("essay-player");
-    document.querySelector(".brand strong").textContent = "Essays & Articles";
+    document.getElementById("playerHeaderMeta").textContent = "ESSAYS & ARTICLES";
     var info = document.querySelectorAll(".lesson-info dd");
     info[0].textContent = "Essays & Articles";
     info[2].textContent = lesson.genre;
@@ -104,9 +105,9 @@
     return String(Math.floor(seconds / 60)).padStart(2, "0") + ":" + String(seconds % 60).padStart(2, "0");
   }
   function updateCompletion(done) {
-    completeState.textContent = done ? "COMPLETED" : "NOT COMPLETED";
+    completeState.textContent = done ? "미션 완료" : "훈련 중";
     completeState.classList.toggle("done", done);
-    completeButton.textContent = done ? "✓ COMPLETED · MARK NOT COMPLETED" : "MARK AS COMPLETED";
+    completeButton.textContent = done ? "✓ 완료됨 · 완료 취소" : "미션 완료로 표시";
     completeButton.classList.toggle("done", done);
     completeButton.setAttribute("aria-pressed", String(done));
   }
@@ -132,7 +133,8 @@
   loopButton.classList.toggle("on", audio.loop);
   loopButton.setAttribute("aria-checked", String(audio.loop));
   if (initial.speed) { audio.playbackRate = Number(initial.speed); speedSelect.value = String(initial.speed); }
-  updateCompletion(Boolean(initial.completed));
+  function manualDone() { return window.TalkTagCompletion ? window.TalkTagCompletion.getManual("audio:" + lesson.id, storageKey) : Boolean(readState().completed); }
+  updateCompletion(manualDone());
 
   function applyInitialResume() {
     duration.textContent = formatTime(audio.duration);
@@ -158,7 +160,7 @@
     playButton.textContent = "▶ PLAY";
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });
-  audio.addEventListener("ended", function () { if (!audio.loop) { updateCompletion(Boolean(saveState({ position: 0, completed: true }).completed)); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, true, storageKey, {source:"automatic"}); } });
+  audio.addEventListener("ended", function () { if (!audio.loop) saveState({ position: 0, listened: true, listenedAt: new Date().toISOString() }); });
   playButton.addEventListener("click", function () {
     if (audio.paused) {
       var resumeAt = resumePending;
@@ -180,7 +182,9 @@
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
   scriptButton.addEventListener("click", function () { if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("en");return;}togglePanel(scriptButton, scriptPanel, meaningButton, meaningPanel); });
   meaningButton.addEventListener("click", function () { if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("kr");return;}togglePanel(meaningButton, meaningPanel, scriptButton, scriptPanel); });
-  completeButton.addEventListener("click", function () { var done = !Boolean(readState().completed); saveState({ completed: done }); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, done, storageKey); updateCompletion(done); });
+  completeButton.addEventListener("click", function () { var done = !manualDone(); saveState({ completed: done }); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, done, storageKey); updateCompletion(done); });
+  window.addEventListener("storage", function () { updateCompletion(manualDone()); });
+  window.addEventListener("talktag:completion-change", function () { updateCompletion(manualDone()); });
   window.addEventListener("beforeunload", function () {
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });
