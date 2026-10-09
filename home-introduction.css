@@ -2,7 +2,7 @@
 .home-intro p,.home-intro li{font-size:16px!important;line-height:1.65!important;color:var(--tt-muted,#596c82);word-break:keep-all;overflow-wrap:anywhere}
 .home-intro h2{font-size:24px!important;line-height:1.3;margin:0 0 12px;color:var(--tt-text,#082b68)}.home-intro .intro-title{font-size:clamp(30px,5vw,48px)!important;letter-spacing:-.04em;margin:12px 0 18px}.home-intro h3{font-size:20px!important;margin:8px 0;color:var(--tt-text,#082b68)}
 .home-intro .about-hero{padding:8px 0 24px}.home-intro .eyebrow{font-size:11px;font-weight:850;letter-spacing:.12em;color:var(--tt-muted,#596c82)}
-.home-intro .about-panel{padding:24px;margin:0 0 16px;border:1px solid var(--tt-border,#dddccd);border-radius:20px;background:var(--tt-surface,#fffdf7)}
+.home-intro .about-panel{padding:24px;margin:0 0 16px;border:1px solid var(--tt-border,#dddccd);border-radius:20px;background:var(--tt-card,#fffdf7)}
 .home-intro .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.home-intro .about-grid .about-panel{margin:0}
 .home-intro .about-link{display:inline-flex;align-items:center;min-height:44px;color:var(--tt-text,#082b68);font-size:15px;font-weight:800;text-underline-offset:4px}.home-intro .about-goals{padding-left:20px}.home-intro .about-goals li{margin:8px 0}.home-intro a:focus-visible{outline:3px solid #7899b5;outline-offset:4px}
 #home .home-intro+.home-contact{position:relative;left:auto;right:auto;bottom:auto;margin:0 auto 24px}
