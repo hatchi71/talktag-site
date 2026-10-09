@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261009-sound-ux';
+const CACHE_VERSION = 'talktag-pwa-20261009-mobile-spacing';
 const APP_SHELL = [
   '/',
   '/index.html',

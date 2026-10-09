@@ -1,12 +1,14 @@
 /* Sound Check: one hierarchy, two distinct training tracks. */
-body[data-audio-type=station] .hero{display:block;margin:32px 0 24px;padding:0}
+body[data-audio-type=station] .hero{display:block;min-height:0;margin:8px 0 24px;padding:0}
 body[data-audio-type=station] .hero h1{font-size:clamp(32px,5vw,48px);line-height:1.15;margin:12px 0 16px}
 body[data-audio-type=station] .hero p{font-size:16px;line-height:1.6}
 body[data-audio-type=station] .library-section{margin-top:28px}
 body[data-audio-type=station] .library-card{padding:24px;min-height:0}
 body[data-audio-type=station] .library-card h3{font-size:28px;line-height:1.25;margin:28px 0 16px}
 body[data-audio-type=station] .library-card p{font-size:16px;line-height:1.6}
+body[data-audio-type=station] .library-card .open{position:static;display:flex;align-items:center;min-height:44px;margin-top:16px}
 body[data-audio-type=station] .bridge{font-size:15px;line-height:1.6;margin-top:32px}
+body[data-audio-type=station] .bridge:not([open]){padding:12px 20px}
 body[data-audio-type=station] .bridge summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700}
 body[data-audio-type] .catalog-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin:24px 0}
 body[data-audio-type] .catalog-head h1{font-size:clamp(26px,4vw,40px);line-height:1.2;margin:8px 0 12px}

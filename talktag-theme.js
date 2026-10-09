@@ -31,6 +31,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const path = location.pathname;
     const topLanding = path === '/' || path === '/index.html' || path === '/japanese/' || path === '/japanese/index.html' || /\/korean\.html$/.test(path);
+    document.body.classList.toggle('tt-study-page', !topLanding);
     if (!topLanding && !document.querySelector('.tt-route-tools')) {
       const japanese = path.startsWith('/japanese/');
       const routes = japanese ? [
