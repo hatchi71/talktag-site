@@ -8,6 +8,7 @@
   if (isHome) {
     const home = document.querySelector('#home .stage');
     if (home && !home.classList.contains('mission-home')) {
+      const introduction = home.querySelector('.home-intro');
       home.classList.add('mission-home');
       if (isJapaneseHome) home.classList.add('mission-home-ja');
       if (isKoreanHome) home.classList.add('mission-home-ko');
@@ -137,6 +138,7 @@
           <div class="home-contact">Contact : <a href="mailto:talktagadmin@gmail.com">talktagadmin@gmail.com</a></div>`;
       }
 
+      if (introduction && !isJapaneseHome && !isKoreanHome) home.querySelector('.home-contact').before(introduction);
       const style = document.createElement('style');
       style.textContent = `
         #home .mission-home{min-width:0;min-height:960px;position:relative;padding:52px 46px 40px;overflow:auto}
