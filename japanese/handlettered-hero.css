@@ -1,0 +1,6 @@
+/* Decorative word art only; photographs and learning illustrations are unchanged. */
+.hero-copy h1.ja-lettered-title{width:min(100%,390px);aspect-ratio:1.14;margin:12px 0 14px;line-height:1}
+.ja-lettered-title img{display:block;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
+.hero-copy p.ja-learning-philosophy{max-width:34em;margin-top:12px;font-size:17px;line-height:1.8;word-break:normal;overflow-wrap:anywhere}
+html[data-appearance=dark] .ja-lettered-title img{filter:invert(1) hue-rotate(180deg);mix-blend-mode:screen}
+@media(max-width:800px){.hero-copy h1.ja-lettered-title{width:min(100%,320px);margin:8px 0 12px}.hero-copy p.ja-learning-philosophy{font-size:16px;line-height:1.8}}
