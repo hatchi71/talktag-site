@@ -70,7 +70,7 @@
     var drillStatus = document.createElement("div");
     drillStatus.className = "guided-drill-status";
     drillStatus.setAttribute("aria-live","off");
-    document.querySelector(".transport").after(drillStatus);
+    document.querySelector(".lesson-track-nav").after(drillStatus);
     var lastDrillLabel = "";
     function updateDrillStatus() {
       var time = audio.currentTime;

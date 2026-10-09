@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261009-compact-controls';
+const CACHE_VERSION = 'talktag-pwa-20261009-player-motion';
 const APP_SHELL = [
   '/',
   '/index.html',

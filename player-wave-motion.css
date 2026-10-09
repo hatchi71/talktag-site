@@ -1,0 +1,17 @@
+html[data-appearance] body[data-audio-type] .player-card .wave{height:58px!important;min-height:0!important;margin:22px 0 16px!important;padding:0 16px!important;gap:4px!important;border-radius:16px!important}
+html[data-appearance] body[data-audio-type] .player-card .wave i{max-height:40px;width:3px;flex:none;transform:scaleY(.48);transform-origin:center;transition:transform .25s ease;opacity:.8}
+.wave[data-motion=speech] i{animation:tt-wave-breathe var(--wave-duration,1.5s) ease-in-out var(--wave-delay,0s) infinite alternate}
+.wave[data-motion=recall] i{animation:tt-wave-rest 2.8s ease-in-out var(--wave-delay,0s) infinite alternate;opacity:.55!important}
+@keyframes tt-wave-breathe{from{transform:scaleY(.42)}to{transform:scaleY(.92)}}
+@keyframes tt-wave-rest{from{transform:scaleY(.17)}to{transform:scaleY(.29)}}
+html[data-appearance] body[data-audio-type] .player-card .compact-transport{display:grid!important;grid-template-columns:52px minmax(0,1fr) 52px!important;gap:10px!important;margin-top:16px!important}
+html[data-appearance] body[data-audio-type] .player-card .compact-transport .control{min-height:52px!important;height:52px!important;margin:0!important;padding:0 8px!important;grid-column:auto!important;grid-row:auto!important;border-radius:14px!important;font-size:15px!important;box-shadow:none!important}
+html[data-appearance] body[data-audio-type] .player-card .compact-transport .primary{grid-column:2!important;grid-row:1!important;background:#1768e9!important;color:#fff!important;border-color:transparent!important}
+html[data-appearance=dark] body[data-audio-type] .player-card .compact-transport .primary{background:#2469bb!important}
+.transport-small span{display:block;font-size:23px;line-height:1}.transport-small small{display:block;font-size:10px;line-height:1.2;margin-top:2px}
+html[data-appearance] body[data-audio-type] .player-card .lesson-track-nav{display:flex;justify-content:space-between;gap:8px;margin-top:4px}
+html[data-appearance] body[data-audio-type] .player-card .lesson-track-nav .control{height:44px;min-height:44px;min-width:100px;margin:0;padding:0 8px;border:0!important;border-radius:10px;background:transparent!important;color:var(--tt-muted)!important;font-size:13px;font-weight:600;box-shadow:none!important}
+html[data-appearance] body[data-audio-type] .player-card .lesson-track-nav .control:disabled{opacity:.45}
+body[data-audio-type] .floating-home,body[data-audio-type] .talktag-global-home{display:none!important}
+.player-home-link{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;padding:0 8px;color:var(--tt-muted);font-size:13px;text-decoration:none}
+@media(prefers-reduced-motion:reduce){.wave i{animation:none!important;transition:none!important;transform:scaleY(.48)!important}}
