@@ -14,7 +14,7 @@ window.TalkTagEssayMedia = {
       "lines": [
         {
           "en": "I'm at home. I see a set of keys by the front door. They're not mine. My neighbor, Ben, was here this morning.",
-          "ko": "집에 있는데 현관 옆에 열쇠가 보입니다. 제 열쇠는 아니에요. 오늘 아침에 이웃인 벤이 다녀갔어요."
+          "ko": "집에 있습니다. 현관 옆에 열쇠가 보입니다. 제 열쇠는 아니에요. 오늘 아침에 이웃인 벤이 다녀갔어요."
         },
         {
           "en": "I call him. \"Hey, Ben. I have your keys.\" He laughs. \"Oh, good! I'm outside my apartment.\"",
@@ -130,7 +130,7 @@ window.TalkTagEssayMedia = {
         },
         {
           "en": "Then I looked at my own list. I still had two things to finish, and I'd promised my daughter we'd go out for pizza that night. If I said yes, something else would have to wait.",
-          "ko": "그때 제 할 일 목록이 눈에 들어왔습니다. 아직 끝내야 할 일이 두 가지 있었고 딸에게는 저녁에 피자를 먹으러 가자고 약속했어요. 승낙하면 다른 무언가를 미뤄야 했습니다."
+          "ko": "그때 제 할 일 목록이 눈에 들어왔습니다. 아직 끝내야 할 일이 두 가지 있었고 딸에게는 저녁에 피자를 먹으러 가자고 약속했어요. 부탁을 받아들이면 다른 일을 미뤄야 했습니다."
         },
         {
           "en": "So I said, \"I can't finish the whole thing, but I can look over the first page before you go.\" She paused, then said, \"That would actually help a lot.\"",
@@ -138,7 +138,7 @@ window.TalkTagEssayMedia = {
         },
         {
           "en": "We spent ten minutes on it. She left with a plan, and I left on time. I hadn't let her down. I'd just offered help I could actually give.",
-          "ko": "우리는 10분 동안 함께 검토했습니다. 동료는 어떻게 마무리할지 계획을 세워 떠났고 저도 제시간에 퇴근했어요. 동료를 외면한 것이 아니었습니다. 실제로 해 줄 수 있는 도움을 제안한 거였죠."
+          "ko": "우리는 10분 동안 함께 검토했습니다. 동료는 어떻게 마무리할지 계획을 세워 떠났고 저도 제시간에 퇴근했어요. 동료를 실망시킨 것은 아니었습니다. 실제로 해 줄 수 있는 도움을 제안한 거였죠."
         }
       ],
       "cues": [
@@ -242,7 +242,7 @@ window.TalkTagEssayMedia = {
         },
         {
           "en": "Then the emails started. One person said we should keep it simple. Another said we needed enough time for questions. Someone else wrote, \"Let's do what we did last time.\" I thought we were getting closer to a plan until I realized we were talking about two different events from last year. Even \"keep it simple\" meant different things. I meant fewer activities. A coworker meant less setup work.",
-          "ko": "그런데 이메일이 오가기 시작하자 문제가 드러났습니다. 한 사람은 간단하게 하자고 했고 다른 사람은 질문할 시간을 충분히 두자고 했어요. 또 누군가는 지난번처럼 하자고 썼습니다. 계획이 정리되는 줄 알았는데 알고 보니 서로 작년의 다른 행사를 떠올리고 있었어요. “간단하게”라는 말도 달랐습니다. 저는 활동 수를 줄이자는 뜻이었고 동료는 준비 작업을 줄이자는 뜻이었죠."
+          "ko": "그런데 이메일이 오가기 시작하자 문제가 드러났습니다. 한 사람은 간단하게 하자고 했고 다른 사람은 질문할 시간을 충분히 두자고 했어요. 또 누군가는 지난번처럼 하자고 썼습니다. 계획이 정리되는 줄 알았는데 알고 보니 서로 작년의 다른 행사를 떠올리고 있었어요. “간단하게”라는 말도 서로 다른 뜻으로 이해하고 있었습니다. 저는 활동 수를 줄이자는 뜻이었고 동료는 준비 작업을 줄이자는 뜻이었죠."
         },
         {
           "en": "We kept the meeting, but changed what it was for. Instead of going through every detail, we put three questions on the screen: Who is this for? What do they need to leave with? What are we not going to do? The conversation wasn't perfectly smooth. We disagreed about the last question, and that turned out to be useful. It showed us where the extra work was coming from.",
@@ -250,7 +250,7 @@ window.TalkTagEssayMedia = {
         },
         {
           "en": "Twenty minutes later, we had a short plan and one person responsible for each task. The remaining details really could be handled over email. I still think plenty of meetings should be canceled. But now I ask a different question first: Are we sharing information, or are we finding out whether we understand each other? If it's the second one, a quick conversation may save us a whole week of being politely confused.",
-          "ko": "20분 뒤에는 간단한 계획과 업무별 담당자가 정해졌습니다. 남은 세부 사항은 정말 이메일로 처리할 수 있었어요. 저는 여전히 불필요한 회의가 많다고 생각합니다. 다만 이제 먼저 다른 질문을 합니다. 정보를 나누려는 건가, 아니면 서로 같은 뜻으로 이해하고 있는지 확인하려는 건가? 후자라면 짧은 대화 한 번이 서로 예의를 지키며 혼란스러워하는 일주일을 줄여 줄 수 있습니다."
+          "ko": "20분 뒤에는 간단한 계획과 업무별 담당자가 정해졌습니다. 남은 세부 사항은 정말 이메일로 처리할 수 있었어요. 저는 여전히 불필요한 회의가 많다고 생각합니다. 다만 이제 먼저 다른 질문을 합니다. 정보를 나누려는 건가, 아니면 서로 같은 뜻으로 이해하고 있는지 확인하려는 건가? 후자라면 짧은 대화 한 번이 서로 예의는 지키면서도 뜻을 몰라 혼란스러워할 일주일을 아껴 줄 수 있습니다."
         }
       ],
       "cues": [
@@ -306,11 +306,11 @@ window.TalkTagEssayMedia = {
         },
         {
           "en": "To him, \"no big deal\" meant there wasn't much he needed to think about. To me, it meant I was happy to help, as long as my normal day could keep running in the background. Those aren't quite the same promise. We talked for five minutes, moved a few things, and got on with the day. He wasn't offended. Mostly, he seemed relieved that he no longer had to guess.",
-          "ko": "친구에게 “별일 아니야”는 특별히 신경 쓸 일이 없다는 뜻이었습니다. 저에게는 평소 일상을 유지할 수 있다면 기꺼이 돕겠다는 뜻이었어요. 두 말이 같은 약속은 아니었습니다. 우리는 5분 동안 이야기하고 몇 가지를 정리한 뒤 각자 하루를 이어 갔어요. 친구는 기분 나빠하지 않았습니다. 더 이상 눈치를 보며 추측할 필요가 없어서 오히려 편해 보였습니다."
+          "ko": "친구에게 “별일 아니야”는 특별히 신경 쓸 일이 없다는 뜻이었습니다. 저에게는 평소 일상을 유지할 수 있다면 기꺼이 돕겠다는 뜻이었어요. 같은 말이었지만 서로 받아들인 약속은 달랐습니다. 우리는 5분 동안 이야기하고 몇 가지를 정리한 뒤 각자 하루를 이어 갔어요. 친구는 기분 나빠하지 않았습니다. 더 이상 눈치를 보며 추측할 필요가 없어서 오히려 편해 보였습니다."
         },
         {
           "en": "I haven't stopped saying yes to people. I just try to be clearer about the yes. \"You're welcome to stay. I start work at eight, and I'll need the kitchen by then.\" It sounds a little less effortless, but it leaves less room for resentment. Being easygoing doesn't have to mean pretending you don't need anything.",
-          "ko": "그 뒤로도 저는 사람들의 부탁을 받아줍니다. 다만 그 승낙이 어떤 뜻인지 좀 더 분명히 말하려고 해요. “와서 지내도 좋아. 나는 8시에 일을 시작하니까 그때까지는 주방을 쓸 수 있어야 해.” 마냥 가볍게 들리지는 않지만 서운함이 쌓일 여지는 줄어듭니다. 편하게 대해 준다고 해서 아무것도 필요하지 않은 척할 필요는 없는 거죠."
+          "ko": "그 뒤로도 저는 사람들의 부탁을 받아줍니다. 다만 부탁을 받아들이면서 조건도 좀 더 분명히 말하려고 해요. “와서 지내도 좋아. 나는 8시에 일을 시작하니까 그때까지는 주방을 쓸 수 있어야 해.” 마냥 가볍게 들리지는 않지만 서운함이 쌓일 여지는 줄어듭니다. 편하게 대해 준다고 해서 아무것도 필요하지 않은 척할 필요는 없는 거죠."
         }
       ],
       "cues": [

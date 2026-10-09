@@ -8,12 +8,12 @@
   <link rel="icon" href="talktag-logo.png" type="image/png">
   <link rel="stylesheet" href="camp-landing.css?v=20261008-qc1">
   <script src="/talktag-home.js?v=20260922h" defer></script>
-  <script src="storycamp-manifest.js?v=20261009-003"></script>
+  <script src="storycamp-manifest.js?v=20261009-ko-review"></script>
   <link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
   <script src="talktag-theme.js?v=20261009-mobile-spacing"></script>
 <link rel="stylesheet" href="camp-translation.css?v=20261008-kr1">
-<script src="content/bootcamp-korean.js?v=20261009-003"></script>
-<script src="camp-translation.js?v=20261008-kr1" defer></script>
+<script src="content/bootcamp-korean.js?v=20261009-ko-review"></script>
+<script src="camp-translation.js?v=20261009-ko-review" defer></script>
 <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
 </head>
 <body class="family-simple">
@@ -28,7 +28,7 @@
     <p class="notice">레벨 표시는 CEFR 학습 난이도 가이드이며 공식 등급 판정이 아닙니다.</p>
   </main>
   <script>
-    const descriptions={A1:'짧고 분명한 일상 사건을 시간 순서대로 다시 말합니다.',A2:'원인과 결과가 연결된 친숙한 이야기를 자연스럽게 재구성합니다.',B1:'경험과 감정, 변화의 계기를 연결해 완결된 이야기로 말합니다.',B2:'선택과 그 결과의 의미를 포함해 이야기를 재구성합니다.',C1:'사건의 의미와 숨은 동기를 여러 관점에서 살펴봅니다.',C2:'이야기에 담긴 가정과 처음의 해석을 다시 생각합니다.'};
+    const descriptions={"A1":"짧고 분명한 일상 이야기를 읽고 내 말로 다시 이야기합니다.","A2":"익숙한 상황에서 원인과 결과를 연결해 이야기합니다.","B1":"경험과 감정, 변화의 계기를 연결해 이야기합니다.","B2":"선택의 이유와 결과를 살펴보고 내 생각을 덧붙입니다.","C1":"사건에 담긴 의미와 여러 관점을 살펴봅니다.","C2":"미묘한 의미 차이와 숨은 가정을 짚으며 내 말로 풀어냅니다."};
     const params=new URLSearchParams(location.search),number=String(params.get('family')||'001').padStart(3,'0');
     const metadata=(window.TALKTAG_STORYCAMP_MANIFEST?.families||[]).find(item=>item.number===number&&item.status==='published');
     if(metadata){document.getElementById('vocalPeer').href='vocalcamp-family.html?family='+number;document.title=`${metadata.number} ${metadata.title} · TalkTag Story Camp`;familyNumber.textContent=`${metadata.number} · STORY FAMILY`;familyTitle.textContent=metadata.title;familyTheme.textContent=metadata.theme;levelCatalog.innerHTML=Object.keys(descriptions).filter(level=>metadata.levels.includes(level)).map(level=>`<a class="level-card" href="storycamp-reader.html?level=${level}&family=${metadata.number}"><h3>${level}</h3><p>${descriptions[level]}</p><span class="open">시작하기 →</span></a>`).join('')}else{familyTitle.textContent='자료를 불러오지 못했습니다.';familyTheme.textContent='Story Family 번호를 확인해 주세요.'}

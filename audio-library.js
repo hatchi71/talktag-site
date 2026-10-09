@@ -11,7 +11,7 @@ document.body.dataset.audioView=level?"lessons":"levels";
 document.title=name+(level?" · "+level:"")+" · TalkTag";
 document.getElementById("libraryEyebrow").textContent="SOUND CHECK";
 document.getElementById("libraryTitle").textContent=name+(level?" · "+level:"");
-document.getElementById("libraryDescription").textContent=level?(type==="guided"?"문장별 " + (/^[BC][12]$/.test(level) ? 15 : 10) + "회 반복 · 듣고 따라하세요.":"듣고, 기억하고, 내 말로 이야기하세요."):"훈련할 레벨을 선택하세요.";
+document.getElementById("libraryDescription").textContent=level?(type==="guided"?"문장별 " + (/^[BC][12]$/.test(level) ? 15 : 10) + "회 반복 · 듣고 따라하세요.":"듣고, 노트에 정리한 뒤 내 말로 이야기하세요."):"훈련할 레벨을 선택하세요.";
 document.querySelector(".type-switch").hidden=true;
 document.getElementById("essayGuide").hidden=type!=="plain"||Boolean(level);
 if(type==="plain")document.querySelector(".filter-bar").before(document.getElementById("essayGuide"));
