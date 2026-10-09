@@ -130,24 +130,9 @@
             <p>언어를 익히는 것은 조그마한 조각을<br>차근차근 쌓아가는 것과 같아요.</p>
           </section>
           <section class="home-news home-news-three landing-news" aria-label="TalkTag 새 소식">
-            <a class="feature-card boot" href="bootcamp.html">
-              <div class="news-label">새 소식 · BOOT CAMP</div>
-              <h3>이야기를 읽고,<br>나의 언어로 다시 말해요.</h3>
-              <p>A1부터 C2까지 이야기를 기억하고 재구성해 파트너에게 전달합니다.</p>
-              <strong>BOOT CAMP 시작하기 →</strong>
-            </a>
-            <a class="feature-card snow" href="snowballing-studio.html">
-              <div class="news-label">새 소식 · 스노우볼링 스튜디오</div>
-              <h3>듣고 따라 말하며<br>영어를 내 것으로 만들어요.</h3>
-              <p>작은 표현부터 반복하고 연결하며 실제로 말할 수 있는 영어를 만듭니다.</p>
-              <strong>스노우볼링 스튜디오 둘러보기 →</strong>
-            </a>
-            <a class="feature-card readable" href="toeic/">
-              <div class="news-label">새 소식 · 토익 실전 연습</div>
-              <h3>실전처럼 풀고,<br>바로 확인하세요.</h3>
-              <p>웹에서 문제를 풀고 정답과 해설을 확인하며 시험 감각을 키웁니다.</p>
-              <strong>토익 실전 연습 시작하기 →</strong>
-            </a>
+            <a class="feature-card tt-news meetup" href="index.html?view=talktag"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 9h8M8 13h5"/></svg></span><div class="news-label">톡택 모임 소식</div><h3>4주 영어 기초 체력<br>함께 만들어가요.</h3><p>목요일 저녁 · 토요일 오전<br>무료클래스 · 정원 8명</p><p class="news-note">스터디카페 이용료 6,900원은 각자 부담</p><strong>모임 안내 보기 →</strong></a>
+            <a class="feature-card tt-news boot" href="vocalcamp-family.html?family=003"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18h14M6 18v-5h4v5M10 13V8h4v10M14 8V3h4v15"/></svg></span><div class="news-label">Boot Camp 업데이트</div><h3>003 · The Cup<br>I Left on the Roof</h3><p>새 이야기 003이 공개되었습니다.<br>A1–C2 Vocal · Story Camp와 한글 해석</p><p class="news-note">QC 음원 · 한 문장씩 자라는 누적 훈련</p><strong>새 이야기 열기 →</strong></a>
+            <a class="feature-card tt-news sound" href="audio-library.html?type=guided&amp;level=A1"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M8 6v12M12 3v18M16 6v12M20 10v4"/></svg></span><div class="news-label">Sound Check 업데이트</div><h3>더 선명한 소리로<br>듣고 따라하세요.</h3><p>Guided Listen & Repeat QC 음원 교체<br>A1–C2 · 레벨별 2개, 총 12개 에피소드</p><p class="news-note">문장별 10회 반복 · 스크립트와 한글 해석</p><strong>Guided L&R 열기 →</strong></a>
           </section>
           <div class="home-contact">Contact : <a href="mailto:talktagadmin@gmail.com">talktagadmin@gmail.com</a></div>`;
       }
