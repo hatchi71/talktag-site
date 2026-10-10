@@ -19,6 +19,8 @@
   var nextButton = document.getElementById("nextButton");
   var allLessons = (window.TalkTagAudioLessons || []).filter(function (item) { return item.available !== false; });
   var requestedId = new URLSearchParams(location.search).get("id");
+  var retiredPart = /^(guided-(?:a1|a2|b1|b2|c1|c2)-0[12])-part\d+$/.exec(requestedId || "");
+  if (retiredPart) { location.replace("audio-player.html?id=" + retiredPart[1]); return; }
   var retiredGuided = ["a1-head","a2-hair-01-03","a2-hair-04-06","a2-hair-10-12","b1-head-brain","b1-hair-13-15","b1-hair-16-17"];
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace("audio-library.html?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];

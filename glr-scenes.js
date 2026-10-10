@@ -1,7 +1,19 @@
-/* Published GLR 003–005 only. Scene art never changes lesson/audio state. */
+/* Published GLR 001–005. Scene art never changes lesson/audio state. */
 (function () {
   'use strict';
   const scenes = {
+    "guided-a1-01": "Getting out of bed and accepting a glass of water",
+    "guided-a2-01": "Washing a shirt and hanging it up to dry",
+    "guided-b1-01": "Planning a short dog walk before the rain",
+    "guided-b2-01": "Politely asking a neighbor to turn the music down",
+    "guided-c1-01": "Arranging a repair visit with a worker",
+    "guided-c2-01": "A host taking a quiet break while a guest relaxes",
+    "guided-a1-02": "Getting a raincoat and umbrella ready to go outside",
+    "guided-a2-02": "Asking someone to take a photograph by a landmark",
+    "guided-b1-02": "Checking a mixed-up takeaway bag at a cafe",
+    "guided-b2-02": "Rescheduling an appointment at a service counter",
+    "guided-c1-02": "Checking an unexpected subscription renewal charge",
+    "guided-c2-02": "Trying to assemble a shelf before asking for help",
     'guided-a1-03': 'Getting ready by the door with a jacket, shoes and keys',
     'guided-a2-03': 'Asking which bus to take at a bus stop',
     'guided-b1-03': 'Choosing the bus when rain changes the plan',

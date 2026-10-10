@@ -1,20 +1,18 @@
 (function(){
   "use strict";
   try {
-    var marker="talktag-guided-short-cards-migrated:v1";
+    var marker="talktag-guided-001002-replacement:v2-20261010";
     if(localStorage.getItem(marker))return;
-    var parts=window.TalkTagGuidedParts||[],completions=JSON.parse(localStorage.getItem("talktag-content-completions:v1")||"{}");
-    Array.from(new Set(parts.map(function(p){return p.sourceId;}))).forEach(function(id){
-      var group=parts.filter(function(p){return p.sourceId===id;}),old=JSON.parse(localStorage.getItem("talktag-audio:"+id)||"{}");
-      var completion=completions["audio:"+id];
-      group.forEach(function(p){
-        var key="talktag-audio:"+p.id,state=p.id===id?Object.assign({},old):JSON.parse(localStorage.getItem(key)||"{}");
-        if(Number(old.position)>0){var length=p.training.cues.at(-1).e;state.position=old.position>=p.sourceOffset&&old.position<p.sourceOffset+length?old.position-p.sourceOffset:0;}
-        if(completion){completions["audio:"+p.id]=Object.assign({},completion);}
-        if(old.completed)state.completed=true;
-        localStorage.setItem(key,JSON.stringify(state));
-      });
+    var completions=JSON.parse(localStorage.getItem("talktag-content-completions:v1")||"{}"),archive={audio:{},completions:{}};
+    var replaced=/^guided-(?:a1|a2|b1|b2|c1|c2)-0[12](?:-part\d+)?$/;
+    var keys=[];for(var i=0;i<localStorage.length;i++)keys.push(localStorage.key(i));
+    keys.forEach(function(key){
+      if(key.indexOf("talktag-audio:")===0&&replaced.test(key.slice(14)))archive.audio[key]=localStorage.getItem(key);
     });
+    Object.keys(completions).forEach(function(key){if(key.indexOf("audio:")===0&&replaced.test(key.slice(6))){archive.completions[key]=completions[key];delete completions[key];}});
+    // Save the old progress first; new scripts are different learning material.
+    localStorage.setItem(marker+":archive",JSON.stringify(archive));
+    Object.keys(archive.audio).forEach(function(key){localStorage.removeItem(key);});
     localStorage.setItem("talktag-content-completions:v1",JSON.stringify(completions));
     localStorage.setItem(marker,"true");
   }catch(error){/* Storage restrictions must never prevent playback. */}
