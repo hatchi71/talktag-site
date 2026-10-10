@@ -7,7 +7,7 @@ const path='home-news-feed.json';
 function catalog(read){
  const c={window:{}};vm.createContext(c);
  const html=read('audio-library.html')||'';
- const scripts=[...html.matchAll(/src="([^"?]+)(?:\?[^" ]*)?"/g)].map(m=>m[1]).filter(x=>/^(audio-lessons|guided-lauren\d+|audio-essays(?:-\d+(?:-media)?)?)\.js$/.test(x));
+ const scripts=[...html.matchAll(/src="([^"?]+)(?:\?[^" ]*)?"/g)].map(m=>m[1]).filter(x=>/^(audio-lessons|guided-[a-z]+\d+|audio-essays(?:-\d+(?:-media)?)?)\.js$/.test(x));
  for(const f of [...scripts,'storycamp-manifest.js','vocalcamp-manifest.js']){const s=read(f);if(s)vm.runInContext(s,c,{timeout:1000});}
  const groups=new Map();
  for(const l of c.window.TalkTagAudioLessons||[]){if(l.available===false||!l.audio)continue;const number=String(l.number||l.unit||1).padStart(3,'0'),id=l.type+':'+number;
