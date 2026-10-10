@@ -2,6 +2,16 @@
   "version": 1,
   "items": [
     {
+      "id": "korean:starters",
+      "title": "Korean Starter Collection · 001–006",
+      "href": "korean-learning.html",
+      "levels": [
+        "Starter"
+      ],
+      "description": "영어 안내와 함께 일상 한국어를 연습하고 기억해서 말해 보세요.",
+      "publishedAt": "2026-10-10T12:04:42.868Z"
+    },
+    {
       "id": "guided:005",
       "title": "Guided L&R · 005",
       "href": "audio-library.html?type=guided",

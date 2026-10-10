@@ -18,6 +18,8 @@ function catalog(read){
  for(const f of story.filter(f=>f.status==='published'))groups.set('boot:'+f.number,{id:'boot:'+f.number,title:f.number+' · '+f.title,href:'storycamp-family.html?family='+f.number,levels:f.levels,description:vocal.some(v=>v.number===f.number&&v.status==='published'&&v.audioStatus==='ready')?'Vocal · Story Camp에서 새 이야기를 연습하세요.':'Story Camp에서 새 이야기를 연습하세요.'});
  const readable=JSON.parse(read('content/readable/readable-stories-A1-C2-60.json')||'[]');
  for(const r of readable){if(!r.content||r.status==='draft')continue;const number=String(r.id.split('-').at(-1)).padStart(3,'0'),id='readable:'+number;if(!groups.has(id))groups.set(id,{id,title:'Readable · '+number,href:'readable.html',levels:[],description:'새 글을 읽고 기억한 내용을 내 말로 이야기해 보세요.'});const g=groups.get(id);if(!g.levels.includes(r.level))g.levels.push(r.level);}
+ const korean=read('korean-starter-data.js');
+ if(korean){vm.runInContext(korean,c,{timeout:1000});const ready=(c.window.TalkTagKoreanStarters||[]).filter(x=>x.published&&x.lines?.length&&x.story);if(ready.length)groups.set('korean:starters',{id:'korean:starters',title:'Korean Starter Collection · 001–006',href:'korean-learning.html',levels:['Starter'],description:'영어 안내와 함께 일상 한국어를 연습하고 기억해서 말해 보세요.'});}
  return [...groups.values()];
 }
 const current=catalog(f=>fs.existsSync(f)?fs.readFileSync(f,'utf8'):null);
