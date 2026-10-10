@@ -47,7 +47,7 @@
       ] : [
         [/storycamp|story-camp/, '/story-camp.html', 'Story Camp'],
         [/vocal/, '/vocal-camp.html', 'Vocal Camp'],
-        [/(?:audio-library|audio-player|listen-repeat)/, '/listen-repeat.html', 'Sound Check'],
+        [/(?:audio-library|audio-player|listen-repeat)/, '/snowballing-studio.html#sound-check', 'Sound Check'],
         [/readable/, '/readable.html', 'Readable'],
         [/toeic/, '/toeic/', 'TOEIC RC'],
         [/test-preppers/, '/test-preppers.html', 'Test Preppers'],
@@ -77,7 +77,7 @@
           if(['listen-repeat.html','readable.html','bootcamp.html'].includes(file))return '/japanese/snowballing.html';
           return '/japanese/';
         }
-        if(file==='audio-library.html')return params.has('level')?'/audio-library.html?type='+(params.get('type')==='plain'?'plain':'guided'):'/listen-repeat.html';
+        if(file==='audio-library.html')return params.has('level')?'/audio-library.html?type='+(params.get('type')==='plain'?'plain':'guided'):'/snowballing-studio.html#sound-check';
         if(file==='audio-player.html'){
           const lesson=(window.TalkTagAudioLessons||[]).find(item=>item.id===params.get('id'));
           return '/audio-library.html?type='+(lesson?.type==='plain'?'plain':'guided')+'&level='+encodeURIComponent(lesson?.level||level);

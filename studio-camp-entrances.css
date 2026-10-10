@@ -1,4 +1,6 @@
-#boot-camp{scroll-margin-top:140px}
+#boot-camp,#sound-check{scroll-margin-top:140px}
+.sound-station .camp-entrance img{aspect-ratio:1;height:auto;object-fit:cover}
+.sound-station .vocal-entrance img{object-fit:contain;background:#f7f1e3}
 .space.boot-station .sound-check-tagline{min-height:0}
 .camp-entrances{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,7.5rem),1fr));gap:12px;margin-top:22px}
 .camp-entrance{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #cbd7df;border-radius:16px;background:#edf3f7;text-decoration:none;box-shadow:0 3px 0 #c7d2da55;transition:box-shadow .18s,transform .18s}
