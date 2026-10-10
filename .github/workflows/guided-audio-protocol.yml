@@ -13,3 +13,4 @@ jobs:
           node-version: 22
       - run: node scripts/validate-guided-cards.mjs
       - run: node scripts/update-home-news.mjs --check
+      - run: node scripts/update-sitemap.mjs --check
