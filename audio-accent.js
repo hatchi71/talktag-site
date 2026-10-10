@@ -13,7 +13,7 @@
  function badge(record){const c=code(record),span=document.createElement('span');span.className='tt-audio-accent';span.dataset.accent=c;span.setAttribute('role','img');span.setAttribute('aria-label',names[c]);span.title=names[c];const img=document.createElement('img');img.src='/assets/audio-flags/'+c.toLowerCase()+'.svg';img.alt='';img.width=24;img.height=16;span.append(img);return span;}
  function put(target,record){if(!target)return;const c=code(record);const old=target.querySelector(':scope > .tt-audio-accent');if(old?.dataset.accent===c)return;if(old)old.remove();target.append(badge(record));}
  function refresh(){
-  const english=!/\/(japanese|korean)(\/|\.html)/i.test(location.pathname)&&!location.pathname.includes('snowballing-studio-ko');
+  const english=!window.TalkTagNative&&!/\/(japanese|korean)(\/|[.\-])/i.test(location.pathname)&&!location.pathname.includes('snowballing-studio-ko');
   if(!english)return;
   const lessons=window.TalkTagAudioLessons||[],params=new URLSearchParams(location.search);
   document.querySelectorAll('.lesson-card,.audio-mission-row').forEach(card=>{const link=card.querySelector('a[href*="audio-player.html"]');const id=(card.dataset.completionId||'').replace(/^audio:/,'')|| (link&&new URL(link.href).searchParams.get('id'));const lesson=lessons.find(l=>l.id===id);if(lesson)put(card.querySelector('h2,strong'),lesson);});

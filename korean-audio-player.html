@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Korean Guided Listen &amp; Repeat · TalkTag</title>
+  <link rel="stylesheet" href="/audio-lab.css?v=2">
+  <link rel="stylesheet" href="/content-completion.css?v=1">
+  <link rel="stylesheet" href="/essay-practice.css?v=20261009-002">
+  <link rel="stylesheet" href="/guided-drill.css?v=20261008">
+  <link rel="stylesheet" href="/audio-sync-pilot.css?v=3">
+  <link rel="stylesheet" href="/talktag-theme.css?v=20261009-mobile-spacing">
+<link rel="stylesheet" href="/content-clarity.css?v=20261009-clarity">
+<link rel="stylesheet" href="sound-check.css?v=20261009-mobile-spacing">
+<link rel="stylesheet" href="/player-compact-controls.css?v=20261009-organized">
+<link rel="stylesheet" href="/player-wave-motion.css?v=20261009-motion">
+<link rel="stylesheet" href="/glr-scenes.css?v=20261010-scenes">
+<script>window.TalkTagNative={"language":"ko","ui":"en","libraryPage":"korean-audio-library.html","playerPage":"korean-audio-player.html","studioPage":"korean-learning.html","homePage":"korean.html"}</script>
+<script src="/native-guided-data.js?v=20261010-native001" defer></script>
+<script src="/content-completion.js?v=20261010-native001" defer></script>
+<script src="/native-audio-player.js?v=20261010-native001" defer></script>
+<script src="/native-audio-sync.js?v=20261010-native001" defer></script>
+<script src="/player-wave-motion.js?v=20261010-native001" defer></script>
+<script src="/talktag-theme.js?v=20261010-native001" defer></script>
+<script src="/native-audio-ui.js?v=20261010-native001" defer></script>
+<link rel="stylesheet" href="/native-audio.css?v=20261010-native001">
+</head>
+<body data-native-language="ko">
+  <header class="site-head"><a class="brand" href="korean-learning.html#sound-check"><img src="/talktag-logo.png" alt="TalkTag"><span><strong>Sound Check</strong><small id="playerHeaderMeta">GUIDED LISTEN &amp; REPEAT</small></span></a><nav class="head-links"><a id="libraryBack" href="/audio-library.html?type=guided&amp;level=A1">← 음원 목록</a></nav></header>
+<nav class="tt-route-tools" aria-label="Page navigation"><a id="nativeBack" class="tt-route-previous" href="korean-audio-library.html"><span aria-hidden="true">←</span><b>Back</b></a><a class="tt-route-category" href="korean-learning.html#sound-check"><span aria-hidden="true">⌂</span><b>Sound Check</b></a></nav>
+  <main class="wrap">
+    <div class="player-shell">
+      <section class="player-card">
+        <div class="lesson-kicker"><span id="lessonKicker">GUIDED PRACTICE</span><b class="complete-state" id="completeState">NOT COMPLETED</b></div>
+        <h1 id="lessonTitle">Audio lesson</h1><p class="summary" id="lessonSummary"></p>
+        <div class="wave" aria-hidden="true" id="wave"></div>
+        <audio id="audio" preload="metadata"></audio>
+        <div class="time-row"><span id="currentTime">00:00</span><span id="duration">00:00</span></div>
+        <input class="progress" id="progress" type="range" min="0" max="1000" value="0" aria-label="Audio progress">
+        <div class="transport compact-transport"><button class="control transport-small" id="rewindButton" type="button" aria-label="10초 뒤로"><span aria-hidden="true">↶</span><small>10초</small></button><button class="control primary" id="playButton" type="button" aria-label="재생">▶ 재생</button><button class="control transport-small" id="restartButton" type="button" aria-label="음원 처음부터 다시 재생" title="처음부터"><span aria-hidden="true">↻</span></button></div>
+        <nav class="lesson-track-nav" aria-label="음원 이동"><button class="control" id="prevButton" type="button" disabled>← 이전 음원</button><button class="control" id="nextButton" type="button" disabled>다음 음원 →</button></nav>
+        <div class="options compact-options"><label class="option speed-control"><span>속도</span><select id="speedSelect" aria-label="재생 속도"><option value="0.75">0.75×</option><option value="0.9">0.9×</option><option value="1" selected>1.0×</option><option value="1.1">1.1×</option><option value="1.25">1.25×</option></select></label><div class="option loop-control"><span>전체 반복</span><button class="switch" id="loopButton" type="button" role="switch" aria-checked="false" aria-label="전체 음원 다시 반복" title="문장별 반복이 아니라 전체 음원을 다시 재생합니다"></button></div></div>
+        <div class="script-controls"><span class="script-controls-label">스크립트</span><div class="text-actions compact-script" role="group" aria-label="스크립트 표시"><button id="scriptHiddenButton" type="button" aria-pressed="true">숨김</button><button id="scriptButton" type="button" aria-pressed="false">EN</button><button id="meaningButton" type="button" aria-pressed="false">EN+KR</button></div></div>
+        <div class="player-mission-actions"><button class="complete-button" id="completeButton">MARK AS COMPLETED</button></div>
+      </section>
+
+    </div>
+    <section class="toggle-panel" id="scriptPanel" hidden><h2>Korean expressions</h2><ol class="script-list" id="scriptList"></ol></section>
+    <section class="toggle-panel" id="meaningPanel" hidden><h2>English meaning</h2><ol class="script-list" id="meaningList"></ol></section>
+    <details class="tt-info"><summary>콘텐츠 정보</summary><aside class="lesson-info"><dl><dt>Library</dt><dd>Guided Listen &amp; Repeat</dd><dt>Level</dt><dd id="infoLevel"></dd><dt>Course</dt><dd>Korean GLR · 001</dd><dt>Location</dt><dd id="infoLocation"></dd><dt>Duration</dt><dd id="infoDuration"></dd><dt>Audio</dt><dd>ElevenLabs AI voice · QC checked</dd></dl><div class="class-bridge"><strong>After listening</strong><p>Recall an expression without looking, change one detail, and use it with a partner.</p></div><nav class="lesson-nav"><a id="infoLibraryBack" href="/audio-library.html?type=guided&amp;level=A1">← Library</a><a href="korean-learning.html#sound-check">Audio Home</a></nav></aside></details>
+    <a class="player-home-link" href="korean.html">TalkTag Home ↗</a>
+  </main>
+</body>
+</html>

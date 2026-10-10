@@ -2,6 +2,38 @@
   "version": 1,
   "items": [
     {
+      "id": "native:ko:001",
+      "language": "ko",
+      "title": "Korean Guided L&R · 001",
+      "href": "korean-audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Korean의 새 일상 표현을 듣고 따라 말해 보세요.",
+      "publishedAt": "2026-10-10T14:03:15.332Z"
+    },
+    {
+      "id": "native:ja:001",
+      "language": "ja",
+      "title": "Japanese Guided L&R · 001",
+      "href": "japanese/guided.html?type=guided",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Japanese의 새 일상 표현을 듣고 따라 말해 보세요.",
+      "publishedAt": "2026-10-10T14:03:15.332Z"
+    },
+    {
       "id": "korean:starters",
       "title": "Korean Starter Collection · 001–006",
       "href": "korean-learning.html",

@@ -8,6 +8,7 @@ for(const type of ['guided','plain']){
  paths.push('/audio-library.html?type='+type);
  for(const level of ['A1','A2','B1','B2','C1','C2'])paths.push('/audio-library.html?type='+type+'&level='+level);
 }
+paths.push('/japanese/snowballing.html');for(const page of ['/korean-audio-library.html','/japanese/guided.html']){paths.push(page+'?type=guided');for(const level of ['A1','A2','B1','B2','C1','C2'])paths.push(page+'?type=guided&level='+level);}
 const context={window:{}};vm.createContext(context);
 for(const camp of ['story','vocal']){
  vm.runInContext(fs.readFileSync(camp+'camp-manifest.js','utf8'),context,{timeout:1000});
