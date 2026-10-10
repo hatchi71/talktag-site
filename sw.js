@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261009-auto-news';
+const CACHE_VERSION = 'talktag-pwa-20261010-level-completion';
 const APP_SHELL = [
   '/',
   '/index.html',
