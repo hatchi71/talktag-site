@@ -60,6 +60,14 @@ html[data-appearance] .tt-level-postits>a{
   box-shadow:0 10px 18px rgba(63,54,29,.12),inset 0 1px rgba(255,255,255,.65)!important;
   transform:rotate(-.45deg);transition:transform .16s ease,box-shadow .16s ease!important;
 }
+html[data-appearance] body .tt-level-postits.tt-level-postits.tt-level-postits>a[data-tt-level-group]:not(.is-level-complete){background:var(--level-paper)!important;color:var(--level-ink,#243a58)!important;filter:none!important}
+html[data-appearance] body .tt-level-postits.tt-level-postits.tt-level-postits>a[data-tt-level-group]:not(.is-level-complete) :is(h2,h3,strong,span,p,small){color:inherit!important}
+[data-tt-level-group=A]{--level-paper:#fff2a8}
+[data-tt-level-group=B]{--level-paper:#dff3ff}
+[data-tt-level-group=C]{--level-paper:#e5f4df}
+html[data-appearance=dark] [data-tt-level-group=A]{--level-paper:#49432e;--level-ink:#f2ead0}
+html[data-appearance=dark] [data-tt-level-group=B]{--level-paper:#293f53;--level-ink:#dfedf8}
+html[data-appearance=dark] [data-tt-level-group=C]{--level-paper:#304737;--level-ink:#e0efdf}
 html[data-appearance] .tt-level-postits>a:nth-child(3n+2){background:#dff3ff!important;transform:rotate(.35deg)}
 html[data-appearance] .tt-level-postits>a:nth-child(3n){background:#e5f4df!important;transform:rotate(-.2deg)}
 html[data-appearance] .tt-level-postits>a::before{

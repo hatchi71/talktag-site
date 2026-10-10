@@ -120,7 +120,14 @@
     document.querySelectorAll('.levels, .level-tabs, .filter-bar, .ja-grid, .vb-level-grid').forEach(group => {
       const links = [...group.querySelectorAll(':scope > a')];
       const levelLinks = links.filter(link => /(?:^|[-_/])(a1|a2|b1|b2|c1|c2|n[1-5])(?:[-_.?/]|$)/i.test(link.getAttribute('href') || '') || /[?&]level=(?:A1|A2|B1|B2|C1|C2|N[1-5])(?:&|$)/i.test(link.getAttribute('href') || '') || /^(?:A1|A2|B1|B2|C1|C2|N[1-5])(?:\b|\s|·)/.test(link.textContent.trim()));
-      if (levelLinks.length && levelLinks.length === links.length) group.classList.add('tt-level-postits');
+      if (levelLinks.length && levelLinks.length === links.length) {
+        group.classList.add('tt-level-postits');
+        levelLinks.forEach(link => {
+          const label = link.dataset.level || link.textContent.trim();
+          const match = label.match(/^(A|B|C)[12](?:\b|\s|·)/i) || (link.getAttribute('href') || '').match(/(?:level=|[-_/])(A|B|C)[12](?:[-_.?&/]|$)/i);
+          if (match) link.dataset.ttLevelGroup = match[1].toUpperCase();
+        });
+      }
     });
 
     const japaneseNav = document.querySelector('.ja-mode-nav');
