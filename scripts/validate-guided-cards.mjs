@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 const root=new URL('../',import.meta.url),context={window:{}};vm.createContext(context);
-for(const name of ['audio-lessons.js','guided-drill-data.js','guided-lauren003.js','guided-card-parts.js'])vm.runInContext(fs.readFileSync(new URL(name,root),'utf8'),context);
+for(const name of ['audio-lessons.js','guided-drill-data.js','guided-lauren003.js','guided-lauren004.js','guided-card-parts.js'])vm.runInContext(fs.readFileSync(new URL(name,root),'utf8'),context);
 const lessons=context.window.TalkTagAudioLessons.filter(l=>l.type==='guided'&&l.available!==false),ids=new Set();
 for(const l of lessons){
  assert(!ids.has(l.id),'Duplicate '+l.id);ids.add(l.id);
