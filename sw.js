@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261010-glr-replacement001002';
+const CACHE_VERSION = 'talktag-pwa-20261010-story-restart';
 const APP_SHELL = [
   '/',
   '/index.html',
