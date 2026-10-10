@@ -1,0 +1,26 @@
+/* A small title-side scene; full-width descriptions and controls remain clear. */
+body[data-audio-type=guided] .glr-scene-title{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;margin-bottom:8px}
+body[data-audio-type=guided] .audio-lesson-open:has(.glr-scene-title){display:grid;grid-template-columns:1fr auto;gap:8px 12px;height:auto;align-content:start}
+body[data-audio-type=guided] .audio-lesson-open:has(.glr-scene-title) .lesson-copy{grid-column:1/-1;grid-row:2}
+body[data-audio-type=guided] .audio-lesson-open:has(.glr-scene-title) .audio-lesson-arrow{grid-column:2;grid-row:1}
+body[data-audio-type=guided] .lesson-card:has(.glr-scene-title) .tt-completion-button{width:auto;flex:none}
+body[data-audio-type=guided] .glr-scene-title :is(h1,h2){min-width:0;flex:1;margin:0;overflow-wrap:break-word}
+body[data-audio-type=guided] .glr-scene-image{display:block;flex:none;width:156px;height:104px;object-fit:contain;background:#fffdf5;border-radius:12px}
+body[data-audio-type=guided] .glr-scene-player{margin:14px 0 12px}
+body[data-audio-type=guided] .glr-scene-player .glr-scene-image{width:192px;height:128px}
+body[data-audio-type=guided] .player-card h1{font-size:32px;line-height:1.2;letter-spacing:-.035em}
+html[data-appearance] body[data-audio-type=guided] .player-card .wave{width:min(100%,460px)!important;height:46px!important;margin:18px auto 14px!important;box-sizing:border-box;border-radius:13px!important}
+html[data-appearance] body[data-audio-type=guided] .player-card .wave i{max-height:30px;width:2px}
+html[data-appearance=dark] body[data-audio-type=guided] .glr-scene-image{opacity:.9;background:#fffdf5;box-shadow:0 0 0 1px #ffffff12}
+@media(max-width:620px){
+ body[data-audio-type=guided] .glr-scene-title{gap:8px}
+ body[data-audio-type=guided] .glr-scene-image{width:136px;height:91px;border-radius:10px}
+ body[data-audio-type=guided] .glr-scene-player .glr-scene-image{width:144px;height:96px}
+ body[data-audio-type=guided] .player-card h1{font-size:26px;line-height:1.2}
+ html[data-appearance] body[data-audio-type=guided] .player-card .wave{width:88%!important;height:42px!important;gap:3px!important}
+}
+@media(max-width:375px){
+ body[data-audio-type=guided] .glr-scene-image{width:124px;height:83px}
+ body[data-audio-type=guided] .glr-scene-player .glr-scene-image{width:132px;height:88px}
+ body[data-audio-type=guided] .glr-scene-player h1{font-size:25px}
+}

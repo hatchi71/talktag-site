@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261010-glasses-boundary-v2';
+const CACHE_VERSION = 'talktag-pwa-20261010-glr-scenes';
 const APP_SHELL = [
   '/',
   '/index.html',
