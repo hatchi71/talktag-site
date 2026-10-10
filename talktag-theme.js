@@ -31,10 +31,10 @@
   window.addEventListener('storage', event => { if (event.key === key) apply(event.newValue); });
   document.addEventListener('DOMContentLoaded', () => {
     // One learning-language order across landing pages: English, Korean, Japanese.
-    document.querySelectorAll('.language-switch, .language-tabs').forEach(group => {
+    document.querySelectorAll('.language-switch, .language-tabs, .kr-languages').forEach(group => {
       const links=[...group.querySelectorAll('a')];
       const rank=link=>/korean/.test(link.getAttribute('href'))?1:/japanese/.test(link.getAttribute('href'))||/日本語/.test(link.textContent)?2:0;
-      links.sort((a,b)=>rank(a)-rank(b)).forEach(link=>group.append(link));
+      links.sort((a,b)=>rank(a)-rank(b)).forEach(link=>{if(rank(link)===1)link.textContent='KOREAN';group.append(link)});
     });
     const path = location.pathname;
     const topLanding = path === '/' || path === '/index.html' || path === '/japanese/' || path === '/japanese/index.html' || /\/korean\.html$/.test(path);
