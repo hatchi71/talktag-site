@@ -86,7 +86,7 @@
         if(file==='storycamp-reader.html')return '/storycamp-family.html?family='+family;
         if(file==='vocalcamp-family.html'||file==='vocal-a1-pilot.html')return '/vocal-camp.html';
         if(file==='storycamp-family.html'||file==='storycamp-level.html')return '/story-camp.html';
-        if(file==='vocal-camp.html'||file==='story-camp.html')return '/bootcamp.html';
+        if(file==='vocal-camp.html'||file==='story-camp.html')return '/snowballing-studio.html#boot-camp';
         if(file==='bootcamp-level.html'&&params.get('mode')==='readable')return '/readable.html';
         if(file==='bootcamp-story.html'&&params.get('mode')==='readable')return '/bootcamp-level.html?mode=readable&level='+level;
         if(/readable-/.test(file))return '/readable.html';

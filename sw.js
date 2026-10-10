@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261010-level-palette';
+const CACHE_VERSION = 'talktag-pwa-20261010-camp-entrances';
 const APP_SHELL = [
   '/',
   '/index.html',

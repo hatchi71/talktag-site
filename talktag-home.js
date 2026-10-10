@@ -81,7 +81,7 @@
         bootAction: 'BOOT CAMP 시작하기 →'
       };
       const bootNews = copy.bootLabel ? `
-          <a class="feature-card boot" href="bootcamp.html">
+          <a class="feature-card boot" href="snowballing-studio.html#boot-camp">
             <div class="news-label">${copy.bootLabel}</div>
             <h3>${copy.bootTitle}</h3>
             <p>${copy.bootBody}</p>
