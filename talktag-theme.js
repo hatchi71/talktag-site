@@ -47,7 +47,7 @@
       ] : [
         [/storycamp|story-camp/, '/story-camp.html', 'Story Camp'],
         [/vocal/, '/vocal-camp.html', 'Vocal Camp'],
-        [/(?:audio-library|audio-player|listen-repeat)/, '/snowballing-studio.html#sound-check', 'Sound Check'],
+        [/(?:audio-library|audio-player|audio-essay-preview|listen-repeat)/, '/snowballing-studio.html#sound-check', 'Sound Check'],
         [/readable/, '/readable.html', 'Readable'],
         [/toeic/, '/toeic/', 'TOEIC RC'],
         [/test-preppers/, '/test-preppers.html', 'Test Preppers'],
@@ -107,8 +107,13 @@
       });
       const category = document.createElement('a');
       category.className = 'tt-route-category';
-      category.href = route[1];
-      category.innerHTML = `<span aria-hidden="true">⌂</span><b>${route[2]}</b>`;
+      const studioLanding = !japanese && ['/story-camp.html','/vocal-camp.html','/readable.html'].includes(path);
+      category.href = studioLanding ? '/snowballing-studio.html'+(path==='/readable.html'?'':'#boot-camp') : route[1];
+      category.innerHTML = `<span aria-hidden="true">⌂</span><b>${studioLanding ? 'Studio' : route[2]}</b>`;
+      if(!japanese && path==='/snowballing-studio.html'){
+        category.href='/';
+        category.innerHTML='<span aria-hidden="true">⌂</span><b>TalkTag Home</b>';
+      }
       tools.append(previous, category);
       const header = document.querySelector('body > header, main > header, .workspace > header');
       const main = document.querySelector('main');
