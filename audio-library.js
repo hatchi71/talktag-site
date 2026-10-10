@@ -24,12 +24,16 @@ function done(l){return l.available!==false&&window.TalkTagCompletion.getManual(
 function url(l){return (l.available===false?"audio-essay-preview.html":"audio-player.html")+"?id="+encodeURIComponent(l.id);}
 function number(l){return String(l.unit||catalog.filter(x=>x.level===l.level).indexOf(l)+1).padStart(2,"0")+(l.partIndex?"–"+String(l.partIndex).padStart(2,"0"):"");}
 function render(){
+var summary=document.getElementById("guidedProgressSummary");
+if(type==="guided"&&!summary){summary=document.createElement("p");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
+if(summary){summary.hidden=Boolean(level);summary.textContent="Guided L&R · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;}
 if(type==="guided")document.querySelectorAll("[data-level]").forEach(a=>{
 var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
-var complete=lessons.length>0&&lessons.every(done);
+var count=lessons.filter(done).length;
+var complete=lessons.length>0&&count===lessons.length;
 a.classList.toggle("is-level-complete",complete);
-a.textContent=a.dataset.level+(complete?" ✓":"");
-a.setAttribute("aria-label",a.dataset.level+(complete?" · 모든 미션 완료":" · 레벨 열기"));
+a.innerHTML='<span>'+esc(a.dataset.level)+'</span><small class="guided-level-count">'+(complete?'✓ ':'완료 ')+count+'/'+lessons.length+'</small><span class="guided-level-meter" aria-hidden="true"><span style="width:'+(lessons.length?count/lessons.length*100:0)+'%"></span></span>';
+a.setAttribute("aria-label",a.dataset.level+" · "+lessons.length+"개 중 "+count+"개 완료 · 레벨 열기");
 });
 var active=catalog.filter(l=>l.level===level&&!done(l));
 list.hidden=!level;

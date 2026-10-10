@@ -1,4 +1,11 @@
 /* Compact notes only in Guided Practice; other libraries retain their layout. */
+.guided-progress-summary{margin:0 3px 8px;color:var(--tt-muted,#64748b);font-size:14px;font-weight:600}
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a{flex-direction:column;gap:4px}
+.guided-level-count{font-size:12px;line-height:1.4;font-weight:600;font-variant-numeric:tabular-nums}
+html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a>span{color:inherit!important}
+.guided-level-meter{display:block;width:72%;height:3px;margin-top:3px;border-radius:4px;background:#00000018;overflow:hidden}
+.guided-level-meter>span{display:block;height:100%;background:currentColor;border-radius:inherit;opacity:.65}
+html[data-appearance=dark] .guided-level-meter{background:#ffffff20}
 html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:12px!important;padding:10px 5px 14px!important}
 html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a{min-height:76px!important;padding:16px 12px 12px!important;align-items:center!important;font-size:16px!important;line-height:1.4!important;color:#243a58!important;background:#fff2a8!important;border-radius:4px 4px 10px 4px!important;box-shadow:0 5px 10px #3f361d16,inset 0 1px #ffffffa6!important}
 html[data-appearance] body[data-audio-type=guided] .filter-bar.tt-level-postits>a[data-level^="A"]{background:#fff2a8!important}
