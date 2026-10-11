@@ -10,7 +10,7 @@
    board.setAttribute('aria-label','TalkTag 게시판');
    cards[0].querySelector('.news-label').textContent='Talk & Tag · 모임 안내';
    items.forEach((item,i)=>{
-    const card=cards[i+1];card.href=item.href;card.dataset.uploadId=item.id;
+    const card=cards[i+1];card.href='/'+item.href.replace(/^\/+/, '');card.dataset.uploadId=item.id;
     card.querySelector('.news-label').textContent='새 콘텐츠 · '+(i===0?'최신 업로드':'이전 업로드');
     card.querySelector('h3').textContent=item.title;
     card.querySelector('p').textContent=item.description;

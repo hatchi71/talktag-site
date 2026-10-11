@@ -4,6 +4,9 @@
   spaces.src = '/spaces-nav.js?v=20261011-trial';
   spaces.defer = true;
   document.head.append(spaces);
+  if(location.pathname.startsWith('/japanese/')){
+    const structure=document.createElement('script');structure.src='/japanese/studio-structure.js?v=20261011';structure.defer=true;document.head.append(structure);
+  }
   if(!document.querySelector('script[data-audio-accent]')){const accents=document.createElement('script');accents.src='/audio-accent.js?v=20261009-flags';accents.dataset.audioAccent='true';document.head.append(accents);}
   if (!document.querySelector('script[src*="/pwa.js"]')) {
     const pwa = document.createElement('script');
@@ -48,7 +51,7 @@
       const routes = japanese ? [
         [/story-camp/, '/japanese/story-camp.html', 'Story Camp'],
         [/vocal/, '/japanese/vocal-camp.html', 'Vocal Camp'],
-        [/(?:guided|listen-repeat|audio-essays)/, '/japanese/listen-repeat.html', 'Listen & Repeat'],
+        [/(?:guided|glr-player|listen-repeat|audio-essays)/, '/japanese/snowballing.html#sound-check', 'Sound Check'],
         [/readable/, '/japanese/readable.html', 'Readable'],
         [/(?:jlpt|jpt|test-preppers)/, '/japanese/test-preppers.html', '시험대비'],
         [/discussions/, '/japanese/discussions.html', '토론'],
@@ -79,11 +82,12 @@
           if(file==='jlpt.html'||file==='jpt.html')return '/japanese/test-preppers.html';
           if(/^guided-[abc][12]\.html$/.test(file))return '/japanese/guided.html';
           if(/^audio-essays-[abc][12]\.html$/.test(file))return '/japanese/audio-essays.html';
-          if(file==='guided.html'||file==='audio-essays.html')return '/japanese/listen-repeat.html';
+          if(file==='glr-player.html')return '/japanese/guided.html';
+          if(file==='guided.html'||file==='audio-essays.html')return '/japanese/snowballing.html#sound-check';
           if(/^story-camp-[abc][12]\.html$/.test(file))return '/japanese/story-camp.html';
           if(/^readable-[abc][12]\.html$/.test(file))return '/japanese/readable.html';
           if(/^vocal-v\d+\.html$/.test(file))return '/japanese/vocal-camp.html';
-          if(file==='vocal-camp.html'||file==='story-camp.html')return '/japanese/bootcamp.html';
+          if(file==='vocal-camp.html'||file==='story-camp.html')return '/japanese/snowballing.html#boot-camp';
           if(['listen-repeat.html','readable.html','bootcamp.html'].includes(file))return '/japanese/snowballing.html';
           return '/japanese/';
         }
