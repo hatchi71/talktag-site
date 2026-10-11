@@ -39,7 +39,7 @@
     function alignHeader(){
       let actions=header.querySelector('.tt-header-controls');if(!actions){actions=document.createElement('div');actions.className='tt-header-controls';header.append(actions)}
       const theme=header.querySelector('.tt-theme-switch');
-      let share=header.querySelector('#shareSpaceBtn,#shareButton,#kr-share,button.share');
+      let share=header.querySelector('#shareSpaceBtn,#shareButton,#kr-share,button.share,.tt-header-share');
       if(!share){share=document.createElement('button');share.type='button';share.onclick=async()=>{try{if(navigator.share)await navigator.share({title:document.title,url:location.href});else{await navigator.clipboard.writeText(location.href);share.setAttribute('aria-label','Link copied');setTimeout(()=>share.setAttribute('aria-label','Share this page'),2000)}}catch{}};}
       share.classList.add('tt-header-share');share.setAttribute('aria-label','Share this page');share.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0-12-4 4m4-4 4 4M6 11H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-1"/></svg>';
       if(theme)actions.append(theme);actions.append(trigger,share);
