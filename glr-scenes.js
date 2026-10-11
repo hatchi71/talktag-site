@@ -31,7 +31,13 @@
     'guided-b1-05': 'Finding a quiet room for a call',
     'guided-b2-05': 'Politely declining extra work while busy',
     'guided-c1-05': 'Sharing a suggestion and listening to other opinions',
-    'guided-c2-05': 'Asking for a ride without pressuring a friend'
+    'guided-c2-05': 'Asking for a ride without pressuring a friend',
+    'guided-a1-06': 'Welcoming a guest at the door and offering to take their coat',
+    'guided-a2-06': 'Looking for an open entrance to a building',
+    'guided-b1-06': 'Politely checking a wrong-sized order at a shop',
+    'guided-b2-06': 'Checking a message and waiting for a reply',
+    'guided-c1-06': 'Calmly discussing different interpretations of a note',
+    'guided-c2-06': 'Listening quietly and attentively to a friend'
   };
   const nativeScenes = {
     a1: 'Two adults greeting at a cafe and offering an empty chair',

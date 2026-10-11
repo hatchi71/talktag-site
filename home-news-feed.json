@@ -2,6 +2,21 @@
   "version": 1,
   "items": [
     {
+      "id": "guided:006",
+      "title": "Guided L&R · 006",
+      "href": "audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+      "publishedAt": "2026-10-11T08:10:22.017Z"
+    },
+    {
       "id": "native:ko:001",
       "language": "ko",
       "title": "Korean Guided L&R · 001",
