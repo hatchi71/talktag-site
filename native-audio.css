@@ -5,8 +5,9 @@ body[data-native-language] .player-card h1{font-size:clamp(26px,4vw,34px);line-h
 body[data-native-language] .lesson-copy h2{font-size:clamp(22px,3vw,30px);line-height:1.25}
 body[data-native-language] .option.speed-control>span,body[data-native-language] .option.loop-control>span{font-size:14px}
 body[data-native-language=ja] .sync-line ruby{ruby-align:center}
-body[data-native-language=ja] .sync-line rt{display:none;font-size:.55em;font-weight:500;line-height:1.4;letter-spacing:0;color:var(--tt-muted,#607086)}
-body[data-native-language=ja] .with-furigana .sync-line rt{display:ruby-text}
+/* Preserve native ruby rendering in both Safari and Chromium. */
+body[data-native-language=ja] .sync-line rt{font-size:.55em;font-weight:500;line-height:1.4;letter-spacing:0;color:var(--tt-muted,#607086)}
+body[data-native-language=ja] .sync-lines:not(.with-furigana) .sync-line rt{display:none}
 body[data-native-language=ja] .with-furigana .sync-line>span:first-child{line-height:2.2}
 @media(max-width:620px){html[data-appearance] body[data-native-language=ja] .player-card .script-controls{flex-direction:column!important;align-items:stretch!important;gap:8px!important}html[data-appearance] body[data-native-language=ja] .player-card .compact-script{width:100%!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}html[data-appearance] body[data-native-language=ja] .player-card .compact-script button{width:100%!important;min-width:0!important;min-height:44px!important;padding:8px 6px!important;font-size:13px!important;white-space:nowrap}}
 body[data-native-language] .tt-route-tools>a{min-height:44px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}

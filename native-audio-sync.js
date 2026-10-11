@@ -160,7 +160,7 @@ var native=window.TalkTagNative;
     displayRange.addEventListener("change", function () { setDisplayLevel(displayRange.value); });
   } else if(nativeJapanese) {
     var mode="", controls=[document.getElementById("scriptHiddenButton"),document.getElementById("scriptButton"),document.getElementById("meaningButton")];
-    var keys=["hidden","en","kr"],names=["한자","후리가나","한글 해석"];
+    var keys=["hidden","en","kr"],names=["일본어 원문","후리가나","한글 해석"];
     document.getElementById("scriptPanel")?.remove();document.getElementById("meaningPanel")?.remove();
     controls.forEach(function(button,i){button.textContent=names[i];button.setAttribute("aria-controls","unifiedScript");button.setAttribute("aria-pressed","false");button.setAttribute("aria-expanded","false");});
     window.TalkTagAudioScript={show:function(requested){

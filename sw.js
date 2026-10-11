@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261011-japanese-structure-v1';
+const CACHE_VERSION = 'talktag-pwa-20261011-native-ruby-v2';
 const APP_SHELL = [
   '/',
   '/index.html',
