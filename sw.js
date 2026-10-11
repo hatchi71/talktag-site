@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261011-japanese-korean-titles-v1';
+const CACHE_VERSION = 'talktag-pwa-20261011-language-panel-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
