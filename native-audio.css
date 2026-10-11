@@ -3,6 +3,7 @@
 body[data-native-language] .talktag-global-home{display:none!important}
 body[data-native-language] .player-card h1{font-size:clamp(26px,4vw,34px);line-height:1.2}
 body[data-native-language] .lesson-copy h2{font-size:clamp(22px,3vw,30px);line-height:1.25}
+body[data-native-language=ja] .player-card h1,body[data-native-language=ja] .lesson-copy h2{word-break:keep-all;overflow-wrap:normal}
 body[data-native-language] .option.speed-control>span,body[data-native-language] .option.loop-control>span{font-size:14px}
 body[data-native-language=ja] .sync-line ruby{ruby-align:center}
 /* Preserve native ruby rendering in both Safari and Chromium. */
