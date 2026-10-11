@@ -1,7 +1,7 @@
 /* Shared appearance preference. Does not touch learning or audio state. */
 (() => {
   const spaces = document.createElement('script');
-  spaces.src = '/spaces-nav.js?v=20261011-trial';
+  spaces.src = '/spaces-nav.js?v=20261011-compact-header';
   spaces.defer = true;
   document.head.append(spaces);
   if(location.pathname.startsWith('/japanese/')){
@@ -32,6 +32,12 @@
     root.dataset.appearance = valid(value);
     document.querySelectorAll('[data-theme-choice]').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.themeChoice === root.dataset.appearance));
+    });
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+      const dark=root.dataset.appearance==='dark';
+      button.innerHTML=dark?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 14.2A9 9 0 0 1 9.8 3.3 9 9 0 1 0 20.7 14.2Z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>';
+      button.setAttribute('aria-label',dark?'Switch to Bright mode':'Switch to Dark mode');
+      button.setAttribute('aria-pressed',String(dark));button.title=button.getAttribute('aria-label');
     });
   }
   apply(preference);
@@ -195,23 +201,18 @@
     group.className = 'tt-theme-switch';
     group.setAttribute('role', 'group');
     group.setAttribute('aria-label', 'Display mode');
-    for (const [value, label] of [['bright', '☀ Bright'], ['dark', '☾ Dark']]) {
       const button = document.createElement('button');
       button.type = 'button';
-      button.dataset.themeChoice = value;
-      button.setAttribute('aria-label', value === 'bright' ? '밝은 화면 (Bright)' : '어두운 화면 (Dark)');
-      button.title = button.getAttribute('aria-label');
-      button.innerHTML = value === 'bright'
-        ? '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>'
-        : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 14.2A9 9 0 0 1 9.8 3.3 9 9 0 1 0 20.7 14.2Z"/></svg>';
+      button.dataset.themeToggle = '';
       button.addEventListener('click', () => {
-        apply(value);
-        try { localStorage.setItem(key, value); } catch (_) {}
+        const next=root.dataset.appearance==='dark'?'bright':'dark';
+        apply(next);
+        try { localStorage.setItem(key, next); } catch (_) {}
       });
       group.append(button);
-    }
     (header.querySelector('.top-actions, .head-links') || header).append(group);
     }
     apply(root.dataset.appearance);
+    document.dispatchEvent(new Event('talktag-header-ready'));
   });
 })();

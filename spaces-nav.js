@@ -4,7 +4,7 @@
     if(document.querySelector('.tt-spaces-trigger'))return;
     const header=document.querySelector('header.topbar,header.top,header.site-head,header.site-header,header.toeicLandingHeader,header.examBar');
     if(!header)return;
-    const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261011-trial';document.head.append(css);
+    const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261011-compact-header';document.head.append(css);
     const path=location.pathname,ja=path.startsWith('/japanese/'),ko=path.startsWith('/korean');
     const home=ja?'/japanese/':ko?'/korean.html':'/';
     const routes=ja?['/japanese/','/japanese/myspace.html','/japanese/talktag.html','/japanese/snowballing.html','/japanese/discussions.html','/japanese/test-preppers.html']:ko?['/korean.html','/korean.html?view=myspace','/korean.html?view=talktag','/korean-learning.html','/korean.html?view=discussions','/korean.html?view=tests']:['/','/?view=myspace','/?view=talktag','/snowballing-studio.html','/discussions.html','/test-preppers.html'];
@@ -19,6 +19,8 @@
     const heading=document.createElement('h2');heading.id='tt-spaces-title';heading.textContent='Your spaces';
     const close=document.createElement('button');close.type='button';close.className='tt-spaces-close';close.textContent='×';close.setAttribute('aria-label','Close navigation');bar.append(heading,close);dialog.append(bar);
     const note=document.createElement('p');note.className='tt-spaces-note';note.textContent='Choose where to go next.';dialog.append(note);
+    const languages=document.createElement('nav');languages.className='tt-spaces-languages';languages.setAttribute('aria-label','Learning language');
+    [['ENGLISH','/'],['KOREAN','/korean.html'],['日本語','/japanese/']].forEach(([label,href],i)=>{const link=document.createElement('a');link.textContent=label;link.href=href;link.lang=['en','en','ja'][i];if(i===(ja?2:ko?1:0))link.setAttribute('aria-current','page');languages.append(link)});dialog.append(languages);
     const grid=document.createElement('nav');grid.className='tt-spaces-grid';grid.setAttribute('aria-label','TalkTag spaces');
     labels.forEach((label,i)=>{const a=document.createElement('a');a.href=routes[i];const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');icon.textContent=icons[i];a.append(icon,document.createTextNode(label));if(i===active)a.setAttribute('aria-current','page');grid.append(a)});dialog.append(grid);document.body.append(dialog);
     const safe=href=>{try{const u=new URL(href,location.origin);return u.origin===location.origin&&!/backstage|offline|api/.test(u.pathname)&&(ja?u.pathname.startsWith('/japanese/'):ko?u.pathname.startsWith('/korean'):!/^\/(japanese|korean)/.test(u.pathname))?u:null}catch{return null}};
@@ -27,6 +29,16 @@
     close.onclick=()=>dialog.close();dialog.addEventListener('close',()=>{trigger.setAttribute('aria-expanded','false');document.body.classList.remove('tt-spaces-open');trigger.focus()});
     dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
     document.body.classList.add('tt-spaces-trial');
+    function alignHeader(){
+      let actions=header.querySelector('.tt-header-controls');if(!actions){actions=document.createElement('div');actions.className='tt-header-controls';header.append(actions)}
+      const theme=header.querySelector('.tt-theme-switch');
+      let share=header.querySelector('#shareSpaceBtn,#shareButton,#kr-share,button.share');
+      if(!share){share=document.createElement('button');share.type='button';share.onclick=async()=>{try{if(navigator.share)await navigator.share({title:document.title,url:location.href});else{await navigator.clipboard.writeText(location.href);share.setAttribute('aria-label','Link copied');setTimeout(()=>share.setAttribute('aria-label','Share this page'),2000)}}catch{}};}
+      share.classList.add('tt-header-share');share.setAttribute('aria-label','Share this page');share.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0-12-4 4m4-4 4 4M6 11H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-1"/></svg>';
+      if(theme)actions.append(theme);actions.append(trigger,share);
+      header.classList.add('tt-compact-header');
+    }
+    document.addEventListener('talktag-header-ready',alignHeader);alignHeader();
   };
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
