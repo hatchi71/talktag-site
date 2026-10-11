@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261011-native-scenes-v1';
+const CACHE_VERSION = 'talktag-pwa-20261011-spaces-trial-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
@@ -6,6 +6,8 @@ const APP_SHELL = [
   '/manifest.webmanifest',
   '/talktag-theme.css',
   '/talktag-theme.js',
+  '/spaces-nav.js',
+  '/spaces-nav.css',
   '/talktag-logo.png',
   '/icons/talktag-192.png',
   '/icons/talktag-512.png',
