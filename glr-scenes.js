@@ -37,7 +37,13 @@
     'guided-b1-06': 'Politely checking a wrong-sized order at a shop',
     'guided-b2-06': 'Checking a message and waiting for a reply',
     'guided-c1-06': 'Calmly discussing different interpretations of a note',
-    'guided-c2-06': 'Listening quietly and attentively to a friend'
+    'guided-c2-06': 'Listening quietly and attentively to a friend',
+    'guided-a1-07': 'Borrowing a charger for a low-battery phone',
+    'guided-a2-07': 'Booking a haircut before an afternoon deadline',
+    'guided-b1-07': 'Packing a car to leave before rush-hour traffic',
+    'guided-b2-07': 'Checking cancellation fees and auto-renewal on a subscription',
+    'guided-c1-07': 'Agreeing on a backup plan after a missed step',
+    'guided-c2-07': 'Keeping options open until a firm date is set'
   };
   const sceneBriefings = {
     'guided-a1-01': '잠에서 깬 사람이 물을 마시고 천천히 몸을 깨우며 아침을 시작합니다.',
@@ -75,7 +81,13 @@
     'guided-b1-06': '주문한 사이즈와 다른 물건을 받아 가게 직원에게 확인을 부탁합니다.',
     'guided-b2-06': '메시지 답장을 기다리며 재촉하지 않고 진행 상황을 확인합니다.',
     'guided-c1-06': '메모를 다르게 해석한 두 사람이 어떤 표현이 단정적으로 들렸는지 차분히 짚어 봅니다.',
-    'guided-c2-06': '대화 중 조용했던 사람이 불만이 있었던 것은 아니라고 친구에게 설명합니다.'
+    'guided-c2-06': '대화 중 조용했던 사람이 불만이 있었던 것은 아니라고 친구에게 설명합니다.',
+    'guided-a1-07': '배터리가 얼마 남지 않은 휴대폰을 위해 충전기를 빌리고, 콘센트 옆에 앉아 잠시 사용합니다.',
+    'guided-a2-07': '미용실에서 오후 3시 반 예약이 가능한지 확인하고, 4시 전에는 나가야 한다고 설명합니다.',
+    'guided-b1-07': '퇴근 시간대의 정체를 피해 조금 일찍 출발하려고, 아직 준비 중인 친구를 도와 차에 짐을 싣습니다.',
+    'guided-b2-07': '구독을 한 달만 먼저 써볼 수 있는지, 취소 수수료와 자동 갱신 조건은 어떤지 확인합니다.',
+    'guided-c1-07': '누가 놓쳤는지 따지기보다 다음에 어떻게 할지에 초점을 두고 대안을 함께 정합니다.',
+    'guided-c2-07': '날짜가 확정되지 않은 계획에 대해 기준을 차분히 밝히고, 확정 전까지 다른 선택지도 남겨 둡니다.'
   };
   const nativeScenes = {
     a1: 'Two adults greeting at a cafe and offering an empty chair',
@@ -95,7 +107,7 @@
     header.append(title);
     const image = document.createElement('img');
     image.className = 'glr-scene-image';
-    image.src = native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : 'assets/glr-scenes/' + id + '.webp';
+    image.src = native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : 'assets/glr-scenes/' + id + (/07$/.test(id) ? '.jpg' : '.webp');
     image.alt = description;
     image.width = 360; image.height = 240;
     image.loading = player ? 'eager' : 'lazy';
