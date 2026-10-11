@@ -33,16 +33,26 @@
     'guided-c1-05': 'Sharing a suggestion and listening to other opinions',
     'guided-c2-05': 'Asking for a ride without pressuring a friend'
   };
+  const nativeScenes = {
+    a1: 'Two adults greeting at a cafe and offering an empty chair',
+    a2: 'Finding a meeting place near a building entrance',
+    b1: 'Politely rescheduling an appointment at a reception counter',
+    b2: 'Choosing a convenient meeting place together',
+    c1: 'Calmly explaining and clearing up a misunderstanding',
+    c2: 'Offering help while letting a friend try independently'
+  };
   function attach(title, id, player) {
-    if (!title || !scenes[id] || title.parentElement.classList.contains('glr-scene-title')) return;
+    const native = /^(?:ko|ja)-guided-(a1|a2|b1|b2|c1|c2)-001(?:-part\d+)?$/.exec(id || '');
+    const description = native ? nativeScenes[native[1]] : scenes[id];
+    if (!title || !description || title.parentElement.classList.contains('glr-scene-title')) return;
     const header = document.createElement('div');
     header.className = 'glr-scene-title' + (player ? ' glr-scene-player' : '');
     title.before(header);
     header.append(title);
     const image = document.createElement('img');
     image.className = 'glr-scene-image';
-    image.src = 'assets/glr-scenes/' + id + '.webp';
-    image.alt = scenes[id];
+    image.src = native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : 'assets/glr-scenes/' + id + '.webp';
+    image.alt = description;
     image.width = 360; image.height = 240;
     image.loading = player ? 'eager' : 'lazy';
     image.decoding = 'async';

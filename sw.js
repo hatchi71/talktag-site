@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261010-native-glr001-v1';
+const CACHE_VERSION = 'talktag-pwa-20261011-native-scenes-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
