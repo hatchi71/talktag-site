@@ -1,4 +1,4 @@
-/* Published GLR 001–005. Scene art never changes lesson/audio state. */
+/* Published GLR scenes. Scene art and briefings never change lesson/audio state. */
 (function () {
   'use strict';
   const scenes = {
@@ -39,6 +39,44 @@
     'guided-c1-06': 'Calmly discussing different interpretations of a note',
     'guided-c2-06': 'Listening quietly and attentively to a friend'
   };
+  const sceneBriefings = {
+    'guided-a1-01': '잠에서 깬 사람이 물을 마시고 천천히 몸을 깨우며 아침을 시작합니다.',
+    'guided-a2-01': '내일 입을 셔츠를 세탁해 널고, 마를 때까지 기다리는 일상 장면입니다.',
+    'guided-b1-01': '비가 오기 전에 반려견과 짧게 산책할 수 있을지 날씨를 살펴봅니다.',
+    'guided-b2-01': '늦은 시간 음악 소리가 크게 들려 이웃에게 정중하게 부탁합니다.',
+    'guided-c1-01': '수리 기사와 방문 시간을 조율하며 필요한 일정을 확인합니다.',
+    'guided-c2-01': '손님을 맞이한 뒤 잠시 혼자 쉴 시간을 부드럽게 요청합니다.',
+    'guided-a1-02': '비 오는 날 외출하려고 우비와 우산을 챙깁니다.',
+    'guided-a2-02': '여행지에서 만난 사람에게 사진을 찍어 달라고 부탁합니다.',
+    'guided-b1-02': '카페에서 포장 봉투가 주문과 다른 것을 발견해 직원에게 확인합니다.',
+    'guided-b2-02': '기존 약속 시간을 바꾸기 위해 가능한 다른 시간을 제안합니다.',
+    'guided-c1-02': '예상하지 못한 구독 갱신 요금을 확인하고 결제 내역을 문의합니다.',
+    'guided-c2-02': '도움을 준 사람에게 고마움을 전하면서 직접 해 볼 여지도 부탁합니다.',
+    'guided-a1-03': '집을 나서기 전 옷과 신발, 열쇠를 하나씩 챙깁니다.',
+    'guided-a2-03': '버스 정류장에서 목적지로 가는 버스와 내릴 곳을 물어봅니다.',
+    'guided-b1-03': '비가 오기 시작해 원래 계획을 바꾸고 버스로 이동하기로 합니다.',
+    'guided-b2-03': '물건을 주문하기 전에 배송비와 최종 결제 금액을 확인합니다.',
+    'guided-c1-03': '제안의 의도를 확인하고, 오해가 없도록 서로의 생각을 정리합니다.',
+    'guided-c2-03': '경험을 돌아보며 좋았던 점과 아쉬웠던 점을 솔직하게 이야기합니다.',
+    'guided-a1-04': '안경을 찾으며 탁자와 램프 주변에 있는 물건을 살펴봅니다.',
+    'guided-a2-04': '택배 보관 데스크에서 이름과 배송 정보를 확인하고 소포를 받습니다.',
+    'guided-b1-04': '열차가 늦어져 약속 시간을 조금 미룰 수 있는지 연락합니다.',
+    'guided-b2-04': '식당에서 더 조용한 자리로 옮길 수 있는지 직원에게 부탁합니다.',
+    'guided-c1-04': '예약에 주차가 포함되는지 확인하고 조건을 다시 살펴봅니다.',
+    'guided-c2-04': '수리가 늦어진 상황과 결과를 함께 따져 보고 공정하게 평가합니다.',
+    'guided-a1-05': '커피를 조금 더 따르고, 뜨거운 음료가 식기를 기다립니다.',
+    'guided-a2-05': '영수증을 챙겨 가게에서 사이즈가 맞지 않는 셔츠를 반품합니다.',
+    'guided-b1-05': '통화할 수 있도록 주변보다 조용한 장소를 찾습니다.',
+    'guided-b2-05': '일이 바쁜 상황을 설명하고 추가 업무를 정중하게 사양합니다.',
+    'guided-c1-05': '하나의 의견을 결정으로 받아들이지 않도록 제안의 의미를 분명히 합니다.',
+    'guided-c2-05': '친구에게 차편을 부탁하면서 어려우면 거절해도 된다고 덧붙입니다.',
+    'guided-a1-06': '친구가 집에 찾아와 인사를 나누고, 주인이 외투와 물을 챙겨 줍니다.',
+    'guided-a2-06': '건물에 도착한 방문객이 닫힌 입구를 확인하고 다른 출입구를 찾아갑니다.',
+    'guided-b1-06': '주문한 사이즈와 다른 물건을 받아 가게 직원에게 확인을 부탁합니다.',
+    'guided-b2-06': '메시지 답장을 기다리며 재촉하지 않고 진행 상황을 확인합니다.',
+    'guided-c1-06': '메모를 다르게 해석한 두 사람이 어떤 표현이 단정적으로 들렸는지 차분히 짚어 봅니다.',
+    'guided-c2-06': '대화 중 조용했던 사람이 불만이 있었던 것은 아니라고 친구에게 설명합니다.'
+  };
   const nativeScenes = {
     a1: 'Two adults greeting at a cafe and offering an empty chair',
     a2: 'Finding a meeting place near a building entrance',
@@ -65,13 +103,24 @@
     image.addEventListener('error', () => image.remove(), {once: true});
     header.append(image);
   }
+  function attachBriefing(id) {
+    if (document.body.dataset.audioType !== 'guided') return;
+    const briefing = document.getElementById('sceneBriefing');
+    const text = document.getElementById('sceneBriefingText');
+    const description = sceneBriefings[id];
+    if (!briefing || !text || !description) return;
+    text.textContent = description;
+    briefing.hidden = false;
+  }
   function refresh() {
     if (document.body.dataset.audioType !== 'guided') return;
     document.querySelectorAll('#lessonList .lesson-card').forEach(card => {
       const id = (card.dataset.completionId || '').replace(/^audio:/, '');
       attach(card.querySelector('.lesson-copy h2'), id, false);
     });
-    attach(document.getElementById('lessonTitle'), new URLSearchParams(location.search).get('id'), true);
+    const id = new URLSearchParams(location.search).get('id');
+    attach(document.getElementById('lessonTitle'), id, true);
+    attachBriefing(id);
   }
   refresh();
   const list = document.getElementById('lessonList');

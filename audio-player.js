@@ -45,6 +45,7 @@
   document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
   document.getElementById("lessonSummary").textContent = lesson.summary;
+  if (lesson.training) document.getElementById("lessonSummary").textContent = "한 문장씩 듣고 따라 하세요.";
   document.getElementById("infoLevel").textContent = "CEFR " + lesson.level;
   document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
   document.getElementById("infoDuration").textContent = lesson.durationLong;
