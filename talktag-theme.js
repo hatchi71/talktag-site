@@ -1,7 +1,7 @@
 /* Shared appearance preference. Does not touch learning or audio state. */
 (() => {
   const spaces = document.createElement('script');
-  spaces.src = '/spaces-nav.js?v=20261011-korean-space-labels';
+  spaces.src = '/spaces-nav.js?v=20261011-audience-space-labels';
   spaces.defer = true;
   document.head.append(spaces);
   if(location.pathname.startsWith('/japanese/')){

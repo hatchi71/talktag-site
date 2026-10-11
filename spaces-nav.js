@@ -8,7 +8,7 @@
     const path=location.pathname,ja=path.startsWith('/japanese/'),ko=path.startsWith('/korean');
     const home=ja?'/japanese/':ko?'/korean.html':'/';
     const routes=ja?['/japanese/','/japanese/myspace.html','/japanese/talktag.html','/japanese/snowballing.html','/japanese/discussions.html','/japanese/test-preppers.html']:ko?['/korean.html','/korean.html?view=myspace','/korean.html?view=talktag','/korean-learning.html','/korean.html?view=discussions','/korean.html?view=tests']:['/','/?view=myspace','/?view=talktag','/snowballing-studio.html','/discussions.html','/test-preppers.html'];
-    const labels=['홈','마이스페이스','톡&태그','스튜디오','토론','시험대비'];
+    const labels=ko?['Home','MySpace','Talk & Tag','Studio','Discussions','Tests']:['홈','마이스페이스','톡&태그','스튜디오','토론','시험대비'];
     const icons=['⌂','◉','#','↗','◌','✓'];
     const view=new URLSearchParams(location.search).get('view');
     let active=view==='myspace'?1:view==='talktag'?2:view==='discussions'?4:view==='tests'?5:/myspace/.test(path)?1:/talktag\.html/.test(path)?2:/discussion/.test(path)?4:/test|toeic|jlpt|jpt/.test(path)?5:([home,'/index.html','/japanese/index.html'].includes(path)?0:3);
