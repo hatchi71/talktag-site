@@ -4,7 +4,7 @@
     if(document.querySelector('.tt-spaces-trigger'))return;
     const header=document.querySelector('header.topbar,header.top,header.site-head,header.site-header,header.toeicLandingHeader,header.examBar');
     if(!header)return;
-    const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261011-compact-header';document.head.append(css);
+    const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261011-header-wording';document.head.append(css);
     const path=location.pathname,ja=path.startsWith('/japanese/'),ko=path.startsWith('/korean');
     const home=ja?'/japanese/':ko?'/korean.html':'/';
     const routes=ja?['/japanese/','/japanese/myspace.html','/japanese/talktag.html','/japanese/snowballing.html','/japanese/discussions.html','/japanese/test-preppers.html']:ko?['/korean.html','/korean.html?view=myspace','/korean.html?view=talktag','/korean-learning.html','/korean.html?view=discussions','/korean.html?view=tests']:['/','/?view=myspace','/?view=talktag','/snowballing-studio.html','/discussions.html','/test-preppers.html'];
