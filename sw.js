@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261011-spaces-trial-v1';
+const CACHE_VERSION = 'talktag-pwa-20261011-furigana-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
