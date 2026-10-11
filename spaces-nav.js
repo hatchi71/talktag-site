@@ -4,7 +4,7 @@
     if(document.querySelector('.tt-spaces-trigger'))return;
     const header=document.querySelector('header.topbar,header.top,header.site-head,header.site-header,header.toeicLandingHeader,header.examBar');
     if(!header)return;
-    const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261011-header-wording';document.head.append(css);
+    const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261011-language-badge';document.head.append(css);
     const path=location.pathname,ja=path.startsWith('/japanese/'),ko=path.startsWith('/korean');
     const home=ja?'/japanese/':ko?'/korean.html':'/';
     const routes=ja?['/japanese/','/japanese/myspace.html','/japanese/talktag.html','/japanese/snowballing.html','/japanese/discussions.html','/japanese/test-preppers.html']:ko?['/korean.html','/korean.html?view=myspace','/korean.html?view=talktag','/korean-learning.html','/korean.html?view=discussions','/korean.html?view=tests']:['/','/?view=myspace','/?view=talktag','/snowballing-studio.html','/discussions.html','/test-preppers.html'];
@@ -12,7 +12,8 @@
     const icons=['⌂','◉','#','↗','◌','✓'];
     const view=new URLSearchParams(location.search).get('view');
     let active=view==='myspace'?1:view==='talktag'?2:view==='discussions'?4:view==='tests'?5:/myspace/.test(path)?1:/talktag\.html/.test(path)?2:/discussion/.test(path)?4:/test|toeic|jlpt|jpt/.test(path)?5:([home,'/index.html','/japanese/index.html'].includes(path)?0:3);
-    const trigger=document.createElement('button');trigger.type='button';trigger.className='tt-spaces-trigger';trigger.innerHTML='<span aria-hidden="true">▦</span> Spaces';trigger.setAttribute('aria-haspopup','dialog');trigger.setAttribute('aria-expanded','false');
+    const languageCode=ja?'J':ko?'K':'E',languageName=ja?'Japanese':ko?'Korean':'English';
+    const trigger=document.createElement('button');trigger.type='button';trigger.className='tt-spaces-trigger';trigger.innerHTML='<span class="tt-spaces-symbol" aria-hidden="true">▦<i class="tt-spaces-language">'+languageCode+'</i></span> Spaces';trigger.title='Current language: '+languageName;trigger.setAttribute('aria-label','Spaces · '+languageName);trigger.setAttribute('aria-haspopup','dialog');trigger.setAttribute('aria-expanded','false');
     (header.querySelector('.top-actions,.head-links')||header).append(trigger);
     const dialog=document.createElement('dialog');dialog.className='tt-spaces-dialog';dialog.setAttribute('aria-labelledby','tt-spaces-title');
     const bar=document.createElement('div');bar.className='tt-spaces-bar';
