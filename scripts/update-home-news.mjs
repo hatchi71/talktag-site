@@ -7,7 +7,7 @@ const path='home-news-feed.json';
 function catalog(read){
  const c={window:{}};vm.createContext(c);
  const html=read('audio-library.html')||'';
- const scripts=[...html.matchAll(/src="([^"?]+)(?:\?[^" ]*)?"/g)].map(m=>m[1]).filter(x=>/^(audio-lessons|guided-[a-z]+\d+|audio-essays(?:-\d+(?:-media)?)?)\.js$/.test(x));
+ const scripts=[...html.matchAll(/src="([^"?]+)(?:\?[^" ]*)?"/g)].map(m=>m[1]).filter(x=>/^(audio-lessons|guided-[a-z-]+\d+|guided-miniskit-pilots|audio-essays(?:-\d+(?:-media)?)?)\.js$/.test(x));
  for(const f of [...scripts,'storycamp-manifest.js','vocalcamp-manifest.js']){const s=read(f);if(s)vm.runInContext(s,c,{timeout:1000});}
  const groups=new Map();
  for(const l of c.window.TalkTagAudioLessons||[]){if(l.available===false||!l.audio)continue;const number=String(l.number||l.unit||1).padStart(3,'0'),id=l.type+':'+number;
@@ -27,7 +27,7 @@ const current=catalog(f=>fs.existsSync(f)?fs.readFileSync(f,'utf8'):null);
 const previous=fs.existsSync(path)?JSON.parse(fs.readFileSync(path,'utf8')).items:[];
 const dates=new Map(previous.map(x=>[x.id,x.publishedAt]));
 if(current.some(x=>!dates.has(x.id))){
- const history=execFileSync('git',['log','--reverse','--format=%H %cI','--','audio-library.html','audio-lessons.js','guided-lauren003.js','audio-essays.js','audio-essays-002-media.js','audio-essays-002.js','storycamp-manifest.js','content/readable/readable-stories-A1-C2-60.json'],{encoding:'utf8'}).trim().split('\n');
+ const history=execFileSync('git',['log','--reverse','--format=%H %cI','--','audio-library.html','audio-lessons.js','guided-lauren003.js','guided-miniskit-pilots.js','audio-essays.js','audio-essays-002-media.js','audio-essays-002.js','storycamp-manifest.js','content/readable/readable-stories-A1-C2-60.json'],{encoding:'utf8'}).trim().split('\n');
  for(const row of history){const [sha,date]=row.split(' ');let items=[];try{items=catalog(f=>{try{return execFileSync('git',['show',sha+':'+f],{encoding:'utf8',stdio:['ignore','pipe','ignore']});}catch{return null;}});}catch{continue;}for(const item of items)if(!dates.has(item.id))dates.set(item.id,date);}
 }
 const now=new Date().toISOString();

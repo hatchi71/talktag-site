@@ -2,6 +2,26 @@
   "version": 1,
   "items": [
     {
+      "id": "guided:009",
+      "title": "Guided L&R · 009",
+      "href": "audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+      "publishedAt": "2026-10-12T12:02:56.544Z"
+    },
+    {
+      "id": "guided:008",
+      "title": "Guided L&R · 008",
+      "href": "audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+      "publishedAt": "2026-10-12T12:02:56.544Z"
+    },
+    {
       "id": "guided:007",
       "title": "Guided L&R · 007",
       "href": "audio-library.html?type=guided",

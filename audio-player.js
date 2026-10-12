@@ -31,11 +31,18 @@
   var storageKey = "talktag-audio:" + lesson.id;
   document.body.dataset.audioType = lesson.type;
 
-  function appendList(targetId, items) {
+  function appendList(targetId, items, speakers) {
     var target = document.getElementById(targetId);
     items.forEach(function (item) {
       var row = document.createElement("li");
-      row.textContent = item;
+      var index = target.children.length;
+      if (speakers && speakers[index]) {
+        var speaker = document.createElement("strong");
+        speaker.className = "dialogue-speaker";
+        speaker.textContent = speakers[index] + ": ";
+        row.appendChild(speaker);
+        row.appendChild(document.createTextNode(item));
+      } else row.textContent = item;
       target.appendChild(row);
     });
   }
@@ -45,7 +52,7 @@
   document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
   document.getElementById("lessonSummary").textContent = lesson.summary;
-  if (lesson.training) document.getElementById("lessonSummary").textContent = "한 문장씩 듣고 따라 하세요.";
+  if (lesson.training) document.getElementById("lessonSummary").textContent = lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
   document.getElementById("infoLevel").textContent = "CEFR " + lesson.level;
   document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
   document.getElementById("infoDuration").textContent = lesson.durationLong;
@@ -65,16 +72,16 @@
   }
   if (lesson.training) {
     document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0");
-    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + " · GUIDED PRACTICE";
-    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.expressions.length + " sentences";
+    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT PILOT" : " · GUIDED PRACTICE");
+    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.expressions.length + (lesson.format === "miniskit" ? " dialogue lines" : " sentences");
     if (lesson.partIndex) {
       document.getElementById("playerHeaderMeta").textContent += " · " + lesson.partIndex + "/" + lesson.partCount;
-      document.getElementById("lessonKicker").textContent = lesson.level + " · " + String(lesson.unit).padStart(2,"0") + "–" + String(lesson.partIndex).padStart(2,"0");
-      document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.partIndex + "/" + lesson.partCount + " · 문장 " + lesson.sentenceStart + "–" + lesson.sentenceEnd;
+    document.getElementById("lessonKicker").textContent = lesson.level + " · " + String(lesson.unit).padStart(2,"0") + "–" + String(lesson.partIndex).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT PILOT" : "");
+    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.partIndex + "/" + lesson.partCount + " · 문장 " + lesson.sentenceStart + "–" + lesson.sentenceEnd;
     }
     var fields = document.querySelectorAll(".lesson-info dd");
     fields[2].textContent = "Sound Check · Guided Practice";
-    fields[5].textContent = "문장별 " + lesson.training.defaultReps + "회 반복";
+    fields[5].textContent = (lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복";
     var drillStatus = document.createElement("div");
     drillStatus.className = "guided-drill-status";
     drillStatus.setAttribute("aria-live","off");
@@ -83,7 +90,8 @@
     function updateDrillStatus() {
       var time = audio.currentTime;
       var cue = lesson.training.cues.find(function (cue) { return cue.s <= time && time < cue.e; });
-      var label = cue ? "문장 " + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : " · 따라 말하기") : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · 문장별 " + lesson.training.defaultReps + "회 반복");
+      var unitLabel = lesson.format === "miniskit" ? "대사 " : "문장 ";
+      var label = cue ? unitLabel + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : (lesson.format === "miniskit" ? " · 내 차례" : " · 따라 말하기")) : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · " + (lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복");
       if (label !== lastDrillLabel) { drillStatus.textContent = label; lastDrillLabel = label; }
     }
     audio.addEventListener("timeupdate",updateDrillStatus);
@@ -91,7 +99,7 @@
     updateDrillStatus();
   }
   audio.src = lesson.audio;
-  appendList("scriptList", lesson.expressions);
+  appendList("scriptList", lesson.expressions, lesson.speakers);
   appendList("meaningList", lesson.meanings);
   if (!lesson.meanings.length) { meaningButton.hidden = true; meaningPanel.hidden = true; }
   prevButton.disabled = !previousLesson;

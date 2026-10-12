@@ -3,14 +3,17 @@
  'use strict';
  const names={BK:'British English',AU:'Australian English',IN:'Indian English',US:'American English'};
  const decode=value=>{try{return decodeURIComponent(String(value||''));}catch{return String(value||'');}};
- function code(record){
+ function codes(record){
   const explicit=String(record?.accentTag||record?.accent||'').toUpperCase().replace(/[()]/g,'');
-  if(names[explicit])return explicit;
+  const listed=Array.isArray(record?.accentTags)?record.accentTags:explicit.match(/US|BK|AU|IN/g);
+  if(listed?.length){const valid=[...new Set(listed.map(x=>String(x).toUpperCase()).filter(x=>names[x]))];if(valid.length)return valid;}
+  if(names[explicit])return [explicit];
   const strings=[];const seen=new WeakSet();
   function walk(value){if(typeof value==='string')strings.push(decode(value));else if(value&&typeof value==='object'&&!seen.has(value)){seen.add(value);if(Array.isArray(value))value.forEach(walk);else Object.entries(value).forEach(([key,v])=>{if(!['lines','expressions','meanings','translation','cues','fullText','segments','referenceSummary','keyLanguage'].includes(key))walk(v);});}}
-  walk(record);const tag=strings.join(' ').match(/\((BK|AU|IN)\)/i);return tag?tag[1].toUpperCase():'US';
+  walk(record);const tag=strings.join(' ').match(/\((BK|AU|IN)\)/i);return tag?[tag[1].toUpperCase()]:['US'];
  }
- function badge(record){const c=code(record),span=document.createElement('span');span.className='tt-audio-accent';span.dataset.accent=c;span.setAttribute('role','img');span.setAttribute('aria-label',names[c]);span.title=names[c];const img=document.createElement('img');img.src='/assets/audio-flags/'+c.toLowerCase()+'.svg';img.alt='';img.width=24;img.height=16;span.append(img);return span;}
+ function code(record){return codes(record).join('+');}
+ function badge(record){const list=codes(record),span=document.createElement('span');span.className='tt-audio-accent';span.dataset.accent=list.join('+');span.setAttribute('role','img');span.setAttribute('aria-label',list.map(c=>names[c]).join(' and '));span.title=list.map(c=>names[c]).join(' + ');list.forEach(c=>{const img=document.createElement('img');img.src='/assets/audio-flags/'+c.toLowerCase()+'.svg';img.alt='';img.width=24;img.height=16;span.append(img);});return span;}
  function put(target,record){if(!target)return;const c=code(record);const old=target.querySelector(':scope > .tt-audio-accent');if(old?.dataset.accent===c)return;if(old)old.remove();target.append(badge(record));}
  function refresh(){
   const english=!window.TalkTagNative&&!/\/(japanese|korean)(\/|[.\-])/i.test(location.pathname)&&!location.pathname.includes('snowballing-studio-ko');
@@ -28,7 +31,7 @@
   document.querySelectorAll('audio[src]').forEach(a=>{const section=a.closest('article,section');const title=section?.querySelector('h1,h2,h3');if(title&&!title.querySelector('.tt-audio-accent'))put(title,{audio:a.src});});
  }
  window.TalkTagAudioAccent={code,badge,refresh};
- const style=document.createElement('link');style.rel='stylesheet';style.href='/audio-accent.css?v=20261009-flags';document.head.append(style);
+ const style=document.createElement('link');style.rel='stylesheet';style.href='/audio-accent.css?v=20261012-pair-flags';document.head.append(style);
  let scheduled=false;function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;refresh();});}
  document.addEventListener('DOMContentLoaded',schedule);if(document.readyState!=='loading')schedule();
  new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['src','data-audio-accent']});

@@ -43,7 +43,9 @@
     'guided-b1-07': 'Packing a car to leave before rush-hour traffic',
     'guided-b2-07': 'Checking cancellation fees and auto-renewal on a subscription',
     'guided-c1-07': 'Agreeing on a backup plan after a missed step',
-    'guided-c2-07': 'Keeping options open until a firm date is set'
+    'guided-c2-07': 'Keeping options open until a firm date is set',
+    'guided-a1-08-miniskit-pilot': 'Two friends in a warm living room try one window, then open another',
+    'guided-a1-09-miniskit-pilot': 'Two friends by the door check for keys before heading out'
   };
   const sceneBriefings = {
     'guided-a1-01': '잠에서 깬 사람이 물을 마시고 천천히 몸을 깨우며 아침을 시작합니다.',
@@ -87,7 +89,9 @@
     'guided-b1-07': '퇴근 시간대의 정체를 피해 조금 일찍 출발하려고, 아직 준비 중인 친구를 도와 차에 짐을 싣습니다.',
     'guided-b2-07': '구독을 한 달만 먼저 써볼 수 있는지, 취소 수수료와 자동 갱신 조건은 어떤지 확인합니다.',
     'guided-c1-07': '누가 놓쳤는지 따지기보다 다음에 어떻게 할지에 초점을 두고 대안을 함께 정합니다.',
-    'guided-c2-07': '날짜가 확정되지 않은 계획에 대해 기준을 차분히 밝히고, 확정 전까지 다른 선택지도 남겨 둡니다.'
+    'guided-c2-07': '날짜가 확정되지 않은 계획에 대해 기준을 차분히 밝히고, 확정 전까지 다른 선택지도 남겨 둡니다.',
+    'guided-a1-08-miniskit-pilot': '더운 방에서 친구 둘이 창문을 열어 환기하려고 합니다. 한쪽 창문이 열리지 않아 다른 창문을 열어 봅니다.',
+    'guided-a1-09-miniskit-pilot': '외출을 앞둔 친구 둘이 현관에서 열쇠를 찾고, 탁자 위에서 발견한 뒤 함께 나섭니다.'
   };
   const nativeScenes = {
     a1: 'Two adults greeting at a cafe and offering an empty chair',
@@ -107,7 +111,7 @@
     header.append(title);
     const image = document.createElement('img');
     image.className = 'glr-scene-image';
-    image.src = native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : 'assets/glr-scenes/' + id + (/07$/.test(id) ? '.jpg' : '.webp');
+    image.src = native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : 'assets/glr-scenes/' + id.replace(/-miniskit-pilot$/, '') + (/(?:07|08|09)(?:-miniskit-pilot)?$/.test(id) ? '.jpg' : '.webp');
     image.alt = description;
     image.width = 360; image.height = 240;
     image.loading = player ? 'eager' : 'lazy';

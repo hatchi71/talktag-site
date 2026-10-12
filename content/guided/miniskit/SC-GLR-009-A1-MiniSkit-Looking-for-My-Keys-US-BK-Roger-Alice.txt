@@ -1,0 +1,15 @@
+SC · GLR · 009 · A1 · MINISKIT PILOT
+Title: Looking for My Keys
+Speakers: Roger (American), Alice (British)
+Scene: Two friends are about to leave; one looks for a set of keys by the door.
+
+Roger: Are you ready to go?
+Alice: Almost. I'm looking for my keys.
+Roger: They're on the table.
+Alice: Found them. Let's go.
+
+Korean support:
+이제 갈 준비 됐어?
+거의 다 됐어. 열쇠를 찾고 있어.
+탁자 위에 있어.
+찾았다. 가자.
