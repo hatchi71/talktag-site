@@ -1,5 +1,11 @@
 /* Shared appearance preference. Does not touch learning or audio state. */
 (() => {
+  if (!document.querySelector('script[data-talktag-share-qr]')) {
+    const shareQr = document.createElement('script');
+    shareQr.src = '/landing-share-qr.js?v=20261012-delegated-share';
+    shareQr.dataset.talktagShareQr = 'true';
+    document.head.append(shareQr);
+  }
   const spaces = document.createElement('script');
   spaces.src = '/spaces-nav.js?v=20261011-language-badge';
   spaces.defer = true;

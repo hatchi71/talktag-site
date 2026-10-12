@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261011-max006-v2';
+const CACHE_VERSION = 'talktag-pwa-20261012-qr-share-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
@@ -6,6 +6,7 @@ const APP_SHELL = [
   '/manifest.webmanifest',
   '/talktag-theme.css',
   '/talktag-theme.js',
+  '/landing-share-qr.js',
   '/spaces-nav.js',
   '/spaces-nav.css',
   '/talktag-logo.png',

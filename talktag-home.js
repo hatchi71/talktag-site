@@ -303,9 +303,6 @@
 
         // Korean navigation stays in korean.html; language switches are explicit.
 
-        const qrShareScript = document.createElement('script');
-        qrShareScript.src = 'landing-share-qr.js?v=1';
-        document.body.appendChild(qrShareScript);
       }
     }
     return;
