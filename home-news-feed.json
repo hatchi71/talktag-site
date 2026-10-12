@@ -2,6 +2,16 @@
   "version": 1,
   "items": [
     {
+      "id": "guided:010",
+      "title": "Guided L&R · 010",
+      "href": "audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+      "publishedAt": "2026-10-12T13:55:59.606Z"
+    },
+    {
       "id": "guided:009",
       "title": "Guided L&R · 009",
       "href": "audio-library.html?type=guided",

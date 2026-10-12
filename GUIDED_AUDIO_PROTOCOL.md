@@ -19,4 +19,13 @@ Validation: run `node scripts/validate-guided-cards.mjs` against the release dir
 
 V2 new-production rule (2026-10-09): new cards target 8:00-9:30 with a hard maximum of 600 seconds including cues. Shorter coherent recordings are welcome; do not add filler or slow speech to force the target. Existing legacy cards retain their previously approved <=660-second tolerance. New records carry `protocolVersion: 2`; validate actual MP3 duration <=600 as well as metadata/cues. Single-card additions may be loaded as their own content module before the parts module; include that module in the validator. Production handoff is scripts -> TTS -> operator-approved QC -> agent assembly, R2 upload and publication.
 
+## Script source and level design (added 2026-10-12)
+
+- Before drafting a new script, locate and read the assigned source material in the local `0. Reference Materials` folder. Record which source and section informed the draft. If the material is missing, inaccessible, or no level-relevant assignment is clear, stop before script drafting and ask for direction.
+- References guide level, vocabulary, and topic only. Create original spoken lines and independently written Korean support; do not copy the source's example sentences, translations, or distinctive expression sequences. Follow any user instruction limiting which languages or portions of a source may be read.
+- A1/A2: prioritize basic, high-frequency expressions and vocabulary grounded in the assigned reference; use short, concrete, easy-to-rehearse turns.
+- B1/B2: emphasize practical real-world use and progressively more complex, well-structured sentences.
+- C1/C2: use authentic contemporary American or British English as specified, including practical phrasal verbs and intellectually engaging language; avoid unnatural “advanced” wording for its own sake. Match dialogue, metadata, and voice/accent labels.
+- This content progression is additive to the existing repetition, pause, card-duration, cue, synchronization, completion, and validation rules above.
+
 C-level override (2026-10-10): C1/C2 now use 21 repetitions. Prefer finished cards below 15 minutes including 2.5x gaps and both dings; shorter coherent cards are welcome. This supersedes the 10/11-minute limit for C levels only. Existing longer C-level cards may remain. Newly assembled C-level cards carry `protocolVersion: 3` and are validated against the 900-second preferred production ceiling; if a natural full cycle cannot fit, resolve the exception before publication rather than cutting speech or repetitions. Repetition-only changes preserve completion; rebase saved positions to the corresponding sentence/repetition or reset positions safely, not to a different sentence. A/B rules remain unchanged.

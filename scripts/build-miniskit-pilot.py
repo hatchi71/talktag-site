@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble the two approved A1 MiniSkit pilots with measured speaking gaps."""
+"""Assemble the approved A1 MiniSkit pilot cards with measured speaking gaps."""
 import array
 import json
 import math
@@ -56,7 +56,7 @@ def ding_pcm(source, start, end):
     return data[int(start*RATE):int(end*RATE)]
 
 def encode_master(wav_in, mp3_out):
-    run(["ffmpeg", "-y", "-i", str(wav_in), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", str(RATE), "-ac", "1", "-b:a", "128k", "-metadata", "artist=TalkTag", "-metadata", "album=Sound Check · MiniSkit Pilot", str(mp3_out)])
+    run(["ffmpeg", "-y", "-i", str(wav_in), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", str(RATE), "-ac", "1", "-b:a", "128k", "-metadata", "artist=TalkTag", "-metadata", "album=Sound Check · MiniSkit", str(mp3_out)])
 
 def validate_decoded_silence(mp3_path, cues):
     decoded = TMP / (mp3_path.stem + "-decoded.wav")
@@ -87,13 +87,19 @@ pilots = [
         "unit": 8, "title": "Too Hot in Here", "description": "더운 방에서 창문을 열어 환기해요.", "voiceName": "Roger / Lauren", "accentTag": "US", "accentTags": ["US"], "sourceFilename": "SC-GLR-008-A1-MiniSkit-Too-Hot-US-US-Roger-Lauren.mp3", "base": "008", "speakers": ["Roger", "Lauren", "Roger", "Lauren"],
         "expressions": ["It's hot in here.", "Want me to open a window?", "This one won't open. Let's try the other one.", "There we go. Is that better?"],
         "meanings": ["여기 좀 덥다.", "창문 열어 줄까?", "이 창문은 안 열리네. 다른 창문으로 해 보자.", "됐다. 이제 좀 나아?"],
-        "image": "guided-a1-08.webp", "briefing": "더운 방에서 친구 둘이 창문을 열어 환기하려고 합니다. 한쪽 창문이 열리지 않아 다른 창문을 열어 봅니다.",
+        "image": "guided-a1-08.webp", "briefing": "더운 방에서 친구 둘이 창문을 열어 환기하려고 합니다. 한쪽 창문이 열리지 않아 다른 창문을 열어 봅니다.", "sourceDirectory": SOURCE / "glr-008-miniskit-pilot",
     },
     {
         "unit": 9, "title": "Looking for My Keys", "description": "외출 전 현관에서 열쇠를 찾고 함께 나서요.", "voiceName": "Roger / Alice", "accentTag": "US+BK", "accentTags": ["US", "BK"], "sourceFilename": "SC-GLR-009-A1-MiniSkit-Looking-for-My-Keys-US-BK-Roger-Alice.mp3", "base": "009", "speakers": ["Roger", "Alice", "Roger", "Alice"],
         "expressions": ["Are you ready to go?", "Almost. I'm looking for my keys.", "They're on the table.", "Found them. Let's go."],
         "meanings": ["이제 갈 준비 됐어?", "거의 다 됐어. 열쇠를 찾고 있어.", "탁자 위에 있어.", "찾았다. 가자."],
-        "image": "guided-a1-09.webp", "briefing": "외출을 앞둔 친구 둘이 현관에서 열쇠를 찾고, 탁자 위에서 발견한 뒤 함께 나섭니다.",
+        "image": "guided-a1-09.webp", "briefing": "외출을 앞둔 친구 둘이 현관에서 열쇠를 찾고, 탁자 위에서 발견한 뒤 함께 나섭니다.", "sourceDirectory": SOURCE / "glr-009-miniskit-pilot",
+    },
+    {
+        "unit": 10, "title": "The Blue Bin", "description": "집에서 병을 분리수거하며 알맞은 통을 찾아요.", "voiceName": "Roger / Charlie", "accentTag": "US+AU", "accentTags": ["US", "AU"], "sourceFilename": "SC-GLR-010-A1-MiniSkit-The-Blue-Bin-US-AU-Roger-Charlie.mp3", "base": "010", "speakers": ["Roger", "Charlie", "Roger", "Charlie"],
+        "expressions": ["Which bin is for bottles?", "The blue one.", "This bottle too?", "Yes. Put it in there."],
+        "meanings": ["병은 어느 통에 넣어?", "파란 통에.", "이 병도?", "응. 거기에 넣어."],
+        "image": "guided-a1-10.jpg", "briefing": "두 친구가 빈 병을 분리수거하면서 어느 통에 넣을지 묻고 답합니다.", "sourceDirectory": TMP / "glr-010-miniskit-pilot",
     },
 ]
 
@@ -102,7 +108,7 @@ for pilot in pilots:
     cues = []
     cursor = len(start_ding) / RATE
     for index, (line, speaker) in enumerate(zip(pilot["expressions"], pilot["speakers"])):
-        src_mp3 = SOURCE / ("glr-008-miniskit-pilot" if pilot["unit"] == 8 else "glr-009-miniskit-pilot") / f"{pilot['base']}-{index+1:02d}.mp3"
+        src_mp3 = pilot["sourceDirectory"] / f"{pilot['base']}-{index+1:02d}.mp3"
         temp_wav = TMP / f"{pilot['base']}-{index+1:02d}.wav"
         decode(src_mp3, temp_wav)
         raw = read_pcm(temp_wav)
@@ -136,7 +142,7 @@ for pilot in pilots:
     assets.append(pilot)
 
 out = TMP / "pilot-metadata.json"
-out.write_text(json.dumps(assets, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+out.write_text(json.dumps([{k: v for k, v in pilot.items() if k != "sourceDirectory"} for pilot in assets], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 def clock(seconds):
     total = int(round(seconds))
     return f"{total // 60}:{total % 60:02d}"
@@ -154,13 +160,13 @@ for pilot in assets:
         "audio": data["audio"], "accentTag": pilot["accentTag"], "accentTags": pilot["accentTags"], "voiceName": pilot["voiceName"],
         "sourceFilename": pilot["sourceFilename"], "protocolVersion": 2, "contentRevision": "miniskit-pilot-20261012",
         "expressions": pilot["expressions"], "meanings": pilot["meanings"], "speakers": pilot["speakers"],
-        "format": "miniskit", "pilot": True,
+        "format": "miniskit",
         "training": {"kind": "sentence-repeat", "defaultReps": 10, "silenceMultiplier": 2.5,
                      "startCueEnd": round(len(start_ding) / RATE, 5), "endingCueStart": round(data["endingStart"], 5),
                      "cues": data["cues"], "cardDings": True, "durationSeconds": data["duration"], "minimumGapSeconds": 3},
         "releaseDurationSeconds": data["duration"]
     })
-module = "/* Two original A1 MiniSkit pilots; assembled with measured response gaps and independent dings. */\n"
+module = "/* Two original A1 MiniSkit cards; assembled with measured response gaps and independent dings. */\n"
 module += "window.TalkTagAudioLessons=(window.TalkTagAudioLessons||[]).concat(" + json.dumps(cards, ensure_ascii=False, separators=(",", ":")) + ");\n"
 (ROOT / "guided-miniskit-pilots.js").write_text(module, encoding="utf-8")
 print("Built pilots:", ", ".join(p["metadata"]["audio"] for p in assets))

@@ -72,11 +72,11 @@
   }
   if (lesson.training) {
     document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0");
-    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT PILOT" : " · GUIDED PRACTICE");
+    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT" : " · GUIDED PRACTICE");
     document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.expressions.length + (lesson.format === "miniskit" ? " dialogue lines" : " sentences");
     if (lesson.partIndex) {
       document.getElementById("playerHeaderMeta").textContent += " · " + lesson.partIndex + "/" + lesson.partCount;
-    document.getElementById("lessonKicker").textContent = lesson.level + " · " + String(lesson.unit).padStart(2,"0") + "–" + String(lesson.partIndex).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT PILOT" : "");
+    document.getElementById("lessonKicker").textContent = lesson.level + " · " + String(lesson.unit).padStart(2,"0") + "–" + String(lesson.partIndex).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT" : "");
     document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.partIndex + "/" + lesson.partCount + " · 문장 " + lesson.sentenceStart + "–" + lesson.sentenceEnd;
     }
     var fields = document.querySelectorAll(".lesson-info dd");

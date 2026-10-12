@@ -1,0 +1,22 @@
+SC · GLR · 010 · A1 · MINISKIT · SCRIPT DRAFT
+Reference reviewed first: SC BC A12B12, 0. Reference Materials, English-only household/recycling vocabulary section (printed pp. 111–112; PDF pp. 113–114).
+Use: level/topic guidance only. Dialogue below is original; no source example sentence or translation is reproduced.
+Title: The Blue Bin
+Level focus: A1 basic vocabulary (bottle, bin, blue) and short practical questions/answers.
+Voice mix: Roger (American English) + Charlie (Australian English), generated with ElevenLabs multilingual v2.
+Scene: Two friends in a home kitchen sort a glass bottle and a plastic bottle. One asks which bin to use; the other points to the blue recycling bin.
+
+Speaker A (American): Which bin is for bottles?
+Speaker B (Australian): The blue one.
+Speaker A (American): This bottle too?
+Speaker B (Australian): Yes. Put it in there.
+
+Korean support (original):
+병은 어느 통에 넣어?
+파란 통에.
+이 병도?
+응. 거기에 넣어.
+
+Scene briefing (Korean): 두 친구가 빈 병을 분리수거하면서 어느 통에 넣을지 묻고 답합니다.
+
+Production: Four original dialogue lines were generated and assembled into one independent A1 card. Assembly follows GUIDED_AUDIO_PROTOCOL.md: 10 repetitions per line, measured max(2.5× spoken duration, 3 seconds) response gaps, independent start/end dings, and decoded-gap/duration/cue validation. Final release: `SC-GLR-010-A1-MiniSkit-The-Blue-Bin-US-AU-Roger-Charlie.mp3`.
