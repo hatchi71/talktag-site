@@ -11,6 +11,8 @@ for(const l of lessons){
  if(!cLevel||l.protocolVersion>=3){assert(m*60+s<=ceiling,'Split required: '+l.id);assert(l.training.durationSeconds<=ceiling,l.id+' actual duration exceeds ceiling');assert(l.training.endingCueStart<=ceiling,l.id+' cue exceeds ceiling');}
  assert.equal(l.expressions.length,l.meanings.length,l.id+' translation coverage');
  assert.equal(l.training.defaultReps,/^C/.test(l.level)?21:(/^B/.test(l.level)?15:10));
+ assert.equal(l.training.silenceMultiplier,2.5,l.id+' silence multiplier');
+ assert.equal(l.training.minimumGapSeconds,3,l.id+' minimum response gap');
  const cues=l.training.cues;assert(cues?.length,l.id+' cues missing');
  assert(l.training.startCueEnd>0,l.id+' starting ding missing');
  assert(cues[0].s>=l.training.startCueEnd-.06,l.id+' starting ding overlaps speech');
@@ -19,11 +21,11 @@ for(const l of lessons){
  assert(cues.at(-1).e<=l.training.durationSeconds+.06,l.id+' cue exceeds card duration');
  for(let i=0;i<l.expressions.length;i++){
  const sentence=cues.filter(c=>c.i===i);assert.equal(sentence.length,l.training.defaultReps,l.id+' incomplete repetition cycle');
- sentence.forEach((c,r)=>{assert.equal(c.r,r+1);assert(c.s>=0&&c.voiceEnd>c.s&&c.e>c.voiceEnd);assert(Math.abs((c.e-c.voiceEnd)/(c.voiceEnd-c.s)-2.5)<.002);});
+ sentence.forEach((c,r)=>{assert.equal(c.r,r+1);assert(c.s>=0&&c.voiceEnd>c.s&&c.e>c.voiceEnd);const expectedGap=Math.max(3,2.5*(c.voiceEnd-c.s));assert((c.e-c.voiceEnd)>=expectedGap-.01,l.id+' cue '+c.i+'/'+c.r+' response gap must be at least max(2.5× voice, 3 s)');});
  }
 }
 for(const id of new Set((context.window.TalkTagGuidedParts||[]).map(p=>p.sourceId))){
  const group=lessons.filter(p=>p.sourceId===id);let next=1;group.forEach((p,i)=>{assert.equal(p.partIndex,i+1);assert.equal(p.sentenceStart,next);next=p.sentenceEnd+1;});
  const original=context.window.TalkTagGuidedDrills[id];assert.equal(next-1,Math.max(...original.cues.map(c=>c.i))+1,id+' missing sentences');
 }
-console.log('PASS: '+lessons.length+' guided cards, A=10/B=15/C=21 repetitions, level-specific duration limits, bilingual scripts and rebased cues.');
+console.log('PASS: '+lessons.length+' guided cards, A=10/B=15/C=21 repetitions, max(2.5× voice, 3 s) response gaps, level-specific duration limits, bilingual scripts and rebased cues.');

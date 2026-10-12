@@ -4,7 +4,7 @@ Approved 2026-10-09. Applies to every current and future Guided L&R upload, incl
 
 - Episodes exceeding 10 minutes must be split into separately selectable, manually completable cards.
 - Aim for approximately 9–10 minutes; natural sentence boundaries may extend a card to 11 minutes maximum. Shorter cards are preferable to cutting a repetition cycle or padding with silence.
-- Keep all repetitions of a sentence together in one card: A1/A2 10 repetitions; B1/B2 15 repetitions; C1/C2 21 repetitions (updated 2026-10-10). Preserve the existing 2.5-times voice-duration response gap.
+- Keep all repetitions of a sentence together in one card: A1/A2 10 repetitions; B1/B2 15 repetitions; C1/C2 21 repetitions (updated 2026-10-10). After each spoken repetition, leave an actual decoded-silence gap of at least `max(2.5 × spoken-voice duration, 3 seconds)`. For MP3, include a small encoding cushion so decoded silence does not fall below the minimum.
 - Partition in original sentence order. Every sentence and repetition must occur exactly once across the cards, with no omissions or duplicate material.
 - Preserve audio quality. Use frame-preserving MP3 cuts when safe; never re-encode merely to shrink files.
 - Updated 2026-10-09: every independently selectable card, including split parts, must have its own starting and ending dings. Never duplicate an existing boundary ding. Include both dings in actual card duration and rebase synchronized cues when prepending sound. This supersedes the original first-part/last-part-only rule.
