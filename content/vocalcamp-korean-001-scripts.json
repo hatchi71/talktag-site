@@ -4,8 +4,40 @@
   "title": "A Small Gift, A Longer Conversation",
   "language": "ko",
   "learnerGuidanceLanguage": "en",
-  "status": "script-draft",
+  "source": "Original TalkTag Korean Vocal Camp script; level progression follows TalkTag A1–C2 guidance.",
+  "voice": {"name": "Leejin - Korean Female Voice", "voiceId": "F9mMsBUFaCLedtYXXjLD", "modelId": "eleven_multilingual_v2"},
+  "audioQc": {"status": "generated-and-duration-verified", "lineAudio": "ElevenLabs per-sentence generation", "cumulativeSteps": "0.70-second natural boundaries between lines"},
+  "status": "approved",
   "levels": {
+    "A1": {
+      "objective": "Tell a simple story about noticing a tired coworker, offering a snack, and starting a friendly conversation.",
+      "lines": [
+        {"ko": "오늘 회사에서 동료가 조금 힘들어 보였어요.", "en": "Today at work, my coworker looked a little tired."},
+        {"ko": "저는 작은 간식을 하나 준비했어요.", "en": "I prepared a small snack."},
+        {"ko": "동료가 웃으며 고맙다고 말했어요.", "en": "My coworker smiled and said thank you."},
+        {"ko": "우리는 간식과 좋아하는 음식에 대해 이야기했어요.", "en": "We talked about the snack and the food we like."}
+      ]
+    },
+    "A2": {
+      "objective": "Describe how a small unexpected gift turned a short greeting into a longer lunchtime conversation.",
+      "lines": [
+        {"ko": "오늘 회사에서 동료가 조금 힘들어 보여서 작은 간식을 준비했어요.", "en": "My coworker looked a little tired at work today, so I prepared a small snack."},
+        {"ko": "동료는 뜻밖의 선물이라며 정말 고마워했어요.", "en": "My coworker was very grateful and said it was an unexpected gift."},
+        {"ko": "어디에서 샀는지 묻길래 집 근처 가게라고 말했어요.", "en": "When they asked where I bought it, I said it was from a shop near my home."},
+        {"ko": "우리는 자주 가는 가게와 좋아하는 음식 이야기를 나눴어요.", "en": "We talked about the shops we often visit and the food we like."},
+        {"ko": "짧은 인사로 시작한 대화가 점심시간까지 이어졌어요.", "en": "The conversation that began with a short greeting continued until lunchtime."}
+      ]
+    },
+    "B1": {
+      "objective": "Explain how a small act of kindness created a comfortable opportunity to get to know a coworker.",
+      "lines": [
+        {"ko": "오늘 회사에서 동료가 많이 지쳐 보여서 작은 간식을 준비했어요.", "en": "My coworker looked very tired at work today, so I prepared a small snack."},
+        {"ko": "특별한 선물은 아니었지만, 동료는 생각해 줘서 고맙다고 했어요.", "en": "It was not a special gift, but my coworker thanked me for thinking of them."},
+        {"ko": "어디서 샀는지 묻는 질문에 답하다 보니, 우리는 좋아하는 음식 이야기를 시작했어요.", "en": "As I answered where I bought it, we began talking about the food we like."},
+        {"ko": "처음에는 짧게 인사하려고 했는데 대화가 자연스럽게 길어졌어요.", "en": "At first I only meant to say a quick hello, but the conversation naturally grew longer."},
+        {"ko": "작은 친절 하나가 서로를 더 편하게 알아가는 기회가 되었다고 느꼈어요.", "en": "I felt that one small act of kindness gave us a chance to get to know each other more comfortably."}
+      ]
+    },
     "B2": {
       "objective": "Tell a short story about bringing an unexpected gift and explain how the conversation changed.",
       "lines": [

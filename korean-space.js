@@ -41,8 +41,11 @@
   window.TalkTagCampBrowser.mount(document.getElementById('koreanCampBrowser'),{camp:track,language:'ko',starters:lessons,starterDone:x=>Boolean(state[x.id]?.done),starterUndo:id=>{state[id]={...state[id],done:false,step:0};save()}});
   return;
  }
- if(track==='vocal'||track==='essays'){
-  const title=track==='vocal'?'Vocal Camp':'Audio Essays & Articles';document.title='Korean '+title+' · TalkTag';
+ if(track==='essays'){
+  const target=new URL('K-korean-audio-library.html',location.href);target.searchParams.set('type','plain');const level=params.get('level');if(level)target.searchParams.set('level',level);location.replace(target.href+location.hash);return;
+ }
+ if(track==='vocal'){
+  const title='Vocal Camp';document.title='Korean '+title+' · TalkTag';
   studio.innerHTML='<div class="kr-kicker">KOREAN · COMING SOON</div><h1>'+title+'</h1><section class="kr-card"><h2>Recordings are in preparation.</h2><p>This section will use the same learning structure as the English Studio, with Korean audio and English guidance. No recorded Korean lessons are available here yet.</p><a class="kr-button" href="K-korean-starter.html?type=practice">Try the Korean starter expressions →</a></section>';return;
  }
  if(!lesson){

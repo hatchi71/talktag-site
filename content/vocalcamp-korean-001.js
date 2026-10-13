@@ -1,14 +1,66 @@
 window.TALKTAG_VOCALCAMP_KOREAN = {
-  version: "2026-10-13-korean-001-audio-qc1",
+  version: "2026-10-13-korean-001-published1",
   families: [{
     number: "001",
     title: "A Small Gift, A Longer Conversation",
     slug: "a-small-gift-a-longer-conversation",
     theme: "A small act of kindness opens a longer conversation.",
-    levels: ["B2", "C1", "C2"],
-    status: "audio-qc",
+    levels: ["A1", "A2", "B1", "B2", "C1", "C2"],
+    status: "published",
     audioStatus: "ready",
     levelsData: {
+      A1: {
+        status: "ready",
+        lines: [
+          "오늘 회사에서 동료가 조금 힘들어 보였어요.",
+          "저는 작은 간식을 하나 준비했어요.",
+          "동료가 웃으며 고맙다고 말했어요.",
+          "우리는 간식과 좋아하는 음식에 대해 이야기했어요."
+        ],
+        translation: [
+          "Today at work, my coworker looked a little tired.",
+          "I prepared a small snack.",
+          "My coworker smiled and said thank you.",
+          "We talked about the snack and the food we like."
+        ],
+        audioSteps: Array.from({length: 4}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/A1/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+      },
+      A2: {
+        status: "ready",
+        lines: [
+          "오늘 회사에서 동료가 조금 힘들어 보여서 작은 간식을 준비했어요.",
+          "동료는 뜻밖의 선물이라며 정말 고마워했어요.",
+          "어디에서 샀는지 묻길래 집 근처 가게라고 말했어요.",
+          "우리는 자주 가는 가게와 좋아하는 음식 이야기를 나눴어요.",
+          "짧은 인사로 시작한 대화가 점심시간까지 이어졌어요."
+        ],
+        translation: [
+          "My coworker looked a little tired at work today, so I prepared a small snack.",
+          "My coworker was very grateful and said it was an unexpected gift.",
+          "When they asked where I bought it, I said it was from a shop near my home.",
+          "We talked about the shops we often visit and the food we like.",
+          "The conversation that began with a short greeting continued until lunchtime."
+        ],
+        audioSteps: Array.from({length: 5}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/A2/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+      },
+      B1: {
+        status: "ready",
+        lines: [
+          "오늘 회사에서 동료가 많이 지쳐 보여서 작은 간식을 준비했어요.",
+          "특별한 선물은 아니었지만, 동료는 생각해 줘서 고맙다고 했어요.",
+          "어디서 샀는지 묻는 질문에 답하다 보니, 우리는 좋아하는 음식 이야기를 시작했어요.",
+          "처음에는 짧게 인사하려고 했는데 대화가 자연스럽게 길어졌어요.",
+          "작은 친절 하나가 서로를 더 편하게 알아가는 기회가 되었다고 느꼈어요."
+        ],
+        translation: [
+          "My coworker looked very tired at work today, so I prepared a small snack.",
+          "It was not a special gift, but my coworker thanked me for thinking of them.",
+          "As I answered where I bought it, we began talking about the food we like.",
+          "At first I only meant to say a quick hello, but the conversation naturally grew longer.",
+          "I felt that one small act of kindness gave us a chance to get to know each other more comfortably."
+        ],
+        audioSteps: Array.from({length: 5}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/B1/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+      },
       B2: {
         status: "ready",
         lines: [

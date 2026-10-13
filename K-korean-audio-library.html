@@ -13,12 +13,13 @@
 <link rel="stylesheet" href="sound-check.css?v=20261009-mobile-spacing">
 <link rel="stylesheet" href="/guided-library.css?v=20261010-level-progress">
 <link rel="stylesheet" href="/glr-scenes.css?v=20261010-scenes">
+<link rel="stylesheet" href="/studio-cefr.css?v=20261013-sound-cefr">
 <script>window.TalkTagNative={"language":"ko","ui":"en","libraryPage":"K-korean-audio-library.html","playerPage":"K-korean-audio-player.html","studioPage":"K-korean-learning.html","homePage":"K-korean.html"}</script>
 <script src="/native-guided-data.js?v=20261012-native-catalog" defer></script>
 <script src="/native-guided-ko-002.js?v=20261013-ko002" defer></script>
 <script src="/native-audio-catalog.js?v=20261012-native-catalog" defer></script>
 <script src="/content-completion.js?v=20261010-native001" defer></script>
-<script src="/native-audio-library.js?v=20261010-native001" defer></script>
+<script src="/native-audio-library.js?v=20261013-cefr-sound-check" defer></script>
 <script src="/talktag-theme.js?v=20261010-native001" defer></script>
 <script src="/native-audio-ui.js?v=20261013-ko002" defer></script>
 <script src="/glr-scenes.js?v=20261013-ko002" defer></script>
@@ -31,6 +32,20 @@
     <section class="catalog-head"><div><div class="eyebrow" id="libraryEyebrow">GUIDED LISTEN &amp; REPEAT</div><h1 id="libraryTitle">Guided Practice</h1><p id="libraryDescription">제공자가 편집한 반복 훈련 음원을 그대로 재생합니다.</p></div><div class="type-switch"><a id="guidedSwitch" href="K-korean-audio-library.html?type=guided&amp;level=A1">Guided L&amp;R</a><a id="plainSwitch" href="K-korean-audio-essays.html?type=plain&amp;level=A1">Essays &amp; Articles</a></div></section>
 
     <nav class="filter-bar" aria-label="CEFR level"><a data-level="A1">A1</a><a data-level="A2">A2</a><a data-level="B1">B1</a><a data-level="B2">B2</a><a data-level="C1">C1</a><a data-level="C2">C2</a></nav>
+    <section class="cefr studio-cefr audio-cefr-guide" id="cefrGuide" aria-labelledby="cefrGuideTitle">
+      <div class="section-tag">CEFR GUIDE · UNDERSTANDING LEVELS</div>
+      <h2 id="cefrGuideTitle">What do A1–C2 language levels mean?</h2>
+      <p><strong>CEFR (Common European Framework of Reference for Languages)</strong> describes language ability across six levels, from A1 to C2. It is about what you can understand and do in real situations—not just vocabulary counts or test scores.</p>
+      <div class="scale">
+        <div class="band"><em>BASIC USER</em><b>A1 · Beginner</b><span>Understand and use familiar everyday expressions and very basic sentences.</span></div>
+        <div class="band"><em>BASIC USER</em><b>A2 · Elementary</b><span>Exchange simple information about familiar, everyday topics.</span></div>
+        <div class="band"><em>INDEPENDENT USER</em><b>B1 · Intermediate</b><span>Understand main points on familiar topics and connect ideas about experiences, plans and opinions.</span></div>
+        <div class="band"><em>INDEPENDENT USER</em><b>B2 · Upper intermediate</b><span>Understand the main ideas of complex texts and discuss views with detail and relative fluency.</span></div>
+        <div class="band"><em>PROFICIENT USER</em><b>C1 · Advanced</b><span>Understand implied meaning in demanding texts and express complex ideas fluently and flexibly.</span></div>
+        <div class="band"><em>PROFICIENT USER</em><b>C2 · Proficient</b><span>Understand a very wide range of language and express subtle distinctions precisely and naturally.</span></div>
+      </div>
+      <div class="notice"><strong>Important:</strong> This is a language-level guide, not an official assessment. A learner’s ability includes listening, reading, interaction, speaking and writing—not completion of a single lesson.</div>
+    </section>
     <section class="lesson-list" id="lessonList"></section>
     <section class="audio-missions" aria-label="이 트랙의 완료한 미션"><button class="audio-missions-toggle" id="audioMissionsToggle" aria-expanded="false" aria-controls="audioMissionList"><span aria-hidden="true">🍂</span><span>완료한 미션 <small id="audioMissionScope"></small></span><span id="audioMissionCount">0</span></button><div id="audioMissionList" hidden></div><p id="audioMissionNotice" class="audio-mission-notice" role="status"></p></section>
     <section class="essay-practice" id="essayGuide" hidden aria-label="에세이 훈련 흐름">
