@@ -11,7 +11,7 @@
   spaces.defer = true;
   document.head.append(spaces);
   if(location.pathname.startsWith('/japanese/')){
-    const structure=document.createElement('script');structure.src='/japanese/studio-structure.js?v=20261011';structure.defer=true;document.head.append(structure);
+    const structure=document.createElement('script');structure.src='/japanese/studio-structure.js?v=20261013-level-first';structure.defer=true;document.head.append(structure);
   }
   if(!document.querySelector('script[data-audio-accent]')){const accents=document.createElement('script');accents.src='/audio-accent.js?v=20261012-pair-flags';accents.dataset.audioAccent='true';document.head.append(accents);}
   if (!document.querySelector('script[src*="/pwa.js"]')) {
@@ -21,7 +21,7 @@
   }
   if (!document.querySelector('script[data-talktag-myspace]')) {
     const activity = document.createElement('script');
-    activity.src = '/myspace.js?v=20261009-clarity';
+    activity.src = '/myspace.js?v=20261013-camp-level-first';
     activity.dataset.talktagMyspace = 'true';
     document.head.append(activity);
   }
@@ -108,8 +108,8 @@
           const lesson=(window.TalkTagAudioLessons||[]).find(item=>item.id===params.get('id'));
           return '/audio-library.html?type='+(lesson?.type==='plain'?'plain':'guided')+'&level='+encodeURIComponent(lesson?.level||level);
         }
-        if(file==='vocalcamp-player.html')return '/vocalcamp-family.html?family='+family;
-        if(file==='storycamp-reader.html')return '/storycamp-family.html?family='+family;
+        if(file==='vocalcamp-player.html')return '/vocal-camp.html?level='+level;
+        if(file==='storycamp-reader.html')return '/story-camp.html?level='+level;
         if(file==='vocalcamp-family.html'||file==='vocal-a1-pilot.html')return '/vocal-camp.html';
         if(file==='storycamp-family.html'||file==='storycamp-level.html')return '/story-camp.html';
         if(file==='vocal-camp.html'||file==='story-camp.html')return '/snowballing-studio.html#boot-camp';
@@ -135,6 +135,7 @@
       category.className = 'tt-route-category';
       const studioLanding = !japanese && ['/story-camp.html','/vocal-camp.html','/readable.html'].includes(path);
       category.href = studioLanding ? '/snowballing-studio.html'+(path==='/readable.html'?'':'#boot-camp') : route[1];
+      if(!japanese&&/\/(storycamp-reader|vocalcamp-player)\.html$/.test(path))category.href=route[1]+'?level='+encodeURIComponent(new URLSearchParams(location.search).get('level')||'A1');
       category.innerHTML = `<span aria-hidden="true">⌂</span><b>${studioLanding ? 'Studio' : route[2]}</b>`;
       if(!japanese && path==='/snowballing-studio.html'){
         category.href='/';

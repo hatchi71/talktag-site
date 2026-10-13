@@ -11,8 +11,9 @@
   <script src="vocalcamp-manifest.js?v=20261009-ko-review"></script>
   <link rel="stylesheet" href="content-completion.css?v=2">
   <script src="content-completion.js?v=20261009-sound-ux" defer></script>
-  <link rel="stylesheet" href="storycamp-leaves.css?v=20261007">
-  <script src="storycamp-leaves.js?v=20261008-completed-missions" defer></script>
+  <link rel="stylesheet" href="bootcamp-browser.css?v=20261013-level-first">
+  <script src="camp-progress.js?v=20261013-level-first" defer></script>
+  <script src="bootcamp-browser.js?v=20261013-level-first" defer></script>
 <link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
 <script src="talktag-theme.js?v=20261009-mobile-spacing"></script>
 <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
@@ -23,15 +24,8 @@
     <div class="ey">VOCAL CAMP · BUILD</div>
     <h1>Vocal Camp</h1>
     <p class="intro">같은 이야기를 소리로 익히고, 기억에서 꺼내 나의 말로 전달합니다.</p>
-    <section class="choose" id="vocal-camp"><div class="ey">NUMBERED STORY SERIES · 001–999</div><h2>Story Family를 선택하세요</h2><div class="catalog-tools"><label for="familySearch">번호 또는 제목 찾기</label><input id="familySearch" type="search" inputmode="search" placeholder="예: 001 또는 Sandwich" autocomplete="off"><div class="catalog-status" id="catalogStatus" aria-live="polite"></div></div><div class="levels family-catalog" id="familyCatalog"></div><nav class="catalog-pages" aria-label="Story Family 페이지"><button id="catalogPrev" type="button">← 이전</button><span id="catalogPage"></span><button id="catalogNext" type="button">다음 →</button></nav></section>
+    <section class="choose" id="vocal-camp" aria-label="Vocal Camp 학습 목록"></section>
     <details class="tt-help"><summary>훈련 방법</summary><section class="method"><h2>소리에서 나의 이야기로</h2><div class="flow"><div>LISTEN & REPEAT<br>누적해서 듣고 말하기</div><div>SAY & WRITE<br>그대로 말하고 쓰기</div><div>MY STORY<br>내 이야기 만들기</div><div>SHARE<br>파트너에게 말하기</div></div></section></details>
-    <p class="notice">레벨 표시는 CEFR 학습 난이도 가이드이며 공식 등급 판정이 아닙니다.</p>
   </main>
-  <script>
-    const catalog=document.getElementById('familyCatalog'),search=document.getElementById('familySearch'),status=document.getElementById('catalogStatus'),pageLabel=document.getElementById('catalogPage'),previous=document.getElementById('catalogPrev'),next=document.getElementById('catalogNext');
-    const pageSize=24,families=(window.TALKTAG_VOCALCAMP_MANIFEST?.families||[]).filter(item=>item.status==='published');let page=1,filtered=families;
-    function renderCatalog(){const active=filtered.filter(item=>!window.TalkTagCompletion?.get(`vocalcamp-family:${item.number}`));const pageCount=Math.max(1,Math.ceil(active.length/pageSize));page=Math.min(page,pageCount);const start=(page-1)*pageSize,items=active.slice(start,start+pageSize);catalog.innerHTML=items.map(item=>`<a class="level-card family-card" data-completion-id="vocalcamp-family:${item.number}" href="vocalcamp-family.html?family=${item.number}"><div class="level"><span class="family-number">${item.number}</span><span class="family-kind"> · STORY FAMILY</span></div><h3>${item.title}</h3><p>${item.theme}</p><span class="vocal-audio-badge">${item.audioStatus==='ready'?'음원 공개':'음원 준비 중'}</span><span class="open">STORY FAMILY ${item.number} 열기 →</span></a>`).join('')||'<p class="notice">'+(filtered.length?'모든 미션을 완료했습니다.':'일치하는 Story Family가 없습니다.')+'</p>';if(window.TalkTagCompletion)window.TalkTagCompletion.mount(catalog);status.textContent=`공개 ${families.length}개 · 학습할 이야기 ${active.length}개`;pageLabel.textContent=`${page} / ${pageCount}`;previous.disabled=page<=1;next.disabled=page>=pageCount;document.querySelector('.catalog-pages').hidden=pageCount===1}
-    search.addEventListener('input',()=>{const term=search.value.trim().toLowerCase();filtered=families.filter(item=>!term||item.number.includes(term)||item.title.toLowerCase().includes(term));page=1;renderCatalog()});previous.addEventListener('click',()=>{page-=1;renderCatalog();document.getElementById('vocal-camp').scrollIntoView()});next.addEventListener('click',()=>{page+=1;renderCatalog();document.getElementById('vocal-camp').scrollIntoView()});renderCatalog();
-  </script>
 </body>
 </html>

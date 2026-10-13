@@ -7,6 +7,7 @@
  const read=(key,fallback={})=>{try{const x=JSON.parse(localStorage.getItem(key)||'null');return x&&typeof x==='object'&&!Array.isArray(x)?x:fallback}catch{return fallback}};
  const write=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true}catch{storageUnavailable=true;return false}};
  const value=key=>{try{return localStorage.getItem(key)}catch{return null}};
+ const campDone=(camp,level,number)=>{const id=camp+':'+level+':'+Number(number),all=read(COMPLETED);return Boolean(all[id]||(read('talktag-camp-completion-overrides:v1')[id]!==false&&all[camp+'-family:'+String(number).padStart(3,'0')]))};
  const valid=href=>{try{const u=new URL(href,location.origin);return u.origin===location.origin&&!/backstage|\/api\/|meetup-map|offline/i.test(u.pathname)&&(/\.html$/.test(u.pathname)||u.pathname.endsWith('/'))?u:null}catch{return null}};
  function current(){
   const url=new URL(location.href);
@@ -43,6 +44,7 @@
  function progress(entry){
   const u=new URL(entry.href,location.origin),p=u.searchParams;
   if(u.pathname.endsWith('/storycamp-reader.html')){
+   if(campDone('storycamp',p.get('level'),p.get('family')))return null;
    const key='talktag-storycamp-card-'+p.get('family')+'-'+p.get('level');
    let stage=Number(value(key)||0);
    const legacyCounts={'001':{A1:7,A2:8,B1:10,B2:12,C1:16,C2:21},'002':{A1:6,A2:7,B1:8,B2:8,C1:8,C2:8}};
@@ -51,6 +53,7 @@
    return stage>0?{label:'이어서 '+(stage+1)+'단계',stage}:null;
   }
   if(u.pathname.endsWith('/vocalcamp-player.html')){
+   if(campDone('vocalcamp',p.get('level'),p.get('family')))return null;
    const state=read('talktag-vocal-pilot-simple-family-'+p.get('family')+'-'+p.get('level'));
    const rounds=Array.isArray(state.counts)?state.counts.reduce((n,x)=>n+(Number(x)||0),0):0;
    return state.card>0||rounds>0?{label:'이어서 '+((state.card||0)+1)+'단계'+(rounds?' · 반복 '+rounds+'회':''),stage:state.card||0}:null;
@@ -104,6 +107,8 @@
    return {...data,language:'en',title:(camp==='storycamp'?'Story Camp':'Vocal Camp')+' · '+number+' '+family.title,href:'/'+camp+'-family.html?family='+number};
   }
   const lesson=id.startsWith('audio:')&&window.TalkTagAudioLessons?.find(x=>x.id===id.slice(6));
+  const campLesson=id.match(/^(storycamp|vocalcamp):(A1|A2|B1|B2|C1|C2):(\d+)$/);
+  if(campLesson){const [_,camp,level,n]=campLesson,number=String(n).padStart(3,'0'),family=window[camp==='storycamp'?'TALKTAG_STORYCAMP_MANIFEST':'TALKTAG_VOCALCAMP_MANIFEST']?.families.find(x=>x.number===number);if(!family)return null;return {...data,language:'en',title:(camp==='storycamp'?'Story Camp':'Vocal Camp')+' · '+level+' · '+number+' '+family.title,href:'/'+camp+(camp==='storycamp'?'-reader':'-player')+'.html?level='+level+'&family='+number};}
   if(lesson)return {...data,language:'en',title:lesson.level+' · '+lesson.title,href:'/audio-player.html?id='+encodeURIComponent(lesson.id)};
   const reading=id.match(/^readable:(A1|A2|B1|B2|C1|C2):(\d+)$/);
   if(reading)return {...data,language:'en',title:'Readable · '+reading[1]+' · '+reading[2],href:'/'+(['C1','C2'].includes(reading[1])?'readable-advanced':'readable-strict')+'.html?level='+reading[1]+'&id='+reading[2]};

@@ -10,6 +10,8 @@
   document.querySelectorAll('.ja-related').forEach(nav=>{nav.innerHTML='<a href="'+sound+'">01 · Sound Check</a><a href="'+boot+'">02 · Boot Camp</a><a href="readable.html">03 · Readable</a>';});
   const titles={'vocal-camp.html':['Vocal Camp','同じ物語を、声から。','원어민의 음성을 듣고 따라하세요. 한 문장씩 소리가 자라납니다. 이야기의 끝까지 따라가 보세요!'],'story-camp.html':['Story Camp','STORY CAMP · REBUILD','이야기를 쌓고, 기억해서 말하고, 나의 이야기로 바꿉니다.'],'readable.html':['Readable','READ → RECALL → RETELL','읽고, 덮고, 기억한 내용을 내 말로 다시 이야기합니다.'],'audio-essays.html':['Audio Essays & Articles','SOUND CHECK · LONGER LISTENING','이야기를 듣고, 기억한 핵심 내용을 노트에 정리한 뒤 자신이나 파트너에게 다시 이야기해 보세요.']};
   const info=titles[file];if(!info)return;
+  // Camp landings are owned by the shared level-first browser, not this legacy placeholder.
+  if(file==='vocal-camp.html'||file==='story-camp.html')return;
   const main=document.querySelector('main');if(!main)return;document.body.classList.add('ja-studio-aligned');
   const title=info[0],camp=/^(vocal|story)-camp/.test(file),parent=camp?boot:file==='audio-essays.html'?sound:studio;
   const back=document.querySelector('.tt-route-previous'),category=document.querySelector('.tt-route-category');

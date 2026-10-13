@@ -33,6 +33,14 @@
  const studio=document.getElementById('kr-studio'),host=document.getElementById('kr-lesson');
  document.getElementById('kr-back').href='korean-learning.html';document.getElementById('kr-back').textContent='← Studio';
  const track=params.get('type');
+ if(!lesson&&(track==='story'||track==='vocal')){
+  const title=track==='story'?'Story Camp':'Vocal Camp';
+  document.title='Korean '+title+' · TalkTag';
+  const brand=document.querySelector('.kr-brand span');if(brand)brand.innerHTML=title+'<small>KOREAN · BOOT CAMP</small>';
+  studio.innerHTML='<div class="kr-kicker">KOREAN · BOOT CAMP</div><h1>'+title+'</h1><p>'+(track==='story'?'Build a short Korean story, remember it, and tell it in your own words.':'Build a Korean story through cumulative listening and speaking.')+'</p><section id="koreanCampBrowser"></section>';
+  window.TalkTagCampBrowser.mount(document.getElementById('koreanCampBrowser'),{camp:track,language:'ko',starters:lessons,starterDone:x=>Boolean(state[x.id]?.done),starterUndo:id=>{state[id]={...state[id],done:false,step:0};save()}});
+  return;
+ }
  if(track==='vocal'||track==='essays'){
   const title=track==='vocal'?'Vocal Camp':'Audio Essays & Articles';document.title='Korean '+title+' · TalkTag';
   studio.innerHTML='<div class="kr-kicker">KOREAN · COMING SOON</div><h1>'+title+'</h1><section class="kr-card"><h2>Recordings are in preparation.</h2><p>This section will use the same learning structure as the English Studio, with Korean audio and English guidance. No recorded Korean lessons are available here yet.</p><a class="kr-button" href="korean-starter.html?type=practice">Try the Korean starter expressions →</a></section>';return;
@@ -42,7 +50,7 @@
   document.title='Korean '+label+' · Starter collection · TalkTag';
   studio.innerHTML='<div class="kr-kicker">KOREAN · STARTER COLLECTION · 001–006</div><h1>'+label+'</h1><p>'+(mode==='practice'?'Short Korean expressions with English support. These starter previews offer optional device-generated pronunciation, not recorded repetition drills.':mode==='story'?'Remember a short Korean scene, then rebuild it and tell it in your own words.':'Read a short Korean scene. Close it. Tell it in your own words.')+'</p><p>'+lessons.filter(x=>state[x.id]?.done).length+' / '+lessons.length+' starter missions completed. These activities share the same starter themes and progress.</p><div class="kr-grid">'+(cards(mode,true)||'<p>All starter missions completed. Reopen them below whenever you like.</p>')+'</div>'+shelf();wireUndo();return;
  }
- studio.hidden=true;host.hidden=false;document.getElementById('kr-back').href='korean-learning.html';document.getElementById('kr-back').textContent='← Studio';
+ studio.hidden=true;host.hidden=false;document.getElementById('kr-back').href=mode==='story'?'korean-starter.html?type=story&level='+encodeURIComponent(params.get('level')||'A1'):'korean-learning.html';document.getElementById('kr-back').textContent=mode==='story'?'← Story Camp':'← Studio';
  const firstStep=mode==='practice'?0:2;
  let step=state[lesson.id]?.done?firstStep:Math.min(3,Math.max(0,Number(state[lesson.id]?.step??firstStep)||0));
  const steps=['Expressions','Build sentences','Read & remember','Retell & share'];let script='both';
@@ -59,6 +67,6 @@
   stage.querySelector('textarea')?.addEventListener('input',e=>{const s=state[lesson.id]||{};state[lesson.id]={...s,notes:{...s.notes,[step]:e.target.value}};save()});
  }
  function move(n){step=n;state[lesson.id]={...state[lesson.id],step};save();render()}
- document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>move(Number(b.dataset.step)));document.getElementById('kr-prev').onclick=()=>move(Math.max(0,step-1));document.getElementById('kr-next').onclick=()=>{if(step<3)move(step+1);else{state[lesson.id]={...state[lesson.id],done:true,step:0,completedAt:Date.now()};save();location.href='korean-learning.html'}};
+ document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>move(Number(b.dataset.step)));document.getElementById('kr-prev').onclick=()=>move(Math.max(0,step-1));document.getElementById('kr-next').onclick=()=>{if(step<3)move(step+1);else{state[lesson.id]={...state[lesson.id],done:true,step:0,completedAt:Date.now()};save();location.href=mode==='story'?'korean-starter.html?type=story&level='+encodeURIComponent(params.get('level')||'A1'):'korean-learning.html'}};
  addEventListener('pagehide',()=>speech?.cancel());render();
 })();
