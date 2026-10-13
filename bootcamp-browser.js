@@ -125,6 +125,7 @@
     const camp = file.startsWith('vocal') ? 'vocal' : 'story';
     if (location.pathname.startsWith('/japanese/')) {
       const main = document.querySelector('main');
+      document.body.classList.add('ja-bootcamp-shell');
       document.body.classList.add('ja-studio-aligned');
       const brand = document.querySelector('.ja-brand span'); if (brand) brand.textContent = camp === 'vocal' ? 'Vocal Camp' : 'Story Camp';
       const category = document.querySelector('.tt-route-category'); if (category) { category.href = 'snowballing.html#boot-camp'; category.innerHTML = '<span aria-hidden="true">⌂</span><b>Studio</b>'; }

@@ -11,6 +11,7 @@ a{color:var(--tt-accent,#1768d5);text-underline-offset:4px}a:focus-visible,butto
 h1{font-size:clamp(2rem,5vw,4rem);line-height:1.15;letter-spacing:-.035em;margin:12px 0 20px;overflow-wrap:anywhere}h2{font-size:1.4rem;line-height:1.35;margin:0 0 12px;overflow-wrap:anywhere}
 .ja-hero>p{max-width:760px}.ja-note{color:var(--tt-muted);border-left:3px solid var(--tt-accent);padding-left:14px}
 .ja-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:16px 0 40px}
+.ja-bootcamp-shell .ja-grid{display:none}
 .ja-card{display:flex;flex-direction:column;min-width:0;min-height:220px;padding:28px;border:1px solid var(--tt-border);border-radius:24px;background:var(--tt-card);text-decoration:none;color:var(--tt-text);box-shadow:0 10px 28px #00000008}
 .ja-card p{color:var(--tt-muted);margin:0 0 24px}.ja-card span{margin-top:auto;color:var(--tt-accent);font-weight:700}.ja-card:hover{border-color:var(--tt-accent)}
 .ja-empty{padding:28px;border:1px solid var(--tt-border);border-radius:24px;background:var(--tt-card);margin-bottom:40px}
