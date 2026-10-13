@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Assemble original MiniSkit source dialogues into protocol-checked GLR cards."""
 import array
+import hashlib
 import json
 import math
 import pathlib
@@ -253,6 +254,7 @@ for card in CONTENT["cards"]:
         if actual_duration > hard_limit:
             raise ValueError(f"Duration {actual_duration:.2f}s exceeds {hard_limit}s for {filename}")
         audio_path = "/English/guided/miniskit-20261013/" + filename
+        audio_revision = hashlib.sha256(target_mp3.read_bytes()).hexdigest()[:16]
         audio_cards.append({
             "id": f"guided-{level.lower()}-{episode:02d}-miniskit" + (f"-part{group_index}" if is_split else ""),
             "type": "guided", "level": level, "part": episode, "chapter": group_index, "unit": episode,
@@ -261,7 +263,7 @@ for card in CONTENT["cards"]:
             "art": f"{episode:03d}-{level.lower()}", "description": card["description"],
             "summary": "장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요.",
             "durationLabel": clock(actual_duration), "durationLong": clock(actual_duration),
-            "audio": "https://audio.talktag.co.kr" + audio_path, "accentTag": card["accentTag"],
+            "audio": "https://audio.talktag.co.kr" + audio_path + "?v=" + audio_revision, "audioRevision": audio_revision, "accentTag": card["accentTag"],
             "accentTags": accents, "voiceName": voice_name, "sourceFilename": filename,
             "protocolVersion": 3 if level.startswith("C") else 2,
             "contentRevision": CONTENT["revision"], "expressions": [line["en"] for line in selected],
