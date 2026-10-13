@@ -155,7 +155,7 @@
     button.querySelector('em').textContent='…';
     const update=()=>{
       const seconds=Math.max(0,Math.ceil((finishAt-Date.now())/1000));
-      status.textContent=`암묵기간 · 들은 내용을 직접 말해 보세요. ${seconds}초`;
+      status.textContent=`무음 구간 · 들은 내용을 직접 말해 보세요. ${seconds}초`;
     };
     update();
     countdownTimer=window.setInterval(update,500);
