@@ -6,6 +6,7 @@ import math
 import pathlib
 import re
 import subprocess
+import sys
 import wave
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -18,6 +19,49 @@ PILOT = ROOT / "audio/guided/miniskit-pilot-20261012/SC-GLR-008-A1-MiniSkit-Too-
 START_DING_SECONDS = 0.52245
 ENDING_DING_START = 255.27302
 ENDING_DING_END = 256.402449
+
+# A source turn boundary is publishable only after matching the preceding and
+# following utterances to a word-timestamp transcript and confirming the cut is
+# inside the actual silence between those words. Do not infer boundaries from
+# proportional word counts. This checked map currently holds the five audited
+# corrections; future production must add verified entries before building.
+VERIFIED_TURN_BOUNDARIES = {
+    "008-B1": [
+        {"previousLastWord": "covered.", "previousWordEnd": 2.98, "nextFirstWord": "That", "nextWordStart": 3.34, "silenceStart": 2.992721, "silenceEnd": 3.315351, "cut": 3.154036},
+        {"previousLastWord": "drink.", "previousWordEnd": 6.34, "nextFirstWord": "I'll", "nextWordStart": 6.72, "silenceStart": 6.348662, "silenceEnd": 6.681020, "cut": 6.514841},
+        {"previousLastWord": "over.", "previousWordEnd": 8.76, "nextFirstWord": "Could", "nextWordStart": 9.14, "silenceStart": 8.779705, "silenceEnd": 9.115805, "cut": 8.947755},
+        {"previousLastWord": "too?", "previousWordEnd": 10.78, "nextFirstWord": "Sure.", "nextWordStart": 11.18, "silenceStart": 10.791451, "silenceEnd": 11.107755, "cut": 10.949603},
+        {"previousLastWord": "first.", "previousWordEnd": 13.72, "nextFirstWord": "Great.", "nextWordStart": 13.98, "silenceStart": 13.716735, "silenceEnd": 13.934875, "cut": 13.825805},
+    ],
+    "008-C1": [
+        {"previousLastWord": "for?", "previousWordEnd": 3.96, "nextFirstWord": "It's", "nextWordStart": 4.46, "silenceStart": 3.983152, "silenceEnd": 4.432857, "cut": 4.208005},
+        {"previousLastWord": "time.", "previousWordEnd": 7.98, "nextFirstWord": "That", "nextWordStart": 8.40, "silenceStart": 7.987029, "silenceEnd": 8.371497, "cut": 8.179263},
+        {"previousLastWord": "first.", "previousWordEnd": 12.54, "nextFirstWord": "Please", "nextWordStart": 12.98, "silenceStart": 12.550839, "silenceEnd": 12.950816, "cut": 12.750828},
+    ],
+    "008-C2": [
+        {"previousLastWord": "explicit.", "previousWordEnd": 5.08, "nextFirstWord": "Agreed.", "nextWordStart": 5.52, "silenceStart": 5.066032, "silenceEnd": 5.472245, "cut": 5.269139},
+        {"previousLastWord": "scale.", "previousWordEnd": 10.36, "nextFirstWord": "Let's", "nextWordStart": 10.88, "silenceStart": 10.382336, "silenceEnd": 10.817438, "cut": 10.599887},
+    ],
+    "010-A2": [
+        {"previousLastWord": "appointment.", "previousWordEnd": 1.60, "nextFirstWord": "We", "nextWordStart": 2.06, "silenceStart": 1.611859, "silenceEnd": 2.007710, "cut": 1.809785},
+        {"previousLastWord": "morning.", "previousWordEnd": 3.74, "nextFirstWord": "Could", "nextWordStart": 4.12, "silenceStart": 3.743379, "silenceEnd": 4.100181, "cut": 3.921780},
+        {"previousLastWord": "instead?", "previousWordEnd": 6.00, "nextFirstWord": "Yes.", "nextWordStart": 6.40, "silenceStart": 6.025850, "silenceEnd": 6.339229, "cut": 6.182540},
+    ],
+    "010-B1": [
+        {"previousLastWord": "phone?", "previousWordEnd": 2.78, "nextFirstWord": "Yes,", "nextWordStart": 3.18, "silenceStart": 2.801610, "silenceEnd": 3.115601, "cut": 2.958606},
+        {"previousLastWord": "drops.", "previousWordEnd": 6.20, "nextFirstWord": "Nice.", "nextWordStart": 6.60, "silenceStart": 6.200862, "silenceEnd": 6.472200, "cut": 6.336531},
+        {"previousLastWord": "dead.", "previousWordEnd": 10.26, "nextFirstWord": "Take", "nextWordStart": 10.62, "silenceStart": 10.315556, "silenceEnd": 10.606621, "cut": 10.461088},
+        {"previousLastWord": "charged.", "previousWordEnd": 13.32, "nextFirstWord": "Thanks.", "nextWordStart": 13.58, "silenceStart": 13.306939, "silenceEnd": 13.536825, "cut": 13.421882},
+        {"previousLastWord": "it.", "previousWordEnd": 16.48, "nextFirstWord": "All", "nextWordStart": 16.84, "silenceStart": 16.449342, "silenceEnd": 16.775306, "cut": 16.612324},
+    ],
+}
+
+ONLY = None
+if "--only" in sys.argv:
+    try:
+        ONLY = {item.strip() for item in sys.argv[sys.argv.index("--only") + 1].split(",") if item.strip()}
+    except IndexError as exc:
+        raise SystemExit("Usage: build-miniskit-a2-c2.py [--only 008-B1,008-C1,...]") from exc
 
 WORK.mkdir(parents=True, exist_ok=True)
 OUT.mkdir(parents=True, exist_ok=True)
@@ -67,34 +111,24 @@ def silence_windows(path, full_duration):
     return windows
 
 def select_turn_boundaries(card, windows, full_duration):
-    weights = [max(1, len(re.findall(r"[A-Za-z0-9]+(?:['’][A-Za-z]+)?", en))) for en, _ in card["utterances"]]
-    total = sum(weights)
-    targets = [full_duration * sum(weights[:i + 1]) / total for i in range(len(weights) - 1)]
-    candidates = [((s + e) / 2, s, e) for s, e in windows]
-    # Dynamic programming chooses distinct, chronological silence windows nearest
-    # the cumulative spoken-word positions, rather than cutting through speech.
-    states = {j: ((candidates[j][0] - targets[0]) ** 2, [j]) for j in range(len(candidates))}
-    for boundary in range(1, len(targets)):
-        next_states = {}
-        for j, (mid, _, _) in enumerate(candidates):
-            best = None
-            for prev, (cost, path) in states.items():
-                if prev >= j:
-                    continue
-                proposal = cost + (mid - targets[boundary]) ** 2
-                if best is None or proposal < best[0]:
-                    best = (proposal, path + [j])
-            if best is not None:
-                next_states[j] = best
-        states = next_states
-    if not states:
-        raise ValueError(f"Could not align {card['episode']:03d} {card['level']} turns to pauses")
-    _, path = min(states.values(), key=lambda item: item[0])
-    chosen = [candidates[j] for j in path]
-    for target, (mid, start, end) in zip(targets, chosen):
-        if abs(mid - target) > max(1.25, full_duration * 0.12):
-            raise ValueError(f"Weak turn-boundary estimate at {mid:.2f}s for expected {target:.2f}s in {card['episode']:03d} {card['level']}")
-    return [((start + end) / 2) for _, start, end in chosen], targets, chosen
+    key = f"{int(card['episode']):03d}-{card['level']}"
+    approved = VERIFIED_TURN_BOUNDARIES.get(key)
+    expected_count = len(card["utterances"]) - 1
+    if approved is None or len(approved) != expected_count:
+        raise ValueError(f"{key}: missing word-timestamp-verified boundaries ({expected_count} required); refusing a guessed cut")
+    selected = []
+    for index, evidence in enumerate(approved, start=1):
+        prev_end = evidence["previousWordEnd"]
+        next_start = evidence["nextWordStart"]
+        start, end, cut = evidence["silenceStart"], evidence["silenceEnd"], evidence["cut"]
+        if not (0 <= prev_end < cut < next_start <= full_duration and abs(start - prev_end) <= 0.20 and abs(end - next_start) <= 0.20 and start < cut < end):
+            raise ValueError(f"{key} boundary {index}: transcript timestamps and silence window do not form a safe, ordered cut")
+        if not any(abs(start - actual_start) < 0.04 and abs(end - actual_end) < 0.04 for actual_start, actual_end in windows):
+            raise ValueError(f"{key} boundary {index}: audited silence window is no longer present in the source audio")
+        if not (evidence["previousLastWord"] and evidence["nextFirstWord"]):
+            raise ValueError(f"{key} boundary {index}: transcript anchor words are missing")
+        selected.append((cut, start, end, evidence))
+    return [cut for cut, _, _, _ in selected], [e["previousWordEnd"] for e in approved], selected
 
 def encode(master_wav, target_mp3):
     run(["ffmpeg", "-y", "-v", "error", "-i", str(master_wav), "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", str(RATE), "-ac", "1", "-b:a", "128k", "-metadata", "artist=TalkTag", "-metadata", "album=Sound Check · MiniSkit", str(target_mp3)])
@@ -131,6 +165,9 @@ alignment_log = []
 for card in CONTENT["cards"]:
     episode = int(card["episode"])
     level = card["level"]
+    key = f"{episode:03d}-{level}"
+    if ONLY is not None and key not in ONLY:
+        continue
     raw = next((p for p in RAW.glob(f"{episode:03d}-{level}-*.mp3")), None)
     if raw is None:
         raise FileNotFoundError(f"Missing source dialogue for {episode:03d} {level}")
@@ -228,13 +265,31 @@ for card in CONTENT["cards"]:
             "scene": card["scene"], "briefing": card["briefing"]
         })
         alignment_log.append({"file": filename, "source": raw.name, "turns": len(selected), "repetitionsPerTurn": reps,
-                              "sourceSilenceWindows": [[round(s, 3), round(e, 3)] for _, s, e in chosen],
-                              "targetWordPositions": [round(t, 3) for t in targets],
+                              "sourceSilenceWindows": [[round(s, 6), round(e, 6)] for _, s, e, _ in chosen],
+                              "verifiedTurnBoundaries": [{"previousLastWord": ev["previousLastWord"], "previousWordEnd": ev["previousWordEnd"],
+                                                          "nextFirstWord": ev["nextFirstWord"], "nextWordStart": ev["nextWordStart"], "cut": cut}
+                                                         for cut, _, _, ev in chosen],
+                              "transcriptBoundaryCheck": "PASS",
                               "speechSecondsPerTurn": [round(line["speechSeconds"], 3) for line in selected],
                               "durationSeconds": actual_duration, "gapCheck": "PASS"})
         print(f"PASS {filename}: {actual_duration:.1f}s; {len(selected)} dialogue turns × {reps}; source boundaries={','.join(f'{c:.2f}' for c in cuts)}")
 
-module = "/* New original A2–C2 MiniSkits, assembled with measured per-line response gaps and independent dings. */\n"
-module += "window.TalkTagAudioLessons=(window.TalkTagAudioLessons||[]).concat(" + json.dumps(audio_cards, ensure_ascii=False, separators=(",", ":")) + ");\n"
+if ONLY is not None:
+    old_path = ROOT / "guided-miniskit-a2-c2.js"
+    old_module = old_path.read_text(encoding="utf-8")
+    old_payload = old_module.split("concat(", 1)[1].rsplit(");", 1)[0]
+    merged = json.loads(old_payload)
+    replacements = {item["id"]: item for item in audio_cards}
+    if set(replacements) != {item["id"] for item in audio_cards}:
+        raise ValueError("Duplicate replacement card IDs")
+    for index, item in enumerate(merged):
+        if item["id"] in replacements:
+            merged[index] = replacements.pop(item["id"])
+    if replacements:
+        raise ValueError("Scoped replacement IDs do not already exist: " + ", ".join(sorted(replacements)))
+else:
+    merged = audio_cards
+module = "/* New original A2–C2 MiniSkits, assembled with measured per-line response gaps and transcript-verified turn boundaries. */\n"
+module += "window.TalkTagAudioLessons=(window.TalkTagAudioLessons||[]).concat(" + json.dumps(merged, ensure_ascii=False, separators=(",", ":")) + ");\n"
 (ROOT / "guided-miniskit-a2-c2.js").write_text(module, encoding="utf-8")
 (WORK / "alignment-and-qc.json").write_text(json.dumps(alignment_log, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
