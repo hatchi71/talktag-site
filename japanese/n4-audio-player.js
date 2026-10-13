@@ -36,7 +36,7 @@
   }
 
   function lessonUrl(item) {
-    return "jlpt-n4-audio-player.html?id=" + encodeURIComponent(item.id);
+    return "J-jlpt-n4-audio-player.html?id=" + encodeURIComponent(item.id);
   }
 
   document.title = "N4 · " + lesson.title + " · TalkTag 日本語";

@@ -56,19 +56,19 @@
       links.sort((a,b)=>rank(a)-rank(b)).forEach(link=>{if(rank(link)===1)link.textContent='KOREAN';group.append(link)});
     });
     const path = location.pathname;
-    const topLanding = path === '/' || path === '/index.html' || path === '/japanese/' || path === '/japanese/index.html' || /\/korean\.html$/.test(path);
+    const topLanding = path === '/' || path === '/index.html' || path === '/japanese/J-index.html' || path === '/K-korean.html';
     document.body.classList.toggle('tt-study-page', !topLanding);
     if (!topLanding && !document.querySelector('.tt-route-tools')) {
       const japanese = path.startsWith('/japanese/');
       const routes = japanese ? [
-        [/story-camp/, '/japanese/story-camp.html', 'Story Camp'],
-        [/vocal/, '/japanese/vocal-camp.html', 'Vocal Camp'],
-        [/(?:guided|glr-player|listen-repeat|audio-essays)/, '/japanese/snowballing.html#sound-check', 'Sound Check'],
-        [/readable/, '/japanese/readable.html', 'Readable'],
-        [/(?:jlpt|jpt|test-preppers)/, '/japanese/test-preppers.html', '시험대비'],
-        [/discussions/, '/japanese/discussions.html', '토론'],
-        [/snowballing|bootcamp/, '/japanese/snowballing.html', '스노우볼링'],
-        [/.*/, '/japanese/', '일본어 홈']
+        [/story-camp/, '/japanese/J-story-camp.html', 'Story Camp'],
+        [/vocal/, '/japanese/J-vocal-camp.html', 'Vocal Camp'],
+        [/(?:guided|glr-player|listen-repeat|audio-essays)/, '/japanese/J-snowballing.html#sound-check', 'Sound Check'],
+        [/readable/, '/japanese/J-readable.html', 'Readable'],
+        [/(?:jlpt|jpt|test-preppers)/, '/japanese/J-test-preppers.html', '시험대비'],
+        [/discussions/, '/japanese/J-discussions.html', '토론'],
+        [/snowballing|bootcamp/, '/japanese/J-snowballing.html', '스노우볼링'],
+        [/.*/, '/japanese/J-index.html', '일본어 홈']
       ] : [
         [/storycamp|story-camp/, '/story-camp.html', 'Story Camp'],
         [/vocal/, '/vocal-camp.html', 'Vocal Camp'],
@@ -80,28 +80,30 @@
         [/snowballing|bootcamp/, '/snowballing-studio.html', 'Snowballing Studio'],
         [/.*/, '/', 'TalkTag 홈']
       ];
-      const route = /^\/korean(?:[/.\-])/.test(path) ? [null,'/korean.html','한국어 홈'] : routes.find(([pattern]) => pattern.test(path));
+      const route = /^\/K-korean(?:[/.\-])/.test(path) ? [null,'/K-korean.html','한국어 홈'] : routes.find(([pattern]) => pattern.test(path));
       const parentLanding = () => {
-        const file=path.split('/').pop()||'index.html',params=new URLSearchParams(location.search);
+        const rawFile=path.split('/').pop()||'J-index.html';
+        const file=japanese?rawFile.replace(/^J-/,''):rawFile;
+        const params=new URLSearchParams(location.search);
         const family=/^\d{3}$/.test(params.get('family')||'')?params.get('family'):'001';
         const level=/^(A1|A2|B1|B2|C1|C2)$/.test(params.get('level')||'')?params.get('level'):'A1';
-        if(/^\/korean(?:[/.\-])/.test(path))return '/korean.html';
+        if(/^\/K-korean(?:[/.\-])/.test(path))return '/K-korean.html';
         if(japanese){
-          if(file==='jlpt-n4-audio-player.html')return '/japanese/jlpt-n4-listen-repeat.html';
-          if(file==='jlpt-n4-listen-repeat.html')return '/japanese/jlpt-n4.html';
-          if(/^jlpt-n[1-5]\.html$/.test(file))return '/japanese/jlpt.html';
-          if(/^jpt-(reading|listening)\.html$/.test(file))return '/japanese/jpt.html';
-          if(file==='jlpt.html'||file==='jpt.html')return '/japanese/test-preppers.html';
-          if(/^guided-[abc][12]\.html$/.test(file))return '/japanese/guided.html';
-          if(/^audio-essays-[abc][12]\.html$/.test(file))return '/japanese/audio-essays.html';
-          if(file==='glr-player.html')return '/japanese/guided.html';
-          if(file==='guided.html'||file==='audio-essays.html')return '/japanese/snowballing.html#sound-check';
-          if(/^story-camp-[abc][12]\.html$/.test(file))return '/japanese/story-camp.html';
-          if(/^readable-[abc][12]\.html$/.test(file))return '/japanese/readable.html';
-          if(/^vocal-v\d+\.html$/.test(file))return '/japanese/vocal-camp.html';
-          if(file==='vocal-camp.html'||file==='story-camp.html')return '/japanese/snowballing.html#boot-camp';
-          if(['listen-repeat.html','readable.html','bootcamp.html'].includes(file))return '/japanese/snowballing.html';
-          return '/japanese/';
+          if(file==='jlpt-n4-audio-player.html')return '/japanese/J-jlpt-n4-listen-repeat.html';
+          if(file==='jlpt-n4-listen-repeat.html')return '/japanese/J-jlpt-n4.html';
+          if(/^jlpt-n[1-5]\.html$/.test(file))return '/japanese/J-jlpt.html';
+          if(/^jpt-(reading|listening)\.html$/.test(file))return '/japanese/J-jpt.html';
+          if(file==='jlpt.html'||file==='jpt.html')return '/japanese/J-test-preppers.html';
+          if(/^guided-[abc][12]\.html$/.test(file))return '/japanese/J-guided.html';
+          if(/^audio-essays-[abc][12]\.html$/.test(file))return '/japanese/J-audio-essays.html';
+          if(file==='glr-player.html')return '/japanese/J-guided.html';
+          if(file==='guided.html'||file==='audio-essays.html')return '/japanese/J-snowballing.html#sound-check';
+          if(/^story-camp-[abc][12]\.html$/.test(file))return '/japanese/J-story-camp.html';
+          if(/^readable-[abc][12]\.html$/.test(file))return '/japanese/J-readable.html';
+          if(/^vocal-v\d+\.html$/.test(file))return '/japanese/J-vocal-camp.html';
+          if(file==='vocal-camp.html'||file==='story-camp.html')return '/japanese/J-snowballing.html#boot-camp';
+          if(['listen-repeat.html','readable.html','bootcamp.html'].includes(file))return '/japanese/J-snowballing.html';
+          return '/japanese/J-index.html';
         }
         if(file==='audio-library.html')return params.has('level')?'/audio-library.html?type='+(params.get('type')==='plain'?'plain':'guided'):'/snowballing-studio.html#sound-check';
         if(file==='audio-player.html'){
@@ -164,7 +166,8 @@
 
     const japaneseNav = document.querySelector('.ja-mode-nav');
     if (japaneseNav) {
-      const file = location.pathname.split('/').pop() || 'index.html';
+      const rawFile = location.pathname.split('/').pop() || 'J-index.html';
+      const file = rawFile.replace(/^J-/,'');
       const section = file === 'index.html' ? 'home'
         : file === 'myspace.html' ? 'myspace'
         : file === 'talktag.html' ? 'talktag'
@@ -172,12 +175,12 @@
         : /^(?:test-preppers|jlpt|jpt)/.test(file) ? 'tests'
         : 'studio';
       const items = [
-        ['home', 'index.html', '⌂', '홈'],
-        ['myspace', 'myspace.html', '◉', '마이스페이스'],
-        ['talktag', 'talktag.html', '#', '톡&태그'],
-        ['studio', 'snowballing.html', '↗', '스튜디오'],
-        ['discussions', 'discussions.html', '◌', '토론'],
-        ['tests', 'test-preppers.html', '◇', '시험대비']
+        ['home', 'J-index.html', '⌂', '홈'],
+        ['myspace', 'J-myspace.html', '◉', '마이스페이스'],
+        ['talktag', 'J-talktag.html', '#', '톡&태그'],
+        ['studio', 'J-snowballing.html', '↗', '스튜디오'],
+        ['discussions', 'J-discussions.html', '◌', '토론'],
+        ['tests', 'J-test-preppers.html', '◇', '시험대비']
       ];
       japaneseNav.replaceChildren(...items.map(([keyName, href, icon, label]) => {
         const link = document.createElement('a');

@@ -55,7 +55,7 @@
       const section = host.querySelector('.camp-starters');
       if (!starters.length || camp !== 'story') return;
       const completed = starters.filter(starterDone), active = starters.filter(x => !starterDone(x));
-      const starterCard = (x, finished) => `<article class="camp-episode${finished ? ' is-completed' : ''}"><a class="camp-episode-link" href="korean-starter.html?id=${x.id}&type=story&level=${level}"><span class="camp-kicker">STARTER · ${x.id} · NOT LEVEL-ASSIGNED</span><h3>${esc(x.title)}</h3><p>${esc(x.goal)}</p><span class="camp-start">Remember and retell →</span></a>${finished ? `<div class="camp-episode-actions"><button type="button" data-starter-undo="${x.id}">Undo</button></div>` : ''}</article>`;
+      const starterCard = (x, finished) => `<article class="camp-episode${finished ? ' is-completed' : ''}"><a class="camp-episode-link" href="K-korean-starter.html?id=${x.id}&type=story&level=${level}"><span class="camp-kicker">STARTER · ${x.id} · NOT LEVEL-ASSIGNED</span><h3>${esc(x.title)}</h3><p>${esc(x.goal)}</p><span class="camp-start">Remember and retell →</span></a>${finished ? `<div class="camp-episode-actions"><button type="button" data-starter-undo="${x.id}">Undo</button></div>` : ''}</article>`;
       section.innerHTML = `<div class="camp-level-heading"><span class="camp-kicker">AVAILABLE NOW · STARTER COLLECTION</span><h2>Start with a short Korean story.</h2><p>These six existing starters are not assigned A1–C2 levels. Their stories, notes and shared starter progress are unchanged.</p><p>${completed.length} / ${starters.length} starter missions completed</p></div><div class="camp-episode-list">${active.map(x => starterCard(x, false)).join('')}</div><details class="camp-completed"><summary><span>Completed starter missions</span><span>${completed.length}</span></summary><div class="camp-completed-list">${completed.map(x => starterCard(x, true)).join('') || '<p>No completed starter missions yet.</p>'}</div></details>`;
     }
     function render() {
@@ -78,7 +78,7 @@
       input.disabled = !available.length;
       host.querySelector('.camp-search').hidden = !available.length;
       host.querySelector('#campClear').hidden = !term;
-      list.innerHTML = active.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(f => card(f, false)).join('') || `<div class="camp-empty"><h3>${available.length ? (term ? words.noMatch : words.allDone) : words.pending}</h3>${!available.length ? `<p>${words.pendingText}</p>${language !== 'en' && !(english && camp === 'story') ? `<a href="${english ? 'korean-audio-library.html?type=guided' : 'guided.html'}">${english ? 'Try published Korean GLR' : '공개된 일본어 GLR 연습하기'} →</a>` : ''}` : ''}</div>`;
+      list.innerHTML = active.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(f => card(f, false)).join('') || `<div class="camp-empty"><h3>${available.length ? (term ? words.noMatch : words.allDone) : words.pending}</h3>${!available.length ? `<p>${words.pendingText}</p>${language !== 'en' && !(english && camp === 'story') ? `<a href="${english ? 'K-korean-audio-library.html?type=guided' : 'J-guided.html?type=guided'}">${english ? 'Try published Korean GLR' : '공개된 일본어 GLR 연습하기'} →</a>` : ''}` : ''}</div>`;
       const pagination = host.querySelector('.camp-pagination'); pagination.hidden = pages <= 1;
       pagination.querySelector('span').textContent = `${page} / ${pages}`;
       pagination.querySelector('[data-page="previous"]').disabled = page === 1;
@@ -122,7 +122,7 @@
   }
   window.TalkTagCampBrowser = { mount };
   function init() {
-    const file = location.pathname.split('/').pop();
+    const file = location.pathname.split('/').pop().replace(/^J-/,'');
     if (!['story-camp.html', 'vocal-camp.html'].includes(file)) return;
     const camp = file.startsWith('vocal') ? 'vocal' : 'story';
     if (location.pathname.startsWith('/japanese/')) {
@@ -130,8 +130,8 @@
       document.body.classList.add('ja-bootcamp-shell');
       document.body.classList.add('ja-studio-aligned');
       const brand = document.querySelector('.ja-brand span'); if (brand) brand.textContent = camp === 'vocal' ? 'Vocal Camp' : 'Story Camp';
-      const category = document.querySelector('.tt-route-category'); if (category) { category.href = 'snowballing.html#boot-camp'; category.innerHTML = '<span aria-hidden="true">⌂</span><b>Studio</b>'; }
-      main.innerHTML = `<section class="ja-hero"><p class="ja-kicker">BOOT CAMP · ${camp === 'vocal' ? 'BUILD' : 'REBUILD'}</p><h1>${camp === 'vocal' ? 'Vocal Camp' : 'Story Camp'}</h1><p>${camp === 'vocal' ? '이야기를 소리로 익히고, 나의 말로 전달합니다.' : '이야기를 쌓고, 기억해서 말하고, 나의 이야기로 바꿉니다.'}</p></section><section id="campBrowser"></section><nav class="ja-related" aria-label="Studio 학습 공간"><a href="snowballing.html#sound-check">01 · Sound Check</a><a href="snowballing.html#boot-camp">02 · Boot Camp</a><a href="readable.html">03 · Readable</a></nav>`;
+      const category = document.querySelector('.tt-route-category'); if (category) { category.href = 'J-snowballing.html#boot-camp'; category.innerHTML = '<span aria-hidden="true">⌂</span><b>Studio</b>'; }
+      main.innerHTML = `<section class="ja-hero"><p class="ja-kicker">BOOT CAMP · ${camp === 'vocal' ? 'BUILD' : 'REBUILD'}</p><h1>${camp === 'vocal' ? 'Vocal Camp' : 'Story Camp'}</h1><p>${camp === 'vocal' ? '이야기를 소리로 익히고, 나의 말로 전달합니다.' : '이야기를 쌓고, 기억해서 말하고, 나의 이야기로 바꿉니다.'}</p></section><section id="campBrowser"></section><nav class="ja-related" aria-label="Studio 학습 공간"><a href="J-snowballing.html#sound-check">01 · Sound Check</a><a href="J-snowballing.html#boot-camp">02 · Boot Camp</a><a href="J-readable.html">03 · Readable</a></nav>`;
       mount(main.querySelector('#campBrowser'), {camp, language:'ja'});
     } else mount(document.getElementById(`${camp}-camp`), {camp, language:'en'});
   }

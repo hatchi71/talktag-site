@@ -1,9 +1,9 @@
 (() => {
   const isJapaneseHome = /\/japanese\.html$/.test(location.pathname);
-  const isKoreanHome = /\/korean\.html$/.test(location.pathname);
+  const isKoreanHome = /\/K-korean\.html$/.test(location.pathname);
   const isHome = location.pathname === '/' || /\/index\.html$/.test(location.pathname) || isJapaneseHome || isKoreanHome;
 
-  document.querySelectorAll('a[href="japanese.html"]').forEach((link) => link.setAttribute('href', 'japanese/'));
+  document.querySelectorAll('a[href="japanese.html"]').forEach((link) => link.setAttribute('href', 'japanese/J-index.html'));
 
   if (isHome) {
     const home = document.querySelector('#home .stage');
@@ -32,7 +32,7 @@
         secondTitle: 'Learn together,<br>through real exchange.',
         secondBody: 'Korean speakers and international learners share languages, culture, and useful everyday expressions in one community.',
         secondAction: 'EXPLORE TALK & TAG →',
-        secondHref: 'korean.html?view=talktag'
+        secondHref: 'K-korean.html?view=talktag'
       } : isJapaneseHome ? {
         title: '日本語を、<br>ひとつずつ、<br><em>自分のものに。</em>',
         lead: '일본어를 익히는 것은 작은 조각을<br>하나씩 차근차근 쌓아가는 것과 같아요.',
@@ -109,7 +109,7 @@
         </figure>
         <section class="home-news${bootNews ? ' home-news-three' : ''}">
           ${bootNews}
-          <a class="feature-card snow" href="${isKoreanHome ? 'korean-learning.html' : 'snowballing-studio.html'}">
+          <a class="feature-card snow" href="${isKoreanHome ? 'K-korean-learning.html' : 'snowballing-studio.html'}">
             <div class="news-label">${copy.snowLabel}</div>
             <h3>${copy.snowTitle}</h3>
             <p>${copy.snowBody}</p>
@@ -301,7 +301,7 @@
         const snowPalLabel = document.querySelector('.nav-button[data-view="leader"] span:last-child');
         if (snowPalLabel) snowPalLabel.textContent = 'SnowPal';
 
-        // Korean navigation stays in korean.html; language switches are explicit.
+        // Korean navigation stays in K-korean.html; language switches are explicit.
 
       }
     }

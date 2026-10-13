@@ -19,12 +19,12 @@ function catalog(read){
  const readable=JSON.parse(read('content/readable/readable-stories-A1-C2-60.json')||'[]');
  for(const r of readable){if(!r.content||r.status==='draft')continue;const number=String(r.id.split('-').at(-1)).padStart(3,'0'),id='readable:'+number;if(!groups.has(id))groups.set(id,{id,title:'Readable · '+number,href:'readable.html',levels:[],description:'새 글을 읽고 기억한 내용을 내 말로 이야기해 보세요.'});const g=groups.get(id);if(!g.levels.includes(r.level))g.levels.push(r.level);}
  const korean=read('korean-starter-data.js');
- if(korean){vm.runInContext(korean,c,{timeout:1000});const ready=(c.window.TalkTagKoreanStarters||[]).filter(x=>x.published&&x.lines?.length&&x.story);if(ready.length)groups.set('korean:starters',{id:'korean:starters',title:'Korean Starter Collection · 001–006',href:'korean-learning.html',levels:['Starter'],description:'영어 안내와 함께 일상 한국어를 연습하고 기억해서 말해 보세요.'});}
+ if(korean){vm.runInContext(korean,c,{timeout:1000});const ready=(c.window.TalkTagKoreanStarters||[]).filter(x=>x.published&&x.lines?.length&&x.story);if(ready.length)groups.set('korean:starters',{id:'korean:starters',title:'Korean Starter Collection · 001–006',href:'K-korean-learning.html',levels:['Starter'],description:'영어 안내와 함께 일상 한국어를 연습하고 기억해서 말해 보세요.'});}
  for(const file of ['native-guided-data.js','native-guided-ko-002.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
  for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs||{}))for(const lesson of lessons){
   if(!lesson.available||!lesson.audio)continue;
   const number=String(lesson.unit||1).padStart(3,'0'),id='native:'+language+':'+number,name=language==='ko'?'Korean':'Japanese';
-  if(!groups.has(id))groups.set(id,{id,language,title:name+' Guided L&R · '+number,href:language==='ko'?'korean-audio-library.html?type=guided':'japanese/guided.html?type=guided',levels:[],description:name+'의 새 일상 표현을 듣고 따라 말해 보세요.'});
+  if(!groups.has(id))groups.set(id,{id,language,title:name+' Guided L&R · '+number,href:language==='ko'?'K-korean-audio-library.html?type=guided':'japanese/J-guided.html?type=guided',levels:[],description:name+'의 새 일상 표현을 듣고 따라 말해 보세요.'});
   const group=groups.get(id);if(!group.levels.includes(lesson.level))group.levels.push(lesson.level);
  }
  return [...groups.values()];

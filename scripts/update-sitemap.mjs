@@ -3,12 +3,12 @@ import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 process.chdir(fileURLToPath(new URL('../',import.meta.url)));
 // Deliberate public landing allowlist: never glob private, draft or legacy pages.
-const paths=['/','/snowballing-studio.html','/story-camp.html','/vocal-camp.html','/readable.html','/test-preppers.html','/toeic/','/japanese/','/korean.html','/korean-learning.html','/korean-kla.html'];
+const paths=['/','/snowballing-studio.html','/story-camp.html','/vocal-camp.html','/readable.html','/test-preppers.html','/toeic/','/japanese/J-index.html','/K-korean.html','/K-korean-learning.html','/K-korean-kla.html'];
 for(const type of ['guided','plain']){
  paths.push('/audio-library.html?type='+type);
  for(const level of ['A1','A2','B1','B2','C1','C2'])paths.push('/audio-library.html?type='+type+'&level='+level);
 }
-paths.push('/japanese/snowballing.html');for(const page of ['/korean-audio-library.html','/japanese/guided.html']){paths.push(page+'?type=guided');for(const level of ['A1','A2','B1','B2','C1','C2'])paths.push(page+'?type=guided&level='+level);}
+paths.push('/japanese/J-snowballing.html');for(const page of ['/K-korean-audio-library.html','/japanese/J-guided.html']){paths.push(page+'?type=guided');for(const level of ['A1','A2','B1','B2','C1','C2'])paths.push(page+'?type=guided&level='+level);}
 const context={window:{}};vm.createContext(context);
 for(const camp of ['story','vocal']){
  vm.runInContext(fs.readFileSync(camp+'camp-manifest.js','utf8'),context,{timeout:1000});

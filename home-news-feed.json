@@ -5,7 +5,7 @@
       "id": "native:ko:002",
       "language": "ko",
       "title": "Korean Guided L&R · 002",
-      "href": "korean-audio-library.html?type=guided",
+      "href": "K-korean-audio-library.html?type=guided",
       "levels": [
         "A1",
         "A2",
@@ -81,7 +81,7 @@
       "id": "native:ko:001",
       "language": "ko",
       "title": "Korean Guided L&R · 001",
-      "href": "korean-audio-library.html?type=guided",
+      "href": "K-korean-audio-library.html?type=guided",
       "levels": [
         "A1",
         "A2",
@@ -97,7 +97,7 @@
       "id": "native:ja:001",
       "language": "ja",
       "title": "Japanese Guided L&R · 001",
-      "href": "japanese/guided.html?type=guided",
+      "href": "japanese/J-guided.html?type=guided",
       "levels": [
         "A1",
         "A2",
@@ -112,7 +112,7 @@
     {
       "id": "korean:starters",
       "title": "Korean Starter Collection · 001–006",
-      "href": "korean-learning.html",
+      "href": "K-korean-learning.html",
       "levels": [
         "Starter"
       ],

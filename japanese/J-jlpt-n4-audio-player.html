@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>N4 Listen &amp; Repeat Player · TalkTag 日本語</title>
+  <link rel="stylesheet" href="../talktag-theme.css?v=20261009-mobile-spacing">
+  <link rel="stylesheet" href="../audio-lab.css?v=3">
+  <link rel="stylesheet" href="structure.css?v=local1">
+  <link rel="stylesheet" href="mode-nav.css?v=20261006-unified1">
+  <link rel="stylesheet" href="n4-listen-repeat.css?v=5">
+  <link rel="stylesheet" href="../audio-sync-pilot.css?v=5">
+  <script src="../talktag-theme.js?v=20261009-mobile-spacing"></script>
+  <script src="n4-audio-lessons.js?v=1" defer></script>
+  <script src="n4-script-data.js?v=1" defer></script>
+  <script src="n4-sync-data.js?v=1" defer></script>
+  <script src="n4-audio-player.js?v=20261009-sound-ux" defer></script>
+  <script src="../audio-sync.js?v=20261009-clarity" defer></script>
+<link rel="stylesheet" href="../content-clarity.css?v=20261009-clarity">
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+  <header class="site-header">
+    <a class="ja-brand" href="J-index.html"><img src="../talktag-logo.png" alt="TalkTag"><span>日本語</span></a>
+    <nav class="ja-languages" aria-label="학습 언어"><a href="../index.html">English</a><a href="J-index.html" aria-current="page">日本語</a><a href="../K-korean.html">한국어</a></nav>
+  </header>
+
+  <main id="main" class="ja-wrap n4-player-page">
+    <nav class="ja-crumb" aria-label="현재 위치"><a href="J-index.html">일본어 홈</a><span>›</span><a href="J-jlpt-n4-listen-repeat.html">N4 음원 목록</a></nav>
+    <div class="player-shell n4-player-shell">
+      <section class="player-card">
+        <div class="lesson-kicker"><span id="lessonKicker">N4 · GUIDED PRACTICE</span></div>
+        <h1 id="lessonTitle">N4 Audio lesson</h1>
+        <p class="summary" id="lessonSummary">음원을 듣고 쉬는 구간에 소리 내어 따라 해 보세요.</p>
+        <div class="wave" aria-hidden="true" id="wave"></div>
+        <audio id="audio" preload="metadata"></audio>
+        <div class="time-row"><span id="currentTime">00:00</span><span id="duration">00:00</span></div>
+        <input class="progress" id="progress" type="range" min="0" max="1000" value="0" aria-label="음원 재생 위치">
+        <div class="transport">
+          <button class="control" id="prevButton" type="button">← PREVIOUS</button>
+          <button class="control" id="rewindButton" type="button">↶ 10 SEC</button>
+          <button class="control primary" id="playButton" type="button">▶ PLAY</button>
+          <button class="control" id="nextButton" type="button">NEXT →</button>
+          <button class="control" id="restartButton" type="button">↺ RESTART</button>
+        </div>
+        <div class="options">
+          <label class="option">PLAYBACK SPEED<select id="speedSelect" aria-label="재생 속도"><option value="0.75">0.75×</option><option value="0.9">0.9×</option><option value="1" selected>1.0×</option><option value="1.1">1.1×</option><option value="1.25">1.25×</option></select></label>
+          <div class="option"><span>LOOP LESSON</span><button class="switch" id="loopButton" type="button" role="switch" aria-checked="false" aria-label="음원 반복 재생"></button></div>
+        </div>
+        <p class="n4-player-status" id="audioStatus" role="status">재생할 준비가 되었습니다.</p>
+      </section>
+    </div>
+
+    <details class="tt-info"><summary>콘텐츠 정보</summary><aside class="lesson-info n4-lesson-info-bottom">
+
+      <dl><dt>Library</dt><dd>JLPT N4 Listen &amp; Repeat</dd><dt>Level</dt><dd>JLPT N4</dd><dt>Unit</dt><dd id="infoUnit"></dd><dt>Range</dt><dd id="infoRange"></dd><dt>Duration</dt><dd id="infoDuration">재생 시 확인</dd><dt>Audio</dt><dd id="infoSource"></dd></dl>
+      <div class="class-bridge"><strong>After listening</strong><p>한 번 더 듣고, 쉬는 구간마다 같은 속도와 리듬으로 따라 말해 보세요.</p></div>
+      <nav class="lesson-nav"><a href="J-jlpt-n4-listen-repeat.html">← N4 Library</a><a href="J-jlpt-n4.html">N4 Home</a></nav>
+    </aside></details>
+  </main>
+
+  <footer class="ja-wrap">TalkTag 日本語 · 일본어 학습 자료와 음원은 영어 과정과 별도로 운영합니다.</footer>
+  <nav class="ja-mode-nav" aria-label="일본어 주요 메뉴"><a href="J-index.html"><span aria-hidden="true">⌂</span><span>홈</span></a><a href="J-myspace.html"><span aria-hidden="true">◉</span><span>마이페이지</span></a><a href="J-talktag.html"><span aria-hidden="true">#</span><span>토크 &amp; 태그</span></a><a href="J-snowballing.html" aria-current="page"><span aria-hidden="true">↗</span><span>스노우볼링</span></a></nav>
+</body>
+</html>

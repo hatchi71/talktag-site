@@ -21,7 +21,7 @@
       '<div class="lesson-copy"><small>' + escapeHtml(lesson.level + " · UNIT " + String(lesson.order).padStart(2, "0") + " · " + lesson.source) + '</small>' +
       '<h2>' + escapeHtml(lesson.title) + '</h2><p>' + escapeHtml(lesson.description) + '</p>' +
       '<div class="lesson-meta"><span>' + escapeHtml(lesson.range) + '</span><span>Guided practice</span><span>R2 streaming</span></div></div>' +
-      '<div class="lesson-card-actions" data-completion-actions><a class="lesson-action" href="jlpt-n4-audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></div>' +
+      '<div class="lesson-card-actions" data-completion-actions><a class="lesson-action" href="J-jlpt-n4-audio-player.html?id=' + encodeURIComponent(lesson.id) + '">START LISTENING →</a></div>' +
       '</article>';
   }).join("");
   if (window.TalkTagCompletion) window.TalkTagCompletion.mount(list);

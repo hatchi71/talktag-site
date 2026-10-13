@@ -1,7 +1,7 @@
 (() => {
  'use strict';
  const KEY='talktag-myspace-activity:v1',COMPLETED='talktag-content-completions:v1';
- const language=path=>path.startsWith('/japanese/')?'ja':path.startsWith('/korean')?'ko':'en';
+ const language=path=>path.startsWith('/japanese/')?'ja':path.startsWith('/K-korean')?'ko':'en';
  const mode=language(location.pathname);
  let storageUnavailable=false;
  const read=(key,fallback={})=>{try{const x=JSON.parse(localStorage.getItem(key)||'null');return x&&typeof x==='object'&&!Array.isArray(x)?x:fallback}catch{return fallback}};
@@ -14,7 +14,7 @@
   if(!valid(url.href))return null;
   for(const key of [...url.searchParams.keys()])if(!['id','family','level','unit','type','view','set','part'].includes(key))url.searchParams.delete(key);
   url.hash='';
-  if(['/','/index.html','/korean.html','/japanese/','/japanese/index.html'].includes(url.pathname)){
+  if(['/','/index.html','/K-korean.html','/japanese/J-index.html'].includes(url.pathname)){
    const view=document.querySelector('.view.active')?.id||'home';
    if(view==='myspace')return null;
    url.searchParams.set('view',view);
@@ -154,7 +154,7 @@
  function mount(){
   if(!host){
    host=document.getElementById('myspace');
-   if(!host&&location.pathname==='/japanese/myspace.html')host=document.querySelector('.ja-empty');
+   if(!host&&location.pathname==='/japanese/J-myspace.html')host=document.querySelector('.ja-empty');
    if(!host)return;
    host.replaceChildren();host.classList.add('tt-myspace');
    host.append(make('h2','MySpace'),make('p','이 브라우저의 학습 기록입니다. 기기 간 동기화와 회원 데이터베이스 저장은 아직 연결되지 않았습니다.','tt-myspace-note'));

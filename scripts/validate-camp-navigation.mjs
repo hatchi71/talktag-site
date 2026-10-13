@@ -32,9 +32,9 @@ for(const camp of ['story','vocal']){
   const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync(`${camp}camp-manifest.js`,'utf8'),c);
   const families=c.window[`TALKTAG_${camp.toUpperCase()}CAMP_MANIFEST`].families.filter(f=>f.status==='published');
   for(const family of families)for(const level of family.levels){assert.ok(levels.includes(level));assert.ok(fs.existsSync(`content/${camp}camp/${family.number}.js`));lessons++;}
-  for(const path of [`${camp}-camp.html`,`japanese/${camp}-camp.html`])assert.match(fs.readFileSync(path,'utf8'),/bootcamp-browser\.js\?v=20261013-level-first/);
+  for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`])assert.match(fs.readFileSync(path,'utf8'),/bootcamp-browser\.js\?v=20261013-level-first/);
 }
-const korean=fs.readFileSync('korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js/);
+const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js/);
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
 assert.match(fs.readFileSync('japanese/studio-structure.js','utf8'),/Camp landings are owned by the shared level-first browser/);
 console.log(`Boot Camp: ${lessons} published English lesson routes intact; all six camp entrances share level-first navigation; legacy completion, per-level undo, resume and Korean notes preserved.`);

@@ -35,12 +35,12 @@
     {
       "name": "日本語",
       "short_name": "日本語",
-      "url": "/japanese/"
+      "url": "/japanese/J-index.html"
     },
     {
       "name": "한국어",
       "short_name": "한국어",
-      "url": "/korean.html"
+      "url": "/K-korean.html"
     }
   ]
 }
