@@ -118,6 +118,15 @@ def select_turn_boundaries(card, windows, full_duration):
         raise ValueError(f"{key}: missing word-timestamp-verified boundaries ({expected_count} required); refusing a guessed cut")
     selected = []
     for index, evidence in enumerate(approved, start=1):
+        previous_text = card["utterances"][index - 1][0]
+        next_text = card["utterances"][index][0]
+        previous_words = re.findall(r"[A-Za-z0-9]+(?:['’][A-Za-z]+)?", previous_text)
+        next_words = re.findall(r"[A-Za-z0-9]+(?:['’][A-Za-z]+)?", next_text)
+        normalize_anchor = lambda word: re.sub(r"[^A-Za-z0-9’']", "", word).casefold()
+        if (not previous_words or not next_words
+                or normalize_anchor(previous_words[-1]) != normalize_anchor(evidence["previousLastWord"])
+                or normalize_anchor(next_words[0]) != normalize_anchor(evidence["nextFirstWord"])):
+            raise ValueError(f"{key} boundary {index}: transcript anchor words do not match adjacent scripted utterances")
         prev_end = evidence["previousWordEnd"]
         next_start = evidence["nextWordStart"]
         start, end, cut = evidence["silenceStart"], evidence["silenceEnd"], evidence["cut"]
