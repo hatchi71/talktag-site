@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "talktag-korean-vocal-script-v1",
+  "family": "001",
+  "title": "A Small Gift, A Longer Conversation",
+  "language": "ko",
+  "learnerGuidanceLanguage": "en",
+  "status": "script-draft",
+  "levels": {
+    "B2": {
+      "objective": "Tell a short story about bringing an unexpected gift and explain how the conversation changed.",
+      "lines": [
+        {"ko": "동료가 힘들어 보여서 작은 간식을 하나 준비했어요.", "en": "My coworker looked tired, so I brought a small snack."},
+        {"ko": "별것 아닌 줄 알았는데, 그 친구가 정말 고마워하더라고요.", "en": "I thought it was nothing special, but they were genuinely grateful."},
+        {"ko": "어디서 샀는지 물어보길래, 집 근처 가게라고 말했어요.", "en": "When they asked where I bought it, I said it was from a shop near my home."},
+        {"ko": "그러다 보니 서로 자주 가는 가게와 좋아하는 음식 이야기를 하게 됐어요.", "en": "That led us to talk about the shops we visit and the food we like."},
+        {"ko": "짧은 인사로 끝날 줄 알았던 대화가 점심시간 내내 이어졌어요.", "en": "A conversation I expected to end with a brief greeting continued through lunch."},
+        {"ko": "작은 호의가 꼭 거창한 관계의 시작은 아니어도, 대화를 여는 계기는 될 수 있겠다고 생각했어요.", "en": "I realized that a small kindness may not begin a major relationship, but it can open a conversation."}
+      ]
+    },
+    "C1": {
+      "objective": "Reflect on how a small act of consideration can create room for trust without forcing closeness.",
+      "lines": [
+        {"ko": "그날 저는 회의가 끝난 뒤에도 한동안 자리에 남아 있었어요.", "en": "That day, I stayed at my desk for a while after the meeting ended."},
+        {"ko": "새로 합류한 동료가 사람들 사이에 쉽게 끼지 못하는 것처럼 보였거든요.", "en": "The new colleague seemed unable to find an easy place among the others."},
+        {"ko": "그래서 억지로 말을 걸기보다, 제가 가져온 간식을 조용히 건넸어요.", "en": "So instead of forcing a conversation, I quietly offered them the snack I had brought."},
+        {"ko": "그 선택이 상대에게 부담을 주지 않으면서도 관심을 전하는 방법일 수 있다고 생각했어요.", "en": "I thought that choice could show consideration without putting pressure on them."},
+        {"ko": "얼마 지나지 않아 그 동료가 먼저 다가와 자신의 이야기를 들려주었어요.", "en": "Before long, the colleague approached me first and shared their story."},
+        {"ko": "신뢰는 한 번의 깊은 대화보다, 상대가 선택할 여지를 남기는 작은 행동에서 시작될 때도 있는 것 같아요.", "en": "Trust sometimes begins not with one deep conversation, but with a small action that leaves the other person room to choose."}
+      ]
+    },
+    "C2": {
+      "objective": "Discuss the limits of helpfulness and distinguish genuine care from an attempt to control another person’s response.",
+      "lines": [
+        {"ko": "도움을 주고 싶다는 마음이 언제나 상대에게 도움이 되는 것은 아니라고 생각해요.", "en": "I do not think the desire to help is always helpful to the other person."},
+        {"ko": "선의를 앞세우다 보면, 상대가 무엇을 원하는지 묻기도 전에 제가 답을 정해 버릴 수 있거든요.", "en": "When we lead with good intentions, we can decide the answer before asking what the other person wants."},
+        {"ko": "그래서 저는 작은 간식을 건네면서도, 반응을 기대하지 않으려고 했어요.", "en": "That is why, even as I offered a small snack, I tried not to expect a particular response."},
+        {"ko": "상대가 고맙다고 말하면 받아들이고, 별다른 말을 하지 않아도 그대로 두는 편이 낫다고 봐요.", "en": "If the person says thank you, I accept it; if they say nothing, I think it is better to leave it there."},
+        {"ko": "관계의 문을 열 수는 있지만, 그 문을 통과할지는 결국 상대가 결정해야 하니까요.", "en": "We can open the door to a relationship, but the other person must decide whether to walk through it."},
+        {"ko": "배려는 상대의 선택을 대신하는 일이 아니라, 선택할 수 있는 공간을 지켜 주는 일에 더 가깝다고 생각합니다.", "en": "I think consideration is less about choosing for someone and more about protecting their space to choose."}
+      ]
+    }
+  }
+}
