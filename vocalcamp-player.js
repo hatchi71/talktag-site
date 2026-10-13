@@ -25,13 +25,13 @@
       label: '1 · SOUND',
       title: '소리가 조금씩 자랍니다',
       guide: '원어민의 음성을 듣고 따라하세요, 한 문장씩 소리가 자라납니다. 이야기의 끝까지 따라가 보세요!',
-      body: `<div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? '한 문장' : `1–${index+1} 누적`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET}회</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">첫 소리를 누르면 전체 누적 훈련이 자동으로 이어집니다.</p>`
+      body: `<div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? 'One sentence' : `Cumulative 1–${index+1}`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET} reps</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">Press the first sound to begin cumulative practice.</p>`
     },
     {
       label: '2 · SAY & WRITE',
       title: '이제 휴대폰을 내려놓으세요',
-      guide: '방금 들은 내용을 처음부터 그대로 말해 보고, 기억나는 내용을 노트에 써 봅니다.',
-      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>먼저 말하고,<br>그 다음 노트에 씁니다.</p><small>필요할 때만 아래 확인 자료를 엽니다.</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">EN · 스크립트</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">KR · 한글 해석</button></div><section class="reference-panel" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel camp-kr-panel" lang="ko" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
+      guide: 'Say what you just heard from the beginning, then write what you remember in your notes.',
+      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>Speak first,<br>then write it down.</p><small>Open the reference only when you need it.</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">EN · Script</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">KR · Translation</button></div><section class="reference-panel" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel camp-kr-panel" lang="ko" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
     },
     {
       label: '3 · MY STORY',
@@ -59,9 +59,9 @@
     <section id="cardDeck">${cards.map((card,index)=>`<article class="pilot-card" data-index="${index}"><p class="card-label">${esc(card.label)}</p><h2>${esc(card.title)}</h2><p class="card-guide">${esc(card.guide)}</p>${card.body}</article>`).join('')}</section>
     <nav class="pilot-nav" aria-label="훈련 카드 이동">
       <details class="pilot-menu" id="pilotMenu"><summary aria-label="훈련 메뉴">•••</summary><div class="pilot-menu-panel"><button id="restartButton" type="button">처음부터 다시 시작</button>${units.filter(item=>item.level===unit.level).map(item=>`<a href="vocal-a1-pilot.html?unit=${encodeURIComponent(item.id)}">${esc(item.level)} · ${esc(item.difficultyLabel||'')} · ${esc(item.title)}</a>`).join('')}<a href="vocal-camp.html">전체 18개 목록으로</a></div></details>
-      <button class="pilot-nav-button" id="prevButton" type="button">← 이전</button>
-      <button class="pilot-nav-button primary" id="nextButton" type="button">다음 →</button>
-      <button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button" aria-label="현재 Vocal Camp 훈련 초기화">↻ 초기화</button>
+      <button class="pilot-nav-button" id="prevButton" type="button">← Previous</button>
+      <button class="pilot-nav-button primary" id="nextButton" type="button">Next →</button>
+      <button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button" aria-label="Reset current Vocal Camp practice">↻ Reset</button>
     </nav>`;
 
   const deck = [...document.querySelectorAll('.pilot-card')];
@@ -157,7 +157,7 @@
     name.textContent = cards[state.card].label.split(' · ')[1];
     progress.style.width = `${((state.card + 1) / cards.length) * 100}%`;
     previous.disabled = state.card === 0;
-    next.textContent = state.card === cards.length - 1 ? '훈련 마치기' : '다음 →';
+    next.textContent = state.card === cards.length - 1 ? 'Finish practice' : 'Next →';
     save();
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
   }
@@ -189,13 +189,13 @@
         const nextIndex=index+1;
         if(nextIndex<lines.length){
           const nextButton=document.querySelector(`[data-sound-step="${nextIndex}"]`);
-          status.textContent=`${index+1}단계 10회 완료 · 다음 누적으로 이동합니다.`;
+          status.textContent=`Step ${index+1} complete · moving to the next cumulative step.`;
           activeIndex=nextIndex;
           nextButton.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
           speakRound(nextIndex,nextButton,token);
         }else{
           activeIndex=-1;
-          status.textContent='모든 누적 소리훈련을 마쳤습니다. 이제 휴대폰을 내려놓고 처음부터 말해 보세요.';
+          status.textContent='All cumulative sound practice is complete. Put your phone down and speak from the beginning.';
           playCue('end',token,()=>{playbackPhase='idle';setMediaPlaybackState('none');});
         }
       }else{
@@ -286,7 +286,7 @@
   window.addEventListener('pagehide',save);
   window.addEventListener('beforeunload',save);
   document.querySelectorAll('.sound-step').forEach(button=>{if(!unit.audioSteps?.[Number(button.dataset.soundStep)]?.url){button.disabled=true;button.querySelector('em').textContent='대기';}});
-  document.getElementById('soundStatus').textContent=unit.audioStatus==='audio-pending'?'음원을 준비하고 있습니다. 업로드 후 누적 훈련이 시작됩니다.':'첫 소리를 누르면 누적 훈련이 이어집니다.';
+  document.getElementById('soundStatus').textContent=unit.audioStatus==='audio-pending'?'Audio is being prepared. Cumulative practice will begin after upload.':'Press the first sound to begin cumulative practice.';
   if(!unit.translation.length)document.querySelector('[data-reference="meaning"]').hidden=true;
   const back=document.querySelector('.pilot-back');back.href='vocal-camp.html?level='+unit.level;back.textContent='← '+unit.level+' Vocal Camp';back.setAttribute('aria-label',unit.level+' Vocal Camp 목록으로');
   menu.querySelectorAll('a').forEach(a=>a.remove());
