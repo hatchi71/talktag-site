@@ -60,6 +60,7 @@
       <details class="pilot-menu" id="pilotMenu"><summary aria-label="훈련 메뉴">•••</summary><div class="pilot-menu-panel"><button id="restartButton" type="button">처음부터 다시 시작</button>${units.filter(item=>item.level===unit.level).map(item=>`<a href="vocal-a1-pilot.html?unit=${encodeURIComponent(item.id)}">${esc(item.level)} · ${esc(item.difficultyLabel||'')} · ${esc(item.title)}</a>`).join('')}<a href="vocal-camp.html">전체 18개 목록으로</a></div></details>
       <button class="pilot-nav-button" id="prevButton" type="button">← 이전</button>
       <button class="pilot-nav-button primary" id="nextButton" type="button">다음 →</button>
+      <button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button" aria-label="현재 Vocal Camp 훈련 초기화">↻ 초기화</button>
     </nav>`;
 
   const deck = [...document.querySelectorAll('.pilot-card')];
@@ -259,7 +260,9 @@
   }));
   previous.addEventListener('click',()=>showCard(state.card-1));
   next.addEventListener('click',()=>{if(state.card===cards.length-1){if(unit.id?.startsWith('family-')&&window.TalkTagCampProgress){stopSound();window.TalkTagCampProgress.set('vocal',unit.level,unit.familyNumber,true);state.card=0;save();location.href='vocal-camp.html?level='+unit.level;return}menu.open=true;return}showCard(state.card+1)});
-  document.getElementById('restartButton').addEventListener('click',()=>{stopSound();state.card=0;state.counts=lines.map(()=>0);document.querySelectorAll('[data-repeat-count]').forEach(node=>node.textContent='0');document.querySelectorAll('.sound-step').forEach(button=>button.classList.remove('is-complete'));menu.open=false;save();showCard(0)});
+  function resetTraining(){stopSound();state.card=0;state.counts=lines.map(()=>0);document.querySelectorAll('[data-repeat-count]').forEach(node=>node.textContent='0');document.querySelectorAll('.sound-step').forEach(button=>{button.classList.remove('is-complete');button.querySelector('em').textContent='▶'});menu.open=false;save();showCard(0)}
+  document.getElementById('restartButton').addEventListener('click',resetTraining);
+  document.getElementById('resetButton').addEventListener('click',resetTraining);
   if ('mediaSession' in navigator) {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: unit.englishTitle || unit.title,
