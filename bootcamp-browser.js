@@ -17,7 +17,7 @@
     const params = new URLSearchParams(location.search);
     const preferenceKey = `talktag-camp-level:${language}`;
     let remembered; try { remembered = localStorage.getItem(preferenceKey); } catch {}
-    let level = LEVELS.includes(params.get('level')?.toUpperCase()) ? params.get('level').toUpperCase() : LEVELS.includes(remembered) ? remembered : 'A1';
+    let level = LEVELS.includes(params.get('level')?.toUpperCase()) ? params.get('level').toUpperCase() : '';
     if (params.has('level')) try { localStorage.setItem(preferenceKey, level); } catch {}
     let term = '', page = 1;
     const PAGE_SIZE = 12;
@@ -45,7 +45,7 @@
       const completed = items.filter(f => window.TalkTagCampProgress?.done(camp, l, f.number)).length;
       return { total: items.length, completed };
     };
-    host.innerHTML = `<div class="camp-resume"></div><div class="camp-level-heading"><span class="camp-kicker">LEVEL → EPISODE → PRACTICE</span><h2>${words.choose}</h2><p>${words.help}</p></div><nav class="camp-levels" aria-label="${words.levelLabel}"></nav><section class="camp-episodes" aria-labelledby="campEpisodeHeading"><div class="camp-episode-heading"><h2 id="campEpisodeHeading"></h2><p id="campProgress" role="status"></p></div><form class="camp-search" role="search"><label for="campSearch">${words.search}</label><div><input id="campSearch" type="search" placeholder="${words.placeholder}" autocomplete="off"><button type="button" id="campClear" hidden>${words.clear}</button></div></form><div class="camp-episode-list"></div><nav class="camp-pagination" aria-label="${english ? 'Episode pages' : '에피소드 페이지'}"><button type="button" data-page="previous">← ${words.prev}</button><span></span><button type="button" data-page="next">${words.next} →</button></nav><details class="camp-completed"><summary><span>${words.shelf}</span><span class="camp-shelf-count"></span></summary><div class="camp-completed-list"></div></details></section><div class="camp-starters"></div><p class="camp-notice">${words.guide}</p>`;
+    host.innerHTML = `<div class="camp-resume"></div><div class="camp-level-heading"><span class="camp-kicker">LEVEL → EPISODE → PRACTICE</span><h2>${words.choose}</h2><p>${words.help}</p></div><nav class="camp-levels" aria-label="${words.levelLabel}"></nav><section class="cefr camp-cefr-guide" id="campCefrGuide" aria-labelledby="campCefrTitle"><div class="camp-cefr-kicker">CEFR GUIDE · 설명 영역</div><h2 id="campCefrTitle">CEFR은 영어 레벨을 어떻게 나눌까요?</h2><p><strong>CEFR(Common European Framework of Reference for Languages)</strong>은 단순히 아는 단어 수나 시험 점수만으로 영어 수준을 정하지 않습니다. 실제 상황에서 영어를 얼마나 이해하고, 상호작용하고, 자신의 생각을 말하고 쓰며, 의미를 정확하게 전달할 수 있는지를 중심으로 A1부터 C2까지 여섯 단계로 설명합니다.</p><div class="camp-cefr-scale"><div><em>BASIC USER</em><b>A1 · 입문</b><span>익숙한 일상 표현과 매우 기본적인 문장을 이해하고 사용할 수 있는 단계.</span></div><div><em>BASIC USER</em><b>A2 · 초급</b><span>일상적인 정보와 익숙한 주제에 대해 간단한 문장으로 주고받을 수 있는 단계.</span></div><div><em>INDEPENDENT USER</em><b>B1 · 중급</b><span>익숙한 주제의 핵심 내용을 이해하고 경험·계획·의견을 연결해서 설명할 수 있는 단계.</span></div><div><em>INDEPENDENT USER</em><b>B2 · 중상급</b><span>복잡한 글의 주요 내용을 이해하고 비교적 자연스럽고 구체적으로 의견을 전개할 수 있는 단계.</span></div><div><em>PROFICIENT USER</em><b>C1 · 고급</b><span>길고 까다로운 글의 함축적 의미를 이해하고, 복잡한 생각을 유창하고 유연하게 구조화할 수 있는 단계.</span></div><div><em>PROFICIENT USER</em><b>C2 · 숙달</b><span>거의 모든 종류의 언어를 매우 높은 정확도로 이해하고, 미묘한 의미 차이까지 자연스럽고 정교하게 표현할 수 있는 단계.</span></div></div><div class="camp-cefr-note"><strong>중요:</strong> TalkTag Snowballing Studio의 A1–C2 표시는 학습 난이도를 CEFR 기술 방식에 맞추어 설계한 가이드입니다. 이 콘텐츠만으로 공식 CEFR 등급을 판정하지는 않습니다. 실제 수준은 듣기, 읽기, 말하기 상호작용, 말하기·쓰기 생산 등 여러 능력을 함께 보아야 합니다.</div></section><section class="camp-episodes" aria-labelledby="campEpisodeHeading"><div class="camp-episode-heading"><h2 id="campEpisodeHeading"></h2><p id="campProgress" role="status"></p></div><form class="camp-search" role="search"><label for="campSearch">${words.search}</label><div><input id="campSearch" type="search" placeholder="${words.placeholder}" autocomplete="off"><button type="button" id="campClear" hidden>${words.clear}</button></div></form><div class="camp-episode-list"></div><nav class="camp-pagination" aria-label="${english ? 'Episode pages' : '에피소드 페이지'}"><button type="button" data-page="previous">← ${words.prev}</button><span></span><button type="button" data-page="next">${words.next} →</button></nav><details class="camp-completed"><summary><span>${words.shelf}</span><span class="camp-shelf-count"></span></summary><div class="camp-completed-list"></div></details></section><div class="camp-starters"></div><p class="camp-notice">${words.guide}</p>`;
     const levels = host.querySelector('.camp-levels'), input = host.querySelector('#campSearch'), list = host.querySelector('.camp-episode-list');
     function card(f, finished) {
       const ready = camp !== 'vocal' || f.audioStatus === 'ready';
@@ -60,6 +60,8 @@
     }
     function render() {
       const resume = host.querySelector('.camp-resume'); resume.innerHTML = '';
+      host.querySelector('#campCefrGuide').hidden = Boolean(new URLSearchParams(location.search).get('level'));
+      host.querySelector('.camp-episodes').hidden = !level;
       if (language === 'en') try {
         const records = Object.values(JSON.parse(localStorage.getItem('talktag-myspace-activity:v1') || '{}'));
         const last = records.filter(record => {
@@ -112,7 +114,7 @@
     input.addEventListener('input', () => { term = input.value.trim().toLowerCase(); page = 1; render(); });
     host.querySelector('form').addEventListener('submit', e => e.preventDefault());
     host.querySelector('#campClear').addEventListener('click', () => { input.value = ''; term = ''; page = 1; render(); input.focus(); });
-    addEventListener('popstate', () => select(new URLSearchParams(location.search).get('level')?.toUpperCase() || 'A1', false));
+    addEventListener('popstate', () => { const next = new URLSearchParams(location.search).get('level')?.toUpperCase(); if (LEVELS.includes(next)) select(next, false); else { level = ''; render(); } });
     addEventListener('talktag:completion-change', render);
     addEventListener('storage', render);
     addEventListener('pageshow', render);
