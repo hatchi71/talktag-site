@@ -11,7 +11,9 @@
     const { camp = 'story', language = 'en', starters = [], starterDone = () => false, starterUndo = () => {} } = options;
     const english = language === 'ko', japanese = language === 'ja';
     const title = camp === 'vocal' ? 'Vocal Camp' : 'Story Camp';
-    const families = language === 'en' ? (window[`TALKTAG_${camp.toUpperCase()}CAMP_MANIFEST`]?.families || []).filter(f => f.status === 'published') : [];
+    const families = language === 'ko' && camp === 'vocal'
+      ? (window.TALKTAG_VOCALCAMP_KOREAN?.families || []).filter(f => ['audio-qc', 'published'].includes(f.status))
+      : language === 'en' ? (window[`TALKTAG_${camp.toUpperCase()}CAMP_MANIFEST`]?.families || []).filter(f => f.status === 'published') : [];
     const params = new URLSearchParams(location.search);
     const preferenceKey = `talktag-camp-level:${language}`;
     let remembered; try { remembered = localStorage.getItem(preferenceKey); } catch {}
@@ -37,7 +39,7 @@
       guide:`A1–C2는 학습 난이도 안내이며 공식 등급 판정${japanese ? '이나 JLPT 등급 환산' : ''}이 아닙니다.`
     };
     const done = f => Boolean(window.TalkTagCampProgress?.done(camp, level, f.number));
-    const route = f => `${camp === 'story' ? 'storycamp-reader' : 'vocalcamp-player'}.html?level=${level}&family=${f.number}`;
+    const route = f => `${camp === 'story' ? 'storycamp-reader' : 'vocalcamp-player'}.html?level=${level}&family=${f.number}${language === 'ko' ? '&lang=ko' : ''}`;
     const summary = l => {
       const items = families.filter(f => f.levels?.includes(l));
       const completed = items.filter(f => window.TalkTagCampProgress?.done(camp, l, f.number)).length;
