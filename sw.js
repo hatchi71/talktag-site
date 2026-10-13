@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261013-miniskit-audio-revisions-v3';
+const CACHE_VERSION = 'talktag-pwa-20261013-korean-glr002-v4';
 const APP_SHELL = [
   '/',
   '/index.html',

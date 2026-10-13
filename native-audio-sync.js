@@ -20,7 +20,7 @@ var native=window.TalkTagNative;
   var data = (window.TalkTagAudioSync || {})[id] || (window.TalkTagEssayMedia || {})[id]?.sync;
   var guided = (window.TalkTagAudioLessons || []).find(function (item) { return item.id === id && item.training; });
   if (guided) {
-    data = {lines:guided.expressions.map(function (line,index) { return {en:line,ko:guided.meanings[index]||""}; }),cues:guided.training.cues,language:"en"};
+    data = {lines:guided.expressions.map(function (line,index) { return {en:line,ko:guided.meanings[index]||"",speaker:guided.speakers?.[index]}; }),cues:guided.training.cues,language:native.language};
   }
   if (!data && (window.TalkTagN4AudioSync || {})[id]) {
     var lesson = (window.TalkTagN4AudioLessons || []).find(function (item) { return item.id === id; });
@@ -100,7 +100,8 @@ var native=window.TalkTagNative;
       var button = document.createElement("button");
       button.type = "button";
       button.className = "sync-line";
-      button.setAttribute("aria-label", (index + 1) + "번 문장부터 재생: " + String(line.en || "").normalize("NFKC"));
+      button.setAttribute("aria-label", native.ui==='en' ? "Play line " + (index + 1) + ": " + String(line.en || "").normalize("NFKC") : (index + 1) + "번 문장부터 재생: " + String(line.en || "").normalize("NFKC"));
+      if(line.speaker){var speaker=document.createElement("small");speaker.className="sync-speaker";speaker.textContent=line.speaker;button.append(speaker);}
       var primary = document.createElement("span");
       if (data.language) primary.lang = data.language;
       var text=String(line.en || "").normalize("NFKC");

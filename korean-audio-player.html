@@ -17,15 +17,16 @@
 <link rel="stylesheet" href="/glr-scenes.css?v=20261010-scenes">
 <script>window.TalkTagNative={"language":"ko","ui":"en","libraryPage":"korean-audio-library.html","playerPage":"korean-audio-player.html","studioPage":"korean-learning.html","homePage":"korean.html"}</script>
 <script src="/native-guided-data.js?v=20261012-native-catalog" defer></script>
+<script src="/native-guided-ko-002.js?v=20261013-ko002" defer></script>
 <script src="/native-audio-catalog.js?v=20261012-native-catalog" defer></script>
 <script src="/content-completion.js?v=20261010-native001" defer></script>
 <script src="/native-audio-player.js?v=20261010-native001" defer></script>
-<script src="/native-audio-sync.js?v=20261010-native001" defer></script>
+<script src="/native-audio-sync.js?v=20261013-ko002" defer></script>
 <script src="/player-wave-motion.js?v=20261010-native001" defer></script>
 <script src="/talktag-theme.js?v=20261010-native001" defer></script>
-<script src="/native-audio-ui.js?v=20261010-native001" defer></script>
-<script src="/glr-scenes.js?v=20261012-miniskit010" defer></script>
-<link rel="stylesheet" href="/native-audio.css?v=20261010-native001">
+<script src="/native-audio-ui.js?v=20261013-ko002" defer></script>
+<script src="/glr-scenes.js?v=20261013-ko002" defer></script>
+<link rel="stylesheet" href="/native-audio.css?v=20261013-ko002">
 </head>
 <body data-native-language="ko">
   <header class="site-head"><a class="brand" href="korean-learning.html#sound-check"><img src="/talktag-logo.png" alt="TalkTag"><span><strong>Sound Check</strong><small id="playerHeaderMeta">GUIDED LISTEN &amp; REPEAT</small></span></a><nav class="head-links"><a id="libraryBack" href="/audio-library.html?type=guided&amp;level=A1">← 음원 목록</a></nav></header>
@@ -34,7 +35,7 @@
     <div class="player-shell">
       <section class="player-card">
         <div class="lesson-kicker"><span id="lessonKicker">GUIDED PRACTICE</span><b class="complete-state" id="completeState">NOT COMPLETED</b></div>
-        <h1 id="lessonTitle">Audio lesson</h1><p class="summary" id="lessonSummary"></p>
+        <h1 id="lessonTitle">Audio lesson</h1><p class="summary" id="lessonSummary"></p><div class="glr-scene-briefing" id="sceneBriefing" hidden><span class="glr-scene-briefing-label">Scene</span><p id="sceneBriefingText"></p></div>
         <div class="wave" aria-hidden="true" id="wave"></div>
         <audio id="audio" preload="metadata"></audio>
         <div class="time-row"><span id="currentTime">00:00</span><span id="duration">00:00</span></div>

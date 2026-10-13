@@ -1,0 +1,101 @@
+{
+  "language": "ko",
+  "episode": "002",
+  "revision": "ko-002-20261013",
+  "audience": "English-speaking Korean learners",
+  "format": "scene-dialogue",
+  "register": "Natural, everyday polite Korean; 해요체 with appropriate polite requests.",
+  "sourceNote": "Original Korean dialogue and original English support. The assigned English references guide scene ideas only; no source sentences or translations are reproduced.",
+  "references": [
+    {"name": "SC BC A12B12 거의 모든 행동표현의 영어_OCR (small).pdf", "pages": "17–18 (hair and grooming actions)", "use": "A/B everyday action and service scenes"},
+    {"name": "SC BC B12C12 Animal Farm by George Orwell.pdf", "pages": "5–7 (group discussion and shared concerns)", "use": "C-level themes of clarifying a proposal and discussing shared rules; entirely original workplace/community scenes"}
+  ],
+  "voices": {
+    "Min-joon": {"id": "nbrxrAz3eYm9NgojrmFK", "gender": "male", "accent": "Standard Korean"},
+    "Leejin": {"id": "F9mMsBUFaCLedtYXXjLD", "gender": "female", "accent": "Standard Korean"}
+  },
+  "cards": [
+    {
+      "level": "A1", "title": "Drying Your Hair", "nativeTitle": "머리를 말려요",
+      "description": "Ask to borrow a hair dryer and accept a simple invitation.",
+      "scene": "Two friends find a hair dryer for someone whose hair is still wet.",
+      "briefing": "Your hair is still wet. Ask to use a friend's hair dryer, then find a place to sit.",
+      "focus": ["머리", "젖다", "드라이어", "-아/어도 돼요?"],
+      "lines": [
+        {"speaker": "Min-joon", "ko": "머리가 아직 젖었어요.", "en": "My hair is still wet."},
+        {"speaker": "Leejin", "ko": "여기 드라이어가 있어요.", "en": "There's a hair dryer here."},
+        {"speaker": "Min-joon", "ko": "잠깐 써도 돼요?", "en": "May I use it for a moment?"},
+        {"speaker": "Leejin", "ko": "네, 여기 앉으세요.", "en": "Sure. Have a seat here."}
+      ]
+    },
+    {
+      "level": "A2", "title": "At the Hair Salon", "nativeTitle": "미용실에서",
+      "description": "Ask for a small trim and explain what you would like.",
+      "scene": "A customer and stylist agree on a small haircut at a salon.",
+      "briefing": "You want a small trim, not a big change. Check the length with the stylist and ask about your bangs.",
+      "focus": ["끝", "다듬다", "앞머리", "-아/어 주세요"],
+      "lines": [
+        {"speaker": "Leejin", "ko": "끝만 조금 다듬어 주세요.", "en": "Just a little off the ends, please."},
+        {"speaker": "Min-joon", "ko": "이 정도 길이면 괜찮으세요?", "en": "Would this length be okay?"},
+        {"speaker": "Leejin", "ko": "네, 앞머리도 조금 잘라 주세요.", "en": "Yes. Please trim my bangs a little, too."},
+        {"speaker": "Min-joon", "ko": "알겠습니다. 불편하시면 말씀해 주세요.", "en": "Of course. Let me know if you're uncomfortable."}
+      ]
+    },
+    {
+      "level": "B1", "title": "Returning a Borrowed Hair Dryer", "nativeTitle": "빌린 드라이어를 돌려줘요",
+      "description": "Thank a friend, explain a small accident, and check how to fix it.",
+      "scene": "A friend returns a borrowed hair dryer and points to its loose filter.",
+      "briefing": "You used a friend's hair dryer, but its filter fell out. Explain what happened and find out how to put it back.",
+      "focus": ["빌려주다", "-다니", "-다가", "-기만 하면 되다"],
+      "lines": [
+        {"speaker": "Min-joon", "ko": "드라이어 빌려주셔서 정말 잘 썼어요.", "en": "Thanks for lending me your hair dryer. It was really handy."},
+        {"speaker": "Leejin", "ko": "도움이 됐다니 다행이네요. 머리는 잘 말리셨어요?", "en": "I'm glad it helped. Did you get your hair dry?"},
+        {"speaker": "Min-joon", "ko": "네, 그런데 제가 서두르다가 필터를 떨어뜨렸어요.", "en": "Yes, but I was in a hurry and dropped the filter."},
+        {"speaker": "Leejin", "ko": "필터만 빠진 거면 다시 끼우면 돼요.", "en": "If the filter just came off, you can put it back in."},
+        {"speaker": "Min-joon", "ko": "다행이네요. 다음에는 더 조심해서 쓸게요.", "en": "That's a relief. I'll be more careful next time."},
+        {"speaker": "Leejin", "ko": "괜찮아요. 제대로 끼워져 있는지만 확인해 주세요.", "en": "It's okay. Just check that it's fitted properly."}
+      ]
+    },
+    {
+      "level": "B2", "title": "Sorting Out an Appointment Mix-Up", "nativeTitle": "예약 시간이 잘못됐어요",
+      "description": "Clarify an incorrect booking and agree on a workable alternative.",
+      "scene": "A salon customer and receptionist compare a booking message with a calendar.",
+      "briefing": "Your booking message shows the wrong time. Explain when you can arrive and check whether the new appointment fits your schedule.",
+      "focus": ["-아/어 보니", "-아서/어서", "-지만", "-시면"],
+      "lines": [
+        {"speaker": "Leejin", "ko": "예약 문자를 보니 제가 부탁드린 시간과 다르네요.", "en": "The booking message shows a different time from the one I requested."},
+        {"speaker": "Min-joon", "ko": "확인해 볼게요. 금요일 오후 세 시를 원하셨나요?", "en": "Let me check. Did you want three on Friday afternoon?"},
+        {"speaker": "Leejin", "ko": "네, 그날은 일찍 퇴근해서 세 시에 올 수 있어요.", "en": "Yes. I finish work early that day, so I can be there at three."},
+        {"speaker": "Min-joon", "ko": "세 시는 어렵지만 네 시로 바꿔 드릴 수 있어요.", "en": "Three isn't available, but I can move your appointment to four."},
+        {"speaker": "Leejin", "ko": "그럼 네 시로 해 주세요. 한 시간 안에 끝날까요?", "en": "Then four, please. Will it be finished within an hour?"},
+        {"speaker": "Min-joon", "ko": "머리만 다듬으시면 가능해요. 변경 내용을 문자로 보내 드릴게요.", "en": "Yes, if you're just having a trim. I'll text you the updated details."}
+      ]
+    },
+    {
+      "level": "C1", "title": "A Suggestion, Not a Decision", "nativeTitle": "제안인지 결정인지 확인해요",
+      "description": "Clarify the status of a proposal before passing it on to others.",
+      "scene": "Two coworkers check a meeting note before sharing it with the team.",
+      "briefing": "A comment in a meeting might be mistaken for a decision. Clarify its status and agree on wording that leaves room for other views.",
+      "focus": ["확정되다", "-거나", "-거든요", "-는 것처럼", "-다는 점"],
+      "lines": [
+        {"speaker": "Min-joon", "ko": "아까 말씀하신 건 확정된 건가요, 아니면 제안인가요?", "en": "Was what you mentioned earlier a final decision, or a suggestion?"},
+        {"speaker": "Leejin", "ko": "제안이에요. 다른 분들 의견도 들어 봐야 하거든요.", "en": "It's a suggestion. We still need to hear what the others think."},
+        {"speaker": "Min-joon", "ko": "그럼 결정된 것처럼 전달하지는 않는 게 좋겠네요.", "en": "Then we'd better avoid presenting it as a decision."},
+        {"speaker": "Leejin", "ko": "네, 검토할 선택지라는 점을 분명히 해 주세요.", "en": "Right. Please make it clear that it's an option to consider."}
+      ]
+    },
+    {
+      "level": "C2", "title": "Keeping Shared Rules Fair", "nativeTitle": "같은 기준이면 공정할까요?",
+      "description": "Weigh equal treatment against different circumstances and explain a principled exception.",
+      "scene": "Two residents discuss a shared rule at a small community meeting.",
+      "briefing": "A shared rule affects residents differently. Discuss whether equal treatment is enough and how exceptions could remain transparent.",
+      "focus": ["-다고 볼 수 있다", "-는데", "-다고 ... -는 건 아니다", "-잖아요", "적용 범위"],
+      "lines": [
+        {"speaker": "Min-joon", "ko": "모두에게 같은 기준을 적용하면 공정하다고 볼 수 있을까요?", "en": "Can we call it fair if we apply the same standard to everyone?"},
+        {"speaker": "Leejin", "ko": "출발점이 다른데 기준만 같다고 결과까지 공정해지는 건 아니죠.", "en": "When people start from different positions, the same standard doesn't necessarily produce a fair result."},
+        {"speaker": "Min-joon", "ko": "그렇다고 예외를 늘리면 원칙이 흐려질 수도 있잖아요.", "en": "But adding more exceptions could also weaken the principle, couldn't it?"},
+        {"speaker": "Leejin", "ko": "그래서 예외가 필요한 이유와 적용 범위를 함께 공개하자는 거예요.", "en": "That's why I'm suggesting that we disclose both the reason for each exception and its scope."}
+      ]
+    }
+  ]
+}
