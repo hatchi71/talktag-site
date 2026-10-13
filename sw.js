@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261013-cefr-sound-check-v1';
+const CACHE_VERSION = 'talktag-pwa-20261013-korean-vocal-001-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
