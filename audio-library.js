@@ -8,6 +8,8 @@ var catalog=(window.TalkTagAudioLessons||[]).filter(l=>l.type===type&&(l.availab
 var list=document.getElementById("lessonList"),shelf=document.getElementById("audioMissionList"),toggle=document.getElementById("audioMissionsToggle");
 document.body.dataset.audioType=type;
 document.body.dataset.audioView=level?"lessons":"levels";
+var cefrGuide=document.getElementById("cefrGuide");
+if(cefrGuide)cefrGuide.hidden=Boolean(level);
 document.title=name+(level?" · "+level:"")+" · TalkTag";
 document.getElementById("libraryEyebrow").textContent="SOUND CHECK";
 document.getElementById("libraryTitle").textContent=name+(level?" · "+level:"");
