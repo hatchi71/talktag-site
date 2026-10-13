@@ -74,6 +74,7 @@ var native=window.TalkTagNative;
     displayLevel = Math.max(0, Math.min(2, Number(level) || 0));
     lines.classList.toggle("hide-reading", displayLevel < 1);
     lines.classList.toggle("hide-ko", displayLevel < 2);
+    if (nativeJapanese) lines.classList.toggle("with-furigana", displayLevel >= 1);
     if (displayRange) {
       displayRange.value = String(displayLevel);
       displayRange.setAttribute("aria-valuetext", displayLabels[displayLevel]);
@@ -155,21 +156,46 @@ var native=window.TalkTagNative;
 
   if (isJapanese) {
     buildLines();
+    var japaneseMode = "hidden";
+    var japaneseControls = [document.getElementById("scriptHiddenButton"), document.getElementById("scriptButton"), document.getElementById("meaningButton")];
+    var japaneseKeys = ["hidden", "en", "kr"];
+    var japaneseLevels = { hidden: 0, en: 1, kr: 2 };
+    function applyJapaneseMode(requested) {
+      japaneseMode = japaneseKeys.indexOf(requested) >= 0 ? requested : "hidden";
+      enabled = true;
+      setDisplayLevel(japaneseLevels[japaneseMode]);
+      section.hidden = false;
+      if (content) content.hidden = false;
+      japaneseControls.forEach(function (button, index) {
+        if (!button) return;
+        var selected = japaneseKeys[index] === japaneseMode;
+        button.classList.toggle("active", selected);
+        button.setAttribute("aria-pressed", String(selected));
+        button.setAttribute("aria-expanded", String(selected));
+      });
+      active = -1;
+      update();
+    }
     setDisplayLevel(displayLevel);
     update();
     displayRange.addEventListener("input", function () { setDisplayLevel(displayRange.value); });
     displayRange.addEventListener("change", function () { setDisplayLevel(displayRange.value); });
+    window.TalkTagAudioScript = { show: function (requested) {
+      applyJapaneseMode(requested);
+      section.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }};
+    applyJapaneseMode("hidden");
   } else if(nativeJapanese) {
     var mode="", controls=[document.getElementById("scriptHiddenButton"),document.getElementById("scriptButton"),document.getElementById("meaningButton")];
     var keys=["hidden","en","kr"],names=["일본어 원문","후리가나","한글 해석"];
     document.getElementById("scriptPanel")?.remove();document.getElementById("meaningPanel")?.remove();
     controls.forEach(function(button,i){button.textContent=names[i];button.setAttribute("aria-controls","unifiedScript");button.setAttribute("aria-pressed","false");button.setAttribute("aria-expanded","false");});
     window.TalkTagAudioScript={show:function(requested){
-      enabled=!(enabled&&mode===requested);mode=requested;
-      section.hidden=!enabled;content.hidden=!enabled;
-      lines.classList.toggle("with-furigana",requested!=="hidden");lines.classList.toggle("hide-ko",requested!=="kr");
-      controls.forEach(function(button,i){var selected=enabled&&keys[i]===mode;button.classList.toggle("active",selected);button.setAttribute("aria-pressed",String(selected));button.setAttribute("aria-expanded",String(selected));});
-      if(enabled){buildLines();active=-1;update();section.scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}
+      enabled=true;mode=keys.indexOf(requested)>=0?requested:"hidden";
+      lines.classList.toggle("with-furigana",mode!=="hidden");
+      lines.classList.toggle("hide-ko",mode!=="kr");
+      controls.forEach(function(button,i){var selected=keys[i]===mode;button.classList.toggle("active",selected);button.setAttribute("aria-pressed",String(selected));button.setAttribute("aria-expanded",String(selected));});
+      section.hidden=false;content.hidden=false;active=-1;update();section.scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
     }};
   } else {
     var mode="";
