@@ -77,7 +77,7 @@
     if (lesson.partIndex) {
       document.getElementById("playerHeaderMeta").textContent += " · " + lesson.partIndex + "/" + lesson.partCount;
     document.getElementById("lessonKicker").textContent = lesson.level + " · " + String(lesson.unit).padStart(2,"0") + "–" + String(lesson.partIndex).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT" : "");
-    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.partIndex + "/" + lesson.partCount + " · 문장 " + lesson.sentenceStart + "–" + lesson.sentenceEnd;
+    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.partIndex + "/" + lesson.partCount + " · " + (lesson.format === "miniskit" ? "대사 " : "문장 ") + lesson.sentenceStart + "–" + lesson.sentenceEnd;
     }
     var fields = document.querySelectorAll(".lesson-info dd");
     fields[2].textContent = "Sound Check · Guided Practice";

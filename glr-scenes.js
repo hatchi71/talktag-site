@@ -46,7 +46,22 @@
     'guided-c2-07': 'Keeping options open until a firm date is set',
     'guided-a1-08-miniskit-pilot': 'Two friends in a warm living room try one window, then open another',
     'guided-a1-09-miniskit-pilot': 'Two friends by the door check for keys before heading out',
-    'guided-a1-10-miniskit-pilot': 'Two friends sort an empty glass bottle and a plastic bottle into a blue recycling bin'
+    'guided-a1-10-miniskit-pilot': 'Two friends sort an empty glass bottle and a plastic bottle into a blue recycling bin',
+    'guided-a2-08-miniskit': 'Two friends reschedule a package delivery so someone can be home',
+    'guided-b1-08-miniskit': 'Friends coordinate food and drinks for a neighborhood potluck',
+    'guided-b2-08-miniskit': 'A shopper and friend compare two everyday appliances',
+    'guided-c1-08-miniskit': 'Coworkers clarify whether a Friday deadline is firm',
+    'guided-c2-08-miniskit': 'A small team sets limits before testing a new idea',
+    'guided-a2-09-miniskit': 'Friends look for keys on an entry table before leaving',
+    'guided-b1-09-miniskit': 'Two walkers reroute around a street closure',
+    'guided-b2-09-miniskit': 'Coworkers discuss simplifying a slide presentation',
+    'guided-c1-09-miniskit': 'Travelers distinguish a preferred train from a required arrival time',
+    'guided-c2-09-miniskit': 'Event organizers discuss a check-in bottleneck and a fix',
+    'guided-a2-10-miniskit': 'A patient calls a clinic to book another appointment',
+    'guided-b1-10-miniskit': 'Friends check tickets, keys and a charger before leaving',
+    'guided-b2-10-miniskit': 'Friends plan an outdoor lunch with an indoor backup',
+    'guided-c1-10-miniskit': 'A teammate scopes what can realistically be delivered this week',
+    'guided-c2-10-miniskit': 'A friend changes a weekend plan and offers to help another day'
   };
   const sceneBriefings = {
     'guided-a1-01': '잠에서 깬 사람이 물을 마시고 천천히 몸을 깨우며 아침을 시작합니다.',
@@ -93,7 +108,22 @@
     'guided-c2-07': '날짜가 확정되지 않은 계획에 대해 기준을 차분히 밝히고, 확정 전까지 다른 선택지도 남겨 둡니다.',
     'guided-a1-08-miniskit-pilot': '더운 방에서 친구 둘이 창문을 열어 환기하려고 합니다. 한쪽 창문이 열리지 않아 다른 창문을 열어 봅니다.',
     'guided-a1-09-miniskit-pilot': '외출을 앞둔 친구 둘이 현관에서 열쇠를 찾고, 탁자 위에서 발견한 뒤 함께 나섭니다.',
-    'guided-a1-10-miniskit-pilot': '두 친구가 빈 병을 분리수거하면서 어느 통에 넣을지 묻고 답합니다.'
+    'guided-a1-10-miniskit-pilot': '두 친구가 빈 병을 분리수거하면서 어느 통에 넣을지 묻고 답합니다.',
+    'guided-a2-08-miniskit': '택배를 받을 수 있는 시간으로 배송 일정을 바꾸기 위해 전화로 시간을 조율합니다.',
+    'guided-b1-08-miniskit': '동네 모임에 가져갈 음식과 음료를 친구와 나누어 정합니다.',
+    'guided-b2-08-miniskit': '가전제품 두 가지의 장단점을 비교하며 실제로 필요한 기능을 따져 봅니다.',
+    'guided-c1-08-miniskit': '업무 마감일이 확정된 일정인지 목표일인지 확인하고 계획을 조정합니다.',
+    'guided-c2-08-miniskit': '새로운 아이디어를 시험하되 감당할 수 있는 범위와 성공 기준을 정합니다.',
+    'guided-a2-09-miniskit': '영화 보러 나가기 전 현관에서 열쇠를 찾아 출발합니다.',
+    'guided-b1-09-miniskit': '공사로 막힌 길을 피해 지도를 확인하고 다른 경로로 이동합니다.',
+    'guided-b2-09-miniskit': '상대의 수고를 인정하며 발표 자료를 간결하게 다듬자고 제안합니다.',
+    'guided-c1-09-miniskit': '여행 계획에서 개인의 선호와 반드시 필요한 조건을 구분합니다.',
+    'guided-c2-09-miniskit': '행사를 돌아보며 잘된 점을 칭찬하고 다음에 보완할 점을 제안합니다.',
+    'guided-a2-10-miniskit': '병원에 전화해 가능한 시간을 묻고 새 진료 예약을 정합니다.',
+    'guided-b1-10-miniskit': '외출하기 전 휴대폰 표와 열쇠, 보조 배터리를 함께 확인합니다.',
+    'guided-b2-10-miniskit': '날씨에 따라 야외와 실내 중 선택할 수 있도록 점심 계획을 세웁니다.',
+    'guided-c1-10-miniskit': '제안에 동의하면서 이번 주에 현실적으로 할 수 있는 범위를 분명히 합니다.',
+    'guided-c2-10-miniskit': '주말 약속을 바꾸게 된 사정을 미리 설명하고 준비를 돕겠다고 제안합니다.'
   };
   const nativeScenes = {
     a1: 'Two adults greeting at a cafe and offering an empty chair',
@@ -104,8 +134,9 @@
     c2: 'Offering help while letting a friend try independently'
   };
   function attach(title, id, player) {
+    const baseId = (id || '').replace(/-part\d+$/, '');
     const native = /^(?:ko|ja)-guided-(a1|a2|b1|b2|c1|c2)-001(?:-part\d+)?$/.exec(id || '');
-    const description = native ? nativeScenes[native[1]] : scenes[id];
+    const description = native ? nativeScenes[native[1]] : scenes[baseId];
     if (!title || !description || title.parentElement.classList.contains('glr-scene-title')) return;
     const header = document.createElement('div');
     header.className = 'glr-scene-title' + (player ? ' glr-scene-player' : '');
@@ -113,7 +144,8 @@
     header.append(title);
     const image = document.createElement('img');
     image.className = 'glr-scene-image';
-    image.src = native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : 'assets/glr-scenes/' + id.replace(/-(?:miniskit-pilot|miniskit)$/, '') + (/(?:07|08|09|10)(?:-miniskit-pilot|-miniskit)?$/.test(id) ? '.jpg' : '.webp');
+    const miniskit = /^guided-(a2|b1|b2|c1|c2)-(08|09|10)-miniskit(?:-part\d+)?$/.exec(id || '');
+    image.src = native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : miniskit ? 'assets/glr-scenes/miniskit/' + miniskit[2] + '-' + miniskit[1] + '.jpg' : 'assets/glr-scenes/' + id.replace(/-(?:miniskit-pilot|miniskit)$/, '') + (/(?:07|08|09|10)(?:-miniskit-pilot|-miniskit)?$/.test(id) ? '.jpg' : '.webp');
     image.alt = description;
     image.width = 360; image.height = 240;
     image.loading = player ? 'eager' : 'lazy';
@@ -125,7 +157,7 @@
     if (document.body.dataset.audioType !== 'guided') return;
     const briefing = document.getElementById('sceneBriefing');
     const text = document.getElementById('sceneBriefingText');
-    const description = sceneBriefings[id];
+    const description = sceneBriefings[id] || sceneBriefings[(id || '').replace(/-part\d+$/, '')];
     if (!briefing || !text || !description) return;
     text.textContent = description;
     briefing.hidden = false;

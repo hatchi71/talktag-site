@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261012-qr-share-v1';
+const CACHE_VERSION = 'talktag-pwa-20261013-miniskit-split-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
