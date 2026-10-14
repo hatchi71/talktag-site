@@ -1,5 +1,5 @@
 window.TALKTAG_VOCALCAMP_KOREAN = {
-  version: "2026-10-13-korean-001-published1",
+  version: "2026-10-14-korean-001-published2",
   families: [{
     number: "001",
     title: "A Small Gift, A Longer Conversation",
@@ -23,7 +23,7 @@ window.TALKTAG_VOCALCAMP_KOREAN = {
           "My coworker smiled and said thank you.",
           "We talked about the snack and the food we like."
         ],
-        audioSteps: Array.from({length: 4}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/A1/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+        audioSteps: Array.from({length: 4}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/A1/step-${String(i + 1).padStart(2, "0")}.mp3?v=20261014-korean-vocal-audio-v2`}))
       },
       A2: {
         status: "ready",
@@ -41,7 +41,7 @@ window.TALKTAG_VOCALCAMP_KOREAN = {
           "We talked about the shops we often visit and the food we like.",
           "The conversation that began with a short greeting continued until lunchtime."
         ],
-        audioSteps: Array.from({length: 5}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/A2/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+        audioSteps: Array.from({length: 5}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/A2/step-${String(i + 1).padStart(2, "0")}.mp3?v=20261014-korean-vocal-audio-v2`}))
       },
       B1: {
         status: "ready",
@@ -59,7 +59,7 @@ window.TALKTAG_VOCALCAMP_KOREAN = {
           "At first I only meant to say a quick hello, but the conversation naturally grew longer.",
           "I felt that one small act of kindness gave us a chance to get to know each other more comfortably."
         ],
-        audioSteps: Array.from({length: 5}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/B1/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+        audioSteps: Array.from({length: 5}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/B1/step-${String(i + 1).padStart(2, "0")}.mp3?v=20261014-korean-vocal-audio-v2`}))
       },
       B2: {
         status: "ready",
@@ -79,7 +79,7 @@ window.TALKTAG_VOCALCAMP_KOREAN = {
           "A conversation I expected to end with a brief greeting continued through lunch.",
           "I realized that a small kindness may not begin a major relationship, but it can open a conversation."
         ],
-        audioSteps: Array.from({length: 6}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/B2/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+        audioSteps: Array.from({length: 6}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/B2/step-${String(i + 1).padStart(2, "0")}.mp3?v=20261014-korean-vocal-audio-v2`}))
       },
       C1: {
         status: "ready",
@@ -99,7 +99,7 @@ window.TALKTAG_VOCALCAMP_KOREAN = {
           "Before long, the colleague approached me first and shared their story.",
           "Trust sometimes begins with a small action that leaves the other person room to choose."
         ],
-        audioSteps: Array.from({length: 6}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/C1/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+        audioSteps: Array.from({length: 6}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/C1/step-${String(i + 1).padStart(2, "0")}.mp3?v=20261014-korean-vocal-audio-v2`}))
       },
       C2: {
         status: "ready",
@@ -119,7 +119,7 @@ window.TALKTAG_VOCALCAMP_KOREAN = {
           "We can open the door to a relationship, but the other person must decide whether to walk through it.",
           "Consideration is less about choosing for someone and more about protecting their space to choose."
         ],
-        audioSteps: Array.from({length: 6}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/C2/step-${String(i + 1).padStart(2, "0")}.mp3`}))
+        audioSteps: Array.from({length: 6}, (_, i) => ({step: i + 1, url: `/audio/korean/vocalcamp/001/C2/step-${String(i + 1).padStart(2, "0")}.mp3?v=20261014-korean-vocal-audio-v2`}))
       }
     }
   }]
