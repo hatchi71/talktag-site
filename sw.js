@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261015-korean-bootcamp-tree-v1';
+const CACHE_VERSION = 'talktag-pwa-20261015-korean-bootcamp-tree-v2';
 const APP_SHELL = [
   '/',
   '/index.html',
