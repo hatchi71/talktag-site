@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261014-korean-vocal-language-v3';
+const CACHE_VERSION = 'talktag-pwa-20261014-bootcamp-level-landings-v4';
 const APP_SHELL = [
   '/',
   '/index.html',

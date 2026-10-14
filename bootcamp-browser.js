@@ -27,7 +27,7 @@
       start:'Start practice', complete:'Mark complete', undo:'Undo', shelf:'Completed missions', emptyShelf:'Finished lessons will appear here. Reopen one or undo completion.',
       noMatch:'No matching episodes. Try a different title or clear your search.', allDone:'All episodes in this level are complete. Reopen one below or undo completion.',
       pending:'Coming soon', pendingText:camp === 'story' ? 'Level-based Korean stories are coming soon. Try the existing starter stories below.' : 'Korean Vocal Camp recordings are being prepared.',
-      prev:'Previous', next:'Next', levelLabel:'Practice level', clear:'Clear search',
+      prev:'Previous', next:'Next', levelLabel:'Practice level', clear:'Clear search', changeLevel:'← Choose a level',
       guide:'A1–C2 are learning-difficulty guides, not an official assessment or a TOPIK conversion.'
     } : {
       choose:'훈련할 레벨을 선택하세요', help:'레벨을 고르고, 이야기를 한 편씩 내 것으로 만드세요.',
@@ -35,7 +35,7 @@
       start:'연습 시작', complete:'완료로 표시', undo:'완료 취소', shelf:'완료한 미션', emptyShelf:'완료한 이야기가 이곳에 모입니다. 다시 열거나 완료를 취소할 수 있습니다.',
       noMatch:'일치하는 이야기가 없습니다. 다른 제목을 입력하거나 검색어를 지워 보세요.', allDone:'이 레벨의 이야기를 모두 완료했습니다. 아래에서 다시 열거나 완료를 취소할 수 있습니다.',
       pending:'준비 중', pendingText:`${japanese ? '일본어' : '영어'} ${title}의 이 레벨 자료를 준비하고 있습니다.`,
-      prev:'이전', next:'다음', levelLabel:'학습 레벨', clear:'검색어 지우기',
+      prev:'이전', next:'다음', levelLabel:'학습 레벨', clear:'검색어 지우기', changeLevel:'← 레벨 선택',
       guide:`A1–C2는 학습 난이도 안내이며 공식 등급 판정${japanese ? '이나 JLPT 등급 환산' : ''}이 아닙니다.`
     };
     const done = f => Boolean(window.TalkTagCampProgress?.done(camp, level, f.number));
@@ -47,6 +47,12 @@
     };
     host.innerHTML = `<div class="camp-resume"></div><div class="camp-level-heading"><span class="camp-kicker">LEVEL → EPISODE → PRACTICE</span><h2>${words.choose}</h2><p>${words.help}</p></div><nav class="camp-levels" aria-label="${words.levelLabel}"></nav><section class="cefr camp-cefr-guide" id="campCefrGuide" aria-labelledby="campCefrTitle"><div class="camp-cefr-kicker">CEFR GUIDE · 설명 영역</div><h2 id="campCefrTitle">CEFR은 영어 레벨을 어떻게 나눌까요?</h2><p><strong>CEFR(Common European Framework of Reference for Languages)</strong>은 단순히 아는 단어 수나 시험 점수만으로 영어 수준을 정하지 않습니다. 실제 상황에서 영어를 얼마나 이해하고, 상호작용하고, 자신의 생각을 말하고 쓰며, 의미를 정확하게 전달할 수 있는지를 중심으로 A1부터 C2까지 여섯 단계로 설명합니다.</p><div class="camp-cefr-scale"><div><em>BASIC USER</em><b>A1 · 입문</b><span>익숙한 일상 표현과 매우 기본적인 문장을 이해하고 사용할 수 있는 단계.</span></div><div><em>BASIC USER</em><b>A2 · 초급</b><span>일상적인 정보와 익숙한 주제에 대해 간단한 문장으로 주고받을 수 있는 단계.</span></div><div><em>INDEPENDENT USER</em><b>B1 · 중급</b><span>익숙한 주제의 핵심 내용을 이해하고 경험·계획·의견을 연결해서 설명할 수 있는 단계.</span></div><div><em>INDEPENDENT USER</em><b>B2 · 중상급</b><span>복잡한 글의 주요 내용을 이해하고 비교적 자연스럽고 구체적으로 의견을 전개할 수 있는 단계.</span></div><div><em>PROFICIENT USER</em><b>C1 · 고급</b><span>길고 까다로운 글의 함축적 의미를 이해하고, 복잡한 생각을 유창하고 유연하게 구조화할 수 있는 단계.</span></div><div><em>PROFICIENT USER</em><b>C2 · 숙달</b><span>거의 모든 종류의 언어를 매우 높은 정확도로 이해하고, 미묘한 의미 차이까지 자연스럽고 정교하게 표현할 수 있는 단계.</span></div></div><div class="camp-cefr-note"><strong>중요:</strong> TalkTag Snowballing Studio의 A1–C2 표시는 학습 난이도를 CEFR 기술 방식에 맞추어 설계한 가이드입니다. 이 콘텐츠만으로 공식 CEFR 등급을 판정하지는 않습니다. 실제 수준은 듣기, 읽기, 말하기 상호작용, 말하기·쓰기 생산 등 여러 능력을 함께 보아야 합니다.</div></section><section class="camp-episodes" aria-labelledby="campEpisodeHeading"><div class="camp-episode-heading"><h2 id="campEpisodeHeading"></h2><p id="campProgress" role="status"></p></div><form class="camp-search" role="search"><label for="campSearch">${words.search}</label><div><input id="campSearch" type="search" placeholder="${words.placeholder}" autocomplete="off"><button type="button" id="campClear" hidden>${words.clear}</button></div></form><div class="camp-episode-list"></div><nav class="camp-pagination" aria-label="${english ? 'Episode pages' : '에피소드 페이지'}"><button type="button" data-page="previous">← ${words.prev}</button><span></span><button type="button" data-page="next">${words.next} →</button></nav><details class="camp-completed"><summary><span>${words.shelf}</span><span class="camp-shelf-count"></span></summary><div class="camp-completed-list"></div></details></section><div class="camp-starters"></div><p class="camp-notice">${words.guide}</p>`;
     const levels = host.querySelector('.camp-levels'), input = host.querySelector('#campSearch'), list = host.querySelector('.camp-episode-list');
+    const levelLanding = document.createElement('section');
+    levelLanding.className = 'camp-level-landing';
+    levelLanding.id = 'campLevelLanding';
+    levelLanding.hidden = true;
+    levelLanding.innerHTML = `<a class="camp-change-level" href="?" data-change-level>${words.changeLevel}</a><span class="camp-kicker">BOOT CAMP · ${camp === 'vocal' ? 'BUILD' : 'REBUILD'}</span><h2 id="campLevelTitle"></h2><p id="campLevelDescription"></p>`;
+    host.querySelector('#campCefrGuide').before(levelLanding);
     function card(f, finished) {
       const ready = camp !== 'vocal' || f.audioStatus === 'ready';
       return `<article class="camp-episode${finished ? ' is-completed' : ''}" data-episode="${f.number}"><a class="camp-episode-link" href="${route(f)}"><span class="camp-kicker">${level} · ${english ? 'EPISODE' : '이야기'} ${f.number}</span><h3>${esc(f.title)}</h3><p>${esc(f.theme)}</p><span class="camp-start">${ready ? words.start : (english ? 'Recording in preparation' : '음원 준비 중')} <span aria-hidden="true">→</span></span></a><div class="camp-episode-actions"><button type="button" data-complete="${f.number}" data-finished="${finished}" aria-label="${esc(f.title)} · ${finished ? words.undo : words.complete}">${finished ? words.undo : words.complete}</button>${finished ? `<span class="camp-complete-mark">✓ ${words.completed}</span>` : ''}</div></article>`;
@@ -60,8 +66,22 @@
     }
     function render() {
       const resume = host.querySelector('.camp-resume'); resume.innerHTML = '';
-      host.querySelector('#campCefrGuide').hidden = Boolean(new URLSearchParams(location.search).get('level'));
-      host.querySelector('.camp-episodes').hidden = !level;
+      const levelSelected = Boolean(level);
+      document.body.classList.toggle('tt-camp-level-selected', levelSelected);
+      host.querySelector('.camp-level-heading').hidden = levelSelected;
+      levels.hidden = levelSelected;
+      host.querySelector('#campCefrGuide').hidden = levelSelected;
+      levelLanding.hidden = !levelSelected;
+      host.querySelector('.camp-episodes').hidden = !levelSelected;
+      if (levelSelected) {
+        const base = new URL(location.href); base.searchParams.delete('level');
+        levelLanding.querySelector('[data-change-level]').href = base.pathname + (base.search || '') + base.hash;
+        host.querySelector('#campLevelTitle').textContent = `${title} · ${level}`;
+        host.querySelector('#campLevelDescription').textContent = camp === 'vocal'
+          ? (english ? 'Choose one episode and build the Korean story through cumulative listening and speaking.' : '한 편을 골라 누적 음원으로 듣고 따라 말해 보세요.')
+          : (english ? 'Choose one episode, remember its flow, then rebuild it in your own Korean.' : '한 편을 골라 흐름을 기억하고 내 말로 다시 구성해 보세요.');
+        document.title = `${level} · ${title} · TalkTag Boot Camp`;
+      } else document.title = `${title} · TalkTag Boot Camp`;
       if (language === 'en') try {
         const records = Object.values(JSON.parse(localStorage.getItem('talktag-myspace-activity:v1') || '{}'));
         const last = records.filter(record => {
@@ -90,14 +110,16 @@
       renderStarters();
     }
     function select(next, updateHistory = true) {
-      if (!LEVELS.includes(next)) return;
+      if (next && !LEVELS.includes(next)) return;
       level = next; page = 1; term = ''; input.value = '';
-      if (updateHistory) { const url = new URL(location.href); url.searchParams.set('level', level); history.pushState(null, '', url); }
-      try { localStorage.setItem(preferenceKey, level); } catch {}
+      if (updateHistory) { const url = new URL(location.href); if (level) url.searchParams.set('level', level); else url.searchParams.delete('level'); history.pushState(null, '', url); }
+      try { if (level) localStorage.setItem(preferenceKey, level); } catch {}
       render();
-      levels.querySelector(`[data-level="${level}"]`)?.focus({preventScroll:true});
+      (level ? levels.querySelector(`[data-level="${level}"]`) : levelLanding.querySelector('[data-change-level]'))?.focus({preventScroll:true});
     }
     host.addEventListener('click', event => {
+      const changeLevel = event.target.closest('[data-change-level]');
+      if (changeLevel && !event.metaKey && !event.ctrlKey && !event.shiftKey && event.button === 0) { event.preventDefault(); select('', true); return; }
       const levelLink = event.target.closest('[data-level]');
       if (levelLink && !event.metaKey && !event.ctrlKey && !event.shiftKey && event.button === 0) { event.preventDefault(); select(levelLink.dataset.level); return; }
       const button = event.target.closest('button'); if (!button) return;
