@@ -32,10 +32,14 @@ for(const camp of ['story','vocal']){
   const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync(`${camp}camp-manifest.js`,'utf8'),c);
   const families=c.window[`TALKTAG_${camp.toUpperCase()}CAMP_MANIFEST`].families.filter(f=>f.status==='published');
   for(const family of families)for(const level of family.levels){assert.ok(levels.includes(level));assert.ok(fs.existsSync(`content/${camp}camp/${family.number}.js`));lessons++;}
-  for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`])assert.match(fs.readFileSync(path,'utf8'),/bootcamp-browser\.js\?v=20261014-level-landings-v1/);
+  for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`]){
+    const page=fs.readFileSync(path,'utf8');
+    assert.match(page,/bootcamp-browser\.js\?v=20261014-level-landings-v1/);
+    assert.match(page,/bootcamp-browser\.css\?v=20261014-level-landings-v2/);
+  }
 }
 const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js\?v=20261014-level-landings-v1/,'Korean Boot Camp must use the same level-first browser revision as English and Japanese');
-assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v1/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
+assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v2/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
 for(const camp of ['vocal','story']){
   const route=fs.readFileSync(`K-korean-${camp}-camp.html`,'utf8');
@@ -49,4 +53,5 @@ assert.match(browser,/camp-level-landing/,'Boot Camp must render a focused landi
 assert.match(browser,/data-change-level/,'Boot Camp level landings must return to the level selection');
 assert.match(browser,/levels\.hidden = levelSelected/,'The level grid must not remain above the selected-level episode list');
 assert.match(browser,/What do A1–C2 language levels mean\?/,'Korean learner routes must show CEFR guidance in English');
+assert.match(fs.readFileSync('bootcamp-browser.css','utf8'),/tt-camp-level-selected\.kr-page/,'Korean selected-level pages must hide the duplicated Boot Camp introduction');
 console.log(`Boot Camp: ${lessons} published English lesson routes intact; all six camp entrances share level-first navigation; legacy completion, per-level undo, resume and Korean notes preserved.`);

@@ -24,6 +24,7 @@
 .camp-browser button{min-height:44px;min-width:44px;padding:9px 14px;border:1px solid var(--tt-border,#dbe5f1);border-radius:12px;background:var(--tt-card,#fff);color:var(--tt-text,#183455);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
 .camp-browser :is(a,button,input,summary):focus-visible{outline:3px solid var(--tt-accent,#1768e9);outline-offset:3px}
 body.tt-camp-level-selected:not(.ja-bootcamp-shell) .wrap>.ey,body.tt-camp-level-selected:not(.ja-bootcamp-shell) .wrap>h1,body.tt-camp-level-selected:not(.ja-bootcamp-shell) .wrap>.intro{display:none}
+body.tt-camp-level-selected.kr-page #kr-studio>.kr-kicker,body.tt-camp-level-selected.kr-page #kr-studio>h1,body.tt-camp-level-selected.kr-page #kr-studio>p{display:none}
 .camp-episode-list,.camp-completed-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .camp-episode{display:flex;flex-direction:column;background:var(--tt-card,#fff);border:1px solid var(--tt-border,#dbe5f1);border-radius:20px;overflow:hidden;box-shadow:0 8px 22px #18345508}
 .camp-episode-link{display:flex;flex:1;flex-direction:column;padding:20px 20px 16px;text-decoration:none;color:inherit!important}.camp-episode-link p{font-size:16px;line-height:1.6}
