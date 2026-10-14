@@ -5,7 +5,7 @@
     const header=document.querySelector('header.topbar,header.top,header.site-head,header.site-header,header.toeicLandingHeader,header.examBar');
     if(!header)return;
     const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261011-language-badge';document.head.append(css);
-    const path=location.pathname,ja=path.startsWith('/japanese/'),ko=path.startsWith('/K-korean');
+    const path=location.pathname,params=new URLSearchParams(location.search),ja=path.startsWith('/japanese/'),ko=path.startsWith('/K-korean')||params.get('lang')==='ko';
     const home=ja?'/japanese/J-index.html':ko?'/K-korean.html':'/';
     const routes=ja?['/japanese/J-index.html','/japanese/J-myspace.html','/japanese/J-talktag.html','/japanese/J-snowballing.html','/japanese/J-discussions.html','/japanese/J-test-preppers.html']:ko?['/K-korean.html','/K-korean.html?view=myspace','/K-korean.html?view=talktag','/K-korean-learning.html','/K-korean.html?view=discussions','/K-korean.html?view=tests']:['/','/?view=myspace','/?view=talktag','/snowballing-studio.html','/discussions.html','/test-preppers.html'];
     const labels=ko?['Home','MySpace','Talk & Tag','Studio','Discussions','Tests']:['홈','마이스페이스','톡&태그','스튜디오','토론','시험대비'];

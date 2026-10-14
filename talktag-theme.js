@@ -7,7 +7,7 @@
     document.head.append(shareQr);
   }
   const spaces = document.createElement('script');
-  spaces.src = '/spaces-nav.js?v=20261011-language-badge';
+  spaces.src = '/spaces-nav.js?v=20261015-korean-card-tree-v1';
   spaces.defer = true;
   document.head.append(spaces);
   if(location.pathname.startsWith('/japanese/')){
