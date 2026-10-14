@@ -35,11 +35,11 @@ for(const camp of ['story','vocal']){
   for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`]){
     const page=fs.readFileSync(path,'utf8');
     assert.match(page,/bootcamp-browser\.js\?v=20261014-level-landings-v1/);
-    assert.match(page,/bootcamp-browser\.css\?v=20261014-level-landings-v2/);
+    assert.match(page,/bootcamp-browser\.css\?v=20261014-level-landings-v3/);
   }
 }
 const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js\?v=20261014-level-landings-v1/,'Korean Boot Camp must use the same level-first browser revision as English and Japanese');
-assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v2/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
+assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v3/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
 for(const camp of ['vocal','story']){
   const route=fs.readFileSync(`K-korean-${camp}-camp.html`,'utf8');
@@ -54,4 +54,5 @@ assert.match(browser,/data-change-level/,'Boot Camp level landings must return t
 assert.match(browser,/levels\.hidden = levelSelected/,'The level grid must not remain above the selected-level episode list');
 assert.match(browser,/What do A1–C2 language levels mean\?/,'Korean learner routes must show CEFR guidance in English');
 assert.match(fs.readFileSync('bootcamp-browser.css','utf8'),/tt-camp-level-selected\.kr-page/,'Korean selected-level pages must hide the duplicated Boot Camp introduction');
+assert.match(fs.readFileSync('bootcamp-browser.css','utf8'),/tt-camp-level-selected\.ja-bootcamp-shell/,'Japanese selected-level pages must hide the duplicated Boot Camp introduction');
 console.log(`Boot Camp: ${lessons} published English lesson routes intact; all six camp entrances share level-first navigation; legacy completion, per-level undo, resume and Korean notes preserved.`);
