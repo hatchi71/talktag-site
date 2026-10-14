@@ -1,12 +1,12 @@
 (() => {
   'use strict';
-  const pauseLabel=document.documentElement.lang==='ko'?'PAUSE':'무음 구간';
   const units = window.TalkTagVocalPilots || [window.TalkTagVocalPilot].filter(Boolean);
   const requested = new URLSearchParams(location.search).get('unit');
   const unit = units.find(item => item.id === requested) || units[0];
   const app = document.getElementById('pilotApp');
   if (!unit || !app) return;
   const koreanLearning = new URLSearchParams(location.search).get('lang') === 'ko';
+  const pauseLabel=koreanLearning?'PAUSE':(document.documentElement.lang==='ko'?'PAUSE':'무음 구간');
   const scriptLanguage = koreanLearning ? 'KR' : 'EN';
   const meaningLanguage = koreanLearning ? 'EN' : 'KR';
   const scriptName = 'Script';
@@ -27,30 +27,43 @@
   } catch (_) {}
 
   const esc = value => String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+  const copy = koreanLearning ? {
+    soundLabel:'1 · SOUND', soundTitle:'Build the story through sound', soundGuide:'Listen to the native Korean audio and repeat. Each step adds one more line to the story.', soundStart:'Press the first sound to begin cumulative practice.', one:'One sentence', cumulative:'Cumulative', reps:'reps',
+    writeLabel:'2 · SAY & WRITE', writeTitle:'Speak first, then write it down.', writeGuide:'Say what you just heard from the beginning, then write what you remember in your notes.', writeHint:'Open the reference only when you need it.',
+    storyLabel:'3 · MY STORY', storyTitle:'Make the same flow your own', storyGuide:'Keep the flow of the situation, then change the people, place, choice and result to fit your own experience.', storyText:'Tell your own version, then write a short note.',
+    shareLabel:'4 · SHARE', shareTitle:'Tell a partner your story', shareGuide:'Do not look at your notes or phone. Share your new story naturally with a real person.', shareText:'Do not explain the language. Tell it as you would in that situation.', win:'You started with sound and finished with your own real story.',
+    pause:'Speak back what you just heard.'
+  } : {
+    soundLabel:'1 · SOUND', soundTitle:'소리가 조금씩 자랍니다', soundGuide:'원어민의 음성을 듣고 따라하세요, 한 문장씩 소리가 자라납니다. 이야기의 끝까지 따라가 보세요!', soundStart:'Press the first sound to begin cumulative practice.', one:'One sentence', cumulative:'Cumulative', reps:'reps',
+    writeLabel:'2 · SAY & WRITE', writeTitle:'이제 휴대폰을 내려놓으세요', writeGuide:'Say what you just heard from the beginning, then write what you remember in your notes.', writeHint:'Open the reference only when you need it.',
+    storyLabel:'3 · MY STORY', storyTitle:'같은 흐름을 나의 이야기로', storyGuide:'방금 익힌 사건의 흐름을 유지하면서 인물, 장소, 선택과 결과를 자신의 실제 경험으로 바꾸어 봅니다.', storyText:'나의 이야기로 다시 말하고 노트에 간단히 정리합니다.',
+    shareLabel:'4 · SHARE', shareTitle:'파트너에게 이야기해 주세요', shareGuide:'노트도 휴대폰도 보지 않습니다. 새로 만든 나의 이야기를 실제 사람에게 자연스럽게 전달합니다.', shareText:'설명하려 하지 말고, 그 상황에서 정말 하듯 이야기하세요.', win:'소리에서 시작해 나의 실제 이야기로 끝냈습니다.',
+    pause:'들은 내용을 직접 말해 보세요.'
+  };
   const cards = [
     {
-      label: '1 · SOUND',
-      title: '소리가 조금씩 자랍니다',
-      guide: '원어민의 음성을 듣고 따라하세요, 한 문장씩 소리가 자라납니다. 이야기의 끝까지 따라가 보세요!',
-      body: `<div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? 'One sentence' : `Cumulative 1–${index+1}`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET} reps</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">Press the first sound to begin cumulative practice.</p>`
+      label: copy.soundLabel,
+      title: copy.soundTitle,
+      guide: copy.soundGuide,
+      body: `<div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? copy.one : `${copy.cumulative} 1–${index+1}`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET} ${copy.reps}</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">${copy.soundStart}</p>`
     },
     {
-      label: '2 · SAY & WRITE',
-      title: '이제 휴대폰을 내려놓으세요',
-      guide: 'Say what you just heard from the beginning, then write what you remember in your notes.',
-      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>Speak first,<br>then write it down.</p><small>Open the reference only when you need it.</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">${scriptLanguage} · ${scriptName}</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">${meaningLanguage} · ${meaningName}</button></div><section class="reference-panel" lang="${scriptLang}" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel${meaningLang === 'ko' ? ' camp-kr-panel' : ''}" lang="${meaningLang}" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
+      label: copy.writeLabel,
+      title: copy.writeTitle,
+      guide: copy.writeGuide,
+      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>Speak first,<br>then write it down.</p><small>${copy.writeHint}</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">${scriptLanguage} · ${scriptName}</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">${meaningLanguage} · ${meaningName}</button></div><section class="reference-panel" lang="${scriptLang}" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel${meaningLang === 'ko' ? ' camp-kr-panel' : ''}" lang="${meaningLang}" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
     },
     {
-      label: '3 · MY STORY',
-      title: '같은 흐름을 나의 이야기로',
-      guide: '방금 익힌 사건의 흐름을 유지하면서 인물, 장소, 선택과 결과를 자신의 실제 경험으로 바꾸어 봅니다.',
-      body: `<div class="flow-cues" aria-label="내 이야기 흐름">${unit.storyFlow.map((cue,index)=>`${index?'<i>→</i>':''}<span>${esc(cue)}</span>`).join('')}</div><div class="offline-card warm"><span aria-hidden="true">↗</span><p>나의 이야기로 다시 말하고<br>노트에 간단히 정리합니다.</p></div>`
+      label: copy.storyLabel,
+      title: copy.storyTitle,
+      guide: copy.storyGuide,
+      body: `<div class="flow-cues" aria-label="${koreanLearning ? 'My story flow' : '내 이야기 흐름'}">${unit.storyFlow.map((cue,index)=>`${index?'<i>→</i>':''}<span>${esc(cue)}</span>`).join('')}</div><div class="offline-card warm"><span aria-hidden="true">↗</span><p>${copy.storyText}</p></div>`
     },
     {
-      label: '4 · SHARE',
-      title: '파트너에게 이야기해 주세요',
-      guide: '노트도 휴대폰도 보지 않습니다. 새로 만든 나의 이야기를 실제 사람에게 자연스럽게 전달합니다.',
-      body: `<div class="share-stage"><div class="share-people" aria-hidden="true"><span>YOU</span><i></i><span>PARTNER</span></div><p>설명하려 하지 말고,<br>그 상황에서 정말 하듯 이야기하세요.</p></div><div class="win"><strong>VOCAL CAMP</strong><p>소리에서 시작해 나의 실제 이야기로 끝냈습니다.</p></div>`
+      label: copy.shareLabel,
+      title: copy.shareTitle,
+      guide: copy.shareGuide,
+      body: `<div class="share-stage"><div class="share-people" aria-hidden="true"><span>YOU</span><i></i><span>PARTNER</span></div><p>${copy.shareText}</p></div><div class="win"><strong>VOCAL CAMP</strong><p>${copy.win}</p></div>`
     }
   ];
 
@@ -180,7 +193,7 @@
     button.querySelector('em').textContent='…';
     const update=()=>{
       const seconds=Math.max(0,Math.ceil((finishAt-Date.now())/1000));
-      status.textContent=`${pauseLabel} · 들은 내용을 직접 말해 보세요. ${seconds}초`;
+      status.textContent=`${pauseLabel} · ${copy.pause} ${koreanLearning ? `${seconds}s` : `${seconds}초`}`;
     };
     update();
     countdownTimer=window.setInterval(update,500);
