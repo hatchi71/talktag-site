@@ -48,4 +48,5 @@ const browser=fs.readFileSync('bootcamp-browser.js','utf8');
 assert.match(browser,/camp-level-landing/,'Boot Camp must render a focused landing for each selected level');
 assert.match(browser,/data-change-level/,'Boot Camp level landings must return to the level selection');
 assert.match(browser,/levels\.hidden = levelSelected/,'The level grid must not remain above the selected-level episode list');
+assert.match(browser,/What do A1–C2 language levels mean\?/,'Korean learner routes must show CEFR guidance in English');
 console.log(`Boot Camp: ${lessons} published English lesson routes intact; all six camp entrances share level-first navigation; legacy completion, per-level undo, resume and Korean notes preserved.`);
