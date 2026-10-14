@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261014-language-tree-parity-v8';
+const CACHE_VERSION = 'talktag-pwa-20261015-translation-polish-v1';
 const APP_SHELL = [
   '/',
   '/index.html',

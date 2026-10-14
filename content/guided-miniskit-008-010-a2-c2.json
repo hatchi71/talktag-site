@@ -2,25 +2,464 @@
   "revision": "miniskit-008-010-level-expansion-20261013",
   "reference": "SC BC A12B12 거의 모든 행동표현의 영어_OCR (small).pdf; broad topics and level framing only; all dialogue is original.",
   "pairings": {
-    "008": ["Roger", "Lauren"],
-    "009": ["Roger", "Alice"],
-    "010": ["Roger", "Charlie"]
+    "008": [
+      "Roger",
+      "Lauren"
+    ],
+    "009": [
+      "Roger",
+      "Alice"
+    ],
+    "010": [
+      "Roger",
+      "Charlie"
+    ]
   },
   "cards": [
-    {"episode":8,"level":"A2","title":"Rescheduling a Delivery","accentTag":"US","scene":"Two people on a phone call move a package delivery to a time someone will be home.","description":"택배를 받을 수 있는 시간으로 배송 일정을 바꿔요.","briefing":"오늘 오후에 집을 비우게 되어 배송 기사에게 연락합니다. 내일 가능한 시간을 확인하고 도착 전에 전화해 달라고 부탁합니다.","utterances":[["I won't be home when the package arrives.","택배가 도착할 때 집에 없을 것 같아요."],["Would tomorrow work instead?","대신 내일은 괜찮으세요?"],["Yes, after ten is best for me.","네, 열 시 이후가 가장 좋아요."],["I'll call you when I'm nearby.","근처에 도착하면 전화드릴게요."]]},
-    {"episode":8,"level":"B1","title":"Bringing Something to Share","accentTag":"US","scene":"Two friends coordinate what to bring to a small neighborhood potluck.","description":"동네 모임에 가져갈 음식을 친구와 나눠 정해요.","briefing":"친구 둘이 동네 모임에 가져갈 음식을 정합니다. 서로 같은 것을 준비하지 않도록 필요한 물건도 확인합니다.","utterances":[["I can bring a big salad if you have the main dish covered.","네가 메인 요리를 맡는다면 나는 큰 샐러드를 가져갈게."],["That works. We still need something people can drink.","좋아. 마실 것도 아직 필요해."],["I'll pick up sparkling water on my way over.","가는 길에 탄산수를 사 갈게."],["Could you grab paper plates, too?","종이 접시도 좀 사다 줄 수 있어?"],["Sure. I'll check how many people are coming first.","물론이지. 먼저 몇 명 오는지 확인해 볼게."],["Great. That way we won't end up with too much food.","좋아. 그러면 음식이 너무 많이 남지는 않겠네."]]},
-    {"episode":8,"level":"B2","title":"Getting a Second Opinion","accentTag":"US","scene":"A customer asks a friend to weigh the trade-offs between two everyday appliances.","description":"가전제품 두 가지의 장단점을 비교하며 의견을 나눠요.","briefing":"두 제품 가운데 무엇을 살지 고민하는 사람이 친구에게 의견을 구합니다. 가격뿐 아니라 실제로 자주 쓸 기능이 무엇인지 따져 봅니다.","utterances":[["I'm leaning toward the cheaper model, but I'd like a second opinion.","저렴한 모델 쪽으로 마음이 기울지만, 다른 의견도 들어보고 싶어."],["What matters more to you: the extra features or the lower price?","추가 기능과 낮은 가격 중에 뭐가 더 중요해?"],["Honestly, I probably wouldn't use half of those settings.","솔직히 말하면 저 설정 중 절반은 아마 쓰지 않을 거야."],["Then the basic one may be the better fit, even if it isn't as flashy.","그렇다면 눈에 덜 띄더라도 기본형이 더 잘 맞을 수 있겠네."],["That's what I was thinking. I just didn't want to miss something important.","나도 그렇게 생각했어. 중요한 걸 놓치고 싶지 않았을 뿐이야."],["Check the warranty before you decide; that's where the prices differ.","결정하기 전에 보증 기간을 확인해 봐. 가격 차이는 거기서 나거든."]]},
-    {"episode":8,"level":"C1","title":"Clarifying a Soft Deadline","accentTag":"US","scene":"Two coworkers clarify whether a Friday target is firm before arranging the work.","description":"업무 마감일이 확정된 일정인지 목표일인지 확인해요.","briefing":"동료 둘이 금요일 일정의 의미를 확인합니다. 우선순위와 작업 계획을 조정할 수 있도록 확정 기한과 목표일을 구분합니다.","utterances":[["Is Friday a firm deadline, or simply the date we're aiming for?","금요일이 확정 마감일인가요, 아니면 일단 목표로 잡은 날짜인가요?"],["It's a target; the review can move to Monday if we need the time.","목표일이에요. 시간이 더 필요하면 검토 일정을 월요일로 옮겨도 됩니다."],["That helps. I'll focus on the sections that need the most coordination first.","알겠습니다. 우선 조율이 가장 많이 필요한 부분부터 처리할게요."],["Please flag anything that could change the timeline, and we'll adjust early.","일정에 영향을 줄 수 있는 부분이 있으면 미리 알려 주세요. 일찍 조정하겠습니다."]]},
-    {"episode":8,"level":"C2","title":"Worth Trying, Within Limits","accentTag":"US","scene":"A small team considers a new idea while setting a clear limit for a trial run.","description":"새로운 아이디어를 시험하되 감당할 수 있는 범위를 정해요.","briefing":"작은 팀이 새 아이디어를 실제로 시험해 볼지 논의합니다. 가능성은 열어 두되, 한 번의 성공을 지속 가능한 결과로 착각하지 않도록 기준을 정합니다.","utterances":[["I'm open to a trial, as long as we cap the time and make the trade-offs explicit.","시간을 제한하고 감수해야 할 점을 분명히 한다면 시험 운영에 열려 있어요."],["Agreed. A promising first run doesn't prove the approach will hold up at scale.","동의해요. 첫 시도가 유망했다고 해서 규모를 키워도 잘 작동한다는 뜻은 아니니까요."],["Let's define what success would look like before we commit more resources.","더 많은 자원을 투입하기 전에 성공의 기준부터 정해 보죠."]]},
-    {"episode":9,"level":"A2","title":"Looking for My Keys","accentTag":"US+BK","scene":"Two friends check the entry table for keys before leaving for a movie.","description":"영화 보러 나가기 전 현관에서 열쇠를 찾아요.","briefing":"영화를 보러 나가려는 친구 둘이 현관에서 열쇠를 찾습니다. 함께 주변을 살펴보고 열쇠를 찾아 바로 출발합니다.","utterances":[["Are you ready to go?","이제 갈 준비 됐어?"],["Almost. I can't find my keys.","거의 다 됐어. 열쇠가 안 보여."],["Did you check the little table by the door?","문 옆 작은 탁자는 확인했어?"],["Here they are. Let's go.","여기 있네. 가자."]]},
-    {"episode":9,"level":"B1","title":"Trying a Different Route","accentTag":"US+BK","scene":"Two travelers change their walking route after spotting a road closure.","description":"길이 막힌 것을 보고 다른 길로 돌아가요.","briefing":"목적지로 걷던 두 사람이 공사로 막힌 길을 발견합니다. 지도를 확인해 조금 돌아가더라도 걷기 편한 길을 고릅니다.","utterances":[["This street is closed, so we'll have to take another way.","이 길은 막혀 있어서 다른 길로 가야겠어."],["The map shows a path behind the library.","지도에 도서관 뒤쪽 길이 나와 있어."],["Is it much farther than the main road?","큰길로 가는 것보다 많이 멀어?"],["Only a few minutes, and it looks quieter.","몇 분 정도 더 걸리고, 더 조용해 보여."],["Let's take it, then. We don't need to rush.","그럼 그 길로 가자. 서두를 필요는 없으니까."],["Good call. I'll keep the map open until we get there.","좋은 생각이야. 도착할 때까지 지도를 켜 둘게."]]},
-    {"episode":9,"level":"B2","title":"Making a Suggestion Gently","accentTag":"US+BK","scene":"A colleague offers a low-pressure suggestion about simplifying a shared presentation.","description":"공동 발표 자료를 간결하게 다듬자고 조심스럽게 제안해요.","briefing":"함께 발표를 준비하는 동료가 자료가 다소 복잡해 보인다고 말합니다. 상대의 수고를 인정하면서 부담스럽지 않게 수정 방향을 제안합니다.","utterances":[["You've put a lot of thought into these slides.","이 슬라이드에 정말 많이 고민한 게 보여요."],["Thanks. I wanted to make sure we covered every detail.","고마워요. 빠뜨리는 내용이 없도록 하고 싶었어요."],["Would you be open to trimming a few sections so the main point stands out?","핵심이 더 잘 드러나도록 몇 부분을 줄여 보는 건 어떨까요?"],["I could do that, though I don't want the background to disappear.","그렇게 할 수는 있지만, 배경 설명이 빠지지는 않았으면 해요."],["Maybe we can move the extra context to the handout.","추가 설명은 유인물로 옮기면 어떨까요?"],["That sounds reasonable. Let's try it and see how the flow feels.","괜찮은 생각이네요. 그렇게 해 보고 흐름이 어떤지 살펴보죠."]]},
-    {"episode":9,"level":"C1","title":"Separating Preference from Necessity","accentTag":"US+BK","scene":"Two friends distinguish a personal preference from a genuine requirement while planning a trip.","description":"여행 계획에서 개인 취향과 꼭 필요한 조건을 구분해요.","briefing":"여행지를 정하는 친구 둘이 서로 다른 선호를 설명합니다. 개인적으로 더 좋아하는 조건과 반드시 충족해야 할 필요 조건을 구분해 선택지를 좁힙니다.","utterances":[["I'd prefer the earlier train, but I don't need it if the later one gets us there on time.","이른 열차가 더 좋긴 하지만, 늦은 열차로도 제시간에 도착한다면 꼭 그걸 탈 필요는 없어요."],["So the arrival time is the requirement; the departure time is just your preference.","그러면 도착 시각은 필수 조건이고, 출발 시각은 선호에 가깝군요."],["Exactly. That distinction gives us more room to find a fare that works for both of us.","맞아요. 그렇게 구분하면 우리 둘 다 만족할 요금을 찾을 여지가 더 생겨요."],["Let's compare the options against what we actually need, not what we'd ideally choose.","이상적인 선택이 아니라 실제로 필요한 조건을 기준으로 옵션을 비교해 보죠."]]},
-    {"episode":9,"level":"C2","title":"A Compliment with a Caveat","accentTag":"US+BK","scene":"After a community event, one organizer praises the result while tactfully noting a fix for next time.","description":"행사를 칭찬하면서 다음번에 보완할 점도 조심스럽게 전해요.","briefing":"행사를 마친 운영자 둘이 잘된 점을 돌아봅니다. 전체 성과를 인정하면서도 다음 행사에 도움이 될 개선점을 구체적이고 배려 있게 제안합니다.","utterances":[["The evening felt welcoming, especially for people who'd never joined us before.","특히 처음 온 분들에게 오늘 저녁 모임이 편안하게 느껴졌을 것 같아요."],["I'm glad. We could still smooth out the check-in, which backed up near the entrance.","다행이네요. 다만 입구에 줄이 길어졌던 접수 과정은 다음에 더 원활하게 할 수 있겠어요."],["Good point. If we add one volunteer there, we can keep the warm atmosphere without the bottleneck.","좋은 지적이에요. 그곳에 자원봉사자를 한 명 더 두면 줄이 밀리지 않으면서도 편안한 분위기를 유지할 수 있겠어요."]]},
-    {"episode":10,"level":"A2","title":"Making Another Appointment","accentTag":"US+AU","scene":"A patient calls a clinic to book a new appointment after missing the earlier slot.","description":"병원에 전화해 다른 진료 시간을 예약해요.","briefing":"진료를 받지 못한 사람이 병원에 전화합니다. 가능한 시간을 묻고 자신의 일정에 맞는 새 예약을 정합니다.","utterances":[["I need to make another appointment.","진료 예약을 다시 잡고 싶어요."],["We have an opening on Thursday morning.","목요일 오전에 빈 시간이 있어요."],["Could I come in after lunch instead?","대신 점심 이후에 가도 될까요?"],["Yes. How about two thirty?","네. 두 시 반은 어떠세요?"]]},
-    {"episode":10,"level":"B1","title":"Checking Before You Leave","accentTag":"US+AU","scene":"Two friends do a quick check for tickets, keys and a charged phone before leaving.","description":"외출하기 전에 표와 열쇠, 휴대폰을 확인해요.","briefing":"집을 나서기 직전, 두 친구가 필요한 물건을 빠르게 확인합니다. 한 사람은 표를 챙기고 다른 사람은 충전기와 열쇠를 점검합니다.","utterances":[["Before we head out, do you have the tickets on your phone?","나가기 전에 휴대폰에 표가 있는지 확인했어?"],["Yes, and I saved a screenshot in case the signal drops.","응, 신호가 끊길 수도 있어서 화면도 캡처해 뒀어."],["Nice. I've got the keys, but my battery is almost dead.","잘했네. 열쇠는 챙겼는데 배터리가 거의 다 됐어."],["Take the small charger from the counter; it's fully charged.","조리대에 있는 작은 보조 배터리 가져가. 완전히 충전돼 있어."],["Thanks. I'll put it in the front pocket so I can find it.","고마워. 찾기 쉽도록 앞주머니에 넣을게."],["All set. Let's lock up and get going.","다 챙겼다. 문 잠그고 출발하자."]]},
-    {"episode":10,"level":"B2","title":"Keeping Plans Flexible","accentTag":"US+AU","scene":"Two friends plan an outdoor lunch while leaving a comfortable indoor backup.","description":"야외 점심을 계획하면서 실내 대안도 마련해 둬요.","briefing":"친구 둘이 주말에 야외에서 점심을 먹으려 합니다. 날씨가 좋지 않을 경우를 대비해 실내 대안도 미리 정해 둡니다.","utterances":[["We could eat outside if the weather holds.","날씨가 괜찮으면 밖에서 먹어도 좋겠어."],["The forecast is a bit uncertain, though.","그런데 일기 예보가 조금 애매하더라."],["Let's keep the reservation inside and decide when we get there.","실내 자리로 예약해 두고 도착해서 결정하자."],["Would they let us move to the patio if it clears up?","날이 개면 야외 자리로 옮길 수 있을까?"],["I can call and check before we leave.","출발하기 전에 내가 전화해서 확인해 볼게."],["Perfect. That gives us options without making extra work.","좋아. 그러면 번거롭게 준비를 더 하지 않아도 선택지가 있네."]]},
-    {"episode":10,"level":"C1","title":"Agreeing Without Overpromising","accentTag":"US+AU","scene":"A teammate supports a proposal but carefully states what they can deliver this week.","description":"제안에 동의하면서 이번 주에 가능한 범위를 분명히 해요.","briefing":"팀원이 새 제안에 동의하지만, 이번 주 안에 할 수 있는 범위는 제한적입니다. 협조 의사를 밝히면서 지킬 수 있는 약속만 구체적으로 정합니다.","utterances":[["I can get behind the proposal, though I can't promise a full draft by Friday.","그 제안에는 동의하지만, 금요일까지 완성된 초안을 내겠다고 약속할 수는 없어요."],["What could you realistically finish by then?","그때까지 현실적으로 마칠 수 있는 건 어느 정도인가요?"],["I can outline the key sections and flag the decisions we still need to make.","핵심 항목을 정리하고 아직 결정해야 할 사항을 표시할 수 있어요."],["That would give us enough to move forward without setting the wrong expectation.","그 정도면 기대치를 잘못 잡지 않고도 다음 단계로 넘어갈 수 있겠네요."]]},
-    {"episode":10,"level":"C2","title":"Changing Your Mind Gracefully","accentTag":"US+AU","scene":"A friend revisits an earlier yes to a weekend plan and explains a change without leaving the host stranded.","description":"주말 약속을 바꾸게 된 사정을 정중히 설명하고 대안을 제안해요.","briefing":"친구가 앞서 참석하겠다고 한 주말 약속에 더는 갈 수 없게 됩니다. 상대의 준비에 미칠 영향을 고려해 일찍 알리고 가능한 대안을 제시합니다.","utterances":[["I need to revise what I said about Saturday; a family commitment came up.","토요일 일정에 대해 전에 한 말을 바꿔야 할 것 같아요. 가족 일이 생겼어요."],["Thanks for telling me now. I was counting on you to help set things up.","지금 알려줘서 고마워. 네가 준비를 도와주기로 해서 기대하고 있었거든."],["I understand, and I'm sorry for the change. I can come by Friday evening to get things ready.","그럴 만하죠. 계획을 바꾸게 돼서 미안해요. 금요일 저녁에 들러 준비를 도울 수 있어요."],["That would help a lot. We'll adjust the Saturday plan around it.","그렇게 해 주면 큰 도움이 돼. 토요일 계획은 그에 맞춰 조정할게."]]}
+    {
+      "episode": 8,
+      "level": "A2",
+      "title": "Rescheduling a Delivery",
+      "accentTag": "US",
+      "scene": "Two people on a phone call move a package delivery to a time someone will be home.",
+      "description": "택배를 받을 수 있는 시간으로 배송 일정을 바꿔요.",
+      "briefing": "오늘 오후에 집을 비우게 되어 배송 기사에게 연락합니다. 내일 가능한 시간을 확인하고 도착 전에 전화해 달라고 부탁합니다.",
+      "utterances": [
+        [
+          "I won't be home when the package arrives.",
+          "택배가 도착할 때 집에 없을 것 같아요."
+        ],
+        [
+          "Would tomorrow work instead?",
+          "대신 내일은 괜찮으세요?"
+        ],
+        [
+          "Yes, after ten is best for me.",
+          "네, 저는 열 시 이후가 가장 괜찮아요."
+        ],
+        [
+          "I'll call you when I'm nearby.",
+          "근처에 도착하면 전화드릴게요."
+        ]
+      ]
+    },
+    {
+      "episode": 8,
+      "level": "B1",
+      "title": "Bringing Something to Share",
+      "accentTag": "US",
+      "scene": "Two friends coordinate what to bring to a small neighborhood potluck.",
+      "description": "동네 모임에 가져갈 음식을 친구와 나눠 정해요.",
+      "briefing": "친구 둘이 동네 모임에 가져갈 음식을 정합니다. 서로 같은 것을 준비하지 않도록 필요한 물건도 확인합니다.",
+      "utterances": [
+        [
+          "I can bring a big salad if you have the main dish covered.",
+          "네가 메인 요리를 맡아 준다면, 나는 큰 샐러드를 가져갈게."
+        ],
+        [
+          "That works. We still need something people can drink.",
+          "좋아. 사람들이 마실 것도 아직 필요해."
+        ],
+        [
+          "I'll pick up sparkling water on my way over.",
+          "가는 길에 탄산수 사 갈게."
+        ],
+        [
+          "Could you grab paper plates, too?",
+          "종이 접시도 챙겨 줄 수 있어?"
+        ],
+        [
+          "Sure. I'll check how many people are coming first.",
+          "그럼. 먼저 몇 명 오는지 확인해 볼게."
+        ],
+        [
+          "Great. That way we won't end up with too much food.",
+          "좋아. 그러면 음식이 너무 많이 남는 일은 없겠네."
+        ]
+      ]
+    },
+    {
+      "episode": 8,
+      "level": "B2",
+      "title": "Getting a Second Opinion",
+      "accentTag": "US",
+      "scene": "A customer asks a friend to weigh the trade-offs between two everyday appliances.",
+      "description": "가전제품 두 가지의 장단점을 비교하며 의견을 나눠요.",
+      "briefing": "두 제품 가운데 무엇을 살지 고민하는 사람이 친구에게 의견을 구합니다. 가격뿐 아니라 실제로 자주 쓸 기능이 무엇인지 따져 봅니다.",
+      "utterances": [
+        [
+          "I'm leaning toward the cheaper model, but I'd like a second opinion.",
+          "저렴한 모델 쪽으로 마음이 기울기는 하는데, 다른 사람 의견도 들어보고 싶어."
+        ],
+        [
+          "What matters more to you: the extra features or the lower price?",
+          "추가 기능과 낮은 가격 중에 뭐가 더 중요해?"
+        ],
+        [
+          "Honestly, I probably wouldn't use half of those settings.",
+          "솔직히 말하면 저 기능 중 절반도 안 쓸 것 같아."
+        ],
+        [
+          "Then the basic one may be the better fit, even if it isn't as flashy.",
+          "그렇다면 눈에 확 띄지는 않더라도 기본형이 더 잘 맞을 수 있겠네."
+        ],
+        [
+          "That's what I was thinking. I just didn't want to miss something important.",
+          "나도 그렇게 생각했어. 중요한 걸 놓치고 싶지 않았던 거야."
+        ],
+        [
+          "Check the warranty before you decide; that's where the prices differ.",
+          "결정하기 전에 보증 기간을 확인해 봐. 거기서 가격 차이가 나거든."
+        ]
+      ]
+    },
+    {
+      "episode": 8,
+      "level": "C1",
+      "title": "Clarifying a Soft Deadline",
+      "accentTag": "US",
+      "scene": "Two coworkers clarify whether a Friday target is firm before arranging the work.",
+      "description": "업무 마감일이 확정된 일정인지 목표일인지 확인해요.",
+      "briefing": "동료 둘이 금요일 일정의 의미를 확인합니다. 우선순위와 작업 계획을 조정할 수 있도록 확정 기한과 목표일을 구분합니다.",
+      "utterances": [
+        [
+          "Is Friday a firm deadline, or simply the date we're aiming for?",
+          "금요일이 확정 마감일인가요, 아니면 일단 목표로 잡은 날짜인가요?"
+        ],
+        [
+          "It's a target; the review can move to Monday if we need the time.",
+          "목표일일 뿐이에요. 시간이 더 필요하면 검토 일정은 월요일로 미뤄도 됩니다."
+        ],
+        [
+          "That helps. I'll focus on the sections that need the most coordination first.",
+          "알겠습니다. 우선 조율이 가장 많이 필요한 부분부터 집중할게요."
+        ],
+        [
+          "Please flag anything that could change the timeline, and we'll adjust early.",
+          "일정에 영향을 줄 수 있는 사항이 있으면 바로 표시해 주세요. 그러면 미리 조정할 수 있어요."
+        ]
+      ]
+    },
+    {
+      "episode": 8,
+      "level": "C2",
+      "title": "Worth Trying, Within Limits",
+      "accentTag": "US",
+      "scene": "A small team considers a new idea while setting a clear limit for a trial run.",
+      "description": "새로운 아이디어를 시험하되 감당할 수 있는 범위를 정해요.",
+      "briefing": "작은 팀이 새 아이디어를 실제로 시험해 볼지 논의합니다. 가능성은 열어 두되, 한 번의 성공을 지속 가능한 결과로 착각하지 않도록 기준을 정합니다.",
+      "utterances": [
+        [
+          "I'm open to a trial, as long as we cap the time and make the trade-offs explicit.",
+          "시험 운영은 해볼 의향이 있어요. 다만 기간을 제한하고, 그 과정에서 무엇을 얻고 포기해야 하는지 명확히 해야 해요."
+        ],
+        [
+          "Agreed. A promising first run doesn't prove the approach will hold up at scale.",
+          "동의해요. 첫 시도에서 좋은 결과가 나왔다고 해서 규모를 확대했을 때도 같은 방식이 효과적일 거라는 보장은 없으니까요."
+        ],
+        [
+          "Let's define what success would look like before we commit more resources.",
+          "더 많은 자원을 투입하기 전에 무엇을 성공으로 볼지부터 정해 보죠."
+        ]
+      ]
+    },
+    {
+      "episode": 9,
+      "level": "A2",
+      "title": "Looking for My Keys",
+      "accentTag": "US+BK",
+      "scene": "Two friends check the entry table for keys before leaving for a movie.",
+      "description": "영화 보러 나가기 전 현관에서 열쇠를 찾아요.",
+      "briefing": "영화를 보러 나가려는 친구 둘이 현관에서 열쇠를 찾습니다. 함께 주변을 살펴보고 열쇠를 찾아 바로 출발합니다.",
+      "utterances": [
+        [
+          "Are you ready to go?",
+          "이제 갈 준비 됐어?"
+        ],
+        [
+          "Almost. I can't find my keys.",
+          "거의. 그런데 열쇠가 안 보여."
+        ],
+        [
+          "Did you check the little table by the door?",
+          "문 옆 작은 탁자는 찾아봤어?"
+        ],
+        [
+          "Here they are. Let's go.",
+          "여기 있네. 가자."
+        ]
+      ]
+    },
+    {
+      "episode": 9,
+      "level": "B1",
+      "title": "Trying a Different Route",
+      "accentTag": "US+BK",
+      "scene": "Two travelers change their walking route after spotting a road closure.",
+      "description": "길이 막힌 것을 보고 다른 길로 돌아가요.",
+      "briefing": "목적지로 걷던 두 사람이 공사로 막힌 길을 발견합니다. 지도를 확인해 조금 돌아가더라도 걷기 편한 길을 고릅니다.",
+      "utterances": [
+        [
+          "This street is closed, so we'll have to take another way.",
+          "이 길은 막혀 있어서 다른 길로 가야겠어."
+        ],
+        [
+          "The map shows a path behind the library.",
+          "지도상으로는 도서관 뒤쪽에 길이 있어."
+        ],
+        [
+          "Is it much farther than the main road?",
+          "큰길로 가는 것보다 많이 더 멀어?"
+        ],
+        [
+          "Only a few minutes, and it looks quieter.",
+          "몇 분 더 걸릴 뿐이고, 더 한적해 보여."
+        ],
+        [
+          "Let's take it, then. We don't need to rush.",
+          "그럼 그 길로 가자. 서두를 필요는 없으니까."
+        ],
+        [
+          "Good call. I'll keep the map open until we get there.",
+          "좋은 생각이야. 도착할 때까지 지도를 켜 둘게."
+        ]
+      ]
+    },
+    {
+      "episode": 9,
+      "level": "B2",
+      "title": "Making a Suggestion Gently",
+      "accentTag": "US+BK",
+      "scene": "A colleague offers a low-pressure suggestion about simplifying a shared presentation.",
+      "description": "공동 발표 자료를 간결하게 다듬자고 조심스럽게 제안해요.",
+      "briefing": "함께 발표를 준비하는 동료가 자료가 다소 복잡해 보인다고 말합니다. 상대의 수고를 인정하면서 부담스럽지 않게 수정 방향을 제안합니다.",
+      "utterances": [
+        [
+          "You've put a lot of thought into these slides.",
+          "이 슬라이드에 정말 많은 고민을 담으셨네요."
+        ],
+        [
+          "Thanks. I wanted to make sure we covered every detail.",
+          "고마워요. 빠뜨리는 내용이 없도록 하고 싶었어요."
+        ],
+        [
+          "Would you be open to trimming a few sections so the main point stands out?",
+          "핵심이 더 잘 드러나도록 몇 부분을 덜어내 보는 건 어떨까요?"
+        ],
+        [
+          "I could do that, though I don't want the background to disappear.",
+          "그렇게 할 수는 있지만, 배경 설명이 너무 빠지지는 않았으면 해요."
+        ],
+        [
+          "Maybe we can move the extra context to the handout.",
+          "추가 배경 설명은 유인물로 옮기면 어떨까요?"
+        ],
+        [
+          "That sounds reasonable. Let's try it and see how the flow feels.",
+          "괜찮은 생각이네요. 그렇게 해 보고 흐름이 어떤지 살펴보죠."
+        ]
+      ]
+    },
+    {
+      "episode": 9,
+      "level": "C1",
+      "title": "Separating Preference from Necessity",
+      "accentTag": "US+BK",
+      "scene": "Two friends distinguish a personal preference from a genuine requirement while planning a trip.",
+      "description": "여행 계획에서 개인 취향과 꼭 필요한 조건을 구분해요.",
+      "briefing": "여행지를 정하는 친구 둘이 서로 다른 선호를 설명합니다. 개인적으로 더 좋아하는 조건과 반드시 충족해야 할 필요 조건을 구분해 선택지를 좁힙니다.",
+      "utterances": [
+        [
+          "I'd prefer the earlier train, but I don't need it if the later one gets us there on time.",
+          "더 이른 열차를 타면 좋겠지만, 늦은 열차로도 제시간에 도착한다면 꼭 그럴 필요는 없어요."
+        ],
+        [
+          "So the arrival time is the requirement; the departure time is just your preference.",
+          "그러면 도착 시각은 필수 조건이고, 출발 시각은 선호에 가깝군요."
+        ],
+        [
+          "Exactly. That distinction gives us more room to find a fare that works for both of us.",
+          "맞아요. 그렇게 구분하면 우리 둘 다에게 맞는 요금을 찾을 여지가 더 생겨요."
+        ],
+        [
+          "Let's compare the options against what we actually need, not what we'd ideally choose.",
+          "이상적으로 고를 것을 기준으로 하지 말고, 실제로 필요한 조건을 기준으로 선택지를 비교해 봅시다."
+        ]
+      ]
+    },
+    {
+      "episode": 9,
+      "level": "C2",
+      "title": "A Compliment with a Caveat",
+      "accentTag": "US+BK",
+      "scene": "After a community event, one organizer praises the result while tactfully noting a fix for next time.",
+      "description": "행사를 칭찬하면서 다음번에 보완할 점도 조심스럽게 전해요.",
+      "briefing": "행사를 마친 운영자 둘이 잘된 점을 돌아봅니다. 전체 성과를 인정하면서도 다음 행사에 도움이 될 개선점을 구체적이고 배려 있게 제안합니다.",
+      "utterances": [
+        [
+          "The evening felt welcoming, especially for people who'd never joined us before.",
+          "오늘 저녁 모임은 특히 처음 오신 분들도 편하게 느끼셨을 것 같아요."
+        ],
+        [
+          "I'm glad. We could still smooth out the check-in, which backed up near the entrance.",
+          "다행이네요. 다만 입구 쪽에서 밀렸던 접수 절차는 다음에 더 매끄럽게 다듬을 수 있겠어요."
+        ],
+        [
+          "Good point. If we add one volunteer there, we can keep the warm atmosphere without the bottleneck.",
+          "좋은 지적이에요. 그곳에 자원봉사자를 한 명 더 두면 줄이 막히지 않으면서도 편안한 분위기를 유지할 수 있겠어요."
+        ]
+      ]
+    },
+    {
+      "episode": 10,
+      "level": "A2",
+      "title": "Making Another Appointment",
+      "accentTag": "US+AU",
+      "scene": "A patient calls a clinic to book a new appointment after missing the earlier slot.",
+      "description": "병원에 전화해 다른 진료 시간을 예약해요.",
+      "briefing": "진료를 받지 못한 사람이 병원에 전화합니다. 가능한 시간을 묻고 자신의 일정에 맞는 새 예약을 정합니다.",
+      "utterances": [
+        [
+          "I need to make another appointment.",
+          "진료 예약을 다시 잡고 싶어요."
+        ],
+        [
+          "We have an opening on Thursday morning.",
+          "목요일 오전에 빈 시간이 있어요."
+        ],
+        [
+          "Could I come in after lunch instead?",
+          "대신 점심 이후에 가도 될까요?"
+        ],
+        [
+          "Yes. How about two thirty?",
+          "네. 두 시 반은 어떠세요?"
+        ]
+      ]
+    },
+    {
+      "episode": 10,
+      "level": "B1",
+      "title": "Checking Before You Leave",
+      "accentTag": "US+AU",
+      "scene": "Two friends do a quick check for tickets, keys and a charged phone before leaving.",
+      "description": "외출하기 전에 표와 열쇠, 휴대폰을 확인해요.",
+      "briefing": "집을 나서기 직전, 두 친구가 필요한 물건을 빠르게 확인합니다. 한 사람은 표를 챙기고 다른 사람은 충전기와 열쇠를 점검합니다.",
+      "utterances": [
+        [
+          "Before we head out, do you have the tickets on your phone?",
+          "나가기 전에 휴대폰에 표 저장해 뒀어?"
+        ],
+        [
+          "Yes, and I saved a screenshot in case the signal drops.",
+          "응, 통신이 안 될 경우에 대비해 화면도 캡처해 뒀어."
+        ],
+        [
+          "Nice. I've got the keys, but my battery is almost dead.",
+          "잘했네. 열쇠는 챙겼는데 배터리가 거의 다 됐어."
+        ],
+        [
+          "Take the small charger from the counter; it's fully charged.",
+          "조리대에 있는 작은 보조배터리 가져가. 충전이 다 돼 있어."
+        ],
+        [
+          "Thanks. I'll put it in the front pocket so I can find it.",
+          "고마워. 바로 찾을 수 있게 앞주머니에 넣어 둘게."
+        ],
+        [
+          "All set. Let's lock up and get going.",
+          "다 챙겼다. 문 잠그고 출발하자."
+        ]
+      ]
+    },
+    {
+      "episode": 10,
+      "level": "B2",
+      "title": "Keeping Plans Flexible",
+      "accentTag": "US+AU",
+      "scene": "Two friends plan an outdoor lunch while leaving a comfortable indoor backup.",
+      "description": "야외 점심을 계획하면서 실내 대안도 마련해 둬요.",
+      "briefing": "친구 둘이 주말에 야외에서 점심을 먹으려 합니다. 날씨가 좋지 않을 경우를 대비해 실내 대안도 미리 정해 둡니다.",
+      "utterances": [
+        [
+          "We could eat outside if the weather holds.",
+          "날씨가 계속 괜찮으면 밖에서 먹어도 좋겠어."
+        ],
+        [
+          "The forecast is a bit uncertain, though.",
+          "그런데 일기 예보가 조금 애매하더라."
+        ],
+        [
+          "Let's keep the reservation inside and decide when we get there.",
+          "일단 실내 예약은 유지하고 도착해서 결정하자."
+        ],
+        [
+          "Would they let us move to the patio if it clears up?",
+          "날이 개면 야외 자리로 옮길 수 있을까?"
+        ],
+        [
+          "I can call and check before we leave.",
+          "출발하기 전에 내가 전화해서 확인해 볼게."
+        ],
+        [
+          "Perfect. That gives us options without making extra work.",
+          "좋아. 그러면 번거롭게 따로 준비하지 않고도 선택지를 남겨 둘 수 있겠네."
+        ]
+      ]
+    },
+    {
+      "episode": 10,
+      "level": "C1",
+      "title": "Agreeing Without Overpromising",
+      "accentTag": "US+AU",
+      "scene": "A teammate supports a proposal but carefully states what they can deliver this week.",
+      "description": "제안에 동의하면서 이번 주에 가능한 범위를 분명히 해요.",
+      "briefing": "팀원이 새 제안에 동의하지만, 이번 주 안에 할 수 있는 범위는 제한적입니다. 협조 의사를 밝히면서 지킬 수 있는 약속만 구체적으로 정합니다.",
+      "utterances": [
+        [
+          "I can get behind the proposal, though I can't promise a full draft by Friday.",
+          "그 제안을 지지할 수는 있지만, 금요일까지 완성된 초안을 낼 수 있다고 장담할 수는 없어요."
+        ],
+        [
+          "What could you realistically finish by then?",
+          "현실적으로 그때까지 어디까지 마칠 수 있나요?"
+        ],
+        [
+          "I can outline the key sections and flag the decisions we still need to make.",
+          "핵심 부분의 개요를 잡고, 아직 결정해야 할 사항을 표시할 수 있어요."
+        ],
+        [
+          "That would give us enough to move forward without setting the wrong expectation.",
+          "그 정도면 잘못된 기대를 갖게 하지 않고도 다음 단계로 넘어갈 수 있겠네요."
+        ]
+      ]
+    },
+    {
+      "episode": 10,
+      "level": "C2",
+      "title": "Changing Your Mind Gracefully",
+      "accentTag": "US+AU",
+      "scene": "A friend revisits an earlier yes to a weekend plan and explains a change without leaving the host stranded.",
+      "description": "주말 약속을 바꾸게 된 사정을 정중히 설명하고 대안을 제안해요.",
+      "briefing": "친구가 앞서 참석하겠다고 한 주말 약속에 더는 갈 수 없게 됩니다. 상대의 준비에 미칠 영향을 고려해 일찍 알리고 가능한 대안을 제시합니다.",
+      "utterances": [
+        [
+          "I need to revise what I said about Saturday; a family commitment came up.",
+          "토요일 일정에 관해 말씀드린 내용을 바꿔야 할 것 같아요. 가족 관련 일정이 생겼어요."
+        ],
+        [
+          "Thanks for telling me now. I was counting on you to help set things up.",
+          "지금 알려줘서 고마워. 네가 준비를 도와줄 거라고 생각하고 있었거든."
+        ],
+        [
+          "I understand, and I'm sorry for the change. I can come by Friday evening to get things ready.",
+          "그럴 만한 사정이라는 건 이해해요. 일정이 바뀌게 되어 미안해요. 금요일 저녁에 들러 미리 준비해 둘 수 있어요."
+        ],
+        [
+          "That would help a lot. We'll adjust the Saturday plan around it.",
+          "그러면 정말 큰 도움이 돼. 그에 맞춰 토요일 계획을 조정할게."
+        ]
+      ]
+    }
   ]
 }
