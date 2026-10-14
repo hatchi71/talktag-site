@@ -6,6 +6,13 @@
   const unit = units.find(item => item.id === requested) || units[0];
   const app = document.getElementById('pilotApp');
   if (!unit || !app) return;
+  const koreanLearning = new URLSearchParams(location.search).get('lang') === 'ko';
+  const scriptLanguage = koreanLearning ? 'KR' : 'EN';
+  const meaningLanguage = koreanLearning ? 'EN' : 'KR';
+  const scriptName = 'Script';
+  const meaningName = 'Meaning';
+  const scriptLang = koreanLearning ? 'ko' : 'en';
+  const meaningLang = koreanLearning ? 'en' : 'ko';
   const lines = unit.fullText || [];
   const REPEAT_TARGET = 10;
   const SILENCE_MULTIPLIER = 2.5;
@@ -31,7 +38,7 @@
       label: '2 · SAY & WRITE',
       title: '이제 휴대폰을 내려놓으세요',
       guide: 'Say what you just heard from the beginning, then write what you remember in your notes.',
-      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>Speak first,<br>then write it down.</p><small>Open the reference only when you need it.</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">EN · Script</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">KR · Translation</button></div><section class="reference-panel" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel camp-kr-panel" lang="ko" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
+      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>Speak first,<br>then write it down.</p><small>Open the reference only when you need it.</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">${scriptLanguage} · ${scriptName}</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">${meaningLanguage} · ${meaningName}</button></div><section class="reference-panel" lang="${scriptLang}" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel${meaningLang === 'ko' ? ' camp-kr-panel' : ''}" lang="${meaningLang}" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
     },
     {
       label: '3 · MY STORY',
@@ -257,7 +264,7 @@
     const open=panel.hidden;
     panel.hidden=!open;
     button.setAttribute('aria-expanded',String(open));
-    button.textContent=button.dataset.reference === 'script' ? (open ? 'EN · 닫기' : 'EN · 스크립트') : (open ? 'KR · 닫기' : 'KR · 한글 해석');
+    button.textContent=button.dataset.reference === 'script' ? (open ? `${scriptLanguage} · Close` : `${scriptLanguage} · ${scriptName}`) : (open ? `${meaningLanguage} · Close` : `${meaningLanguage} · ${meaningName}`);
   }));
   previous.addEventListener('click',()=>showCard(state.card-1));
   next.addEventListener('click',()=>{if(state.card===cards.length-1){if(unit.id?.startsWith('family-')&&window.TalkTagCampProgress){stopSound();window.TalkTagCampProgress.set('vocal',unit.level,unit.familyNumber,true);state.card=0;save();location.href='vocal-camp.html?level='+unit.level;return}menu.open=true;return}showCard(state.card+1)});
