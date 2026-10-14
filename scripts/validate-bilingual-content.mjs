@@ -6,6 +6,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -42,6 +43,29 @@ for (const [level, card] of Object.entries(koreanVocal.levels)) {
     requiredText(line.ko, `Korean Vocal Korean ${level}/${index + 1}`);
     requiredText(line.en, `Korean Vocal English support ${level}/${index + 1}`);
     checked += 1;
+  }
+}
+
+const vocalContext = {window: {}};
+vm.createContext(vocalContext);
+for (const relative of ['content/vocalcamp-korean-001.js', 'content/vocalcamp-korean-002.js']) {
+  vm.runInContext(fs.readFileSync(path.join(root, relative), 'utf8'), vocalContext, {timeout: 1000});
+}
+const koreanVocal002 = vocalContext.window.TALKTAG_VOCALCAMP_KOREAN?.families?.find(family => family.number === '002');
+if (!koreanVocal002 || koreanVocal002.status !== 'published' || koreanVocal002.audioStatus !== 'ready') {
+  fail('Korean Vocal Camp 002 is not publish-ready');
+}
+for (const [level, card] of Object.entries(koreanVocal002.levelsData || {})) {
+  if (!Array.isArray(card.lines) || card.lines.length !== card.translation?.length || card.lines.length !== card.audioSteps?.length) {
+    fail(`Korean Vocal 002 ${level} source/support/audio steps are not aligned`);
+  }
+  for (const [index, line] of card.lines.entries()) {
+    requiredText(line, `Korean Vocal 002 Korean ${level}/${index + 1}`);
+    requiredText(card.translation[index], `Korean Vocal 002 English support ${level}/${index + 1}`);
+  }
+  for (const step of card.audioSteps) {
+    const asset = path.join(root, step.url.split('?')[0].replace(/^\//u, ''));
+    if (!fs.existsSync(asset) || fs.statSync(asset).size < 1024) fail(`Korean Vocal 002 missing audio: ${asset}`);
   }
 }
 

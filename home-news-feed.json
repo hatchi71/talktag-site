@@ -2,6 +2,22 @@
   "version": 1,
   "items": [
     {
+      "id": "korean-vocal:002",
+      "language": "ko",
+      "title": "Korean Vocal Camp · 002",
+      "href": "K-korean-starter.html?type=vocal",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Build one Korean story through cumulative listening and speaking.",
+      "publishedAt": "2026-10-14T22:38:26.896Z"
+    },
+    {
       "id": "korean-vocal:001",
       "language": "ko",
       "title": "Korean Vocal Camp · 001",
