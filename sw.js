@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261014-bootcamp-level-landings-v4';
+const CACHE_VERSION = 'talktag-pwa-20261014-language-tree-parity-v5';
 const APP_SHELL = [
   '/',
   '/index.html',

@@ -34,8 +34,15 @@ for(const camp of ['story','vocal']){
   for(const family of families)for(const level of family.levels){assert.ok(levels.includes(level));assert.ok(fs.existsSync(`content/${camp}camp/${family.number}.js`));lessons++;}
   for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`])assert.match(fs.readFileSync(path,'utf8'),/bootcamp-browser\.js\?v=20261014-level-landings-v1/);
 }
-const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js/);
+const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js\?v=20261014-level-landings-v1/,'Korean Boot Camp must use the same level-first browser revision as English and Japanese');
+assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v1/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
+for(const camp of ['vocal','story']){
+  const route=fs.readFileSync(`K-korean-${camp}-camp.html`,'utf8');
+  assert.match(route,/searchParams\.set\('type'/,'Korean Boot Camp redirects must retain a selected level while setting the camp type');
+}
+assert.match(fs.readFileSync('japanese/J-bootcamp.html','utf8'),/J-snowballing\.html#boot-camp/,'Japanese legacy Boot Camp route must return to the Studio Boot Camp landing');
+assert.match(fs.readFileSync('japanese/J-listen-repeat.html','utf8'),/J-snowballing\.html#sound-check/,'Japanese legacy Listen & Repeat route must return to the Studio Sound Check landing');
 assert.match(fs.readFileSync('japanese/studio-structure.js','utf8'),/Camp landings are owned by the shared level-first browser/);
 const browser=fs.readFileSync('bootcamp-browser.js','utf8');
 assert.match(browser,/camp-level-landing/,'Boot Camp must render a focused landing for each selected level');
