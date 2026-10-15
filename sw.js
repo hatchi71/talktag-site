@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261015-vocal-speaking-pause-v1';
+const CACHE_VERSION = 'talktag-pwa-20261015-glep-introduction-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
