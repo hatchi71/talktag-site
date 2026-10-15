@@ -1,0 +1,6 @@
+.kr-page #talktag.kr-talktag-notice{padding:0!important}
+.kr-talktag-notice>.meetup-board{margin-top:24px}
+.kr-page .tt-meetup-map summary{display:flex;padding:12px 16px}
+.kr-page .tt-meetup-contact{color:var(--tt-text,#183455)}
+.kr-page .tt-meetup-contact.tt-meetup-chat{color:#332619}
+html[data-appearance=dark] .kr-page .tt-meetup-contact.tt-meetup-chat{color:#282316}
