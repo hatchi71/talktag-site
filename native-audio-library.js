@@ -1,6 +1,7 @@
 (function () {
 "use strict";
 var native=window.TalkTagNative;
+var english=native&&native.ui==="en";
 var params=new URLSearchParams(location.search),type=params.get("type")==="plain"?"plain":"guided";
 var level=(params.get("level")||"").toUpperCase();
 if(!["A1","A2","B1","B2","C1","C2"].includes(level))level="";
@@ -14,7 +15,7 @@ if(cefrGuide)cefrGuide.hidden=Boolean(level);
 document.title=name+(level?" · "+level:"")+" · TalkTag";
 document.getElementById("libraryEyebrow").textContent="SOUND CHECK";
 document.getElementById("libraryTitle").textContent=name+(level?" · "+level:"");
-document.getElementById("libraryDescription").textContent=level?(type==="guided"?"문장별 " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + "회 반복 · 듣고 따라하세요.":"듣고, 노트에 정리한 뒤 내 말로 이야기하세요."):"훈련할 레벨을 선택하세요.";
+document.getElementById("libraryDescription").textContent=level?(type==="guided"?(english?"Repeat each sentence " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + " times · listen and speak along.":"문장별 " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + "회 반복 · 듣고 따라하세요."):(english?"Listen, make notes, then retell the key idea in your own Korean.":"듣고, 노트에 정리한 뒤 내 말로 이야기하세요.")):(english?"Choose your practice level.":"훈련할 레벨을 선택하세요.");
 document.querySelector(".type-switch").hidden=true;
 document.getElementById("essayGuide").hidden=type!=="plain"||Boolean(level);
 if(type==="plain")document.querySelector(".filter-bar").before(document.getElementById("essayGuide"));

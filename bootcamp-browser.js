@@ -13,7 +13,11 @@
     const title = camp === 'vocal' ? 'Vocal Camp' : 'Story Camp';
     const families = language === 'ko' && camp === 'vocal'
       ? (window.TALKTAG_VOCALCAMP_KOREAN?.families || []).filter(f => ['audio-qc', 'published'].includes(f.status))
+      : language === 'ko' && camp === 'story'
+        ? (window.TALKTAG_STORYCAMP_KOREAN?.families || []).filter(f => f.status === 'published')
       : language === 'en' ? (window[`TALKTAG_${camp.toUpperCase()}CAMP_MANIFEST`]?.families || []).filter(f => f.status === 'published') : [];
+    const familyLevels = family => Array.isArray(family.levels) ? family.levels : Object.keys(family.levels || {});
+    const progressCamp = language === 'ko' ? `ko-${camp}` : camp;
     const params = new URLSearchParams(location.search);
     const preferenceKey = `talktag-camp-level:${language}`;
     let remembered; try { remembered = localStorage.getItem(preferenceKey); } catch {}
@@ -38,11 +42,11 @@
       prev:'이전', next:'다음', levelLabel:'학습 레벨', clear:'검색어 지우기', changeLevel:'← 레벨 선택',
       guide:`A1–C2는 학습 난이도 안내이며 공식 등급 판정${japanese ? '이나 JLPT 등급 환산' : ''}이 아닙니다.`
     };
-    const done = f => Boolean(window.TalkTagCampProgress?.done(camp, level, f.number));
+    const done = f => Boolean(window.TalkTagCampProgress?.done(progressCamp, level, f.number));
     const route = f => `${camp === 'story' ? 'storycamp-reader' : 'vocalcamp-player'}.html?level=${level}&family=${f.number}${language === 'ko' ? '&lang=ko' : ''}`;
     const summary = l => {
-      const items = families.filter(f => f.levels?.includes(l));
-      const completed = items.filter(f => window.TalkTagCampProgress?.done(camp, l, f.number)).length;
+      const items = families.filter(f => familyLevels(f).includes(l));
+      const completed = items.filter(f => window.TalkTagCampProgress?.done(progressCamp, l, f.number)).length;
       return { total: items.length, completed };
     };
     host.innerHTML = `<div class="camp-resume"></div><div class="camp-level-heading"><span class="camp-kicker">LEVEL → EPISODE → PRACTICE</span><h2>${words.choose}</h2><p>${words.help}</p></div><nav class="camp-levels" aria-label="${words.levelLabel}"></nav><section class="cefr camp-cefr-guide" id="campCefrGuide" aria-labelledby="campCefrTitle"><div class="camp-cefr-kicker">CEFR GUIDE · 설명 영역</div><h2 id="campCefrTitle">CEFR은 영어 레벨을 어떻게 나눌까요?</h2><p><strong>CEFR(Common European Framework of Reference for Languages)</strong>은 단순히 아는 단어 수나 시험 점수만으로 영어 수준을 정하지 않습니다. 실제 상황에서 영어를 얼마나 이해하고, 상호작용하고, 자신의 생각을 말하고 쓰며, 의미를 정확하게 전달할 수 있는지를 중심으로 A1부터 C2까지 여섯 단계로 설명합니다.</p><div class="camp-cefr-scale"><div><em>BASIC USER</em><b>A1 · 입문</b><span>익숙한 일상 표현과 매우 기본적인 문장을 이해하고 사용할 수 있는 단계.</span></div><div><em>BASIC USER</em><b>A2 · 초급</b><span>일상적인 정보와 익숙한 주제에 대해 간단한 문장으로 주고받을 수 있는 단계.</span></div><div><em>INDEPENDENT USER</em><b>B1 · 중급</b><span>익숙한 주제의 핵심 내용을 이해하고 경험·계획·의견을 연결해서 설명할 수 있는 단계.</span></div><div><em>INDEPENDENT USER</em><b>B2 · 중상급</b><span>복잡한 글의 주요 내용을 이해하고 비교적 자연스럽고 구체적으로 의견을 전개할 수 있는 단계.</span></div><div><em>PROFICIENT USER</em><b>C1 · 고급</b><span>길고 까다로운 글의 함축적 의미를 이해하고, 복잡한 생각을 유창하고 유연하게 구조화할 수 있는 단계.</span></div><div><em>PROFICIENT USER</em><b>C2 · 숙달</b><span>거의 모든 종류의 언어를 매우 높은 정확도로 이해하고, 미묘한 의미 차이까지 자연스럽고 정교하게 표현할 수 있는 단계.</span></div></div><div class="camp-cefr-note"><strong>중요:</strong> TalkTag Snowballing Studio의 A1–C2 표시는 학습 난이도를 CEFR 기술 방식에 맞추어 설계한 가이드입니다. 이 콘텐츠만으로 공식 CEFR 등급을 판정하지는 않습니다. 실제 수준은 듣기, 읽기, 말하기 상호작용, 말하기·쓰기 생산 등 여러 능력을 함께 보아야 합니다.</div></section><section class="camp-episodes" aria-labelledby="campEpisodeHeading"><div class="camp-episode-heading"><h2 id="campEpisodeHeading"></h2><p id="campProgress" role="status"></p></div><form class="camp-search" role="search"><label for="campSearch">${words.search}</label><div><input id="campSearch" type="search" placeholder="${words.placeholder}" autocomplete="off"><button type="button" id="campClear" hidden>${words.clear}</button></div></form><div class="camp-episode-list"></div><nav class="camp-pagination" aria-label="${english ? 'Episode pages' : '에피소드 페이지'}"><button type="button" data-page="previous">← ${words.prev}</button><span></span><button type="button" data-page="next">${words.next} →</button></nav><details class="camp-completed"><summary><span>${words.shelf}</span><span class="camp-shelf-count"></span></summary><div class="camp-completed-list"></div></details></section><div class="camp-starters"></div><p class="camp-notice">${words.guide}</p>`;
@@ -107,7 +111,7 @@
         if (last) { const f = families.find(item => item.number === new URL(last.href, location.origin).searchParams.get('family')); resume.innerHTML = `<a href="${route(f)}"><small>${level} · 이어서 학습</small><strong>${esc(f.title)}</strong><span>${esc(last.checkpoint.label || '계속하기')} →</span></a>`; }
       } catch {}
       levels.innerHTML = LEVELS.map(l => { const s = summary(l); return `<a href="?${new URLSearchParams({...Object.fromEntries(params), level:l})}" data-level="${l}" data-group="${l[0]}"${l === level ? ' aria-current="page"' : ''}${s.total && s.completed === s.total ? ' class="is-level-complete"' : ''}><strong>${l}</strong><small>${s.total ? `${s.completed} / ${s.total} ${words.completed}` : words.pending}</small><span class="camp-level-meter" aria-hidden="true"><i style="width:${s.total ? s.completed / s.total * 100 : 0}%"></i></span></a>`; }).join('');
-      const available = families.filter(f => f.levels?.includes(level)), filtered = available.filter(f => !term || `${f.number} ${f.title}`.toLowerCase().includes(term)), active = filtered.filter(f => !done(f)), completed = filtered.filter(done), totalDone = available.filter(done).length;
+      const available = families.filter(f => familyLevels(f).includes(level)), filtered = available.filter(f => !term || `${f.number} ${f.title}`.toLowerCase().includes(term)), active = filtered.filter(f => !done(f)), completed = filtered.filter(done), totalDone = available.filter(done).length;
       const pages = Math.max(1, Math.ceil(active.length / PAGE_SIZE)); page = Math.max(1, Math.min(page, pages));
       host.querySelector('#campEpisodeHeading').textContent = `${level} · ${title}`;
       host.querySelector('#campProgress').textContent = available.length ? `${totalDone} / ${available.length} ${words.completed}` : words.pending;
@@ -142,7 +146,7 @@
       if (button.hasAttribute('data-page')) { page += button.dataset.page === 'next' ? 1 : -1; render(); host.querySelector('#campEpisodeHeading').scrollIntoView({block:'start'}); }
       if (button.hasAttribute('data-complete')) {
         const n = button.dataset.complete, finished = button.dataset.finished === 'true';
-        window.TalkTagCampProgress?.set(camp, level, n, !finished);
+        window.TalkTagCampProgress?.set(progressCamp, level, n, !finished);
         render();
         if (!finished) host.querySelector('.camp-completed').open = true;
         const target = host.querySelector(`[data-complete="${n}"]`); target?.focus({preventScroll:true});

@@ -61,8 +61,9 @@ var native=window.TalkTagNative;
     info[0].textContent = "Essays & Articles";
     info[2].textContent = lesson.genre;
     info[5].textContent = "Original audio";
-    document.querySelector("#scriptPanel h2").textContent = "English script";
-    document.querySelector(".class-bridge p").textContent = "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
+    document.querySelector("#scriptPanel h2").textContent = native.language === 'ko' ? "Korean script" : "English script";
+    document.querySelector(".class-bridge p").textContent = native.language === 'ko' ? "Recall the key idea, summarise it, then tell it to a partner in your own Korean." : "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
+    document.querySelector(".lesson-info dd:nth-of-type(3)").textContent = native.language === 'ko' ? "Korean Audio Essays & Articles · " + String(lesson.unit).padStart(3, '0') : "Audio Essays & Articles · " + String(lesson.unit).padStart(3, '0');
   }
   if (lesson.training) {
     document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0");
