@@ -29,6 +29,19 @@
   var previousLesson = lessons[lessonIndex - 1] || null;
   var nextLesson = lessons[lessonIndex + 1] || null;
   var storageKey = "talktag-audio:" + lesson.id;
+  var pausePilot = lesson.id === "guided-c2-02";
+  var pauseMultiplier = 2.5;
+  var pauseHold = null;
+  var extendedCues = new Set();
+  var previousPilotTime = 0;
+  function cancelPauseHold() {
+    if (!pauseHold) return false;
+    clearTimeout(pauseHold.timer);
+    pauseHold = null;
+    delete audio.dataset.pauseHold;
+    playButton.textContent = "▶ PLAY";
+    return true;
+  }
   document.body.dataset.audioType = lesson.type;
 
   function appendList(targetId, items, speakers) {
@@ -97,6 +110,45 @@
     audio.addEventListener("timeupdate",updateDrillStatus);
     audio.addEventListener("seeked",updateDrillStatus);
     updateDrillStatus();
+    if (pausePilot) {
+      var pauseControl = document.createElement("div");
+      pauseControl.className = "guided-pause-pilot";
+      pauseControl.innerHTML = '<div class="guided-pause-heading"><label for="guidedPauseRange">말하기 간격 <span class="guided-pause-tag">C2 시범</span></label><output id="guidedPauseValue" for="guidedPauseRange">2.5×</output></div><input id="guidedPauseRange" type="range" min="0" max="2" step="1" value="0" aria-label="문장 뒤 말하기 간격: 음성 길이의 2.5배, 3배, 3.5배"><div class="guided-pause-marks" aria-hidden="true"><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><p id="guidedPauseHint">최소 3초. 음성 속도는 그대로 두고 무음만 늘립니다. 탐색 막대는 원본 음원 시간을 표시합니다.</p>';
+      document.querySelector(".compact-options").after(pauseControl);
+      var pauseRange = document.getElementById("guidedPauseRange");
+      var pauseValue = document.getElementById("guidedPauseValue");
+      var savedMultiplier = Number(readState().pauseMultiplier);
+      if ([2.5,3,3.5].includes(savedMultiplier)) pauseMultiplier = savedMultiplier;
+      pauseRange.value = String((pauseMultiplier - 2.5) * 2);
+      pauseValue.textContent = pauseMultiplier.toFixed(1) + "×";
+      pauseRange.addEventListener("input", function () {
+        pauseMultiplier = 2.5 + Number(pauseRange.value) * 0.5;
+        pauseValue.textContent = pauseMultiplier.toFixed(1) + "×";
+        saveState({pauseMultiplier:pauseMultiplier});
+      });
+      audio.addEventListener("timeupdate", function () {
+        var time = audio.currentTime;
+        if (time < previousPilotTime - 0.2) extendedCues.clear();
+        previousPilotTime = time;
+        if (pauseMultiplier === 2.5 || pauseHold || audio.paused || audio.seeking) return;
+        var cueIndex = lesson.training.cues.findIndex(function (cue) { return time >= cue.voiceEnd + 0.25 && time < cue.e - 0.5; });
+        if (cueIndex < 0 || extendedCues.has(cueIndex)) return;
+        var cue = lesson.training.cues[cueIndex];
+        var spoken = cue.voiceEnd - cue.s;
+        var extra = Math.max(0, Math.max(3, pauseMultiplier * spoken) - (cue.e - cue.voiceEnd));
+        extendedCues.add(cueIndex);
+        if (extra < 0.1) return;
+        pauseHold = {timer:null};
+        audio.dataset.pauseHold = "true";
+        audio.pause();
+        pauseHold.timer = setTimeout(function () {
+          pauseHold = null;
+          delete audio.dataset.pauseHold;
+          audio.play().catch(function () { playButton.textContent = "▶ PLAY"; });
+        }, extra * 1000 / audio.playbackRate);
+      });
+      audio.addEventListener("seeking", function () { cancelPauseHold(); extendedCues.clear(); });
+    }
   }
   audio.src = lesson.audio;
   appendList("scriptList", lesson.expressions, lesson.speakers);
@@ -177,7 +229,7 @@
   });
   audio.addEventListener("play", function () { playButton.textContent = "❚❚ PAUSE"; });
   audio.addEventListener("pause", function () {
-    playButton.textContent = "▶ PLAY";
+    playButton.textContent = pauseHold ? "❚❚ PAUSE" : "▶ PLAY";
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });
   function finishGuidedCard() {
@@ -199,6 +251,7 @@
     }
   });
   playButton.addEventListener("click", function () {
+    if (cancelPauseHold()) return;
     if (audio.paused) {
       var resumeAt = resumePending;
       var playPromise = audio.play();
@@ -210,8 +263,8 @@
       } else resumePending = 0;
     } else audio.pause();
   });
-  rewindButton.addEventListener("click", function () { audio.currentTime = Math.max(0, audio.currentTime - 10); });
-  restartButton.addEventListener("click", function () { audio.currentTime = 0; if (audio.paused) audio.play(); });
+  rewindButton.addEventListener("click", function () { cancelPauseHold(); audio.currentTime = Math.max(0, audio.currentTime - 10); });
+  restartButton.addEventListener("click", function () { var wasHolding = cancelPauseHold(); audio.currentTime = 0; if (audio.paused || wasHolding) audio.play(); });
   prevButton.addEventListener("click", function () { if (previousLesson) location.href = "audio-player.html?id=" + encodeURIComponent(previousLesson.id); });
   nextButton.addEventListener("click", function () { if (nextLesson) location.href = "audio-player.html?id=" + encodeURIComponent(nextLesson.id); });
   progress.addEventListener("input", function () { if (audio.duration) audio.currentTime = (Number(progress.value) / 1000) * audio.duration; });

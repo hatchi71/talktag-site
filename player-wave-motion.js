@@ -14,7 +14,7 @@
      if(cue&&audio.currentTime>=cue.voiceEnd)state='recall';
    }
    if(wave.dataset.motion!==state)wave.dataset.motion=state;
-   if(play){const playing=!audio.paused&&!audio.ended;play.textContent=playing?'❚❚ 일시정지':'▶ 재생';play.setAttribute('aria-label',playing?'일시정지':'재생');}
+   if(play){const playing=(!audio.paused&&!audio.ended)||audio.dataset.pauseHold==='true';play.textContent=playing?'❚❚ 일시정지':'▶ 재생';play.setAttribute('aria-label',playing?'일시정지':'재생');}
  }
  ['playing','play','pause','ended','timeupdate','seeked','seeking','waiting','canplay','error'].forEach(e=>audio.addEventListener(e,update));
  document.addEventListener('visibilitychange',update);reduced.addEventListener('change',update);update();

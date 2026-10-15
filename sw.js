@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261015-two-bulletins-glep-v1';
+const CACHE_VERSION = 'talktag-pwa-20261015-c2-pause-pilot-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
