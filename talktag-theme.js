@@ -21,7 +21,7 @@
   }
   if (!document.querySelector('script[data-talktag-myspace]')) {
     const activity = document.createElement('script');
-    activity.src = '/myspace.js?v=20261013-camp-level-first';
+    activity.src = '/myspace.js?v=20261015-all-level-bins-v1';
     activity.dataset.talktagMyspace = 'true';
     document.head.append(activity);
   }

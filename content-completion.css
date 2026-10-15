@@ -1,4 +1,5 @@
 .tt-completion-card{position:relative;min-width:0}
+.tt-level-completed{margin-top:32px;padding:0 16px 16px;border:1px solid var(--tt-border,#dbe5f1);border-radius:18px;background:var(--tt-card,#fffdf8)}.tt-level-completed[hidden]{display:none}.tt-level-completed summary{display:flex;justify-content:space-between;align-items:center;min-height:56px;cursor:pointer;font-size:18px;font-weight:800;color:var(--tt-text,#183455)}.tt-level-completed summary:focus-visible{outline:3px solid var(--tt-accent,#1768e9);outline-offset:2px}.tt-level-completed-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.tt-level-completed-list .item{height:100%}
 .tt-completion-card.is-completed{filter:saturate(.92)}
 .tt-completion-card.is-completed>a,.tt-completion-card.is-completed.lesson-card{border-color:#79b996!important;box-shadow:0 0 0 2px rgba(36,129,83,.1),0 12px 28px rgba(24,52,85,.08)!important}
 .tt-completion-card>a{height:100%}
@@ -23,3 +24,4 @@ html[data-theme="dark"] .tt-completion-button,body.dark .tt-completion-button{bo
 html[data-theme="dark"] .tt-completion-button[aria-pressed="true"],body.dark .tt-completion-button[aria-pressed="true"]{border-color:#70c99a;background:#276c4a;color:#fff}
 @media(max-width:850px){.lesson-card-actions{grid-column:1/-1;grid-template-columns:auto minmax(0,1fr);min-width:0}.lesson-card-actions .tt-completion-button{width:auto;grid-column:1;grid-row:1}.lesson-card-actions .lesson-action{grid-column:2;grid-row:1}}
 @media(max-width:430px){.tt-completion-card>.tt-completion-button{left:12px;bottom:12px}.tt-completion-button{min-width:72px;padding:9px 12px}.lesson-card-actions{grid-template-columns:auto minmax(0,1fr)}.tt-detail-completion{align-items:flex-start;flex-direction:column;gap:12px;padding:15px 16px}.tt-detail-completion>.tt-completion-button{width:100%}}
+@media(max-width:650px){.tt-level-completed-list{grid-template-columns:1fr}}

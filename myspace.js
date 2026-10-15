@@ -1,7 +1,7 @@
 (() => {
  'use strict';
  const KEY='talktag-myspace-activity:v1',COMPLETED='talktag-content-completions:v1';
- const language=path=>path.startsWith('/japanese/')?'ja':path.startsWith('/K-korean')?'ko':'en';
+ const language=path=>path.startsWith('/japanese/')?'ja':path.startsWith('/K-korean')||/[?&]lang=ko(?:&|$)/.test(path)?'ko':'en';
  const mode=language(location.pathname);
  let storageUnavailable=false;
  const read=(key,fallback={})=>{try{const x=JSON.parse(localStorage.getItem(key)||'null');return x&&typeof x==='object'&&!Array.isArray(x)?x:fallback}catch{return fallback}};
@@ -97,6 +97,33 @@
   items.forEach(x=>{const node=row(x,detail(x));if(node)list.append(node)});
   if(!list.children.length)list.append(make('li',empty,'tt-myspace-empty'));
  }
+ const LEVELS=['A1','A2','B1','B2','C1','C2'];
+ function completionLevel(item){
+  const fromId=String(item.completionId||'').match(/(?:^|:)(A1|A2|B1|B2|C1|C2)(?::|$)/);
+  if(fromId)return fromId[1];
+  if(String(item.completionId||'').startsWith('audio:')){
+   const lesson=window.TalkTagAudioLessons?.find(x=>x.id===item.completionId.slice(6));
+   if(lesson&&LEVELS.includes(lesson.level))return lesson.level;
+  }
+  try{const value=new URL(item.href,location.origin).searchParams.get('level')?.toUpperCase();if(LEVELS.includes(value))return value}catch{}
+  const fromTitle=String(item.title||'').match(/\b(A1|A2|B1|B2|C1|C2)\b/);
+  return fromTitle?.[1]||'other';
+ }
+ function fillCompleted(list,items){
+  list.replaceChildren();
+  const groups=[...LEVELS,'other'];
+  for(const level of groups){
+   const entries=items.filter(item=>completionLevel(item)===level);
+   if(!entries.length)continue;
+   const bin=make('details',null,'tt-myspace-bin');bin.dataset.level=level;
+   const summary=make('summary',level==='other'?'Other · Level not assigned':level+' · '+entries.length);
+   if(level==='other')summary.append(make('span',' · '+entries.length));
+   bin.append(summary);
+   const rows=make('ul');entries.forEach(item=>{const node=row(item,'Manually completed');if(node)rows.append(node)});
+   bin.append(rows);list.append(bin);
+  }
+  if(!list.children.length)list.append(make('p','Manually completed learning cards will appear here.','tt-myspace-empty'));
+ }
  function fallback(id,data){
   if(data.href&&data.title&&valid(data.href))return data;
   const match=id.match(/^(storycamp|vocalcamp)-family:(\d{3})$/);
@@ -147,9 +174,9 @@
   fill(lists.recent,rows.filter(x=>x.visitedAt),'방문한 페이지가 여기에 표시됩니다. 도입 이전의 방문 이력은 복원하지 않습니다.',x=>new Date(x.visitedAt).toLocaleDateString('ko-KR'));
   rows.forEach(x=>{if(x.href.includes('/storycamp-reader.html'))x.checkpoint=progress(x)});
   fill(lists.continue,rows.filter(x=>x.checkpoint),'저장된 훈련 단계나 재생 위치가 있는 항목이 여기에 표시됩니다.',x=>x.checkpoint.label);
-  const done=Object.entries(read(COMPLETED)).filter(([id,x])=>x&&x.source!=='automatic'&&(!id.startsWith('audio:')||x.source==='manual')).map(([id,x])=>fallback(id,x)).filter(x=>x&&x.language===mode);
+  const done=Object.entries(read(COMPLETED)).filter(([id,x])=>x&&x.source!=='automatic'&&(!id.startsWith('audio:')||x.source==='manual')).map(([id,x])=>{const item=fallback(id,x);return item?{...item,completionId:id}:null}).filter(x=>x&&x.language===mode);
   done.sort((a,b)=>String(b.completedAt||'').localeCompare(String(a.completedAt||'')));
-  fill(lists.complete,done,'수동으로 완료 표시한 미션이 여기에 표시됩니다.',()=> '수동 완료');
+  fillCompleted(lists.complete,done);
  }
  function mount(){
   if(!host){
@@ -160,7 +187,7 @@
    host.append(make('h2','MySpace'),make('p','이 브라우저의 학습 기록입니다. 기기 간 동기화와 회원 데이터베이스 저장은 아직 연결되지 않았습니다.','tt-myspace-note'));
    lists={};
    for(const [key,label] of [['recent','최근 방문 · Recently visited'],['continue','이어서 훈련하기 · Continue training'],['complete','완료한 미션 · Completed missions']]){
-    const section=make('section',null,'tt-myspace-section');section.append(make('h3',label));lists[key]=make('ul');lists[key].dataset.myspaceList=key;section.append(lists[key]);host.append(section);
+    const section=make('section',null,'tt-myspace-section');section.append(make('h3',label));lists[key]=make(key==='complete'?'div':'ul');lists[key].dataset.myspaceList=key;section.append(lists[key]);host.append(section);
    }
    refresh();
    for(const src of ['/storycamp-manifest.js','/vocalcamp-manifest.js','/audio-lessons.js']){
@@ -186,7 +213,7 @@
   refresh();
  }
  function boot(){
-  const css=document.createElement('link');css.rel='stylesheet';css.href='/myspace.css?v=20261008-1';document.head.append(css);
+  const css=document.createElement('link');css.rel='stylesheet';css.href='/myspace.css?v=20261015-all-level-bins-v1';document.head.append(css);
   mount();record();
   new MutationObserver(schedule).observe(document.querySelector('title')||document.head,{childList:true,subtree:true,characterData:true});
   document.querySelectorAll('.view').forEach(view=>new MutationObserver(schedule).observe(view,{attributes:true,attributeFilter:['class']}));

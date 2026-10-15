@@ -43,7 +43,7 @@
       guide:`A1–C2는 학습 난이도 안내이며 공식 등급 판정${japanese ? '이나 JLPT 등급 환산' : ''}이 아닙니다.`
     };
     const done = f => Boolean(window.TalkTagCampProgress?.done(progressCamp, level, f.number));
-    const route = f => `${camp === 'story' ? 'storycamp-reader' : 'vocalcamp-player'}.html?level=${level}&family=${f.number}${language === 'ko' ? '&lang=ko' : ''}`;
+    const route = (f, cardLevel = level) => `${camp === 'story' ? 'storycamp-reader' : 'vocalcamp-player'}.html?level=${cardLevel}&family=${f.number}${language === 'ko' ? '&lang=ko' : ''}`;
     const summary = l => {
       const items = families.filter(f => familyLevels(f).includes(l));
       const completed = items.filter(f => window.TalkTagCampProgress?.done(progressCamp, l, f.number)).length;
@@ -73,9 +73,13 @@
     levelLanding.hidden = true;
     levelLanding.innerHTML = `<a class="camp-change-level" href="?" data-change-level>${words.changeLevel}</a><span class="camp-kicker">BOOT CAMP · ${camp === 'vocal' ? 'BUILD' : 'REBUILD'}</span><h2 id="campLevelTitle"></h2><p id="campLevelDescription"></p>`;
     host.querySelector('#campCefrGuide').before(levelLanding);
-    function card(f, finished) {
+    const allCompleted = document.createElement('section');
+    allCompleted.className = 'camp-all-completed';
+    allCompleted.setAttribute('aria-label', words.shelf);
+    levels.after(allCompleted);
+    function card(f, finished, cardLevel = level) {
       const ready = camp !== 'vocal' || f.audioStatus === 'ready';
-      return `<article class="camp-episode${finished ? ' is-completed' : ''}" data-episode="${f.number}"><a class="camp-episode-link" href="${route(f)}"><span class="camp-kicker">${level} · ${english ? 'EPISODE' : '이야기'} ${f.number}</span><h3>${esc(f.title)}</h3><p>${esc(f.theme)}</p><span class="camp-start">${ready ? words.start : (english ? 'Recording in preparation' : '음원 준비 중')} <span aria-hidden="true">→</span></span></a><div class="camp-episode-actions"><button type="button" data-complete="${f.number}" data-finished="${finished}" aria-label="${esc(f.title)} · ${finished ? words.undo : words.complete}">${finished ? words.undo : words.complete}</button>${finished ? `<span class="camp-complete-mark">✓ ${words.completed}</span>` : ''}</div></article>`;
+      return `<article class="camp-episode${finished ? ' is-completed' : ''}" data-episode="${f.number}"><a class="camp-episode-link" href="${route(f, cardLevel)}"><span class="camp-kicker">${cardLevel} · ${english ? 'EPISODE' : '이야기'} ${f.number}</span><h3>${esc(f.title)}</h3><p>${esc(f.theme)}</p><span class="camp-start">${ready ? words.start : (english ? 'Recording in preparation' : '음원 준비 중')} <span aria-hidden="true">→</span></span></a><div class="camp-episode-actions"><button type="button" data-complete="${f.number}" data-complete-level="${cardLevel}" data-finished="${finished}" aria-label="${esc(f.title)} · ${finished ? words.undo : words.complete}">${finished ? words.undo : words.complete}</button>${finished ? `<span class="camp-complete-mark">✓ ${words.completed}</span>` : ''}</div></article>`;
     }
     function renderStarters() {
       const section = host.querySelector('.camp-starters');
@@ -90,6 +94,7 @@
       document.body.classList.toggle('tt-camp-level-selected', levelSelected);
       host.querySelector('.camp-level-heading').hidden = levelSelected;
       levels.hidden = levelSelected;
+      allCompleted.hidden = levelSelected;
       host.querySelector('#campCefrGuide').hidden = levelSelected;
       levelLanding.hidden = !levelSelected;
       host.querySelector('.camp-episodes').hidden = !levelSelected;
@@ -111,6 +116,12 @@
         if (last) { const f = families.find(item => item.number === new URL(last.href, location.origin).searchParams.get('family')); resume.innerHTML = `<a href="${route(f)}"><small>${level} · 이어서 학습</small><strong>${esc(f.title)}</strong><span>${esc(last.checkpoint.label || '계속하기')} →</span></a>`; }
       } catch {}
       levels.innerHTML = LEVELS.map(l => { const s = summary(l); return `<a href="?${new URLSearchParams({...Object.fromEntries(params), level:l})}" data-level="${l}" data-group="${l[0]}"${l === level ? ' aria-current="page"' : ''}${s.total && s.completed === s.total ? ' class="is-level-complete"' : ''}><strong>${l}</strong><small>${s.total ? `${s.completed} / ${s.total} ${words.completed}` : words.pending}</small><span class="camp-level-meter" aria-hidden="true"><i style="width:${s.total ? s.completed / s.total * 100 : 0}%"></i></span></a>`; }).join('');
+      if (!levelSelected) {
+        const opened = new Set([...allCompleted.querySelectorAll('details[open]')].map(bin => bin.dataset.level));
+        const count = LEVELS.reduce((sum, l) => sum + summary(l).completed, 0);
+        allCompleted.hidden = !count;
+        allCompleted.innerHTML = count ? `<h2>${words.shelf} · ${count}</h2><p>${english ? 'Finished cards are collected by level. Open a bin to revisit a lesson or undo completion.' : '완료한 카드를 레벨별로 모았습니다. 다시 열거나 완료를 취소할 수 있습니다.'}</p><div class="camp-completed-bins">${LEVELS.map(l => { const items = families.filter(f => familyLevels(f).includes(l) && window.TalkTagCampProgress?.done(progressCamp, l, f.number)); return items.length ? `<details class="camp-completed camp-completed-bin" data-level="${l}"${opened.has(l) ? ' open' : ''}><summary><span>${l}</span><span class="camp-shelf-count">${items.length}</span></summary><div class="camp-completed-list">${items.map(f => card(f, true, l)).join('')}</div></details>` : ''; }).join('')}</div>` : '';
+      }
       const available = families.filter(f => familyLevels(f).includes(level)), filtered = available.filter(f => !term || `${f.number} ${f.title}`.toLowerCase().includes(term)), active = filtered.filter(f => !done(f)), completed = filtered.filter(done), totalDone = available.filter(done).length;
       const pages = Math.max(1, Math.ceil(active.length / PAGE_SIZE)); page = Math.max(1, Math.min(page, pages));
       host.querySelector('#campEpisodeHeading').textContent = `${level} · ${title}`;
@@ -146,10 +157,11 @@
       if (button.hasAttribute('data-page')) { page += button.dataset.page === 'next' ? 1 : -1; render(); host.querySelector('#campEpisodeHeading').scrollIntoView({block:'start'}); }
       if (button.hasAttribute('data-complete')) {
         const n = button.dataset.complete, finished = button.dataset.finished === 'true';
-        window.TalkTagCampProgress?.set(progressCamp, level, n, !finished);
+        const completedLevel = button.dataset.completeLevel || level;
+        window.TalkTagCampProgress?.set(progressCamp, completedLevel, n, !finished);
         render();
-        if (!finished) host.querySelector('.camp-completed').open = true;
-        const target = host.querySelector(`[data-complete="${n}"]`); target?.focus({preventScroll:true});
+        if (!finished) host.querySelector('.camp-episodes .camp-completed').open = true;
+        const target = host.querySelector(`[data-complete="${n}"][data-complete-level="${completedLevel}"]`); target?.focus({preventScroll:true});
       }
       if (button.hasAttribute('data-starter-undo')) { starterUndo(button.dataset.starterUndo); renderStarters(); }
     });
