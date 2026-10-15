@@ -12,7 +12,8 @@
  function recent(x){state[x.id]={...state[x.id],visitedAt:Date.now()};save()}
  function records(){const visited=lessons.filter(x=>state[x.id]?.visitedAt).sort((a,b)=>state[b.id].visitedAt-state[a.id].visitedAt);return `<div class="kr-kicker">YOUR KOREAN SPACE</div><h1>Small steps, remembered.</h1><p>Records are saved in this browser only—not synced across devices.</p>${!storageOK?'<p role="status">Browser storage is unavailable.</p>':''}<section class="kr-card"><h2>Recently visited</h2>${visited.map(x=>`<p><a href="${link(x)}">${x.id} · ${esc(x.title)}</a></p>`).join('')||'<p>Open a starter lesson to begin.</p>'}</section><section class="kr-card kr-section"><h2>Continue training</h2>${visited.filter(x=>!state[x.id].done&&state[x.id].step>0).map(x=>`<p><a href="${link(x)}">${esc(x.title)} · step ${state[x.id].step+1} / 4 →</a></p>`).join('')||'<p>Your unfinished lesson stages will appear here.</p>'}</section>${shelf()}`}
  if(document.body.dataset.krPage==='home'){
-  document.getElementById('kr-home-lessons').innerHTML=cards();
+  const homeLessons=document.getElementById('kr-home-lessons');
+  if(homeLessons)homeLessons.innerHTML=cards();
   const view=new URLSearchParams(location.search).get('view')||'home';
   document.querySelector(`[data-kr-nav="${['home','myspace','talktag','discussions','tests'].includes(view)?view:'home'}"]`)?.setAttribute('aria-current','page');
   const other=document.getElementById('kr-other');
