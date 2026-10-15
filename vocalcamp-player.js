@@ -15,7 +15,10 @@
   const meaningLang = koreanLearning ? 'en' : 'ko';
   const lines = unit.fullText || [];
   const REPEAT_TARGET = 10;
-  const SILENCE_MULTIPLIER = 2.5;
+  const PAUSE_OPTIONS = [2, 2.5, 3, 3.5];
+  const pauseKey = 'talktag-speaking-pause-multiplier';
+  let silenceMultiplier = 2.5;
+  try { const saved = Number(localStorage.getItem(pauseKey)); if (PAUSE_OPTIONS.includes(saved)) silenceMultiplier = saved; } catch (_) {}
   document.title = `${unit.familyNumber} · ${unit.level} · ${unit.title} | TalkTag Vocal Camp`;
 
   const key = `talktag-vocal-pilot-simple-${unit.id}`;
@@ -45,7 +48,7 @@
       label: copy.soundLabel,
       title: copy.soundTitle,
       guide: copy.soundGuide,
-      body: `<div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? copy.one : `${copy.cumulative} 1–${index+1}`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET} ${copy.reps}</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">${copy.soundStart}</p>`
+      body: `<div class="vocal-pause-control"><label for="vocalPauseRange">${koreanLearning ? 'Speaking pause' : '말하기 간격'} <output id="vocalPauseValue"></output></label><input id="vocalPauseRange" type="range" min="0" max="3" step="1" aria-label="${koreanLearning ? 'Speaking pause: 2, 2.5, 3 or 3.5 times the voice length' : '말하기 간격: 음성 길이의 2배, 2.5배, 3배, 3.5배'}"><div class="vocal-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><small>${koreanLearning ? 'At least 3 seconds. Voice speed stays natural.' : '최소 3초. 음성 속도는 그대로 유지합니다.'}</small></div><div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? copy.one : `${copy.cumulative} 1–${index+1}`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET} ${copy.reps}</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">${copy.soundStart}</p>`
     },
     {
       label: copy.writeLabel,
@@ -91,6 +94,15 @@
   const previous = document.getElementById('prevButton');
   const next = document.getElementById('nextButton');
   const menu = document.getElementById('pilotMenu');
+  const pauseRange = document.getElementById('vocalPauseRange');
+  const pauseValue = document.getElementById('vocalPauseValue');
+  const updatePauseLabel = () => { pauseRange.value = String(PAUSE_OPTIONS.indexOf(silenceMultiplier)); pauseValue.textContent = silenceMultiplier.toFixed(1) + '×'; };
+  updatePauseLabel();
+  pauseRange.addEventListener('input', () => {
+    silenceMultiplier = PAUSE_OPTIONS[Number(pauseRange.value)];
+    updatePauseLabel();
+    try { localStorage.setItem(pauseKey, String(silenceMultiplier)); } catch (_) {}
+  });
   let runToken = 0;
   let repeatTimer = 0;
   let countdownTimer = 0;
@@ -184,7 +196,7 @@
 
   function waitForRecall(index, button, token, audioDurationMs) {
     const status = document.getElementById('soundStatus');
-    const waitMs=Math.max(500,Math.round(audioDurationMs*SILENCE_MULTIPLIER));
+    const waitMs=Math.max(3000,Math.round(audioDurationMs*silenceMultiplier));
     const finishAt=Date.now()+waitMs;
     let completed=false;
     playbackPhase='recall';

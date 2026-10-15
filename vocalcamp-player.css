@@ -1,1 +1,7 @@
 .sound-step:disabled{opacity:.55;cursor:default;box-shadow:none}.sound-step:disabled em{font-size:11px}.reference-button[hidden]{display:none!important}.pilot-intro h1{font-size:clamp(28px,5vw,44px)}.pilot-mission{font-size:12px;color:var(--tt-muted,#687b92)}
+.vocal-pause-control{margin:4px 0 18px;padding:16px;border:1px solid var(--tt-border,#d9d4ca);border-radius:18px;background:var(--tt-raised,#f2f0eb);color:var(--tt-text,#24344b)}
+.vocal-pause-control label{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-weight:800}
+.vocal-pause-control output{color:var(--tt-accent,#1767eb)}
+.vocal-pause-control input{display:block;width:100%;min-height:44px;margin:8px 0 0;accent-color:var(--tt-accent,#1767eb)}
+.vocal-pause-marks{display:flex;justify-content:space-between;font-size:12px;font-weight:700}
+.vocal-pause-control small{display:block;margin-top:8px;color:var(--tt-muted,#687b92);font-size:12px;line-height:1.5}

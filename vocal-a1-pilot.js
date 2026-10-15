@@ -8,7 +8,10 @@
   if (!unit || !app) return;
   const lines = unit.fullText || [];
   const REPEAT_TARGET = 10;
-  const SILENCE_MULTIPLIER = 2.5;
+  const PAUSE_OPTIONS = [2, 2.5, 3, 3.5];
+  const pauseKey = 'talktag-speaking-pause-multiplier';
+  let silenceMultiplier = 2.5;
+  try { const saved = Number(localStorage.getItem(pauseKey)); if (PAUSE_OPTIONS.includes(saved)) silenceMultiplier = saved; } catch (_) {}
   document.title = `${unit.level} · ${unit.title} | TalkTag Vocal Camp`;
 
   const key = `talktag-vocal-pilot-simple-${unit.id}`;
@@ -24,8 +27,8 @@
     {
       label: '1 · SOUND',
       title: '소리가 조금씩 자랍니다',
-      guide: '한 번 시작하면 10회 반복하고 다음 누적으로 자동 이동합니다. 소리가 끝난 뒤에는 음원 길이의 2.5배 동안 그대로 말해 보세요.',
-      body: `<div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? '한 문장' : `1–${index+1} 누적`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET}회</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">첫 소리를 누르면 전체 누적 훈련이 자동으로 이어집니다.</p>`
+      guide: '한 번 시작하면 10회 반복하고 다음 누적으로 자동 이동합니다. 소리 뒤 말하기 간격을 선택하세요.',
+      body: `<div class="vocal-pause-control"><label for="vocalPauseRange">말하기 간격 <output id="vocalPauseValue"></output></label><input id="vocalPauseRange" type="range" min="0" max="3" step="1" aria-label="말하기 간격: 음성 길이의 2배, 2.5배, 3배, 3.5배"><div class="vocal-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><small>최소 3초. 음성 속도는 그대로 유지합니다.</small></div><div class="sound-ladder" id="soundLadder">${lines.map((_, index) => `<button class="sound-step" type="button" data-sound-step="${index}"><span class="sound-shape" aria-hidden="true">${Array.from({length:index+1},()=>'<i></i>').join('')}</span><strong>${index === 0 ? '한 문장' : `1–${index+1} 누적`}</strong><small><b data-repeat-count="${index}">0</b> / ${REPEAT_TARGET}회</small><em>▶</em></button>`).join('')}</div><p class="sound-note" id="soundStatus" aria-live="polite">첫 소리를 누르면 전체 누적 훈련이 자동으로 이어집니다.</p>`
     },
     {
       label: '2 · SAY & WRITE',
@@ -70,6 +73,15 @@
   const previous = document.getElementById('prevButton');
   const next = document.getElementById('nextButton');
   const menu = document.getElementById('pilotMenu');
+  const pauseRange = document.getElementById('vocalPauseRange');
+  const pauseValue = document.getElementById('vocalPauseValue');
+  const updatePauseLabel = () => { pauseRange.value = String(PAUSE_OPTIONS.indexOf(silenceMultiplier)); pauseValue.textContent = silenceMultiplier.toFixed(1) + '×'; };
+  updatePauseLabel();
+  pauseRange.addEventListener('input', () => {
+    silenceMultiplier = PAUSE_OPTIONS[Number(pauseRange.value)];
+    updatePauseLabel();
+    try { localStorage.setItem(pauseKey, String(silenceMultiplier)); } catch (_) {}
+  });
   let runToken = 0;
   let repeatTimer = 0;
   let countdownTimer = 0;
@@ -147,7 +159,7 @@
 
   function waitForRecall(index, button, token, audioDurationMs) {
     const status = document.getElementById('soundStatus');
-    const waitMs=Math.max(500,Math.round(audioDurationMs*SILENCE_MULTIPLIER));
+    const waitMs=Math.max(3000,Math.round(audioDurationMs*silenceMultiplier));
     const finishAt=Date.now()+waitMs;
     let completed=false;
     playbackPhase='recall';
