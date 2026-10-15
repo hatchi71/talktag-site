@@ -60,6 +60,7 @@
     document.body.classList.toggle('tt-study-page', !topLanding);
     if (!topLanding && !document.querySelector('.tt-route-tools')) {
       const japanese = path.startsWith('/japanese/');
+      const koreanCampReader = /\/(?:storycamp-reader|vocalcamp-player)\.html$/.test(path) && new URLSearchParams(location.search).get('lang') === 'ko';
       const routes = japanese ? [
         [/story-camp/, '/japanese/J-story-camp.html', 'Story Camp'],
         [/vocal/, '/japanese/J-vocal-camp.html', 'Vocal Camp'],
@@ -80,7 +81,7 @@
         [/snowballing|bootcamp/, '/snowballing-studio.html', 'Snowballing Studio'],
         [/.*/, '/', 'TalkTag 홈']
       ];
-      const route = /^\/K-korean(?:[/.\-])/.test(path) ? [null,'/K-korean.html','한국어 홈'] : routes.find(([pattern]) => pattern.test(path));
+      const route = koreanCampReader ? [null, path.endsWith('/storycamp-reader.html') ? '/K-korean-story-camp.html' : '/K-korean-vocal-camp.html', path.endsWith('/storycamp-reader.html') ? 'Story Camp' : 'Vocal Camp'] : /^\/K-korean(?:[/.\-])/.test(path) ? [null,'/K-korean.html','한국어 홈'] : routes.find(([pattern]) => pattern.test(path));
       const parentLanding = () => {
         const rawFile=path.split('/').pop()||'J-index.html';
         const file=japanese?rawFile.replace(/^J-/,''):rawFile;
@@ -110,8 +111,8 @@
           const lesson=(window.TalkTagAudioLessons||[]).find(item=>item.id===params.get('id'));
           return '/audio-library.html?type='+(lesson?.type==='plain'?'plain':'guided')+'&level='+encodeURIComponent(lesson?.level||level);
         }
-        if(file==='vocalcamp-player.html')return '/vocal-camp.html?level='+level;
-        if(file==='storycamp-reader.html')return '/story-camp.html?level='+level;
+        if(file==='vocalcamp-player.html')return (koreanCampReader?'/K-korean-vocal-camp.html':'/vocal-camp.html')+'?level='+level;
+        if(file==='storycamp-reader.html')return (koreanCampReader?'/K-korean-story-camp.html':'/story-camp.html')+'?level='+level;
         if(file==='vocalcamp-family.html'||file==='vocal-a1-pilot.html')return '/vocal-camp.html';
         if(file==='storycamp-family.html'||file==='storycamp-level.html')return '/story-camp.html';
         if(file==='vocal-camp.html'||file==='story-camp.html')return '/snowballing-studio.html#boot-camp';
@@ -129,7 +130,7 @@
       const previous = document.createElement('button');
       previous.type = 'button';
       previous.className = 'tt-route-previous';
-      previous.innerHTML = '<span aria-hidden="true">←</span><b>이전으로</b>';
+      previous.innerHTML = '<span aria-hidden="true">←</span><b>'+(koreanCampReader?'Back':'이전으로')+'</b>';
       previous.addEventListener('click', () => {
         location.href = parentLanding();
       });

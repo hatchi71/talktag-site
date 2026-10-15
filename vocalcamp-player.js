@@ -280,7 +280,7 @@
     button.textContent=button.dataset.reference === 'script' ? (open ? `${scriptLanguage} · Close` : `${scriptLanguage} · ${scriptName}`) : (open ? `${meaningLanguage} · Close` : `${meaningLanguage} · ${meaningName}`);
   }));
   previous.addEventListener('click',()=>showCard(state.card-1));
-  next.addEventListener('click',()=>{if(state.card===cards.length-1){if(unit.id?.startsWith('family-')&&window.TalkTagCampProgress){stopSound();window.TalkTagCampProgress.set('vocal',unit.level,unit.familyNumber,true);state.card=0;save();location.href='vocal-camp.html?level='+unit.level;return}menu.open=true;return}showCard(state.card+1)});
+  next.addEventListener('click',()=>{if(state.card===cards.length-1){if(unit.id?.startsWith('family-')&&window.TalkTagCampProgress){stopSound();window.TalkTagCampProgress.set(koreanLearning?'ko-vocal':'vocal',unit.level,unit.familyNumber,true);state.card=0;save();location.href=(koreanLearning?'K-korean-vocal-camp.html':'vocal-camp.html')+'?level='+unit.level;return}menu.open=true;return}showCard(state.card+1)});
   function resetTraining(){stopSound();state.card=0;state.counts=lines.map(()=>0);document.querySelectorAll('[data-repeat-count]').forEach(node=>node.textContent='0');document.querySelectorAll('.sound-step').forEach(button=>{button.classList.remove('is-complete');button.querySelector('em').textContent='▶'});menu.open=false;save();showCard(0)}
   document.getElementById('restartButton').addEventListener('click',resetTraining);
   document.getElementById('resetButton').addEventListener('click',resetTraining);
@@ -308,8 +308,10 @@
   document.querySelectorAll('.sound-step').forEach(button=>{if(!unit.audioSteps?.[Number(button.dataset.soundStep)]?.url){button.disabled=true;button.querySelector('em').textContent='대기';}});
   document.getElementById('soundStatus').textContent=unit.audioStatus==='audio-pending'?'Audio is being prepared. Cumulative practice will begin after upload.':'Press the first sound to begin cumulative practice.';
   if(!unit.translation.length)document.querySelector('[data-reference="meaning"]').hidden=true;
-  const back=document.querySelector('.pilot-back');back.href='vocal-camp.html?level='+unit.level;back.textContent='← '+unit.level+' Vocal Camp';back.setAttribute('aria-label',unit.level+' Vocal Camp 목록으로');
+  const back=document.querySelector('.pilot-back');back.href=(koreanLearning?'K-korean-vocal-camp.html':'vocal-camp.html')+'?level='+unit.level;back.textContent='← '+unit.level+' Vocal Camp';back.setAttribute('aria-label',koreanLearning?'Back to Korean Vocal Camp '+unit.level:unit.level+' Vocal Camp 목록으로');
   menu.querySelectorAll('a').forEach(a=>a.remove());
-  for(const [label,href] of [[unit.level+' Vocal Camp 목록으로',back.href],['같은 번호 · 같은 레벨 Story Camp →','storycamp-reader.html?family='+unit.familyNumber+'&level='+unit.level]]){const a=document.createElement('a');a.href=href;a.textContent=label;menu.querySelector('.pilot-menu-panel').append(a);}
+  const menuLinks=[[koreanLearning?'Back to '+unit.level+' Korean Vocal Camp':unit.level+' Vocal Camp 목록으로',back.href]];
+  if(!koreanLearning||unit.familyNumber==='001')menuLinks.push([koreanLearning?'Same episode · Korean Story Camp →':'같은 번호 · 같은 레벨 Story Camp →','storycamp-reader.html?family='+unit.familyNumber+'&level='+unit.level+(koreanLearning?'&lang=ko':'')]);
+  for(const [label,href] of menuLinks){const a=document.createElement('a');a.href=href;a.textContent=label;menu.querySelector('.pilot-menu-panel').append(a);}
   showCard(Number(state.card)||0);
 })();
