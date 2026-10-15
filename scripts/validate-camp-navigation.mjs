@@ -43,7 +43,9 @@ assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v3/,'Korea
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
 for(const camp of ['vocal','story']){
   const route=fs.readFileSync(`K-korean-${camp}-camp.html`,'utf8');
-  assert.match(route,/searchParams\.set\('type'/,'Korean Boot Camp redirects must retain a selected level while setting the camp type');
+  assert.match(route,/bootcamp-browser\.js\?v=20261015-korean-camp-landings-v1/,'Korean Boot Camp must own the same level-first landing structure as English and Japanese');
+  assert.match(route,new RegExp(`data-camp="${camp}"`),'Korean Boot Camp landing must identify its camp for the shared browser');
+  assert.doesNotMatch(route,/location\.replace/,'Korean Boot Camp must not redirect away from the level-first landing');
 }
 assert.match(fs.readFileSync('japanese/J-bootcamp.html','utf8'),/J-snowballing\.html#boot-camp/,'Japanese legacy Boot Camp route must return to the Studio Boot Camp landing');
 assert.match(fs.readFileSync('japanese/J-listen-repeat.html','utf8'),/J-snowballing\.html#sound-check/,'Japanese legacy Listen & Repeat route must return to the Studio Sound Check landing');

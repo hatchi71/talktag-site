@@ -21,7 +21,7 @@
       "id": "korean-story:001",
       "language": "ko",
       "title": "Korean Story Camp · 001",
-      "href": "K-korean-starter.html?type=story",
+      "href": "K-korean-story-camp.html",
       "levels": [
         "A1",
         "A2",
@@ -37,7 +37,7 @@
       "id": "korean-vocal:002",
       "language": "ko",
       "title": "Korean Vocal Camp · 002",
-      "href": "K-korean-starter.html?type=vocal",
+      "href": "K-korean-vocal-camp.html",
       "levels": [
         "A1",
         "A2",
@@ -69,7 +69,7 @@
       "id": "korean-vocal:001",
       "language": "ko",
       "title": "Korean Vocal Camp · 001",
-      "href": "K-korean-starter.html?type=vocal",
+      "href": "K-korean-vocal-camp.html",
       "levels": [
         "A1",
         "A2",

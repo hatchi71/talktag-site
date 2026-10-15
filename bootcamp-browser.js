@@ -164,10 +164,14 @@
   }
   window.TalkTagCampBrowser = { mount };
   function init() {
-    const file = location.pathname.split('/').pop().replace(/^J-/,'');
+    const originalFile = location.pathname.split('/').pop();
+    const koreanLanding = /^K-korean-(?:story|vocal)-camp\.html$/.test(originalFile);
+    const file = originalFile.replace(/^J-/,'').replace(/^K-korean-/,'');
     if (!['story-camp.html', 'vocal-camp.html'].includes(file)) return;
     const camp = file.startsWith('vocal') ? 'vocal' : 'story';
-    if (location.pathname.startsWith('/japanese/')) {
+    if (koreanLanding) {
+      mount(document.getElementById(`${camp}-camp`), {camp, language:'ko'});
+    } else if (location.pathname.startsWith('/japanese/')) {
       const main = document.querySelector('main');
       document.body.classList.add('ja-bootcamp-shell');
       document.body.classList.add('ja-studio-aligned');
