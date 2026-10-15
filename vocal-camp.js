@@ -81,16 +81,13 @@
     var tools = el("div", "player-tools");
     var rewind = el("button", "", "↶ 10초");rewind.type = "button";
     rewind.addEventListener("click", function () { if (audio.readyState >= 1) audio.currentTime = Math.max(0, audio.currentTime - 10); });
-    var speedLabel = el("label", "", "재생 속도 ");var speed = el("select");
-    [.75,1,1.25,1.5].forEach(function (rate) { var option = el("option", "", rate + "×"); option.value = rate; speed.append(option); });speed.value = "1";
-    speed.addEventListener("change", function () { audio.playbackRate = Number(speed.value); });speedLabel.append(speed);
     var loop = el("button", "", "반복 꺼짐");loop.type = "button";loop.setAttribute("aria-pressed", "false");
     loop.addEventListener("click", function () { audio.loop = !audio.loop;loop.setAttribute("aria-pressed", String(audio.loop));loop.textContent = audio.loop ? "반복 켜짐" : "반복 꺼짐"; });
     var complete = el("button");complete.type = "button";
     function setComplete(done) { complete.setAttribute("aria-pressed", String(done));complete.textContent = done ? "✓ 훈련 완료" : "훈련 완료 표시"; }
     setComplete(!!saved.completed);
     complete.addEventListener("click", function () { var done = complete.getAttribute("aria-pressed") !== "true";setComplete(done);saveState({completed:done}); });
-    tools.append(rewind, speedLabel, loop, complete);
+    tools.append(rewind, loop, complete);
     audio.addEventListener("loadedmetadata", function () {
       if (Number.isFinite(saved.position) && saved.position > 0 && saved.position < audio.duration - 2) { audio.currentTime = saved.position;status.textContent = "지난 위치에서 이어 들을 수 있습니다."; }
     }, {once:true});

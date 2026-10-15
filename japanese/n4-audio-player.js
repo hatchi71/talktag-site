@@ -14,7 +14,6 @@
   var progress = document.getElementById("progress");
   var currentTime = document.getElementById("currentTime");
   var duration = document.getElementById("duration");
-  var speedSelect = document.getElementById("speedSelect");
   var loopButton = document.getElementById("loopButton");
   var status = document.getElementById("audioStatus");
   var storageKey = "talktag-japanese-n4:" + lesson.id;
@@ -59,10 +58,7 @@
   audio.loop = Boolean(initial.loop);
   loopButton.classList.toggle("on", audio.loop);
   loopButton.setAttribute("aria-checked", String(audio.loop));
-  if (initial.speed) {
-    audio.playbackRate = Number(initial.speed);
-    speedSelect.value = String(initial.speed);
-  }
+  audio.playbackRate = 1;
 
   function applyMetadata() {
     duration.textContent = formatTime(audio.duration);
@@ -98,7 +94,6 @@
   document.getElementById("rewindButton").addEventListener("click", function () { audio.currentTime = Math.max(0, audio.currentTime - 10); });
   document.getElementById("restartButton").addEventListener("click", function () { audio.currentTime = 0; if (audio.paused) audio.play(); });
   progress.addEventListener("input", function () { if (audio.duration) { audio.currentTime = (Number(progress.value) / 1000) * audio.duration; resumePending = 0; } });
-  speedSelect.addEventListener("change", function () { audio.playbackRate = Number(speedSelect.value); saveState({ speed: audio.playbackRate }); });
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
   var prevButton = document.getElementById("prevButton");
   var nextButton = document.getElementById("nextButton");

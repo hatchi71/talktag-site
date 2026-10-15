@@ -8,7 +8,6 @@ var native=window.TalkTagNative;
   var progress = document.getElementById("progress");
   var currentTime = document.getElementById("currentTime");
   var duration = document.getElementById("duration");
-  var speedSelect = document.getElementById("speedSelect");
   var loopButton = document.getElementById("loopButton");
   var scriptButton = document.getElementById("scriptButton");
   var meaningButton = document.getElementById("meaningButton");
@@ -31,6 +30,7 @@ var native=window.TalkTagNative;
   var previousLesson = lessons[lessonIndex - 1] || null;
   var nextLesson = lessons[lessonIndex + 1] || null;
   var storageKey = "talktag-audio:" + lesson.id;
+  var pauseControl = null;
   document.body.dataset.audioType = lesson.type;
 
   function appendList(targetId, items) {
@@ -91,6 +91,7 @@ var native=window.TalkTagNative;
     audio.addEventListener("timeupdate",updateDrillStatus);
     audio.addEventListener("seeked",updateDrillStatus);
     updateDrillStatus();
+    pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: document.querySelector('.script-controls'), readState: readState, saveState: saveState, playButton: playButton, english: native.ui === 'en' });
   }
   audio.src = lesson.audio;
   appendList("scriptList", lesson.expressions);
@@ -169,7 +170,7 @@ var native=window.TalkTagNative;
   audio.loop = Boolean(initial.loop);
   loopButton.classList.toggle("on", audio.loop);
   loopButton.setAttribute("aria-checked", String(audio.loop));
-  if (initial.speed) { audio.playbackRate = Number(initial.speed); speedSelect.value = String(initial.speed); }
+  audio.playbackRate = 1;
   function manualDone() { return window.TalkTagCompletion ? window.TalkTagCompletion.getManual("audio:" + lesson.id, storageKey) : Boolean(readState().completed); }
   updateCompletion(manualDone());
 
@@ -194,7 +195,7 @@ var native=window.TalkTagNative;
   });
   audio.addEventListener("play", function () { playButton.textContent = "❚❚ PAUSE"; });
   audio.addEventListener("pause", function () {
-    playButton.textContent = "▶ PLAY";
+    playButton.textContent = pauseControl?.isHolding() ? "❚❚ PAUSE" : "▶ PLAY";
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });
   function finishGuidedCard() {
@@ -216,6 +217,7 @@ var native=window.TalkTagNative;
     }
   });
   playButton.addEventListener("click", function () {
+    if (pauseControl?.cancelHold()) return;
     if (audio.paused) {
       var resumeAt = resumePending;
       var playPromise = audio.play();
@@ -227,12 +229,11 @@ var native=window.TalkTagNative;
       } else resumePending = 0;
     } else audio.pause();
   });
-  rewindButton.addEventListener("click", function () { audio.currentTime = Math.max(0, audio.currentTime - 10); });
-  restartButton.addEventListener("click", function () { audio.currentTime = 0; if (audio.paused) audio.play(); });
+  rewindButton.addEventListener("click", function () { pauseControl?.cancelHold(); audio.currentTime = Math.max(0, audio.currentTime - 10); });
+  restartButton.addEventListener("click", function () { var wasHolding = pauseControl?.cancelHold(); audio.currentTime = 0; if (audio.paused || wasHolding) audio.play(); });
   prevButton.addEventListener("click", function () { if (previousLesson) location.href = native.playerPage+"?id=" + encodeURIComponent(previousLesson.id); });
   nextButton.addEventListener("click", function () { if (nextLesson) location.href = native.playerPage+"?id=" + encodeURIComponent(nextLesson.id); });
   progress.addEventListener("input", function () { if (audio.duration) audio.currentTime = (Number(progress.value) / 1000) * audio.duration; });
-  speedSelect.addEventListener("change", function () { audio.playbackRate = Number(speedSelect.value); saveState({ speed: audio.playbackRate }); });
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
   var hideScriptButton=document.getElementById("scriptHiddenButton");
   function showPlainKoreanScript(mode) {

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261015-all-level-bins-v2';
+const CACHE_VERSION = 'talktag-pwa-20261015-all-guided-pause-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
