@@ -52,5 +52,14 @@ body[data-audio-type] .tt-completion-button{min-height:44px;min-width:64px;paddi
 .audio-empty{font-size:15px;line-height:1.6;color:var(--tt-muted);padding:16px}
 .audio-mission-notice{padding:0 18px;font-size:13px;color:var(--tt-muted)}
 .audio-mission-notice:empty{display:none}
+.audio-mission-bin-intro{margin:0;padding:5px 18px 9px;color:var(--tt-muted);font-size:13px;line-height:1.5}
+.audio-mission-bin{margin:8px 12px;border:1px solid var(--tt-border);border-radius:14px;background:var(--tt-raised);overflow:hidden}
+.audio-mission-bin:last-child{margin-bottom:12px}.audio-mission-bin summary{display:flex;align-items:center;gap:12px;min-height:54px;padding:10px 15px;cursor:pointer;list-style:none;color:var(--tt-text)}
+.audio-mission-bin summary::-webkit-details-marker{display:none}.audio-mission-bin summary strong{display:grid;place-items:center;min-width:42px;min-height:32px;border-radius:9px;background:#fff0a9;color:#243957;font-size:16px}
+.audio-mission-bin[data-level^=B] summary strong{background:#d9ecfa}.audio-mission-bin[data-level^=C] summary strong{background:#dcefd7}
+.audio-mission-bin summary span{margin-left:auto;color:var(--tt-muted);font-size:13px;font-weight:700}.audio-mission-bin summary i{font-style:normal;color:var(--tt-muted);transition:transform .2s}.audio-mission-bin[open] summary i{transform:rotate(180deg)}
+.audio-mission-bin-list{background:var(--tt-card)}.audio-mission-bin .audio-mission-row{padding:9px 14px}.audio-mission-bin-empty{margin:0;padding:14px 16px;border-top:1px solid var(--tt-border);color:var(--tt-muted);font-size:13px}
+.audio-mission-row.is-arriving{animation:mission-bin-arrive .55s ease-out both}@keyframes mission-bin-arrive{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.audio-mission-row.is-arriving{animation:none}.audio-mission-bin summary i{transition:none}}
 body[data-audio-type] a:focus-visible,body[data-audio-type] button:focus-visible{outline:2px solid var(--tt-accent)!important;outline-offset:3px}
 @media(max-width:620px){body[data-audio-type] .wrap{padding-left:16px;padding-right:16px}html[data-appearance] body[data-audio-type] .filter-bar.tt-level-postits{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important}html[data-appearance] body[data-audio-type] .filter-bar.tt-level-postits>a{min-height:56px!important;font-size:15px!important;padding:12px!important}body[data-audio-type] .audio-lesson-open{padding:18px 16px;gap:12px}body[data-audio-type] .lesson-copy h2{font-size:20px}body[data-audio-type] .lesson-card-actions{padding:0 16px 14px}}

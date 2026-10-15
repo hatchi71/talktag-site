@@ -6,6 +6,7 @@ if(!["A1","A2","B1","B2","C1","C2"].includes(level))level="";
 var name=type==="guided"?"Guided Listen & Repeat":"Essays & Articles";
 var catalog=(window.TalkTagAudioLessons||[]).filter(l=>l.type===type&&(l.available!==false||(type==="plain"&&l.previewAvailable)));
 var list=document.getElementById("lessonList"),shelf=document.getElementById("audioMissionList"),toggle=document.getElementById("audioMissionsToggle");
+var missionLevels=["A1","A2","B1","B2","C1","C2"],arrivingMission="",openMissionLevel="";
 document.body.dataset.audioType=type;
 document.body.dataset.audioView=level?"lessons":"levels";
 var cefrGuide=document.getElementById("cefrGuide");
@@ -48,11 +49,18 @@ list.querySelectorAll('[data-content-draft]').forEach(card=>{card.removeAttribut
 window.TalkTagCompletion.mount(list);
 var completed=catalog.filter(done);
 document.getElementById("audioMissionCount").textContent=String(completed.length);
-shelf.innerHTML=completed.length?completed.map(l=>'<div class="audio-mission-row"><a href="'+url(l)+'"><small>'+esc(l.level)+' · '+number(l)+'</small><strong>'+esc(l.title)+'</strong></a><button type="button" data-undo="'+esc(l.id)+'" aria-label="'+esc(l.title)+' 완료 취소">완료 취소</button></div>').join(""):'<p class="audio-empty">완료한 미션이 이곳에 모입니다.</p>';
+var previouslyOpen=new Set([...shelf.querySelectorAll(".audio-mission-bin[open]")].map(bin=>bin.dataset.level));
+var firstBins=!shelf.dataset.binsReady;
+shelf.innerHTML='<p class="audio-mission-bin-intro">완료한 카드는 레벨별 보관함에서 다시 열거나 완료를 취소할 수 있습니다.</p>'+missionLevels.map(binLevel=>{
+var items=completed.filter(l=>l.level===binLevel);
+var open=previouslyOpen.has(binLevel)||openMissionLevel===binLevel||(firstBins&&binLevel===level&&items.length);
+return '<details class="audio-mission-bin" data-level="'+binLevel+'"'+(open?' open':'')+'><summary><strong>'+binLevel+'</strong><span>'+items.length+'개 완료</span><i aria-hidden="true">⌄</i></summary><div class="audio-mission-bin-list">'+(items.length?items.map(l=>'<div class="audio-mission-row'+(arrivingMission===l.id?' is-arriving':'')+'"><a href="'+url(l)+'"><small>'+number(l)+'</small><strong>'+esc(l.title)+'</strong></a><button type="button" data-undo="'+esc(l.id)+'" aria-label="'+esc(l.title)+' 완료 취소">완료 취소</button></div>').join(''):'<p class="audio-mission-bin-empty">아직 완료한 카드가 없습니다.</p>')+'</div></details>';
+}).join('');
+shelf.dataset.binsReady="true";arrivingMission="";openMissionLevel="";
 }
 toggle.addEventListener("click",()=>{var open=toggle.getAttribute("aria-expanded")!=="true";toggle.setAttribute("aria-expanded",String(open));shelf.hidden=!open;});
 shelf.addEventListener("click",event=>{var button=event.target.closest("[data-undo]");if(!button)return;var l=catalog.find(x=>x.id===button.dataset.undo);if(!l)return;window.TalkTagCompletion.set("audio:"+l.id,false,"talktag-audio:"+l.id);document.getElementById("audioMissionNotice").textContent=l.level+" · "+number(l)+" 완료를 취소했습니다."; (shelf.querySelector("button")||toggle).focus();});
-window.addEventListener("talktag:completion-change",event=>{if(catalog.some(l=>"audio:"+l.id===event.detail.id)){render();document.getElementById("audioMissionNotice").textContent=event.detail.completed?"완료한 미션에 보관했습니다.":"원래 목록으로 되돌렸습니다.";if(event.detail.completed)toggle.focus({preventScroll:true});}});
+window.addEventListener("talktag:completion-change",event=>{var changed=catalog.find(l=>"audio:"+l.id===event.detail.id);if(changed){if(event.detail.completed){arrivingMission=changed.id;openMissionLevel=changed.level;toggle.setAttribute("aria-expanded","true");shelf.hidden=false;}render();document.getElementById("audioMissionNotice").textContent=event.detail.completed?changed.level+" 보관함에 담았습니다.":"원래 목록으로 되돌렸습니다.";if(event.detail.completed)shelf.querySelector('.audio-mission-bin[data-level="'+changed.level+'"] summary')?.focus({preventScroll:true});}});
 window.addEventListener("storage",render);
 window.addEventListener("pageshow",render);
 render();
