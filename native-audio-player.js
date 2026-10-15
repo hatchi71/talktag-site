@@ -96,6 +96,29 @@ var native=window.TalkTagNative;
   appendList("scriptList", lesson.expressions);
   appendList("meaningList", lesson.meanings);
   if (!lesson.meanings.length) { meaningButton.hidden = true; meaningPanel.hidden = true; }
+  var plainKoreanScript = native.language === "ko" && lesson.type === "plain";
+  if (plainKoreanScript) {
+    var pairedList = document.getElementById("scriptList");
+    pairedList.replaceChildren();
+    lesson.expressions.forEach(function (expression, index) {
+      var row = document.createElement("li");
+      var korean = document.createElement("span");
+      korean.className = "native-line-korean";
+      korean.lang = "ko";
+      korean.textContent = expression;
+      row.appendChild(korean);
+      if (lesson.meanings[index]) {
+        var english = document.createElement("span");
+        english.className = "native-line-meaning";
+        english.lang = "en";
+        english.textContent = lesson.meanings[index];
+        row.appendChild(english);
+      }
+      pairedList.appendChild(row);
+    });
+    scriptPanel.classList.add("native-paired-script");
+    meaningPanel.hidden = true;
+  }
   prevButton.disabled = !previousLesson;
   nextButton.disabled = !nextLesson;
   if (previousLesson) prevButton.setAttribute("aria-label", "Previous lesson: " + previousLesson.title);
@@ -211,10 +234,24 @@ var native=window.TalkTagNative;
   progress.addEventListener("input", function () { if (audio.duration) audio.currentTime = (Number(progress.value) / 1000) * audio.duration; });
   speedSelect.addEventListener("change", function () { audio.playbackRate = Number(speedSelect.value); saveState({ speed: audio.playbackRate }); });
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
-  scriptButton.addEventListener("click", function () { if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("en");return;}togglePanel(scriptButton, scriptPanel, meaningButton, meaningPanel); });
-  meaningButton.addEventListener("click", function () { if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("kr");return;}togglePanel(meaningButton, meaningPanel, scriptButton, scriptPanel); });
   var hideScriptButton=document.getElementById("scriptHiddenButton");
-  if(hideScriptButton)hideScriptButton.addEventListener("click",function(){if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("hidden");return;}scriptPanel.hidden=true;meaningPanel.hidden=true;scriptButton.classList.remove("active");meaningButton.classList.remove("active");hideScriptButton.setAttribute("aria-pressed","true");scriptButton.setAttribute("aria-pressed","false");meaningButton.setAttribute("aria-pressed","false");});
+  function showPlainKoreanScript(mode) {
+    scriptPanel.hidden = mode === "hidden";
+    meaningPanel.hidden = true;
+    scriptPanel.classList.toggle("show-meaning", mode === "both");
+    [[hideScriptButton,"hidden"],[scriptButton,"korean"],[meaningButton,"both"]].forEach(function (entry) {
+      if (!entry[0]) return;
+      var selected = entry[1] === mode;
+      entry[0].classList.toggle("active", selected);
+      entry[0].setAttribute("aria-pressed", String(selected));
+      entry[0].setAttribute("aria-controls", "scriptPanel");
+    });
+    if (mode !== "hidden") scriptPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  if (plainKoreanScript) showPlainKoreanScript("hidden");
+  scriptButton.addEventListener("click", function () { if(plainKoreanScript){showPlainKoreanScript("korean");return;}if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("en");return;}togglePanel(scriptButton, scriptPanel, meaningButton, meaningPanel); });
+  meaningButton.addEventListener("click", function () { if(plainKoreanScript){showPlainKoreanScript("both");return;}if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("kr");return;}togglePanel(meaningButton, meaningPanel, scriptButton, scriptPanel); });
+  if(hideScriptButton)hideScriptButton.addEventListener("click",function(){if(plainKoreanScript){showPlainKoreanScript("hidden");return;}if(window.TalkTagAudioScript){window.TalkTagAudioScript.show("hidden");return;}scriptPanel.hidden=true;meaningPanel.hidden=true;scriptButton.classList.remove("active");meaningButton.classList.remove("active");hideScriptButton.setAttribute("aria-pressed","true");scriptButton.setAttribute("aria-pressed","false");meaningButton.setAttribute("aria-pressed","false");});
   completeButton.addEventListener("click", function () { var done = !manualDone(); saveState({ completed: done }); if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, done, storageKey); updateCompletion(done); });
   window.addEventListener("storage", function () { updateCompletion(manualDone()); });
   window.addEventListener("talktag:completion-change", function () { updateCompletion(manualDone()); });

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261015-korean-camp-routes-v3';
+const CACHE_VERSION = 'talktag-pwa-20261015-ko-script-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
