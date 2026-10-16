@@ -13,7 +13,7 @@
   if(location.pathname.startsWith('/japanese/')){
     const structure=document.createElement('script');structure.src='/japanese/studio-structure.js?v=20261013-level-first';structure.defer=true;document.head.append(structure);
   }
-  if(!document.querySelector('script[data-audio-accent]')){const accents=document.createElement('script');accents.src='/audio-accent.js?v=20261012-pair-flags';accents.dataset.audioAccent='true';document.head.append(accents);}
+  if(!document.querySelector('script[data-audio-accent]')){const accents=document.createElement('script');accents.src='/audio-accent.js?v=20261016-korean-vocal';accents.dataset.audioAccent='true';document.head.append(accents);}
   if (!document.querySelector('script[src*="/pwa.js"]')) {
     const pwa = document.createElement('script');
     pwa.src = '/pwa.js?v=20261008-unified';

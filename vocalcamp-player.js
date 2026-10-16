@@ -81,11 +81,23 @@
     <div class="pilot-track" aria-hidden="true"><span id="progressBar"></span></div>
     <section id="cardDeck">${cards.map((card,index)=>`<article class="pilot-card" data-index="${index}"><p class="card-label">${esc(card.label)}</p><h2>${esc(card.title)}</h2><p class="card-guide">${esc(card.guide)}</p>${card.body}</article>`).join('')}</section>
     <nav class="pilot-nav" aria-label="${koreanLearning ? 'Practice card navigation' : '훈련 카드 이동'}">
-      <details class="pilot-menu" id="pilotMenu"><summary aria-label="${koreanLearning ? 'Practice menu' : '훈련 메뉴'}">•••</summary><div class="pilot-menu-panel"><button id="restartButton" type="button">${koreanLearning ? 'Start over' : '처음부터 다시 시작'}</button>${units.filter(item=>item.level===unit.level).map(item=>`<a href="vocal-a1-pilot.html?unit=${encodeURIComponent(item.id)}">${esc(item.level)} · ${esc(item.difficultyLabel||'')} · ${esc(item.title)}</a>`).join('')}<a href="vocal-camp.html">${koreanLearning ? 'All Vocal Camp lessons' : '전체 18개 목록으로'}</a></div></details>
+      <details class="pilot-menu" id="pilotMenu"><summary aria-label="${koreanLearning ? 'Practice menu' : '훈련 메뉴'}">•••</summary><div class="pilot-menu-panel"><button id="restartButton" type="button">${koreanLearning ? 'Start over' : '처음부터 다시 시작'}</button></div></details>
       <button class="pilot-nav-button" id="prevButton" type="button">← Previous</button>
       <button class="pilot-nav-button primary" id="nextButton" type="button">Next →</button>
       <button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button" aria-label="Reset current Vocal Camp practice">↻ Reset</button>
     </nav>`;
+
+  if (koreanLearning) {
+    const kicker = app.querySelector('.pilot-kicker');
+    const badge = document.createElement('span');
+    badge.className = 'tt-audio-accent';
+    badge.dataset.accent = 'KR';
+    badge.setAttribute('role', 'img');
+    badge.setAttribute('aria-label', 'Standard Korean');
+    badge.title = 'Standard Korean';
+    badge.textContent = '🇰🇷';
+    kicker?.append(badge);
+  }
 
   const deck = [...document.querySelectorAll('.pilot-card')];
   const count = document.getElementById('cardCount');
@@ -325,9 +337,15 @@
   document.getElementById('soundStatus').textContent=unit.audioStatus==='audio-pending'?'Audio is being prepared. Cumulative practice will begin after upload.':'Press the first sound to begin cumulative practice.';
   if(!unit.translation.length)document.querySelector('[data-reference="meaning"]').hidden=true;
   const back=document.querySelector('.pilot-back');back.href=(koreanLearning?'K-korean-vocal-camp.html':'vocal-camp.html')+'?level='+unit.level;back.textContent='← '+unit.level+' Vocal Camp';back.setAttribute('aria-label',koreanLearning?'Back to Korean Vocal Camp '+unit.level:unit.level+' Vocal Camp 목록으로');
-  menu.querySelectorAll('a').forEach(a=>a.remove());
   const menuLinks=[[koreanLearning?'Back to '+unit.level+' Korean Vocal Camp':unit.level+' Vocal Camp 목록으로',back.href]];
+  if(koreanLearning){
+    for(const family of window.TALKTAG_VOCALCAMP_KOREAN?.families||[]){
+      if(family.status!=='published'||!family.levelsData?.[unit.level])continue;
+      menuLinks.push([`${family.number} · ${unit.level} · ${family.title}`,
+        `vocalcamp-player.html?lang=ko&family=${encodeURIComponent(family.number)}&level=${encodeURIComponent(unit.level)}`]);
+    }
+  }
   if(!koreanLearning||unit.familyNumber==='001')menuLinks.push([koreanLearning?'Same episode · Korean Story Camp →':'같은 번호 · 같은 레벨 Story Camp →','storycamp-reader.html?family='+unit.familyNumber+'&level='+unit.level+(koreanLearning?'&lang=ko':'')]);
-  for(const [label,href] of menuLinks){const a=document.createElement('a');a.href=href;a.textContent=label;menu.querySelector('.pilot-menu-panel').append(a);}
+  for(const [label,href] of menuLinks){const a=document.createElement('a');a.href=href;a.textContent=label;if(koreanLearning&&href.includes('family='+unit.familyNumber+'&level='+unit.level))a.setAttribute('aria-current','page');menu.querySelector('.pilot-menu-panel').append(a);}
   showCard(Number(state.card)||0);
 })();
