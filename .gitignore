@@ -6,3 +6,7 @@ audio/guided/segments-001/**/*.mp3
 audio/guided/segments-001/*.mp3
 audio/guided/segments-002/**/*.mp3
 audio/vocalcamp/segments-001-002/**/*.mp3
+audio/korean/guided/segments-001-002/**/*.mp3
+audio/korean/vocalcamp/segments-001-002/**/*.mp3
+audio/japanese/guided/segments-001/**/*.mp3
+audio/japanese/guided/segments-001/*.mp3

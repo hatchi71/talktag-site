@@ -80,8 +80,8 @@
     <div class="pilot-status"><strong id="cardCount"></strong><span id="cardName"></span></div>
     <div class="pilot-track" aria-hidden="true"><span id="progressBar"></span></div>
     <section id="cardDeck">${cards.map((card,index)=>`<article class="pilot-card" data-index="${index}"><p class="card-label">${esc(card.label)}</p><h2>${esc(card.title)}</h2><p class="card-guide">${esc(card.guide)}</p>${card.body}</article>`).join('')}</section>
-    <nav class="pilot-nav" aria-label="훈련 카드 이동">
-      <details class="pilot-menu" id="pilotMenu"><summary aria-label="훈련 메뉴">•••</summary><div class="pilot-menu-panel"><button id="restartButton" type="button">처음부터 다시 시작</button>${units.filter(item=>item.level===unit.level).map(item=>`<a href="vocal-a1-pilot.html?unit=${encodeURIComponent(item.id)}">${esc(item.level)} · ${esc(item.difficultyLabel||'')} · ${esc(item.title)}</a>`).join('')}<a href="vocal-camp.html">전체 18개 목록으로</a></div></details>
+    <nav class="pilot-nav" aria-label="${koreanLearning ? 'Practice card navigation' : '훈련 카드 이동'}">
+      <details class="pilot-menu" id="pilotMenu"><summary aria-label="${koreanLearning ? 'Practice menu' : '훈련 메뉴'}">•••</summary><div class="pilot-menu-panel"><button id="restartButton" type="button">${koreanLearning ? 'Start over' : '처음부터 다시 시작'}</button>${units.filter(item=>item.level===unit.level).map(item=>`<a href="vocal-a1-pilot.html?unit=${encodeURIComponent(item.id)}">${esc(item.level)} · ${esc(item.difficultyLabel||'')} · ${esc(item.title)}</a>`).join('')}<a href="vocal-camp.html">${koreanLearning ? 'All Vocal Camp lessons' : '전체 18개 목록으로'}</a></div></details>
       <button class="pilot-nav-button" id="prevButton" type="button">← Previous</button>
       <button class="pilot-nav-button primary" id="nextButton" type="button">Next →</button>
       <button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button" aria-label="Reset current Vocal Camp practice">↻ Reset</button>
@@ -252,13 +252,13 @@
     if(track?.url){
       const variant=track.variants?.find(item=>Number(item.ratio)===silenceMultiplier);
       const playbackUrl=variant?.audio||track.url;
-      audioPlayer.onplaying=()=>{if(token!==runToken)return;setMediaPlaybackState('playing');button.classList.add('is-playing');button.querySelector('em').textContent='■';status.textContent=`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
-      audioPlayer.ontimeupdate=()=>{if(token!==runToken||!variant)return;const cue=variant.cues?.find(item=>item.s<=audioPlayer.currentTime&&audioPlayer.currentTime<item.e);if(!cue)return;const waiting=audioPlayer.currentTime>=cue.voiceEnd;button.classList.toggle('is-waiting',waiting);button.classList.toggle('is-playing',!waiting);status.textContent=waiting?`${pauseLabel} · ${copy.pause} ${Math.ceil(cue.e-audioPlayer.currentTime)}${koreanLearning?'s':'초'}`:`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
+      audioPlayer.onplaying=()=>{if(token!==runToken)return;setMediaPlaybackState('playing');button.classList.add('is-playing');button.querySelector('em').textContent='■';status.textContent=koreanLearning?`Step ${index+1} · Listen ${state.counts[index]+1}/${REPEAT_TARGET}`:`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
+      audioPlayer.ontimeupdate=()=>{if(token!==runToken||!variant)return;const cue=variant.cues?.find(item=>item.s<=audioPlayer.currentTime&&audioPlayer.currentTime<item.e);if(!cue)return;const waiting=audioPlayer.currentTime>=cue.voiceEnd;button.classList.toggle('is-waiting',waiting);button.classList.toggle('is-playing',!waiting);status.textContent=waiting?`${pauseLabel} · ${copy.pause} ${Math.ceil(cue.e-audioPlayer.currentTime)}${koreanLearning?'s':'초'}`:(koreanLearning?`Step ${index+1} · Listen ${state.counts[index]+1}/${REPEAT_TARGET}`:`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`);};
       audioPlayer.onended=()=>{if(token!==runToken)return;const duration=Math.max(500,(Number(audioPlayer.duration)||Number(track.duration)||.5)*1000);state.counts[index]=Math.min(REPEAT_TARGET,state.counts[index]+1);document.querySelector(`[data-repeat-count="${index}"]`).textContent=state.counts[index];save();waitForRecall(index,button,token,duration,Boolean(variant));};
-      audioPlayer.onerror=()=>{if(token!==runToken)return;stopSound('음원을 불러오지 못했습니다. 연결을 확인하고 다시 눌러 주세요.');};
+      audioPlayer.onerror=()=>{if(token!==runToken)return;stopSound(koreanLearning?'Could not load the audio. Check your connection and try again.':'음원을 불러오지 못했습니다. 연결을 확인하고 다시 눌러 주세요.');};
       if(audioPlayer.src!==playbackUrl)audioPlayer.src=playbackUrl;
       audioPlayer.currentTime=0;
-      audioPlayer.play().catch(()=>{if(token!==runToken)return;stopSound('브라우저에서 자동 재생을 막았습니다. 같은 단계를 다시 눌러 주세요.');});
+      audioPlayer.play().catch(()=>{if(token!==runToken)return;stopSound(koreanLearning?'Your browser blocked playback. Tap the same step to try again.':'브라우저에서 자동 재생을 막았습니다. 같은 단계를 다시 눌러 주세요.');});
       return;
     }
     const utterance = new SpeechSynthesisUtterance(lines.slice(0,index+1).join(' '));
@@ -273,7 +273,7 @@
     if(unit.audioStatus==='audio-pending'){document.getElementById('soundStatus').textContent='음원을 준비하고 있습니다.';return;}
     const status=document.getElementById('soundStatus');
     if(!unit.audioSteps?.[index]?.url&&!('speechSynthesis' in window)){status.textContent='이 브라우저에서는 음성 재생을 지원하지 않습니다.';return;}
-    if(activeIndex===index){stopSound('자동 반복을 멈췄습니다. 같은 단계를 누르면 이어서 시작합니다.');return;}
+    if(activeIndex===index){stopSound(koreanLearning?'Repetition stopped. Tap the same step to continue.':'자동 반복을 멈췄습니다. 같은 단계를 누르면 이어서 시작합니다.');return;}
     stopSound();
     if(state.counts[index]>=REPEAT_TARGET){state.counts[index]=0;document.querySelector(`[data-repeat-count="${index}"]`).textContent='0';button.classList.remove('is-complete');}
     activeIndex=index;
@@ -317,7 +317,7 @@
       cuePlayer.pause();
       setMediaPlaybackState('paused');
     });
-    mediaAction('stop', () => stopSound('백그라운드 재생을 멈췄습니다.'));
+    mediaAction('stop', () => stopSound(koreanLearning?'Background playback stopped.':'백그라운드 재생을 멈췄습니다.'));
   }
   window.addEventListener('pagehide',save);
   window.addEventListener('beforeunload',save);

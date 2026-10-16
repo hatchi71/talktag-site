@@ -25,12 +25,39 @@ var native=window.TalkTagNative;
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace("audio-library.html?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
   if (!lesson) { document.getElementById('lessonTitle').textContent=native.ui==='en'?'Recordings are coming soon':'음원을 준비하고 있습니다.'; return; }
+  var legacyPlayback = new URLSearchParams(location.search).has("legacy");
+  if (legacyPlayback && native.language === "ko") {
+    var former = (window.TalkTagKoreanGuidedLegacyCatalog || []).find(function (item) { return item.id === lesson.id; });
+    if (former && JSON.stringify(former.expressions) === JSON.stringify(lesson.expressions) &&
+        JSON.stringify(former.meanings) === JSON.stringify(lesson.meanings)) {
+      lesson = Object.assign({}, lesson, { audio: former.audio, training: Object.assign({}, former.training,
+        { cues: former.training.cues.map(function (cue) { return Object.assign({}, cue); }) }),
+        durationLabel: former.durationLabel, durationLong: former.durationLong });
+    }
+  }
+  // The synchronized script must follow the recording selected above, not a
+  // different catalog entry that happens to share the same card ID.
+  window.TalkTagActiveNativeLesson = lesson;
   var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type; });
   var lessonIndex = lessons.findIndex(function (item) { return item.id === lesson.id; });
   var previousLesson = lessons[lessonIndex - 1] || null;
   var nextLesson = lessons[lessonIndex + 1] || null;
   var storageKey = "talktag-audio:" + lesson.id;
   var pauseControl = null;
+  var guidedVariants = window.TalkTagNativeGuidedVariants?.forLesson(lesson, native, audio, readState, saveState) || null;
+  var expectsNativeVariants = lesson.type === "guided" &&
+    ((native.language === "ko" && [1, 2].includes(Number(lesson.unit))) ||
+      (native.language === "ja" && Number(lesson.unit) === 1));
+  if (expectsNativeVariants && !legacyPlayback && !guidedVariants &&
+      !document.getElementById("nativeVariantFallback")) {
+    var fixedNotice = document.createElement("p");
+    fixedNotice.id = "nativeVariantFallback";
+    fixedNotice.className = "segment-fallback";
+    fixedNotice.textContent = native.ui === "en" ?
+      "Adjustable speaking pauses are unavailable for this recording. The fixed 2.5× track remains available." :
+      "이 음원의 말하기 간격 조절을 사용할 수 없습니다. 고정 2.5배 음원은 재생할 수 있습니다.";
+    document.querySelector(".time-row")?.after(fixedNotice);
+  }
   document.body.dataset.audioType = lesson.type;
 
   function appendList(targetId, items) {
@@ -91,9 +118,9 @@ var native=window.TalkTagNative;
     audio.addEventListener("timeupdate",updateDrillStatus);
     audio.addEventListener("seeked",updateDrillStatus);
     updateDrillStatus();
-    pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: document.querySelector('.script-controls'), readState: readState, saveState: saveState, playButton: playButton, english: native.ui === 'en' });
+    if (!legacyPlayback && (!expectsNativeVariants || guidedVariants)) pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: document.querySelector('.script-controls'), readState: readState, saveState: saveState, playButton: playButton, english: native.ui === 'en' });
   }
-  audio.src = lesson.audio;
+  if (!guidedVariants) audio.src = lesson.audio;
   appendList("scriptList", lesson.expressions);
   appendList("meaningList", lesson.meanings);
   if (!lesson.meanings.length) { meaningButton.hidden = true; meaningPanel.hidden = true; }
@@ -129,6 +156,9 @@ var native=window.TalkTagNative;
     try { return JSON.parse(localStorage.getItem(storageKey)) || {}; } catch (error) { return {}; }
   }
   function saveState(patch) {
+    if (legacyPlayback && Object.prototype.hasOwnProperty.call(patch, "position")) {
+      patch = Object.assign({}, patch, { positionMode: "legacy" });
+    }
     var next = Object.assign({}, readState(), patch);
     localStorage.setItem(storageKey, JSON.stringify(next));
     return next;
@@ -165,7 +195,11 @@ var native=window.TalkTagNative;
     initial.position = initial.position > 0 ? Number(initial.position) + Number(lesson.training.prependSeconds || 0) : 0;
     saveState({ position: initial.position, cardDingsMigrated: true });
   }
-  var resumePending = Number(initial.position || 0);
+  var resumePending = guidedVariants ? guidedVariants.migratePosition(initial) :
+    (legacyPlayback && lesson.training ?
+      (window.TalkTagNativeGuidedVariants?.toFixedPosition(lesson, native, initial) ??
+        (initial.positionMode === "native-variant" ? 0 : Number(initial.position || 0))) :
+      (initial.positionMode === "native-variant" ? 0 : Number(initial.position || 0)));
   audio.addEventListener("talktag-audio-seek", function () { resumePending = 0; });
   audio.loop = Boolean(initial.loop);
   loopButton.classList.toggle("on", audio.loop);
@@ -188,6 +222,7 @@ var native=window.TalkTagNative;
   audio.addEventListener("canplay", applyInitialResume, { once: true });
   if (audio.readyState >= 3) window.setTimeout(applyInitialResume, 0);
   audio.addEventListener("timeupdate", function () {
+    if (audio.dataset.segmentSwitching) return;
     if (resumePending > 0 && audio.currentTime < 0.25) return;
     currentTime.textContent = formatTime(audio.currentTime);
     progress.value = audio.duration ? Math.round((audio.currentTime / audio.duration) * 1000) : 0;
@@ -196,7 +231,7 @@ var native=window.TalkTagNative;
   audio.addEventListener("play", function () { playButton.textContent = "❚❚ PAUSE"; });
   audio.addEventListener("pause", function () {
     playButton.textContent = pauseControl?.isHolding() ? "❚❚ PAUSE" : "▶ PLAY";
-    if (audio.currentTime > 0) saveState({ position: audio.currentTime });
+    if (audio.currentTime > 0 && !audio.dataset.segmentSwitching) saveState({ position: audio.currentTime });
   });
   function finishGuidedCard() {
     if (lesson.type !== "guided") return;
@@ -206,7 +241,7 @@ var native=window.TalkTagNative;
   }
   var loopPreviousTime = 0;
   audio.addEventListener("timeupdate", function () {
-    if (audio.loop && audio.duration && loopPreviousTime > audio.duration - 1 && audio.currentTime < 1 && !audio.seeking) finishGuidedCard();
+    if (audio.loop && audio.duration && !audio.dataset.segmentSwitching && loopPreviousTime > audio.duration - 1 && audio.currentTime < 1 && !audio.seeking) finishGuidedCard();
     loopPreviousTime = audio.currentTime;
   });
   audio.addEventListener("seeking", function () { loopPreviousTime = 0; });
@@ -257,6 +292,6 @@ var native=window.TalkTagNative;
   window.addEventListener("storage", function () { updateCompletion(manualDone()); });
   window.addEventListener("talktag:completion-change", function () { updateCompletion(manualDone()); });
   window.addEventListener("beforeunload", function () {
-    if (audio.currentTime > 0) saveState({ position: audio.currentTime });
+    if (audio.currentTime > 0 && !audio.dataset.segmentSwitching) saveState({ position: audio.currentTime });
   });
 })();
