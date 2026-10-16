@@ -30,9 +30,9 @@ function url(l){return (l.available===false?native.playerPage:native.playerPage)
 function number(l){return String(l.unit||catalog.filter(x=>x.level===l.level).indexOf(l)+1).padStart(2,"0")+(l.partIndex?"–"+String(l.partIndex).padStart(2,"0"):"");}
 function render(){
 var summary=document.getElementById("guidedProgressSummary");
-if(type==="guided"&&!summary){summary=document.createElement("p");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
-if(summary){summary.hidden=Boolean(level);summary.textContent="Guided L&R · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;}
-if(type==="guided")document.querySelectorAll("[data-level]").forEach(a=>{
+if(!summary){summary=document.createElement("p");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
+summary.hidden=Boolean(level);summary.textContent=(type==="guided"?"Guided L&R":"Essays & Articles")+" · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;
+document.querySelectorAll("[data-level]").forEach(a=>{
 var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
 var count=lessons.filter(done).length;
 var complete=lessons.length>0&&count===lessons.length;

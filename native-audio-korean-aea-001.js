@@ -11,6 +11,16 @@
     C1: { durationLabel: '0:49', durationLong: '0:49', durationSeconds: 49.37 },
     C2: { durationLabel: '0:58', durationLong: '0:58', durationSeconds: 58.24 }
   };
+  // Sentence boundaries measured in the quiet intervals of the published recordings.
+  // Each pair is [end of spoken sentence, start of the next spoken sentence].
+  const sentenceGaps = {
+    A1: [[4.672, 5.476], [9.430, 10.744], [13.819, 14.845], [18.781, 19.914]],
+    A2: [[4.431, 5.466], [9.352, 10.397], [14.683, 15.748], [18.514, 19.628]],
+    B1: [[8.046, 8.988], [15.575, 16.524], [19.797, 20.754], [32.473, 33.744]],
+    B2: [[8.484, 9.140], [18.854, 19.446], [26.762, 27.895], [36.799, 37.782]],
+    C1: [[10.887, 11.683], [21.514, 22.467], [34.620, 35.859]],
+    C2: [[15.439, 16.060], [26.001, 27.031], [38.374, 39.428], [47.697, 48.720]]
+  };
   const lessons = [
     {
       id: 'ko-plain-a1-001', language: 'ko', type: 'plain', level: 'A1', unit: 1,
@@ -63,6 +73,7 @@
   ].map(lesson => ({
     ...lesson,
     ...audioMeta[lesson.level],
+    sentenceGaps: sentenceGaps[lesson.level],
     available: true,
     audio: `${base}/${lesson.level.toLowerCase()}.mp3?v=20261015-aea-001`,
     audioRevision: '20261015-aea-001',
