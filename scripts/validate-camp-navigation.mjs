@@ -34,7 +34,7 @@ for(const camp of ['story','vocal']){
   for(const family of families)for(const level of family.levels){assert.ok(levels.includes(level));assert.ok(fs.existsSync(`content/${camp}camp/${family.number}.js`));lessons++;}
   for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`]){
     const page=fs.readFileSync(path,'utf8');
-    assert.match(page,/bootcamp-browser\.js\?v=20261015-all-level-bins-v1/);
+    assert.match(page,/bootcamp-browser\.js\?v=[\w-]+/);
     assert.match(page,/bootcamp-browser\.css\?v=20261015-all-level-bins-v1/);
   }
 }
@@ -52,6 +52,8 @@ assert.match(fs.readFileSync('japanese/J-listen-repeat.html','utf8'),/J-snowball
 assert.match(fs.readFileSync('japanese/studio-structure.js','utf8'),/Camp landings are owned by the shared level-first browser/);
 const browser=fs.readFileSync('bootcamp-browser.js','utf8');
 assert.match(browser,/camp-level-landing/,'Boot Camp must render a focused landing for each selected level');
+assert.match(browser,/J-vocalcamp-player\.html\?level=/,'Japanese Vocal Camp must open its J-prefixed player rather than an English player');
+assert.match(fs.readFileSync('japanese/J-vocal-camp.html','utf8'),/vocalcamp-japanese-001\.js\?v=/,'Japanese Vocal Camp must load its published episode catalog');
 assert.match(browser,/data-change-level/,'Boot Camp level landings must return to the level selection');
 assert.match(browser,/levels\.hidden = levelSelected/,'The level grid must not remain above the selected-level episode list');
 assert.match(browser,/What do A1–C2 language levels mean\?/,'Korean learner routes must show CEFR guidance in English');

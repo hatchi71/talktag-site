@@ -28,10 +28,16 @@ const releases = {
     base: 'https://audio.talktag.co.kr/Japanese/guided/segments-001/v1-20261016/',
     cards: 8,
   },
+  'ja-vocal': {
+    root: 'audio/japanese/vocalcamp/segments-001',
+    manifest: 'manifest.json',
+    base: 'https://audio.talktag.co.kr/Japanese/boot-camp/vocal-camp/segments-001/v1-20261016/',
+    cards: 6,
+  },
 };
 const [releaseName, mode = '--dry-run'] = process.argv.slice(2);
 if (!releases[releaseName] || !['--dry-run', '--upload', '--verify-only'].includes(mode) || process.argv.length > 4) {
-  throw new Error('Usage: node scripts/upload-native-multilang-assets.mjs <ko-glr|ko-vocal|ja-glr> [--dry-run|--upload|--verify-only]');
+  throw new Error('Usage: node scripts/upload-native-multilang-assets.mjs <ko-glr|ko-vocal|ja-glr|ja-vocal> [--dry-run|--upload|--verify-only]');
 }
 const config = releases[releaseName];
 const root = path.join(repo, config.root);

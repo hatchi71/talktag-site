@@ -2,6 +2,22 @@
   "version": 1,
   "items": [
     {
+      "id": "japanese-vocal:001",
+      "language": "ja",
+      "title": "Japanese Vocal Camp · 001",
+      "href": "japanese/J-vocal-camp.html",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "일본어 대화를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.",
+      "publishedAt": "2026-10-16T06:10:02.517Z"
+    },
+    {
       "id": "native:ko:plain:001",
       "language": "ko",
       "title": "Korean Audio Essays & Articles · 001",

@@ -23,6 +23,9 @@ function catalog(read){
  for(const file of ['content/vocalcamp-korean-001.js','content/vocalcamp-korean-002.js','content/storycamp-korean/001.js']){const koreanVocal=read(file);if(koreanVocal)vm.runInContext(koreanVocal,c,{timeout:1000});}
  for(const f of (c.window.TALKTAG_VOCALCAMP_KOREAN?.families||[]).filter(f=>f.status==='published'&&f.audioStatus==='ready'))groups.set('korean-vocal:'+f.number,{id:'korean-vocal:'+f.number,language:'ko',title:'Korean Vocal Camp · '+f.number,href:'K-korean-vocal-camp.html',levels:f.levels,description:'Build one Korean story through cumulative listening and speaking.'});
  for(const f of (c.window.TALKTAG_STORYCAMP_KOREAN?.families||[]).filter(f=>f.status==='published'))groups.set('korean-story:'+f.number,{id:'korean-story:'+f.number,language:'ko',title:'Korean Story Camp · '+f.number,href:'K-korean-story-camp.html',levels:Object.keys(f.levels||{}),description:'Rebuild and retell an original Korean story with English guidance.'});
+ const japaneseVocal=read('content/vocalcamp-japanese-001.js');
+ if(japaneseVocal)vm.runInContext(japaneseVocal,c,{timeout:1000});
+ for(const f of (c.window.TALKTAG_VOCALCAMP_JAPANESE?.families||[]).filter(f=>f.status==='published'&&f.audioStatus==='ready'))groups.set('japanese-vocal:'+f.number,{id:'japanese-vocal:'+f.number,language:'ja',title:'Japanese Vocal Camp · '+f.number,href:'japanese/J-vocal-camp.html',levels:f.levels,description:'일본어 대화를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.'});
  for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-audio-korean-aea-001.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
  for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs||{}))for(const lesson of lessons){
   if(!lesson.available||!lesson.audio)continue;

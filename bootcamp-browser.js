@@ -10,14 +10,17 @@
     document.body.classList.add('tt-camp-level-first');
     const { camp = 'story', language = 'en', starters = [], starterDone = () => false, starterUndo = () => {} } = options;
     const english = language === 'ko', japanese = language === 'ja';
+    const japaneseLocalPreview = japanese && ['localhost', '127.0.0.1'].includes(location.hostname);
     const title = camp === 'vocal' ? 'Vocal Camp' : 'Story Camp';
     const families = language === 'ko' && camp === 'vocal'
       ? (window.TALKTAG_VOCALCAMP_KOREAN?.families || []).filter(f => ['audio-qc', 'published'].includes(f.status))
       : language === 'ko' && camp === 'story'
         ? (window.TALKTAG_STORYCAMP_KOREAN?.families || []).filter(f => f.status === 'published')
+      : language === 'ja' && camp === 'vocal'
+        ? (window.TALKTAG_VOCALCAMP_JAPANESE?.families || []).filter(f => f.status === 'published' || (japaneseLocalPreview && f.status === 'audio-qc'))
       : language === 'en' ? (window[`TALKTAG_${camp.toUpperCase()}CAMP_MANIFEST`]?.families || []).filter(f => f.status === 'published') : [];
     const familyLevels = family => Array.isArray(family.levels) ? family.levels : Object.keys(family.levels || {});
-    const progressCamp = language === 'ko' ? `ko-${camp}` : camp;
+    const progressCamp = language === 'ko' ? `ko-${camp}` : language === 'ja' ? `ja-${camp}` : camp;
     const params = new URLSearchParams(location.search);
     const preferenceKey = `talktag-camp-level:${language}`;
     let remembered; try { remembered = localStorage.getItem(preferenceKey); } catch {}
@@ -43,7 +46,9 @@
       guide:`A1–C2는 학습 난이도 안내이며 공식 등급 판정${japanese ? '이나 JLPT 등급 환산' : ''}이 아닙니다.`
     };
     const done = f => Boolean(window.TalkTagCampProgress?.done(progressCamp, level, f.number));
-    const route = (f, cardLevel = level) => `${camp === 'story' ? 'storycamp-reader' : 'vocalcamp-player'}.html?level=${cardLevel}&family=${f.number}${language === 'ko' ? '&lang=ko' : ''}`;
+    const route = (f, cardLevel = level) => japanese && camp === 'vocal'
+      ? `J-vocalcamp-player.html?level=${cardLevel}&family=${f.number}`
+      : `${camp === 'story' ? 'storycamp-reader' : 'vocalcamp-player'}.html?level=${cardLevel}&family=${f.number}${language === 'ko' ? '&lang=ko' : ''}`;
     const summary = l => {
       const items = families.filter(f => familyLevels(f).includes(l));
       const completed = items.filter(f => window.TalkTagCampProgress?.done(progressCamp, l, f.number)).length;
@@ -65,6 +70,21 @@
       guide.querySelector('h2 + p').innerHTML = '<strong>CEFR (Common European Framework of Reference for Languages)</strong> describes language ability across six levels, from A1 to C2. It is about what you can understand and do in real situations—not just vocabulary counts or test scores.';
       guide.querySelector('.camp-cefr-scale').innerHTML = bands.map(([group, label, description]) => `<div><em>${group}</em><b>${label}</b><span>${description}</span></div>`).join('');
       guide.querySelector('.camp-cefr-note').innerHTML = '<strong>Important:</strong> TalkTag uses A1–C2 as a learning-difficulty guide. It is not an official CEFR assessment or a conversion to TOPIK scores. Real ability includes listening, reading, interaction, speaking and writing.';
+    } else if (japanese) {
+      const guide = host.querySelector('#campCefrGuide');
+      const bands = [
+        ['BASIC USER', 'A1 · 입문', '인사와 자기소개처럼 익숙한 일본어 표현을 듣고 짧게 말할 수 있습니다.'],
+        ['BASIC USER', 'A2 · 초급', '일상적인 상황에서 간단한 질문을 주고받고 경험을 몇 문장으로 이어 말할 수 있습니다.'],
+        ['INDEPENDENT USER', 'B1 · 중급', '익숙한 주제의 요점을 이해하고 경험, 이유, 계획을 연결해 설명할 수 있습니다.'],
+        ['INDEPENDENT USER', 'B2 · 중상급', '조금 더 복잡한 상황을 설명하고 상대의 의견에 반응하며 자신의 생각을 구체적으로 전할 수 있습니다.'],
+        ['PROFICIENT USER', 'C1 · 고급', '긴 대화의 함축적 의미를 이해하고 맥락과 상대에 맞게 생각을 유연하게 표현할 수 있습니다.'],
+        ['PROFICIENT USER', 'C2 · 숙달', '복잡한 논의를 이해하고 미묘한 의미 차이와 태도를 정교하게 전달할 수 있습니다.']
+      ];
+      guide.querySelector('.camp-cefr-kicker').textContent = 'LEVEL GUIDE · 일본어 학습 난이도';
+      guide.querySelector('h2').textContent = '일본어 학습의 A1–C2는 무엇을 뜻하나요?';
+      guide.querySelector('h2 + p').innerHTML = '<strong>CEFR(Common European Framework of Reference for Languages)</strong>은 실제 상황에서 언어로 무엇을 이해하고 표현할 수 있는지 설명하는 틀입니다. TalkTag는 그 기술 방식을 참고해 일본어 연습의 난이도를 A1부터 C2까지 여섯 단계로 안내합니다.';
+      guide.querySelector('.camp-cefr-scale').innerHTML = bands.map(([group, label, description]) => `<div><em>${group}</em><b>${label}</b><span>${description}</span></div>`).join('');
+      guide.querySelector('.camp-cefr-note').innerHTML = '<strong>중요:</strong> 이 표시는 TalkTag 일본어 콘텐츠의 학습 난이도 안내입니다. 공식 CEFR 능력 인증이나 JLPT 점수·등급으로의 환산이 아닙니다. 실제 언어 능력은 듣기, 읽기, 상호작용, 말하기와 쓰기를 함께 살펴야 합니다.';
     }
     const levels = host.querySelector('.camp-levels'), input = host.querySelector('#campSearch'), list = host.querySelector('.camp-episode-list');
     const levelLanding = document.createElement('section');
