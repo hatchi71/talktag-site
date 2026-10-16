@@ -4,14 +4,15 @@
 .lesson-card.is-miniskit-pilot{border-color:#e9d78b;background:linear-gradient(110deg,rgba(255,249,220,.48),#fff 38%)}
 .pilot-card-label{display:inline-flex;padding:4px 8px;border-radius:999px;background:#fff1bd;color:#8b5a12!important;letter-spacing:.12em}
 @media(max-width:430px){.guided-drill-status{font-size:12px;padding:11px 10px}}
-.guided-pause-control{margin:12px 0 16px;padding:15px 18px;border:1px solid var(--tt-border,#dbe5ee);border-radius:18px;background:var(--tt-card,#fff);color:var(--tt-text,#183455)}
+.guided-pause-control{margin:8px 0 12px;padding:11px 15px;border:1px solid var(--tt-border,#dbe5ee);border-radius:16px;background:var(--tt-raised,#f3f6fa);color:var(--tt-text,#183455)}
 .guided-pause-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:800}
 .guided-pause-heading label{line-height:1.4}.guided-pause-heading output{color:var(--tt-blue,#2368d8);white-space:nowrap}
-.guided-pause-control input[type=range]{display:block;width:100%;height:44px;margin:4px 0 0;accent-color:var(--tt-blue,#2368d8);cursor:pointer}
+.guided-pause-control input[type=range]{display:block;width:100%;height:44px;margin:2px 0 0;accent-color:var(--tt-blue,#2368d8);cursor:pointer}
 .guided-pause-marks{display:flex;justify-content:space-between;color:var(--tt-muted,#596c82);font-size:12px;font-weight:700}
-.guided-pause-control p{margin:10px 0 0;color:var(--tt-muted,#596c82);font-size:12px;line-height:1.5}
+.guided-pause-control p{margin:7px 0 0;color:var(--tt-muted,#596c82);font-size:12px;line-height:1.5}
 .guided-pause-control .guided-pause-pending{color:var(--tt-blue,#2368d8);font-weight:700}
 .guided-pause-pending:empty{display:none}
-@media(max-width:390px){.guided-pause-control{padding:13px 15px}}
+html[data-appearance] body[data-audio-type] .player-card .guided-pause-control + .compact-transport{margin-top:0!important}
+@media(max-width:390px){.guided-pause-control{padding:10px 12px}}
 .segment-fallback{margin:12px 0;padding:12px 14px;border:1px solid #d7a86e;border-radius:12px;background:#fff7e9;color:var(--tt-text,#183455);font-size:14px;line-height:1.5}
 .segment-fallback a{color:var(--tt-blue,#2368d8);font-weight:800;text-decoration:underline}

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261016-japanese-vocal001-v1';
+const CACHE_VERSION = 'talktag-pwa-20261016-pause-before-play-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
