@@ -1,0 +1,9 @@
+.glr-introduction{color:var(--muted);font-size:16px;line-height:1.6;margin:24px 0}
+.glr-introduction h2{line-height:1.35}
+.glr-introduction h3{color:var(--ink);font-size:17px;margin:22px 0 12px}
+.glr-introduction p{margin:0 0 16px}
+.glr-introduction p:last-child{margin-bottom:0}
+.glr-introduction ul{padding-left:22px;margin:0 0 18px}
+.glr-introduction li{margin:0 0 12px;padding-left:2px}
+.glr-introduction strong{color:var(--ink)}
+@media(max-width:600px){.glr-introduction{padding:20px 16px}.glr-introduction h2{font-size:22px}}
