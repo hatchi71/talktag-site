@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Assemble native-audio fallbacks for English Guided L&R 001 from isolated QC WAVs.
+// Assemble native-audio fallbacks for English Guided L&R 001/002 from isolated QC WAVs.
 // Never re-encode the independently playable line MP3s into these long-form files.
 import fs from 'node:fs';
 import os from 'node:os';
@@ -9,10 +9,12 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const segmentRoot = path.join(repo, 'audio/guided/segments-001');
+const episode = process.env.GLR_EPISODE || '001';
+if (!['001', '002'].includes(episode)) throw new Error(`Unsupported GLR episode: ${episode}`);
+const segmentRoot = path.join(repo, `audio/guided/segments-${episode}`);
 const outputRoot = path.join(segmentRoot, 'variants');
 const segments = JSON.parse(fs.readFileSync(path.join(segmentRoot, 'manifest.json'), 'utf8'));
-const releaseBase = 'https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/';
+const releaseBase = `https://audio.talktag.co.kr/English/guided/segments-${episode}/v1-20261016/`;
 const packageRoot = path.resolve(repo, segments.sourcePackage);
 const sampleRate = 48000;
 const bytesPerSample = 2;
@@ -114,10 +116,10 @@ for (const card of segments.cards) {
   for (const ratio of ratios) {
     const level = card.level.toLowerCase();
     const ratioName = ratio.toFixed(1).replace('.', '_');
-    const relative = `audio/guided/segments-001/variants/${level}/pause-${ratioName}.mp3`;
+    const relative = `audio/guided/segments-${episode}/variants/${level}/pause-${ratioName}.mp3`;
     const output = path.join(repo, relative);
     fs.mkdirSync(path.dirname(output), { recursive: true });
-    const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'talktag-glr001-'));
+    const scratch = fs.mkdtempSync(path.join(os.tmpdir(), `talktag-glr${episode}-`));
     const raw = path.join(scratch, 'assembly.pcm');
     const encoded = path.join(scratch, 'variant.mp3');
     let fd;
@@ -170,7 +172,7 @@ for (const card of segments.cards) {
       const digest = checksum(output);
       totalBytes += bytes;
       cardVariants.push({
-        ratio, audio: `${releaseBase}${relative.slice('audio/guided/segments-001/'.length)}?v=${digest.slice(0, 12)}`, durationSeconds: seconds(decodedSamples),
+        ratio, audio: `${releaseBase}${relative.slice(`audio/guided/segments-${episode}/`.length)}?v=${digest.slice(0, 12)}`, durationSeconds: seconds(decodedSamples),
         bytes, sha256: digest, endingCueStart,
         endingToneLeadSeconds: seconds(endTone.start), cues, measuredSpeech,
       });
@@ -189,11 +191,11 @@ for (const card of segments.cards) {
 
 const manifest = {
   version: 1, releaseBase, sourceRevision: segments.sourceRevision,
-  sourceManifest: '/audio/guided/segments-001/manifest.json',
+  sourceManifest: `/audio/guided/segments-${episode}/manifest.json`,
   pauseRatios: ratios, minimumPauseSeconds: 3,
   cards,
 };
 const json = JSON.stringify(manifest, null, 2);
 fs.writeFileSync(path.join(outputRoot, 'manifest.json'), `${json}\n`);
-fs.writeFileSync(path.join(outputRoot, 'manifest.js'), `window.TalkTagGuided001Variants = ${json};\n`);
+fs.writeFileSync(path.join(outputRoot, 'manifest.js'), `window.TalkTagGuided${episode}Variants = ${json};\n`);
 console.log(`Built ${cards.length * ratios.length} fallbacks, ${(totalBytes / 1024 / 1024).toFixed(2)} MiB total.`);

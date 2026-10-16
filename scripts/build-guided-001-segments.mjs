@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-// Build one independently playable clip per published English GLR 001 line.
-// Source WAVs were isolated from technically QC-passed Lauren recordings in 2026-10.
+// Build one independently playable clip per published English GLR 001/002 line.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -9,11 +8,14 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const episode = process.env.GLR_EPISODE || '001';
+if (!['001', '002'].includes(episode)) throw new Error(`Unsupported GLR episode: ${episode}`);
+const episodeNumber = Number(episode);
 const packageRoot = path.resolve(repo, '../2026-09-19/referenced-chatgpt-conversation-this-is-an/output/glr-replacement-001-002');
 const source = path.resolve(process.env.GLR001_SOURCE_DIR || path.join(packageRoot, '04_ASSEMBLED'));
 const scriptsPath = path.resolve(process.env.GLR001_SCRIPTS_JSON || path.join(packageRoot, 'scripts-v2.json'));
-const destination = path.join(repo, 'audio/guided/segments-001');
-const releaseBase = 'https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/';
+const destination = path.join(repo, `audio/guided/segments-${episode}`);
+const releaseBase = `https://audio.talktag.co.kr/English/guided/segments-${episode}/v1-20261016/`;
 const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 const multipliers = [2, 2.5, 3, 3.5];
 const minimumPauseSeconds = 3;
@@ -99,11 +101,11 @@ const cards = [];
 
 for (const level of levels) {
   const lower = level.toLowerCase();
-  const id = `guided-${lower}-01`;
+  const id = `guided-${lower}-${String(episodeNumber).padStart(2, '0')}`;
   const matches = catalog.filter(card => card.id === id);
   if (matches.length !== 1) throw new Error(`Expected exactly one catalog entry for ${id}`);
   const card = matches[0];
-  const scriptMatches = scripts.filter(item => item.episode === 1 && item.level === level);
+  const scriptMatches = scripts.filter(item => item.episode === episodeNumber && item.level === level);
   if (scriptMatches.length !== 1) throw new Error(`Expected exactly one script set for ${id}`);
   const script = scriptMatches[0];
   if (JSON.stringify(Array.from(card.expressions)) !== JSON.stringify(script.en) ||
@@ -111,7 +113,8 @@ for (const level of levels) {
     throw new Error(`Catalog and script text/meaning mismatch: ${id}`);
   }
   const expectedReps = level === 'A1' || level === 'A2' ? 10 : level === 'B1' || level === 'B2' ? 15 : 21;
-  if (card.training?.defaultReps !== expectedReps || card.voiceName !== 'Lauren' || card.accentTag !== 'US') {
+  const expectedVoice = episode === '001' ? 'Lauren' : 'Jarnathan';
+  if (card.training?.defaultReps !== expectedReps || card.voiceName !== expectedVoice || card.accentTag !== 'US') {
     throw new Error(`Published repetition/voice/accent mismatch: ${id}`);
   }
   const qcMatches = qcSummary.files.filter(item => item.id === id);
@@ -160,9 +163,9 @@ for (const level of levels) {
 }
 
 // The two dings are isolated from the same locally assembled 001 training card.
-const dingSource = requireFile(path.join(source, 'guided-a1-01/training-10.mp3'));
+const dingSource = requireFile(path.join(source, `guided-a1-${String(episodeNumber).padStart(2, '0')}/training-10.mp3`));
 const originalManifest = JSON.parse(fs.readFileSync(requireFile(path.join(source, 'manifest.json')), 'utf8'));
-const originalA1 = originalManifest.find(item => item.card?.id === 'guided-a1-01')?.card;
+const originalA1 = originalManifest.find(item => item.card?.id === `guided-a1-${String(episodeNumber).padStart(2, '0')}`)?.card;
 if (!originalA1) throw new Error('Original assembled 001 card missing from source manifest');
 const startEnd = Number(originalA1.training?.startCueEnd);
 const endStart = Number(originalA1.training?.endingCueStart);
@@ -192,5 +195,5 @@ const manifest = {
   cards,
 };
 fs.writeFileSync(path.join(destination, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
-console.log(`Built ${cards.length} GLR 001 cards, ${cards.reduce((n, c) => n + c.lines.length, 0)} clips, two dings.`);
+console.log(`Built ${cards.length} GLR ${episode} cards, ${cards.reduce((n, c) => n + c.lines.length, 0)} clips, two dings.`);
 console.log(path.join(destination, 'manifest.json'));

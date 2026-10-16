@@ -24,7 +24,7 @@
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace("audio-library.html?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
   var audio = window.TalkTagSegmented001?.forLesson(lesson) || audioElement;
-  var isGuided001 = /^guided-(?:a1|a2|b1|b2|c1|c2)-01$/.test(lesson.id);
+  var isSegmentedEpisode = /^guided-(?:a1|a2|b1|b2|c1|c2)-0[12]$/.test(lesson.id);
   var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type; });
   var lessonIndex = lessons.findIndex(function (item) { return item.id === lesson.id; });
   var previousLesson = lessons[lessonIndex - 1] || null;
@@ -115,7 +115,7 @@
   }
   function saveState(patch) {
     var update = Object.assign({}, patch);
-    if (isGuided001 && Object.prototype.hasOwnProperty.call(update, "position")) {
+    if (isSegmentedEpisode && Object.prototype.hasOwnProperty.call(update, "position")) {
       if (audio.dataset.segmentSwitching === "true") delete update.position;
       else {
         update.positionMode = audio.segmented ? "segmented" : "legacy";
@@ -156,7 +156,7 @@
   }
   var initial = readState();
   if (!audio.segmented && lesson.training && lesson.training.cardDings && !initial.cardDingsMigrated &&
-      (!isGuided001 || (initial.positionMode !== "segmented" && initial.segmentVersion !== 2))) {
+      (!isSegmentedEpisode || (initial.positionMode !== "segmented" && initial.segmentVersion !== 2))) {
     initial.position = initial.position > 0 ? Number(initial.position) + Number(lesson.training.prependSeconds || 0) : 0;
     saveState({ position: initial.position, cardDingsMigrated: true });
   }
@@ -174,7 +174,7 @@
     duration.textContent = formatTime(audio.duration);
     document.getElementById("infoDuration").textContent = formatTime(audio.duration);
     if (audio.dataset.segmentSwitching === "true") return;
-    if (resumePending > 0 && !resumeConverted && isGuided001) {
+    if (resumePending > 0 && !resumeConverted && isSegmentedEpisode) {
       resumePending = audio.segmented ? audio.migrateSavedPosition(initial) :
         (window.TalkTagSegmented001?.toLegacyPosition(lesson, initial) ?? resumePending);
       saveState({ position: resumePending });

@@ -34,8 +34,8 @@ for(const camp of ['story','vocal']){
   for(const family of families)for(const level of family.levels){assert.ok(levels.includes(level));assert.ok(fs.existsSync(`content/${camp}camp/${family.number}.js`));lessons++;}
   for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`]){
     const page=fs.readFileSync(path,'utf8');
-    assert.match(page,/bootcamp-browser\.js\?v=20261014-level-landings-v1/);
-    assert.match(page,/bootcamp-browser\.css\?v=20261014-level-landings-v3/);
+    assert.match(page,/bootcamp-browser\.js\?v=20261015-all-level-bins-v1/);
+    assert.match(page,/bootcamp-browser\.css\?v=20261015-all-level-bins-v1/);
   }
 }
 const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js\?v=20261014-level-landings-v1/,'Korean Boot Camp must use the same level-first browser revision as English and Japanese');
@@ -43,7 +43,7 @@ assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v3/,'Korea
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
 for(const camp of ['vocal','story']){
   const route=fs.readFileSync(`K-korean-${camp}-camp.html`,'utf8');
-  assert.match(route,/bootcamp-browser\.js\?v=20261015-korean-camp-landings-v1/,'Korean Boot Camp must own the same level-first landing structure as English and Japanese');
+  assert.match(route,/bootcamp-browser\.js\?v=20261015-all-level-bins-v1/,'Korean Boot Camp must own the same level-first landing structure as English and Japanese');
   assert.match(route,new RegExp(`data-camp="${camp}"`),'Korean Boot Camp landing must identify its camp for the shared browser');
   assert.doesNotMatch(route,/location\.replace/,'Korean Boot Camp must not redirect away from the level-first landing');
 }

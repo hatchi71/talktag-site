@@ -1,9 +1,15 @@
-/* Guided L&R 001: line-sourced, precisely timed native-audio playback. */
+/* Guided L&R 001/002: line-sourced, precisely timed native-audio playback. */
 (() => {
   'use strict';
 
-  const EPISODE_001 = /^guided-(?:a1|a2|b1|b2|c1|c2)-01$/;
+  const SEGMENTED_EPISODES = /^guided-(?:a1|a2|b1|b2|c1|c2)-0[12]$/;
   const RATIOS = [2, 2.5, 3, 3.5];
+
+  function manifestFor(id) {
+    const episode = id?.match(/-0([12])$/)?.[1];
+    return episode === '1' ? window.TalkTagGuided001Variants :
+      episode === '2' ? window.TalkTagGuided002Variants : null;
+  }
 
   function storedRatio(id) {
     try {
@@ -65,7 +71,7 @@
     const notice = document.createElement('p');
     notice.id = 'segmentFallback';
     notice.className = 'segment-fallback';
-    notice.textContent = '새 001 음원을 불러올 수 없습니다. ';
+    notice.textContent = '새 음원을 불러올 수 없습니다. ';
     const link = document.createElement('a');
     link.href = 'audio-player.html?id=' + encodeURIComponent(id) + '&legacy=1';
     link.textContent = '기존 음원 재생하기 →';
@@ -77,16 +83,16 @@
   window.TalkTagSegmented001 = {
     toLegacyPosition(lesson, state) {
       const old = Number(state?.position || 0);
-      if (!(old > 0) || !EPISODE_001.test(lesson?.id || '') ||
+      if (!(old > 0) || !SEGMENTED_EPISODES.test(lesson?.id || '') ||
           state?.positionMode === 'legacy' || (state?.segmentVersion !== 2 && state?.positionMode !== 'segmented')) return old;
-      const card = window.TalkTagGuided001Variants?.cards?.find(item => item.id === lesson.id);
+      const card = manifestFor(lesson.id)?.cards?.find(item => item.id === lesson.id);
       const from = card?.variants?.find(variant => Number(variant.ratio) === Number(state.positionRatio));
       const to = legacyVariant(lesson);
       return from && to ? equivalentTime(from, to, old) : old;
     },
     forLesson(lesson) {
-      if (!EPISODE_001.test(lesson?.id || '') || new URLSearchParams(location.search).has('legacy')) return null;
-      const manifest = window.TalkTagGuided001Variants;
+      if (!SEGMENTED_EPISODES.test(lesson?.id || '') || new URLSearchParams(location.search).has('legacy')) return null;
+      const manifest = manifestFor(lesson.id);
       const card = manifest?.cards?.find(item => item.id === lesson.id);
       if (!card || card.repetitions !== lesson.training?.defaultReps ||
           card.lines.length !== lesson.expressions.length || card.variants?.length !== RATIOS.length ||

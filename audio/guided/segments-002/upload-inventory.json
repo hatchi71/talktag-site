@@ -1,0 +1,359 @@
+{
+  "version": 1,
+  "bucket": "talktag-audio",
+  "releaseBase": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/",
+  "objectCount": 50,
+  "totalBytes": 65291658,
+  "items": [
+    {
+      "key": "English/guided/segments-002/v1-20261016/a1/line-01.mp3",
+      "file": "audio/guided/segments-002/a1/line-01.mp3",
+      "bytes": 32877,
+      "sha256": "27d52a05e7e88d696ccc301f56a5be9c186f82212cec9a7a32a42977fd2e3789",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-01.mp3?v=27d52a05e7e8"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a1/line-02.mp3",
+      "file": "audio/guided/segments-002/a1/line-02.mp3",
+      "bytes": 34029,
+      "sha256": "a91e0a314cb6fb356d824a87c72857f0807399c328a3bf77a89ff0f1a0c2ab7e",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-02.mp3?v=a91e0a314cb6"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a1/line-03.mp3",
+      "file": "audio/guided/segments-002/a1/line-03.mp3",
+      "bytes": 34605,
+      "sha256": "a8fb815feab3f375d15dec82d2d2a47a403d99245ea4374cbace6ca6994fdc74",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-03.mp3?v=a8fb815feab3"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a1/line-04.mp3",
+      "file": "audio/guided/segments-002/a1/line-04.mp3",
+      "bytes": 38061,
+      "sha256": "2faaa144621bb08b7242dc89536b7da7fdc54a49cb2e0ddc0355436b1b8a8cc5",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-04.mp3?v=2faaa144621b"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a1/line-05.mp3",
+      "file": "audio/guided/segments-002/a1/line-05.mp3",
+      "bytes": 29421,
+      "sha256": "2a7c26a715d7ce2a94743c810ff5b19653867099a193d07032d5c7fd02e0188a",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-05.mp3?v=2a7c26a715d7"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a1/line-06.mp3",
+      "file": "audio/guided/segments-002/a1/line-06.mp3",
+      "bytes": 40365,
+      "sha256": "1d64b87ca31b49e2f6bf70f8bc9faecbb2ce9c03a1799c7900efeef6771f1124",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-06.mp3?v=1d64b87ca31b"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a1/line-07.mp3",
+      "file": "audio/guided/segments-002/a1/line-07.mp3",
+      "bytes": 39789,
+      "sha256": "aed841bf3a2c915812ce5417c589d8aadc9073db9834e50466c7fd504077725b",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-07.mp3?v=aed841bf3a2c"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a2/line-01.mp3",
+      "file": "audio/guided/segments-002/a2/line-01.mp3",
+      "bytes": 38637,
+      "sha256": "35c301efc9549af9b9f85e057e060930041ee663dd301d5c08b0064d82e67764",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-01.mp3?v=35c301efc954"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a2/line-02.mp3",
+      "file": "audio/guided/segments-002/a2/line-02.mp3",
+      "bytes": 39213,
+      "sha256": "4a85c85e9001698e9fe095f9b8de058e874d58510388007fac15664bc955be36",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-02.mp3?v=4a85c85e9001"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a2/line-03.mp3",
+      "file": "audio/guided/segments-002/a2/line-03.mp3",
+      "bytes": 35757,
+      "sha256": "10643b381779064b2a2e9c7566f694d83abd351cfb3c11ce5818b9047c408a96",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-03.mp3?v=10643b381779"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a2/line-04.mp3",
+      "file": "audio/guided/segments-002/a2/line-04.mp3",
+      "bytes": 43245,
+      "sha256": "3b797e9c4a0cb01ed9a0947f1f30c28906d16511fa82c88f47e19ec2ba0c44eb",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-04.mp3?v=3b797e9c4a0c"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a2/line-05.mp3",
+      "file": "audio/guided/segments-002/a2/line-05.mp3",
+      "bytes": 40941,
+      "sha256": "59372cf48a92f5edd1ccf6ff462a494c1ab34d45f901a09cd464b3e7e53b837e",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-05.mp3?v=59372cf48a92"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/a2/line-06.mp3",
+      "file": "audio/guided/segments-002/a2/line-06.mp3",
+      "bytes": 61677,
+      "sha256": "8c575fa8c0013d47c10ffdf0fa0f6d55f503cfa66c61a09f3df052af9b54aa7f",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-06.mp3?v=8c575fa8c001"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/b1/line-01.mp3",
+      "file": "audio/guided/segments-002/b1/line-01.mp3",
+      "bytes": 64557,
+      "sha256": "4376939f1aad8004df19b12c5af2dc4b9c270688f3d2f2114637a7f6c6b1fcfc",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b1/line-01.mp3?v=4376939f1aad"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/b1/line-02.mp3",
+      "file": "audio/guided/segments-002/b1/line-02.mp3",
+      "bytes": 63405,
+      "sha256": "a766da8885d98d145d90f743787cd3c886e660798092a0be86b8137386b4d336",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b1/line-02.mp3?v=a766da8885d9"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/b1/line-03.mp3",
+      "file": "audio/guided/segments-002/b1/line-03.mp3",
+      "bytes": 46125,
+      "sha256": "dd5fa0541b5a59c65cb539761384eb585efd178bdc635be2b9c04cfa5d12c027",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b1/line-03.mp3?v=dd5fa0541b5a"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/b2/line-01.mp3",
+      "file": "audio/guided/segments-002/b2/line-01.mp3",
+      "bytes": 88173,
+      "sha256": "43d9dfea736befe999fabaea308242d9c0efbb10d6b9e87c0ee662e45dd9a0ea",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b2/line-01.mp3?v=43d9dfea736b"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/b2/line-02.mp3",
+      "file": "audio/guided/segments-002/b2/line-02.mp3",
+      "bytes": 45549,
+      "sha256": "0a5d2639c7944e8c35a99e02083386608816e1c66be3211960aa718d2f6dc91f",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b2/line-02.mp3?v=0a5d2639c794"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/b2/line-03.mp3",
+      "file": "audio/guided/segments-002/b2/line-03.mp3",
+      "bytes": 51885,
+      "sha256": "5a7de481dcc5dbcdba2af0032178fc6edacfffd2a0568be549142dd927f8772e",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b2/line-03.mp3?v=5a7de481dcc5"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/c1/line-01.mp3",
+      "file": "audio/guided/segments-002/c1/line-01.mp3",
+      "bytes": 63405,
+      "sha256": "a749d90b7f9974ea38b4bfce009c674ac17a73849e1f429612df82a35021368c",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c1/line-01.mp3?v=a749d90b7f99"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/c1/line-02.mp3",
+      "file": "audio/guided/segments-002/c1/line-02.mp3",
+      "bytes": 65133,
+      "sha256": "ff52f2350a632e61978df53744f2ff1410c0ea975f5b2241febf8f678fba5958",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c1/line-02.mp3?v=ff52f2350a63"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/c1/line-03.mp3",
+      "file": "audio/guided/segments-002/c1/line-03.mp3",
+      "bytes": 49581,
+      "sha256": "4bfc26894e0312953513565c136f2c08c1a4393f19303035a7b91d83869c9eba",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c1/line-03.mp3?v=4bfc26894e03"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/c2/line-01.mp3",
+      "file": "audio/guided/segments-002/c2/line-01.mp3",
+      "bytes": 95661,
+      "sha256": "23fa06b25211f79e6906ef048bb6e3f06ed7402e10597f5aed55037538833155",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c2/line-01.mp3?v=23fa06b25211"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/c2/line-02.mp3",
+      "file": "audio/guided/segments-002/c2/line-02.mp3",
+      "bytes": 78957,
+      "sha256": "e03fe53c2ff67e2fbe1dc9de74a8a12c4c6d679550a46f81723158b0657490cf",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c2/line-02.mp3?v=e03fe53c2ff6"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/ding-end.mp3",
+      "file": "audio/guided/segments-002/ding-end.mp3",
+      "bytes": 27117,
+      "sha256": "f799668c97d7b8d3af3828f86614c3342af9af084b6580208e81d050fff066e7",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/ding-end.mp3?v=f799668c97d7"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/ding-start.mp3",
+      "file": "audio/guided/segments-002/ding-start.mp3",
+      "bytes": 13869,
+      "sha256": "ae6b41316d5de85c2a832471cfe8b0e76753ed5bab6c68abf5a1853e9d687ef4",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/ding-start.mp3?v=ae6b41316d5d"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/a1/pause-2_0.mp3",
+      "file": "audio/guided/segments-002/variants/a1/pause-2_0.mp3",
+      "bytes": 1875117,
+      "sha256": "b8adc724c1ee365ffb0bf8ac6b262f3f446e687483b8849dd20ae134e7bff4cf",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/a1/pause-2_0.mp3?v=b8adc724c1ee"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/a1/pause-2_5.mp3",
+      "file": "audio/guided/segments-002/variants/a1/pause-2_5.mp3",
+      "bytes": 1911741,
+      "sha256": "0ff14fd3bbc23f7e1479f2a80edb1e1084ad36a666c5d48e03a630eb32311446",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/a1/pause-2_5.mp3?v=0ff14fd3bbc2"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/a1/pause-3_0.mp3",
+      "file": "audio/guided/segments-002/variants/a1/pause-3_0.mp3",
+      "bytes": 2019645,
+      "sha256": "3e5f401ece798f647fc25dcc48d76ef2c041f1c5aeb8bc3df93d03b0ea459170",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/a1/pause-3_0.mp3?v=3e5f401ece79"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/a1/pause-3_5.mp3",
+      "file": "audio/guided/segments-002/variants/a1/pause-3_5.mp3",
+      "bytes": 2178765,
+      "sha256": "9c5cfd1d8a608784b6c704720282f9d05857db96d54e66f1df02cd09ece77e19",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/a1/pause-3_5.mp3?v=9c5cfd1d8a60"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/a2/pause-2_0.mp3",
+      "file": "audio/guided/segments-002/variants/a2/pause-2_0.mp3",
+      "bytes": 1995669,
+      "sha256": "0e97df197084e7dd474307a97293b4ccb7cacbdd46df94f161cd778aead74b70",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/a2/pause-2_0.mp3?v=0e97df197084"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/a2/pause-2_5.mp3",
+      "file": "audio/guided/segments-002/variants/a2/pause-2_5.mp3",
+      "bytes": 2118669,
+      "sha256": "53c32c9d3d2c7a2ae0ab00ac801bd5b9be4dd56d5a83d3dcddce837697596894",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/a2/pause-2_5.mp3?v=53c32c9d3d2c"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/a2/pause-3_0.mp3",
+      "file": "audio/guided/segments-002/variants/a2/pause-3_0.mp3",
+      "bytes": 2305125,
+      "sha256": "f79f779c639247d942b4b6ac195ec60f59a98361f99ffe24930f6d5462cf6070",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/a2/pause-3_0.mp3?v=f79f779c6392"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/a2/pause-3_5.mp3",
+      "file": "audio/guided/segments-002/variants/a2/pause-3_5.mp3",
+      "bytes": 2483709,
+      "sha256": "a48e04575687851d56157def3b3f947f99a97863fd60f11e0f495f6317574afd",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/a2/pause-3_5.mp3?v=a48e04575687"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/b1/pause-2_0.mp3",
+      "file": "audio/guided/segments-002/variants/b1/pause-2_0.mp3",
+      "bytes": 2159373,
+      "sha256": "a21977c0a297ef071cb133e89116944e249c10401a4a05f8bdac88a791139812",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/b1/pause-2_0.mp3?v=a21977c0a297"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/b1/pause-2_5.mp3",
+      "file": "audio/guided/segments-002/variants/b1/pause-2_5.mp3",
+      "bytes": 2376813,
+      "sha256": "662bad2ecf2ca18a557d043b4ee8330b92222e118f567af7b4d8aec27edbe458",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/b1/pause-2_5.mp3?v=662bad2ecf2c"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/b1/pause-3_0.mp3",
+      "file": "audio/guided/segments-002/variants/b1/pause-3_0.mp3",
+      "bytes": 2573277,
+      "sha256": "4cd72c7bceb2e9762af383dd660b0ad133a9fcdd5d294a68dac6766de4f25c17",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/b1/pause-3_0.mp3?v=4cd72c7bceb2"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/b1/pause-3_5.mp3",
+      "file": "audio/guided/segments-002/variants/b1/pause-3_5.mp3",
+      "bytes": 2781573,
+      "sha256": "a25e8535435fd0ab46007af2f38da4d0e063d0abbd761a3629a6ef99304d69ab",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/b1/pause-3_5.mp3?v=a25e8535435f"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/b2/pause-2_0.mp3",
+      "file": "audio/guided/segments-002/variants/b2/pause-2_0.mp3",
+      "bytes": 2257893,
+      "sha256": "3dde5fabbbd754101f533dcab58671618c140d4ba0dab546afa2291c219978b9",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/b2/pause-2_0.mp3?v=3dde5fabbbd7"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/b2/pause-2_5.mp3",
+      "file": "audio/guided/segments-002/variants/b2/pause-2_5.mp3",
+      "bytes": 2478669,
+      "sha256": "72ed3e956287bfa5a97ad049042424895a6c3e946bc530272a7791d61c5c349f",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/b2/pause-2_5.mp3?v=72ed3e956287"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/b2/pause-3_0.mp3",
+      "file": "audio/guided/segments-002/variants/b2/pause-3_0.mp3",
+      "bytes": 2695485,
+      "sha256": "41dc20e9fda452a1fa65eea2acf4d65030d536bdb06cb1954bf8818bf59910f1",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/b2/pause-3_0.mp3?v=41dc20e9fda4"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/b2/pause-3_5.mp3",
+      "file": "audio/guided/segments-002/variants/b2/pause-3_5.mp3",
+      "bytes": 2900277,
+      "sha256": "c1f4f650419614f351516325952e26e0da71415af320d463d64277a86477b9c5",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/b2/pause-3_5.mp3?v=c1f4f6504196"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/c1/pause-2_0.mp3",
+      "file": "audio/guided/segments-002/variants/c1/pause-2_0.mp3",
+      "bytes": 3010749,
+      "sha256": "96aa2eb2dddd4e4144eb692774a79059e51d84da38ba968523b56435b36f74fc",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/c1/pause-2_0.mp3?v=96aa2eb2dddd"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/c1/pause-2_5.mp3",
+      "file": "audio/guided/segments-002/variants/c1/pause-2_5.mp3",
+      "bytes": 3272085,
+      "sha256": "6acf042dc3e7d70a66e31e0aa29bb83cd9f74925a564cd3025b1bab6cf00fd5d",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/c1/pause-2_5.mp3?v=6acf042dc3e7"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/c1/pause-3_0.mp3",
+      "file": "audio/guided/segments-002/variants/c1/pause-3_0.mp3",
+      "bytes": 3523581,
+      "sha256": "9f8c1fbf723bc144e32f9b17cf16410529e3d5cef418a0d302c75ead206cfa80",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/c1/pause-3_0.mp3?v=9f8c1fbf723b"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/c1/pause-3_5.mp3",
+      "file": "audio/guided/segments-002/variants/c1/pause-3_5.mp3",
+      "bytes": 3835725,
+      "sha256": "1b1c63bdfc6605364e743fa6871211fe80ea022f871764c3d299d9417feef976",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/c1/pause-3_5.mp3?v=1b1c63bdfc66"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/c2/pause-2_0.mp3",
+      "file": "audio/guided/segments-002/variants/c2/pause-2_0.mp3",
+      "bytes": 2903037,
+      "sha256": "f4d1366ad75894fd135006632d3f2b12615bf0a47fe2af585efba62308c68ec6",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/c2/pause-2_0.mp3?v=f4d1366ad758"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/c2/pause-2_5.mp3",
+      "file": "audio/guided/segments-002/variants/c2/pause-2_5.mp3",
+      "bytes": 3175029,
+      "sha256": "b14ea6625a0224649d4a2d98985819e7e1d13e5a5256cfa07ae3bb920525a7f8",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/c2/pause-2_5.mp3?v=b14ea6625a02"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/c2/pause-3_0.mp3",
+      "file": "audio/guided/segments-002/variants/c2/pause-3_0.mp3",
+      "bytes": 3462453,
+      "sha256": "57b067277dd015101c1506d55f71c8c23fdb48888259c2870402d960bb7afca6",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/c2/pause-3_0.mp3?v=57b067277dd0"
+    },
+    {
+      "key": "English/guided/segments-002/v1-20261016/variants/c2/pause-3_5.mp3",
+      "file": "audio/guided/segments-002/variants/c2/pause-3_5.mp3",
+      "bytes": 3735165,
+      "sha256": "f6ed40b58edd65bbeaf55c692ba9c85e433bc2d58f892ed9d2223c86873d3c4f",
+      "url": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/variants/c2/pause-3_5.mp3?v=f6ed40b58edd"
+    }
+  ]
+}

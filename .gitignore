@@ -4,3 +4,5 @@ tt-backstage/
 .DS_Store
 audio/guided/segments-001/**/*.mp3
 audio/guided/segments-001/*.mp3
+audio/guided/segments-002/**/*.mp3
+audio/vocalcamp/segments-001-002/**/*.mp3

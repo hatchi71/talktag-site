@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "releaseBase": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/",
+  "sourceRevision": "v2-20261010",
+  "sourcePackage": "../2026-09-19/referenced-chatgpt-conversation-this-is-an/output/glr-replacement-001-002",
+  "defaults": {
+    "pauseMultipliers": [
+      2,
+      2.5,
+      3,
+      3.5
+    ],
+    "defaultPauseMultiplier": 2.5,
+    "minimumPauseSeconds": 3
+  },
+  "dings": {
+    "start": {
+      "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/ding-start.mp3?v=ae6b41316d5d",
+      "durationSeconds": 0.522458,
+      "sha256": "ae6b41316d5de85c2a832471cfe8b0e76753ed5bab6c68abf5a1853e9d687ef4"
+    },
+    "end": {
+      "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/ding-end.mp3?v=f799668c97d7",
+      "durationSeconds": 1.071021,
+      "sha256": "f799668c97d7b8d3af3828f86614c3342af9af084b6580208e81d050fff066e7"
+    }
+  },
+  "cards": [
+    {
+      "id": "guided-a1-02",
+      "level": "A1",
+      "title": "Heading Out in the Rain",
+      "voiceName": "Jarnathan",
+      "accentTag": "US",
+      "expressions": [
+        "It's raining again.",
+        "I'll take my umbrella.",
+        "Is this one yours?",
+        "Mine is the yellow one.",
+        "Put your hood up.",
+        "My bag is getting wet.",
+        "Let's go inside for a minute."
+      ],
+      "meanings": [
+        "또 비가 오네요.",
+        "우산을 챙길게요.",
+        "이거 당신 우산이에요?",
+        "제 것은 노란색이에요.",
+        "후드를 쓰세요.",
+        "가방이 젖고 있어요.",
+        "잠깐 안으로 들어가죠."
+      ],
+      "repetitions": 10,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-01.mp3?v=27d52a05e7e8",
+          "text": "It's raining again.",
+          "meaning": "또 비가 오네요.",
+          "durationSeconds": 1.319875,
+          "speechStartSeconds": 0.05,
+          "speechEndSeconds": 1.26,
+          "speechSeconds": 1.21,
+          "sourceWav": "04_ASSEMBLED/guided-a1-02/sentence-1.wav",
+          "sourceSha256": "75070598bdb5a4fce0f0c26b2a4d050ba9ab17a13eda92d448586fb27b51f587",
+          "sha256": "27d52a05e7e88d696ccc301f56a5be9c186f82212cec9a7a32a42977fd2e3789",
+          "asrScore": 1,
+          "asrRecognized": "It's raining again."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-02.mp3?v=a91e0a314cb6",
+          "text": "I'll take my umbrella.",
+          "meaning": "우산을 챙길게요.",
+          "durationSeconds": 1.365,
+          "speechStartSeconds": 0.07,
+          "speechEndSeconds": 1.05,
+          "speechSeconds": 0.98,
+          "sourceWav": "04_ASSEMBLED/guided-a1-02/sentence-2.wav",
+          "sourceSha256": "2b8388ac765da846c7a624b689f5d2ef7a0e7e2665af8bdc038d6cb145d9c905",
+          "sha256": "a91e0a314cb6fb356d824a87c72857f0807399c328a3bf77a89ff0f1a0c2ab7e",
+          "asrScore": 1,
+          "asrRecognized": "I'll take my umbrella."
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-03.mp3?v=a8fb815feab3",
+          "text": "Is this one yours?",
+          "meaning": "이거 당신 우산이에요?",
+          "durationSeconds": 1.368979,
+          "speechStartSeconds": 0.3,
+          "speechEndSeconds": 1.18,
+          "speechSeconds": 0.88,
+          "sourceWav": "04_ASSEMBLED/guided-a1-02/sentence-3.wav",
+          "sourceSha256": "809e31f87d617f92a7e93a738a0440d28cbbf4a33a247973b9d8fa92403a80fa",
+          "sha256": "a8fb815feab3f375d15dec82d2d2a47a403d99245ea4374cbace6ca6994fdc74",
+          "asrScore": 1,
+          "asrRecognized": "Is this one yours?"
+        },
+        {
+          "index": 4,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-04.mp3?v=2faaa144621b",
+          "text": "Mine is the yellow one.",
+          "meaning": "제 것은 노란색이에요.",
+          "durationSeconds": 1.53175,
+          "speechStartSeconds": 0.17,
+          "speechEndSeconds": 1.25,
+          "speechSeconds": 1.08,
+          "sourceWav": "04_ASSEMBLED/guided-a1-02/sentence-4.wav",
+          "sourceSha256": "514dc32cd6a5cec5b900e2e25fc731589fd0f031cd85ce657878859e07db5b4f",
+          "sha256": "2faaa144621bb08b7242dc89536b7da7fdc54a49cb2e0ddc0355436b1b8a8cc5",
+          "asrScore": 1,
+          "asrRecognized": "Mine is the yellow one."
+        },
+        {
+          "index": 5,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-05.mp3?v=2a7c26a715d7",
+          "text": "Put your hood up.",
+          "meaning": "후드를 쓰세요.",
+          "durationSeconds": 1.152979,
+          "speechStartSeconds": 0.27,
+          "speechEndSeconds": 1.04,
+          "speechSeconds": 0.77,
+          "sourceWav": "04_ASSEMBLED/guided-a1-02/sentence-5.wav",
+          "sourceSha256": "c12d5bf976d452dc650e350ab370d59e6a2801fb3cc845a0f39ca6056ea3cafe",
+          "sha256": "2a7c26a715d7ce2a94743c810ff5b19653867099a193d07032d5c7fd02e0188a",
+          "asrScore": 1,
+          "asrRecognized": "Put your hood up."
+        },
+        {
+          "index": 6,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-06.mp3?v=1d64b87ca31b",
+          "text": "My bag is getting wet.",
+          "meaning": "가방이 젖고 있어요.",
+          "durationSeconds": 1.626042,
+          "speechStartSeconds": 0.07,
+          "speechEndSeconds": 1.42,
+          "speechSeconds": 1.35,
+          "sourceWav": "04_ASSEMBLED/guided-a1-02/sentence-6.wav",
+          "sourceSha256": "01bcee89eddd0146cb7f4e30541850dbc771fabfd4154470ca818803c337f674",
+          "sha256": "1d64b87ca31b49e2f6bf70f8bc9faecbb2ce9c03a1799c7900efeef6771f1124",
+          "asrScore": 1,
+          "asrRecognized": "My bag is getting wet."
+        },
+        {
+          "index": 7,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a1/line-07.mp3?v=aed841bf3a2c",
+          "text": "Let's go inside for a minute.",
+          "meaning": "잠깐 안으로 들어가죠.",
+          "durationSeconds": 1.589375,
+          "speechStartSeconds": 0.19,
+          "speechEndSeconds": 1.39,
+          "speechSeconds": 1.2,
+          "sourceWav": "04_ASSEMBLED/guided-a1-02/sentence-7.wav",
+          "sourceSha256": "e3e4a8df89ec9a6e4d3afd1e857978df136a95c0bae1649979269c2345662104",
+          "sha256": "aed841bf3a2c915812ce5417c589d8aadc9073db9834e50466c7fd504077725b",
+          "asrScore": 1,
+          "asrRecognized": "Let's go inside for a minute."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-a2-02",
+      "level": "A2",
+      "title": "Could You Take Our Picture",
+      "voiceName": "Jarnathan",
+      "accentTag": "US",
+      "expressions": [
+        "Could you take a picture of us?",
+        "The camera's already open.",
+        "Just tap the white button.",
+        "Could you get the building in too?",
+        "One more, if you don't mind.",
+        "That's great. Thank you so much."
+      ],
+      "meanings": [
+        "저희 사진 좀 찍어 주실 수 있을까요?",
+        "카메라는 이미 켜 놨어요.",
+        "흰색 버튼만 누르시면 돼요.",
+        "건물도 같이 나오게 찍어 주실 수 있나요?",
+        "괜찮으시면 한 장만 더 부탁드릴게요.",
+        "잘 나왔네요. 정말 감사합니다."
+      ],
+      "repetitions": 10,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-01.mp3?v=35c301efc954",
+          "text": "Could you take a picture of us?",
+          "meaning": "저희 사진 좀 찍어 주실 수 있을까요?",
+          "durationSeconds": 1.548083,
+          "speechStartSeconds": 0.09,
+          "speechEndSeconds": 1.4,
+          "speechSeconds": 1.31,
+          "sourceWav": "04_ASSEMBLED/guided-a2-02/sentence-1.wav",
+          "sourceSha256": "ae968ac73817455ec28031e2d49f8e29a7785e9b88b75cc4a408458a9d1a781b",
+          "sha256": "35c301efc9549af9b9f85e057e060930041ee663dd301d5c08b0064d82e67764",
+          "asrScore": 1,
+          "asrRecognized": "Could you take a picture of us?"
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-02.mp3?v=4a85c85e9001",
+          "text": "The camera's already open.",
+          "meaning": "카메라는 이미 켜 놨어요.",
+          "durationSeconds": 1.578417,
+          "speechStartSeconds": 0.12,
+          "speechEndSeconds": 1.41,
+          "speechSeconds": 1.29,
+          "sourceWav": "04_ASSEMBLED/guided-a2-02/sentence-2.wav",
+          "sourceSha256": "e81c61aa12367dc6398f1445b0dda323102e8983baa046f5e0b038c9e1561510",
+          "sha256": "4a85c85e9001698e9fe095f9b8de058e874d58510388007fac15664bc955be36",
+          "asrScore": 0.6666666666666666,
+          "asrRecognized": "The camera is already open."
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-03.mp3?v=10643b381779",
+          "text": "Just tap the white button.",
+          "meaning": "흰색 버튼만 누르시면 돼요.",
+          "durationSeconds": 1.437375,
+          "speechStartSeconds": 0.01,
+          "speechEndSeconds": 1.17,
+          "speechSeconds": 1.16,
+          "sourceWav": "04_ASSEMBLED/guided-a2-02/sentence-3.wav",
+          "sourceSha256": "cfea843f2ce62f2b222c97baf0b1bb8ba3b6bd85e7f60915d4e5ae4106dd27d1",
+          "sha256": "10643b381779064b2a2e9c7566f694d83abd351cfb3c11ce5818b9047c408a96",
+          "asrScore": 1,
+          "asrRecognized": "Just tap the white button."
+        },
+        {
+          "index": 4,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-04.mp3?v=3b797e9c4a0c",
+          "text": "Could you get the building in too?",
+          "meaning": "건물도 같이 나오게 찍어 주실 수 있나요?",
+          "durationSeconds": 1.735917,
+          "speechStartSeconds": 0.23,
+          "speechEndSeconds": 1.55,
+          "speechSeconds": 1.32,
+          "sourceWav": "04_ASSEMBLED/guided-a2-02/sentence-4.wav",
+          "sourceSha256": "767fe0f350b522be2913fa6c09a91564f00a5138f869e3f60d17c3893d004c9f",
+          "sha256": "3b797e9c4a0cb01ed9a0947f1f30c28906d16511fa82c88f47e19ec2ba0c44eb",
+          "asrScore": 0.7692307692307693,
+          "asrRecognized": "Could you get the building into?"
+        },
+        {
+          "index": 5,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-05.mp3?v=59372cf48a92",
+          "text": "One more, if you don't mind.",
+          "meaning": "괜찮으시면 한 장만 더 부탁드릴게요.",
+          "durationSeconds": 1.648292,
+          "speechStartSeconds": 0.24,
+          "speechEndSeconds": 1.41,
+          "speechSeconds": 1.17,
+          "sourceWav": "04_ASSEMBLED/guided-a2-02/sentence-5.wav",
+          "sourceSha256": "a28738078a46f9fb7b59dbeaf9936bc4974f400daf472d95fa129b766376cbff",
+          "sha256": "59372cf48a92f5edd1ccf6ff462a494c1ab34d45f901a09cd464b3e7e53b837e",
+          "asrScore": 1,
+          "asrRecognized": "one more if you don't mind"
+        },
+        {
+          "index": 6,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/a2/line-06.mp3?v=8c575fa8c001",
+          "text": "That's great. Thank you so much.",
+          "meaning": "잘 나왔네요. 정말 감사합니다.",
+          "durationSeconds": 2.500896,
+          "speechStartSeconds": 0.16,
+          "speechEndSeconds": 2.38,
+          "speechSeconds": 2.22,
+          "sourceWav": "04_ASSEMBLED/guided-a2-02/sentence-6.wav",
+          "sourceSha256": "c82bbdbb754b2e2f8a54a7b3e1d1430e9d7b46b03dde722ab838487c660aa17f",
+          "sha256": "8c575fa8c0013d47c10ffdf0fa0f6d55f503cfa66c61a09f3df052af9b54aa7f",
+          "asrScore": 1,
+          "asrRecognized": "That's great. Thank you so much."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-b1-02",
+      "level": "B1",
+      "title": "The Wrong Bag at Pickup",
+      "voiceName": "Jarnathan",
+      "accentTag": "US",
+      "expressions": [
+        "I think this bag belongs to someone else.",
+        "I ordered the sandwich, not the salad.",
+        "Could you check the name before I take it?"
+      ],
+      "meanings": [
+        "이 봉투는 다른 분 것 같아요.",
+        "저는 샐러드가 아니라 샌드위치를 주문했어요.",
+        "가져가기 전에 이름을 확인해 주실 수 있을까요?"
+      ],
+      "repetitions": 15,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b1/line-01.mp3?v=4376939f1aad",
+          "text": "I think this bag belongs to someone else.",
+          "meaning": "이 봉투는 다른 분 것 같아요.",
+          "durationSeconds": 2.629708,
+          "speechStartSeconds": 0.03,
+          "speechEndSeconds": 2.37,
+          "speechSeconds": 2.34,
+          "sourceWav": "04_ASSEMBLED/guided-b1-02/sentence-1.wav",
+          "sourceSha256": "b74c4a5f1131074e21fc237f82b56e589986dd1d0d2a33fe06b0582bed76e736",
+          "sha256": "4376939f1aad8004df19b12c5af2dc4b9c270688f3d2f2114637a7f6c6b1fcfc",
+          "asrScore": 1,
+          "asrRecognized": "I think this bag belongs to someone else."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b1/line-02.mp3?v=a766da8885d9",
+          "text": "I ordered the sandwich, not the salad.",
+          "meaning": "저는 샐러드가 아니라 샌드위치를 주문했어요.",
+          "durationSeconds": 2.591979,
+          "speechStartSeconds": 0.11,
+          "speechEndSeconds": 2.34,
+          "speechSeconds": 2.23,
+          "sourceWav": "04_ASSEMBLED/guided-b1-02/sentence-2.wav",
+          "sourceSha256": "52524f020ca6379cd741354e702b8d97288ee58ddad2242654a0c40a112db10d",
+          "sha256": "a766da8885d98d145d90f743787cd3c886e660798092a0be86b8137386b4d336",
+          "asrScore": 1,
+          "asrRecognized": "I ordered the sandwich, not the salad."
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b1/line-03.mp3?v=dd5fa0541b5a",
+          "text": "Could you check the name before I take it?",
+          "meaning": "가져가기 전에 이름을 확인해 주실 수 있을까요?",
+          "durationSeconds": 1.8575,
+          "speechStartSeconds": 0.09,
+          "speechEndSeconds": 1.7,
+          "speechSeconds": 1.61,
+          "sourceWav": "04_ASSEMBLED/guided-b1-02/sentence-3.wav",
+          "sourceSha256": "ec1c9a8211fc1d950ce382833c04e079c57f5ebf6f2ccb5f8f531ab874fdfcb0",
+          "sha256": "dd5fa0541b5a59c65cb539761384eb585efd178bdc635be2b9c04cfa5d12c027",
+          "asrScore": 1,
+          "asrRecognized": "Could you check the name before I take it?"
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-b2-02",
+      "level": "B2",
+      "title": "Moving an Appointment",
+      "voiceName": "Jarnathan",
+      "accentTag": "US",
+      "expressions": [
+        "Something's come up, and I can't make the morning appointment.",
+        "Would late afternoon be an option?",
+        "If not, I can come in next week."
+      ],
+      "meanings": [
+        "갑자기 일이 생겨서 오전 예약 시간에 갈 수 없게 됐어요.",
+        "오후 늦게 가도 괜찮을까요?",
+        "그게 어렵다면 다음 주에 갈 수 있어요."
+      ],
+      "repetitions": 15,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b2/line-01.mp3?v=43d9dfea736b",
+          "text": "Something's come up, and I can't make the morning appointment.",
+          "meaning": "갑자기 일이 생겨서 오전 예약 시간에 갈 수 없게 됐어요.",
+          "durationSeconds": 3.618375,
+          "speechStartSeconds": 0.03,
+          "speechEndSeconds": 3.33,
+          "speechSeconds": 3.3,
+          "sourceWav": "04_ASSEMBLED/guided-b2-02/sentence-1.wav",
+          "sourceSha256": "a8793cc4eb0dd98feb55c155202a8195435f6b88bb4329263116a653c507615d",
+          "sha256": "43d9dfea736befe999fabaea308242d9c0efbb10d6b9e87c0ee662e45dd9a0ea",
+          "asrScore": 1,
+          "asrRecognized": "Something's come up, and I can't make the morning appointment."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b2/line-02.mp3?v=0a5d2639c794",
+          "text": "Would late afternoon be an option?",
+          "meaning": "오후 늦게 가도 괜찮을까요?",
+          "durationSeconds": 1.833146,
+          "speechStartSeconds": 0.12,
+          "speechEndSeconds": 1.65,
+          "speechSeconds": 1.53,
+          "sourceWav": "04_ASSEMBLED/guided-b2-02/sentence-2.wav",
+          "sourceSha256": "f6b0f95a28a2e0bd6c0562b80d2038f92894a04610a76640ac4340aa589ef186",
+          "sha256": "0a5d2639c7944e8c35a99e02083386608816e1c66be3211960aa718d2f6dc91f",
+          "asrScore": 1,
+          "asrRecognized": "Would late afternoon be an option?"
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/b2/line-03.mp3?v=5a7de481dcc5",
+          "text": "If not, I can come in next week.",
+          "meaning": "그게 어렵다면 다음 주에 갈 수 있어요.",
+          "durationSeconds": 2.097875,
+          "speechStartSeconds": 0.18,
+          "speechEndSeconds": 1.88,
+          "speechSeconds": 1.7,
+          "sourceWav": "04_ASSEMBLED/guided-b2-02/sentence-3.wav",
+          "sourceSha256": "93bffc5133b857e587999820c551d212e2247862fa3f29f3faf045fb76737e9b",
+          "sha256": "5a7de481dcc5dbcdba2af0032178fc6edacfffd2a0568be549142dd927f8772e",
+          "asrScore": 1,
+          "asrRecognized": "If not, I can come in next week."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-c1-02",
+      "level": "C1",
+      "title": "Checking a Renewal Charge",
+      "voiceName": "Jarnathan",
+      "accentTag": "US",
+      "expressions": [
+        "I thought I'd canceled before the renewal date.",
+        "Could you check whether the charge can be reversed?",
+        "I haven't used the service since then."
+      ],
+      "meanings": [
+        "갱신일 전에 해지한 줄 알았어요.",
+        "이번 결제를 취소할 수 있는지 확인해 주실 수 있을까요?",
+        "그 이후로는 서비스를 이용하지 않았어요."
+      ],
+      "repetitions": 21,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c1/line-01.mp3?v=a749d90b7f99",
+          "text": "I thought I'd canceled before the renewal date.",
+          "meaning": "갱신일 전에 해지한 줄 알았어요.",
+          "durationSeconds": 2.581625,
+          "speechStartSeconds": 0.09,
+          "speechEndSeconds": 2.4,
+          "speechSeconds": 2.31,
+          "sourceWav": "04_ASSEMBLED/guided-c1-02/sentence-1.wav",
+          "sourceSha256": "e4e4069b0f967b43a77e57aa81646c5552ee40f3adae048a0c3507609e4d7151",
+          "sha256": "a749d90b7f9974ea38b4bfce009c674ac17a73849e1f429612df82a35021368c",
+          "asrScore": 0.875,
+          "asrRecognized": "I thought I'd cancelled before the renewal date."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c1/line-02.mp3?v=ff52f2350a63",
+          "text": "Could you check whether the charge can be reversed?",
+          "meaning": "이번 결제를 취소할 수 있는지 확인해 주실 수 있을까요?",
+          "durationSeconds": 2.654333,
+          "speechStartSeconds": 0.25,
+          "speechEndSeconds": 2.46,
+          "speechSeconds": 2.21,
+          "sourceWav": "04_ASSEMBLED/guided-c1-02/sentence-2.wav",
+          "sourceSha256": "27c94c92eab00e1f4c39ec43cb38828ad8b2d09af80a122eddecd43a14700ecf",
+          "sha256": "ff52f2350a632e61978df53744f2ff1410c0ea975f5b2241febf8f678fba5958",
+          "asrScore": 1,
+          "asrRecognized": "Could you check whether the charge can be reversed?"
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c1/line-03.mp3?v=4bfc26894e03",
+          "text": "I haven't used the service since then.",
+          "meaning": "그 이후로는 서비스를 이용하지 않았어요.",
+          "durationSeconds": 1.999958,
+          "speechStartSeconds": 0.16,
+          "speechEndSeconds": 1.83,
+          "speechSeconds": 1.67,
+          "sourceWav": "04_ASSEMBLED/guided-c1-02/sentence-3.wav",
+          "sourceSha256": "c2a22254429568ea33ea2c925c5ba4e2d6f138fa24d7ea6bc0d6c1bd05b16d67",
+          "sha256": "4bfc26894e0312953513565c136f2c08c1a4393f19303035a7b91d83869c9eba",
+          "asrScore": 1,
+          "asrRecognized": "I haven't used the service since then."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-c2-02",
+      "level": "C2",
+      "title": "Helpful, Not Taking Over",
+      "voiceName": "Jarnathan",
+      "accentTag": "US",
+      "expressions": [
+        "I appreciate the help, but I'd like to have a go myself first.",
+        "If I get stuck, you'll be the first person I ask."
+      ],
+      "meanings": [
+        "도와주려는 마음은 고마운데, 우선 제가 직접 해 보고 싶어요.",
+        "하다가 막히면 제일 먼저 당신에게 부탁할게요."
+      ],
+      "repetitions": 21,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c2/line-01.mp3?v=23fa06b25211",
+          "text": "I appreciate the help, but I'd like to have a go myself first.",
+          "meaning": "도와주려는 마음은 고마운데, 우선 제가 직접 해 보고 싶어요.",
+          "durationSeconds": 3.922063,
+          "speechStartSeconds": 0.07,
+          "speechEndSeconds": 3.68,
+          "speechSeconds": 3.61,
+          "sourceWav": "04_ASSEMBLED/guided-c2-02/sentence-1.wav",
+          "sourceSha256": "4a4cd874173ba61516972dafb0a37b0eb78cff095f3959e5f36f1c84e7a84f74",
+          "sha256": "23fa06b25211f79e6906ef048bb6e3f06ed7402e10597f5aed55037538833155",
+          "asrScore": 1,
+          "asrRecognized": "I appreciate the help, but I'd like to have a go myself first."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-002/v1-20261016/c2/line-02.mp3?v=e03fe53c2ff6",
+          "text": "If I get stuck, you'll be the first person I ask.",
+          "meaning": "하다가 막히면 제일 먼저 당신에게 부탁할게요.",
+          "durationSeconds": 3.2355,
+          "speechStartSeconds": 0.24,
+          "speechEndSeconds": 3.08,
+          "speechSeconds": 2.84,
+          "sourceWav": "04_ASSEMBLED/guided-c2-02/sentence-2.wav",
+          "sourceSha256": "96963bdaf64c0d7b5a1008b578ef01ed93adf26aa49655affbd5f465d935df1a",
+          "sha256": "e03fe53c2ff67e2fbe1dc9de74a8a12c4c6d679550a46f81723158b0657490cf",
+          "asrScore": 1,
+          "asrRecognized": "If I get stuck, you'll be the first person I ask."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    }
+  ]
+}

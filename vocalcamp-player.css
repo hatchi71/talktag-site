@@ -5,3 +5,11 @@
 .vocal-pause-control input{display:block;width:100%;min-height:44px;margin:8px 0 0;accent-color:var(--tt-accent,#1767eb)}
 .vocal-pause-marks{display:flex;justify-content:space-between;font-size:12px;font-weight:700}
 .vocal-pause-control small{display:block;margin-top:8px;color:var(--tt-muted,#687b92);font-size:12px;line-height:1.5}
+
+/* The shared header adds its own route controls. Keep the duplicate back link
+   from creating an implicit third grid column and compressing the logo. */
+@media(max-width:520px){
+  html[data-appearance] body.tt-spaces-trial header.pilot-header.tt-themed-header.tt-compact-header>.pilot-back{display:none!important}
+  html[data-appearance] body.tt-spaces-trial header.pilot-header.tt-themed-header.tt-compact-header>.pilot-brand{grid-column:1!important;grid-row:1!important;min-width:48px!important}
+  html[data-appearance] body.tt-spaces-trial header.pilot-header.tt-themed-header.tt-compact-header>.pilot-brand img{flex:0 0 48px!important}
+}

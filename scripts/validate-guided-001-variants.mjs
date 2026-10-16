@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Independently decode and validate each native-audio GLR 001 pause variant.
+// Independently decode and validate each native-audio GLR 001/002 pause variant.
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -8,10 +8,12 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const root = path.join(repo, 'audio/guided/segments-001');
+const episode = process.env.GLR_EPISODE || '001';
+if (!['001', '002'].includes(episode)) throw new Error(`Unsupported GLR episode: ${episode}`);
+const root = path.join(repo, `audio/guided/segments-${episode}`);
 const segments = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'variants/manifest.json'), 'utf8'));
-const releaseBase = 'https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/';
+const releaseBase = `https://audio.talktag.co.kr/English/guided/segments-${episode}/v1-20261016/`;
 const js = fs.readFileSync(path.join(root, 'variants/manifest.js'), 'utf8');
 const rate = 48000;
 const frameSamples = 480; // 10 ms windows
@@ -32,7 +34,7 @@ function actualFile(url) {
   return path.join(root, url.split('?')[0].slice(releaseBase.length));
 }
 function getRms(file) {
-  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'talktag-glr001-check-'));
+  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), `talktag-glr${episode}-check-`));
   const raw = path.join(scratch, 'decoded.pcm');
   try {
     const result = spawnSync('ffmpeg', ['-v', 'error', '-nostdin', '-i', file,
@@ -71,8 +73,9 @@ function energeticRange(rms, start, end) {
   return foundFirst < 0 ? null : { first: foundFirst / 100, end: (foundLast + 1) / 100 };
 }
 
-if (!js.startsWith('window.TalkTagGuided001Variants = ') ||
-    JSON.stringify(JSON.parse(js.slice('window.TalkTagGuided001Variants = '.length).replace(/;\s*$/, ''))) !== JSON.stringify(manifest)) {
+const assignment = `window.TalkTagGuided${episode}Variants = `;
+if (!js.startsWith(assignment) ||
+    JSON.stringify(JSON.parse(js.slice(assignment.length).replace(/;\s*$/, ''))) !== JSON.stringify(manifest)) {
   fail('JSON and synchronous JS manifests do not match');
 }
 if (manifest.cards.length !== 6 || JSON.stringify(manifest.pauseRatios) !== JSON.stringify(expectedRatios)) {

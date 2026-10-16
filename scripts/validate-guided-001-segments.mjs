@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Independent media and timing validation for the segmented GLR 001 pilot.
+// Independent media and timing validation for segmented GLR 001/002.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -7,8 +7,10 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const manifestFile = path.join(repo, 'audio/guided/segments-001/manifest.json');
-const releaseBase = 'https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/';
+const episode = process.env.GLR_EPISODE || '001';
+if (!['001', '002'].includes(episode)) throw new Error(`Unsupported GLR episode: ${episode}`);
+const manifestFile = path.join(repo, `audio/guided/segments-${episode}/manifest.json`);
+const releaseBase = `https://audio.talktag.co.kr/English/guided/segments-${episode}/v1-20261016/`;
 const expectedLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 const expectedMultipliers = [2, 2.5, 3, 3.5];
 const errors = [];
@@ -30,8 +32,8 @@ function mediaFile(url) {
     throw new Error(`Invalid segmented media URL: ${url}`);
   }
   const relative = url.slice(releaseBase.length).split('?')[0];
-  const file = path.resolve(repo, 'audio/guided/segments-001', relative);
-  if (!file.startsWith(path.join(repo, 'audio/guided/segments-001/') )) {
+  const file = path.resolve(repo, `audio/guided/segments-${episode}`, relative);
+  if (!file.startsWith(path.join(repo, `audio/guided/segments-${episode}/`) )) {
     throw new Error(`Media URL escapes segment directory: ${url}`);
   }
   if (!fs.existsSync(file) || !fs.statSync(file).isFile()) throw new Error(`Missing media: ${url}`);
@@ -78,17 +80,17 @@ try {
   assert(JSON.stringify(manifest.defaults?.pauseMultipliers) === JSON.stringify(expectedMultipliers), 'Pause setting mismatch');
   assert(manifest.defaults?.defaultPauseMultiplier === 2.5, 'Default pause setting must be 2.5×');
   assert(manifest.defaults?.minimumPauseSeconds === 3, 'Minimum pause must be 3 seconds');
-  assert(Array.isArray(manifest.cards) && manifest.cards.length === 6, 'Expected six 001 cards');
+  assert(Array.isArray(manifest.cards) && manifest.cards.length === 6, `Expected six ${episode} cards`);
   const dingStart = checkMedia(manifest.dings.start, 'start ding');
   const dingEnd = checkMedia(manifest.dings.end, 'end ding');
   const ids = new Set();
   let totalLines = 0;
   for (const [position, card] of manifest.cards.entries()) {
     assert(card.level === expectedLevels[position], `Level order mismatch at ${position}`);
-    assert(card.id === `guided-${card.level.toLowerCase()}-01`, `Card ID mismatch: ${card.id}`);
+    assert(card.id === `guided-${card.level.toLowerCase()}-${String(Number(episode)).padStart(2, '0')}`, `Card ID mismatch: ${card.id}`);
     assert(!ids.has(card.id), `Duplicate card ID: ${card.id}`);
     ids.add(card.id);
-    assert(card.voiceName === 'Lauren' && card.accentTag === 'US', `Voice/accent mismatch: ${card.id}`);
+    assert(card.voiceName === (episode === '001' ? 'Lauren' : 'Jarnathan') && card.accentTag === 'US', `Voice/accent mismatch: ${card.id}`);
     assert(card.repetitions === expectedRepetitions(card.level), `Repeat count mismatch: ${card.id}`);
     assert(card.sourceQc?.technical === 'pass', `Source technical QC not passed: ${card.id}`);
     assert(card.lines.length === card.expressions.length && card.lines.length === card.meanings.length,

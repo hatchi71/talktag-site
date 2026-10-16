@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Safe R2 release runner for English GLR 001. Default: offline dry-run.
+// Safe R2 release runner for English GLR 001/002. Default: offline dry-run.
 // Explicit --upload is required for all Cloudflare writes. Reruns skip only
 // objects whose remotely downloaded bytes match the inventory SHA-256.
 // Wrangler has no conditional-create flag, so a second public HEAD is checked
@@ -13,10 +13,12 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const root = path.join(repo, 'audio/guided/segments-001');
+const episode = process.env.GLR_EPISODE || '001';
+if (!['001', '002'].includes(episode)) throw new Error(`Unsupported GLR episode: ${episode}`);
+const root = path.join(repo, `audio/guided/segments-${episode}`);
 const inventory = JSON.parse(fs.readFileSync(path.join(root, 'upload-inventory.json'), 'utf8'));
-const expectedBase = 'https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/';
-const expectedKeyPrefix = 'English/guided/segments-001/v1-20261016/';
+const expectedBase = `https://audio.talktag.co.kr/English/guided/segments-${episode}/v1-20261016/`;
+const expectedKeyPrefix = `English/guided/segments-${episode}/v1-20261016/`;
 const args = process.argv.slice(2);
 const mode = args.length === 0 || args[0] === '--dry-run' ? 'dry-run' :
   args[0] === '--upload' ? 'upload' : args[0] === '--verify-only' ? 'verify-only' :
@@ -50,7 +52,7 @@ function localPreflight() {
   for (const item of inventory.items) {
     if (!item.key.startsWith(expectedKeyPrefix) || !item.key.endsWith('.mp3') ||
         item.key.includes('..') || keys.has(item.key) ||
-        item.file !== `audio/guided/segments-001/${item.key.slice(expectedKeyPrefix.length)}` ||
+        item.file !== `audio/guided/segments-${episode}/${item.key.slice(expectedKeyPrefix.length)}` ||
         item.url !== `${expectedBase}${item.key.slice(expectedKeyPrefix.length)}?v=${item.sha256.slice(0, 12)}`) {
       throw new Error(`Invalid inventory key/path/URL: ${item.key}`);
     }
@@ -100,7 +102,7 @@ function wrangler(parts, timeout = 120000) {
     stdio: ['ignore', 'pipe', 'pipe'],
     env: {
       ...process.env,
-      WRANGLER_LOG_PATH: path.join(os.tmpdir(), `talktag-glr001-wrangler-${process.pid}.log`),
+      WRANGLER_LOG_PATH: path.join(os.tmpdir(), `talktag-glr${episode}-wrangler-${process.pid}.log`),
       WRANGLER_SEND_METRICS: 'false',
     },
   });

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Deterministic, read-only-to-media inventory for the 50 English GLR 001 R2 objects.
+// Deterministic, read-only-to-media inventory for English GLR 001/002 R2 objects.
 // This script never connects to Cloudflare or uploads files.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,10 +7,12 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const root = path.join(repo, 'audio/guided/segments-001');
+const episode = process.env.GLR_EPISODE || '001';
+if (!['001', '002'].includes(episode)) throw new Error(`Unsupported GLR episode: ${episode}`);
+const root = path.join(repo, `audio/guided/segments-${episode}`);
 const segments = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
 const variants = JSON.parse(fs.readFileSync(path.join(root, 'variants/manifest.json'), 'utf8'));
-const releaseBase = 'https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/';
+const releaseBase = `https://audio.talktag.co.kr/English/guided/segments-${episode}/v1-20261016/`;
 if (segments.releaseBase !== releaseBase || variants.releaseBase !== releaseBase) {
   throw new Error('Segment/variant manifest release URL mismatch');
 }
@@ -28,7 +30,7 @@ const items = records.map(record => {
   if (!relative || relative.includes('..') || !relative.endsWith('.mp3')) {
     throw new Error(`Invalid asset path: ${record.audio}`);
   }
-  const file = `audio/guided/segments-001/${relative}`;
+  const file = `audio/guided/segments-${episode}/${relative}`;
   const absolute = path.join(repo, file);
   if (!fs.existsSync(absolute)) throw new Error(`Missing local QC file: ${absolute}`);
   const bytes = fs.statSync(absolute).size;
@@ -37,7 +39,7 @@ const items = records.map(record => {
       url.search !== `?v=${sha256.slice(0, 12)}`) {
     throw new Error(`Hash, bytes, or version query mismatch: ${file}`);
   }
-  const key = `English/guided/segments-001/v1-20261016/${relative}`;
+  const key = `English/guided/segments-${episode}/v1-20261016/${relative}`;
   if (keys.has(key)) throw new Error(`Duplicate R2 key: ${key}`);
   keys.add(key);
   return { key, file, bytes, sha256, url: record.audio };

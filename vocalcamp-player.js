@@ -194,9 +194,9 @@
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
   }
 
-  function waitForRecall(index, button, token, audioDurationMs) {
+  function waitForRecall(index, button, token, audioDurationMs, pauseAlreadyInAudio = false) {
     const status = document.getElementById('soundStatus');
-    const waitMs=Math.max(3000,Math.round(audioDurationMs*silenceMultiplier));
+    const waitMs=pauseAlreadyInAudio?0:Math.max(3000,Math.round(audioDurationMs*silenceMultiplier));
     const finishAt=Date.now()+waitMs;
     let completed=false;
     playbackPhase='recall';
@@ -234,6 +234,7 @@
         speakRound(index,button,token);
       }
     };
+    if(pauseAlreadyInAudio){finishRecall();return;}
     recallObjectUrl=silentWavUrl(waitMs);
     recallPlayer.src=recallObjectUrl;
     recallPlayer.onended=finishRecall;
@@ -249,10 +250,13 @@
     document.querySelectorAll('.sound-step').forEach(item=>item.classList.remove('is-playing','is-waiting'));
     const track=unit.audioSteps?.[index];
     if(track?.url){
+      const variant=track.variants?.find(item=>Number(item.ratio)===silenceMultiplier);
+      const playbackUrl=variant?.audio||track.url;
       audioPlayer.onplaying=()=>{if(token!==runToken)return;setMediaPlaybackState('playing');button.classList.add('is-playing');button.querySelector('em').textContent='■';status.textContent=`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
-      audioPlayer.onended=()=>{if(token!==runToken)return;const duration=Math.max(500,(Number(audioPlayer.duration)||Number(track.duration)||.5)*1000);state.counts[index]=Math.min(REPEAT_TARGET,state.counts[index]+1);document.querySelector(`[data-repeat-count="${index}"]`).textContent=state.counts[index];save();waitForRecall(index,button,token,duration);};
+      audioPlayer.ontimeupdate=()=>{if(token!==runToken||!variant)return;const cue=variant.cues?.find(item=>item.s<=audioPlayer.currentTime&&audioPlayer.currentTime<item.e);if(!cue)return;const waiting=audioPlayer.currentTime>=cue.voiceEnd;button.classList.toggle('is-waiting',waiting);button.classList.toggle('is-playing',!waiting);status.textContent=waiting?`${pauseLabel} · ${copy.pause} ${Math.ceil(cue.e-audioPlayer.currentTime)}${koreanLearning?'s':'초'}`:`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
+      audioPlayer.onended=()=>{if(token!==runToken)return;const duration=Math.max(500,(Number(audioPlayer.duration)||Number(track.duration)||.5)*1000);state.counts[index]=Math.min(REPEAT_TARGET,state.counts[index]+1);document.querySelector(`[data-repeat-count="${index}"]`).textContent=state.counts[index];save();waitForRecall(index,button,token,duration,Boolean(variant));};
       audioPlayer.onerror=()=>{if(token!==runToken)return;stopSound('음원을 불러오지 못했습니다. 연결을 확인하고 다시 눌러 주세요.');};
-      if(audioPlayer.src!==track.url)audioPlayer.src=track.url;
+      if(audioPlayer.src!==playbackUrl)audioPlayer.src=playbackUrl;
       audioPlayer.currentTime=0;
       audioPlayer.play().catch(()=>{if(token!==runToken)return;stopSound('브라우저에서 자동 재생을 막았습니다. 같은 단계를 다시 눌러 주세요.');});
       return;
