@@ -45,7 +45,6 @@ var native=window.TalkTagNative;
   var storageKey = "talktag-audio:" + lesson.id;
   var pauseControl = null;
   var guidedVariants = window.TalkTagNativeGuidedVariants?.forLesson(lesson, native, audio, readState, saveState) || null;
-  var essayVariants = window.TalkTagNativeEssayVariants?.forLesson(lesson, native, audio, readState, saveState) || null;
   var expectsNativeVariants = lesson.type === "guided" &&
     ((native.language === "ko" && [1, 2].includes(Number(lesson.unit))) ||
       (native.language === "ja" && Number(lesson.unit) === 1));
@@ -121,10 +120,7 @@ var native=window.TalkTagNative;
     updateDrillStatus();
     if (!legacyPlayback && (!expectsNativeVariants || guidedVariants)) pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: document.querySelector('#progress'), readState: readState, saveState: saveState, playButton: playButton, english: native.ui === 'en' });
   }
-  if (lesson.type === "plain" && native.language === "ko") {
-    pauseControl = window.TalkTagEssayPause?.mount({ audio: audio, lesson: lesson, anchor: progress, readState: readState, saveState: saveState, playButton: playButton });
-  }
-  if (!guidedVariants && !essayVariants) audio.src = legacyPlayback && lesson.legacyAudio ? lesson.legacyAudio : lesson.audio;
+  if (!guidedVariants) audio.src = legacyPlayback && lesson.legacyAudio ? lesson.legacyAudio : lesson.audio;
   appendList("scriptList", lesson.expressions);
   appendList("meaningList", lesson.meanings);
   if (!lesson.meanings.length) { meaningButton.hidden = true; meaningPanel.hidden = true; }
@@ -160,7 +156,7 @@ var native=window.TalkTagNative;
     try { return JSON.parse(localStorage.getItem(storageKey)) || {}; } catch (error) { return {}; }
   }
   function saveState(patch) {
-    if (legacyPlayback && Object.prototype.hasOwnProperty.call(patch, "position")) {
+    if ((legacyPlayback || (native.language === "ko" && lesson.type === "plain")) && Object.prototype.hasOwnProperty.call(patch, "position")) {
       patch = Object.assign({}, patch, { positionMode: "legacy" });
     }
     var next = Object.assign({}, readState(), patch);
@@ -200,8 +196,7 @@ var native=window.TalkTagNative;
     saveState({ position: initial.position, cardDingsMigrated: true });
   }
   var resumePending = guidedVariants ? guidedVariants.migratePosition(initial) :
-    essayVariants ? essayVariants.migratePosition(initial) :
-    (legacyPlayback && lesson.type === "plain" ?
+    (native.language === "ko" && lesson.type === "plain" ?
       (window.TalkTagNativeEssayVariants?.toOriginalPosition(lesson, initial) ?? Number(initial.position || 0)) :
     legacyPlayback && lesson.training ?
       (window.TalkTagNativeGuidedVariants?.toFixedPosition(lesson, native, initial) ??

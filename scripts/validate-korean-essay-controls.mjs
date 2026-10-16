@@ -24,10 +24,10 @@ assert.match(library, /document\.querySelectorAll\("\[data-level\]"\)\.forEach\(
 assert.match(library, /type==="guided"\?"Guided L&R":"Essays & Articles"/);
 assert.match(read('guided-library.css'), /body\[data-audio-type\] \.filter-bar\.tt-level-postits>a/);
 const player = read('K-korean-audio-player.html');
-assert.match(player, /essay-pause-control\.js\?v=20261016-essay-pause-v1/);
-assert.match(read('native-audio-player.js'), /TalkTagEssayPause\?\.mount/);
+assert.doesNotMatch(player, /essay-pause-control\.js/);
+assert.doesNotMatch(read('native-audio-player.js'), /TalkTagEssayPause\?\.mount/);
 assert.match(player, /native-essay-variants\.js\?v=20261016-ko-essay-variants/);
-assert.match(read('native-audio-player.js'), /TalkTagNativeEssayVariants\?\.forLesson/);
+assert.doesNotMatch(read('native-audio-player.js'), /TalkTagNativeEssayVariants\?\.forLesson/);
 assert.match(read('essay-pause-control.js'), /if \(audio\.segmented\) audio\.setPauseMultiplier\(multiplier\)/);
 const manifest = JSON.parse(read('audio/korean/audio-essays-articles/segments-001/manifest.json'));
 assert.equal(manifest.cards.length, 6);
@@ -36,7 +36,18 @@ assert.ok(manifest.cards.every(card => card.variants.length === 4));
 const releaseContext = { window: { TalkTagNativeCatalogs: { ko: lessons } } };
 vm.createContext(releaseContext);
 vm.runInContext(read('audio/korean/audio-essays-articles/segments-001/manifest.js'), releaseContext);
-vm.runInContext(read('native-essay-catalog-variants.js'), releaseContext);
-assert.ok(releaseContext.window.TalkTagNativeCatalogs.ko.every(lesson =>
-  lesson.audio.includes('/segments-001/') && lesson.legacyAudio && lesson.durationSeconds > lesson.legacyDurationSeconds));
-console.log('PASS: 6 Korean essay cards, 29 isolated lines, four pause variants, matching level cards and legacy fallback.');
+assert.doesNotMatch(player, /native-essay-catalog-variants\.js/);
+assert.doesNotMatch(read('K-korean-audio-library.html'), /native-essay-catalog-variants\.js/);
+vm.runInContext(read('native-essay-variants.js'), releaseContext);
+for (const lesson of lessons) {
+  assert.ok(!lesson.audio.includes('/segments-001/'), `${lesson.level}: use the original continuous recording`);
+  const release = releaseContext.window.TalkTagKoreanEssayVariants;
+  const variant = release.cards.find(card => card.id === lesson.id).variants[0];
+  const position = releaseContext.window.TalkTagNativeEssayVariants.toOriginalPosition(lesson, {
+    position: variant.cues[1].s,
+    positionMode: 'essay-variant', positionRatio: variant.ratio, positionRevision: release.releaseBase
+  });
+  assert.ok(Math.abs(position - (lesson.sentenceGaps[0][0] + lesson.sentenceGaps[0][1]) / 2) < 0.001,
+    `${lesson.level}: preserve the sentence when restoring continuous playback`);
+}
+console.log('PASS: 6 Korean essays use continuous playback without pause controls; saved variant positions map to original sentences.');
