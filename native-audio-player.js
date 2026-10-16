@@ -22,7 +22,7 @@ var native=window.TalkTagNative;
   var retiredPart = /^(guided-(?:a1|a2|b1|b2|c1|c2)-0[12])-part\d+$/.exec(requestedId || "");
   if (retiredPart) { location.replace(native.playerPage+"?id=" + retiredPart[1]); return; }
   var retiredGuided = ["a1-head","a2-hair-01-03","a2-hair-04-06","a2-hair-10-12","b1-head-brain","b1-hair-13-15","b1-hair-16-17"];
-  if (retiredGuided.indexOf(requestedId) !== -1) { location.replace("audio-library.html?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
+  if (retiredGuided.indexOf(requestedId) !== -1) { location.replace(native.libraryPage + "?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
   if (!lesson) { document.getElementById('lessonTitle').textContent=native.ui==='en'?'Recordings are coming soon':'음원을 준비하고 있습니다.'; return; }
   var legacyPlayback = new URLSearchParams(location.search).has("legacy");
