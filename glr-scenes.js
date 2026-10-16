@@ -146,7 +146,7 @@
     const image = document.createElement('img');
     image.className = 'glr-scene-image';
     const miniskit = /^guided-(a2|b1|b2|c1|c2)-(08|09|10)-miniskit(?:-part\d+)?$/.exec(id || '');
-    image.src = lesson?.artwork || (native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : miniskit ? 'assets/glr-scenes/miniskit/' + miniskit[2] + '-' + miniskit[1] + '.jpg' : 'assets/glr-scenes/' + id.replace(/-(?:miniskit-pilot|miniskit)$/, '') + (/(?:07|08|09|10)(?:-miniskit-pilot|-miniskit)?$/.test(id) ? '.jpg' : '.webp'));
+    image.src = lesson?.artwork || (native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : miniskit ? '/assets/glr-scenes/miniskit/' + miniskit[2].padStart(3, '0') + '-' + miniskit[1] + '.jpg' : '/assets/glr-scenes/' + id.replace(/-(?:miniskit-pilot|miniskit)$/, '') + (/(?:07|08|09|10)(?:-miniskit-pilot|-miniskit)?$/.test(id) ? '.jpg' : '.webp'));
     image.alt = description;
     image.width = 360; image.height = 240;
     image.loading = player ? 'eager' : 'lazy';

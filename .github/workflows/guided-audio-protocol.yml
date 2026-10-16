@@ -14,6 +14,7 @@ jobs:
       - run: node scripts/validate-guided-cards.mjs
       - run: node scripts/validate-camp-navigation.mjs
       - run: node scripts/validate-native-guided-cards.mjs
+      - run: node scripts/validate-glr-scene-art.mjs
       - run: node scripts/update-home-news.mjs --check
       - run: node scripts/update-sitemap.mjs --check
       - run: node scripts/verify-pwa-update.mjs
