@@ -45,6 +45,7 @@ var native=window.TalkTagNative;
   var storageKey = "talktag-audio:" + lesson.id;
   var pauseControl = null;
   var guidedVariants = window.TalkTagNativeGuidedVariants?.forLesson(lesson, native, audio, readState, saveState) || null;
+  var essayVariants = window.TalkTagNativeEssayVariants?.forLesson(lesson, native, audio, readState, saveState) || null;
   var expectsNativeVariants = lesson.type === "guided" &&
     ((native.language === "ko" && [1, 2].includes(Number(lesson.unit))) ||
       (native.language === "ja" && Number(lesson.unit) === 1));
@@ -123,7 +124,7 @@ var native=window.TalkTagNative;
   if (lesson.type === "plain" && native.language === "ko") {
     pauseControl = window.TalkTagEssayPause?.mount({ audio: audio, lesson: lesson, anchor: progress, readState: readState, saveState: saveState, playButton: playButton });
   }
-  if (!guidedVariants) audio.src = lesson.audio;
+  if (!guidedVariants && !essayVariants) audio.src = legacyPlayback && lesson.legacyAudio ? lesson.legacyAudio : lesson.audio;
   appendList("scriptList", lesson.expressions);
   appendList("meaningList", lesson.meanings);
   if (!lesson.meanings.length) { meaningButton.hidden = true; meaningPanel.hidden = true; }
@@ -199,10 +200,13 @@ var native=window.TalkTagNative;
     saveState({ position: initial.position, cardDingsMigrated: true });
   }
   var resumePending = guidedVariants ? guidedVariants.migratePosition(initial) :
-    (legacyPlayback && lesson.training ?
+    essayVariants ? essayVariants.migratePosition(initial) :
+    (legacyPlayback && lesson.type === "plain" ?
+      (window.TalkTagNativeEssayVariants?.toOriginalPosition(lesson, initial) ?? Number(initial.position || 0)) :
+    legacyPlayback && lesson.training ?
       (window.TalkTagNativeGuidedVariants?.toFixedPosition(lesson, native, initial) ??
         (initial.positionMode === "native-variant" ? 0 : Number(initial.position || 0))) :
-      (initial.positionMode === "native-variant" ? 0 : Number(initial.position || 0)));
+      ((initial.positionMode === "native-variant" || initial.positionMode === "essay-variant") ? 0 : Number(initial.position || 0)));
   audio.addEventListener("talktag-audio-seek", function () { resumePending = 0; });
   audio.loop = Boolean(initial.loop);
   loopButton.classList.toggle("on", audio.loop);

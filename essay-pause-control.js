@@ -13,7 +13,15 @@
     const processed = new Set();
     const control = document.createElement('div');
     control.className = 'guided-pause-control essay-pause-control';
-    control.innerHTML = '<div class="guided-pause-heading"><label for="essayPauseRange">Speaking pause</label><output id="essayPauseValue" for="essayPauseRange"></output></div><input id="essayPauseRange" type="range" min="0" max="3" step="1" aria-label="Pause after each sentence: 2, 2.5, 3 or 3.5 times its spoken length"><div class="guided-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><p>Pause after each sentence to recall or retell it. Voice speed stays natural; the timeline shows the original recording.</p>';
+    control.innerHTML = `<div class="guided-pause-heading"><label for="essayPauseRange">Speaking pause</label><output id="essayPauseValue" for="essayPauseRange"></output></div><input id="essayPauseRange" type="range" min="0" max="3" step="1" aria-label="Pause after each sentence: 2, 2.5, 3 or 3.5 times its spoken length"><div class="guided-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><p>${audio.segmented ? 'Isolated sentences · Natural voice speed · Timeline includes the exact speaking pauses.' : 'Pause after each sentence to recall or retell it. Voice speed stays natural; the timeline shows the original recording.'}</p>`;
+    if (audio.segmented) {
+      const status = document.createElement('p');
+      status.id = 'essayPausePending';
+      status.className = 'guided-pause-pending';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      control.append(status);
+    }
     anchor.after(control);
     const range = control.querySelector('input');
     const output = control.querySelector('output');
@@ -27,7 +35,9 @@
       multiplier = OPTIONS[Number(range.value)];
       updateLabel();
       saveState({ pauseMultiplier: multiplier });
+      if (audio.segmented) audio.setPauseMultiplier(multiplier);
     });
+    if (audio.segmented) return { cancelHold: () => false, isHolding: () => false };
     function cancelHold() {
       if (!hold) return false;
       clearTimeout(hold);
