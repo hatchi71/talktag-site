@@ -26,7 +26,7 @@
   }
   if (!data || !data.cues.length) return;
 
-  var audio = document.getElementById("audio");
+  var audio = window.TalkTagSegmented001?.activeMedia || document.getElementById("audio");
   var isJapanese = data.language === "ja";
   var displayLevel = 0;
   var displayLabels = ["한자", "한자와 후리가나", "한자와 후리가나와 한국어 해석"];

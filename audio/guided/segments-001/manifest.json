@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "releaseBase": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/",
+  "sourceRevision": "v2-20261010",
+  "sourcePackage": "../2026-09-19/referenced-chatgpt-conversation-this-is-an/output/glr-replacement-001-002",
+  "defaults": {
+    "pauseMultipliers": [
+      2,
+      2.5,
+      3,
+      3.5
+    ],
+    "defaultPauseMultiplier": 2.5,
+    "minimumPauseSeconds": 3
+  },
+  "dings": {
+    "start": {
+      "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/ding-start.mp3?v=82333fae07b1",
+      "durationSeconds": 0.522458,
+      "sha256": "82333fae07b1f9726bd17f56453ab0f71628a3f14a668d5d829b112c174aa207"
+    },
+    "end": {
+      "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/ding-end.mp3?v=45d8f8e0ff96",
+      "durationSeconds": 1.071021,
+      "sha256": "45d8f8e0ff961481d90b783b7db6574aff8a087928e4381c9284d410c338e584"
+    }
+  },
+  "cards": [
+    {
+      "id": "guided-a1-01",
+      "level": "A1",
+      "title": "Getting Up Slowly",
+      "voiceName": "Lauren",
+      "accentTag": "US",
+      "expressions": [
+        "I'm still sleepy.",
+        "Let me sit up first.",
+        "My feet are cold.",
+        "Where are my slippers?",
+        "Right beside the bed.",
+        "I'll have some water.",
+        "Okay, I'm getting up."
+      ],
+      "meanings": [
+        "아직 졸려요.",
+        "일단 몸을 일으켜 앉을게요.",
+        "발이 차가워요.",
+        "내 슬리퍼 어디 있죠?",
+        "침대 바로 옆에 있어요.",
+        "물 좀 마실게요.",
+        "좋아요, 이제 일어날게요."
+      ],
+      "repetitions": 10,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a1/line-01.mp3?v=c1d621d88b7a",
+          "text": "I'm still sleepy.",
+          "meaning": "아직 졸려요.",
+          "durationSeconds": 1.733354,
+          "speechStartSeconds": 0.03,
+          "speechEndSeconds": 1.73,
+          "speechSeconds": 1.7,
+          "sourceWav": "04_ASSEMBLED/guided-a1-01/sentence-1.wav",
+          "sourceSha256": "85f3c40ed16a9fbb8553a55a01ed2e60e260cc771d88c811c422e2bb4f537110",
+          "sha256": "c1d621d88b7a0d6de99bd5ab6e6a11c254c25415601b9698cda4619d5088969e",
+          "asrScore": 1,
+          "asrRecognized": "I'm still sleepy."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a1/line-02.mp3?v=8f1e6791ef55",
+          "text": "Let me sit up first.",
+          "meaning": "일단 몸을 일으켜 앉을게요.",
+          "durationSeconds": 1.481417,
+          "speechStartSeconds": 0,
+          "speechEndSeconds": 1.22,
+          "speechSeconds": 1.22,
+          "sourceWav": "04_ASSEMBLED/guided-a1-01/sentence-2.wav",
+          "sourceSha256": "51ec7ed35107c1b4c5d4b514a5cbd4b1f2a61af85bc2918a3b6097f06fcc2dc7",
+          "sha256": "8f1e6791ef558c11e7f29d5a4a310900e0fd7ec57c42029b3f64d6b7ac9ba328",
+          "asrScore": 1,
+          "asrRecognized": "Let me sit up first."
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a1/line-03.mp3?v=29add05a66b4",
+          "text": "My feet are cold.",
+          "meaning": "발이 차가워요.",
+          "durationSeconds": 1.63975,
+          "speechStartSeconds": 0.2,
+          "speechEndSeconds": 1.5,
+          "speechSeconds": 1.3,
+          "sourceWav": "04_ASSEMBLED/guided-a1-01/sentence-3.wav",
+          "sourceSha256": "0c1f55bfac8631fe3dd6c1132f224587457dc6790a203c459e88b10a51375c7b",
+          "sha256": "29add05a66b4c7010cf75df1d97d8c887fa72a652ff1e2b2a6dc6e340498d092",
+          "asrScore": 1,
+          "asrRecognized": "My feet are cold."
+        },
+        {
+          "index": 4,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a1/line-04.mp3?v=c95cf97e1179",
+          "text": "Where are my slippers?",
+          "meaning": "내 슬리퍼 어디 있죠?",
+          "durationSeconds": 1.463354,
+          "speechStartSeconds": 0.07,
+          "speechEndSeconds": 1.27,
+          "speechSeconds": 1.2,
+          "sourceWav": "04_ASSEMBLED/guided-a1-01/sentence-4.wav",
+          "sourceSha256": "337ed7e9db2623e001c9468e3921d7057e345682197565b8e976439e2b54e7af",
+          "sha256": "c95cf97e117910f94f7dee08051a882969e21ca02fce085d77542f9a2e4c6b49",
+          "asrScore": 1,
+          "asrRecognized": "Where are my slippers?"
+        },
+        {
+          "index": 5,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a1/line-05.mp3?v=e31e8e83c111",
+          "text": "Right beside the bed.",
+          "meaning": "침대 바로 옆에 있어요.",
+          "durationSeconds": 1.463208,
+          "speechStartSeconds": 0.18,
+          "speechEndSeconds": 1.18,
+          "speechSeconds": 1,
+          "sourceWav": "04_ASSEMBLED/guided-a1-01/sentence-5.wav",
+          "sourceSha256": "2c3f2e020f66454a256f9ce294f6fb17f75187a1822149bee4e1c50e1627e58d",
+          "sha256": "e31e8e83c111d842be710b49d349bee3a631f80f5a8386323968368dad433c81",
+          "asrScore": 1,
+          "asrRecognized": "Right beside the bed."
+        },
+        {
+          "index": 6,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a1/line-06.mp3?v=9e319611d6bf",
+          "text": "I'll have some water.",
+          "meaning": "물 좀 마실게요.",
+          "durationSeconds": 1.350771,
+          "speechStartSeconds": 0.19,
+          "speechEndSeconds": 1.11,
+          "speechSeconds": 0.92,
+          "sourceWav": "04_ASSEMBLED/guided-a1-01/sentence-6.wav",
+          "sourceSha256": "6764b5fcd9b5920377dff87b40254db7cc9e71d7d34a44ae58191f585fa63dd3",
+          "sha256": "9e319611d6bf0c4dce9345df153ca354c2e0aade7fa039fa074d8b457f37be4d",
+          "asrScore": 1,
+          "asrRecognized": "I'll have some water."
+        },
+        {
+          "index": 7,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a1/line-07.mp3?v=b949a9de42c6",
+          "text": "Okay, I'm getting up.",
+          "meaning": "좋아요, 이제 일어날게요.",
+          "durationSeconds": 1.865708,
+          "speechStartSeconds": 0.19,
+          "speechEndSeconds": 1.68,
+          "speechSeconds": 1.49,
+          "sourceWav": "04_ASSEMBLED/guided-a1-01/sentence-7.wav",
+          "sourceSha256": "996630cbb39bcc27d8cd3f9352ac639201bd9d9681f5e0c15cab54f9c53aa8ee",
+          "sha256": "b949a9de42c650f6b5a3e59adbf42f3321895546ad2b0d10c740ee1541cfcd0f",
+          "asrScore": 1,
+          "asrRecognized": "Okay, I'm getting up."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-a2-01",
+      "level": "A2",
+      "title": "A Shirt for Tomorrow",
+      "voiceName": "Lauren",
+      "accentTag": "US",
+      "expressions": [
+        "I need this shirt tomorrow.",
+        "Is it okay to wash it now?",
+        "Use the cold setting.",
+        "I'll hang it up afterward.",
+        "Let's leave it near the window.",
+        "It should be dry by morning."
+      ],
+      "meanings": [
+        "내일 이 셔츠를 입어야 해요.",
+        "지금 세탁해도 괜찮을까요?",
+        "찬물로 설정하세요.",
+        "세탁이 끝나면 걸어서 말릴게요.",
+        "창가에 두죠.",
+        "아침이면 마를 거예요."
+      ],
+      "repetitions": 10,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a2/line-01.mp3?v=eb33ad2924ba",
+          "text": "I need this shirt tomorrow.",
+          "meaning": "내일 이 셔츠를 입어야 해요.",
+          "durationSeconds": 1.782042,
+          "speechStartSeconds": 0.09,
+          "speechEndSeconds": 1.63,
+          "speechSeconds": 1.54,
+          "sourceWav": "04_ASSEMBLED/guided-a2-01/sentence-1.wav",
+          "sourceSha256": "d0977a4611c0c0653570ee4856117e66b8486bf3a463f6a37f72d791090dc791",
+          "sha256": "eb33ad2924baada103cca6f09991ce541f5bc91db9ac10313909df5b7c3f1deb",
+          "asrScore": 1,
+          "asrRecognized": "I need this shirt tomorrow."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a2/line-02.mp3?v=a1394d058cc2",
+          "text": "Is it okay to wash it now?",
+          "meaning": "지금 세탁해도 괜찮을까요?",
+          "durationSeconds": 1.746771,
+          "speechStartSeconds": 0.15,
+          "speechEndSeconds": 1.52,
+          "speechSeconds": 1.37,
+          "sourceWav": "04_ASSEMBLED/guided-a2-01/sentence-2.wav",
+          "sourceSha256": "c8d251dceb92a161e644fc1aaf3508915e255971548d9e27a26ccd99b27409ae",
+          "sha256": "a1394d058cc2cc07a987ebcfc835ce54bb36bea9a443bca8e735a303943d360a",
+          "asrScore": 1,
+          "asrRecognized": "Is it okay to wash it now?"
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a2/line-03.mp3?v=27f3e76a443e",
+          "text": "Use the cold setting.",
+          "meaning": "찬물로 설정하세요.",
+          "durationSeconds": 1.557708,
+          "speechStartSeconds": 0.22,
+          "speechEndSeconds": 1.37,
+          "speechSeconds": 1.15,
+          "sourceWav": "04_ASSEMBLED/guided-a2-01/sentence-3.wav",
+          "sourceSha256": "735a97ed5bae21c987f3c10095d7f6caefd4116fd2da6b5896b626f7e20f8690",
+          "sha256": "27f3e76a443e9910c60485f5d63b9aead84eed106ffc4a37dbcd5087dd46b790",
+          "asrScore": 1,
+          "asrRecognized": "Use the cold setting."
+        },
+        {
+          "index": 4,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a2/line-04.mp3?v=ef9454421c9b",
+          "text": "I'll hang it up afterward.",
+          "meaning": "세탁이 끝나면 걸어서 말릴게요.",
+          "durationSeconds": 1.5525,
+          "speechStartSeconds": 0.17,
+          "speechEndSeconds": 1.29,
+          "speechSeconds": 1.12,
+          "sourceWav": "04_ASSEMBLED/guided-a2-01/sentence-4.wav",
+          "sourceSha256": "e69d00ebeadf011bb3d3a21342f79869998f5f35611fc76a572801954347ce0c",
+          "sha256": "ef9454421c9bc931f27f331f1629be9be656a08c5b74fa135cd6109ee6c5b9b5",
+          "asrScore": 1,
+          "asrRecognized": "I'll hang it up afterward."
+        },
+        {
+          "index": 5,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a2/line-05.mp3?v=924123b55657",
+          "text": "Let's leave it near the window.",
+          "meaning": "창가에 두죠.",
+          "durationSeconds": 1.648271,
+          "speechStartSeconds": 0.21,
+          "speechEndSeconds": 1.55,
+          "speechSeconds": 1.34,
+          "sourceWav": "04_ASSEMBLED/guided-a2-01/sentence-5.wav",
+          "sourceSha256": "73c2aafc8554228ad9210a7d913144e028297ff500abfbd860891a353002b5ce",
+          "sha256": "924123b556576cc8be13fa772d085d9d2684a4e16aa9d28ea73363e76f241d03",
+          "asrScore": 1,
+          "asrRecognized": "Let's leave it near the window."
+        },
+        {
+          "index": 6,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/a2/line-06.mp3?v=253feba4c27b",
+          "text": "It should be dry by morning.",
+          "meaning": "아침이면 마를 거예요.",
+          "durationSeconds": 1.665375,
+          "speechStartSeconds": 0.15,
+          "speechEndSeconds": 1.53,
+          "speechSeconds": 1.38,
+          "sourceWav": "04_ASSEMBLED/guided-a2-01/sentence-6.wav",
+          "sourceSha256": "8ed68247c91776c46e065fc90e04d8ca44dd9277bd03510df3c89b5ad40b3848",
+          "sha256": "253feba4c27b8bc81600a4c302813090343feee877e6d62fb8fa4876edba19dc",
+          "asrScore": 0.7272727272727273,
+          "asrRecognized": "It should be drive-by morning."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-b1-01",
+      "level": "B1",
+      "title": "A Quick Walk with the Dog",
+      "voiceName": "Lauren",
+      "accentTag": "US",
+      "expressions": [
+        "The dog needs a walk, but it might rain.",
+        "Let's stay close to home this time.",
+        "We can go farther later if the weather clears."
+      ],
+      "meanings": [
+        "강아지를 산책시켜야 하는데 비가 올 것 같아요.",
+        "이번에는 집 근처에서만 걸어요.",
+        "날씨가 개면 나중에 더 멀리 가도 되죠."
+      ],
+      "repetitions": 15,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/b1/line-01.mp3?v=517fed7b7307",
+          "text": "The dog needs a walk, but it might rain.",
+          "meaning": "강아지를 산책시켜야 하는데 비가 올 것 같아요.",
+          "durationSeconds": 3.384979,
+          "speechStartSeconds": 0.09,
+          "speechEndSeconds": 3.12,
+          "speechSeconds": 3.03,
+          "sourceWav": "04_ASSEMBLED/guided-b1-01/sentence-1.wav",
+          "sourceSha256": "a41c3d60a8c51d3ccca3663a161b070f9a9f1e3acb28e46f39a56f967478bdff",
+          "sha256": "517fed7b73074f3be21069ff93eac3b7a27f6efca537f8f206cc4e505fde9013",
+          "asrScore": 1,
+          "asrRecognized": "The dog needs a walk, but it might rain."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/b1/line-02.mp3?v=cda234527b6b",
+          "text": "Let's stay close to home this time.",
+          "meaning": "이번에는 집 근처에서만 걸어요.",
+          "durationSeconds": 2.184979,
+          "speechStartSeconds": 0.23,
+          "speechEndSeconds": 2.01,
+          "speechSeconds": 1.78,
+          "sourceWav": "04_ASSEMBLED/guided-b1-01/sentence-2.wav",
+          "sourceSha256": "cf6f4400767966a902e8a1aabb5fc402d9c8badced96be8833155eb5a88a4242",
+          "sha256": "cda234527b6b060842092a040264cd7dfd90ec9b867e30a99f45a1381fbc3792",
+          "asrScore": 1,
+          "asrRecognized": "Let's stay close to home this time."
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/b1/line-03.mp3?v=d0a352a6b1f2",
+          "text": "We can go farther later if the weather clears.",
+          "meaning": "날씨가 개면 나중에 더 멀리 가도 되죠.",
+          "durationSeconds": 2.869292,
+          "speechStartSeconds": 0.16,
+          "speechEndSeconds": 2.69,
+          "speechSeconds": 2.53,
+          "sourceWav": "04_ASSEMBLED/guided-b1-01/sentence-3.wav",
+          "sourceSha256": "08d04d097624517c61b2f148871ca61da75ba287c133461cd00cca7459a54df6",
+          "sha256": "d0a352a6b1f2c54dafe4ea8c9428932d3b5a8b14d13f96611bc9f96d206ead17",
+          "asrScore": 1,
+          "asrRecognized": "We can go farther later if the weather clears."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-b2-01",
+      "level": "B2",
+      "title": "Keeping the Noise Down",
+      "voiceName": "Lauren",
+      "accentTag": "US",
+      "expressions": [
+        "Would you mind turning the music down a little?",
+        "I have an early start tomorrow.",
+        "It's not usually a problem; tonight's just a bit loud."
+      ],
+      "meanings": [
+        "음악 소리를 조금만 줄여 주실 수 있을까요?",
+        "내일 아침 일찍 나가야 해서요.",
+        "평소에는 괜찮은데, 오늘 밤은 소리가 좀 크네요."
+      ],
+      "repetitions": 15,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/b2/line-01.mp3?v=ce5d31f11e53",
+          "text": "Would you mind turning the music down a little?",
+          "meaning": "음악 소리를 조금만 줄여 주실 수 있을까요?",
+          "durationSeconds": 2.488333,
+          "speechStartSeconds": 0.04,
+          "speechEndSeconds": 2.29,
+          "speechSeconds": 2.25,
+          "sourceWav": "04_ASSEMBLED/guided-b2-01/sentence-1.wav",
+          "sourceSha256": "e490da4e41e987cf7ddf402926aa0dfaa1b3887f498c776fcf452372736cdf3b",
+          "sha256": "ce5d31f11e530b54b4eac0ef04566552fb0f73f93aab0763da1eabb41df94077",
+          "asrScore": 1,
+          "asrRecognized": "Would you mind turning the music down a little?"
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/b2/line-02.mp3?v=d873139b904b",
+          "text": "I have an early start tomorrow.",
+          "meaning": "내일 아침 일찍 나가야 해서요.",
+          "durationSeconds": 2.085542,
+          "speechStartSeconds": 0.03,
+          "speechEndSeconds": 1.67,
+          "speechSeconds": 1.64,
+          "sourceWav": "04_ASSEMBLED/guided-b2-01/sentence-2.wav",
+          "sourceSha256": "644a4408bf8da6b9c4d2147f90d126533bc6349df92c0585cd0efdc54cccf4ea",
+          "sha256": "d873139b904b0989b3c7aada04b4a42ebbc65acb1a23a31caf93fdd907dbe257",
+          "asrScore": 1,
+          "asrRecognized": "I have an early start tomorrow."
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/b2/line-03.mp3?v=f2324d6d0585",
+          "text": "It's not usually a problem; tonight's just a bit loud.",
+          "meaning": "평소에는 괜찮은데, 오늘 밤은 소리가 좀 크네요.",
+          "durationSeconds": 4.020417,
+          "speechStartSeconds": 0.09,
+          "speechEndSeconds": 3.86,
+          "speechSeconds": 3.77,
+          "sourceWav": "04_ASSEMBLED/guided-b2-01/sentence-3.wav",
+          "sourceSha256": "71a1a3414fe216d55be33c74434a9ee3ad2b7244acb09182e33db2ae7a35768b",
+          "sha256": "f2324d6d058574ab6f7ff697b5db468cfbb9e9853abcf24241064e200e69ba85",
+          "asrScore": 1,
+          "asrRecognized": "It's not usually a problem. Tonight's just a bit loud."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-c1-01",
+      "level": "C1",
+      "title": "Making Time for a Repair",
+      "voiceName": "Lauren",
+      "accentTag": "US",
+      "expressions": [
+        "I can make Tuesday work, provided the visit is after lunch.",
+        "Could you narrow the arrival window down a little?",
+        "I can't stay home all day."
+      ],
+      "meanings": [
+        "점심 이후에 방문하신다면 화요일에 시간을 낼 수 있어요.",
+        "도착 예정 시간대를 좀 더 좁혀 주실 수 있을까요?",
+        "하루 종일 집에서 기다리기는 어려워서요."
+      ],
+      "repetitions": 21,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/c1/line-01.mp3?v=da2d85390c4e",
+          "text": "I can make Tuesday work, provided the visit is after lunch.",
+          "meaning": "점심 이후에 방문하신다면 화요일에 시간을 낼 수 있어요.",
+          "durationSeconds": 4.157563,
+          "speechStartSeconds": 0.07,
+          "speechEndSeconds": 3.9,
+          "speechSeconds": 3.83,
+          "sourceWav": "04_ASSEMBLED/guided-c1-01/sentence-1.wav",
+          "sourceSha256": "5d2fc9544377cb19ebff0fd5f84f6f604a1b6d4391181f97b05444fb71a69af4",
+          "sha256": "da2d85390c4e24dacc9119c9aab797aa678b0dcedc1df5620dfc7bfb637e1290",
+          "asrScore": 1,
+          "asrRecognized": "I can make Tuesday work, provided the visit is after lunch."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/c1/line-02.mp3?v=75985f3c2726",
+          "text": "Could you narrow the arrival window down a little?",
+          "meaning": "도착 예정 시간대를 좀 더 좁혀 주실 수 있을까요?",
+          "durationSeconds": 3.005833,
+          "speechStartSeconds": 0.26,
+          "speechEndSeconds": 2.85,
+          "speechSeconds": 2.59,
+          "sourceWav": "04_ASSEMBLED/guided-c1-01/sentence-2.wav",
+          "sourceSha256": "beda927d458016809382f43535698b17b1f0747e9eadf197b048b8335864257c",
+          "sha256": "75985f3c2726c41074f713453cb59073313d4dc41635d989115c2ecb147595f7",
+          "asrScore": 1,
+          "asrRecognized": "Could you narrow the arrival window down a little?"
+        },
+        {
+          "index": 3,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/c1/line-03.mp3?v=eedaa6edb8e4",
+          "text": "I can't stay home all day.",
+          "meaning": "하루 종일 집에서 기다리기는 어려워서요.",
+          "durationSeconds": 1.927229,
+          "speechStartSeconds": 0.08,
+          "speechEndSeconds": 1.73,
+          "speechSeconds": 1.65,
+          "sourceWav": "04_ASSEMBLED/guided-c1-01/sentence-3.wav",
+          "sourceSha256": "f9ad396ba72ad0077d4b4a7c4bc395ac6a37edd215a4637be36a7b4b0e9b7d63",
+          "sha256": "eedaa6edb8e4745f93a9038f2bd9d79ac932c5c2d0901d7483c39d258965516c",
+          "asrScore": 1,
+          "asrRecognized": "I can't stay home all day."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    },
+    {
+      "id": "guided-c2-01",
+      "level": "C2",
+      "title": "A Guest and a Little Space",
+      "voiceName": "Lauren",
+      "accentTag": "US",
+      "expressions": [
+        "I'm really glad you're here; I just need a little downtime too.",
+        "Please make yourself at home while I take a breather."
+      ],
+      "meanings": [
+        "와 줘서 정말 좋아요. 다만 저도 잠깐 쉬는 시간이 필요해서요.",
+        "저는 잠시 숨 좀 돌릴 테니 편하게 계세요."
+      ],
+      "repetitions": 21,
+      "lines": [
+        {
+          "index": 1,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/c2/line-01.mp3?v=a72f94b4ba00",
+          "text": "I'm really glad you're here; I just need a little downtime too.",
+          "meaning": "와 줘서 정말 좋아요. 다만 저도 잠깐 쉬는 시간이 필요해서요.",
+          "durationSeconds": 4.523958,
+          "speechStartSeconds": 0.03,
+          "speechEndSeconds": 4.29,
+          "speechSeconds": 4.26,
+          "sourceWav": "04_ASSEMBLED/guided-c2-01/sentence-1.wav",
+          "sourceSha256": "282a56cf8c8f8976f2fd7ad80bead1772bfd7e2cc65cbaf9456a976ffc9cc060",
+          "sha256": "a72f94b4ba0079f2d64945703c89c38d437f90f6f4402a5924284573f006b649",
+          "asrScore": 1,
+          "asrRecognized": "I'm really glad you're here. I just need a little downtime too."
+        },
+        {
+          "index": 2,
+          "audio": "https://audio.talktag.co.kr/English/guided/segments-001/v1-20261016/c2/line-02.mp3?v=03d883ee441a",
+          "text": "Please make yourself at home while I take a breather.",
+          "meaning": "저는 잠시 숨 좀 돌릴 테니 편하게 계세요.",
+          "durationSeconds": 2.555229,
+          "speechStartSeconds": 0.07,
+          "speechEndSeconds": 2.38,
+          "speechSeconds": 2.31,
+          "sourceWav": "04_ASSEMBLED/guided-c2-01/sentence-2.wav",
+          "sourceSha256": "4a99637949b06f36abaae03a3924b7d02293ba721bdc8fb2ee6479717f98171e",
+          "sha256": "03d883ee441aa0ee8134f3b708dbac7a49e30b06c1058976b76818eccdfdada1",
+          "asrScore": 1,
+          "asrRecognized": "Please make yourself at home while I take a breather."
+        }
+      ],
+      "sourceQc": {
+        "technical": "pass",
+        "listeningReview": "pending"
+      }
+    }
+  ]
+}

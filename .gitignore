@@ -1,3 +1,6 @@
 _local-audio/
 tt-backstage/
+.wrangler/
 .DS_Store
+audio/guided/segments-001/**/*.mp3
+audio/guided/segments-001/*.mp3

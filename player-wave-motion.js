@@ -1,6 +1,6 @@
 (function(){
  'use strict';
- const audio=document.getElementById('audio'),wave=document.getElementById('wave'),play=document.getElementById('playButton');
+ const audio=window.TalkTagSegmented001?.activeMedia||document.getElementById('audio'),wave=document.getElementById('wave'),play=document.getElementById('playButton');
  if(!audio||!wave)return;
  const id=new URLSearchParams(location.search).get('id');
  const lesson=(window.TalkTagAudioLessons||[]).find(l=>l.id===id);

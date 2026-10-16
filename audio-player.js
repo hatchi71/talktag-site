@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var audio = document.getElementById("audio");
+  var audioElement = document.getElementById("audio");
   var playButton = document.getElementById("playButton");
   var rewindButton = document.getElementById("rewindButton");
   var restartButton = document.getElementById("restartButton");
@@ -23,6 +23,8 @@
   var retiredGuided = ["a1-head","a2-hair-01-03","a2-hair-04-06","a2-hair-10-12","b1-head-brain","b1-hair-13-15","b1-hair-16-17"];
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace("audio-library.html?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
+  var audio = window.TalkTagSegmented001?.forLesson(lesson) || audioElement;
+  var isGuided001 = /^guided-(?:a1|a2|b1|b2|c1|c2)-01$/.test(lesson.id);
   var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type; });
   var lessonIndex = lessons.findIndex(function (item) { return item.id === lesson.id; });
   var previousLesson = lessons[lessonIndex - 1] || null;
@@ -99,7 +101,7 @@
     updateDrillStatus();
     pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: document.querySelector('.script-controls'), readState: readState, saveState: saveState, playButton: playButton });
   }
-  audio.src = lesson.audio;
+  if (!audio.segmented) audio.src = lesson.audio;
   appendList("scriptList", lesson.expressions, lesson.speakers);
   appendList("meaningList", lesson.meanings);
   if (!lesson.meanings.length) { meaningButton.hidden = true; meaningPanel.hidden = true; }
@@ -112,7 +114,16 @@
     try { return JSON.parse(localStorage.getItem(storageKey)) || {}; } catch (error) { return {}; }
   }
   function saveState(patch) {
-    var next = Object.assign({}, readState(), patch);
+    var update = Object.assign({}, patch);
+    if (isGuided001 && Object.prototype.hasOwnProperty.call(update, "position")) {
+      if (audio.dataset.segmentSwitching === "true") delete update.position;
+      else {
+        update.positionMode = audio.segmented ? "segmented" : "legacy";
+        update.positionRatio = audio.segmented ? audio.segmentRatio : null;
+        update.segmentVersion = 2;
+      }
+    }
+    var next = Object.assign({}, readState(), update);
     localStorage.setItem(storageKey, JSON.stringify(next));
     return next;
   }
@@ -144,11 +155,13 @@
     document.getElementById("wave").appendChild(bar);
   }
   var initial = readState();
-  if (lesson.training && lesson.training.cardDings && !initial.cardDingsMigrated) {
+  if (!audio.segmented && lesson.training && lesson.training.cardDings && !initial.cardDingsMigrated &&
+      (!isGuided001 || (initial.positionMode !== "segmented" && initial.segmentVersion !== 2))) {
     initial.position = initial.position > 0 ? Number(initial.position) + Number(lesson.training.prependSeconds || 0) : 0;
     saveState({ position: initial.position, cardDingsMigrated: true });
   }
   var resumePending = Number(initial.position || 0);
+  var resumeConverted = false;
   audio.addEventListener("talktag-audio-seek", function () { resumePending = 0; });
   audio.loop = Boolean(initial.loop);
   loopButton.classList.toggle("on", audio.loop);
@@ -160,14 +173,28 @@
   function applyInitialResume() {
     duration.textContent = formatTime(audio.duration);
     document.getElementById("infoDuration").textContent = formatTime(audio.duration);
+    if (audio.dataset.segmentSwitching === "true") return;
+    if (resumePending > 0 && !resumeConverted && isGuided001) {
+      resumePending = audio.segmented ? audio.migrateSavedPosition(initial) :
+        (window.TalkTagSegmented001?.toLegacyPosition(lesson, initial) ?? resumePending);
+      saveState({ position: resumePending });
+      resumeConverted = true;
+    }
     var resumeAt = resumePending;
     if (resumeAt > 0 && resumeAt < audio.duration - 5) {
       audio.currentTime = resumeAt;
       currentTime.textContent = formatTime(resumeAt);
       progress.value = Math.round((resumeAt / audio.duration) * 1000);
     }
+    if (audio.segmented) resumePending = 0;
   }
   audio.addEventListener("loadedmetadata", applyInitialResume);
+  if (audio.segmented) audio.addEventListener("durationchange", function () {
+    duration.textContent = formatTime(audio.duration);
+    document.getElementById("infoDuration").textContent = formatTime(audio.duration);
+    currentTime.textContent = formatTime(audio.currentTime);
+    progress.value = audio.duration ? Math.round((audio.currentTime / audio.duration) * 1000) : 0;
+  });
   audio.addEventListener("canplay", applyInitialResume, { once: true });
   if (audio.readyState >= 3) window.setTimeout(applyInitialResume, 0);
   audio.addEventListener("timeupdate", function () {
@@ -202,13 +229,18 @@
   playButton.addEventListener("click", function () {
     if (pauseControl?.cancelHold()) return;
     if (audio.paused) {
+      if (audio.segmented && audio.readyState < 1) {
+        audio.play().catch(function () { playButton.textContent = "▶ 다시 재생"; });
+        return;
+      }
       var resumeAt = resumePending;
       var playPromise = audio.play();
+      if (audio.segmented) Promise.resolve(playPromise).catch(function () { playButton.textContent = "▶ 다시 재생"; });
       if (resumeAt > 0 && resumeAt < audio.duration - 5 && audio.currentTime < 0.25) {
         Promise.resolve(playPromise).then(function () {
           audio.currentTime = resumeAt;
           resumePending = 0;
-        });
+        }).catch(function () { playButton.textContent = "▶ 다시 재생"; });
       } else resumePending = 0;
     } else audio.pause();
   });
