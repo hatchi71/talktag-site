@@ -2,6 +2,38 @@
   "version": 1,
   "items": [
     {
+      "id": "korean-story:003",
+      "language": "ko",
+      "title": "Korean Story Camp · 003",
+      "href": "K-korean-story-camp.html",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Rebuild and retell an original Korean story with English guidance.",
+      "publishedAt": "2026-10-17T12:25:48.705Z"
+    },
+    {
+      "id": "korean-story:002",
+      "language": "ko",
+      "title": "Korean Story Camp · 002",
+      "href": "K-korean-story-camp.html",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Rebuild and retell an original Korean story with English guidance.",
+      "publishedAt": "2026-10-17T12:25:48.705Z"
+    },
+    {
       "id": "japanese-vocal:001",
       "language": "ja",
       "title": "Japanese Vocal Camp · 001",

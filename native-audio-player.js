@@ -118,7 +118,7 @@ var native=window.TalkTagNative;
     audio.addEventListener("timeupdate",updateDrillStatus);
     audio.addEventListener("seeked",updateDrillStatus);
     updateDrillStatus();
-    if (!legacyPlayback && (!expectsNativeVariants || guidedVariants)) pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: document.querySelector('#progress'), readState: readState, saveState: saveState, playButton: playButton, english: native.ui === 'en' });
+    if (!legacyPlayback && (!expectsNativeVariants || guidedVariants)) pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: native.language === 'ko' ? document.querySelector('.transport') : document.querySelector('#progress'), readState: readState, saveState: saveState, playButton: playButton, english: native.ui === 'en' });
   }
   if (!guidedVariants) audio.src = legacyPlayback && lesson.legacyAudio ? lesson.legacyAudio : lesson.audio;
   appendList("scriptList", lesson.expressions);
