@@ -183,14 +183,12 @@ async function worker() {
     if (mode === '--upload') {
       const existing = await head(record, true);
       if (existing.status === 200) {
-        const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'talktag-native-existing-'));
-        try {
-          const remote = path.join(scratch, 'object.mp3');
-          await run(['r2', 'object', 'get', `talktag-audio/${record.key}`, '--remote', '--file', remote], index);
-          if (fs.statSync(remote).size !== record.bytes || shaFile(remote) !== record.sha256) {
-            throw new Error(`Refusing to overwrite different existing object: ${record.key}`);
-          }
-        } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
+        const response = await fetch(record.url, { signal: AbortSignal.timeout(30000) });
+        const bytes = Buffer.from(await response.arrayBuffer());
+        if (response.status !== 200 || bytes.length !== record.bytes ||
+            crypto.createHash('sha256').update(bytes).digest('hex') !== record.sha256) {
+          throw new Error(`Refusing to overwrite different existing object: ${record.key}`);
+        }
       } else {
         await run(['r2', 'object', 'put', `talktag-audio/${record.key}`, '--remote', '--file', record.file,
           '--content-type', 'audio/mpeg', '--cache-control', 'public, max-age=31536000, immutable'], index);
