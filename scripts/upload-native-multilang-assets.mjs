@@ -34,6 +34,12 @@ const releases = {
     base: 'https://audio.talktag.co.kr/Korean/boot-camp/vocal-camp/segments-001-002/v2-20261017/',
     cards: 12,
   },
+  'ko-vocal-003': {
+    root: 'audio/korean/vocalcamp/segments-003',
+    manifest: 'manifest.json',
+    base: 'https://audio.talktag.co.kr/Korean/boot-camp/vocal-camp/segments-003/v1-20261017/',
+    cards: 6,
+  },
   'ja-glr': {
     root: 'audio/japanese/guided/segments-001',
     manifest: 'variants/manifest.json',
