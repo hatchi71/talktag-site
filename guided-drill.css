@@ -12,7 +12,7 @@
 .guided-pause-control p{margin:7px 0 0;color:var(--tt-muted,#596c82);font-size:12px;line-height:1.5}
 .guided-pause-control .guided-pause-pending{color:var(--tt-blue,#2368d8);font-weight:700}
 .guided-pause-pending:empty{display:none}
-html[data-appearance] body[data-audio-type] .player-card .guided-pause-control + .compact-transport{margin-top:0!important}
+html[data-appearance] body[data-audio-type] .player-card .lesson-track-nav + .guided-pause-control{margin-top:8px}
 @media(max-width:390px){.guided-pause-control{padding:10px 12px}}
 .segment-fallback{margin:12px 0;padding:12px 14px;border:1px solid #d7a86e;border-radius:12px;background:#fff7e9;color:var(--tt-text,#183455);font-size:14px;line-height:1.5}
 .segment-fallback a{color:var(--tt-blue,#2368d8);font-weight:800;text-decoration:underline}

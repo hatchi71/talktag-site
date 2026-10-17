@@ -99,7 +99,7 @@
     audio.addEventListener("timeupdate",updateDrillStatus);
     audio.addEventListener("seeked",updateDrillStatus);
     updateDrillStatus();
-    pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: document.querySelector('#progress'), readState: readState, saveState: saveState, playButton: playButton });
+    pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: document.querySelector('.lesson-track-nav'), readState: readState, saveState: saveState, playButton: playButton });
   }
   if (!audio.segmented) audio.src = lesson.audio;
   appendList("scriptList", lesson.expressions, lesson.speakers);
