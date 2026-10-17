@@ -4,7 +4,8 @@
   try{
    const response=await fetch('/home-news-feed.json',{cache:'no-store'});if(!response.ok)return;
    const feed=await response.json();
-   const items=feed.items.filter(x=>x.href&&!x.href.includes('://')).slice(0,1);
+   const language=board.dataset.newsLanguage||'en';
+   const items=feed.items.filter(x=>x.language===language&&x.href&&!x.href.includes('://')).slice(0,1);
    if(items.length!==1)return;
    const cards=[...board.querySelectorAll('.tt-news')];
    board.setAttribute('aria-label','TalkTag 게시판');
