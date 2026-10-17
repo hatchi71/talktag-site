@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261017-vocal-cumulative-v2';
+const CACHE_VERSION = 'talktag-pwa-20261017-merged-introduction-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
