@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261017-merged-introduction-v1';
+const CACHE_VERSION = 'talktag-pwa-20261017-glr-003-010-pause-v1';
 const APP_SHELL = [
   '/',
   '/index.html',

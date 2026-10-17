@@ -1,14 +1,16 @@
-/* Guided L&R 001/002: line-sourced, precisely timed native-audio playback. */
+/* Guided L&R: precisely timed native-audio playback with selectable speaking gaps. */
 (() => {
   'use strict';
 
-  const SEGMENTED_EPISODES = /^guided-(?:a1|a2|b1|b2|c1|c2)-0[12]$/;
+  const SEGMENTED_EPISODES = /^guided-(?:a1|a2|b1|b2|c1|c2)-(?:0[1-7]|(?:08|09|10)-miniskit(?:-pilot)?(?:-part[1-3])?)$/;
   const RATIOS = [2, 2.5, 3, 3.5];
+  const playbackUrl = url => url.includes('/segments-003-010/') ? url + '&release=20261017' : url;
 
   function manifestFor(id) {
-    const episode = id?.match(/-0([12])$/)?.[1];
-    return episode === '1' ? window.TalkTagGuided001Variants :
-      episode === '2' ? window.TalkTagGuided002Variants : null;
+    const episode = id?.match(/-(0[1-7]|08|09|10)(?:-miniskit.*)?$/)?.[1];
+    return episode === '01' ? window.TalkTagGuided001Variants :
+      episode === '02' ? window.TalkTagGuided002Variants :
+      episode ? window.TalkTagGuided003010Variants : null;
   }
 
   function storedRatio(id) {
@@ -146,7 +148,7 @@
         audio.pause();
         currentVariant = nextVariant;
         useCues(nextVariant);
-        audio.src = nextVariant.audio;
+        audio.src = playbackUrl(nextVariant.audio);
         audio.load();
         notice(ratio.toFixed(1) + '배 말하기 간격을 적용하는 중…');
         audio.addEventListener('loadedmetadata', function onLoaded() {
@@ -176,7 +178,7 @@
       Object.defineProperty(audio, 'segmentRatio', { configurable: true, get: () => Number(currentVariant.ratio) });
       audio.dataset.segmentedAudio = 'true';
       document.body.dataset.segmentedAudio = 'true';
-      audio.src = currentVariant.audio;
+      audio.src = playbackUrl(currentVariant.audio);
       audio.preload = 'metadata';
       audio.migrateSavedPosition = state => {
         const old = Number(state.position || 0);

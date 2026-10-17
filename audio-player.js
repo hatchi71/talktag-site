@@ -24,7 +24,7 @@
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace("audio-library.html?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
   var audio = window.TalkTagSegmented001?.forLesson(lesson) || audioElement;
-  var isSegmentedEpisode = /^guided-(?:a1|a2|b1|b2|c1|c2)-0[12]$/.test(lesson.id);
+  var isSegmentedEpisode = /^guided-(?:a1|a2|b1|b2|c1|c2)-(?:0[1-7]|(?:08|09|10)-miniskit(?:-pilot)?(?:-part[1-3])?)$/.test(lesson.id);
   var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type; });
   var lessonIndex = lessons.findIndex(function (item) { return item.id === lesson.id; });
   var previousLesson = lessons[lessonIndex - 1] || null;
