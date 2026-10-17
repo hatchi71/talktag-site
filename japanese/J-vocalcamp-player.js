@@ -57,7 +57,7 @@
     <div class="pilot-track" aria-hidden="true"><span id="progressBar"></span></div>
     <section id="cardDeck">
       <article class="pilot-card" data-card="0"><p class="card-label">1 · SOUND</p><h2>소리부터 이야기까지</h2><p class="card-guide">두 화자의 대화를 한 줄씩 더하며 듣고 따라 말해 보세요. 각 단계는 앞의 모든 대사를 포함합니다.</p>
-        <div class="vocal-pause-control"><label for="vocalPauseRange">말하기 간격 <output id="vocalPauseValue"></output></label><input id="vocalPauseRange" type="range" min="0" max="3" step="1" aria-label="말하기 간격: 음성 길이의 2배, 2.5배, 3배, 3.5배"><div class="vocal-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><small>매 대사 뒤 최소 3초. 원어민 음성 속도는 바뀌지 않습니다.</small></div>
+        <div class="vocal-pause-control"><label for="vocalPauseRange">말하기 간격 <output id="vocalPauseValue"></output></label><input id="vocalPauseRange" type="range" min="0" max="3" step="1" aria-label="말하기 간격: 음성 길이의 2배, 2.5배, 3배, 3.5배"><div class="vocal-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><small>누적 대화 전체가 끝난 뒤 최소 3초. 원어민 음성 속도는 바뀌지 않습니다.</small></div>
         <div class="sound-ladder" id="soundLadder">${lesson.lines.map((line, index) => `<button class="sound-step" type="button" data-step="${index}" aria-label="${index + 1}단계, ${index + 1}개 대사 누적 재생"><span class="sound-shape" aria-hidden="true">${Array.from({length:index + 1}, () => '<i></i>').join('')}</span><strong>${index ? `1–${index + 1} 누적` : '첫 대사'}</strong><small><b data-count="${index}">0</b> / ${REPEATS}회</small><em>▶</em></button>`).join('')}</div>
         <p class="sound-note" id="soundStatus" role="status" aria-live="polite">첫 소리 버튼을 누르면 누적 연습이 시작됩니다.</p>
       </article>
@@ -118,14 +118,14 @@
       if (token !== runToken) return;
       const cue = variant.cues.find(item => item.start <= player.currentTime && player.currentTime < item.pauseEnd);
       if (!cue) return;
-      const waiting = player.currentTime >= cue.voiceEnd;
+      const waiting = cue === variant.cues.at(-1) && player.currentTime >= cue.voiceEnd;
       const nextPhase = `${cue.lineId}:${waiting}`;
       if (nextPhase === phase) return;
       phase = nextPhase;
       button.classList.toggle('is-waiting', waiting);
       button.classList.toggle('is-playing', !waiting);
       soundStatus.textContent = waiting
-        ? `PAUSE · 들은 대사를 직접 말해 보세요. ${Math.max(0, Math.ceil(cue.pauseEnd - player.currentTime))}초`
+        ? `PAUSE · 방금 들은 누적 대화 전체를 말해 보세요. ${Math.max(0, Math.ceil(cue.pauseEnd - player.currentTime))}초`
         : `${cue.speaker === 'Mina' ? '미나' : '유우'} · ${index + 1}단계 · ${state.counts[index] + 1}/${REPEATS}회`;
     };
     player.onended = () => {

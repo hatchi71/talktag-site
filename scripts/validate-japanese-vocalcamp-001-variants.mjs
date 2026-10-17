@@ -68,7 +68,7 @@ vm.runInNewContext(fs.readFileSync(path.join(repo, 'japanese/J-vocalcamp-furigan
 if (JSON.stringify(jsContext.window.TalkTagJapaneseVocal001Variants) !== JSON.stringify(manifest))
   fail('JavaScript and JSON manifests differ');
 if (manifest.version !== 1 || manifest.cards.length !== 6 ||
-    manifest.releaseBase !== 'https://audio.talktag.co.kr/Japanese/boot-camp/vocal-camp/segments-001/v1-20261016/' ||
+    manifest.releaseBase !== 'https://audio.talktag.co.kr/Japanese/boot-camp/vocal-camp/segments-001/v2-20261017/' ||
     JSON.stringify(manifest.ratios) !== JSON.stringify([2, 2.5, 3, 3.5]) ||
     manifest.minimumPauseSeconds !== 3)
   fail('Expected six cards and four pause ratios');
@@ -126,7 +126,7 @@ for (const card of manifest.cards) {
           fail(`${label}: decoded speech not aligned to cue ${n + 1}`);
           continue;
         }
-        const target = Math.max(3, card.lines[n].speechSeconds * variant.ratio);
+        const target = next ? .35 : Math.max(3, (cue.voiceEnd - variant.cues[0].start) * variant.ratio);
         if (next) {
           const nextAudible = energetic(rms, Math.max(0, next.start - .12),
             Math.min(duration, next.voiceEnd + .3));

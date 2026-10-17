@@ -81,7 +81,7 @@ for(const card of manifest.cards){
           fail(`${label}: decoded speech misaligned at ${n+1}`);continue;
         }
         const speech=card.lines[n].speechSeconds;
-        const target=Math.max(3,speech*variant.ratio);
+        const target=next?.35:Math.max(3,(cue.voiceEnd-variant.cues[0].s)*variant.ratio);
         if(next){
           const nextAudible=energetic(rms,Math.max(0,next.s-.12),Math.min(duration,next.voiceEnd+.3));
           if(!nextAudible){fail(`${label}: next voice missing at ${n+1}`);continue;}

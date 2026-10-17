@@ -10,6 +10,12 @@ import { fileURLToPath } from 'node:url';
 
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const releases = {
+  'en-vocal': {
+    root: 'audio/vocalcamp/segments-001-002',
+    manifest: 'manifest.json',
+    base: 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/segments-001-002/v2-20261017/',
+    cards: 12,
+  },
   'ko-glr': {
     root: 'audio/korean/guided/segments-001-002',
     manifest: 'manifest.json',
@@ -25,7 +31,7 @@ const releases = {
   'ko-vocal': {
     root: 'audio/korean/vocalcamp/segments-001-002',
     manifest: 'manifest.json',
-    base: 'https://audio.talktag.co.kr/Korean/boot-camp/vocal-camp/segments-001-002/v1-20261016/',
+    base: 'https://audio.talktag.co.kr/Korean/boot-camp/vocal-camp/segments-001-002/v2-20261017/',
     cards: 12,
   },
   'ja-glr': {
@@ -37,7 +43,7 @@ const releases = {
   'ja-vocal': {
     root: 'audio/japanese/vocalcamp/segments-001',
     manifest: 'manifest.json',
-    base: 'https://audio.talktag.co.kr/Japanese/boot-camp/vocal-camp/segments-001/v1-20261016/',
+    base: 'https://audio.talktag.co.kr/Japanese/boot-camp/vocal-camp/segments-001/v2-20261017/',
     cards: 6,
   },
 };

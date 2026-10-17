@@ -11,7 +11,7 @@ import {fileURLToPath} from 'node:url';
 
 const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const outputRoot=path.join(repo,'audio/korean/vocalcamp/segments-001-002');
-const releaseBase='https://audio.talktag.co.kr/Korean/boot-camp/vocal-camp/segments-001-002/v1-20261016/';
+const releaseBase='https://audio.talktag.co.kr/Korean/boot-camp/vocal-camp/segments-001-002/v2-20261017/';
 const rate=48000,ratios=[2,2.5,3,3.5],silence=Buffer.alloc(rate*2);
 const count=pcm=>pcm.length/2;
 const sec=samples=>Number((samples/rate).toFixed(6));
@@ -96,8 +96,8 @@ for(const family of catalog())for(const level of ['A1','A2','B1','B2','C1','C2']
         for(let i=0;i<k;i++){
           const line=lines[i],voiceStart=cursor+line.voiceStart,voiceEnd=cursor+line.voiceEnd;
           fs.writeSync(fd,line.pcm);cursor+=line.samples;
-          const target=Math.max(3*rate,Math.round((line.voiceEnd-line.voiceStart)*ratio));
           const nextLead=i+1<k?lines[i+1].voiceStart:0;
+          const target=i+1<k?Math.max(Math.round(.35*rate),line.samples-line.voiceEnd+nextLead):Math.max(3*rate,Math.round((voiceEnd-lines[0].voiceStart)*ratio));
           const gap=target-(line.samples-line.voiceEnd)-nextLead;
           writeSilence(fd,gap);cursor+=gap;
           cues.push({i,s:sec(voiceStart),voiceEnd:sec(voiceEnd),e:sec(cursor)});

@@ -12,7 +12,7 @@ const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = JSON.parse(fs.readFileSync(path.join(repo, 'content/vocalcamp-japanese-001-source.json'), 'utf8'));
 const outputRoot = path.join(repo, 'audio/japanese/vocalcamp/segments-001');
 const localBase = '/audio/japanese/vocalcamp/segments-001/';
-const r2Base = 'Japanese/boot-camp/vocal-camp/segments-001/v1-20261016/';
+const r2Base = 'Japanese/boot-camp/vocal-camp/segments-001/v2-20261017/';
 const releaseBase = `https://audio.talktag.co.kr/${r2Base}`;
 const rate = 48000;
 const ratios = [2, 2.5, 3, 3.5];
@@ -118,8 +118,8 @@ for (const level of levels) {
           const voiceStart = cursor + line.voiceStart, voiceEnd = cursor + line.voiceEnd;
           fs.writeSync(fd, line.pcm);
           cursor += line.samples;
-          const target = Math.max(3 * rate, Math.round((line.voiceEnd - line.voiceStart) * ratio));
           const nextLead = i + 1 < k ? lines[i + 1].voiceStart : 0;
+          const target = i + 1 < k ? Math.max(Math.round(.35 * rate), line.samples - line.voiceEnd + nextLead) : Math.max(3 * rate, Math.round((voiceEnd - lines[0].voiceStart) * ratio));
           const gap = target - (line.samples - line.voiceEnd) - nextLead;
           writeSilence(fd, gap);
           cursor += gap;

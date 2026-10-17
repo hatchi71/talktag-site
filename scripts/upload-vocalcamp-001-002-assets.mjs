@@ -11,8 +11,8 @@ import { fileURLToPath } from 'node:url';
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.join(repo, 'audio/vocalcamp/segments-001-002');
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
-const base = 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/segments-001-002/v1-20261016/';
-const prefix = 'English/boot-camp/vocal-camp/segments-001-002/v1-20261016/';
+const base = 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/segments-001-002/v2-20261017/';
+const prefix = 'English/boot-camp/vocal-camp/segments-001-002/v2-20261017/';
 const mode = process.argv[2] || '--dry-run';
 if (!['--dry-run', '--upload', '--verify-only'].includes(mode) || process.argv.length > 3) {
   throw new Error('Usage: node scripts/upload-vocalcamp-001-002-assets.mjs [--dry-run|--upload|--verify-only]');

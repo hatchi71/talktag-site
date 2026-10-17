@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = path.join(repo, 'audio/vocalcamp/segments-001-002');
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8'));
-const releaseBase = 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/segments-001-002/v1-20261016/';
+const releaseBase = 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/segments-001-002/v2-20261017/';
 const rate = 48000;
 const frame = 480;
 let files = 0;
@@ -79,7 +79,7 @@ for (const card of manifest.cards) {
         if (Math.abs(audible.start - cue.s) > 0.11 || Math.abs(audible.end - cue.voiceEnd) > 0.11) fail(`Speech alignment ${card.id} step ${step.step} line ${i + 1}`);
         const next = variant.cues[i + 1];
         const nextStart = next ? active(pcm, next.s - 0.08, next.voiceEnd + 0.08).start : duration;
-        const target = Math.max(3, (cue.voiceEnd - cue.s) * variant.ratio);
+        const target = next ? .35 : Math.max(3, (cue.voiceEnd - variant.cues[0].s) * variant.ratio);
         const actual = nextStart - audible.end;
         const error = actual - target;
         worstError = Math.max(worstError, Math.abs(error));

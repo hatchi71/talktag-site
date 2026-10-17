@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceRoot = process.env.VOCAL_SOURCE_DIR || '/tmp/talktag-vocalcamp-001-002-sources';
 const outputRoot = path.join(repo, 'audio/vocalcamp/segments-001-002');
-const releaseBase = 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/segments-001-002/v1-20261016/';
+const releaseBase = 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/segments-001-002/v2-20261017/';
 const rate = 48000;
 const frame = 480;
 const ratios = [2, 2.5, 3, 3.5];
@@ -56,7 +56,7 @@ function encodePcm(pcm, output) {
     const raw = path.join(scratch, 'source.pcm');
     fs.writeFileSync(raw, pcm);
     fs.mkdirSync(path.dirname(output), { recursive: true });
-    run('ffmpeg', ['-v', 'error', '-nostdin', '-f', 's16le', '-ar', String(rate), '-ac', '1', '-i', raw,
+    run('ffmpeg', ['-y', '-v', 'error', '-nostdin', '-f', 's16le', '-ar', String(rate), '-ac', '1', '-i', raw,
       '-map_metadata', '-1', '-id3v2_version', '3', '-codec:a', 'libmp3lame', '-q:a', '4', output]);
   } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
 }
@@ -69,7 +69,7 @@ function encodeAssembly(chunks, output) {
       for (const item of chunks) item.kind === 'speech' ? fs.writeSync(fd, item.pcm) : writeSilence(fd, item.samples);
     } finally { fs.closeSync(fd); }
     fs.mkdirSync(path.dirname(output), { recursive: true });
-    run('ffmpeg', ['-v', 'error', '-nostdin', '-f', 's16le', '-ar', String(rate), '-ac', '1', '-i', raw,
+    run('ffmpeg', ['-y', '-v', 'error', '-nostdin', '-f', 's16le', '-ar', String(rate), '-ac', '1', '-i', raw,
       '-map_metadata', '-1', '-id3v2_version', '3', '-codec:a', 'libmp3lame', '-q:a', '4', output]);
   } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
 }
@@ -138,8 +138,9 @@ for (const episode of ['001', '002']) {
           const voiceEnd = cursor + line.end;
           parts.push({ kind: 'speech', pcm: line.pcm });
           cursor += line.samples;
-          const target = Math.max(3 * rate, Math.round((line.end - line.start) * ratio));
           const nextLead = i + 1 < k ? lines[i + 1].start : 0;
+          const firstStart = lines[0].start;
+          const target = i + 1 < k ? Math.max(Math.round(.35 * rate), line.samples - line.end + nextLead) : Math.max(3 * rate, Math.round((voiceEnd - firstStart) * ratio));
           const gap = target - (line.samples - line.end) - nextLead;
           if (gap < 0) throw new Error(`${episode}/${level} step ${k} line ${i + 1}: negative pause`);
           parts.push({ kind: 'silence', samples: gap });
