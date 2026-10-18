@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261018-korean-readable-levels-v1';
+const CACHE_VERSION = 'talktag-pwa-20261018-korean-readable-cache-fix-v1';
 const APP_SHELL = [
   '/',
   '/index.html',

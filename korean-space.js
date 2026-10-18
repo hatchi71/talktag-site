@@ -44,7 +44,11 @@
   return;
  }
  const params=new URLSearchParams(location.search),lesson=lessons.find(x=>x.id===params.get('id')),mode=['story','read'].includes(params.get('type'))?params.get('type'):'practice';
- if(params.get('type')==='read'&&!lesson){location.replace('K-korean-readable.html'+location.hash);return}
+ if(params.get('type')==='read'&&!lesson){
+  document.title='Korean Readable has moved · TalkTag';
+  document.getElementById('kr-studio').innerHTML='<div class="kr-kicker">KOREAN · READABLE</div><h1>Readable has moved.</h1><p>The old starter collection is no longer the Korean Readable library.</p><a class="kr-button" href="K-korean-readable.html?edition=levels-20261018">View Korean Readable levels →</a>';
+  return;
+ }
  const studio=document.getElementById('kr-studio'),host=document.getElementById('kr-lesson');
  document.getElementById('kr-back').href='K-korean-learning.html';document.getElementById('kr-back').textContent='← Studio';
  const track=params.get('type');

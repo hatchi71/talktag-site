@@ -91,7 +91,7 @@
         const family=/^\d{3}$/.test(params.get('family')||'')?params.get('family'):'001';
         const level=/^(A1|A2|B1|B2|C1|C2)$/.test(params.get('level')||'')?params.get('level'):'A1';
         if(koreanCampLanding)return '/K-korean-learning.html#boot-camp';
-        if(file==='K-korean-readable-level.html')return '/K-korean-readable.html';
+        if(file==='K-korean-readable-level.html')return '/K-korean-readable.html?edition=levels-20261018';
         if(file==='K-korean-readable.html')return '/K-korean-learning.html';
         if(/^\/K-korean(?:[/.\-])/.test(path))return '/K-korean.html';
         if(japanese){
