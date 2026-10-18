@@ -143,7 +143,7 @@
         allCompleted.hidden = false;
         allCompleted.innerHTML = `<h2>${words.shelf} · ${count}</h2><p>${english ? 'Finished cards are collected by level. Open a bin to revisit a lesson or undo completion.' : '완료한 카드를 레벨별로 모았습니다. 다시 열거나 완료를 취소할 수 있습니다.'}</p><div class="camp-completed-bins">${LEVELS.map(l => { const items = families.filter(f => familyLevels(f).includes(l) && window.TalkTagCampProgress?.done(progressCamp, l, f.number)); return `<details class="camp-completed camp-completed-bin" data-level="${l}"${items.length && priorBins.get(l) !== false ? ' open' : ''}><summary><span>${l}</span><span class="camp-shelf-count">${items.length}</span></summary><div class="camp-completed-list">${items.map(f => card(f, true, l)).join('') || `<p>${words.emptyShelf}</p>`}</div></details>`; }).join('')}</div>`;
       }
-      const available = families.filter(f => familyLevels(f).includes(level)), filtered = available.filter(f => !term || `${f.number} ${f.title}`.toLowerCase().includes(term)), active = filtered.filter(f => !done(f)), completed = filtered.filter(done), totalDone = available.filter(done).length;
+      const available = families.filter(f => familyLevels(f).includes(level)), filtered = available.filter(f => !term || `${f.number} ${f.title}`.toLowerCase().includes(term)), active = filtered.filter(f => !done(f)), completed = available.filter(done), totalDone = completed.length;
       const pages = Math.max(1, Math.ceil(active.length / PAGE_SIZE)); page = Math.max(1, Math.min(page, pages));
       host.querySelector('#campEpisodeHeading').textContent = `${level} · ${title}`;
       host.querySelector('#campProgress').textContent = available.length ? `${totalDone} / ${available.length} ${words.completed}` : words.pending;
@@ -162,7 +162,7 @@
         shelf.dataset.currentLevel = level;
       }
       shelf.querySelector('.camp-shelf-count').textContent = totalDone;
-      shelf.querySelector('.camp-completed-list').innerHTML = completed.map(f => card(f, true)).join('') || `<p>${term ? words.noMatch : words.emptyShelf}</p>`;
+      shelf.querySelector('.camp-completed-list').innerHTML = completed.map(f => card(f, true)).join('') || `<p>${words.emptyShelf}</p>`;
       renderStarters();
     }
     function select(next, updateHistory = true) {
