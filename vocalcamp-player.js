@@ -38,7 +38,7 @@
     pause:'Repeat the entire passage you just heard.'
   } : {
     soundLabel:'1 · SOUND', soundTitle:'소리가 조금씩 자랍니다', soundGuide:'원어민의 음성을 듣고 따라하세요, 한 문장씩 소리가 자라납니다. 이야기의 끝까지 따라가 보세요!', soundStart:'Press the first sound to begin cumulative practice.', one:'One sentence', cumulative:'Cumulative', reps:'reps',
-    writeLabel:'2 · SAY & WRITE', writeTitle:'이제 휴대폰을 내려놓으세요', writeGuide:'Say what you just heard from the beginning, then write what you remember in your notes.', writeHint:'Open the reference only when you need it.',
+    writeLabel:'2 · SAY & WRITE', writeTitle:'이제 휴대폰을 내려놓으세요', writeGuide:'지금까지 따라했던 전체 스토리를 파트너에게 다시 이야기 하거나, 노트에 적어 봅니다.', writeHint:'Open the reference only when you need it.',
     storyLabel:'3 · MY STORY', storyTitle:'같은 흐름을 나의 이야기로', storyGuide:'방금 익힌 사건의 흐름을 유지하면서 인물, 장소, 선택과 결과를 자신의 실제 경험으로 바꾸어 봅니다.', storyText:'나의 이야기로 다시 말하고 노트에 간단히 정리합니다.',
     shareLabel:'4 · SHARE', shareTitle:'파트너에게 이야기해 주세요', shareGuide:'노트도 휴대폰도 보지 않습니다. 새로 만든 나의 이야기를 실제 사람에게 자연스럽게 전달합니다.', shareText:'설명하려 하지 말고, 그 상황에서 정말 하듯 이야기하세요.', win:'소리에서 시작해 나의 실제 이야기로 끝냈습니다.',
     pause:'방금 들은 누적 문장 전체를 말해 보세요.'
@@ -54,13 +54,13 @@
       label: copy.writeLabel,
       title: copy.writeTitle,
       guide: copy.writeGuide,
-      body: `<div class="offline-card"><span aria-hidden="true">✦</span><p>Speak first,<br>then write it down.</p><small>${copy.writeHint}</small></div><div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">${scriptLanguage} · ${scriptName}</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">${meaningLanguage} · ${meaningName}</button></div><section class="reference-panel" lang="${scriptLang}" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel${meaningLang === 'ko' ? ' camp-kr-panel' : ''}" lang="${meaningLang}" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
+      body: `${koreanLearning ? `<div class="offline-card"><span aria-hidden="true">✦</span><p>Speak first,<br>then write it down.</p><small>${copy.writeHint}</small></div>` : ''}<div class="reference-actions"><button class="action reference-button" type="button" data-reference="script" aria-expanded="false">${scriptLanguage} · ${scriptName}</button><button class="action reference-button" type="button" data-reference="meaning" aria-expanded="false">${meaningLanguage} · ${meaningName}</button></div><section class="reference-panel" lang="${scriptLang}" id="scriptPanel" hidden><p class="reference-label">SCRIPT</p>${unit.fullText.map(line=>`<p>${esc(line)}</p>`).join('')}</section><section class="reference-panel${meaningLang === 'ko' ? ' camp-kr-panel' : ''}" lang="${meaningLang}" id="meaningPanel" hidden><p class="reference-label">MEANING &amp; NOTE</p>${unit.translation.map(line=>`<p>${esc(line)}</p>`).join('')}<div class="reference-note">${esc(unit.note)}</div></section>`
     },
     {
       label: copy.storyLabel,
       title: copy.storyTitle,
       guide: copy.storyGuide,
-      body: `<div class="flow-cues" aria-label="${koreanLearning ? 'My story flow' : '내 이야기 흐름'}">${unit.storyFlow.map((cue,index)=>`${index?'<i>→</i>':''}<span>${esc(cue)}</span>`).join('')}</div><div class="offline-card warm"><span aria-hidden="true">↗</span><p>${copy.storyText}</p></div>`
+      body: `${koreanLearning ? `<div class="flow-cues" aria-label="My story flow">${unit.storyFlow.map((cue,index)=>`${index?'<i>→</i>':''}<span>${esc(cue)}</span>`).join('')}</div>` : ''}<div class="offline-card warm"><span aria-hidden="true">↗</span><p>${copy.storyText}</p></div>`
     },
     {
       label: copy.shareLabel,
