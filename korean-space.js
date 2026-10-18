@@ -21,6 +21,18 @@
    document.getElementById('kr-home').hidden=true;other.hidden=false;
    if(view==='myspace')other.innerHTML=records();
    if(view==='talktag')other.innerHTML=`<div id="talktag" class="kr-talktag-notice"><div class="kr-kicker">TALK &amp; TAG</div><h1>Talk &amp; Tag</h1><p>Find a meet-up. Join the conversation. Meet in real life.</p><div class="meetup-board">
+<article class="kr-starter-notice" aria-labelledby="kr-starter-title">
+  <div class="kr-kicker">FREE KOREAN STARTER SESSIONS</div>
+  <h2 id="kr-starter-title">Learn Korean together in Uijeongbu.</h2>
+  <p>Beginner-friendly practice with a native Korean instructor.</p>
+  <div class="kr-starter-times" aria-label="Korean class times">
+    <div><span>Saturday</span><strong><time datetime="16:00">4:00 p.m.</time></strong><small>Uijeongbu</small></div>
+    <div><span>Sunday</span><strong><time datetime="14:00">2:00 p.m.</time></strong><small>Uijeongbu</small></div>
+  </div>
+  <p class="kr-starter-detail">Ask about the next session and exact meeting place in the Kakao chat room.</p>
+  <a class="kr-button kr-primary" href="https://open.kakao.com/o/gyZiY3Hi" target="_blank" rel="noopener noreferrer" aria-label="Ask about Korean Starter Sessions in the Kakao chat room (opens in a new tab)">Ask in Kakao chat ↗</a>
+</article>
+<div class="kr-separate-notice">Separate English training notice</div>
 <article class="meetup-card tt-first-meetup" lang="en" aria-labelledby="kr-first-meetup-title">
   <div class="tt-meetup-kicker"><span>FIRST MEET-UP</span><span>Four-week program</span></div>
   <div class="tt-meetup-free">Free class</div><span class="tt-meetup-capacity">Capacity: 8</span>
