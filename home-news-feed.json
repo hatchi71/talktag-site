@@ -2,6 +2,22 @@
   "version": 1,
   "items": [
     {
+      "id": "native:ko:guided:003",
+      "language": "ko",
+      "title": "Korean Guided L&R · 003",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-18T10:39:23.139Z"
+    },
+    {
       "id": "korean-vocal:003",
       "language": "ko",
       "title": "Korean Vocal Camp · 003",
@@ -78,7 +94,7 @@
         "C1",
         "C2"
       ],
-      "description": "Listen, summarise, and retell an original audio essay.",
+      "description": "Listen, summarize, and retell an original audio essay.",
       "publishedAt": "2026-10-15T01:52:39.044Z"
     },
     {
@@ -126,7 +142,7 @@
         "C1",
         "C2"
       ],
-      "description": "Korean의 새 일상 표현을 듣고 따라 말해 보세요.",
+      "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-13T20:44:34+09:00"
     },
     {
@@ -191,7 +207,7 @@
         "C1",
         "C2"
       ],
-      "description": "Korean의 새 일상 표현을 듣고 따라 말해 보세요.",
+      "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-11T17:23:08+09:00"
     },
     {
@@ -207,7 +223,7 @@
         "C1",
         "C2"
       ],
-      "description": "Japanese의 새 일상 표현을 듣고 따라 말해 보세요.",
+      "description": "일본어의 새 일상 표현을 듣고 따라 말해 보세요.",
       "publishedAt": "2026-10-11T17:23:08+09:00"
     },
     {

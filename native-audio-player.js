@@ -46,7 +46,7 @@ var native=window.TalkTagNative;
   var pauseControl = null;
   var guidedVariants = window.TalkTagNativeGuidedVariants?.forLesson(lesson, native, audio, readState, saveState) || null;
   var expectsNativeVariants = lesson.type === "guided" &&
-    ((native.language === "ko" && [1, 2].includes(Number(lesson.unit))) ||
+    ((native.language === "ko" && [1, 2, 3].includes(Number(lesson.unit))) ||
       (native.language === "ja" && Number(lesson.unit) === 1));
   if (expectsNativeVariants && !legacyPlayback && !guidedVariants &&
       !document.getElementById("nativeVariantFallback")) {

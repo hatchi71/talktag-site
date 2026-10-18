@@ -24,9 +24,11 @@ for (const [language, file, globalName] of [
   if (!fs.existsSync(path.join(repo, file))) continue;
   if (language === 'ko') {
     load('native-guided-ko-002.js');
+    load('native-guided-ko-003.js');
     load('native-guided-ko-splits.js');
   }
   load(file);
+  if (language === 'ko') load('native-guided-ko-003-variants.js');
   const manifest = window[globalName];
   assert.ok(manifest?.cards?.length, `${language}: manifest missing cards`);
   for (const card of manifest.cards) {

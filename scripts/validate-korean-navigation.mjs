@@ -8,7 +8,7 @@ const read = path => fs.readFileSync(path, 'utf8');
 const native = { language: 'ko', ui: 'en', libraryPage: 'K-korean-audio-library.html', studioPage: 'K-korean-learning.html' };
 const catalogContext = { window: { TalkTagNative: native } };
 vm.createContext(catalogContext);
-for (const file of ['native-guided-data.js', 'native-guided-ko-002.js', 'native-guided-ko-splits.js', 'native-audio-korean-aea-001.js', 'native-audio-catalog.js']) {
+for (const file of ['native-guided-data.js', 'native-guided-ko-002.js', 'native-guided-ko-003.js', 'native-guided-ko-splits.js', 'native-audio-korean-aea-001.js', 'native-audio-catalog.js']) {
   vm.runInContext(read(file), catalogContext, { filename: file });
 }
 const lessons = catalogContext.window.TalkTagAudioLessons.filter(lesson => lesson.available !== false);

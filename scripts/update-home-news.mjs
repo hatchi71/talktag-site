@@ -26,11 +26,11 @@ function catalog(read){
  const japaneseVocal=read('content/vocalcamp-japanese-001.js');
  if(japaneseVocal)vm.runInContext(japaneseVocal,c,{timeout:1000});
  for(const f of (c.window.TALKTAG_VOCALCAMP_JAPANESE?.families||[]).filter(f=>f.status==='published'&&f.audioStatus==='ready'))groups.set('japanese-vocal:'+f.number,{id:'japanese-vocal:'+f.number,language:'ja',title:'Japanese Vocal Camp · '+f.number,href:'japanese/J-vocal-camp.html',levels:f.levels,description:'일본어 대화를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.'});
- for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-audio-korean-aea-001.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
+ for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-audio-korean-aea-001.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
  for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs||{}))for(const lesson of lessons){
   if(!lesson.available||!lesson.audio)continue;
   const number=String(lesson.unit||1).padStart(3,'0'),track=lesson.type==='plain'?'Audio Essays & Articles':'Guided L&R',id='native:'+language+':'+lesson.type+':'+number,name=language==='ko'?'Korean':'Japanese';
-  if(!groups.has(id))groups.set(id,{id,language,title:name+' '+track+' · '+number,href:language==='ko'?`K-korean-audio-library.html?type=${lesson.type}`:'japanese/J-guided.html?type=guided',levels:[],description:lesson.type==='plain'?'Listen, summarise, and retell an original audio essay.':name+'의 새 일상 표현을 듣고 따라 말해 보세요.'});
+  if(!groups.has(id))groups.set(id,{id,language,title:name+' '+track+' · '+number,href:language==='ko'?`K-korean-audio-library.html?type=${lesson.type}`:'japanese/J-guided.html?type=guided',levels:[],description:lesson.type==='plain'?'Listen, summarize, and retell an original audio essay.':language==='ko'?'Practice everyday Korean expressions, one line at a time.':'일본어의 새 일상 표현을 듣고 따라 말해 보세요.'});
   const group=groups.get(id);if(!group.levels.includes(lesson.level))group.levels.push(lesson.level);
  }
  return [...groups.values()];
