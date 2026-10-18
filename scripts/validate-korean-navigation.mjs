@@ -54,9 +54,14 @@ for (const file of ['K-korean-audio-library.html', 'K-korean-audio-player.html']
 assert.match(read('K-korean-audio-essays.html'), /searchParams\.set\('type','plain'\)/, 'Essay entrance must preserve the plain collection');
 assert.match(read('native-audio-player.js'), /location\.replace\(native\.libraryPage \+ "\?type=guided&level="/, 'Retired Korean audio routes must stay in the Korean library');
 for (const camp of ['story', 'vocal']) {
-  assert.match(read(`K-korean-${camp}-camp.html`), /K-korean-learning\.html#boot-camp/, 'Korean camp must return to Korean Studio');
+  const html = read(`K-korean-${camp}-camp.html`);
+  assert.match(html, /K-korean-learning\.html#boot-camp/, 'Korean camp must return to Korean Studio');
+  assert.match(html, /talktag-theme\.js\?v=20261018-korean-boot-back/, 'Korean camp must load the updated shared navigation');
   assert.match(read('bootcamp-browser.js'), /language === 'ko' \? '&lang=ko' : ''/, 'Korean camp cards must carry their language route');
 }
+const theme = read('talktag-theme.js');
+assert.match(theme, /const koreanCampLanding = \/\^\\\/K-korean-\(\?:vocal\|story\)-camp\\\.html\$\//, 'Shared navigation must recognize Korean camp landings');
+assert.match(theme, /if\(koreanCampLanding\)return '\/K-korean-learning\.html#boot-camp';\s*if\(/, 'Korean camp previous button must route to Boot Camp before the generic home rule');
 assert.match(read('storycamp-reader.html'), /back\.href=koreanStoryLanding/, 'Korean Story Camp reader must return to its own camp');
 assert.match(read('vocalcamp-player.js'), /koreanLearning\?'K-korean-vocal-camp\.html'/, 'Korean Vocal Camp player must return to its own camp');
 for (const suffix of ['library', 'player', 'essays']) {
