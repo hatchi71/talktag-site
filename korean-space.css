@@ -3,3 +3,7 @@
 .kr-card a,.kr-page footer a{min-height:44px;display:inline-flex;align-items:center}.kr-page details summary{min-height:44px;display:list-item;cursor:pointer;padding:8px 0}
 .kr-page .kr-board{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:700px){.kr-page .kr-board{grid-template-columns:1fr}}
+.kr-hero h1{font-family:Inter,system-ui,sans-serif;font-style:normal;font-weight:850;letter-spacing:-.055em}
+.kr-hero .kr-lede{max-width:36ch;font-size:clamp(18px,2.4vw,22px);line-height:1.45;color:var(--tt-muted);margin:20px 0 12px}.kr-intro-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}.kr-intro-grid p{margin:0;padding:20px;background:var(--tt-card);border:1px solid var(--tt-border);border-radius:18px}.kr-intro-grid strong{color:var(--tt-text)}.kr-intro-location{color:var(--tt-muted)}@media(max-width:700px){.kr-intro-grid{grid-template-columns:1fr}}
+.kr-audience{font-size:14px;line-height:1.5;color:var(--tt-muted);margin:0 0 20px!important}
+@media(max-width:700px){.kr-family{max-width:290px}}

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261017-pause-after-transport-v1';
+const CACHE_VERSION = 'talktag-pwa-20261018-korean-landing-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
