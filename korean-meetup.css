@@ -5,10 +5,12 @@
 .kr-starter-notice>p{color:var(--tt-muted);margin:8px 0 18px}
 .kr-starter-times{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0 12px}
 .kr-starter-times>div{display:flex;flex-direction:column;gap:3px;padding:18px;border:1px solid var(--tt-border);border-radius:18px;background:var(--tt-raised)}
-.kr-starter-times span,.kr-starter-location span{font-size:13px;font-weight:800;color:var(--tt-accent)}
+.kr-starter-times span{font-size:13px;font-weight:800;color:var(--tt-accent)}
 .kr-starter-times strong{font-size:clamp(22px,3vw,30px);line-height:1.2;color:var(--tt-text)}
-.kr-starter-location{display:flex;flex-direction:column;gap:4px;padding:18px;margin-bottom:18px;border:1px solid var(--tt-border);border-radius:18px;background:var(--tt-raised)}
-.kr-starter-location strong{font-size:18px;color:var(--tt-text)}
-.kr-starter-location small{font-size:14px;line-height:1.5;color:var(--tt-muted)}
-.kr-starter-notice .kr-button{margin-top:2px}
+.kr-starter-notice .tt-meetup-place{margin-top:20px}
+.kr-starter-notice .kr-starter-detail{margin:0 0 14px}
+.kr-starter-notice .tt-meetup-chat{margin-top:0}
+.kr-talktag-drills{max-width:880px;margin:24px auto 0;padding:clamp(22px,4vw,36px);border:1px solid var(--tt-border);border-radius:26px;background:var(--tt-card);box-shadow:0 16px 40px #1834550c}
+.kr-talktag-drills h2{margin:10px 0 12px;color:var(--tt-text)}
+.kr-talktag-drills p{margin:0 0 18px;color:var(--tt-muted);line-height:1.6}
 @media(max-width:700px){.kr-starter-notice{padding:22px 18px;border-radius:22px}.kr-starter-times{grid-template-columns:1fr}}
