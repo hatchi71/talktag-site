@@ -3,7 +3,7 @@ import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 process.chdir(fileURLToPath(new URL('../',import.meta.url)));
 // Deliberate public landing allowlist: never glob private, draft or legacy pages.
-const paths=['/','/E-english.html','/snowballing-studio.html','/story-camp.html','/vocal-camp.html','/readable.html','/test-preppers.html','/toeic/','/japanese/J-index.html','/japanese/J-vocal-camp.html','/K-korean-learning.html','/K-korean-kla.html','/K-korean-vocal-camp.html'];
+const paths=['/','/E-english.html','/snowballing-studio.html','/story-camp.html','/vocal-camp.html','/readable.html','/test-preppers.html','/toeic/','/japanese/J-index.html','/japanese/J-vocal-camp.html','/K-korean-learning.html','/K-korean-readable.html','/K-korean-kla.html','/K-korean-vocal-camp.html'];
 for(const type of ['guided','plain']){
  paths.push('/audio-library.html?type='+type);
  for(const level of ['A1','A2','B1','B2','C1','C2'])paths.push('/audio-library.html?type='+type+'&level='+level);

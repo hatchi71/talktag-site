@@ -44,6 +44,7 @@
   return;
  }
  const params=new URLSearchParams(location.search),lesson=lessons.find(x=>x.id===params.get('id')),mode=['story','read'].includes(params.get('type'))?params.get('type'):'practice';
+ if(params.get('type')==='read'&&!lesson){location.replace('K-korean-readable.html'+location.hash);return}
  const studio=document.getElementById('kr-studio'),host=document.getElementById('kr-lesson');
  document.getElementById('kr-back').href='K-korean-learning.html';document.getElementById('kr-back').textContent='← Studio';
  const track=params.get('type');

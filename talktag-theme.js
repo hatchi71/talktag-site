@@ -82,7 +82,8 @@
         [/.*/, '/', 'TalkTag 홈']
       ];
       const koreanCampLanding = /^\/K-korean-(?:vocal|story)-camp\.html$/.test(path);
-      const route = koreanCampReader ? [null, path.endsWith('/storycamp-reader.html') ? '/K-korean-story-camp.html' : '/K-korean-vocal-camp.html', path.endsWith('/storycamp-reader.html') ? 'Story Camp' : 'Vocal Camp'] : koreanCampLanding ? [null,'/K-korean-learning.html#boot-camp','Boot Camp'] : /^\/K-korean(?:[/\.\-])/.test(path) ? [null,'/K-korean.html','한국어 홈'] : routes.find(([pattern]) => pattern.test(path));
+      const koreanReadable = /^\/K-korean-readable(?:-level)?\.html$/.test(path);
+      const route = koreanCampReader ? [null, path.endsWith('/storycamp-reader.html') ? '/K-korean-story-camp.html' : '/K-korean-vocal-camp.html', path.endsWith('/storycamp-reader.html') ? 'Story Camp' : 'Vocal Camp'] : koreanCampLanding ? [null,'/K-korean-learning.html#boot-camp','Boot Camp'] : koreanReadable ? [null,'/K-korean-learning.html','Korean Studio'] : /^\/K-korean(?:[/\.\-])/.test(path) ? [null,'/K-korean.html','한국어 홈'] : routes.find(([pattern]) => pattern.test(path));
       const parentLanding = () => {
         const rawFile=path.split('/').pop()||'J-index.html';
         const file=japanese?rawFile.replace(/^J-/,''):rawFile;
@@ -90,6 +91,8 @@
         const family=/^\d{3}$/.test(params.get('family')||'')?params.get('family'):'001';
         const level=/^(A1|A2|B1|B2|C1|C2)$/.test(params.get('level')||'')?params.get('level'):'A1';
         if(koreanCampLanding)return '/K-korean-learning.html#boot-camp';
+        if(file==='K-korean-readable-level.html')return '/K-korean-readable.html';
+        if(file==='K-korean-readable.html')return '/K-korean-learning.html';
         if(/^\/K-korean(?:[/.\-])/.test(path))return '/K-korean.html';
         if(japanese){
           if(file==='jlpt-n4-audio-player.html')return '/japanese/J-jlpt-n4-listen-repeat.html';
