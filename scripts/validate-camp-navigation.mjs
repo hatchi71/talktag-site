@@ -43,7 +43,7 @@ assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v3/,'Korea
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
 for(const camp of ['vocal','story']){
   const route=fs.readFileSync(`K-korean-${camp}-camp.html`,'utf8');
-  assert.match(route,/bootcamp-browser\.js\?v=20261015-all-level-bins-v1/,'Korean Boot Camp must own the same level-first landing structure as English and Japanese');
+  assert.match(route,/bootcamp-browser\.js\?v=20261018-completed-shelf-v1/,'Korean Boot Camp must use the completed-shelf browser revision');
   assert.match(route,new RegExp(`data-camp="${camp}"`),'Korean Boot Camp landing must identify its camp for the shared browser');
   assert.doesNotMatch(route,/location\.replace/,'Korean Boot Camp must not redirect away from the level-first landing');
 }
@@ -52,6 +52,7 @@ assert.match(fs.readFileSync('japanese/J-listen-repeat.html','utf8'),/J-snowball
 assert.match(fs.readFileSync('japanese/studio-structure.js','utf8'),/Camp landings are owned by the shared level-first browser/);
 const browser=fs.readFileSync('bootcamp-browser.js','utf8');
 assert.match(browser,/camp-level-landing/,'Boot Camp must render a focused landing for each selected level');
+assert.match(browser,/host\.querySelector\('\.camp-episodes > \.camp-completed'\)/,'Completed level bins must not be mistaken for the selected-level shelf');
 assert.match(browser,/J-vocalcamp-player\.html\?level=/,'Japanese Vocal Camp must open its J-prefixed player rather than an English player');
 assert.match(fs.readFileSync('japanese/J-vocal-camp.html','utf8'),/vocalcamp-japanese-001\.js\?v=/,'Japanese Vocal Camp must load its published episode catalog');
 assert.match(browser,/data-change-level/,'Boot Camp level landings must return to the level selection');

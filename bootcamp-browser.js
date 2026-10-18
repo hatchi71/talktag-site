@@ -104,9 +104,10 @@
     function renderStarters() {
       const section = host.querySelector('.camp-starters');
       if (!starters.length || camp !== 'story') return;
+      const priorShelf = section.querySelector('.camp-completed');
       const completed = starters.filter(starterDone), active = starters.filter(x => !starterDone(x));
       const starterCard = (x, finished) => `<article class="camp-episode${finished ? ' is-completed' : ''}"><a class="camp-episode-link" href="K-korean-starter.html?id=${x.id}&type=story&level=${level}"><span class="camp-kicker">STARTER · ${x.id} · NOT LEVEL-ASSIGNED</span><h3>${esc(x.title)}</h3><p>${esc(x.goal)}</p><span class="camp-start">Remember and retell →</span></a>${finished ? `<div class="camp-episode-actions"><button type="button" data-starter-undo="${x.id}">Undo</button></div>` : ''}</article>`;
-      section.innerHTML = `<div class="camp-level-heading"><span class="camp-kicker">AVAILABLE NOW · STARTER COLLECTION</span><h2>Start with a short Korean story.</h2><p>These six existing starters are not assigned A1–C2 levels. Their stories, notes and shared starter progress are unchanged.</p><p>${completed.length} / ${starters.length} starter missions completed</p></div><div class="camp-episode-list">${active.map(x => starterCard(x, false)).join('')}</div><details class="camp-completed"><summary><span>Completed starter missions</span><span>${completed.length}</span></summary><div class="camp-completed-list">${completed.map(x => starterCard(x, true)).join('') || '<p>No completed starter missions yet.</p>'}</div></details>`;
+      section.innerHTML = `<div class="camp-level-heading"><span class="camp-kicker">AVAILABLE NOW · STARTER COLLECTION</span><h2>Start with a short Korean story.</h2><p>These six existing starters are not assigned A1–C2 levels. Their stories, notes and shared starter progress are unchanged.</p><p>${completed.length} / ${starters.length} starter missions completed</p></div><div class="camp-episode-list">${active.map(x => starterCard(x, false)).join('')}</div><details class="camp-completed"${completed.length && priorShelf?.open !== false ? ' open' : ''}><summary><span>Completed starter missions</span><span>${completed.length}</span></summary><div class="camp-completed-list">${completed.map(x => starterCard(x, true)).join('') || '<p>No completed starter missions yet.</p>'}</div></details>`;
     }
     function render() {
       const resume = host.querySelector('.camp-resume'); resume.innerHTML = '';
@@ -137,10 +138,10 @@
       } catch {}
       levels.innerHTML = LEVELS.map(l => { const s = summary(l); return `<a href="?${new URLSearchParams({...Object.fromEntries(params), level:l})}" data-level="${l}" data-group="${l[0]}"${l === level ? ' aria-current="page"' : ''}${s.total && s.completed === s.total ? ' class="is-level-complete"' : ''}><strong>${l}</strong><small>${s.total ? `${s.completed} / ${s.total} ${words.completed}` : words.pending}</small><span class="camp-level-meter" aria-hidden="true"><i style="width:${s.total ? s.completed / s.total * 100 : 0}%"></i></span></a>`; }).join('');
       if (!levelSelected) {
-        const opened = new Set([...allCompleted.querySelectorAll('details[open]')].map(bin => bin.dataset.level));
+        const priorBins = new Map([...allCompleted.querySelectorAll('details[data-level]')].map(bin => [bin.dataset.level, bin.open]));
         const count = LEVELS.reduce((sum, l) => sum + summary(l).completed, 0);
         allCompleted.hidden = !count;
-        allCompleted.innerHTML = count ? `<h2>${words.shelf} · ${count}</h2><p>${english ? 'Finished cards are collected by level. Open a bin to revisit a lesson or undo completion.' : '완료한 카드를 레벨별로 모았습니다. 다시 열거나 완료를 취소할 수 있습니다.'}</p><div class="camp-completed-bins">${LEVELS.map(l => { const items = families.filter(f => familyLevels(f).includes(l) && window.TalkTagCampProgress?.done(progressCamp, l, f.number)); return items.length ? `<details class="camp-completed camp-completed-bin" data-level="${l}"${opened.has(l) ? ' open' : ''}><summary><span>${l}</span><span class="camp-shelf-count">${items.length}</span></summary><div class="camp-completed-list">${items.map(f => card(f, true, l)).join('')}</div></details>` : ''; }).join('')}</div>` : '';
+        allCompleted.innerHTML = count ? `<h2>${words.shelf} · ${count}</h2><p>${english ? 'Finished cards are collected by level. Open a bin to revisit a lesson or undo completion.' : '완료한 카드를 레벨별로 모았습니다. 다시 열거나 완료를 취소할 수 있습니다.'}</p><div class="camp-completed-bins">${LEVELS.map(l => { const items = families.filter(f => familyLevels(f).includes(l) && window.TalkTagCampProgress?.done(progressCamp, l, f.number)); return items.length ? `<details class="camp-completed camp-completed-bin" data-level="${l}"${priorBins.get(l) !== false ? ' open' : ''}><summary><span>${l}</span><span class="camp-shelf-count">${items.length}</span></summary><div class="camp-completed-list">${items.map(f => card(f, true, l)).join('')}</div></details>` : ''; }).join('')}</div>` : '';
       }
       const available = families.filter(f => familyLevels(f).includes(level)), filtered = available.filter(f => !term || `${f.number} ${f.title}`.toLowerCase().includes(term)), active = filtered.filter(f => !done(f)), completed = filtered.filter(done), totalDone = available.filter(done).length;
       const pages = Math.max(1, Math.ceil(active.length / PAGE_SIZE)); page = Math.max(1, Math.min(page, pages));
@@ -154,8 +155,12 @@
       pagination.querySelector('span').textContent = `${page} / ${pages}`;
       pagination.querySelector('[data-page="previous"]').disabled = page === 1;
       pagination.querySelector('[data-page="next"]').disabled = page === pages;
-      const shelf = host.querySelector('.camp-completed');
+      const shelf = host.querySelector('.camp-episodes > .camp-completed');
       shelf.hidden = !available.length;
+      if (levelSelected && shelf.dataset.currentLevel !== level) {
+        shelf.open = totalDone > 0;
+        shelf.dataset.currentLevel = level;
+      }
       shelf.querySelector('.camp-shelf-count').textContent = totalDone;
       shelf.querySelector('.camp-completed-list').innerHTML = completed.map(f => card(f, true)).join('') || `<p>${term ? words.noMatch : words.emptyShelf}</p>`;
       renderStarters();

@@ -51,9 +51,11 @@ var completed=catalog.filter(done);
 document.getElementById("audioMissionCount").textContent=String(completed.length);
 var previouslyOpen=new Set([...shelf.querySelectorAll(".audio-mission-bin[open]")].map(bin=>bin.dataset.level));
 var firstBins=!shelf.dataset.binsReady;
+var firstCompletedLevel=missionLevels.find(binLevel=>completed.some(l=>l.level===binLevel));
+if(firstBins&&completed.length){toggle.setAttribute("aria-expanded","true");shelf.hidden=false;}
 shelf.innerHTML='<p class="audio-mission-bin-intro">완료한 카드는 레벨별 보관함에서 다시 열거나 완료를 취소할 수 있습니다.</p>'+missionLevels.map(binLevel=>{
 var items=completed.filter(l=>l.level===binLevel);
-var open=previouslyOpen.has(binLevel)||openMissionLevel===binLevel||(firstBins&&binLevel===level&&items.length);
+var open=previouslyOpen.has(binLevel)||openMissionLevel===binLevel||(firstBins&&items.length&&(binLevel===level||binLevel===firstCompletedLevel));
 return '<details class="audio-mission-bin" data-level="'+binLevel+'"'+(open?' open':'')+'><summary><strong>'+binLevel+'</strong><span>'+items.length+'개 완료</span><i aria-hidden="true">⌄</i></summary><div class="audio-mission-bin-list">'+(items.length?items.map(l=>'<div class="audio-mission-row'+(arrivingMission===l.id?' is-arriving':'')+'"><a href="'+url(l)+'"><small>'+number(l)+'</small><strong>'+esc(l.title)+'</strong></a><button type="button" data-undo="'+esc(l.id)+'" aria-label="'+esc(l.title)+' 완료 취소">완료 취소</button></div>').join(''):'<p class="audio-mission-bin-empty">아직 완료한 카드가 없습니다.</p>')+'</div></details>';
 }).join('');
 shelf.dataset.binsReady="true";arrivingMission="";openMissionLevel="";
