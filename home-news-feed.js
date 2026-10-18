@@ -5,8 +5,8 @@
    const response=await fetch('/home-news-feed.json',{cache:'no-store'});if(!response.ok)return;
    const feed=await response.json();
    const language=board.dataset.newsLanguage||'en';
-   const items=feed.items.filter(x=>x.language===language&&x.href&&!x.href.includes('://')).slice(0,1);
-   if(items.length!==1)return;
+   const items=feed.items.filter(x=>x.language===language&&x.href&&!x.href.includes('://')).slice(0,2);
+   if(items.length!==2)return;
    const cards=[...board.querySelectorAll('.tt-news')];
    board.setAttribute('aria-label','TalkTag 게시판');
    cards[0].querySelector('.news-label').textContent='Talk & Tag · 모임 안내';

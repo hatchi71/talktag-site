@@ -7,7 +7,7 @@
     document.head.append(shareQr);
   }
   const spaces = document.createElement('script');
-  spaces.src = '/spaces-nav.js?v=20261015-korean-card-tree-v1';
+  spaces.src = '/spaces-nav.js?v=20261018-korean-home-v1';
   spaces.defer = true;
   document.head.append(spaces);
   if(location.pathname.startsWith('/japanese/')){
@@ -56,7 +56,7 @@
       links.sort((a,b)=>rank(a)-rank(b)).forEach(link=>{if(rank(link)===1)link.textContent='KOREAN';group.append(link)});
     });
     const path = location.pathname;
-    const topLanding = path === '/' || path === '/index.html' || path === '/japanese/J-index.html' || path === '/K-korean.html';
+    const topLanding = path === '/' || path === '/index.html' || path === '/E-english.html' || path === '/japanese/J-index.html' || path === '/K-korean.html';
     document.body.classList.toggle('tt-study-page', !topLanding);
     if (!topLanding && !document.querySelector('.tt-route-tools')) {
       const japanese = path.startsWith('/japanese/');

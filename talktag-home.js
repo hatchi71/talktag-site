@@ -1,7 +1,7 @@
 (() => {
   const isJapaneseHome = /\/japanese\.html$/.test(location.pathname);
   const isKoreanHome = /\/K-korean\.html$/.test(location.pathname);
-  const isHome = location.pathname === '/' || /\/index\.html$/.test(location.pathname) || isJapaneseHome || isKoreanHome;
+  const isHome = /\/(?:E-english|index)\.html$/.test(location.pathname) || location.pathname === '/' || isJapaneseHome || isKoreanHome;
 
   document.querySelectorAll('a[href="japanese.html"]').forEach((link) => link.setAttribute('href', 'japanese/J-index.html'));
 
@@ -131,8 +131,9 @@
             <p>언어를 익히는 것은 조그마한 조각을<br>차근차근 쌓아가는 것과 같아요.</p>
           </section>
           <section class="home-news landing-news" aria-label="TalkTag 새 소식">
-            <a class="feature-card tt-news meetup" href="index.html?view=talktag"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 9h8M8 13h5"/></svg></span><div class="news-label">톡택 모임 소식</div><h3>4주 영어 기초 체력<br>함께 만들어가요.</h3><p>토요일 · 일요일 오전 9:00–10:30<br>무료클래스 · 정원 8명</p><p class="news-note">스터디카페 이용료 6,900원은 각자 부담</p><strong>모임 안내 보기 →</strong></a>
-            <a class="feature-card tt-news boot" href="vocalcamp-family.html?family=003"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18h14M6 18v-5h4v5M10 13V8h4v10M14 8V3h4v15"/></svg></span><div class="news-label">Boot Camp 업데이트</div><h3>003 · The Cup<br>I Left on the Roof</h3><p>새 이야기 003이 공개되었습니다.<br>A1–C2 Vocal · Story Camp와 한글 해석</p><p class="news-note">QC 음원 · 한 문장씩 자라는 누적 훈련</p><strong>새 이야기 열기 →</strong></a>
+            <a class="feature-card tt-news meetup" href="E-english.html?view=talktag"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 9h8M8 13h5"/></svg></span><div class="news-label">톡택 모임 소식</div><h3>4주 영어 기초 체력<br>함께 만들어가요.</h3><p>토요일 · 일요일 오전 9:00–10:30<br>무료클래스 · 정원 8명</p><p class="news-note">스터디카페 이용료 6,900원은 각자 부담</p><strong>모임 안내 보기 →</strong></a>
+            <a class="feature-card tt-news boot" href="audio-library.html?type=guided"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18h14M6 18v-5h4v5M10 13V8h4v10M14 8V3h4v15"/></svg></span><div class="news-label">새 콘텐츠</div><h3>Latest English upload</h3><p>See the newest published lesson.</p><p class="news-note"></p><strong>콘텐츠 열기 →</strong></a>
+            <a class="feature-card tt-news sound" href="audio-library.html?type=guided"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18h14M6 18v-5h4v5M10 13V8h4v10M14 8V3h4v15"/></svg></span><div class="news-label">새 콘텐츠</div><h3>Recent English upload</h3><p>Explore another recently published lesson.</p><p class="news-note"></p><strong>콘텐츠 열기 →</strong></a>
           </section>
           <div class="home-contact">Contact : <a href="mailto:talktagadmin@gmail.com">talktagadmin@gmail.com</a></div>`;
       }

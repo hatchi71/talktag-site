@@ -30,7 +30,7 @@
     {
       "name": "English",
       "short_name": "English",
-      "url": "/?view=home"
+      "url": "/E-english.html?view=home"
     },
     {
       "name": "日本語",
@@ -40,7 +40,7 @@
     {
       "name": "한국어",
       "short_name": "한국어",
-      "url": "/K-korean.html"
+      "url": "/"
     }
   ]
 }

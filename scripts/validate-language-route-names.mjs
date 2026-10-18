@@ -33,6 +33,7 @@ for (const file of [...koreanPages, ...japanesePages.map(name => `japanese/${nam
   const html = fs.readFileSync(path.join(root, file), 'utf8');
   if (/<meta\b[^>]*http-equiv=["']refresh/i.test(html)) continue;
   const canonical = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)/i)?.[1];
-  if (canonical && !canonical.endsWith(file.replaceAll('\\', '/'))) throw new Error(`Canonical mismatch: ${file} -> ${canonical}`);
+  const koreanHomeAlias = file === 'K-korean.html' && canonical === 'https://talktag.co.kr/';
+  if (canonical && !koreanHomeAlias && !canonical.endsWith(file.replaceAll('\\', '/'))) throw new Error(`Canonical mismatch: ${file} -> ${canonical}`);
 }
 console.log(`Language routes: ${koreanPages.length} K-prefixed Korean pages and ${japanesePages.length} J-prefixed Japanese pages; legacy aliases are redirect-only.`);
