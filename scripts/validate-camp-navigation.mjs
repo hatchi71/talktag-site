@@ -35,15 +35,15 @@ for(const camp of ['story','vocal']){
   for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`]){
     const page=fs.readFileSync(path,'utf8');
     assert.match(page,/bootcamp-browser\.js\?v=[\w-]+/);
-    assert.match(page,/bootcamp-browser\.css\?v=20261015-all-level-bins-v1/);
+    assert.match(page,/bootcamp-browser\.css\?v=20261018-selected-bins-v1/);
   }
 }
-const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js\?v=20261018-completed-search-v3/,'Korean Boot Camp must use the current shared browser revision');
-assert.match(korean,/bootcamp-browser\.css\?v=20261014-level-landings-v3/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
+const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js\?v=20261018-selected-bins-v1/,'Korean Boot Camp must use the current shared browser revision');
+assert.match(korean,/bootcamp-browser\.css\?v=20261018-selected-bins-v1/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
 for(const camp of ['vocal','story']){
   const route=fs.readFileSync(`K-korean-${camp}-camp.html`,'utf8');
-  assert.match(route,/bootcamp-browser\.js\?v=20261018-completed-search-v3/,'Korean Boot Camp must use the completed-bins browser revision');
+  assert.match(route,/bootcamp-browser\.js\?v=20261018-selected-bins-v1/,'Korean Boot Camp must use the completed-bins browser revision');
   assert.match(route,new RegExp(`data-camp="${camp}"`),'Korean Boot Camp landing must identify its camp for the shared browser');
   assert.doesNotMatch(route,/location\.replace/,'Korean Boot Camp must not redirect away from the level-first landing');
 }
@@ -54,7 +54,10 @@ const browser=fs.readFileSync('bootcamp-browser.js','utf8');
 assert.match(browser,/camp-level-landing/,'Boot Camp must render a focused landing for each selected level');
 assert.match(browser,/host\.querySelector\('\.camp-episodes > \.camp-completed'\)/,'Completed level bins must not be mistaken for the selected-level shelf');
 assert.match(browser,/completed = available\.filter\(done\)/,'A search must not hide completed missions from the shelf');
-assert.match(browser,/allCompleted\.hidden = false/,'Completed level bins must remain visible even before the first completion');
+assert.match(browser,/host\.querySelector\('\.camp-episodes'\)\.after\(allCompleted\)/,'Completed bins must follow episodes, as in Sound Check');
+assert.match(browser,/LEVELS\.map\(l => \{ const items = families\.filter/,'All six completed bins must appear on both collection and selected-level pages');
+assert.doesNotMatch(browser,/allCompleted\.hidden = levelSelected/,'Selecting a level must not hide completed bins');
+assert.match(browser,/closest\('\.camp-levels > a\[data-level\]'\)/,'Completed-bin buttons must not trigger level navigation');
 assert.match(browser,/J-vocalcamp-player\.html\?level=/,'Japanese Vocal Camp must open its J-prefixed player rather than an English player');
 assert.match(fs.readFileSync('japanese/J-vocal-camp.html','utf8'),/vocalcamp-japanese-001\.js\?v=/,'Japanese Vocal Camp must load its published episode catalog');
 assert.match(browser,/data-change-level/,'Boot Camp level landings must return to the level selection');

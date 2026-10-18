@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261018-camp-completed-search-v2';
+const CACHE_VERSION = 'talktag-pwa-20261018-camp-selected-bins-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
