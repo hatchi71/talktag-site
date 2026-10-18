@@ -26,32 +26,11 @@
   <h2 id="kr-starter-title">Learn Korean together in Uijeongbu.</h2>
   <p>Beginner-friendly practice with a native Korean instructor.</p>
   <div class="kr-starter-times" aria-label="Korean class times">
-    <div><span>Saturday</span><strong><time datetime="16:00">4:00 p.m.</time></strong><small>Uijeongbu</small></div>
-    <div><span>Sunday</span><strong><time datetime="14:00">2:00 p.m.</time></strong><small>Uijeongbu</small></div>
+    <div><span>Saturday</span><strong><time datetime="16:00">4:00 p.m.</time></strong></div>
+    <div><span>Sunday</span><strong><time datetime="14:00">2:00 p.m.</time></strong></div>
   </div>
-  <p class="kr-starter-detail">Ask about the next session and exact meeting place in the Kakao chat room.</p>
+  <div class="kr-starter-location"><span>Where we meet</span><strong>Uijeongbu, Gyeonggi-do</strong><small>Ask in the Kakao chat room for the exact meeting place and next session.</small></div>
   <a class="kr-button kr-primary" href="https://open.kakao.com/o/gyZiY3Hi" target="_blank" rel="noopener noreferrer" aria-label="Ask about Korean Starter Sessions in the Kakao chat room (opens in a new tab)">Ask in Kakao chat ↗</a>
-</article>
-<div class="kr-separate-notice">Separate English training notice</div>
-<article class="meetup-card tt-first-meetup" lang="en" aria-labelledby="kr-first-meetup-title">
-  <div class="tt-meetup-kicker"><span>FIRST MEET-UP</span><span>Four-week program</span></div>
-  <div class="tt-meetup-free">Free class</div><span class="tt-meetup-capacity">Capacity: 8</span>
-  <p class="tt-meetup-venue-fee">Ilgongjae Study Café fee: <strong>₩6,900</strong> per person</p>
-  <h3 id="kr-first-meetup-title">Studied English for years,<br>but still struggle to listen and speak?</h3>
-  <p class="tt-meetup-lead">Whether your goal is a test or conversation,<br>you need a strong foundation in English.</p>
-  <div class="tt-meetup-format">One in-person meeting each week <span>＋</span> weekday online training</div>
-  <p>In person, we listen, speak, and practice together. Between meetings, online tasks and training help you keep using English.</p>
-  <ol class="tt-meetup-flow" aria-label="Training sequence"><li>Listen</li><li>Understand</li><li>Remember</li><li>Speak</li><li>Repeat</li></ol>
-  <p class="tt-meetup-message">Training that turns English you <em>know</em><br>into English you can <strong>actually use.</strong></p>
-  <div class="tt-meetup-schedules">
-    <section aria-labelledby="kr-saturday-class"><h4 id="kr-saturday-class">Saturday morning</h4><p><time datetime="09:00">9:00</time>–<time datetime="10:30">10:30 a.m.</time></p><small>Four weeks from <time datetime="2026-10-10">October 10</time></small></section>
-    <section aria-labelledby="kr-sunday-class"><h4 id="kr-sunday-class">Sunday morning</h4><p><time datetime="09:00">9:00</time>–<time datetime="10:30">10:30 a.m.</time></p><small>Four weeks from <time datetime="2026-10-11">October 11</time></small></section>
-  </div>
-  <div class="tt-meetup-place"><div><small>Meeting place</small><strong>Ilgongjae · 일공재스터디카페</strong></div></div>
-  <details class="tt-meetup-map"><summary>View Kakao map <span aria-hidden="true">＋</span></summary><div class="tt-meetup-map-frame"><iframe title="Ilgongjae Study Café Kakao map" data-map-src="meetup-map.html?v=20261008-kakao-only" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p>If the map does not load, please try again shortly.</p></details>
-  <p class="tt-meetup-audience">This class is for people preparing for English tests such as TOEIC or OPIc, people who want a stronger foundation for conversation, and people who find it hard to keep studying alone. You are welcome to attend both Saturday and Sunday.</p>
-  <a class="tt-meetup-contact" href="sms:01082227211"><span class="tt-meetup-contact-copy"><span>Ask about joining (text messages only)</span><span class="tt-meetup-number">010-8222-7211</span></span><span aria-hidden="true">↗</span></a>
-  <a class="tt-meetup-contact tt-meetup-chat" href="https://open.kakao.com/o/gyZiY3Hi" target="_blank" rel="noopener noreferrer"><span>Join the Kakao group<span class="tt-map-new-window"> (opens in a new window)</span></span><span aria-hidden="true">↗</span></a>
 </article></div></div>`;
    if(view==='discussions')other.innerHTML=`<div class="kr-kicker">CONVERSATION STARTERS</div><h1>Something to talk about.</h1><p>Use these prompts with a partner. This is a practice board, not a live chat.</p><div class="kr-grid">${lessons.map(x=>`<article class="kr-card"><div class="kr-kicker">${x.id} · ${esc(x.topic)}</div><h2 lang="ko" class="kr-ko">${esc(x.partner)}</h2><p>${esc(x.partnerEn)}</p><a href="${link(x)}">Prepare your answer →</a></article>`).join('')}</div>`;
    if(view==='tests')other.innerHTML='<div class="kr-kicker">TEST PREPPERS</div><h1>First, Korean you can use.</h1><section class="kr-card"><h2>Korean test preparation · Coming soon</h2><p>There are no published Korean exam drills yet. Start with practical Korean while this section is being prepared.</p><a href="K-korean-learning.html">Explore starter lessons →</a></section>';
