@@ -53,8 +53,18 @@
   document.getElementById("playerHeaderMeta").textContent = lesson.level + " · OFFLINE CLASS PREP";
   document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
-  document.getElementById("lessonSummary").textContent = lesson.summary;
-  if (lesson.training) document.getElementById("lessonSummary").textContent = lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
+  var lessonSummary = document.getElementById("lessonSummary");
+  lessonSummary.textContent = lesson.summary;
+  if (lesson.type === "plain") {
+    var shadowingTitle = document.createElement("h2");
+    shadowingTitle.className = "essay-shadowing-title";
+    shadowingTitle.textContent = "들으며 따라 말하기";
+    var shadowingDescription = document.createElement("p");
+    shadowingDescription.className = "essay-shadowing-description";
+    shadowingDescription.textContent = "음성을 들으면서 동시에 작은 소리로 따라 말해 보세요. 말하는 사람의 소리와 리듬을 따라가는 데 집중하세요.";
+    lessonSummary.replaceChildren(shadowingTitle, shadowingDescription);
+  }
+  if (lesson.training) lessonSummary.textContent = lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
   document.getElementById("infoLevel").textContent = "CEFR " + lesson.level;
   document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
   document.getElementById("infoDuration").textContent = lesson.durationLong;
