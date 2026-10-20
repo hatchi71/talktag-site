@@ -1,0 +1,8 @@
+/* Pilot only: Korean Guided L&R episode 001. */
+body[data-native-language="ko"] .glr-support-selector{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;padding:8px 12px;border:1px solid var(--tt-border,#d8d6cd);border-radius:14px;background:var(--tt-card,#fffdf7);color:var(--tt-muted,#607086)}
+body[data-native-language="ko"] .glr-support-selector label{font-size:14px;font-weight:700;white-space:nowrap}
+body[data-native-language="ko"] .glr-support-selector select{min-width:0;max-width:65%;min-height:44px;padding:8px 12px;border:1px solid var(--tt-border,#d8d6cd);border-radius:11px;background:var(--tt-card,#fffdf7);color:var(--tt-text,#21344f);font-family:inherit;font-size:14px;font-weight:700;line-height:1.4;cursor:pointer}
+body[data-native-language="ko"] .glr-support-selector select:focus-visible{outline:3px solid var(--tt-accent,#1768e9);outline-offset:2px}
+body[data-native-language="ko"] .unified-sync .sync-ko[lang]{font-size:16px;line-height:1.6;overflow-wrap:anywhere;word-break:normal}
+@media(max-width:390px){body[data-native-language="ko"] .glr-support-selector{padding:7px 9px}body[data-native-language="ko"] .glr-support-selector select{max-width:68%}}
+@media(max-width:430px){body[data-native-language="ko"]:has(.glr-support-selector) .script-controls{flex-direction:column;align-items:stretch;gap:8px}body[data-native-language="ko"]:has(.glr-support-selector) .compact-script{width:100%;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}body[data-native-language="ko"]:has(.glr-support-selector) .compact-script button{width:100%;min-width:0;min-height:44px;padding:7px 5px;font-size:12px;white-space:normal;line-height:1.2}}

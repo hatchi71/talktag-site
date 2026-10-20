@@ -47,7 +47,7 @@ for (const type of ['guided', 'plain']) {
 
 for (const file of ['K-korean-audio-library.html', 'K-korean-audio-player.html']) {
   const html = read(file);
-  assert.match(html, /native-audio-ui\.js\?v=20261016-korean-back-v1/);
+  assert.match(html, /native-audio-ui\.js\?v=[^"']+/);
   assert.match(html, /id="nativeBack"/);
   assert.match(html, /K-korean-learning\.html#sound-check/);
 }

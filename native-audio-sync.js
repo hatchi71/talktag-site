@@ -21,6 +21,16 @@ var native=window.TalkTagNative;
   var activeLesson = window.TalkTagActiveNativeLesson;
   var guided = activeLesson && activeLesson.id === id && activeLesson.training ? activeLesson :
     (window.TalkTagAudioLessons || []).find(function (item) { return item.id === id && item.training; });
+  var multilingualPilot = native?.language === "ko" && guided?.type === "guided" &&
+    Number(guided.unit) === 1 && Boolean(window.TalkTagKoreanGlr001Translations?.[guided.id]);
+  var pilotTranslations = multilingualPilot ? window.TalkTagKoreanGlr001Translations[guided.id] : null;
+  var supportLanguages = { en: "English", vi: "Tiếng Việt", ne: "नेपाली", km: "ខ្មែរ", my: "မြန်မာ", th: "ไทย" };
+  var preferenceKey = "talktag:korean-glr:support-language";
+  function savedSupportLanguage() {
+    try { var stored = localStorage.getItem(preferenceKey); return supportLanguages[stored] ? stored : "en"; }
+    catch (error) { return "en"; }
+  }
+  var supportLanguage = savedSupportLanguage();
   if (guided) {
     data = {lines:guided.expressions.map(function (line,index) { return {en:line,ko:guided.meanings[index]||"",speaker:guided.speakers?.[index]}; }),cues:guided.training.cues,language:native.language};
   }
@@ -71,6 +81,46 @@ var native=window.TalkTagNative;
   var displayControl = section.querySelector(".sync-display-control");
   var displayRange = section.querySelector("#syncDisplayLevel");
   var buttons = [];
+  var meaningNodes = [];
+  var languageSelect = null;
+  function updateSupportMeaning() {
+    if (!multilingualPilot) return;
+    var translations = supportLanguage === "en" ? guided.meanings : pilotTranslations[supportLanguage];
+    lines.setAttribute("aria-label", "Korean script with " + supportLanguages[supportLanguage] + " meanings, synchronized with playback");
+    meaningNodes.forEach(function (node, index) {
+      node.lang = supportLanguage;
+      node.textContent = translations?.[index] || guided.meanings[index] || "";
+    });
+    if (languageSelect) languageSelect.value = supportLanguage;
+  }
+  if (multilingualPilot) {
+    var selector = document.createElement("div");
+    selector.className = "glr-support-selector";
+    var selectorLabel = document.createElement("label");
+    selectorLabel.htmlFor = "glrSupportLanguage";
+    selectorLabel.textContent = "Meaning in";
+    languageSelect = document.createElement("select");
+    languageSelect.id = "glrSupportLanguage";
+    languageSelect.setAttribute("aria-label", "Translation language");
+    Object.entries(supportLanguages).forEach(function (entry) {
+      var option = document.createElement("option");
+      option.value = entry[0]; option.lang = entry[0]; option.textContent = entry[1];
+      languageSelect.append(option);
+    });
+    selector.append(selectorLabel, languageSelect);
+    document.querySelector(".script-controls")?.after(selector);
+    languageSelect.value = supportLanguage;
+    languageSelect.addEventListener("change", function () {
+      supportLanguage = supportLanguages[languageSelect.value] ? languageSelect.value : "en";
+      try { localStorage.setItem(preferenceKey, supportLanguage); } catch (error) { /* Storage may be disabled. */ }
+      updateSupportMeaning();
+    });
+    window.addEventListener("storage", function (event) {
+      if (event.key !== preferenceKey) return;
+      supportLanguage = supportLanguages[event.newValue] ? event.newValue : "en";
+      updateSupportMeaning();
+    });
+  }
 
   function setDisplayLevel(level) {
     displayLevel = Math.max(0, Math.min(2, Number(level) || 0));
@@ -120,11 +170,13 @@ var native=window.TalkTagNative;
       var korean = document.createElement("span");
       korean.className = "sync-ko";
       korean.textContent = (data.translationContext === "paragraph" ? "문단 해석 · " : "") + (line.ko || "");
+      if (multilingualPilot) { korean.lang = supportLanguage; meaningNodes.push(korean); }
       button.append(korean);
       button.addEventListener("click", function () { if (enabled) seekTo(index); });
       lines.appendChild(button);
       buttons.push(button);
     });
+    updateSupportMeaning();
   }
 
   function update() {
@@ -202,10 +254,12 @@ var native=window.TalkTagNative;
   } else {
     var mode="";
     var enButton=document.getElementById("scriptButton"),krButton=document.getElementById("meaningButton"),hideButton=document.getElementById("scriptHiddenButton");
-    enButton.textContent=hideButton?"EN":"EN · 스크립트";krButton.textContent=hideButton?"EN+KR":"KR · 한글 해석";
+    enButton.textContent=multilingualPilot?"Korean":(hideButton?"EN":"EN · 스크립트");
+    krButton.textContent=multilingualPilot?"Korean + meaning":(hideButton?"EN+KR":"KR · 한글 해석");
+    if (multilingualPilot && hideButton) hideButton.textContent = "Hide text";
     [enButton,krButton].forEach(function(button){button.setAttribute("aria-controls","unifiedScript");button.setAttribute("aria-expanded","false");});
     document.getElementById("scriptPanel")?.remove();document.getElementById("meaningPanel")?.remove();
-    window.TalkTagAudioScript={show:function(requested){
+    window.TalkTagAudioScript={show:function(requested, silent){
       enabled=hideButton?requested!=="hidden":!(enabled&&mode===requested);mode=requested;
       section.hidden=!enabled;
       content.hidden = !enabled;
@@ -218,8 +272,9 @@ var native=window.TalkTagNative;
         buttons.forEach(function (button) { button.classList.remove("active"); button.removeAttribute("aria-current"); });
         active = -1;
       }
-      if(enabled)section.scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+      if(enabled && !silent)section.scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
     }};
+    if (multilingualPilot) window.TalkTagAudioScript.show("kr", true);
   }
 
   ["timeupdate", "seeked", "loadedmetadata", "ended"].forEach(function (event) { audio.addEventListener(event, update); });
