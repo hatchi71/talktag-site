@@ -21,16 +21,11 @@ var native=window.TalkTagNative;
   var activeLesson = window.TalkTagActiveNativeLesson;
   var guided = activeLesson && activeLesson.id === id && activeLesson.training ? activeLesson :
     (window.TalkTagAudioLessons || []).find(function (item) { return item.id === id && item.training; });
-  var multilingualPilot = native?.language === "ko" && guided?.type === "guided" &&
-    Number(guided.unit) === 1 && Boolean(window.TalkTagKoreanGlr001Translations?.[guided.id]);
-  var pilotTranslations = multilingualPilot ? window.TalkTagKoreanGlr001Translations[guided.id] : null;
-  var supportLanguages = { en: "English", vi: "Tiếng Việt", ne: "नेपाली", km: "ខ្មែរ", my: "မြန်မာ", th: "ไทย" };
-  var preferenceKey = "talktag:korean-glr:support-language";
-  function savedSupportLanguage() {
-    try { var stored = localStorage.getItem(preferenceKey); return supportLanguages[stored] ? stored : "en"; }
-    catch (error) { return "en"; }
-  }
-  var supportLanguage = savedSupportLanguage();
+  var koreanSupport = native?.language === "ko" && activeLesson?.type === "guided" ? window.TalkTagKoreanSupport : null;
+  var supportTranslations = window.TalkTagKoreanGlr001Translations?.[id] || {};
+  var multilingualPilot = Boolean(koreanSupport);
+  var supportLanguage = "en";
+  var supportLines = null;
   if (guided) {
     data = {lines:guided.expressions.map(function (line,index) { return {en:line,ko:guided.meanings[index]||"",speaker:guided.speakers?.[index]}; }),cues:guided.training.cues,language:native.language};
   }
@@ -85,41 +80,20 @@ var native=window.TalkTagNative;
   var languageSelect = null;
   function updateSupportMeaning() {
     if (!multilingualPilot) return;
-    var translations = supportLanguage === "en" ? guided.meanings : pilotTranslations[supportLanguage];
-    lines.setAttribute("aria-label", "Korean script with " + supportLanguages[supportLanguage] + " meanings, synchronized with playback");
+    var translations = supportLines || activeLesson?.meanings || guided?.meanings || data.lines.map(function (line) { return line.ko || ""; });
+    lines.setAttribute("aria-label", "Korean script with " + koreanSupport.languages[supportLanguage] + " meanings, synchronized with playback");
     meaningNodes.forEach(function (node, index) {
       node.lang = supportLanguage;
-      node.textContent = translations?.[index] || guided.meanings[index] || "";
+      node.textContent = translations[index] || "";
     });
-    if (languageSelect) languageSelect.value = supportLanguage;
   }
   if (multilingualPilot) {
-    var selector = document.createElement("div");
-    selector.className = "glr-support-selector";
-    var selectorLabel = document.createElement("label");
-    selectorLabel.htmlFor = "glrSupportLanguage";
-    selectorLabel.textContent = "Meaning in";
-    languageSelect = document.createElement("select");
-    languageSelect.id = "glrSupportLanguage";
-    languageSelect.setAttribute("aria-label", "Translation language");
-    Object.entries(supportLanguages).forEach(function (entry) {
-      var option = document.createElement("option");
-      option.value = entry[0]; option.lang = entry[0]; option.textContent = entry[1];
-      languageSelect.append(option);
-    });
-    selector.append(selectorLabel, languageSelect);
-    document.querySelector(".script-controls")?.after(selector);
-    languageSelect.value = supportLanguage;
-    languageSelect.addEventListener("change", function () {
-      supportLanguage = supportLanguages[languageSelect.value] ? languageSelect.value : "en";
-      try { localStorage.setItem(preferenceKey, supportLanguage); } catch (error) { /* Storage may be disabled. */ }
-      updateSupportMeaning();
-    });
-    window.addEventListener("storage", function (event) {
-      if (event.key !== preferenceKey) return;
-      supportLanguage = supportLanguages[event.newValue] ? event.newValue : "en";
-      updateSupportMeaning();
-    });
+    var anchor = document.createElement('div');
+    document.querySelector('.script-controls')?.after(anchor);
+    var sourceLines = data.lines.map(function (line) { return line.en || ''; });
+    var englishLines = activeLesson?.meanings || guided?.meanings || data.lines.map(function (line) { return line.ko || ''; });
+    koreanSupport.mount(anchor, {source:sourceLines, english:englishLines, translations:supportTranslations && Object.keys(supportTranslations).length ? {legacyPilot:true,translations:supportTranslations} : window.TalkTagKoreanTranslations?.[id] || {},
+      onChange:function (translated, shown) { supportLines=translated; supportLanguage=shown; updateSupportMeaning(); }});
   }
 
   function setDisplayLevel(level) {

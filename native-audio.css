@@ -16,4 +16,7 @@ body[data-native-language] .tt-route-tools>a{min-height:44px;display:flex;align-
 body[data-native-language=ko] .native-paired-script .script-list li{display:grid;gap:6px}
 body[data-native-language=ko] .native-paired-script .native-line-korean{color:var(--tt-text,#21344f);font-size:16px;font-weight:700;line-height:1.6}
 body[data-native-language=ko] .native-paired-script .native-line-meaning{color:var(--tt-muted,#607086);font-size:15px;line-height:1.6}
+/* The paired-script rows retain a light surface in Dark mode; keep both lines legible there. */
+html[data-appearance=dark] body[data-native-language=ko] .native-paired-script .native-line-korean{color:#21344f}
+html[data-appearance=dark] body[data-native-language=ko] .native-paired-script .native-line-meaning{color:#52657d}
 body[data-native-language=ko] .native-paired-script:not(.show-meaning) .native-line-meaning{display:none}

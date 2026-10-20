@@ -146,6 +146,15 @@ var native=window.TalkTagNative;
     });
     scriptPanel.classList.add("native-paired-script");
     meaningPanel.hidden = true;
+    var meaningNodes = Array.from(pairedList.querySelectorAll('.native-line-meaning'));
+    var selectorAnchor = document.createElement('div');
+    document.querySelector('.script-controls')?.after(selectorAnchor);
+    window.TalkTagKoreanSupport?.mount(selectorAnchor, {
+      source:lesson.expressions, english:lesson.meanings, translations:window.TalkTagKoreanTranslations?.[lesson.id] || {},
+      onChange:function (translated, shown) {
+        meaningNodes.forEach(function (node, index) { node.lang=shown; node.textContent=translated[index]; });
+      }
+    });
   }
   prevButton.disabled = !previousLesson;
   nextButton.disabled = !nextLesson;
