@@ -21,7 +21,7 @@
     const close=document.createElement('button');close.type='button';close.className='tt-spaces-close';close.textContent='×';close.setAttribute('aria-label','Close navigation');bar.append(heading,close);dialog.append(bar);
     const note=document.createElement('p');note.className='tt-spaces-note';note.textContent='Choose where to go next.';dialog.append(note);
     const languages=document.createElement('nav');languages.className='tt-spaces-languages';languages.setAttribute('aria-label','Learning language');
-    [['ENGLISH','/E-english.html'],['KOREAN','/'],['日本語','/japanese/J-index.html']].forEach(([label,href],i)=>{const link=document.createElement('a');link.textContent=label;link.href=href;link.lang=['en','en','ja'][i];if(i===(ja?2:ko?1:0))link.setAttribute('aria-current','page');languages.append(link)});dialog.append(languages);
+    [['ENGLISH','/E-english.html','english'],['KOREAN','/K-korean.html','korean'],['日本語','/japanese/J-index.html','japanese']].forEach(([label,href,language],i)=>{const link=document.createElement('a');link.textContent=label;link.href=href;link.dataset.targetLanguage=language;link.lang=['en','en','ja'][i];if(i===(ja?2:ko?1:0))link.setAttribute('aria-current','page');languages.append(link)});dialog.append(languages);
     const grid=document.createElement('nav');grid.className='tt-spaces-grid';grid.setAttribute('aria-label','TalkTag spaces');
     labels.forEach((label,i)=>{const a=document.createElement('a');a.href=routes[i];const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');icon.textContent=icons[i];a.append(icon,document.createTextNode(label));if(i===active)a.setAttribute('aria-current','page');grid.append(a)});dialog.append(grid);document.body.append(dialog);
     const safe=href=>{try{const u=new URL(href,location.origin);return u.origin===location.origin&&!/backstage|offline|api/.test(u.pathname)&&(ja?u.pathname.startsWith('/japanese/'):ko?u.pathname.startsWith('/K-korean'):!/^\/(japanese|K-korean)/.test(u.pathname))?u:null}catch{return null}};
@@ -30,7 +30,7 @@
     function rememberOpen(open){try{if(open)sessionStorage.setItem(panelKey,'1');else sessionStorage.removeItem(panelKey)}catch{}}
     function openPanel(){resume();if(!dialog.open)dialog.showModal();trigger.setAttribute('aria-expanded','true');document.body.classList.add('tt-spaces-open');rememberOpen(true)}
     trigger.onclick=openPanel;
-    languages.addEventListener('click',e=>{if(e.target.closest('a'))rememberOpen(true)});
+    languages.addEventListener('click',e=>{if(e.target.closest('a'))rememberOpen(false)});
     grid.addEventListener('click',e=>{if(e.target.closest('a'))rememberOpen(false)});
     dialog.addEventListener('click',e=>{if(e.target.closest('.tt-spaces-resume'))rememberOpen(false)});
     close.onclick=()=>dialog.close();dialog.addEventListener('close',()=>{rememberOpen(false);trigger.setAttribute('aria-expanded','false');document.body.classList.remove('tt-spaces-open');trigger.focus()});
