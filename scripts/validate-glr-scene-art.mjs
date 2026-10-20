@@ -31,7 +31,7 @@ context.document = {
   querySelectorAll: selector => selector === '#lessonList .lesson-card' && card ? [card] : [],
   getElementById: id => id === 'lessonTitle' ? title : null,
   createElement: tag => tag === 'img'
-    ? (images.push({ addEventListener() {}, remove() {} }), images.at(-1))
+    ? (images.push({ addEventListener() {}, remove() {}, classList: { add() {} } }), images.at(-1))
     : { append() {} }
 };
 context.MutationObserver = class {};

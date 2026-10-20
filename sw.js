@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261020-glr-image-framing-v1';
+const CACHE_VERSION = 'talktag-pwa-20261020-glr-scene-replacement-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
