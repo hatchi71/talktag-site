@@ -191,6 +191,10 @@ var native=window.TalkTagNative;
     document.getElementById("wave").appendChild(bar);
   }
   var initial = readState();
+  if (lesson.type === "plain" && lesson.boundaryDings && !initial.essayDingsMigrated) {
+    if (initial.positionMode !== 'essay-variant') initial.position = initial.position > 0 ? Number(initial.position) + lesson.openingDingSeconds : 0;
+    saveState({ position: initial.position, essayDingsMigrated: true });
+  }
   if (lesson.training && lesson.training.cardDings && !initial.cardDingsMigrated) {
     initial.position = initial.position > 0 ? Number(initial.position) + Number(lesson.training.prependSeconds || 0) : 0;
     saveState({ position: initial.position, cardDingsMigrated: true });

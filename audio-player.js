@@ -155,6 +155,10 @@
     document.getElementById("wave").appendChild(bar);
   }
   var initial = readState();
+  if (lesson.type === "plain" && lesson.boundaryDings && !initial.essayDingsMigrated) {
+    initial.position = initial.position > 0 ? Number(initial.position) + lesson.openingDingSeconds : 0;
+    saveState({ position: initial.position, essayDingsMigrated: true });
+  }
   if (!audio.segmented && lesson.training && lesson.training.cardDings && !initial.cardDingsMigrated &&
       (!isSegmentedEpisode || (initial.positionMode !== "segmented" && initial.segmentVersion !== 2))) {
     initial.position = initial.position > 0 ? Number(initial.position) + Number(lesson.training.prependSeconds || 0) : 0;
