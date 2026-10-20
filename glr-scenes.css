@@ -6,8 +6,12 @@ body[data-audio-type=guided] .audio-lesson-open:has(.glr-scene-title) .audio-les
 body[data-audio-type=guided] .lesson-card:has(.glr-scene-title) .tt-completion-button{width:auto;flex:none}
 body[data-audio-type=guided] .glr-scene-title :is(h1,h2){min-width:0;flex:1;margin:0;overflow-wrap:break-word}
 body[data-audio-type=guided] .glr-scene-image{display:block;flex:none;width:156px;height:104px;object-fit:contain;background:#fffdf5;border-radius:12px}
+body[data-audio-type=guided] .glr-scene-image--portrait{width:96px;height:121px}
+body[data-audio-type=guided] .glr-scene-image--square{width:104px;height:104px}
 body[data-audio-type=guided] .glr-scene-player{margin:14px 0 12px}
 body[data-audio-type=guided] .glr-scene-player .glr-scene-image{width:192px;height:128px}
+body[data-audio-type=guided] .glr-scene-player .glr-scene-image--portrait{width:112px;height:141px}
+body[data-audio-type=guided] .glr-scene-player .glr-scene-image--square{width:128px;height:128px}
 body[data-audio-type=guided] .player-card>.summary{margin:0;color:var(--tt-muted);font-size:15px;line-height:1.5}
 body[data-audio-type=guided] .glr-scene-briefing{display:flex;align-items:flex-start;gap:9px;margin:7px 0 14px;padding:10px 12px;border-left:3px solid var(--tt-accent);border-radius:0 11px 11px 0;background:color-mix(in srgb,var(--tt-accent) 6%,var(--tt-card));color:var(--tt-muted)}
 body[data-audio-type=guided] .glr-scene-briefing[hidden]{display:none}
@@ -20,12 +24,20 @@ html[data-appearance=dark] body[data-audio-type=guided] .glr-scene-image{opacity
 @media(max-width:620px){
  body[data-audio-type=guided] .glr-scene-title{gap:8px}
  body[data-audio-type=guided] .glr-scene-image{width:136px;height:91px;border-radius:10px}
+ body[data-audio-type=guided] .glr-scene-image--portrait{width:82px;height:103px}
+ body[data-audio-type=guided] .glr-scene-image--square{width:91px;height:91px}
  body[data-audio-type=guided] .glr-scene-player .glr-scene-image{width:144px;height:96px}
+ body[data-audio-type=guided] .glr-scene-player .glr-scene-image--portrait{width:96px;height:121px}
+ body[data-audio-type=guided] .glr-scene-player .glr-scene-image--square{width:96px;height:96px}
  body[data-audio-type=guided] .player-card h1{font-size:26px;line-height:1.2}
  html[data-appearance] body[data-audio-type=guided] .player-card .wave{width:88%!important;height:42px!important;gap:3px!important}
 }
 @media(max-width:375px){
  body[data-audio-type=guided] .glr-scene-image{width:124px;height:83px}
+ body[data-audio-type=guided] .glr-scene-image--portrait{width:76px;height:96px}
+ body[data-audio-type=guided] .glr-scene-image--square{width:83px;height:83px}
  body[data-audio-type=guided] .glr-scene-player .glr-scene-image{width:132px;height:88px}
+ body[data-audio-type=guided] .glr-scene-player .glr-scene-image--portrait{width:88px;height:111px}
+ body[data-audio-type=guided] .glr-scene-player .glr-scene-image--square{width:88px;height:88px}
  body[data-audio-type=guided] .glr-scene-player h1{font-size:25px}
 }

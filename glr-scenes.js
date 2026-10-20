@@ -149,6 +149,15 @@
     image.src = lesson?.artwork || (native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : miniskit ? '/assets/glr-scenes/miniskit/' + miniskit[2].padStart(3, '0') + '-' + miniskit[1] + '.jpg' : '/assets/glr-scenes/' + id.replace(/-(?:miniskit-pilot|miniskit)$/, '') + (/(?:07|08|09|10)(?:-miniskit-pilot|-miniskit)?$/.test(id) ? '.jpg' : '.webp'));
     image.alt = description;
     image.width = 360; image.height = 240;
+    // Keep portrait and square artwork in a matching frame instead of
+    // squeezing it into the landscape slot used by the older GLR scenes.
+    if (/\/miniskit\/\d{3}-/.test(image.src)) {
+      image.classList.add('glr-scene-image--portrait');
+      image.width = 388; image.height = 488;
+    } else if (/\/guided-a1-09\.jpg$/.test(image.src)) {
+      image.classList.add('glr-scene-image--square');
+      image.width = 720; image.height = 720;
+    }
     image.loading = player ? 'eager' : 'lazy';
     image.decoding = 'async';
     image.addEventListener('error', () => image.remove(), {once: true});
