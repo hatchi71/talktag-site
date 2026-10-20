@@ -1,5 +1,18 @@
 /* Shared appearance preference. Does not touch learning or audio state. */
 (() => {
+  // The most recently visited learning-language area becomes the next PWA home.
+  // Do not record the neutral entry URL before it has chosen a destination.
+  const languagePath = location.pathname;
+  const languageParams = new URLSearchParams(location.search);
+  const lastLanguage = languagePath.startsWith('/japanese/') ? 'japanese'
+    : /^\/K-korean(?:[.\/-]|$)/.test(languagePath) ||
+      (/^\/(?:vocalcamp-player|storycamp-reader)\.html$/.test(languagePath) && languageParams.get('lang') === 'ko') ? 'korean'
+    : languagePath === '/E-english.html' ||
+      /^\/(?:audio-library|audio-player|snowballing-studio|vocal-camp|story-camp|readable|listen-repeat|vocalcamp-player|storycamp-reader)\.html$/.test(languagePath) ? 'english'
+    : null;
+  if (lastLanguage) {
+    try { localStorage.setItem('talktag.targetLanguage', lastLanguage); } catch (_) { /* Browsing still works without storage. */ }
+  }
   if (!document.querySelector('script[data-talktag-share-qr]')) {
     const shareQr = document.createElement('script');
     shareQr.src = '/landing-share-qr.js?v=20261012-delegated-share';

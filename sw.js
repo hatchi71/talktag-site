@@ -1,8 +1,9 @@
-const CACHE_VERSION = 'talktag-pwa-20261020-glr-scene-replacement-v1';
+const CACHE_VERSION = 'talktag-pwa-20261020-recent-learning-language-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
   '/E-english.html',
+  '/japanese/J-index.html',
   '/target-language-routing.js',
   '/offline.html',
   '/manifest.webmanifest',
