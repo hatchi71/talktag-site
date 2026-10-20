@@ -141,4 +141,5 @@
  document.getElementById('shareQrNative').onclick=async function(){const url=location.href.split('#')[0];if(navigator.share){try{await navigator.share({title:'TalkTag',url})}catch(e){}}else{try{await navigator.clipboard.writeText(url)}catch(e){}}};
 })();
 </script>
+<script src="target-language-routing.js?v=20261020"></script>
 </body></html>

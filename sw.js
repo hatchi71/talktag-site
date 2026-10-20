@@ -1,8 +1,9 @@
-const CACHE_VERSION = 'talktag-pwa-20261018-camp-selected-bins-v1';
+const CACHE_VERSION = 'talktag-pwa-20261020-target-language-routing-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
   '/E-english.html',
+  '/target-language-routing.js',
   '/offline.html',
   '/manifest.webmanifest',
   '/talktag-theme.css',
