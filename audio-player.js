@@ -53,6 +53,17 @@
   document.getElementById("playerHeaderMeta").textContent = lesson.level + " · OFFLINE CLASS PREP";
   document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
+  if (lesson.type === "plain" && lesson.artwork) {
+    var figure = document.createElement("figure");
+    figure.className = "essay-cover-figure";
+    var cover = document.createElement("img");
+    cover.src = lesson.artwork;
+    cover.alt = lesson.artworkAlt || "";
+    cover.width = 720;
+    cover.height = 480;
+    figure.appendChild(cover);
+    document.getElementById("lessonSummary").before(figure);
+  }
   var lessonSummary = document.getElementById("lessonSummary");
   lessonSummary.textContent = lesson.summary;
   if (lesson.type === "plain") {

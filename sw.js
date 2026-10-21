@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261020-ko-glr-001-translations-v1';
+const CACHE_VERSION = 'talktag-pwa-20261021-essay-artwork-v1';
 const APP_SHELL = [
   '/',
   '/index.html',

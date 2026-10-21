@@ -73,6 +73,17 @@ var native=window.TalkTagNative;
   document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE 001" + (lesson.partCount>1?" · PART "+lesson.partIndex:"");
   document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
+  if (lesson.type === "plain" && lesson.artwork) {
+    var figure = document.createElement("figure");
+    figure.className = "essay-cover-figure";
+    var cover = document.createElement("img");
+    cover.src = lesson.artwork;
+    cover.alt = lesson.artworkAlt || "";
+    cover.width = 720;
+    cover.height = 480;
+    figure.appendChild(cover);
+    document.getElementById("lessonSummary").before(figure);
+  }
   document.getElementById("lessonSummary").textContent = lesson.summary;
   document.getElementById("infoLevel").textContent = "Learning guide · " + lesson.level;
   document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
