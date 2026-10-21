@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261021-korean-starter-1030-v1';
+const CACHE_VERSION = 'talktag-pwa-20261021-korean-intro-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
