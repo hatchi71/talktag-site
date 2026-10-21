@@ -75,6 +75,7 @@
       <p class="pilot-kicker">${esc(unit.familyNumber)} · ${esc(unit.level)} · SOUND FIRST</p>
       <h1>${esc(unit.title)}</h1>
       ${unit.englishTitle ? `<p class="pilot-english-title">${esc(unit.englishTitle)}</p>` : ''}
+      ${unit.artwork ? `<figure class="bootcamp-player-art"><img src="${esc(unit.artwork)}" alt="${esc(unit.artworkAlt)}" width="720" height="480" decoding="async"></figure>` : ''}
       <p class="pilot-mission">${esc(unit.mission)}</p>
     </section>
     <div class="pilot-status"><strong id="cardCount"></strong><span id="cardName"></span></div>

@@ -1,0 +1,5 @@
+.camp-episode-art,.bootcamp-player-art{margin:12px 0 16px;overflow:hidden;border:1px solid var(--tt-border,#dbe5f1);border-radius:16px;background:var(--tt-raised,#f7f5ed)}
+.camp-episode-art img,.bootcamp-player-art img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.bootcamp-player-art{width:min(100%,680px);margin:18px 0 22px}
+.story-bootcamp-art{width:min(100%,620px);margin:0 0 18px}
+@media(max-width:650px){.camp-episode-art{margin:10px 0 14px}.bootcamp-player-art{margin:16px 0 20px}}
