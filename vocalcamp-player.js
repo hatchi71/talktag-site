@@ -87,6 +87,22 @@
       <button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button" aria-label="Reset current Vocal Camp practice">↻ Reset</button>
     </nav>`;
 
+  if (koreanLearning && unit.translation.length === unit.fullText.length) {
+    const anchor = document.createElement('div');
+    app.querySelector('.reference-actions')?.before(anchor);
+    window.TalkTagKoreanSupport?.mount(anchor, {
+      source:unit.fullText, english:unit.translation,
+      translations:window.TalkTagKoreanTranslations?.[unit.id] || {},
+      onChange:(selected,shown) => {
+        const panel=app.querySelector('#meaningPanel');
+        panel.lang=shown;
+        panel.querySelectorAll(':scope > p:not(.reference-label)').forEach((node,index)=>{node.textContent=selected[index]});
+        const button=app.querySelector('[data-reference="meaning"]');
+        if(button)button.textContent=shown.toUpperCase()+' · '+(button.getAttribute('aria-expanded')==='true'?'Close':'Meaning');
+      }
+    });
+  }
+
   if (koreanLearning) {
     const kicker = app.querySelector('.pilot-kicker');
     const badge = document.createElement('span');
@@ -305,7 +321,8 @@
     const open=panel.hidden;
     panel.hidden=!open;
     button.setAttribute('aria-expanded',String(open));
-    button.textContent=button.dataset.reference === 'script' ? (open ? `${scriptLanguage} · Close` : `${scriptLanguage} · ${scriptName}`) : (open ? `${meaningLanguage} · Close` : `${meaningLanguage} · ${meaningName}`);
+    const shownMeaningLanguage=koreanLearning?(document.getElementById('meaningPanel')?.lang||'en').toUpperCase():meaningLanguage;
+    button.textContent=button.dataset.reference === 'script' ? (open ? `${scriptLanguage} · Close` : `${scriptLanguage} · ${scriptName}`) : (open ? `${shownMeaningLanguage} · Close` : `${shownMeaningLanguage} · ${meaningName}`);
   }));
   previous.addEventListener('click',()=>showCard(state.card-1));
   next.addEventListener('click',()=>{if(state.card===cards.length-1){if(unit.id?.startsWith('family-')&&window.TalkTagCampProgress){stopSound();window.TalkTagCampProgress.set(koreanLearning?'ko-vocal':'vocal',unit.level,unit.familyNumber,true);state.card=0;save();location.href=(koreanLearning?'K-korean-vocal-camp.html':'vocal-camp.html')+'?level='+unit.level;return}menu.open=true;return}showCard(state.card+1)});
