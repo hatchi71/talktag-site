@@ -26,8 +26,8 @@
   <h2 id="kr-starter-title">Learn Korean together in Uijeongbu.</h2>
   <p>Beginner-friendly practice with a native Korean instructor.</p>
   <div class="kr-starter-times" aria-label="Korean class times">
-    <div><span>Saturday</span><strong><time datetime="16:00">4:00 p.m.</time></strong></div>
-    <div><span>Sunday</span><strong><time datetime="14:00">2:00 p.m.</time></strong></div>
+    <div><span>Saturday</span><strong><time datetime="10:30">10:30 a.m.</time></strong></div>
+    <div><span>Sunday</span><strong><time datetime="10:30">10:30 a.m.</time></strong></div>
   </div>
   <div class="tt-meetup-place"><div><small>Meeting place · Uijeongbu</small><strong>Ilgongjae · 일공재스터디카페</strong></div></div>
   <details class="tt-meetup-map"><summary>View Kakao map <span aria-hidden="true">＋</span></summary><div class="tt-meetup-map-frame"><iframe title="Ilgongjae Study Café Kakao map" data-map-src="meetup-map.html?v=20261008-kakao-only" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p>If the map does not load, please try again shortly.</p></details>
