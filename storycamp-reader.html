@@ -17,6 +17,8 @@
 <script src="content-completion-pages.js?v=1" defer></script>
 <script src="talktag-theme.js?v=20261015-korean-camp-route-v2"></script>
 <link rel="stylesheet" href="camp-translation.css?v=20261008-kr1">
+<link rel="stylesheet" href="korean-support-language.css?v=20261020-standard-1">
+<script src="korean-support-language.js?v=20261020-standard-1"></script>
 <script src="content/bootcamp-korean.js?v=20261009-ko-review"></script>
 <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
 <style>.talktag-global-home{display:none!important}</style>
@@ -56,7 +58,7 @@ function render(family){
   const vocalLanding=koreanLearning?'K-korean-vocal-camp.html':`vocalcamp-player.html?family=${family.number}&level=${L}`;
   content.innerHTML=`<div class="story-head"><div class="ey">${family.number} · ${L}</div><h1>${esc(family.title)}</h1></div><div class="deck-shell"><div class="deck-overview"><div class="deck-count" id="deckCount"></div><div class="deck-label" id="deckLabel"></div><button type="button" class="camp-kr-toggle" id="storyKorean" aria-label="${koreanLearning?copy.meaning:'현재 단계 한글 해석 보기'}" aria-expanded="false">${koreanLearning?'EN':'KR'}</button></div><div class="deck-track" aria-hidden="true"><span class="deck-progress" id="deckProgress"></span></div><div id="deckSlides">${slides.join('')}</div><div class="deck-actions"><details class="deck-menu" id="deckMenu"><summary aria-label="${koreanLearning?copy.menu:'학습 메뉴'}">•••</summary><div class="deck-menu-panel"><button type="button" id="deckRestart">${koreanLearning?copy.restart:'처음부터 다시 보기'}</button><a href="${familyLanding}">${koreanLearning?copy.episodes:`${family.number} ${esc(family.title)} 랜딩으로`}</a><a href="${levelLanding}">${koreanLearning?`${L} Korean Story Camp`:`${L} Story Camp 목록으로`}</a><a href="${vocalLanding}">${koreanLearning?'Same episode · Korean Vocal Camp →':'같은 번호 · 같은 레벨 Vocal Camp →'}</a><div class="deck-menu-title">${koreanLearning?copy.jump:'단계 이동'}</div><div class="deck-stage-nav" id="deckStageNav" aria-label="${koreanLearning?copy.jump:'학습 단계 바로가기'}"></div></div></details><button class="deck-button" id="deckPrev" type="button">${koreanLearning?copy.previous:'← 이전'}</button><button class="deck-button primary" id="deckNext" type="button">${koreanLearning?copy.next:'다음 →'}</button></div></div>`;
   if(koreanLearning) content.querySelector(`.deck-menu-panel a[href="${vocalLanding}"]`).textContent='Explore Korean Vocal Camp →';
-  initDeck(slides.length, koreanLearning?curriculum.meanings:(window.TalkTagBootCampKorean?.storycamp?.[family.number]?.[L]||[]), curriculum.lines.length);
+  initDeck(slides.length, koreanLearning?curriculum.meanings:(window.TalkTagBootCampKorean?.storycamp?.[family.number]?.[L]||[]), curriculum.lines);
 }
 function migrateStoryPosition(key,n){
   let value=Number(localStorage.getItem(key)||0);
@@ -66,13 +68,22 @@ function storyResumeIndex(saved,total,completed){
   if(completed||!Number.isFinite(saved)||saved>=total-1)return 0;
   return Math.max(0,Math.min(total-1,saved));
 }
-function initDeck(total, translations, sourceLength){
+function initDeck(total, translations, sourceLines){
+  const sourceLength=sourceLines.length;
   const slides=[...document.querySelectorAll('.deck-slide')],nav=document.getElementById('deckStageNav'),campKey=koreanLearning?'ko-story':'story',key=`talktag-${campKey}camp-card-${familyNumber}-${L}`;
   const countNode=document.getElementById('deckCount'),labelNode=document.getElementById('deckLabel'),progressNode=document.getElementById('deckProgress'),previousButton=document.getElementById('deckPrev'),nextButton=document.getElementById('deckNext'),restartButton=document.getElementById('deckRestart'),menu=document.getElementById('deckMenu');
   slides.forEach((slide,index)=>{const button=document.createElement('button');button.type='button';button.className='deck-dot';button.textContent=String(index+1);button.setAttribute('aria-label',`${index+1}${koreanLearning?' · ': '단계 '}${slide.dataset.label}`);button.addEventListener('click',()=>show(index));nav.append(button)});
   const kr=document.getElementById('storyKorean');
   kr.hidden=translations.length!==sourceLength;
-  slides.forEach((slide,index)=>{const panel=document.createElement('section');panel.id='storyKr'+index;panel.className='camp-kr-panel';panel.lang=koreanLearning?'en':'ko';panel.hidden=true;const lines=index<sourceLength?translations.slice(0,index+1):translations;if(index>=sourceLength){const note=document.createElement('p');note.className='camp-kr-note';note.textContent=koreanLearning?'Try from memory before checking the English meaning.':'회상·말하기 훈련에서는 먼저 기억으로 시도한 뒤 확인하세요.';panel.append(note)}const text=document.createElement('p');text.textContent=lines.join(' ');panel.append(text);(slide.querySelector('.step-text')||slide.querySelector('.section')).append(panel)});
+  slides.forEach((slide,index)=>{const panel=document.createElement('section');panel.id='storyKr'+index;panel.className='camp-kr-panel';panel.lang=koreanLearning?'en':'ko';panel.hidden=true;const lines=index<sourceLength?translations.slice(0,index+1):translations;if(index>=sourceLength){const note=document.createElement('p');note.className='camp-kr-note';note.textContent=koreanLearning?'Try from memory before checking the meaning.':'회상·말하기 훈련에서는 먼저 기억으로 시도한 뒤 확인하세요.';panel.append(note)}const text=document.createElement('p');text.textContent=lines.join(' ');panel.append(text);(slide.querySelector('.step-text')||slide.querySelector('.section')).append(panel)});
+  if(koreanLearning&&translations.length===sourceLength){
+    const anchor=document.createElement('div');anchor.className='story-support-anchor';document.querySelector('.deck-overview')?.after(anchor);
+    window.TalkTagKoreanSupport?.mount(anchor,{source:sourceLines,english:translations,translations:window.TalkTagKoreanTranslations?.[`story-${familyNumber}-${L}`]||{},onChange:(selected,shown)=>{
+      kr.setAttribute('aria-label',`Show ${window.TalkTagKoreanSupport.languages[shown]} meaning for this step`);
+      kr.textContent=shown.toUpperCase();
+      slides.forEach((slide,index)=>{const panel=slide.querySelector('.camp-kr-panel');panel.lang=shown;panel.querySelector('p:last-child').textContent=(index<sourceLength?selected.slice(0,index+1):selected).join(' ')})
+    }});
+  }
   kr.addEventListener('click',()=>{const panel=slides[current].querySelector('.camp-kr-panel');panel.hidden=!panel.hidden;kr.setAttribute('aria-expanded',String(!panel.hidden));});
   function completed(){return Boolean(window.TalkTagCampProgress?.done(campKey,L,familyNumber))}
   let current=0;try{current=storyResumeIndex(migrateStoryPosition(key,sourceLength),total,completed())}catch(error){}
@@ -80,5 +91,5 @@ function initDeck(total, translations, sourceLength){
   previousButton.addEventListener('click',()=>show(current-1));nextButton.addEventListener('click',()=>{if(current===total-1){window.TalkTagCampProgress?.set(campKey,L,familyNumber,true);show(0);location.href=koreanLearning?koreanStoryLanding:`story-camp.html?level=${L}`;return}show(current+1)});restartButton.addEventListener('click',()=>{menu.open=false;show(0)});show(current);
   window.addEventListener('pageshow',event=>{if(event.persisted&&(current===total-1||completed())){menu.open=false;show(0)}});
 }
-const familyScript=document.createElement('script');familyScript.src=koreanLearning?`content/storycamp-korean/${familyNumber}.js?v=20261017-korean-story-002-003`:`content/storycamp/${familyNumber}.js?v=20261009-003`;familyScript.onload=()=>{try{const family=(koreanLearning?window.TALKTAG_STORYCAMP_KOREAN:window.TALKTAG_STORYCAMP)?.families?.find(item=>item.number===familyNumber);if(!family)throw Error('family');render(family)}catch(error){content.innerHTML=`<div class="error">${koreanLearning?'We could not load this Korean story.':'자료를 불러오지 못했습니다.'}</div>`}};familyScript.onerror=()=>{content.innerHTML=`<div class="error">${koreanLearning?'We could not load this Korean story.':'자료를 불러오지 못했습니다.'}</div>`};document.head.appendChild(familyScript);
+const familyScript=document.createElement('script');familyScript.src=koreanLearning?`content/storycamp-korean/${familyNumber}.js?v=20261017-korean-story-002-003`:`content/storycamp/${familyNumber}.js?v=20261009-003`;familyScript.onload=()=>{try{const family=(koreanLearning?window.TALKTAG_STORYCAMP_KOREAN:window.TALKTAG_STORYCAMP)?.families?.find(item=>item.number===familyNumber);if(!family)throw Error('family');if(!koreanLearning){render(family);return}const meaningsScript=document.createElement('script');meaningsScript.src=`korean-support-manual-story-${familyNumber}.js?v=20261021-manual-1`;meaningsScript.onload=()=>render(family);meaningsScript.onerror=()=>render(family);document.head.appendChild(meaningsScript)}catch(error){content.innerHTML=`<div class="error">${koreanLearning?'We could not load this Korean story.':'자료를 불러오지 못했습니다.'}</div>`}};familyScript.onerror=()=>{content.innerHTML=`<div class="error">${koreanLearning?'We could not load this Korean story.':'자료를 불러오지 못했습니다.'}</div>`};document.head.appendChild(familyScript);
 </script></body></html>

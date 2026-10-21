@@ -72,6 +72,7 @@ for (const family of window.TALKTAG_VOCALCAMP_KOREAN.families.filter(item=>item.
   for (const [level,data] of Object.entries(family.levelsData)) add('Vocal',`family-${family.number}-${level}`,data.lines,data.translation);
 }
 for (const file of ['001','002','003']) load(`content/storycamp-korean/${file}.js`);
+for (const file of ['001','002','003']) load(`korean-support-manual-story-${file}.js`);
 for (const family of window.TALKTAG_STORYCAMP_KOREAN.families.filter(item=>item.status==='published')) {
   for (const [level,data] of Object.entries(family.levels)) add('Story',`story-${family.number}-${level}`,data.lines,data.meanings);
 }
