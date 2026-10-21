@@ -13,7 +13,7 @@
     'aea-b1-002': ['en/002-b1', 'Two coworkers review the first page of a report together.'],
     'aea-b2-002': ['en/002-b2', 'A customer asks a repair technician about the total cost beside a washing machine.'],
     'aea-c1-002': ['en/002-c1', 'Coworkers discuss different assumptions in a focused planning meeting.'],
-    'aea-c2-002': ['en/002-c2', 'A host and a visiting friend clarify expectations at a kitchen table.'],
+    'aea-c2-002': ['en/002-c2', 'Two men clarify expectations together at a kitchen table.', 'men-v2'],
     'ko-plain-a1-001': ['ko/001-a1', 'A learner joins a welcoming Korean class and greets the teacher and classmates.'],
     'ko-plain-a2-001': ['ko/001-a2', 'Classmates practice Korean together at a café after class.'],
     'ko-plain-b1-001': ['ko/001-b1', 'Members of a language group listen as a learner keeps a conversation going.'],
@@ -24,7 +24,7 @@
   (window.TalkTagAudioLessons || []).forEach(function (lesson) {
     var scene = scenes[lesson.id];
     if (!scene || lesson.type !== 'plain' || lesson.available === false) return;
-    lesson.artwork = '/assets/essay-scenes/' + scene[0] + '.jpg';
+    lesson.artwork = '/assets/essay-scenes/' + scene[0] + '.jpg' + (scene[2] ? '?v=' + scene[2] : '');
     lesson.artworkAlt = scene[1];
   });
 })();

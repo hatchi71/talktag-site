@@ -22,10 +22,10 @@ const paths = new Set();
 for (const lesson of lessons) {
   if (!lesson.artwork || !lesson.artworkAlt) throw new Error(`Missing artwork or alt: ${lesson.id}`);
   const expected = `/assets/essay-scenes/${lesson.id.startsWith('ko-') ? 'ko' : 'en'}/${String(lesson.unit).padStart(3, '0')}-${lesson.level.toLowerCase()}.jpg`;
-  if (lesson.artwork !== expected) throw new Error(`Artwork path mismatch: ${lesson.id}`);
+  if (lesson.artwork.split('?')[0] !== expected) throw new Error(`Artwork path mismatch: ${lesson.id}`);
   if (paths.has(lesson.artwork)) throw new Error(`Duplicate artwork: ${lesson.artwork}`);
   paths.add(lesson.artwork);
-  const path = join(root, lesson.artwork.slice(1));
+  const path = join(root, lesson.artwork.split('?')[0].slice(1));
   if (!existsSync(path)) throw new Error(`Missing image: ${path}`);
   const dimensions = execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', path], { encoding: 'utf8' }).trim();
   if (dimensions !== '720,480') throw new Error(`Wrong image dimensions: ${path} ${dimensions}`);
