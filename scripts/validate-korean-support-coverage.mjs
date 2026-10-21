@@ -54,6 +54,10 @@ load('korean-support-manual-starter-002.js');
 load('korean-support-manual-starter-003-004.js');
 load('korean-support-manual-starter-005-006.js');
 load('korean-support-manual-glr-002-a1-a2.js');
+load('korean-support-manual-glr-002-b1-b2.js');
+load('korean-support-manual-glr-002-c1-c2.js');
+load('korean-support-manual-glr-003-ab.js');
+load('korean-support-manual-glr-003-c.js');
 for (const lesson of window.TalkTagNativeCatalogs.ko.filter(item=>item.available!==false)) {
   add(lesson.type==='guided'?'GLR':'Essays',lesson.id,lesson.expressions,lesson.meanings,window.TalkTagKoreanGlr001Translations?.[lesson.id]);
 }
