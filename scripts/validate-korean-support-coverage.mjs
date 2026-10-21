@@ -9,6 +9,7 @@ function load(path) {
   runInNewContext(readFileSync(resolve(root, path), 'utf8'), {window, console}, {filename:path});
 }
 const cards=[];
+const nativeScript={vi:/[À-ỹ]/u,ne:/[\u0900-\u097F]/u,km:/[\u1780-\u17FF]/u,my:/[\u1000-\u109F]/u,th:/[\u0E00-\u0E7F]/u};
 function add(track, id, source, english, translations={}) {
   if (!Array.isArray(source) || !Array.isArray(english) || source.length !== english.length ||
       !source.length || source.some(line=>!String(line).trim()) || english.some(line=>!String(line).trim())) {
@@ -29,6 +30,10 @@ function add(track, id, source, english, translations={}) {
     if (!Array.isArray(list) || list.length !== source.length || list.some(line=>!String(line).trim())) {
       throw Error(`${track} ${id}: ${code} line alignment failed`);
     }
+    for(const [index,line] of list.entries()) {
+      if(!nativeScript[code].test(line)) throw Error(`${track} ${id}: ${code} line ${index+1} has no target-language script`);
+      if(source[index].includes('___') && !line.includes('___')) throw Error(`${track} ${id}: ${code} line ${index+1} lost practice placeholder`);
+    }
     if (record && !['reviewed','ai-reviewed'].includes(record.review?.[code]?.status)) {
       throw Error(`${track} ${id}: ${code} has no valid review status`);
     }
@@ -44,6 +49,11 @@ load('native-guided-ko-splits.js');
 load('native-audio-korean-aea-001.js');
 load('native-glr-001-translations.js');
 load('korean-support-essays-001.js');
+load('korean-support-manual-starter-001.js');
+load('korean-support-manual-starter-002.js');
+load('korean-support-manual-starter-003-004.js');
+load('korean-support-manual-starter-005-006.js');
+load('korean-support-manual-glr-002-a1-a2.js');
 for (const lesson of window.TalkTagNativeCatalogs.ko.filter(item=>item.available!==false)) {
   add(lesson.type==='guided'?'GLR':'Essays',lesson.id,lesson.expressions,lesson.meanings,window.TalkTagKoreanGlr001Translations?.[lesson.id]);
 }

@@ -1,6 +1,9 @@
 _local-audio/
 tt-backstage/
 .wrangler/
+.env.local
+content/korean-support-batch-progress.json
+content/korean-support-batch-progress.json.tmp
 .DS_Store
 audio/guided/segments-001/**/*.mp3
 audio/guided/segments-001/*.mp3
