@@ -8,7 +8,7 @@
     'aea-b2-001': ['en/001-b2', 'A person rests on a riverside bench with nothing to accomplish.'],
     'aea-c1-001': ['en/001-c1', 'A person sets a phone aside and enjoys an uninterrupted moment by a window.'],
     'aea-c2-001': ['en/001-c2', 'A walker notices trees, flowers, and a neighbor along a familiar street.'],
-    'aea-a1-002': ['en/002-a1', 'A neighbor returns a set of keys to Ben at his apartment door.'],
+    'aea-a1-002': ['en/002-a1', 'A neighbor calls Ben from home about his keys while he waits outside his apartment.', 'phone-call-v2'],
     'aea-a2-002': ['en/002-a2', 'Two shoppers cheerfully exchange grocery bags containing bananas and dog food.'],
     'aea-b1-002': ['en/002-b1', 'Two coworkers review the first page of a report together.'],
     'aea-b2-002': ['en/002-b2', 'A customer asks a repair technician about the total cost beside a washing machine.'],
