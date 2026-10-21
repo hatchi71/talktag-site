@@ -24,7 +24,8 @@
     return;
   }
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const REPEATS = 10, RATIOS = [2, 2.5, 3, 3.5];
+  const REPEATS = /^A[12]$/.test(level) ? 10 : /^B[12]$/.test(level) ? 15 : 21;
+  const RATIOS = [2, 2.5, 3, 3.5];
   const stateKey = `talktag-japanese-vocalcamp:001:${level}:v1`;
   const pauseKey = 'talktag-speaking-pause-multiplier';
   const state = {card: 0, counts: lesson.lines.map(() => 0)};

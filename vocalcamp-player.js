@@ -14,7 +14,7 @@
   const scriptLang = koreanLearning ? 'ko' : 'en';
   const meaningLang = koreanLearning ? 'en' : 'ko';
   const lines = unit.fullText || [];
-  const REPEAT_TARGET = 10;
+  const REPEAT_TARGET = /^A[12]$/.test(unit.level) ? 10 : /^B[12]$/.test(unit.level) ? 15 : 21;
   const PAUSE_OPTIONS = [2, 2.5, 3, 3.5];
   const pauseKey = 'talktag-speaking-pause-multiplier';
   let silenceMultiplier = 2.5;
