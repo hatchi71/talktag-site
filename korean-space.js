@@ -38,8 +38,6 @@
    if(view==='tests')other.innerHTML='<div class="kr-kicker">TEST PREPPERS</div><h1>First, Korean you can use.</h1><section class="kr-card"><h2>Korean test preparation · Coming soon</h2><p>There are no published Korean exam drills yet. Start with practical Korean while this section is being prepared.</p><a href="K-korean-learning.html">Explore starter lessons →</a></section>';
    document.title=({myspace:'Korean MySpace',talktag:'Korean Talk & Tag',discussions:'Korean conversation starters',tests:'Korean test preparation'}[view])+' · TalkTag';wireUndo();
   }
-  async function news(){try{const r=await fetch('home-news-feed.json',{cache:'no-store'});if(!r.ok)return;const f=await r.json();f.items.filter(x=>x.language==='ko').slice(0,2).forEach((x,i)=>{const c=document.querySelector(`[data-kr-news="${i}"]`);if(!c)return;c.href=x.href;c.querySelector('h3').textContent=x.title;c.querySelector('p').textContent=x.description||'Korean practice · '+x.levels.join(' / ');c.querySelector('strong').textContent='Open collection →'})}catch{}}
-  news();addEventListener('pageshow',news);
   document.getElementById('kr-share').onclick=async()=>{try{if(navigator.share)await navigator.share({title:document.title,url:location.href});else if(navigator.clipboard){await navigator.clipboard.writeText(location.href);document.getElementById('kr-share').textContent='Copied'}else{document.getElementById('kr-share').textContent='Use browser Share'}}catch(e){if(e.name!=='AbortError')document.getElementById('kr-share').textContent='Use browser Share'}};
   return;
  }
