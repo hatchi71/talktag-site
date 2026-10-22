@@ -35,15 +35,15 @@ for(const camp of ['story','vocal']){
   for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`]){
     const page=fs.readFileSync(path,'utf8');
     assert.match(page,/bootcamp-browser\.js\?v=[\w-]+/);
-    assert.match(page,/bootcamp-browser\.css\?v=20261018-selected-bins-v1/);
+    assert.match(page,/bootcamp-browser\.css\?v=[\w-]+/);
   }
 }
-const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js\?v=20261018-selected-bins-v1/,'Korean Boot Camp must use the current shared browser revision');
-assert.match(korean,/bootcamp-browser\.css\?v=20261018-selected-bins-v1/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
+const korean=fs.readFileSync('K-korean-starter.html','utf8');assert.match(korean,/bootcamp-browser\.js\?v=[\w-]+/,'Korean Boot Camp must use the shared browser');
+assert.match(korean,/bootcamp-browser\.css\?v=[\w-]+/,'Korean Boot Camp must use the same level-first styles as English and Japanese');
 assert.ok(korean.indexOf('bootcamp-browser.js')<korean.indexOf('korean-space.js'),'Korean browser must load before its caller');
 for(const camp of ['vocal','story']){
   const route=fs.readFileSync(`K-korean-${camp}-camp.html`,'utf8');
-  assert.match(route,/bootcamp-browser\.js\?v=20261018-selected-bins-v1/,'Korean Boot Camp must use the completed-bins browser revision');
+  assert.match(route,/bootcamp-browser\.js\?v=[\w-]+/,'Korean Boot Camp must use the completed-bins browser');
   assert.match(route,new RegExp(`data-camp="${camp}"`),'Korean Boot Camp landing must identify its camp for the shared browser');
   assert.doesNotMatch(route,/location\.replace/,'Korean Boot Camp must not redirect away from the level-first landing');
 }

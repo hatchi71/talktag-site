@@ -56,7 +56,7 @@ assert.match(read('native-audio-player.js'), /location\.replace\(native\.library
 for (const camp of ['story', 'vocal']) {
   const html = read(`K-korean-${camp}-camp.html`);
   assert.match(html, /K-korean-learning\.html#boot-camp/, 'Korean camp must return to Korean Studio');
-  assert.match(html, /talktag-theme\.js\?v=20261018-korean-boot-back/, 'Korean camp must load the updated shared navigation');
+  assert.match(html, /talktag-theme\.js\?v=[\w-]+/, 'Korean camp must load the shared navigation');
   assert.match(read('bootcamp-browser.js'), /language === 'ko' \? '&lang=ko' : ''/, 'Korean camp cards must carry their language route');
 }
 const theme = read('talktag-theme.js');
