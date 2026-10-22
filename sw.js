@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261022-landing-path-b-v5';
+const CACHE_VERSION = 'talktag-pwa-20261022-multilingual-path-b-v6';
 const APP_SHELL = [
   '/',
   '/index.html',
