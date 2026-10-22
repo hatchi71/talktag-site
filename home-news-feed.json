@@ -2,6 +2,38 @@
   "version": 1,
   "items": [
     {
+      "id": "vocal:005",
+      "title": "Vocal Camp · 005",
+      "href": "vocalcamp-family.html?family=005",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "새 이야기를 누적해서 듣고, 따라 말하며 내 말로 이어 보세요.",
+      "language": "en",
+      "publishedAt": "2026-10-22T11:31:44.777Z"
+    },
+    {
+      "id": "vocal:004",
+      "title": "Vocal Camp · 004",
+      "href": "vocalcamp-family.html?family=004",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "새 이야기를 누적해서 듣고, 따라 말하며 내 말로 이어 보세요.",
+      "language": "en",
+      "publishedAt": "2026-10-22T11:31:44.777Z"
+    },
+    {
       "id": "native:ko:guided:003",
       "language": "ko",
       "title": "Korean Guided L&R · 003",

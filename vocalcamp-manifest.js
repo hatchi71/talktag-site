@@ -1,5 +1,5 @@
 window.TALKTAG_VOCALCAMP_MANIFEST = {
-  "version": "2026-10-09-003-qc1",
+  "version": "2026-10-22-005-studio-qc2",
   "range": {
     "first": "001",
     "last": "999"
@@ -50,6 +50,24 @@ window.TALKTAG_VOCALCAMP_MANIFEST = {
         "C1",
         "C2"
       ],
+      "status": "published",
+      "audioStatus": "ready"
+    },
+    {
+      "number": "004",
+      "slug": "the-door-i-forgot-to-lock",
+      "title": "The Door I Forgot to Lock",
+      "theme": "문을 잠그지 않고 나온 아침부터, 잠금 소리를 의식하는 새로운 습관까지 이어집니다.",
+      "levels": ["A1", "A2", "B1", "B2", "C1", "C2"],
+      "status": "published",
+      "audioStatus": "ready"
+    },
+    {
+      "number": "005",
+      "slug": "the-morning-i-wore-two-different-socks",
+      "title": "The Morning I Wore Two Different Socks",
+      "theme": "서로 다른 양말을 신고 출근한 일로, 스스로를 판단하는 시선을 바꾸어 봅니다.",
+      "levels": ["A1", "A2", "B1", "B2", "C1", "C2"],
       "status": "published",
       "audioStatus": "ready"
     }

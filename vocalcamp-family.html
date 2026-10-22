@@ -8,7 +8,7 @@
   <link rel="icon" href="talktag-logo.png" type="image/png">
   <link rel="stylesheet" href="camp-landing.css?v=20261008-qc1">
   <script src="/talktag-home.js?v=20260922h" defer></script>
-  <script src="vocalcamp-manifest.js?v=20261009-ko-review"></script>
+  <script src="vocalcamp-manifest.js?v=20261022-005-studio-qc2"></script>
   <link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
   <script src="talktag-theme.js?v=20261009-mobile-spacing"></script>
 <link rel="stylesheet" href="camp-translation.css?v=20261008-kr1">
@@ -30,7 +30,7 @@
     const descriptions={"A1":"아주 짧은 문장을 듣고 따라 말하며 이야기의 흐름을 익힙니다.","A2":"한 문장씩 소리를 쌓으며 익숙한 상황과 행동을 이어 말합니다.","B1":"경험과 이유가 연결된 문장을 듣고 따라 말합니다.","B2":"선택과 결과를 설명하는 표현을 소리로 익힙니다.","C1":"의도와 관점이 담긴 표현을 듣고 자연스럽게 이어 말합니다.","C2":"미묘한 의미 차이가 담긴 표현을 듣고 내 목소리로 익힙니다."};
     const params=new URLSearchParams(location.search),number=String(params.get('family')||'001').padStart(3,'0');
     const metadata=(window.TALKTAG_VOCALCAMP_MANIFEST?.families||[]).find(item=>item.number===number&&item.status==='published');
-    if(metadata){document.getElementById('storyPeer').href='storycamp-family.html?family='+number;document.title=`${metadata.number} ${metadata.title} · TalkTag Vocal Camp`;familyNumber.textContent=`${metadata.number} · STORY FAMILY`;familyTitle.textContent=metadata.title;familyTheme.textContent=metadata.theme;levelCatalog.innerHTML=Object.keys(descriptions).filter(level=>metadata.levels.includes(level)).map(level=>`<a class="level-card" href="vocalcamp-player.html?level=${level}&family=${metadata.number}"><h3>${level}</h3><p>${descriptions[level]}</p><span class="open">${metadata.audioStatus==='ready'?'시작하기':'음원 준비 중'} →</span></a>`).join('')}else{familyTitle.textContent='자료를 불러오지 못했습니다.';familyTheme.textContent='Story Family 번호를 확인해 주세요.'}
+    if(metadata){if(!['001','002','003'].includes(number))document.querySelector('.peer-link').hidden=true;else document.getElementById('storyPeer').href='storycamp-family.html?family='+number;document.title=`${metadata.number} ${metadata.title} · TalkTag Vocal Camp`;familyNumber.textContent=`${metadata.number} · STORY FAMILY`;familyTitle.textContent=metadata.title;familyTheme.textContent=metadata.theme;levelCatalog.innerHTML=Object.keys(descriptions).filter(level=>metadata.levels.includes(level)).map(level=>`<a class="level-card" href="vocalcamp-player.html?level=${level}&family=${metadata.number}"><h3>${level}</h3><p>${descriptions[level]}</p><span class="open">${metadata.audioStatus==='ready'?'시작하기':'음원 준비 중'} →</span></a>`).join('')}else{familyTitle.textContent='자료를 불러오지 못했습니다.';familyTheme.textContent='Story Family 번호를 확인해 주세요.'}
   </script>
 </body>
 </html>
