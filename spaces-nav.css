@@ -46,6 +46,7 @@ html[data-appearance=dark] .tt-spaces-grid a:not([aria-current]){background:#183
 @media(max-width:360px){.tt-spaces-grid{gap:6px;padding:8px}.tt-spaces-grid a{font-size:11px;padding-inline:3px}}
 .tt-spaces-resume{display:grid;gap:5px;padding:15px;margin:0 0 16px;border:1px solid #bad2f8;border-radius:15px;background:#e6efff;color:#082b68;text-decoration:none}.tt-spaces-resume small{font-size:12px;font-weight:750}.tt-spaces-resume strong{font-size:16px;line-height:1.45}
 html[data-appearance=dark] .tt-spaces-grid a[aria-current],html[data-appearance=dark] .tt-spaces-resume{background:#193d6b;border-color:#648bc2;color:#e7effc}
+html[data-appearance=dark] .tt-spaces-grid a[aria-current]{background:#f39a4d;border-color:#ffd3a8;color:#153254}
 .tt-spaces-open{overflow:hidden!important}.tt-spaces-trigger:focus-visible,.tt-spaces-dialog :is(a,button):focus-visible{outline:3px solid #7cadf4;outline-offset:3px}
 @media(min-width:821px){.tt-spaces-dialog{inset:100px 20px auto auto;margin:0;border-radius:24px}.tt-spaces-trigger{margin-left:8px}}
 @media(max-width:820px){html body.tt-spaces-trial .tt-themed-header{gap:8px!important}.tt-spaces-trigger{padding:0 10px;font-size:12px}.tt-spaces-dialog{padding-left:16px;padding-right:16px}html body.tt-spaces-trial .topbar .top-actions{column-gap:8px!important}}
