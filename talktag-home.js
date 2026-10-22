@@ -8,7 +8,6 @@
   if (isHome) {
     const home = document.querySelector('#home .stage');
     if (home && !home.classList.contains('mission-home')) {
-      const introduction = home.querySelector('.home-intro');
       home.classList.add('mission-home');
       if (isJapaneseHome) home.classList.add('mission-home-ja');
       if (isKoreanHome) home.classList.add('mission-home-ko');
@@ -87,7 +86,7 @@
             <p>${copy.bootBody}</p>
             <strong>${copy.bootAction}</strong>
           </a>` : '';
-      home.innerHTML = `
+      if (isJapaneseHome || isKoreanHome) home.innerHTML = `
         <section class="mission-copy">
           <div class="mission-kicker">SMALL STEPS · BIGGER YOU</div>
           <h1>${copy.title}</h1>
@@ -124,21 +123,6 @@
         </section>
         <div class="home-contact">Contact : <a href="mailto:talktagadmin@gmail.com">talktagadmin@gmail.com</a></div>`;
 
-      if (!isJapaneseHome && !isKoreanHome) {
-        home.innerHTML = `
-          <section class="landing-hero">
-            <img src="assets/talktag-landing-confidence-v2.png" alt="말과 표현을 한 조각씩 쌓아가는 TalkTag 학습 이미지" width="1536" height="1536">
-            <p>언어를 익히는 것은 조그마한 조각을<br>차근차근 쌓아가는 것과 같아요.</p>
-          </section>
-          <section class="home-news landing-news" aria-label="TalkTag 새 소식">
-            <a class="feature-card tt-news meetup" href="E-english.html?view=talktag"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 9h8M8 13h5"/></svg></span><div class="news-label">톡택 모임 소식</div><h3>4주 영어 기초 체력<br>함께 만들어가요.</h3><p>토요일 · 일요일 오전 9:00–10:30<br>무료클래스 · 정원 8명</p><p class="news-note">스터디카페 이용료 6,900원은 각자 부담</p><strong>모임 안내 보기 →</strong></a>
-            <a class="feature-card tt-news boot" href="audio-library.html?type=guided"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18h14M6 18v-5h4v5M10 13V8h4v10M14 8V3h4v15"/></svg></span><div class="news-label">새 콘텐츠</div><h3>Latest English upload</h3><p>See the newest published lesson.</p><p class="news-note"></p><strong>콘텐츠 열기 →</strong></a>
-            <a class="feature-card tt-news sound" href="audio-library.html?type=guided"><span class="news-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18h14M6 18v-5h4v5M10 13V8h4v10M14 8V3h4v15"/></svg></span><div class="news-label">새 콘텐츠</div><h3>Recent English upload</h3><p>Explore another recently published lesson.</p><p class="news-note"></p><strong>콘텐츠 열기 →</strong></a>
-          </section>
-          <div class="home-contact">Contact : <a href="mailto:talktagadmin@gmail.com">talktagadmin@gmail.com</a></div>`;
-      }
-
-      if (introduction && !isJapaneseHome && !isKoreanHome) home.querySelector('.home-contact').before(introduction);
       const style = document.createElement('style');
       style.textContent = `
         #home .mission-home{min-width:0;min-height:960px;position:relative;padding:52px 46px 40px;overflow:auto}
