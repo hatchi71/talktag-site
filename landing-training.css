@@ -1,0 +1,196 @@
+.landing-training {
+  display: grid;
+  gap: 24px;
+  width: min(100%, 860px);
+  margin: 54px auto 0;
+  padding-bottom: 24px;
+}
+.landing-training-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid #d9d9cf;
+  border-radius: 28px;
+  background: #fffcf5;
+  box-shadow: 0 18px 40px rgba(24, 52, 85, .08);
+  color: #203249;
+  text-decoration: none;
+}
+.landing-training-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.landing-training-number {
+  color: #446953;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+.landing-training-status {
+  flex: none;
+  padding: 6px 12px;
+  border: 1px solid #b9d7c2;
+  border-radius: 999px;
+  background: #e8f3e9;
+  color: #3d6c4a;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .07em;
+}
+.landing-training-card h2 {
+  margin: 30px 0 10px;
+  color: #082b68;
+  font-size: clamp(34px, 4.7vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+}
+.landing-training-tagline {
+  margin: 0 0 16px;
+  color: #5c6879;
+  font-size: clamp(20px, 2.6vw, 27px);
+  font-weight: 850;
+  line-height: 1.35;
+  letter-spacing: -.03em;
+}
+.landing-training-description {
+  margin: 12px 0 24px;
+  color: #617084;
+  font-size: 16px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+.landing-training-entrances {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.landing-training-entrance {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #cbd7df;
+  border-radius: 18px;
+  background: #edf3f7;
+  box-shadow: 0 3px 0 rgba(199, 210, 218, .4);
+  color: #183b5e;
+  text-decoration: none;
+  transition: transform .18s, box-shadow .18s;
+}
+.landing-training-entrance:nth-child(2) {
+  border-color: #cbd8c8;
+  background: #edf3eb;
+}
+.landing-training-entrance:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(24, 52, 85, .13);
+}
+.landing-training-entrance:focus-visible,
+.landing-readable:focus-visible {
+  outline: 3px solid #6c98b9;
+  outline-offset: 3px;
+}
+.landing-training-entrance img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.landing-training-card:first-child .landing-training-entrance:first-child img {
+  object-fit: contain;
+  background: #f7f1e3;
+}
+.landing-training-entrance-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 104px;
+  padding: 15px 16px;
+}
+.landing-training-entrance strong {
+  display: block;
+  position: relative;
+  padding-right: 18px;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.35;
+}
+.landing-training-entrance strong span {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.landing-training-entrance small {
+  color: #526576;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.landing-readable {
+  transition: border-color .18s, box-shadow .18s;
+}
+.landing-readable:hover {
+  border-color: #9db7a0;
+  box-shadow: 0 20px 45px rgba(37, 67, 47, .13);
+}
+.landing-readable-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  margin: 10px 0 24px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+.landing-readable-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding-top: 16px;
+  border-top: 1px solid #d5dece;
+  color: #a64d12;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+.landing-readable-action span { font-size: 25px; line-height: 1; }
+html[data-appearance=dark] .landing-training-card {
+  border-color: #3b5346;
+  background: #172724;
+  color: #e2ecf3;
+}
+html[data-appearance=dark] .landing-training-card h2 { color: #eaf2ff; }
+html[data-appearance=dark] .landing-training-tagline { color: #d9e9da; }
+html[data-appearance=dark] .landing-training-description { color: #b5c6bd; }
+html[data-appearance=dark] .landing-training-number { color: #b3d5bd; }
+html[data-appearance=dark] .landing-training-status { background: #253c2d; border-color: #486a51; color: #bfdfc6; }
+html[data-appearance=dark] .landing-training-entrance { background: #223648; border-color: #43596c; color: #e2ecf3; }
+html[data-appearance=dark] .landing-training-entrance:nth-child(2) { background: #263b32; border-color: #496151; }
+html[data-appearance=dark] .landing-training-entrance small { color: #bdcdd4; }
+html[data-appearance=dark] .landing-readable-action { color: #e6a570; border-color: #3b5346; }
+@media (max-width: 820px) {
+  .landing-training { gap: 16px; margin-top: 38px; }
+  .landing-training-card { padding: 20px; border-radius: 24px; }
+  .landing-training-card h2 { margin-top: 26px; font-size: 38px; }
+  .landing-training-tagline { font-size: 21px; }
+  .landing-training-description { margin: 10px 0 20px; font-size: 16px; }
+  .landing-training-entrances { gap: 10px; }
+  .landing-training-entrance-copy { min-height: 103px; padding: 12px; }
+  .landing-training-entrance strong { font-size: 16px; }
+  .landing-training-entrance small { font-size: 13px; }
+  .landing-readable-art { margin-top: 6px; border-radius: 15px; }
+}
+@media (max-width: 359px) {
+  .landing-training-entrance-copy { padding: 10px; }
+  .landing-training-entrance strong { font-size: 14px; }
+  .landing-training-entrance small { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-training-entrance, .landing-readable { transition: none; }
+}
