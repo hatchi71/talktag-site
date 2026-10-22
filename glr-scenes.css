@@ -1,4 +1,6 @@
 /* A small title-side scene; full-width descriptions and controls remain clear. */
+/* Guided artwork belongs only in the compact scene frame, never in an essay cover slot. */
+body[data-audio-type=guided] .audio-lesson-open>.essay-cover-thumb{display:none}
 body[data-audio-type=guided] .glr-scene-title{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;margin-bottom:8px}
 body[data-audio-type=guided] .audio-lesson-open:has(.glr-scene-title){display:grid;grid-template-columns:1fr auto;gap:8px 12px;height:auto;align-content:start}
 body[data-audio-type=guided] .audio-lesson-open:has(.glr-scene-title) .lesson-copy{grid-column:1/-1;grid-row:2}
