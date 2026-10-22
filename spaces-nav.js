@@ -4,7 +4,7 @@
     if(document.querySelector('.tt-spaces-trigger'))return;
     const header=document.querySelector('header.topbar,header.top,header.site-head,header.site-header,header.toeicLandingHeader,header.examBar');
     if(!header)return;
-    const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261011-language-badge';document.head.append(css);
+    const css=document.createElement('link');css.rel='stylesheet';css.href='/spaces-nav.css?v=20261022-card-tray';document.head.append(css);
     const path=location.pathname,params=new URLSearchParams(location.search),ja=path.startsWith('/japanese/'),ko=path==='/'||path==='/index.html'||path.startsWith('/K-korean')||params.get('lang')==='ko';
     const home=ja?'/japanese/J-index.html':ko?'/':'/E-english.html';
     const routes=ja?['/japanese/J-index.html','/japanese/J-myspace.html','/japanese/J-talktag.html','/japanese/J-snowballing.html','/japanese/J-discussions.html','/japanese/J-test-preppers.html']:ko?['/','/K-korean.html?view=myspace','/K-korean.html?view=talktag','/K-korean-learning.html','/K-korean.html?view=discussions','/K-korean.html?view=tests']:['/E-english.html','/E-english.html?view=myspace','/E-english.html?view=talktag','/snowballing-studio.html','/discussions.html','/test-preppers.html'];

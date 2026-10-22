@@ -20,7 +20,7 @@
     document.head.append(shareQr);
   }
   const spaces = document.createElement('script');
-  spaces.src = '/spaces-nav.js?v=20261018-korean-home-v1';
+  spaces.src = '/spaces-nav.js?v=20261022-card-tray';
   spaces.defer = true;
   document.head.append(spaces);
   if(location.pathname.startsWith('/japanese/')){
