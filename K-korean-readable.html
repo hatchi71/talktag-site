@@ -4,29 +4,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Korean Readable · TalkTag</title>
-  <meta name="description" content="Explore TalkTag Korean Readable by level, from A1 to C2. Read Korean, close the text, and retell it in your own words.">
+  <meta name="description" content="Read Korean, recall what happened, revise your own summary, and retell it in your own words.">
   <link rel="canonical" href="https://talktag.co.kr/K-korean-readable.html">
+  <link rel="stylesheet" href="audio-lab.css?v=20261023-readable">
   <link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
-  <link rel="stylesheet" href="korean-readable.css?v=20261018">
-  <script src="talktag-theme.js?v=20261018-readable-levels" defer></script>
+  <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
+  <link rel="stylesheet" href="sound-check.css?v=20261015-level-bins">
+  <link rel="stylesheet" href="guided-library.css?v=20261016-matching-levels-v1">
+  <link rel="stylesheet" href="content-completion.css?v=20261015-level-bins-v1">
+  <link rel="stylesheet" href="korean-readable.css?v=20261023-glr-scheme-3">
+  <script src="content/readable/korean-001.js?v=20261023-published" defer></script>
+  <script src="content-completion.js?v=20261010-native001" defer></script>
+  <script src="talktag-theme.js?v=20261010-native001" defer></script>
+  <script src="korean-readable-library.js?v=20261023-glr-scheme-2" defer></script>
 </head>
-<body class="kr-readable-page">
-  <header class="kr-readable-header"><a href="K-korean-learning.html" aria-label="Korean Studio"><img src="talktag-logo.png" alt="TalkTag"><span>Korean Studio <small>READABLE</small></span></a></header>
-  <main class="kr-readable-wrap">
-    <p class="kr-readable-kicker">KOREAN · READABLE</p>
-    <h1>Readable</h1>
-    <p class="kr-readable-intro">Choose your Korean reading level. Read a story, close the text, and retell what you remember in your own words.</p>
-    <section aria-labelledby="kr-readable-level-heading">
-      <h2 id="kr-readable-level-heading">Choose your level</h2>
-      <div class="kr-readable-levels">
-        <a class="kr-readable-level" href="K-korean-readable-level.html?level=A1"><span>A1 · BEGINNER</span><strong>A1 Readables</strong><p>Build meaning from short, familiar Korean sentences.</p><em>VIEW A1 →</em></a>
-        <a class="kr-readable-level" href="K-korean-readable-level.html?level=A2"><span>A2 · ELEMENTARY</span><strong>A2 Readables</strong><p>Follow everyday situations and connect what happens next.</p><em>VIEW A2 →</em></a>
-        <a class="kr-readable-level" href="K-korean-readable-level.html?level=B1"><span>B1 · INTERMEDIATE</span><strong>B1 Readables</strong><p>Retell experiences, feelings, and turning points.</p><em>VIEW B1 →</em></a>
-        <a class="kr-readable-level" href="K-korean-readable-level.html?level=B2"><span>B2 · UPPER INTERMEDIATE</span><strong>B2 Readables</strong><p>Explain choices, reasons, and outcomes.</p><em>VIEW B2 →</em></a>
-        <a class="kr-readable-level" href="K-korean-readable-level.html?level=C1"><span>C1 · ADVANCED</span><strong>C1 Readables</strong><p>Explore ideas and different perspectives in Korean.</p><em>VIEW C1 →</em></a>
-        <a class="kr-readable-level" href="K-korean-readable-level.html?level=C2"><span>C2 · PROFICIENT</span><strong>C2 Readables</strong><p>Notice nuance and explain subtle meanings.</p><em>VIEW C2 →</em></a>
-      </div>
+<body data-audio-type="readable" data-native-language="ko">
+  <header class="site-head"><a class="brand" href="K-korean-learning.html#readable"><img src="talktag-logo.png" alt="TalkTag"><span><strong>Readable</strong><small>KOREAN</small></span></a><nav class="head-links"></nav></header>
+  <nav class="tt-route-tools" aria-label="Page navigation"><a class="tt-route-previous" href="K-korean-learning.html"><span aria-hidden="true">←</span><b>Back</b></a><a class="tt-route-category" href="K-korean-learning.html#readable"><span aria-hidden="true">⌂</span><b>Korean Studio</b></a></nav>
+  <main class="wrap">
+    <section class="catalog-head"><div><div class="eyebrow">READABLE · KOREAN</div><h1 id="readableTitle">Readable</h1><p id="readableDescription">Choose a level. Read, close the chapter, and retell it in your own Korean.</p></div><a class="audio-change-level" id="changeLevel" href="K-korean-readable.html" hidden>← Choose a level</a></section>
+    <p class="guided-progress-summary" id="readableProgress"></p>
+    <nav class="filter-bar tt-level-postits" id="readableLevels" aria-label="CEFR reading level">
+      <a data-level="A1" href="K-korean-readable.html?level=A1"><span>A1</span></a>
+      <a data-level="A2" href="K-korean-readable.html?level=A2"><span>A2</span></a>
+      <a data-level="B1" href="K-korean-readable.html?level=B1"><span>B1</span></a>
+      <a data-level="B2" href="K-korean-readable.html?level=B2"><span>B2</span></a>
+      <a data-level="C1" href="K-korean-readable.html?level=C1"><span>C1</span></a>
+      <a data-level="C2" href="K-korean-readable.html?level=C2"><span>C2</span></a>
+    </nav>
+    <section class="readable-method" id="readableMethod" aria-labelledby="readableMethodTitle">
+      <div class="eyebrow">READ · RECALL · RETELL</div>
+      <h2 id="readableMethodTitle">A reading path that builds your own voice</h2>
+      <ol>
+        <li><strong>Read.</strong> Korean first; reveal English only when needed.</li>
+        <li><strong>Recall &amp; summarize.</strong> Hide the chapter and write what you remember.</li>
+        <li><strong>Revise.</strong> Keep your original draft. AI feedback is coming soon.</li>
+        <li><strong>Retell.</strong> Speak without reading the chapter.</li>
+        <li><strong>Discuss with AI.</strong> Coming soon.</li>
+      </ol>
     </section>
+    <section class="lesson-list" id="readableList" aria-label="Readable chapters" hidden></section>
+    <section class="audio-missions" id="readableMissions" aria-label="Completed Readable chapters"><button class="audio-missions-toggle" id="readableMissionsToggle" type="button" aria-expanded="false" aria-controls="readableMissionList"><span aria-hidden="true">🍂</span><span>Completed chapters <small>Reopen or undo completion</small></span><span id="readableMissionCount">0</span></button><div id="readableMissionList" hidden></div><p class="audio-mission-notice" id="readableMissionNotice" role="status"></p></section>
   </main>
 </body>
 </html>

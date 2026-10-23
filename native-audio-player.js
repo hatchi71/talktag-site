@@ -70,7 +70,7 @@ var native=window.TalkTagNative;
   }
 
   document.title = "TalkTag · " + lesson.level + " " + lesson.title;
-  document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE 001" + (lesson.partCount>1?" · PART "+lesson.partIndex:"");
+  document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit || 1).padStart(3, '0') + (lesson.partCount>1?" · PART "+lesson.partIndex:"");
   document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
   if (lesson.type === "plain" && lesson.artwork) {

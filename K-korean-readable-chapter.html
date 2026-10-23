@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Korean Readable chapter · TalkTag</title>
+  <link rel="stylesheet" href="audio-lab.css?v=20261023-readable">
+  <link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
+  <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
+  <link rel="stylesheet" href="sound-check.css?v=20261015-level-bins">
+  <link rel="stylesheet" href="content-completion.css?v=20261015-level-bins-v1">
+  <link rel="stylesheet" href="korean-support-language.css?v=20261020-standard-1">
+  <link rel="stylesheet" href="korean-readable-chapter.css?v=20261023-pilot">
+  <script src="content/readable/korean-001.js?v=20261023-published" defer></script>
+  <script src="content-completion.js?v=20261010-native001" defer></script>
+  <script src="korean-support-language.js?v=20261023-ja-1" defer></script>
+  <script src="talktag-theme.js?v=20261010-native001" defer></script>
+  <script src="korean-readable-chapter.js?v=20261023-published-2" defer></script>
+</head>
+<body data-audio-type="readable" data-native-language="ko">
+  <header class="site-head"><a class="brand" href="K-korean-readable.html"><img src="talktag-logo.png" alt="TalkTag"><span><strong>Readable</strong><small>KOREAN</small></span></a><nav class="head-links"></nav></header>
+  <nav class="tt-route-tools" aria-label="Page navigation"><a id="chapterBack" class="tt-route-previous" href="K-korean-readable.html"><span aria-hidden="true">←</span><b>Level list</b></a><a class="tt-route-category" href="K-korean-learning.html#readable"><span aria-hidden="true">⌂</span><b>Korean Studio</b></a></nav>
+  <main class="wrap chapter-wrap" id="chapterRoot" hidden>
+    <header class="chapter-head"><p class="eyebrow" id="chapterKicker">KOREAN · READABLE</p><h1 id="chapterTitle" lang="ko">Chapter</h1><p class="chapter-english-title" id="chapterEnglishTitle" lang="en"></p><p id="chapterSituation"></p><span id="chapterDraft" class="chapter-review-badge" hidden>LOCAL REVIEW DRAFT · NOT PUBLISHED</span></header>
+    <figure class="chapter-cover" id="chapterCover" hidden><img id="chapterCoverImage" width="720" height="480" alt=""></figure>
+    <nav class="chapter-steps" aria-label="Learning steps">
+      <button type="button" data-step="1"><small>01</small> Read</button>
+      <button type="button" data-step="2"><small>02</small> Recall</button>
+      <button type="button" data-step="3"><small>03</small> Revise</button>
+      <button type="button" data-step="4"><small>04</small> Retell</button>
+      <button type="button" data-step="5"><small>05</small> Discuss</button>
+    </nav>
+    <section class="chapter-panel" id="step1" data-step-panel="1">
+      <div class="chapter-panel-head"><div><small>STEP 1 · 이야기 읽기</small><h2>Read the story</h2></div><button type="button" id="meaningToggle" aria-pressed="false">Show meaning</button></div>
+      <p class="chapter-guidance">Read the Korean first. Reveal one support-language meaning only when you need it.</p>
+      <div id="chapterLanguageAnchor"></div>
+      <div class="chapter-text" id="chapterText" lang="ko"></div>
+      <button class="chapter-next" type="button" data-next="2">Close the chapter and recall →</button>
+    </section>
+    <section class="chapter-panel" id="step2" data-step-panel="2" hidden>
+      <div class="chapter-panel-head"><div><small>STEP 2 · 기억해서 요약하기</small><h2>Recall &amp; summarize</h2></div></div>
+      <p class="chapter-guidance">The story is hidden. What was the place, the change, the help, and the outcome?</p>
+      <ul id="recallPrompts" class="chapter-prompts"></ul>
+      <label for="originalDraft">Your first summary in Korean</label>
+      <textarea id="originalDraft" lang="ko" rows="8" placeholder="기억나는 내용을 내 말로 써 보세요."></textarea>
+      <p class="chapter-save-status" id="originalSave" role="status">Saved on this device as you write.</p>
+      <button class="chapter-next" type="button" data-next="3">Keep this draft and revise →</button>
+    </section>
+    <section class="chapter-panel" id="step3" data-step-panel="3" hidden>
+      <div class="chapter-panel-head"><div><small>STEP 3 · 글 다듬기</small><h2>Revise &amp; polish</h2></div><span class="chapter-coming">AI feedback · coming soon</span></div>
+      <p class="chapter-guidance">Your first draft stays unchanged. Revise it yourself below; AI feedback is not available yet.</p>
+      <div class="chapter-draft-label">Original draft</div><div class="chapter-original" id="originalSnapshot"></div>
+      <label for="revisedDraft">Your revised version</label>
+      <textarea id="revisedDraft" lang="ko" rows="8" placeholder="표현을 다시 골라 써 보세요."></textarea>
+      <p class="chapter-save-status" id="revisedSave" role="status">Saved on this device as you write.</p>
+      <button class="chapter-next" type="button" data-next="4">Hide the writing and retell →</button>
+    </section>
+    <section class="chapter-panel" id="step4" data-step-panel="4" hidden>
+      <div class="chapter-panel-head"><div><small>STEP 4 · 내 말로 이야기하기</small><h2>Retell aloud</h2></div></div>
+      <p class="chapter-guidance">The chapter and your writing are hidden. Tell the event in your own Korean. You can reveal your notes if you get stuck.</p>
+      <button type="button" class="chapter-secondary" id="notesToggle" aria-expanded="false">Show my notes</button>
+      <div class="chapter-original" id="retellNotes" hidden></div>
+      <button class="chapter-next" type="button" data-next="5">Continue to discussion →</button>
+    </section>
+    <section class="chapter-panel" id="step5" data-step-panel="5" hidden>
+      <div class="chapter-panel-head"><div><small>STEP 5 · AI와 토론하기</small><h2>Discuss with AI</h2></div><span class="chapter-coming">Coming soon</span></div>
+      <p class="chapter-guidance">Live discussion is not available yet. You can finish this chapter after reading, recalling, revising, and retelling.</p>
+    </section>
+    <div class="chapter-completion"><p>Mark the chapter complete when you have retold it in your own words. You can undo this later.</p><button type="button" id="chapterComplete">Mark as completed</button></div>
+    <a class="chapter-return" id="chapterReturn" href="K-korean-readable.html">← Back to level list</a>
+  </main>
+  <main class="wrap" id="chapterUnavailable" hidden><div class="readable-empty"><h1>Chapter unavailable</h1><p>This chapter is still under review.</p><a href="K-korean-readable.html">← Choose a level</a></div></main>
+</body>
+</html>

@@ -1,7 +1,13 @@
-/* Japanese support meanings for Korean Essays & Articles 001. AI-reviewed drafts; native review pending. */
+/* Japanese support meanings for Korean Essays & Articles 001–002. AI-reviewed drafts; native review pending. */
 (function () {
   'use strict';
   Object.assign(window.TalkTagKoreanJapanese ||= Object.create(null), {
+    'ko-plain-a1-002': [
+      '今朝は雨が降りました。','私は傘を持ってバス停に行きました。','バスが遅れていたので、少し心配になりました。',
+      '職場の同僚に「バスが遅れています」とメッセージを送りました。',
+      '同僚は「大丈夫です。気をつけて来てください」と返信しました。',
+      'しばらくするとバスが来ました。','私は時間どおりに会社に着きました。'
+    ],
     'ko-plain-a1-001': [
       '今日、私は新しい韓国語の授業に行きました。','先生も生徒たちも親切でした。','私は自分の名前を言いました。',
       '隣の人と一緒に座りました。','次の授業にも行きたいです。'

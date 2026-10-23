@@ -47,8 +47,10 @@ load('native-guided-ko-002.js');
 load('native-guided-ko-003.js');
 load('native-guided-ko-splits.js');
 load('native-audio-korean-aea-001.js');
+load('native-audio-korean-aea-002.js');
 load('native-glr-001-translations.js');
 load('korean-support-essays-001.js');
+load('korean-support-essays-002.js');
 load('korean-support-manual-starter-001.js');
 load('korean-support-manual-starter-002.js');
 load('korean-support-manual-starter-003-004.js');
@@ -95,4 +97,7 @@ for (const track of tracks) {
 }
 const pending=cards.filter(card=>card.ready.length<6);
 console.log(`Total: ${cards.length} card units; ${pending.length} still need complete non-English translation.`);
+load('content/readable/korean-001.js');
+const koreanReadable=(window.TalkTagKoreanReadable||[]).filter(chapter=>chapter.status==='published');
+console.log(`Readable: ${koreanReadable.length} published chapters; ${koreanReadable.filter(chapter=>!window.TalkTagKoreanTranslations?.[chapter.id]).length} with additional support languages explicitly pending.`);
 if (pending.length) throw Error(`Incomplete support-language coverage: ${pending.map(card=>card.id).join(', ')}`);

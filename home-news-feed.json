@@ -2,6 +2,28 @@
   "version": 1,
   "items": [
     {
+      "id": "korean-readable:001",
+      "language": "ko",
+      "title": "Korean Readable · 001",
+      "href": "K-korean-readable.html?level=A1",
+      "levels": [
+        "A1"
+      ],
+      "description": "Read a Korean story, then recall and retell it in your own words.",
+      "publishedAt": "2026-10-23T05:56:38.000Z"
+    },
+    {
+      "id": "native:ko:plain:002",
+      "language": "ko",
+      "title": "Korean Audio Essays & Articles · 002",
+      "href": "K-korean-audio-library.html?type=plain",
+      "levels": [
+        "A1"
+      ],
+      "description": "Listen, summarize, and retell an original audio essay.",
+      "publishedAt": "2026-10-23T05:44:51.420Z"
+    },
+    {
       "id": "vocal:005",
       "title": "Vocal Camp · 005",
       "href": "vocalcamp-family.html?family=005",

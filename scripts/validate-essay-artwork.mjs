@@ -14,6 +14,7 @@ load('audio-essays-002-media.js');
 load('audio-essays-002.js');
 context.window.TalkTagNative = { language: 'ko' };
 load('native-audio-korean-aea-001.js');
+load('native-audio-korean-aea-002.js');
 load('native-audio-catalog.js');
 load('essay-artwork.js');
 
@@ -30,5 +31,5 @@ for (const lesson of lessons) {
   const dimensions = execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', path], { encoding: 'utf8' }).trim();
   if (dimensions !== '720,480') throw new Error(`Wrong image dimensions: ${path} ${dimensions}`);
 }
-if (lessons.length !== 18) throw new Error(`Expected 18 published English/Korean essays, found ${lessons.length}`);
+if (lessons.length !== 19) throw new Error(`Expected 19 published English/Korean essays, found ${lessons.length}`);
 console.log(`Essay artwork passed: ${lessons.length} published cards, unique 720×480 covers and alt text.`);

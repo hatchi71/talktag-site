@@ -19,6 +19,12 @@ function catalog(read){
  for(const f of vocal.filter(f=>f.status==='published'&&f.audioStatus==='ready'&&!story.some(s=>s.number===f.number&&s.status==='published')))groups.set('vocal:'+f.number,{id:'vocal:'+f.number,title:'Vocal Camp · '+f.number,href:'vocalcamp-family.html?family='+f.number,levels:f.levels,description:'새 이야기를 누적해서 듣고, 따라 말하며 내 말로 이어 보세요.'});
  const readable=JSON.parse(read('content/readable/readable-stories-A1-C2-60.json')||'[]');
  for(const r of readable){if(!r.content||r.status==='draft')continue;const number=String(r.id.split('-').at(-1)).padStart(3,'0'),id='readable:'+number;if(!groups.has(id))groups.set(id,{id,title:'Readable · '+number,href:'readable.html',levels:[],description:'새 글을 읽고 기억한 내용을 내 말로 이야기해 보세요.'});const g=groups.get(id);if(!g.levels.includes(r.level))g.levels.push(r.level);}
+ const koreanReadable=read('content/readable/korean-001.js');
+ if(koreanReadable)vm.runInContext(koreanReadable,c,{timeout:1000});
+ for(const chapter of (c.window.TalkTagKoreanReadable||[]).filter(chapter=>chapter.status==='published'&&chapter.paragraphs?.length)){
+  const number=String(chapter.unit||1).padStart(3,'0');
+  groups.set('korean-readable:'+number,{id:'korean-readable:'+number,language:'ko',title:'Korean Readable · '+number,href:`K-korean-readable.html?level=${chapter.level}`,levels:[chapter.level],description:'Read a Korean story, then recall and retell it in your own words.',publishedAt:chapter.publishedAt});
+ }
  const korean=read('korean-starter-data.js');
  if(korean){vm.runInContext(korean,c,{timeout:1000});const ready=(c.window.TalkTagKoreanStarters||[]).filter(x=>x.published&&x.lines?.length&&x.story);if(ready.length)groups.set('korean:starters',{id:'korean:starters',title:'Korean Starter Collection · 001–006',href:'K-korean-learning.html',levels:['Starter'],description:'영어 안내와 함께 일상 한국어를 연습하고 기억해서 말해 보세요.'});}
  for(const file of ['content/vocalcamp-korean-001.js','content/vocalcamp-korean-002.js','content/vocalcamp-korean-003.js','content/storycamp-korean/001.js','content/storycamp-korean/002.js','content/storycamp-korean/003.js']){const koreanVocal=read(file);if(koreanVocal)vm.runInContext(koreanVocal,c,{timeout:1000});}
@@ -27,7 +33,7 @@ function catalog(read){
  const japaneseVocal=read('content/vocalcamp-japanese-001.js');
  if(japaneseVocal)vm.runInContext(japaneseVocal,c,{timeout:1000});
  for(const f of (c.window.TALKTAG_VOCALCAMP_JAPANESE?.families||[]).filter(f=>f.status==='published'&&f.audioStatus==='ready'))groups.set('japanese-vocal:'+f.number,{id:'japanese-vocal:'+f.number,language:'ja',title:'Japanese Vocal Camp · '+f.number,href:'japanese/J-vocal-camp.html',levels:f.levels,description:'일본어 대화를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.'});
- for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-audio-korean-aea-001.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
+ for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-audio-korean-aea-001.js','native-audio-korean-aea-002.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
  for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs||{}))for(const lesson of lessons){
   if(!lesson.available||!lesson.audio)continue;
   const number=String(lesson.unit||1).padStart(3,'0'),track=lesson.type==='plain'?'Audio Essays & Articles':'Guided L&R',id='native:'+language+':'+lesson.type+':'+number,name=language==='ko'?'Korean':'Japanese';
@@ -47,7 +53,7 @@ const now=new Date().toISOString();
 // Imported legacy content shares one repository timestamp. Use the known
 // latest legacy release (Audio Essays 002) as the tie-break for that baseline.
 const tieRank=x=>({guided:3,plain:4,boot:2,readable:1}[x.id.split(':')[0]]||0);
-const items=current.map(x=>({...x,language:x.language||(x.id.startsWith('korean:')?'ko':'en'),publishedAt:dates.get(x.id)||now})).sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)||tieRank(b)-tieRank(a)||b.id.localeCompare(a.id));
+const items=current.map(x=>({...x,language:x.language||(x.id.startsWith('korean:')?'ko':'en'),publishedAt:dates.get(x.id)||x.publishedAt||now})).sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)||tieRank(b)-tieRank(a)||b.id.localeCompare(a.id));
 const output=JSON.stringify({version:1,items},null,2)+'\n';
 if(process.argv.includes('--check')){if(!fs.existsSync(path)||fs.readFileSync(path,'utf8')!==output)throw Error('Run node scripts/update-home-news.mjs and commit home-news-feed.json');}
 else fs.writeFileSync(path,output);
