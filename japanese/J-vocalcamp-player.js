@@ -164,19 +164,21 @@
     };
     player.onwaiting = recoverStall;
     player.onstalled = recoverStall;
-    player.onplaying = () => { if (token === runToken) { clearTimeout(stallTimer); button.classList.add('is-playing'); button.querySelector('em').textContent = '■'; } };
+    player.onplaying = () => { if (token === runToken) { button.classList.add('is-playing'); button.querySelector('em').textContent = '■'; recoverStall(); } };
     player.onpause = () => { if (token === runToken && !player.ended && activeStep === index) { clearTimeout(stallTimer); interrupted(); } };
     let phase = '';
     player.ontimeupdate = () => {
       if (token !== runToken) return;
+      recoverStall();
       const cue = variant.cues.find(item => item.s <= player.currentTime && player.currentTime < item.e);
       if (!cue) return;
       const waiting = cue === variant.cues.at(-1) && player.currentTime >= cue.voiceEnd;
       const nextPhase = `${cue.i}:${waiting}`;
-      if (nextPhase === phase) return;
-      phase = nextPhase;
-      button.classList.toggle('is-waiting', waiting);
-      button.classList.toggle('is-playing', !waiting);
+      if (nextPhase !== phase) {
+        phase = nextPhase;
+        button.classList.toggle('is-waiting', waiting);
+        button.classList.toggle('is-playing', !waiting);
+      }
       soundStatus.textContent = waiting
         ? `PAUSE · 방금 들은 누적 이야기 전체를 말해 보세요. ${Math.max(0, Math.ceil(cue.e - player.currentTime))}초`
         : `${index + 1}단계 · ${state.counts[index] + 1}/${REPEATS}회 듣는 중`;
