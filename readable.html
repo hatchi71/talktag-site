@@ -1,53 +1,47 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>TalkTag Readable · CEFR A1–C2</title>
-  <style>
-    :root{--navy:#082b68;--blue:#1768e9;--orange:#ff6a10;--ink:#183455;--muted:#68778a;--line:#dde5f0;--shadow:0 18px 45px rgba(24,52,85,.1)}
-    *{box-sizing:border-box}
-    body{margin:0;color:var(--ink);font-family:Inter,"Noto Sans KR",system-ui,sans-serif;background:#fbfcfb;background-image:radial-gradient(#dce6f0 1px,transparent 1px);background-size:24px 24px}
-    .top{height:78px;position:sticky;top:0;z-index:5;background:#fffffff2;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px}
-    .brand{display:flex;align-items:center;gap:12px}.brand-home{display:flex;align-items:center;text-decoration:none}.brand img{width:76px;height:58px;object-fit:contain}.brand b{color:var(--navy)}
-    .back{color:var(--blue);text-decoration:none;font-size:12px;font-weight:800}.wrap{max-width:1100px;margin:auto;padding:48px 24px 88px}
-    .eyebrow{font-size:11px;letter-spacing:.13em;font-weight:850;color:var(--blue)}h1{font-size:clamp(38px,5vw,58px);line-height:1.02;color:var(--navy);margin:10px 0}.intro{color:var(--muted);line-height:1.72;max-width:760px}
-    .section-tag{display:inline-flex;align-items:center;gap:7px;margin-bottom:10px;padding:6px 9px;border-radius:999px;background:#f0f3f7;color:#748397;font-size:10px;font-weight:900;letter-spacing:.08em}
-    .cefr{margin-top:36px;background:#f7f9fb;border:1px solid #e2e8ef;border-radius:22px;padding:28px}.cefr h2,.choose h2{color:var(--navy);margin:0 0 10px;font-size:27px}.cefr>p{color:var(--muted);line-height:1.75;margin:0}
-    .notice{margin-top:17px;padding:15px 17px;border-radius:14px;background:#fff7ae;font-size:13px;line-height:1.65}.scale{margin-top:21px;overflow:hidden;background:#fff;border:1px solid #e2e8ef;border-radius:16px}
-    .band{display:grid;grid-template-columns:150px 1fr;grid-template-rows:auto auto;column-gap:22px;padding:17px 20px;background:#fff;border-bottom:1px solid #e8edf3;cursor:default}.band:last-child{border-bottom:0}.band b{grid-column:1;grid-row:2;display:block;color:#51647d;font-size:16px;margin:4px 0 0}.band span{grid-column:2;grid-row:1/3;align-self:center;display:block;color:#7a8798;font-size:12px;line-height:1.55}.band em{grid-column:1;grid-row:1;font-style:normal;color:#8290a1;font-size:10px;font-weight:900;letter-spacing:.08em}
-    .choose{margin-top:54px;padding-top:6px}.choose h2{margin-bottom:20px}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .lesson{position:relative;display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #cfe0f7;border-radius:19px;padding:23px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s,border-color .15s;cursor:pointer}.lesson:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(24,52,85,.16);border-color:var(--blue)}.lesson:focus-visible{outline:3px solid #9fc4ff;outline-offset:3px}.lesson:nth-child(5),.lesson:nth-child(6){background:#eef5ff}.lesson:after{content:"↗";position:absolute;right:17px;top:16px;color:var(--blue);font-weight:900;font-size:17px}
-    .level{font-size:11px;font-weight:900;color:var(--blue);letter-spacing:.12em}.lesson h2{color:var(--navy);font-size:22px;margin:9px 0}.lesson p{color:var(--muted);font-size:13px;line-height:1.55;min-height:62px}.open{display:inline-block;margin-top:10px;color:var(--orange);font-size:11px;font-weight:900;border-bottom:1px solid #ffc49d;padding-bottom:2px}
-    @media(max-width:850px){.levels{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:700px){.top{height:68px;padding:0 12px}.brand img{width:58px}.brand b{font-size:12px}.wrap{padding:30px 17px 60px}.cefr{padding:21px 18px}.levels{grid-template-columns:1fr;gap:14px}.band{grid-template-columns:108px 1fr;column-gap:14px;padding:16px 14px}.band b{font-size:15px}.lesson p{min-height:0}.choose{margin-top:42px}.choose h2{margin-bottom:16px}}
-    .cefr-guide-link{display:inline-flex;align-items:center;min-height:44px;color:var(--blue);font-size:13px;font-weight:800;text-underline-offset:4px}
-  </style>
-<script src="/talktag-home.js?v=1" defer></script>
-<link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
-<script src="talktag-theme.js?v=20261009-mobile-spacing"></script>
-<link rel="canonical" href="https://talktag.co.kr/readable.html"><meta name="description" content="A1부터 C2까지 영어 글을 읽고, 원문을 덮은 뒤 내 말로 다시 이야기하는 TalkTag Readable."></head>
-<body>
-  <header class="top">
-    <div class="brand"><a class="brand-home" href="E-english.html" aria-label="TalkTag Home"><img src="talktag-logo.png" alt="TalkTag Home"></a><b>Snowballing Studio · Readable</b></div>
-    <a class="back" href="snowballing-studio.html">← Snowballing Studio</a>
-  </header>
+  <title>English Readable · TalkTag</title>
+  <meta name="description" content="Choose a CEFR level and read English stories. Close the text, recall, and retell in your own words.">
+  <link rel="canonical" href="https://talktag.co.kr/readable.html">
+  <link rel="stylesheet" href="audio-lab.css?v=20261023-readable">
+  <link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
+  <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
+  <link rel="stylesheet" href="sound-check.css?v=20261015-level-bins">
+  <link rel="stylesheet" href="guided-library.css?v=20261016-matching-levels-v1">
+  <link rel="stylesheet" href="content-completion.css?v=20261015-level-bins-v1">
+  <link rel="stylesheet" href="korean-readable.css?v=20261023-shared-readable-1">
+  <script src="content-completion.js?v=20261010-native001" defer></script>
+  <script src="talktag-theme.js?v=20261010-native001" defer></script>
+  <script src="readable-english-library.js?v=20261023-shared-readable-3" defer></script>
+</head>
+<body data-audio-type="readable" data-native-language="en">
+  <header class="site-head"><a class="brand" href="E-english.html"><img src="talktag-logo.png" alt="TalkTag"><span><strong>Readable</strong><small>ENGLISH</small></span></a><nav class="head-links"></nav></header>
+  <nav class="tt-route-tools" aria-label="Page navigation"><a class="tt-route-previous" href="E-english.html"><span aria-hidden="true">←</span><b>Back</b></a><a class="tt-route-category" href="snowballing-studio.html"><span aria-hidden="true">⌂</span><b>Snowballing Studio</b></a></nav>
   <main class="wrap">
-    <div class="eyebrow">CEFR LIBRARY · 60 READABLES · A1–C2</div>
-    <h1>Readable</h1>
-    <p class="intro">나에게 맞는 레벨을 선택하세요. 이야기를 읽고, 기억한 내용을 정리한 뒤 내 말로 다시 이야기합니다.</p>
-    <p><a class="cefr-guide-link" href="snowballing-studio.html#cefr">CEFR 레벨 안내 →</a></p>
-    <section class="choose">
-      <h2>Choose your level</h2>
-      <div class="levels">
-        <a class="lesson" href="bootcamp-level.html?mode=readable&amp;level=A1"><div class="level">A1 · 10 READABLES</div><h2>A1 Readables</h2><p>짧고 분명한 일상 이야기를 읽고 내 말로 다시 이야기합니다.</p><span class="open">OPEN A1 →</span></a>
-        <a class="lesson" href="bootcamp-level.html?mode=readable&amp;level=A2"><div class="level">A2 · 10 READABLES</div><h2>A2 Readables</h2><p>익숙한 상황에서 원인과 결과를 연결해 이야기합니다.</p><span class="open">OPEN A2 →</span></a>
-        <a class="lesson" href="bootcamp-level.html?mode=readable&amp;level=B1"><div class="level">B1 · 10 READABLES</div><h2>B1 Readables</h2><p>경험과 감정, 변화의 계기를 연결해 이야기합니다.</p><span class="open">OPEN B1 →</span></a>
-        <a class="lesson" href="bootcamp-level.html?mode=readable&amp;level=B2"><div class="level">B2 · 10 READABLES</div><h2>B2 Readables</h2><p>선택의 이유와 결과를 살펴보고 내 생각을 덧붙입니다.</p><span class="open">OPEN B2 →</span></a>
-        <a class="lesson" href="bootcamp-level.html?mode=readable&amp;level=C1"><div class="level">C1 · 10 READABLES</div><h2>C1 Readables</h2><p>사건에 담긴 의미와 여러 관점을 살펴봅니다.</p><span class="open">OPEN C1 →</span></a>
-        <a class="lesson" href="bootcamp-level.html?mode=readable&amp;level=C2"><div class="level">C2 · 10 READABLES</div><h2>C2 Readables</h2><p>미묘한 의미 차이와 숨은 가정을 짚으며 내 말로 풀어냅니다.</p><span class="open">OPEN C2 →</span></a>
-      </div>
+    <section class="catalog-head"><div><div class="eyebrow">READABLE · ENGLISH</div><h1 id="readableTitle">Readable</h1><p id="readableDescription">Choose a level. Read, close the chapter, and retell it in your own words.</p></div><a class="audio-change-level" id="changeLevel" href="readable.html" hidden>← Choose a level</a></section>
+    <p class="guided-progress-summary" id="readableProgress"></p>
+    <nav class="filter-bar tt-level-postits" id="readableLevels" aria-label="CEFR reading level">
+      <a data-level="A1" href="readable.html?level=A1"><span>A1</span></a>
+      <a data-level="A2" href="readable.html?level=A2"><span>A2</span></a>
+      <a data-level="B1" href="readable.html?level=B1"><span>B1</span></a>
+      <a data-level="B2" href="readable.html?level=B2"><span>B2</span></a>
+      <a data-level="C1" href="readable.html?level=C1"><span>C1</span></a>
+      <a data-level="C2" href="readable.html?level=C2"><span>C2</span></a>
+    </nav>
+    <section class="readable-method" id="readableMethod" aria-labelledby="readableMethodTitle">
+      <div class="eyebrow">READ · RECALL · RETELL</div>
+      <h2 id="readableMethodTitle">A reading path that builds your own voice</h2>
+      <ol>
+        <li><strong>Read.</strong> Follow the people, place, problem, and change.</li>
+        <li><strong>Recall.</strong> Close the chapter and reconstruct its main events.</li>
+        <li><strong>Retell.</strong> Say the story in your own English, then connect it to your experience.</li>
+      </ol>
     </section>
+    <section class="lesson-list" id="readableList" aria-label="Readable chapters" hidden></section>
+    <section class="audio-missions" id="readableMissions" aria-label="Completed Readable chapters"><button class="audio-missions-toggle" id="readableMissionsToggle" type="button" aria-expanded="false" aria-controls="readableMissionList"><span aria-hidden="true">🍂</span><span>Completed chapters <small>Reopen or undo completion</small></span><span id="readableMissionCount">0</span></button><div id="readableMissionList" hidden></div><p class="audio-mission-notice" id="readableMissionNotice" role="status"></p></section>
   </main>
 </body>
 </html>
