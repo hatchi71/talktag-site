@@ -12,7 +12,8 @@
       story: Object.freeze({src:'/assets/bootcamp-scenes/ko/001-v3-story.jpg',alt:'A learner shows a forgotten charger to a teacher'})
     }),
     ja: Object.freeze({
-      vocal: Object.freeze({src:'/assets/bootcamp-scenes/ja/001-v3-vocal.jpg',alt:'A learner returns a forgotten notebook to a community-class teacher'})
+      vocal: Object.freeze({src:'/assets/bootcamp-scenes/ja/001-v3-vocal.jpg',alt:'A learner returns a forgotten notebook to a community-class teacher'}),
+      story: Object.freeze({src:'/assets/bootcamp-scenes/ja/001-v3-vocal.jpg',alt:'A notebook rests in a community classroom'})
     })
   });
   window.TalkTagBootCampArtwork = Object.freeze({

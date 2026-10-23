@@ -13,7 +13,7 @@ for (const file of [
   'bootcamp-stage-rules.js','vocalcamp-manifest.js','storycamp-manifest.js',
   'content/vocalcamp/001.js','content/storycamp/001.js',
   'content/vocalcamp-korean-001.js','content/storycamp-korean/001.js',
-  'content/vocalcamp-japanese-001.js','content/bootcamp-001-v3-meanings.js',
+  'content/vocalcamp-japanese-001.js','content/storycamp-japanese-001.js','content/bootcamp-001-v3-meanings.js',
   'content/bootcamp-001-v3-story-ko.js','bootcamp-artwork.js',
   'audio/vocalcamp/short-001-v3/manifest.js',
   'audio/korean/vocalcamp/short-001-v3/manifest.js',
@@ -48,12 +48,17 @@ for (const level of levels) {
     assert.ok(art && fs.existsSync(new URL('.'+art.src,root)),`${language}/${level}: missing vocal illustration`);
     checked++;
   }
-  for (const language of ['en','ko']) {
-    const family=language==='en'?c.window.TALKTAG_STORYCAMP.families[0]:c.window.TALKTAG_STORYCAMP_KOREAN.families[0];
+  for (const language of ['en','ko','ja']) {
+    const family=language==='en'?c.window.TALKTAG_STORYCAMP.families[0]:
+      language==='ko'?c.window.TALKTAG_STORYCAMP_KOREAN.families[0]:c.window.TALKTAG_STORYCAMP_JAPANESE.families[0];
     const lines=family.levels[level].lines;
     assert.equal(lines.length,5,`${language}/${level}: Story needs five authored beats`);
     assert.deepEqual(Array.from(rule.units(lines,5)),Array.from(lines));
     assert.equal(meanings[`${language}Story`][level].length,5);
+    if(language==='ja') {
+      assert.equal(family.levels[level].readings.length,5);
+      assert.equal(family.levels[level].meanings.length,5);
+    }
     const art=c.window.TalkTagBootCampArtwork.get('story','001',level,language);
     assert.ok(art && fs.existsSync(new URL('.'+art.src,root)),`${language}/${level}: missing story illustration`);
     checked++;

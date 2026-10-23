@@ -1,6 +1,6 @@
 # Boot Camp 001 — short-story production source
 
-Status: **new 001 replacement source**. English, Korean, and Japanese Vocal Camp speech was generated with the selected voices, passed technical Audio QC Studio checks, and matched automated transcription; all 270 versioned media URLs were verified. English/Korean Story Camp uses five text beats. Human listening and native-language editorial review were not performed; these remain separate checks, not claims made by the technical QC result. Older 001 audio must never be reused with these words.
+Status: **new 001 replacement source**. English, Korean, and Japanese Vocal Camp speech was generated with the selected voices, passed technical Audio QC Studio checks, and matched automated transcription; all 270 versioned media URLs were verified. English/Korean/Japanese Story Camp uses five text beats. Human listening and native-language editorial review were not performed; these remain separate checks, not claims made by the technical QC result. Older 001 audio must never be reused with these words.
 
 Production standard: `TALKTAG_DRILLS_FRAMEWORK.md`, Boot Camp; `VOCAL_CAMP_PAUSE_PROTOCOL.md`; English Reference Book No. 1; Korean Reference Book No. 1. Private reference-only genre/usage checks: English `SC BC A2B12 the happy prince and other tales.md`, page 2 (concrete action before implication); Korean `2. 기본생활.md`, pages 15–18 (ordinary objects and polite questions). No source wording, plot, characters, or images are reused. Checked 2026-10-23. Japanese-native review remains pending.
 
@@ -71,11 +71,23 @@ Situation: A notebook is left after a community class. Learner input: three cumu
 | C1 | 授業後、見覚えのあるノートが残っていました。 | 推測だけで渡さず、先生に預けました。 | 本人に確認して返せたそうです。 |
 | C2 | 忘れ物のノートに、持ち主の心当たりがありました。 | でも、推測は確認ではありません。先生に預けました。 | 正しい持ち主に戻り、慎重さの大切さを感じました。 |
 
-## Release gates not yet passed
+## Japanese Story Camp 001 · The Borrowed Notebook
 
-- New scripts: editorial draft; independent naturalness, level, register, and rights review pending.
-- Korean support-language meanings: English, Vietnamese, Nepali, Khmer, Burmese, Thai, Japanese not yet aligned/reviewed for these new lines.
-- English/Korean/Japanese Vocal: approved voice assignment, TTS, full-stage variants, 10/15/21 repetitions, response pauses, dings, decode/duration QC, and real listening pending.
-- Story: final learner-written reconstruction UI and saved-progress migration to a new content revision pending.
-- Artwork: new situations need new illustrations; existing sandwich/classroom images must not be relabeled as these stories.
-- Old files: enumerate exact R2/local keys and delete **only after** all published references switch to the verified replacements.
+Situation: A classmate forgets a notebook and a learner lends one for the lesson. Learner input: five short written beats, shown cumulatively from the beginning. Expected output: cover the model, reconstruct the event in writing, and retell it in Japanese. Physical: notebook, classroom desk. Sound: say the completed story after writing. Graphic: the classroom notebook illustration used for this 001 scene. Meta: a small act of help supports participation. **Japanese-native naturalness review pending.**
+
+| Level | 1 | 2 | 3 | 4 | 5 |
+| --- | --- | --- | --- | --- | --- |
+| A1 | 友だちはノートを忘れました。 | 私はノートを一冊貸しました。 | 友だちは授業の言葉を書きました。 | 授業のあと、ノートを返してくれました。 | 「ありがとう」と言ってくれました。 |
+| A2 | 授業が始まる前、友だちはノートがないことに気づきました。 | 私は予備のノートを一冊貸しました。 | 友だちは大事な言葉をそこに書きました。 | 授業のあと、ノートを返そうとしました。 | 私は「続きも使ってね」と言いました。 |
+| B1 | 授業の直前、友だちがノートを忘れたと困っていました。 | 私はかばんにあった予備のノートを貸しました。 | 友だちは授業中、分からない言葉をそこに書き留めました。 | 終わってから返そうとしたので、私はそのまま持っていていいと伝えました。 | 次の授業では、そのノートを開いて一緒に復習しました。 |
+| B2 | 授業の前に、友だちはノートを忘れたことに気づいて慌てていました。 | 私は使っていないノートを貸し、気になった表現を自由に書いてもらいました。 | 授業中、友だちは質問と答えを並べて記録していました。 | 帰り際に返そうとしましたが、私は次回まで持っていていいと言いました。 | 翌週、そのノートは二人で話すための小さな資料になりました。 |
+| C1 | 授業が始まる寸前、友だちは記録するものがないと気づきました。 | 私は予備のノートを渡し、気になった表現を書き留めてみてと勧めました。 | 友だちは単語だけでなく、聞き返したくなった場面も書きました。 | 終了後に返そうとしましたが、私は続きを書けるよう持ち帰ってもらいました。 | 次の授業では、その記録から思いがけない質問が生まれました。 |
+| C2 | 授業が始まる直前、友だちはノートを忘れたことに気づき、参加しづらそうにしていました。 | 予備を一冊渡すと、私は書く内容まで指示せず、自由に使ってもらうことにしました。 | 友だちは説明そのものより、立ち止まって考えた箇所を丁寧に残していました。 | 授業後、そのノートを返そうとしたので、次に話す手がかりとして持っていてと伝えました。 | 翌週、二人の対話はその余白に書かれた一つの疑問から始まりました。 |
+
+## Release review status
+
+- All six new 001 track/language combinations have authored 3/5-beat sources and versioned completion IDs. English/Korean/Japanese Vocal audio passed technical QC, decode, measured duration, response-gap and automated transcription checks; 270 R2 URLs were verified before release.
+- English/Korean Story scenes use new illustrations; Japanese Story shares the new classroom-notebook 001 scene with Japanese Vocal. Japanese Story's 60 older cards and its old renderer were removed from the repository after the 001 replacement was wired.
+- Independent human listening and native-language editorial review remain outstanding, especially for Japanese naturalness and advanced register. Do not describe technical QC as human approval.
+- The new Korean Vocal/Story lines have English meanings; Vietnamese, Nepali, Khmer, Burmese, Thai, and Japanese support-language drafts are marked pending rather than showing meanings for a retired story.
+- Old R2 objects remain subject to a separate exact-key audit and irreversible-deletion confirmation; a published-repository removal does not imply R2 deletion.

@@ -12,7 +12,8 @@ const expected = new Map([
   ['English Story Camp 001', { units: 5, max: 24, count: text => text.split(/\s+/u).length }],
   ['Korean Vocal Camp 001', { units: 3, max: 40, count: text => [...text].length }],
   ['Korean Story Camp 001', { units: 5, max: 60, count: text => [...text].length }],
-  ['Japanese Vocal Camp 001', { units: 3, max: 40, count: text => [...text].length }]
+  ['Japanese Vocal Camp 001', { units: 3, max: 40, count: text => [...text].length }],
+  ['Japanese Story Camp 001', { units: 5, max: 45, count: text => [...text].length }]
 ]);
 
 for (const [name, rule] of expected) {

@@ -69,19 +69,18 @@ for (const story of readable) {
   }
 }
 
-for (const relative of ['japanese/content/story-camp/a1-01-10.json', 'japanese/content/story-camp/a2-c2-50-stories.json']) {
-  const collection = readJson(relative);
-  for (const story of collection.stories) {
-    for (const [index, chunk] of story.chunks.entries()) {
-      requiredText(chunk.jp, `Japanese source ${story.id}/${index + 1}`);
-      requiredText(chunk.reading, `Japanese reading ${story.id}/${index + 1}`);
-      requiredText(chunk.ko, `Japanese Korean support ${story.id}/${index + 1}`);
-      checked += 1;
-    }
-    for (const [index, card] of story.snowballCards.entries()) {
-      for (const field of ['jp', 'reading', 'ko']) requiredText(card[field], `Japanese snowball ${story.id}/${index + 1}/${field}`);
-      if (card.lines.length !== card.chunkIds.length) fail(`Japanese snowball ${story.id}/${index + 1} has mismatched line count`);
-    }
+const japaneseStoryContext = {window: {}};
+vm.createContext(japaneseStoryContext);
+vm.runInContext(fs.readFileSync(path.join(root, 'content/storycamp-japanese-001.js'), 'utf8'), japaneseStoryContext, {timeout: 1000});
+const japaneseStory = japaneseStoryContext.window.TALKTAG_STORYCAMP_JAPANESE?.families?.find(family => family.number === '001');
+if (!japaneseStory || japaneseStory.status !== 'published') fail('New Japanese Story Camp 001 is missing');
+for (const [level, card] of Object.entries(japaneseStory.levels)) {
+  for (const field of ['lines','readings','meanings']) if (!Array.isArray(card[field]) || card[field].length !== 5) fail(`Japanese Story 001 ${level}/${field}: expected five aligned units`);
+  for (let index = 0; index < 5; index += 1) {
+    requiredText(card.lines[index], `Japanese Story 001 source ${level}/${index + 1}`);
+    requiredText(card.readings[index], `Japanese Story 001 reading ${level}/${index + 1}`);
+    requiredText(card.meanings[index], `Japanese Story 001 Korean meaning ${level}/${index + 1}`);
+    checked += 1;
   }
 }
 

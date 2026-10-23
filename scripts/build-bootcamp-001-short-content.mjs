@@ -16,7 +16,8 @@ const specs = {
   enStory: { heading: 'English Story Camp 001', size: 5, title: 'The Library Note', slug: 'the-library-note', theme: 'Respect a private note found inside a library book.', language: 'en' },
   koVocal: { heading: 'Korean Vocal Camp 001', size: 3, title: 'The Umbrella at the Stop', slug: 'the-umbrella-at-the-stop', theme: 'Ask who owns an umbrella before returning it.', language: 'ko' },
   koStory: { heading: 'Korean Story Camp 001', size: 5, title: 'The Shared Charger', slug: 'the-shared-charger', theme: 'Find a charger and check its owner before returning it.', language: 'ko' },
-  jaVocal: { heading: 'Japanese Vocal Camp 001', size: 3, title: 'Notebook After Class', slug: 'notebook-after-class', theme: '수업 뒤 남은 공책의 주인을 확인하고 돌려줍니다.', language: 'ja' }
+  jaVocal: { heading: 'Japanese Vocal Camp 001', size: 3, title: 'Notebook After Class', slug: 'notebook-after-class', theme: '수업 뒤 남은 공책의 주인을 확인하고 돌려줍니다.', language: 'ja' },
+  jaStory: { heading: 'Japanese Story Camp 001', size: 5, title: 'The Borrowed Notebook', slug: 'the-borrowed-notebook', theme: '잊은 공책을 빌려주고, 그 공책으로 다음 시간에 함께 복습합니다.', language: 'ja' }
 };
 function rows(spec) {
   const section = source.split(/^## /m).find(part => part.startsWith(spec.heading));
@@ -30,6 +31,7 @@ const data = Object.fromEntries(Object.entries(specs).map(([key, spec]) => [key,
 for (const [key, spec] of Object.entries(specs)) for (const level of levels) {
   if (meanings[key][level]?.length !== spec.size) throw Error(`${key}/${level}: meaning count mismatch`);
 }
+for (const level of levels) if (meanings.jaStoryReadings[level]?.length !== 5) throw Error(`jaStoryReadings/${level}: reading count mismatch`);
 function write(relative, text) {
   fs.mkdirSync(path.dirname(path.join(root, relative)), { recursive: true });
   fs.writeFileSync(path.join(root, relative), text);
@@ -69,6 +71,11 @@ write('content/vocalcamp-korean-001.js', js('TALKTAG_VOCALCAMP_KOREAN',koVocal))
 write('content/storycamp/001.js', js('TALKTAG_STORYCAMP',enStory));
 write('content/storycamp-korean/001.js', js('TALKTAG_STORYCAMP_KOREAN',koStory));
 write('content/vocalcamp-japanese-001.js', js('TALKTAG_VOCALCAMP_JAPANESE',jaCatalog));
+const jaStory = { version:'2026-10-23-short-001-v3', families:[{ number:'001', title:specs.jaStory.title,
+  japaneseTitle:'借りたノート', theme:specs.jaStory.theme, status:'published', levels:Object.fromEntries(levels.map(level => [level, {
+    lines:data.jaStory[level], readings:meanings.jaStoryReadings[level], meanings:meanings.jaStory[level]
+  }])) }] };
+write('content/storycamp-japanese-001.js', js('TALKTAG_STORYCAMP_JAPANESE',jaStory));
 write('content/bootcamp-001-v3-story-ko.js', `/* New aligned Korean meanings for English Story Camp 001. */\nwindow.TalkTagBootCampKorean ||= {storycamp:{}}; window.TalkTagBootCampKorean.storycamp ||= {}; window.TalkTagBootCampKorean.storycamp['001'] = ${JSON.stringify(meanings.enStory,null,2)};\n`);
 const catalog = (spec, type) => ({version:'2026-10-23-short-001-v3',range:{first:'001',last:'001'},families:[{
   number:'001',slug:spec.slug,title:spec.title,theme:spec.theme,levels:levels.slice(),status:'published',
@@ -76,4 +83,4 @@ const catalog = (spec, type) => ({version:'2026-10-23-short-001-v3',range:{first
 }]});
 write('vocalcamp-manifest.js', js('TALKTAG_VOCALCAMP_MANIFEST',catalog(specs.enVocal,'vocal')));
 write('storycamp-manifest.js', js('TALKTAG_STORYCAMP_MANIFEST',catalog(specs.enStory,'story')));
-console.log('Built new 001 source modules: English/Korean Vocal & Story, Japanese Vocal.');
+console.log('Built new 001 source modules: English/Korean Vocal & Story, Japanese Vocal & Story.');

@@ -19,6 +19,8 @@
         ? (window.TALKTAG_STORYCAMP_KOREAN?.families || []).filter(f => f.status === 'published')
       : language === 'ja' && camp === 'vocal'
         ? (window.TALKTAG_VOCALCAMP_JAPANESE?.families || []).filter(f => f.status === 'published' || (japaneseLocalPreview && f.status === 'audio-qc'))
+      : language === 'ja' && camp === 'story'
+        ? (window.TALKTAG_STORYCAMP_JAPANESE?.families || []).filter(f => f.status === 'published')
       : language === 'en' ? (window[`TALKTAG_${camp.toUpperCase()}CAMP_MANIFEST`]?.families || []).filter(f => f.status === 'published') : [];
     const familyLevels = family => Array.isArray(family.levels) ? family.levels : Object.keys(family.levels || {});
     const progressCamp = language === 'ko' ? `ko-${camp}` : language === 'ja' ? `ja-${camp}` : camp;
@@ -49,6 +51,8 @@
     const done = f => Boolean(window.TalkTagCampProgress?.done(progressCamp, level, f.number));
     const route = (f, cardLevel = level) => japanese && camp === 'vocal'
       ? `J-vocalcamp-player.html?level=${cardLevel}&family=${f.number}`
+      : japanese && camp === 'story'
+      ? `J-storycamp-reader.html?level=${cardLevel}&family=${f.number}`
       : `${camp === 'story' ? 'storycamp-reader' : 'vocalcamp-player'}.html?level=${cardLevel}&family=${f.number}${language === 'ko' ? '&lang=ko' : ''}`;
     const summary = l => {
       const items = families.filter(f => familyLevels(f).includes(l));
