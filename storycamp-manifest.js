@@ -33,7 +33,7 @@ window.TALKTAG_STORYCAMP_MANIFEST = {
         "C1",
         "C2"
       ],
-      "status": "published"
+      "status": "archived"
     },
     {
       "number": "003",
@@ -48,7 +48,7 @@ window.TALKTAG_STORYCAMP_MANIFEST = {
         "C1",
         "C2"
       ],
-      "status": "published"
+      "status": "archived"
     }
   ]
 };

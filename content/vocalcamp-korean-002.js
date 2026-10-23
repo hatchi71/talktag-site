@@ -68,7 +68,7 @@
     slug: 'first-community-class',
     theme: 'A new learner finds the confidence to join a Korean community class.',
     levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
-    status: 'published',
+    status: 'archived',
     audioStatus: 'ready',
     levelsData
   });

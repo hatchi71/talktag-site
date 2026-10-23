@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
 <link rel="stylesheet" href="bootcamp-artwork.css?v=20261023-en-bootcamp-1">
 <script src="bootcamp-artwork.js?v=20261023-en-bootcamp-1"></script>
+<script src="bootcamp-stage-rules.js?v=20261023-001"></script>
 <style>.talktag-global-home{display:none!important}</style>
 </head>
 <body><header class="top"><div class="brand"><a href="E-english.html" aria-label="TalkTag Home"><img src="talktag-logo.png" alt="TalkTag Home"></a><span>Snowballing Studio · Boot Camp · Story Camp</span></div><a class="back" id="back" href="story-camp.html">← Story Camp</a></header><main class="wrap" id="content"><div class="ey">STORY CAMP</div><h1>자료 불러오는 중…</h1></main>
@@ -31,6 +32,10 @@
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 const q=new URLSearchParams(location.search),allowed=['A1','A2','B1','B2','C1','C2'],koreanLearning=q.get('lang')==='ko';let L=(q.get('level')||'A1').toUpperCase();if(!allowed.includes(L))L='A1';const familyNumber=String(q.get('family')||'001').padStart(3,'0');
 const koreanStoryLanding=`K-korean-story-camp.html?level=${L}`;
+if(familyNumber!=='001'){
+  document.getElementById('content').innerHTML='<div class="error">Episode 001 is the current Boot Camp story. Please return to the level list.</div>';
+  throw Error('Archived Boot Camp episode');
+}
 if(koreanLearning){
   document.documentElement.lang='en';
   const home=document.querySelector('.brand a'),brand=document.querySelector('.brand span');
@@ -43,26 +48,32 @@ function paragraphs(text){return text.split(/\n\n+/).filter(Boolean).map(p=>`<p>
 function render(family){
   const curriculum=family?.levels?.[L];
   if(!curriculum||!Array.isArray(curriculum.lines))throw Error('curriculum');
-  const steps=accumulateChunks(curriculum.lines),text=steps.at(-1),slides=[];
+  // A2 Korean has four original sentences. Splitting its time phrase from the
+  // next action creates five useful meaning units without changing the text.
+  const splitA2=koreanLearning&&L==='A2';
+  const stageUnits=splitA2
+    ? [curriculum.lines[0],curriculum.lines[1],'수업이 끝난 뒤에','새 친구와 차를 마셨어요.',curriculum.lines[3]]
+    : window.TalkTagBootCampStages.units(curriculum.lines,5);
+  const translationEnds=splitA2?[1,2,3,3,4]:window.TalkTagBootCampStages.boundaries(curriculum.lines.length,5);
+  const steps=accumulateChunks(stageUnits),text=steps.at(-1),slides=[];
   const prompts=family.prompts||[`누가 무엇을 나누었고, 그 뒤 두 사람 사이에 어떤 변화가 생겼는지 떠올려 보세요.`,`내가 누군가와 작은 것을 나누었던 경험으로 바꾸어 보세요.`,`작은 호의가 관계를 바꾼 나의 이야기를 노트 없이 전달해 보세요.`];
   const copy=koreanLearning?{
     build:'Build',rewrite:'Rewrite the whole story',rewriteGuide:'Without looking at the completed story, write the whole story again in your notebook.',rewriteNote:'Write in your notebook first',rewriteDetail:'Open the completed story only after you finish. Check the parts or expressions you missed.',reference:'Check the completed story',retell:'Retell from memory',retellGuide:'Cover both your notes and the source. Tell the whole story from beginning to end in the Korean you remember.',retellNote:'Cover your notes before you start',retellDetail:'If you pause, connect the story with the Korean you remember instead of looking at the source right away.',transform:'Make it your own',transformGuide:'Keep the original structure and topic, but change the person, place, reason, action, or result to create your own story in your notebook.',same:'SAME STRUCTURE',sameDetail:'Keep the flow: beginning → change → result.',own:'MY STORY',ownDetail:'Change details to fit your own experience or point of view.',share:'Share your new story',shareGuide:'Cover the story you wrote in step 4, then tell it naturally to a partner.',talk:'TALK TO YOUR PARTNER',step:'Build',note:'Write the story again from the beginning up to this sentence.',meaning:'Show the English meaning for this step',finish:'Finish lesson',next:'Next →',previous:'← Previous',jump:'Jump to a learning step',menu:'Learning menu',restart:'Restart from the beginning',episodes:'Korean Story Camp episodes'
   }:null;
   document.title=`${family.number} ${family.title} · ${koreanLearning?'TalkTag Korean Story Camp':'TalkTag Story Camp'}`;
   steps.forEach((step,i)=>{
-    slides.push(`<article class="deck-slide" data-label="${copy?`${copy.step} ${i+1}${i===steps.length-1?' · story complete':''}`:`누적 ${i+1}${i===steps.length-1?' · 이야기 완성':''}`}"><section class="section"><article class="snow-step"><div class="step-text">${paragraphs(step)}</div><div class="note-action">${copy?copy.note:'이 문장까지 이야기의 처음부터 다시 써 보세요.'}</div></article></section></article>`);
+    const instruction=i===steps.length-1
+      ? (copy?'Cover the story, reconstruct all five meaning units in your own words, then finish.':'원문을 가리고 다섯 의미 단위 전체를 내 말로 다시 쓴 뒤 마치세요.')
+      : (copy?copy.note:'이 단위까지 이야기의 처음부터 다시 써 보세요.');
+    slides.push(`<article class="deck-slide" data-label="${copy?`${copy.step} ${i+1}${i===steps.length-1?' · story complete':''}`:`누적 ${i+1}${i===steps.length-1?' · 이야기 완성':''}`}"><section class="section"><article class="snow-step"><div class="step-text">${paragraphs(step)}</div><div class="note-action">${instruction}</div></article></section></article>`);
   });
-  slides.push(`<article class="deck-slide" data-label="${copy?copy.rewrite:'다시 쓰기'}"><section class="section"><p class="stage-purpose">2 · REWRITE</p><h2>${copy?copy.rewrite:'전체 이야기 처음부터 다시 써보기'}</h2><p class="guide">${copy?copy.rewriteGuide:'지금까지 단계별로 누적해서 썼던 이야기 전체를 보지 않고 처음부터 다시 나의 노트에 적어 보세요.'}</p><div class="cover-note"><b>${copy?copy.rewriteNote:'먼저 노트에 쓰세요'}</b>${copy?copy.rewriteDetail:'다 쓴 뒤에만 완성된 이야기를 열어 빠진 흐름과 표현을 확인합니다.'}</div><details class="story-reference"><summary>${copy?copy.reference:'완성된 이야기 확인하기'}</summary><div class="story">${paragraphs(text)}</div></details></section></article>`);
-  slides.push(`<article class="deck-slide" data-label="${copy?copy.retell:'기억해서 말해보기'}"><section class="section"><p class="stage-purpose">3 · RETELL</p><h2>${copy?copy.retell:'기억해서 말해보기'}</h2><p class="guide">${copy?copy.retellGuide:'노트와 원문을 가리고, 기억나는 표현으로 이야기 전체를 처음부터 끝까지 말해 보세요.'}</p><div class="cover-note"><b>${copy?copy.retellNote:'노트를 덮고 시작하세요'}</b>${copy?copy.retellDetail:'멈추더라도 바로 원문을 보지 말고, 기억나는 표현으로 연결해서 끝까지 말합니다.'}</div></section></article>`);
-  slides.push(`<article class="deck-slide" data-label="${copy?copy.transform:'변형'}"><section class="section own"><p class="stage-purpose">4 · TRANSFORM</p><h2>${copy?copy.transform:'나의 이야기로 변형하기'}</h2><p class="guide">${copy?copy.transformGuide:'원문의 구성과 주제는 유지하면서 인물, 장소, 이유, 행동 또는 결과를 바꾸어 나의 이야기나 의견을 새로 지어 나의 노트에 써 보세요.'}</p><div class="map"><div class="cue"><b>${copy?copy.same:'SAME STRUCTURE'}</b><span>${copy?copy.sameDetail:'시작–변화–결과의 흐름은 유지합니다.'}</span></div><div class="cue"><b>${copy?copy.own:'MY STORY / OPINION'}</b><span>${copy?copy.ownDetail:'나의 경험과 생각에 맞게 세부 내용을 바꿉니다.'}</span></div></div><div class="own-task"><b>TRANSFORM</b>${copy?'Use the same flow to create the whole story from your own experience or viewpoint.':'같은 흐름을 사용해 나의 경험이나 의견으로 이야기 전체를 새로 써 보세요.'}<small>${copy?'A detail to change: ':'원문의 세부 포인트: '}${esc(prompts[1]||'인물, 장소, 이유 또는 결과 중 하나를 바꾸어 보세요.')}</small></div></section></article>`);
-  slides.push(`<article class="deck-slide" data-label="${copy?copy.share:'최종 말하기'}"><section class="section own"><p class="stage-purpose">5 · SHARE</p><h2>${copy?copy.share:'새로 지은 이야기 말하기'}</h2><p class="guide">${copy?copy.shareGuide:'4단계에서 쓴 나의 이야기나 의견을 다시 덮고, 파트너에게 자연스럽게 말해 보세요.'}</p><div class="own-task"><b>${copy?copy.talk:'TALK TO YOUR PARTNER'}</b>${esc(prompts[2]||'새로 만든 이야기나 의견을 노트 없이 파트너에게 전달해 보세요.')}</div></section></article>`);
   const familyLanding=koreanLearning?koreanStoryLanding:`storycamp-family.html?family=${family.number}`;
   const levelLanding=koreanLearning?koreanStoryLanding:`story-camp.html?level=${L}`;
   const vocalLanding=koreanLearning?'K-korean-vocal-camp.html':`vocalcamp-player.html?family=${family.number}&level=${L}`;
   const artwork=window.TalkTagBootCampArtwork?.get('story',family.number,L,koreanLearning?'ko':'en');
   content.innerHTML=`<div class="story-head"><div class="ey">${family.number} · ${L}</div><h1>${esc(family.title)}</h1></div>${artwork?`<figure class="bootcamp-player-art story-bootcamp-art"><img src="${esc(artwork.src)}" alt="${esc(artwork.alt)}" width="720" height="480" decoding="async"></figure>`:''}<div class="deck-shell"><div class="deck-overview"><div class="deck-count" id="deckCount"></div><div class="deck-label" id="deckLabel"></div><button type="button" class="camp-kr-toggle" id="storyKorean" aria-label="${koreanLearning?copy.meaning:'현재 단계 한글 해석 보기'}" aria-expanded="false">${koreanLearning?'EN':'KR'}</button></div><div class="deck-track" aria-hidden="true"><span class="deck-progress" id="deckProgress"></span></div><div id="deckSlides">${slides.join('')}</div><div class="deck-actions"><details class="deck-menu" id="deckMenu"><summary aria-label="${koreanLearning?copy.menu:'학습 메뉴'}">•••</summary><div class="deck-menu-panel"><button type="button" id="deckRestart">${koreanLearning?copy.restart:'처음부터 다시 보기'}</button><a href="${familyLanding}">${koreanLearning?copy.episodes:`${family.number} ${esc(family.title)} 랜딩으로`}</a><a href="${levelLanding}">${koreanLearning?`${L} Korean Story Camp`:`${L} Story Camp 목록으로`}</a><a href="${vocalLanding}">${koreanLearning?'Same episode · Korean Vocal Camp →':'같은 번호 · 같은 레벨 Vocal Camp →'}</a><div class="deck-menu-title">${koreanLearning?copy.jump:'단계 이동'}</div><div class="deck-stage-nav" id="deckStageNav" aria-label="${koreanLearning?copy.jump:'단계 이동'}"></div></div></details><button class="deck-button" id="deckPrev" type="button">${koreanLearning?copy.previous:'← 이전'}</button><button class="deck-button primary" id="deckNext" type="button">${koreanLearning?copy.next:'다음 →'}</button></div></div>`;
   if(koreanLearning) content.querySelector(`.deck-menu-panel a[href="${vocalLanding}"]`).textContent='Explore Korean Vocal Camp →';
-  initDeck(slides.length, koreanLearning?curriculum.meanings:(window.TalkTagBootCampKorean?.storycamp?.[family.number]?.[L]||[]), curriculum.lines);
+  initDeck(slides.length, koreanLearning?curriculum.meanings:(window.TalkTagBootCampKorean?.storycamp?.[family.number]?.[L]||[]), curriculum.lines,translationEnds);
 }
 function migrateStoryPosition(key,n){
   let value=Number(localStorage.getItem(key)||0);
@@ -72,25 +83,25 @@ function storyResumeIndex(saved,total,completed){
   if(completed||!Number.isFinite(saved)||saved>=total-1)return 0;
   return Math.max(0,Math.min(total-1,saved));
 }
-function initDeck(total, translations, sourceLines){
+function initDeck(total, translations, sourceLines, translationEnds){
   const sourceLength=sourceLines.length;
-  const slides=[...document.querySelectorAll('.deck-slide')],nav=document.getElementById('deckStageNav'),campKey=koreanLearning?'ko-story':'story',key=`talktag-${campKey}camp-card-${familyNumber}-${L}`;
+  const slides=[...document.querySelectorAll('.deck-slide')],nav=document.getElementById('deckStageNav'),campKey=koreanLearning?'ko-story':'story',key=`talktag-${campKey}camp-card-${familyNumber}-${L}:five-unit-v1`;
   const countNode=document.getElementById('deckCount'),labelNode=document.getElementById('deckLabel'),progressNode=document.getElementById('deckProgress'),previousButton=document.getElementById('deckPrev'),nextButton=document.getElementById('deckNext'),restartButton=document.getElementById('deckRestart'),menu=document.getElementById('deckMenu');
   slides.forEach((slide,index)=>{const button=document.createElement('button');button.type='button';button.className='deck-dot';button.textContent=String(index+1);button.setAttribute('aria-label',`${index+1}${koreanLearning?' · ': '단계 '}${slide.dataset.label}`);button.addEventListener('click',()=>show(index));nav.append(button)});
   const kr=document.getElementById('storyKorean');
   kr.hidden=translations.length!==sourceLength;
-  slides.forEach((slide,index)=>{const panel=document.createElement('section');panel.id='storyKr'+index;panel.className='camp-kr-panel';panel.lang=koreanLearning?'en':'ko';panel.hidden=true;const lines=index<sourceLength?translations.slice(0,index+1):translations;if(index>=sourceLength){const note=document.createElement('p');note.className='camp-kr-note';note.textContent=koreanLearning?'Try from memory before checking the meaning.':'회상·말하기 훈련에서는 먼저 기억으로 시도한 뒤 확인하세요.';panel.append(note)}const text=document.createElement('p');text.textContent=lines.join(' ');panel.append(text);(slide.querySelector('.step-text')||slide.querySelector('.section')).append(panel)});
+  slides.forEach((slide,index)=>{const panel=document.createElement('section');panel.id='storyKr'+index;panel.className='camp-kr-panel';panel.lang=koreanLearning?'en':'ko';panel.hidden=true;const text=document.createElement('p');text.textContent=translations.slice(0,translationEnds[index]).join(' ');panel.append(text);(slide.querySelector('.step-text')||slide.querySelector('.section')).append(panel)});
   if(koreanLearning&&translations.length===sourceLength){
     const anchor=document.createElement('div');anchor.className='story-support-anchor';document.querySelector('.deck-overview')?.after(anchor);
     window.TalkTagKoreanSupport?.mount(anchor,{id:`story-${familyNumber}-${L}`,source:sourceLines,english:translations,translations:window.TalkTagKoreanTranslations?.[`story-${familyNumber}-${L}`]||{},onChange:(selected,shown)=>{
       kr.setAttribute('aria-label',`Show ${window.TalkTagKoreanSupport.languages[shown]} meaning for this step`);
       kr.textContent=shown.toUpperCase();
-      slides.forEach((slide,index)=>{const panel=slide.querySelector('.camp-kr-panel');panel.lang=shown;panel.querySelector('p:last-child').textContent=(index<sourceLength?selected.slice(0,index+1):selected).join(' ')})
+      slides.forEach((slide,index)=>{const panel=slide.querySelector('.camp-kr-panel');panel.lang=shown;panel.querySelector('p:last-child').textContent=selected.slice(0,translationEnds[index]).join(' ')})
     }});
   }
   kr.addEventListener('click',()=>{const panel=slides[current].querySelector('.camp-kr-panel');panel.hidden=!panel.hidden;kr.setAttribute('aria-expanded',String(!panel.hidden));});
   function completed(){return Boolean(window.TalkTagCampProgress?.done(campKey,L,familyNumber))}
-  let current=0;try{current=storyResumeIndex(migrateStoryPosition(key,sourceLength),total,completed())}catch(error){}
+  let current=0;try{current=storyResumeIndex(Number(localStorage.getItem(key)||0),total,completed())}catch(error){}
   function show(index){slides.forEach(slide=>slide.querySelector('.camp-kr-panel').hidden=true);kr.setAttribute('aria-expanded','false');kr.setAttribute('aria-controls','storyKr'+Math.max(0,Math.min(total-1,index)));current=Math.max(0,Math.min(total-1,index));slides.forEach((slide,i)=>{slide.classList.toggle('is-active',i===current);slide.setAttribute('aria-hidden',String(i!==current))});[...nav.children].forEach((button,i)=>{button.classList.toggle('is-active',i===current);button.classList.toggle('is-seen',i<current);button.setAttribute('aria-current',i===current?'step':'false')});countNode.textContent=`${current+1}/${total} · ${slides[current].dataset.label}`;labelNode.textContent='';progressNode.style.width=`${((current+1)/total)*100}%`;previousButton.disabled=current===0;nextButton.textContent=current===total-1?(koreanLearning?'Finish lesson':'학습 마치기'):(koreanLearning?'Next →':'다음 →');try{localStorage.setItem(key,String(current))}catch(error){};nav.children[current]?.scrollIntoView({block:'nearest',inline:'center'});window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
   previousButton.addEventListener('click',()=>show(current-1));nextButton.addEventListener('click',()=>{if(current===total-1){window.TalkTagCampProgress?.set(campKey,L,familyNumber,true);show(0);location.href=koreanLearning?koreanStoryLanding:`story-camp.html?level=${L}`;return}show(current+1)});restartButton.addEventListener('click',()=>{menu.open=false;show(0)});show(current);
   window.addEventListener('pageshow',event=>{if(event.persisted&&(current===total-1||completed())){menu.open=false;show(0)}});

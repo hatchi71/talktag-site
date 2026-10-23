@@ -13,7 +13,7 @@
   const meaningName = 'Meaning';
   const scriptLang = koreanLearning ? 'ko' : 'en';
   const meaningLang = koreanLearning ? 'en' : 'ko';
-  const lines = unit.fullText || [];
+  const lines = unit.stageLines || unit.fullText || [];
   const REPEAT_TARGET = /^A[12]$/.test(unit.level) ? 10 : /^B[12]$/.test(unit.level) ? 15 : 21;
   const PAUSE_OPTIONS = [2, 2.5, 3, 3.5];
   const pauseKey = 'talktag-speaking-pause-multiplier';
@@ -21,7 +21,7 @@
   try { const saved = Number(localStorage.getItem(pauseKey)); if (PAUSE_OPTIONS.includes(saved)) silenceMultiplier = saved; } catch (_) {}
   document.title = `${unit.familyNumber} · ${unit.level} · ${unit.title} | TalkTag Vocal Camp`;
 
-  const key = `talktag-vocal-pilot-simple-${unit.id}`;
+  const key = `talktag-vocal-pilot-simple-${unit.id}:three-unit-v1`;
   const state = { card: 0, counts: lines.map(() => 0) };
   try {
     const saved = JSON.parse(localStorage.getItem(key) || '{}');
@@ -31,13 +31,13 @@
 
   const esc = value => String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
   const copy = koreanLearning ? {
-    soundLabel:'1 · SOUND', soundTitle:'Build the story through sound', soundGuide:'Listen to the native Korean audio and repeat. Each step adds one more line to the story.', soundStart:'Press the first sound to begin cumulative practice.', one:'One sentence', cumulative:'Cumulative', reps:'reps',
+    soundLabel:'1 · SOUND', soundTitle:'Build the story through sound', soundGuide:'Listen and repeat three meaning units. Each stage restarts at the beginning and adds one unit.', soundStart:'Press the first sound to begin cumulative practice.', one:'Unit 1', cumulative:'Units', reps:'reps',
     writeLabel:'2 · SAY & WRITE', writeTitle:'Speak first, then write it down.', writeGuide:'Say what you just heard from the beginning, then write what you remember in your notes.', writeHint:'Open the reference only when you need it.',
     storyLabel:'3 · MY STORY', storyTitle:'Make the same flow your own', storyGuide:'Keep the flow of the situation, then change the people, place, choice and result to fit your own experience.', storyText:'Tell your own version, then write a short note.',
     shareLabel:'4 · SHARE', shareTitle:'Tell a partner your story', shareGuide:'Do not look at your notes or phone. Share your new story naturally with a real person.', shareText:'Do not explain the language. Tell it as you would in that situation.', win:'You started with sound and finished with your own real story.',
     pause:'Repeat the entire passage you just heard.'
   } : {
-    soundLabel:'1 · SOUND', soundTitle:'소리가 조금씩 자랍니다', soundGuide:'원어민의 음성을 듣고 따라하세요, 한 문장씩 소리가 자라납니다. 이야기의 끝까지 따라가 보세요!', soundStart:'Press the first sound to begin cumulative practice.', one:'One sentence', cumulative:'Cumulative', reps:'reps',
+    soundLabel:'1 · SOUND', soundTitle:'소리가 조금씩 자랍니다', soundGuide:'의미 단위 세 개를 1 → 1+2 → 1+2+3으로 누적해 듣고 따라 말해 보세요.', soundStart:'Press the first sound to begin cumulative practice.', one:'Unit 1', cumulative:'Units', reps:'reps',
     writeLabel:'2 · SAY & WRITE', writeTitle:'이제 휴대폰을 내려놓으세요', writeGuide:'지금까지 따라했던 전체 스토리를 파트너에게 다시 이야기 하거나, 노트에 적어 봅니다.', writeHint:'Open the reference only when you need it.',
     storyLabel:'3 · MY STORY', storyTitle:'같은 흐름을 나의 이야기로', storyGuide:'방금 익힌 사건의 흐름을 유지하면서 인물, 장소, 선택과 결과를 자신의 실제 경험으로 바꾸어 봅니다.', storyText:'나의 이야기로 다시 말하고 노트에 간단히 정리합니다.',
     shareLabel:'4 · SHARE', shareTitle:'파트너에게 이야기해 주세요', shareGuide:'노트도 휴대폰도 보지 않습니다. 새로 만든 나의 이야기를 실제 사람에게 자연스럽게 전달합니다.', shareText:'설명하려 하지 말고, 그 상황에서 정말 하듯 이야기하세요.', win:'소리에서 시작해 나의 실제 이야기로 끝냈습니다.',
@@ -69,6 +69,11 @@
       body: `<div class="share-stage"><div class="share-people" aria-hidden="true"><span>YOU</span><i></i><span>PARTNER</span></div><p>${copy.shareText}</p></div><div class="win"><strong>VOCAL CAMP</strong><p>${copy.win}</p></div>`
     }
   ];
+
+  // The approved three-stage sound card is the whole episode. Keep script and
+  // translation access on it; the former post-card activities are not extra stages.
+  cards[0].body += cards[1].body;
+  cards.length = 1;
 
   app.innerHTML = `
     <section class="pilot-intro">
@@ -218,7 +223,8 @@
     name.textContent = cards[state.card].label.split(' · ')[1];
     progress.style.width = `${((state.card + 1) / cards.length) * 100}%`;
     previous.disabled = state.card === 0;
-    next.textContent = state.card === cards.length - 1 ? 'Finish practice' : 'Next →';
+    next.textContent = state.card === cards.length - 1 ? (koreanLearning ? 'Finish practice' : '연습 마치기') : 'Next →';
+    next.disabled = state.counts.at(-1) < REPEAT_TARGET;
     save();
     window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
   }
@@ -256,8 +262,12 @@
           speakRound(nextIndex,nextButton,token);
         }else{
           activeIndex=-1;
-          status.textContent='All cumulative sound practice is complete. Put your phone down and speak from the beginning.';
-          playCue('end',token,()=>{playbackPhase='idle';setMediaPlaybackState('none');});
+          status.textContent=koreanLearning?'All three units are complete. Tell the story in your own words.':'세 의미 단위를 모두 마쳤습니다. 이제 내 말로 이야기해 보세요.';
+          playCue('end',token,()=>{
+            playbackPhase='idle';setMediaPlaybackState('none');
+            window.TalkTagCampProgress?.set(koreanLearning?'ko-vocal':'vocal',unit.level,unit.familyNumber,true);
+            next.disabled=false;
+          });
         }
       }else{
         speakRound(index,button,token);
@@ -327,7 +337,7 @@
   }));
   previous.addEventListener('click',()=>showCard(state.card-1));
   next.addEventListener('click',()=>{if(state.card===cards.length-1){if(unit.id?.startsWith('family-')&&window.TalkTagCampProgress){stopSound();window.TalkTagCampProgress.set(koreanLearning?'ko-vocal':'vocal',unit.level,unit.familyNumber,true);state.card=0;save();location.href=(koreanLearning?'K-korean-vocal-camp.html':'vocal-camp.html')+'?level='+unit.level;return}menu.open=true;return}showCard(state.card+1)});
-  function resetTraining(){stopSound();state.card=0;state.counts=lines.map(()=>0);document.querySelectorAll('[data-repeat-count]').forEach(node=>node.textContent='0');document.querySelectorAll('.sound-step').forEach(button=>{button.classList.remove('is-complete');button.querySelector('em').textContent='▶'});menu.open=false;save();showCard(0)}
+  function resetTraining(){stopSound();state.card=0;state.counts=lines.map(()=>0);document.querySelectorAll('[data-repeat-count]').forEach(node=>node.textContent='0');document.querySelectorAll('.sound-step').forEach(button=>{button.classList.remove('is-complete');button.querySelector('em').textContent='▶'});next.disabled=true;menu.open=false;save();showCard(0)}
   document.getElementById('restartButton').addEventListener('click',resetTraining);
   document.getElementById('resetButton').addEventListener('click',resetTraining);
   if ('mediaSession' in navigator) {

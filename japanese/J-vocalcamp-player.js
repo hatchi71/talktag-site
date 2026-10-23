@@ -17,22 +17,24 @@
     app.innerHTML = '<div class="pilot-loading">일본어 Vocal Camp 001 음원을 검수하고 있습니다. 검수가 끝나면 이 카드가 열립니다.</div>';
     return;
   }
-  const lesson = manifest.cards.find(card => card.id === `japanese-vocalcamp-001-${level}`);
-  if (!lesson || !lesson.lines.length || lesson.steps.length !== lesson.lines.length ||
-      lesson.steps.some((step, index) => step.step !== index + 1 || step.variants.length !== 4)) {
+  const sourceLesson = manifest.cards.find(card => card.id === `japanese-vocalcamp-001-${level}`);
+  if (!sourceLesson || sourceLesson.lines.length < 3 || sourceLesson.steps.length !== sourceLesson.lines.length ||
+      sourceLesson.steps.some((step, index) => step.step !== index + 1 || step.variants.length !== 4)) {
     app.innerHTML = '<div class="pilot-loading">음원과 대본이 일치하지 않습니다. 이 카드는 아직 열 수 없습니다.</div>';
     return;
   }
+  const stageEnds = window.TalkTagBootCampStages.boundaries(sourceLesson.lines.length, 3);
+  const lesson = {...sourceLesson, steps: stageEnds.map((end, index) => ({...sourceLesson.steps[end - 1], step:index + 1}))};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const REPEATS = /^A[12]$/.test(level) ? 10 : /^B[12]$/.test(level) ? 15 : 21;
   const RATIOS = [2, 2.5, 3, 3.5];
-  const stateKey = `talktag-japanese-vocalcamp:001:${level}:v1`;
+  const stateKey = `talktag-japanese-vocalcamp:001:${level}:three-unit-v1`;
   const pauseKey = 'talktag-speaking-pause-multiplier';
-  const state = {card: 0, counts: lesson.lines.map(() => 0)};
+  const state = {card: 0, counts: lesson.steps.map(() => 0)};
   try {
     const saved = JSON.parse(localStorage.getItem(stateKey) || '{}');
     if (Number.isInteger(saved.card)) state.card = Math.max(0, Math.min(3, saved.card));
-    if (Array.isArray(saved.counts) && saved.counts.length === lesson.lines.length)
+    if (Array.isArray(saved.counts) && saved.counts.length === lesson.steps.length)
       state.counts = saved.counts.map(n => Math.max(0, Math.min(REPEATS, Number(n) || 0)));
   } catch (_) {}
   let ratio = 2.5;
@@ -57,9 +59,9 @@
     <div class="pilot-status"><strong id="cardCount"></strong><span id="cardName"></span></div>
     <div class="pilot-track" aria-hidden="true"><span id="progressBar"></span></div>
     <section id="cardDeck">
-      <article class="pilot-card" data-card="0"><p class="card-label">1 · SOUND</p><h2>소리부터 이야기까지</h2><p class="card-guide">두 화자의 대화를 한 줄씩 더하며 듣고 따라 말해 보세요. 각 단계는 앞의 모든 대사를 포함합니다.</p>
+      <article class="pilot-card" data-card="0"><p class="card-label">1 · SOUND</p><h2>소리부터 이야기까지</h2><p class="card-guide">두 화자의 대화를 세 의미 단위로 나누어 1 → 1+2 → 1+2+3으로 듣고 따라 말해 보세요.</p>
         <div class="vocal-pause-control"><label for="vocalPauseRange">말하기 간격 <output id="vocalPauseValue"></output></label><input id="vocalPauseRange" type="range" min="0" max="3" step="1" aria-label="말하기 간격: 음성 길이의 2배, 2.5배, 3배, 3.5배"><div class="vocal-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><small>누적 대화 전체가 끝난 뒤 최소 3초. 원어민 음성 속도는 바뀌지 않습니다.</small></div>
-        <div class="sound-ladder" id="soundLadder">${lesson.lines.map((line, index) => `<button class="sound-step" type="button" data-step="${index}" aria-label="${index + 1}단계, ${index + 1}개 대사 누적 재생"><span class="sound-shape" aria-hidden="true">${Array.from({length:index + 1}, () => '<i></i>').join('')}</span><strong>${index ? `1–${index + 1} 누적` : '첫 대사'}</strong><small><b data-count="${index}">0</b> / ${REPEATS}회</small><em>▶</em></button>`).join('')}</div>
+        <div class="sound-ladder" id="soundLadder">${lesson.steps.map((step, index) => `<button class="sound-step" type="button" data-step="${index}" aria-label="${index + 1}단계, ${index + 1}개 의미 단위 누적 재생"><span class="sound-shape" aria-hidden="true">${Array.from({length:index + 1}, () => '<i></i>').join('')}</span><strong>${index ? `1–${index + 1} 누적` : '의미 단위 1'}</strong><small><b data-count="${index}">0</b> / ${REPEATS}회</small><em>▶</em></button>`).join('')}</div>
         <p class="sound-note" id="soundStatus" role="status" aria-live="polite">첫 소리 버튼을 누르면 누적 연습이 시작됩니다.</p>
       </article>
       <article class="pilot-card" data-card="1"><p class="card-label">2 · SAY &amp; WRITE</p><h2>먼저 말하고, 나중에 확인하세요</h2><p class="card-guide">휴대폰을 잠시 내려놓고 처음부터 말한 뒤, 기억나는 대사를 적어 보세요. 필요할 때만 대본을 여세요.</p><div class="offline-card"><span aria-hidden="true">✦</span><p>기억해서 말하고<br>직접 적어 보세요.</p><small>대본은 마지막에 확인합니다.</small></div>
@@ -71,10 +73,26 @@
     </section>
     <nav class="pilot-nav" aria-label="훈련 카드 이동"><details class="pilot-menu" id="pilotMenu"><summary aria-label="훈련 메뉴">•••</summary><div class="pilot-menu-panel"><button type="button" id="restartButton">처음부터 다시 시작</button><a href="${catalog}">${esc(level)} Vocal Camp 목록으로</a></div></details><button class="pilot-nav-button" id="prevButton" type="button">← 이전</button><button class="pilot-nav-button primary" id="nextButton" type="button">다음 →</button><button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button">↻ 초기화</button></nav>`;
 
-  const deck = [...app.querySelectorAll('.pilot-card')];
+  const soundCard = app.querySelector('[data-card="0"]');
+  const referenceCard = app.querySelector('[data-card="1"]');
+  soundCard.append(referenceCard.querySelector('.reference-actions'), referenceCard.querySelector('#referencePanel'));
+  app.querySelectorAll('[data-card]:not([data-card="0"])').forEach(card => card.remove());
+  const deck = [soundCard];
   const soundStatus = app.querySelector('#soundStatus');
   const player = new Audio(); player.preload = 'auto'; player.playsInline = true;
+  const cuePlayer = new Audio(); cuePlayer.preload = 'auto'; cuePlayer.playsInline = true;
+  const cues = {
+    start: 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/start.mp3',
+    end: 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/ending.mp3'
+  };
   let runToken = 0, activeStep = -1;
+  function playCue(kind, token, done) {
+    cuePlayer.src = cues[kind]; cuePlayer.currentTime = 0;
+    let finished = false;
+    const finish = () => { if (finished) return; finished = true; cuePlayer.onended = null; cuePlayer.onerror = null; if (token === runToken) done(); };
+    cuePlayer.onended = finish; cuePlayer.onerror = finish;
+    cuePlayer.play().catch(finish);
+  }
   function save() { try { localStorage.setItem(stateKey, JSON.stringify(state)); } catch (_) {} }
   function setPauseLabel() {
     const range = app.querySelector('#vocalPauseRange');
@@ -99,6 +117,7 @@
     runToken++;
     player.pause(); player.onended = null; player.onerror = null; player.ontimeupdate = null;
     player.removeAttribute('src'); player.load();
+    cuePlayer.pause(); cuePlayer.onended = null; cuePlayer.onerror = null;
     activeStep = -1;
     app.querySelectorAll('[data-step]').forEach(button => button.classList.remove('is-playing','is-waiting'));
     paintSteps();
@@ -107,7 +126,7 @@
   function playStep(index, token) {
     if (token !== runToken) return;
     const variant = lesson.steps[index].variants.find(item => Number(item.ratio) === ratio);
-    if (!variant || variant.cues.length !== index + 1) {
+    if (!variant || variant.cues.length !== stageEnds[index]) {
       stopSound('이 단계의 음원 또는 대본이 일치하지 않습니다.'); return;
     }
     const button = app.querySelector(`[data-step="${index}"]`);
@@ -140,7 +159,14 @@
         activeStep = index + 1;
         next.scrollIntoView({block:'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
         playStep(index + 1, token);
-      } else { activeStep = -1; soundStatus.textContent = '누적 소리 연습을 마쳤습니다. 이제 처음부터 기억해서 말해 보세요.'; }
+      } else {
+        activeStep = -1;
+        soundStatus.textContent = '세 의미 단위를 마쳤습니다. 대본을 덮고 내 말로 이야기해 보세요.';
+        playCue('end', token, () => {
+          window.TalkTagCampProgress?.set('ja-vocal', level, '001', true);
+          app.querySelector('#nextButton').disabled = false;
+        });
+      }
     };
     player.onerror = () => { if (token === runToken) stopSound('음원을 불러오지 못했습니다. 연결을 확인하고 다시 눌러 주세요.'); };
     player.src = manifest.status === 'published' ? variant.audio : variant.localAudio;
@@ -153,7 +179,8 @@
     stopSound();
     if (state.counts[index] >= REPEATS) state.counts[index] = 0;
     save(); paintSteps(); activeStep = index;
-    playStep(index, runToken);
+    if (index === 0 && state.counts[0] === 0) playCue('start', runToken, () => playStep(index, runToken));
+    else playStep(index, runToken);
   }));
   const reference = app.querySelector('#referencePanel');
   let referenceMode = '';
@@ -175,24 +202,24 @@
   app.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => showReference(button.dataset.mode)));
   function showCard(index) {
     stopSound();
-    state.card = Math.max(0, Math.min(3, index)); save();
+    state.card = 0; save();
     deck.forEach((card, i) => { card.classList.toggle('is-active', i === state.card); card.setAttribute('aria-hidden', String(i !== state.card)); });
-    app.querySelector('#cardCount').textContent = `${state.card + 1} / 4`;
-    app.querySelector('#cardName').textContent = ['SOUND','SAY & WRITE','MY STORY','SHARE'][state.card];
-    app.querySelector('#progressBar').style.width = `${(state.card + 1) * 25}%`;
-    app.querySelector('#prevButton').disabled = state.card === 0;
-    app.querySelector('#nextButton').textContent = state.card === 3 ? '연습 완료' : '다음 →';
+    app.querySelector('#cardCount').textContent = '1 / 1';
+    app.querySelector('#cardName').textContent = 'SOUND';
+    app.querySelector('#progressBar').style.width = '100%';
+    app.querySelector('#prevButton').disabled = true;
+    app.querySelector('#nextButton').textContent = '연습 완료';
+    app.querySelector('#nextButton').disabled = state.counts.at(-1) < REPEATS;
     scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
   }
   app.querySelector('#prevButton').addEventListener('click', () => showCard(state.card - 1));
   app.querySelector('#nextButton').addEventListener('click', () => {
-    if (state.card < 3) { showCard(state.card + 1); return; }
     stopSound();
     window.TalkTagCampProgress?.set('ja-vocal', level, '001', true);
     location.href = catalog;
   });
   function resetTraining() {
-    stopSound(); state.card = 0; state.counts = lesson.lines.map(() => 0); save();
+    stopSound(); state.card = 0; state.counts = lesson.steps.map(() => 0); save();
     app.querySelector('#pilotMenu').open = false;
     showCard(0);
     soundStatus.textContent = '이 카드의 누적 연습 기록을 처음부터 다시 시작합니다.';

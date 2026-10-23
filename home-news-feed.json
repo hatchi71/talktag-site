@@ -24,38 +24,6 @@
       "publishedAt": "2026-10-23T05:44:51.420Z"
     },
     {
-      "id": "vocal:005",
-      "title": "Vocal Camp · 005",
-      "href": "vocalcamp-family.html?family=005",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "새 이야기를 누적해서 듣고, 따라 말하며 내 말로 이어 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-22T11:31:44.777Z"
-    },
-    {
-      "id": "vocal:004",
-      "title": "Vocal Camp · 004",
-      "href": "vocalcamp-family.html?family=004",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "새 이야기를 누적해서 듣고, 따라 말하며 내 말로 이어 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-22T11:31:44.777Z"
-    },
-    {
       "id": "native:ko:guided:003",
       "language": "ko",
       "title": "Korean Guided L&R · 003",
@@ -70,54 +38,6 @@
       ],
       "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-18T10:39:23.139Z"
-    },
-    {
-      "id": "korean-vocal:003",
-      "language": "ko",
-      "title": "Korean Vocal Camp · 003",
-      "href": "K-korean-vocal-camp.html",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "Build one Korean story through cumulative listening and speaking.",
-      "publishedAt": "2026-10-17T12:39:02.477Z"
-    },
-    {
-      "id": "korean-story:003",
-      "language": "ko",
-      "title": "Korean Story Camp · 003",
-      "href": "K-korean-story-camp.html",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "Rebuild and retell an original Korean story with English guidance.",
-      "publishedAt": "2026-10-17T12:25:48.705Z"
-    },
-    {
-      "id": "korean-story:002",
-      "language": "ko",
-      "title": "Korean Story Camp · 002",
-      "href": "K-korean-story-camp.html",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "Rebuild and retell an original Korean story with English guidance.",
-      "publishedAt": "2026-10-17T12:25:48.705Z"
     },
     {
       "id": "japanese-vocal:001",
@@ -166,22 +86,6 @@
       ],
       "description": "Rebuild and retell an original Korean story with English guidance.",
       "publishedAt": "2026-10-15T01:52:39.044Z"
-    },
-    {
-      "id": "korean-vocal:002",
-      "language": "ko",
-      "title": "Korean Vocal Camp · 002",
-      "href": "K-korean-vocal-camp.html",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "Build one Korean story through cumulative listening and speaking.",
-      "publishedAt": "2026-10-14T22:38:26.896Z"
     },
     {
       "id": "native:ko:guided:002",
@@ -432,38 +336,6 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-09T18:17:32+09:00"
-    },
-    {
-      "id": "boot:003",
-      "title": "003 · The Cup I Left on the Roof",
-      "href": "storycamp-family.html?family=003",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "Vocal · Story Camp에서 새 이야기를 연습하세요.",
-      "language": "en",
-      "publishedAt": "2026-10-09T18:17:32+09:00"
-    },
-    {
-      "id": "boot:002",
-      "title": "002 · The Alarm That Did Not Ring",
-      "href": "storycamp-family.html?family=002",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "Vocal · Story Camp에서 새 이야기를 연습하세요.",
       "language": "en",
       "publishedAt": "2026-10-09T18:17:32+09:00"
     },

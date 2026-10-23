@@ -58,6 +58,6 @@
     number: '003', title: 'The Room Change', slug: 'the-room-change',
     theme: 'Find a moved book club meeting and make the directions clearer for the next visitor.',
     levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
-    status: 'published', audioStatus: 'ready', levelsData
+    status: 'archived', audioStatus: 'ready', levelsData
   });
 })();

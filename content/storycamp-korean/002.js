@@ -7,7 +7,7 @@
     title: 'An Umbrella at the Bus Stop',
     nativeTitle: '버스 정류장의 우산',
     theme: 'A rainy morning turns a brief encounter into a small act of trust.',
-    status: 'published',
+    status: 'archived',
     prompts: [
       'Remember why the learner had no umbrella, who helped, and what happened when the bus arrived.',
       'Change the weather, place, or object. What would you do in the same situation?',

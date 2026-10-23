@@ -7,7 +7,7 @@
     title: 'The Room Change',
     nativeTitle: '바뀐 모임 장소',
     theme: 'A missed notice inspires a clearer way to welcome the next person.',
-    status: 'published',
+    status: 'archived',
     prompts: [
       'Remember where the meeting moved, why the learner missed it, and how the group changed the notice.',
       'Change the venue or event. How would you make the directions easier for a first-time visitor?',

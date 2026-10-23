@@ -52,8 +52,8 @@ for (const relative of ['content/vocalcamp-korean-001.js', 'content/vocalcamp-ko
   vm.runInContext(fs.readFileSync(path.join(root, relative), 'utf8'), vocalContext, {timeout: 1000});
 }
 const koreanVocal002 = vocalContext.window.TALKTAG_VOCALCAMP_KOREAN?.families?.find(family => family.number === '002');
-if (!koreanVocal002 || koreanVocal002.status !== 'published' || koreanVocal002.audioStatus !== 'ready') {
-  fail('Korean Vocal Camp 002 is not publish-ready');
+if (!koreanVocal002 || !['published', 'archived'].includes(koreanVocal002.status) || koreanVocal002.audioStatus !== 'ready') {
+  fail('Korean Vocal Camp 002 archive is inconsistent');
 }
 for (const [level, card] of Object.entries(koreanVocal002.levelsData || {})) {
   if (!Array.isArray(card.lines) || card.lines.length !== card.translation?.length || card.lines.length !== card.audioSteps?.length) {
@@ -63,7 +63,7 @@ for (const [level, card] of Object.entries(koreanVocal002.levelsData || {})) {
     requiredText(line, `Korean Vocal 002 Korean ${level}/${index + 1}`);
     requiredText(card.translation[index], `Korean Vocal 002 English support ${level}/${index + 1}`);
   }
-  for (const step of card.audioSteps) {
+  if (koreanVocal002.status === 'published') for (const step of card.audioSteps) {
     const asset = path.join(root, step.url.split('?')[0].replace(/^\//u, ''));
     if (!fs.existsSync(asset) || fs.statSync(asset).size < 1024) fail(`Korean Vocal 002 missing audio: ${asset}`);
   }
