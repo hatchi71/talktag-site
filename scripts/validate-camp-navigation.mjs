@@ -16,13 +16,13 @@ vm.createContext(context);
 vm.runInContext(fs.readFileSync('content-completion.js','utf8'),context);
 vm.runInContext(fs.readFileSync('camp-progress.js','utf8'),context);
 const progress=context.window.TalkTagCampProgress;
-for(const level of levels){assert.equal(progress.done('story',level,'001'),true);assert.equal(progress.done('vocal',level,'003'),true);}
+for(const level of levels){assert.equal(progress.done('story',level,'001'),false,'New 001 must not inherit retired-story completion');assert.equal(progress.done('vocal',level,'003'),true);}
 assert.equal(progress.done('story','B2','002'),true);
 assert.equal(progress.done('story','A1','002'),false);
 assert.equal(writes,0,'Browsing must not migrate or overwrite progress');
 progress.set('story','A1','001',false);
 assert.equal(progress.done('story','A1','001'),false);
-for(const level of levels.slice(1))assert.equal(progress.done('story',level,'001'),true,'Undo one inherited completion must preserve other levels');
+for(const level of levels.slice(1))assert.equal(progress.done('story',level,'001'),false,'Retired 001 completion must stay separate at every level');
 assert.deepEqual(JSON.parse(records.get('talktag-content-completions:v1'))['storycamp-family:001'],JSON.parse(before.get('talktag-content-completions:v1'))['storycamp-family:001']);
 progress.set('story','A1','001',true);assert.equal(progress.done('story','A1','001'),true);
 progress.set('vocal','A2','002',true);assert.equal(progress.done('vocal','A2','002'),true);assert.equal(progress.done('vocal','B1','002'),false);
@@ -66,4 +66,4 @@ assert.match(browser,/levels\.hidden = levelSelected/,'The level grid must not r
 assert.match(browser,/What do A1–C2 language levels mean\?/,'Korean learner routes must show CEFR guidance in English');
 assert.match(fs.readFileSync('bootcamp-browser.css','utf8'),/tt-camp-level-selected\.kr-page/,'Korean selected-level pages must hide the duplicated Boot Camp introduction');
 assert.match(fs.readFileSync('bootcamp-browser.css','utf8'),/tt-camp-level-selected\.ja-bootcamp-shell/,'Japanese selected-level pages must hide the duplicated Boot Camp introduction');
-console.log(`Boot Camp: ${lessons} current English lesson routes; both tracks publish only 001, with legacy completion and undo preserved.`);
+console.log(`Boot Camp: ${lessons} current English lesson routes; both tracks publish only new 001, with retired-001 completion isolated and manual undo preserved.`);

@@ -52,7 +52,7 @@
         "C1",
         "C2"
       ],
-      "description": "일본어 대화를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.",
+      "description": "짧은 일본어 이야기를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.",
       "publishedAt": "2026-10-16T06:10:02.517Z"
     },
     {
@@ -341,7 +341,7 @@
     },
     {
       "id": "boot:001",
-      "title": "001 · Sandwich",
+      "title": "001 · The Library Note",
       "href": "storycamp-family.html?family=001",
       "levels": [
         "A1",

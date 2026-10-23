@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "talktag-bootcamp-001-asr-check-v1",
+  "language": "ko",
+  "episode": "001",
+  "status": "exact-transcript-match",
+  "humanAuditioned": false,
+  "lines": [
+    {
+      "level": "A1",
+      "unit": 1,
+      "expected": "의자에 우산이 있어요.",
+      "spoken": "의자에 우산이 있어요.",
+      "match": true
+    },
+    {
+      "level": "A1",
+      "unit": 2,
+      "expected": "누구 우산일까요?",
+      "spoken": "누구 우산일까요?",
+      "match": true
+    },
+    {
+      "level": "A1",
+      "unit": 3,
+      "expected": "주인에게 돌려드렸어요.",
+      "spoken": "주인에게 돌려드렸어요.",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 1,
+      "expected": "버스 정류장 의자에 우산이 하나 있었어요.",
+      "spoken": "버스 정류장 의자에 우산이 하나 있었어요.",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 2,
+      "expected": "돌아온 분께 우산을 두고 가셨냐고 물었어요.",
+      "spoken": "돌아온 분께 우산을 두고 가셨냐고 물었어요.",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 3,
+      "expected": "맞다고 하셔서 우산을 드렸어요.",
+      "spoken": "맞다고 하셔서 우산을 드렸어요.",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 1,
+      "expected": "정류장 의자에 우산이 놓여 있었어요.",
+      "spoken": "정류장 의자에 우산이 놓여 있었어요.",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 2,
+      "expected": "한 분이 돌아와서 주변을 살피셨어요.",
+      "spoken": "한 분이 돌아와서 주변을 살피셨어요.",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 3,
+      "expected": "우산을 찾으시는지 여쭙고 돌려드렸어요.",
+      "spoken": "우산을 찾으시는지 여쭙고 돌려드렸어요.",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 1,
+      "expected": "정류장에 우산이 남아 있었어요.",
+      "spoken": "정류장에 우산이 남아 있었어요.",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 2,
+      "expected": "돌아온 분께 우산의 색을 먼저 여쭤봤어요.",
+      "spoken": "돌아온 분께 우산의 색을 먼저 여쭤봤어요.",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 3,
+      "expected": "설명이 맞아서 안심하고 건네드렸어요.",
+      "spoken": "설명이 맞아서 안심하고 건네드렸어요.",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 1,
+      "expected": "정류장에 우산 하나가 남겨져 있었어요.",
+      "spoken": "정류장에 우산 하나가 남겨져 있었어요.",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 2,
+      "expected": "돌아온 분께 모양을 조심스럽게 확인했어요.",
+      "spoken": "돌아온 분께 모양을 조심스럽게 확인했어요.",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 3,
+      "expected": "설명이 일치하자 그분의 표정이 풀렸어요.",
+      "spoken": "설명이 일치하자 그분의 표정이 풀렸어요.",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 1,
+      "expected": "남겨진 우산의 주인을 짐작할 수는 없었어요.",
+      "spoken": "남겨진 우산의 주인을 짐작할 수는 없었어요.",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 2,
+      "expected": "돌아온 분께 우산을 보여주기 전에 특징을 여쭤봤어요.",
+      "spoken": "돌아온 분께 우산을 보여주기 전에 특징을 여쭤봤어요.",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 3,
+      "expected": "그 작은 확인이 섣부른 친절을 막아 줬어요.",
+      "spoken": "그 작은 확인이 섣부른 친절을 막아 줬어요.",
+      "match": true
+    }
+  ]
+}

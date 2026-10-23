@@ -1,45 +1,111 @@
-/* TalkTag Korean Story Camp · 001. Korean source with English learner guidance. */
-(function () {
-  'use strict';
-  const family = {
-    number: '001',
-    slug: 'first-community-class',
-    title: 'First Community Class',
-    nativeTitle: '첫 커뮤니티 수업',
-    theme: 'A first class becomes a place where a learner can take part at their own pace.',
-    status: 'published',
-    prompts: [
-      'Remember who arrived, what made the person nervous, and what changed by the end of the class.',
-      'Change the place or the reason for joining, then make the story yours.',
-      'Tell a partner your version without looking at the reference.'
-    ],
-    levelsData: {},
-    levels: {
-      A1: {
-        lines: ['오늘 저는 새 수업에 갔어요.', '교실에 사람이 많았어요.', '저는 조금 긴장했어요.', '한 사람이 저에게 같이 앉자고 했어요.', '저는 고맙다고 말했어요.'],
-        meanings: ['Today I went to a new class.', 'There were many people in the classroom.', 'I was a little nervous.', 'One person asked me to sit with them.', 'I said thank you.']
-      },
-      A2: {
-        lines: ['지난주에 친구가 한국어 수업을 추천해 줬어요.', '저는 오늘 간단한 자기소개를 준비했어요.', '수업이 끝난 뒤에 새 친구와 차를 마셨어요.', '우리는 다음 주에도 만나기로 했어요.'],
-        meanings: ['Last week, a friend recommended a Korean class.', 'Today I prepared a simple self-introduction.', 'After class, I had tea with a new friend.', 'We decided to meet again next week.']
-      },
-      B1: {
-        lines: ['민아는 한국어를 실제로 써 보고 싶어서 지역 모임에 참여했어요.', '하지만 대화가 빨라지면 중요한 내용을 놓치곤 했어요.', '진행자는 이해하지 못한 부분이 있으면 언제든 다시 물어봐도 된다고 말했어요.', '민아는 다음 활동에서 자신의 의견을 한 번 더 설명해 봤어요.', '끝난 뒤 민아는 자신이 생각보다 많은 말을 했다는 것을 깨달았어요.'],
-        meanings: ['Mina joined a local group because she wanted to use Korean in real life.', 'However, when the conversation became fast, she often missed important points.', 'The facilitator said that anyone could ask again whenever they did not understand something.', 'In the next activity, Mina tried explaining her opinion one more time.', 'Afterward, Mina realised that she had said more than she had expected.']
-      },
-      B2: {
-        lines: ['다음 모임을 준비하면서 민아와 준은 새로 온 사람도 부담 없이 참여할 수 있는 활동을 고민했어요.', '민아는 설명이 길면 초급 학습자가 위축될 수 있다고 말했어요.', '준은 예시를 먼저 보여 준 뒤 두 명씩 짧게 연습하자고 제안했어요.', '민아는 질문 카드와 시간 안내를 맡았어요.', '모임이 끝난 후, 여러 참여자가 처음으로 끝까지 말해 볼 수 있었다고 했어요.'],
-        meanings: ['While preparing the next meeting, Mina and Jun considered an activity that new people could join without pressure.', 'Mina said that long explanations could make beginner learners feel discouraged.', 'Jun suggested showing an example first, then practising briefly in pairs.', 'Mina took charge of question cards and time guidance.', 'After the meeting, several participants said they had been able to speak all the way through for the first time.']
-      },
-      C1: {
-        lines: ['민아는 모임에서 오류를 즉시 고치는 방식이 항상 도움이 되는 것은 아니라고 느꼈어요.', '어떤 참여자는 틀릴까 봐 문장을 끝까지 말하지 못했기 때문이에요.', '민아는 먼저 의미 전달을 끝까지 듣고, 필요한 경우에만 짧고 구체적인 피드백을 주자는 원칙을 제안했어요.', '다음 주부터 진행자는 피드백의 양과 시점을 참여자가 선택하게 했어요.', '그 변화 이후 조용하던 사람들도 질문과 의견을 더 자주 내기 시작했어요.'],
-        meanings: ['Mina felt that correcting errors immediately at a meeting was not always helpful.', 'Some participants could not finish a sentence because they were afraid of making a mistake.', 'Mina proposed a principle: listen to the whole message first, then offer brief, specific feedback only when needed.', 'From the following week, the facilitator let participants choose the amount and timing of feedback.', 'After that change, even quieter people began to offer questions and opinions more often.']
-      },
-      C2: {
-        lines: ['민아는 모임의 분위기를 친절하다는 인상만으로 평가하기보다, 누가 얼마나 자주 말할 기회를 얻는지 살펴봐야 한다고 주장했어요.', '익숙한 화자가 침묵을 빨리 메우면 다른 사람에게 생각할 시간이 남지 않아요.', '이에 따라 모임은 짝 대화, 생각 메모 시간, 발언 순서 선택권을 도입했어요.', '변화는 눈에 띄지 않을 만큼 작았지만, 참여자들의 발화 길이와 자발적인 질문 수는 분명히 늘어났어요.', '민아는 좋은 공동체란 모두가 같은 방식으로 말하는 곳이 아니라, 서로 다른 속도가 존중되는 곳이라고 정리했어요.'],
-        meanings: ['Mina argued that a group should be judged not merely by whether it feels kind, but by who gets opportunities to speak and how often.', 'When confident speakers fill silence too quickly, other people are left with no time to think.', 'The group therefore introduced paired talk, private thinking time, and a choice about speaking order.', 'The changes were small enough to be almost invisible, yet participants clearly spoke for longer and asked more spontaneous questions.', 'Mina concluded that a good community is not one where everyone speaks in the same way, but one where different paces are respected.']
+/* Generated from the approved short-story source; edit the source and rebuild. */
+window.TALKTAG_STORYCAMP_KOREAN = {
+  "version": "2026-10-23-short-001-v3",
+  "families": [
+    {
+      "number": "001",
+      "title": "The Shared Charger",
+      "slug": "the-shared-charger",
+      "theme": "Find a charger and check its owner before returning it.",
+      "status": "published",
+      "levels": {
+        "A1": {
+          "lines": [
+            "책상에 충전기가 있었어요.",
+            "제 것은 아니었어요.",
+            "선생님께 말씀드렸어요.",
+            "선생님이 주인을 찾으셨어요.",
+            "친구가 충전기를 가져갔어요."
+          ],
+          "meanings": [
+            "There was a charger on the desk.",
+            "It was not mine.",
+            "I told the teacher.",
+            "The teacher looked for its owner.",
+            "A classmate took the charger home."
+          ]
+        },
+        "A2": {
+          "lines": [
+            "수업이 끝난 뒤 책상에 충전기가 남아 있었어요.",
+            "누구 것인지 몰라서 가져가지 않았어요.",
+            "선생님께 충전기를 보여 드렸어요.",
+            "선생님이 반 친구들에게 물어보셨어요.",
+            "주인이 와서 충전기를 찾아갔어요."
+          ],
+          "meanings": [
+            "After class, a charger was left on a desk.",
+            "I did not know whose it was, so I did not take it.",
+            "I showed the charger to the teacher.",
+            "The teacher asked the class.",
+            "The owner came and collected it."
+          ]
+        },
+        "B1": {
+          "lines": [
+            "수업이 끝나자 한 책상에 충전기만 남아 있었어요.",
+            "저는 제 친구 것이라고 생각했지만 확실하지 않았어요.",
+            "그래서 선생님께 어디서 발견했는지 말씀드렸어요.",
+            "선생님이 주인을 확인하고 보관해 주셨어요.",
+            "다음 날 친구가 무사히 돌려받았다고 했어요."
+          ],
+          "meanings": [
+            "When class ended, only a charger remained on one desk.",
+            "I thought it belonged to my friend, but I was not sure.",
+            "So I told the teacher where I had found it.",
+            "The teacher checked its owner and kept it safe.",
+            "The next day, my friend said they had got it back."
+          ]
+        },
+        "B2": {
+          "lines": [
+            "빈 교실에서 충전기를 발견했을 때, 바로 아는 사람의 것이라고 짐작했어요.",
+            "하지만 같은 제품을 쓰는 사람이 많다는 생각이 들었어요.",
+            "저는 발견한 자리만 적어 선생님께 전달했어요.",
+            "선생님은 주인의 설명을 듣고 물건을 확인해 주셨어요.",
+            "작은 확인 하나로 엉뚱한 사람에게 건넬 일을 피했어요."
+          ],
+          "meanings": [
+            "When I found a charger in the empty classroom, I immediately guessed it belonged to someone I knew.",
+            "But then I remembered that many people use the same model.",
+            "I recorded only where I found it and passed it to the teacher.",
+            "The teacher listened to the owner describe it before confirming the item.",
+            "One small check kept it from going to the wrong person."
+          ]
+        },
+        "C1": {
+          "lines": [
+            "수업이 끝난 교실에 충전기 하나가 남아 있었어요.",
+            "익숙한 물건처럼 보여 친구에게 곧바로 연락하려다가 멈췄어요.",
+            "제가 아는 것은 발견한 장소뿐, 주인이 누구인지는 아니었으니까요.",
+            "저는 선생님께 위치를 알려 드리고 확인을 부탁드렸어요.",
+            "다음 날 물건은 주인에게 돌아갔고, 제 추측은 필요 없었어요."
+          ],
+          "meanings": [
+            "One charger remained in the classroom after the lesson.",
+            "It looked familiar, so I nearly contacted a friend right away, but stopped.",
+            "I knew where I had found it; I did not know who owned it.",
+            "I told the teacher the location and asked them to check.",
+            "The next day the charger was back with its owner, and my guess had not been needed."
+          ]
+        },
+        "C2": {
+          "lines": [
+            "책상 위 충전기는 평범했지만, 주인을 안다고 믿는 제 판단은 그리 평범하지 않았어요.",
+            "특정 친구의 것이라고 단정할 만한 근거가 없는데도 먼저 이름이 떠올랐거든요.",
+            "저는 그 추측을 전하지 않고 발견 장소와 시간만 기록했어요.",
+            "선생님은 당사자의 설명을 듣고서야 물건을 건네주셨어요.",
+            "결과보다 기억에 남은 것은, 아는 척하지 않는 태도도 도움이 된다는 점이었어요."
+          ],
+          "meanings": [
+            "The charger on the desk was ordinary, but my confidence about its owner was less ordinary.",
+            "A particular friend came to mind even though I had no grounds to decide it was theirs.",
+            "I kept that guess to myself and recorded only where and when I found it.",
+            "The teacher handed it over only after hearing the owner describe it.",
+            "More than the outcome, I remember that not pretending to know can also be a way to help."
+          ]
+        }
       }
     }
-  };
-  window.TALKTAG_STORYCAMP_KOREAN = { version: '2026-10-15-korean-story-001', families: [family] };
-})();
+  ]
+};

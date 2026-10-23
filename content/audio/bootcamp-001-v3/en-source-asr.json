@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "talktag-bootcamp-001-asr-check-v1",
+  "track": "English Vocal Camp",
+  "episode": "001",
+  "status": "exact-transcript-match",
+  "humanAuditioned": false,
+  "lines": [
+    {
+      "level": "A1",
+      "unit": 1,
+      "expected": "I found a glove on the bench.",
+      "spoken": "I found a glove on the bench.",
+      "match": true
+    },
+    {
+      "level": "A1",
+      "unit": 2,
+      "expected": "A woman came back for it.",
+      "spoken": "A woman came back for it.",
+      "match": true
+    },
+    {
+      "level": "A1",
+      "unit": 3,
+      "expected": "I gave it to her.",
+      "spoken": "I gave it to her.",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 1,
+      "expected": "I noticed a glove on the bus-stop bench.",
+      "spoken": "I noticed a glove on the bus-stop bench.",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 2,
+      "expected": "A woman came back and asked about it.",
+      "spoken": "A woman came back and asked about it.",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 3,
+      "expected": "I handed it to her, and she thanked me.",
+      "spoken": "I handed it to her, and she thanked me.",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 1,
+      "expected": "A glove lay on the bench as the bus left.",
+      "spoken": "A glove lay on the bench as the bus left.",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 2,
+      "expected": "Its owner came running back, so I waited.",
+      "spoken": "Its owner came running back, so I waited.",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 3,
+      "expected": "She thanked me when I returned it.",
+      "spoken": "She thanked me when I returned it.",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 1,
+      "expected": "I spotted a glove on the bench.",
+      "spoken": "I spotted a glove on the bench.",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 2,
+      "expected": "A woman returned, searching for something she had dropped.",
+      "spoken": "A woman returned, searching for something she had dropped.",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 3,
+      "expected": "I checked its color with her before handing it over.",
+      "spoken": "I checked its color with her before handing it over.",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 1,
+      "expected": "A glove lay unnoticed on the crowded platform.",
+      "spoken": "A glove lay unnoticed on the crowded platform.",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 2,
+      "expected": "I waited while a woman retraced her steps.",
+      "spoken": "I waited while a woman retraced her steps.",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 3,
+      "expected": "Her description matched, and I returned it with relief.",
+      "spoken": "Her description matched, and I returned it with relief.",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 1,
+      "expected": "A glove lay unclaimed on the bench.",
+      "spoken": "A glove lay unclaimed on the bench.",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 2,
+      "expected": "I asked the returning woman to describe it first.",
+      "spoken": "I asked the returning woman to describe it first.",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 3,
+      "expected": "That small question kept helpfulness from becoming guesswork.",
+      "spoken": "That small question kept helpfulness from becoming guesswork.",
+      "match": true
+    }
+  ]
+}

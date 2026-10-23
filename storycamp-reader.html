@@ -13,18 +13,17 @@
 <link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
 <link rel="stylesheet" href="content-completion.css?v=1">
 <script src="content-completion.js?v=20261009-sound-ux" defer></script>
-<script src="camp-progress.js?v=20261013-level-first" defer></script>
+<script src="camp-progress.js?v=20261023-short-001-v3" defer></script>
 <script src="content-completion-pages.js?v=1" defer></script>
 <script src="talktag-theme.js?v=20261015-korean-camp-route-v2"></script>
 <link rel="stylesheet" href="camp-translation.css?v=20261008-kr1">
 <link rel="stylesheet" href="korean-support-language.css?v=20261020-standard-1">
 <script src="korean-support-language.js?v=20261023-ja-1"></script>
-<script src="korean-support-japanese-story.js?v=20261023-ja-1"></script>
-<script src="content/bootcamp-korean.js?v=20261009-ko-review"></script>
+<script src="content/bootcamp-001-v3-story-ko.js?v=20261023-short-001-v3"></script>
 <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
 <link rel="stylesheet" href="bootcamp-artwork.css?v=20261023-en-bootcamp-1">
-<script src="bootcamp-artwork.js?v=20261023-en-bootcamp-1"></script>
-<script src="bootcamp-stage-rules.js?v=20261023-001"></script>
+<script src="bootcamp-artwork.js?v=20261023-short-001-v3"></script>
+<script src="bootcamp-stage-rules.js?v=20261023-short-001-v3"></script>
 <style>.talktag-global-home{display:none!important}</style>
 </head>
 <body><header class="top"><div class="brand"><a href="E-english.html" aria-label="TalkTag Home"><img src="talktag-logo.png" alt="TalkTag Home"></a><span>Snowballing Studio · Boot Camp · Story Camp</span></div><a class="back" id="back" href="story-camp.html">← Story Camp</a></header><main class="wrap" id="content"><div class="ey">STORY CAMP</div><h1>자료 불러오는 중…</h1></main>
@@ -48,15 +47,10 @@ function paragraphs(text){return text.split(/\n\n+/).filter(Boolean).map(p=>`<p>
 function render(family){
   const curriculum=family?.levels?.[L];
   if(!curriculum||!Array.isArray(curriculum.lines))throw Error('curriculum');
-  // A2 Korean has four original sentences. Splitting its time phrase from the
-  // next action creates five useful meaning units without changing the text.
-  const splitA2=koreanLearning&&L==='A2';
-  const stageUnits=splitA2
-    ? [curriculum.lines[0],curriculum.lines[1],'수업이 끝난 뒤에','새 친구와 차를 마셨어요.',curriculum.lines[3]]
-    : window.TalkTagBootCampStages.units(curriculum.lines,5);
-  const translationEnds=splitA2?[1,2,3,3,4]:window.TalkTagBootCampStages.boundaries(curriculum.lines.length,5);
+  // The replacement 001 story has exactly five newly authored meaning units.
+  const stageUnits=window.TalkTagBootCampStages.units(curriculum.lines,5);
+  const translationEnds=window.TalkTagBootCampStages.boundaries(curriculum.lines.length,5);
   const steps=accumulateChunks(stageUnits),text=steps.at(-1),slides=[];
-  const prompts=family.prompts||[`누가 무엇을 나누었고, 그 뒤 두 사람 사이에 어떤 변화가 생겼는지 떠올려 보세요.`,`내가 누군가와 작은 것을 나누었던 경험으로 바꾸어 보세요.`,`작은 호의가 관계를 바꾼 나의 이야기를 노트 없이 전달해 보세요.`];
   const copy=koreanLearning?{
     build:'Build',rewrite:'Rewrite the whole story',rewriteGuide:'Without looking at the completed story, write the whole story again in your notebook.',rewriteNote:'Write in your notebook first',rewriteDetail:'Open the completed story only after you finish. Check the parts or expressions you missed.',reference:'Check the completed story',retell:'Retell from memory',retellGuide:'Cover both your notes and the source. Tell the whole story from beginning to end in the Korean you remember.',retellNote:'Cover your notes before you start',retellDetail:'If you pause, connect the story with the Korean you remember instead of looking at the source right away.',transform:'Make it your own',transformGuide:'Keep the original structure and topic, but change the person, place, reason, action, or result to create your own story in your notebook.',same:'SAME STRUCTURE',sameDetail:'Keep the flow: beginning → change → result.',own:'MY STORY',ownDetail:'Change details to fit your own experience or point of view.',share:'Share your new story',shareGuide:'Cover the story you wrote in step 4, then tell it naturally to a partner.',talk:'TALK TO YOUR PARTNER',step:'Build',note:'Write the story again from the beginning up to this sentence.',meaning:'Show the English meaning for this step',finish:'Finish lesson',next:'Next →',previous:'← Previous',jump:'Jump to a learning step',menu:'Learning menu',restart:'Restart from the beginning',episodes:'Korean Story Camp episodes'
   }:null;
@@ -85,7 +79,7 @@ function storyResumeIndex(saved,total,completed){
 }
 function initDeck(total, translations, sourceLines, translationEnds){
   const sourceLength=sourceLines.length;
-  const slides=[...document.querySelectorAll('.deck-slide')],nav=document.getElementById('deckStageNav'),campKey=koreanLearning?'ko-story':'story',key=`talktag-${campKey}camp-card-${familyNumber}-${L}:five-unit-v1`;
+  const slides=[...document.querySelectorAll('.deck-slide')],nav=document.getElementById('deckStageNav'),campKey=koreanLearning?'ko-story':'story',key=`talktag-${campKey}camp-card-${familyNumber}-${L}:five-unit-v3`;
   const countNode=document.getElementById('deckCount'),labelNode=document.getElementById('deckLabel'),progressNode=document.getElementById('deckProgress'),previousButton=document.getElementById('deckPrev'),nextButton=document.getElementById('deckNext'),restartButton=document.getElementById('deckRestart'),menu=document.getElementById('deckMenu');
   slides.forEach((slide,index)=>{const button=document.createElement('button');button.type='button';button.className='deck-dot';button.textContent=String(index+1);button.setAttribute('aria-label',`${index+1}${koreanLearning?' · ': '단계 '}${slide.dataset.label}`);button.addEventListener('click',()=>show(index));nav.append(button)});
   const kr=document.getElementById('storyKorean');
@@ -93,7 +87,8 @@ function initDeck(total, translations, sourceLines, translationEnds){
   slides.forEach((slide,index)=>{const panel=document.createElement('section');panel.id='storyKr'+index;panel.className='camp-kr-panel';panel.lang=koreanLearning?'en':'ko';panel.hidden=true;const text=document.createElement('p');text.textContent=translations.slice(0,translationEnds[index]).join(' ');panel.append(text);(slide.querySelector('.step-text')||slide.querySelector('.section')).append(panel)});
   if(koreanLearning&&translations.length===sourceLength){
     const anchor=document.createElement('div');anchor.className='story-support-anchor';document.querySelector('.deck-overview')?.after(anchor);
-    window.TalkTagKoreanSupport?.mount(anchor,{id:`story-${familyNumber}-${L}`,source:sourceLines,english:translations,translations:window.TalkTagKoreanTranslations?.[`story-${familyNumber}-${L}`]||{},onChange:(selected,shown)=>{
+    const supportId=`story-${familyNumber}-v3-${L}`;
+    window.TalkTagKoreanSupport?.mount(anchor,{id:supportId,source:sourceLines,english:translations,translations:window.TalkTagKoreanTranslations?.[supportId]||{},onChange:(selected,shown)=>{
       kr.setAttribute('aria-label',`Show ${window.TalkTagKoreanSupport.languages[shown]} meaning for this step`);
       kr.textContent=shown.toUpperCase();
       slides.forEach((slide,index)=>{const panel=slide.querySelector('.camp-kr-panel');panel.lang=shown;panel.querySelector('p:last-child').textContent=selected.slice(0,translationEnds[index]).join(' ')})
@@ -106,5 +101,5 @@ function initDeck(total, translations, sourceLines, translationEnds){
   previousButton.addEventListener('click',()=>show(current-1));nextButton.addEventListener('click',()=>{if(current===total-1){window.TalkTagCampProgress?.set(campKey,L,familyNumber,true);show(0);location.href=koreanLearning?koreanStoryLanding:`story-camp.html?level=${L}`;return}show(current+1)});restartButton.addEventListener('click',()=>{menu.open=false;show(0)});show(current);
   window.addEventListener('pageshow',event=>{if(event.persisted&&(current===total-1||completed())){menu.open=false;show(0)}});
 }
-const familyScript=document.createElement('script');familyScript.src=koreanLearning?`content/storycamp-korean/${familyNumber}.js?v=20261017-korean-story-002-003`:`content/storycamp/${familyNumber}.js?v=20261009-003`;familyScript.onload=()=>{try{const family=(koreanLearning?window.TALKTAG_STORYCAMP_KOREAN:window.TALKTAG_STORYCAMP)?.families?.find(item=>item.number===familyNumber);if(!family)throw Error('family');if(!koreanLearning){render(family);return}const meaningsScript=document.createElement('script');meaningsScript.src=`korean-support-manual-story-${familyNumber}.js?v=20261021-story-complete-2`;meaningsScript.onload=()=>render(family);meaningsScript.onerror=()=>render(family);document.head.appendChild(meaningsScript)}catch(error){content.innerHTML=`<div class="error">${koreanLearning?'We could not load this Korean story.':'자료를 불러오지 못했습니다.'}</div>`}};familyScript.onerror=()=>{content.innerHTML=`<div class="error">${koreanLearning?'We could not load this Korean story.':'자료를 불러오지 못했습니다.'}</div>`};document.head.appendChild(familyScript);
+const familyScript=document.createElement('script');familyScript.src=koreanLearning?`content/storycamp-korean/${familyNumber}.js?v=20261023-short-001-v3`:`content/storycamp/${familyNumber}.js?v=20261023-short-001-v3`;familyScript.onload=()=>{try{const family=(koreanLearning?window.TALKTAG_STORYCAMP_KOREAN:window.TALKTAG_STORYCAMP)?.families?.find(item=>item.number===familyNumber);if(!family)throw Error('family');render(family)}catch(error){content.innerHTML=`<div class="error">${koreanLearning?'We could not load this Korean story.':'자료를 불러오지 못했습니다.'}</div>`}};familyScript.onerror=()=>{content.innerHTML=`<div class="error">${koreanLearning?'We could not load this Korean story.':'자료를 불러오지 못했습니다.'}</div>`};document.head.appendChild(familyScript);
 </script></body></html>

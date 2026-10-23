@@ -4,7 +4,7 @@
   const params = new URLSearchParams(location.search);
   const level = (params.get('level') || '').toUpperCase();
   const family = params.get('family') || '001';
-  const manifest = window.TalkTagJapaneseVocal001Variants;
+  const manifest = window.TalkTagJapaneseVocal001ShortVariants;
   const preview = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
   const catalog = `J-vocal-camp.html?level=${encodeURIComponent(level)}`;
   const back = document.querySelector('.pilot-back');
@@ -13,7 +13,7 @@
     app.innerHTML = '<div class="pilot-loading">에피소드 자료를 찾을 수 없습니다. 레벨 목록으로 돌아가 주세요.</div>';
     return;
   }
-  if (manifest.status !== 'published' && !preview) {
+  if (manifest.version !== 3 && !preview) {
     app.innerHTML = '<div class="pilot-loading">일본어 Vocal Camp 001 음원을 검수하고 있습니다. 검수가 끝나면 이 카드가 열립니다.</div>';
     return;
   }
@@ -28,7 +28,7 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const REPEATS = /^A[12]$/.test(level) ? 10 : /^B[12]$/.test(level) ? 15 : 21;
   const RATIOS = [2, 2.5, 3, 3.5];
-  const stateKey = `talktag-japanese-vocalcamp:001:${level}:three-unit-v1`;
+  const stateKey = `talktag-japanese-vocalcamp:001:${level}:three-unit-v3`;
   const pauseKey = 'talktag-speaking-pause-multiplier';
   const state = {card: 0, counts: lesson.steps.map(() => 0)};
   try {
@@ -47,20 +47,21 @@
     C1:['자유롭게 말하기','피드백 시점','자신감 지키기','다음 수업에 적용'],
     C2:['참여의 구조','대화의 균형','생각할 시간','다음 운영에 반영']
   };
-  document.title = `001 · ${level} · First Community Class | TalkTag 日本語`;
+  document.title = `001 · ${level} · Notebook After Class | TalkTag 日本語`;
   app.innerHTML = `
     <section class="pilot-intro">
       <p class="pilot-kicker">001 · ${esc(level)} · 일본어 VOCAL CAMP <span aria-label="일본 표준어">🇯🇵</span></p>
-      <h1>First Community Class</h1>
-      <p class="pilot-english-title" lang="ja">初めての地域クラス</p>
-      <p class="pilot-mission">두 사람의 대화를 소리로 익히고, 기억해서 내 이야기로 만들어 보세요.</p>
-      ${manifest.status !== 'published' ? '<p class="j-vocal-preview">로컬 음원 검수 미리보기 · 아직 공개되지 않았습니다.</p>' : ''}
+      <h1>Notebook After Class</h1>
+      <p class="pilot-english-title" lang="ja">教室のノート</p>
+      <figure class="bootcamp-player-art"><img src="../assets/bootcamp-scenes/ja/001-v3-vocal.jpg" alt="A learner returns a forgotten notebook to a community-class teacher" width="720" height="480" decoding="async"></figure>
+      <p class="pilot-mission">짧은 일상 이야기를 소리로 익히고, 기억해서 내 이야기로 만들어 보세요.</p>
+      ${manifest.version !== 3 ? '<p class="j-vocal-preview">로컬 음원 검수 미리보기 · 아직 공개되지 않았습니다.</p>' : ''}
     </section>
     <div class="pilot-status"><strong id="cardCount"></strong><span id="cardName"></span></div>
     <div class="pilot-track" aria-hidden="true"><span id="progressBar"></span></div>
     <section id="cardDeck">
-      <article class="pilot-card" data-card="0"><p class="card-label">1 · SOUND</p><h2>소리부터 이야기까지</h2><p class="card-guide">두 화자의 대화를 세 의미 단위로 나누어 1 → 1+2 → 1+2+3으로 듣고 따라 말해 보세요.</p>
-        <div class="vocal-pause-control"><label for="vocalPauseRange">말하기 간격 <output id="vocalPauseValue"></output></label><input id="vocalPauseRange" type="range" min="0" max="3" step="1" aria-label="말하기 간격: 음성 길이의 2배, 2.5배, 3배, 3.5배"><div class="vocal-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><small>누적 대화 전체가 끝난 뒤 최소 3초. 원어민 음성 속도는 바뀌지 않습니다.</small></div>
+      <article class="pilot-card" data-card="0"><p class="card-label">1 · SOUND</p><h2>소리부터 이야기까지</h2><p class="card-guide">짧은 이야기를 세 의미 단위로 나누어 1 → 1+2 → 1+2+3으로 듣고 따라 말해 보세요.</p>
+        <div class="vocal-pause-control"><label for="vocalPauseRange">말하기 간격 <output id="vocalPauseValue"></output></label><input id="vocalPauseRange" type="range" min="0" max="3" step="1" aria-label="말하기 간격: 음성 길이의 2배, 2.5배, 3배, 3.5배"><div class="vocal-pause-marks" aria-hidden="true"><span>2.0×</span><span>2.5×</span><span>3.0×</span><span>3.5×</span></div><small>누적 이야기 전체가 끝난 뒤 최소 3초. 음성 속도는 바뀌지 않습니다.</small></div>
         <div class="sound-ladder" id="soundLadder">${lesson.steps.map((step, index) => `<button class="sound-step" type="button" data-step="${index}" aria-label="${index + 1}단계, ${index + 1}개 의미 단위 누적 재생"><span class="sound-shape" aria-hidden="true">${Array.from({length:index + 1}, () => '<i></i>').join('')}</span><strong>${index ? `1–${index + 1} 누적` : '의미 단위 1'}</strong><small><b data-count="${index}">0</b> / ${REPEATS}회</small><em>▶</em></button>`).join('')}</div>
         <p class="sound-note" id="soundStatus" role="status" aria-live="polite">첫 소리 버튼을 누르면 누적 연습이 시작됩니다.</p>
       </article>
@@ -136,17 +137,17 @@
     let phase = '';
     player.ontimeupdate = () => {
       if (token !== runToken) return;
-      const cue = variant.cues.find(item => item.start <= player.currentTime && player.currentTime < item.pauseEnd);
+      const cue = variant.cues.find(item => item.s <= player.currentTime && player.currentTime < item.e);
       if (!cue) return;
       const waiting = cue === variant.cues.at(-1) && player.currentTime >= cue.voiceEnd;
-      const nextPhase = `${cue.lineId}:${waiting}`;
+      const nextPhase = `${cue.i}:${waiting}`;
       if (nextPhase === phase) return;
       phase = nextPhase;
       button.classList.toggle('is-waiting', waiting);
       button.classList.toggle('is-playing', !waiting);
       soundStatus.textContent = waiting
-        ? `PAUSE · 방금 들은 누적 대화 전체를 말해 보세요. ${Math.max(0, Math.ceil(cue.pauseEnd - player.currentTime))}초`
-        : `${cue.speaker === 'Mina' ? '미나' : '유우'} · ${index + 1}단계 · ${state.counts[index] + 1}/${REPEATS}회`;
+        ? `PAUSE · 방금 들은 누적 이야기 전체를 말해 보세요. ${Math.max(0, Math.ceil(cue.e - player.currentTime))}초`
+        : `${index + 1}단계 · ${state.counts[index] + 1}/${REPEATS}회 듣는 중`;
     };
     player.onended = () => {
       if (token !== runToken) return;
@@ -169,7 +170,7 @@
       }
     };
     player.onerror = () => { if (token === runToken) stopSound('음원을 불러오지 못했습니다. 연결을 확인하고 다시 눌러 주세요.'); };
-    player.src = manifest.status === 'published' ? variant.audio : variant.localAudio;
+    player.src = variant.audio;
     player.currentTime = 0;
     player.play().catch(() => { if (token === runToken) stopSound('브라우저가 재생을 막았습니다. 같은 단계를 다시 눌러 주세요.'); });
   }
@@ -192,11 +193,13 @@
     if (!referenceMode) return;
     const title = referenceMode === 'ko' ? '한국어 뜻' : referenceMode === 'ruby' ? '일본어 · 후리가나' : '일본어 대본';
     reference.lang = referenceMode === 'ko' ? 'ko' : 'ja';
-    reference.innerHTML = `<p class="reference-label">${title}</p><ol class="j-vocal-script-list">${lesson.lines.map(line => {
-      const text = referenceMode === 'ko' ? esc(line.korean)
-        : referenceMode === 'ruby' ? window.TalkTagJapaneseFurigana.render(line.japanese, line.reading)
-        : esc(line.japanese);
-      return `<li><span class="j-vocal-speaker">${line.speaker === 'Mina' ? '미나' : '유우'}</span><span>${text}</span></li>`;
+    reference.innerHTML = `<p class="reference-label">${title}</p><ol class="j-vocal-script-list">${lesson.lines.map((line,index) => {
+      const meaning = window.TalkTagBootCamp001Meanings?.jaVocal?.[level]?.[index] || '';
+      const reading = window.TalkTagBootCamp001Meanings?.jaReadings?.[level]?.[index] || '';
+      const text = referenceMode === 'ko' ? esc(meaning)
+        : referenceMode === 'ruby' ? window.TalkTagJapaneseFurigana.render(line.text, reading)
+        : esc(line.text);
+      return `<li><span>${text}</span></li>`;
     }).join('')}</ol>`;
   }
   app.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => showReference(button.dataset.mode)));

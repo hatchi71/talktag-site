@@ -1,0 +1,1820 @@
+{
+  "version": 3,
+  "language": "en",
+  "releaseBase": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/",
+  "ratios": [
+    2,
+    2.5,
+    3,
+    3.5
+  ],
+  "minimumPauseSeconds": 3,
+  "cards": [
+    {
+      "id": "family-001-A1",
+      "episode": "001",
+      "level": "A1",
+      "title": "The Spare Glove",
+      "lines": [
+        {
+          "text": "I found a glove on the bench.",
+          "speechSeconds": 1.41,
+          "sourceSha256": "ab993a85b0778bfaba2c77785c0a890356cb4ce891646f9ac8046472d7eb3cda",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/line-01.mp3?v=b97689b91549",
+          "bytes": 21909,
+          "sha256": "b97689b91549b965a8904af74ad23b3ab2e0c8a61fd40fac9045412b05186ee4"
+        },
+        {
+          "text": "A woman came back for it.",
+          "speechSeconds": 1.21,
+          "sourceSha256": "af985edf11ab5b079de4d38e19984e94c014a44956927f92a7d182b8610f5b8f",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/line-02.mp3?v=06c3c9268a3d",
+          "bytes": 15597,
+          "sha256": "06c3c9268a3d1da24d4c3f57b02eba027e6441afcff6a5b5366be446a22bb924"
+        },
+        {
+          "text": "I gave it to her.",
+          "speechSeconds": 0.82,
+          "sourceSha256": "2f8886d42b4fd3b45b376398f004a13cf29cd5584a8a09d200ba86db01401337",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/line-03.mp3?v=7c190cc60bc9",
+          "bytes": 13341,
+          "sha256": "7c190cc60bc9aa1a02d4cb901b060fbc328415d38a23fce994ed555fb593af7e"
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 4.44,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 4.44
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_0/step-01.mp3?v=3c7bdea1969f",
+              "bytes": 33429,
+              "sha256": "3c7bdea1969f489d87de458d167c83dd46fed27d91c0d89eedaa9342cbc7a08e"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 4.965,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 4.965
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_5/step-01.mp3?v=a72ce2ad18cf",
+              "bytes": 35541,
+              "sha256": "a72ce2ad18cfa01d781e0c4addb3a258a0cac69626ddc328f80cdba94857707d"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 5.67,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 5.67
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-3_0/step-01.mp3?v=79c8a99b5490",
+              "bytes": 38421,
+              "sha256": "79c8a99b5490ccd4c1abd733710d9074f6468ed5999694cc27aa0138340f2790"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 6.375,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 6.375
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-3_5/step-01.mp3?v=f4d164372984",
+              "bytes": 41205,
+              "sha256": "f4d1643729843b16acea30322c381b540a09003ea6acaade55a19666d157bbff"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 8.94,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 1.76
+                },
+                {
+                  "i": 1,
+                  "s": 1.79,
+                  "voiceEnd": 3,
+                  "e": 8.94
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_0/step-02.mp3?v=d5c2ffaf3b02",
+              "bytes": 60789,
+              "sha256": "d5c2ffaf3b02520b4caa51470cb0002aa58af0ba93ded83e4f2ab5934b53535c"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 10.425,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 1.76
+                },
+                {
+                  "i": 1,
+                  "s": 1.79,
+                  "voiceEnd": 3,
+                  "e": 10.425
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_5/step-02.mp3?v=1c1eeba1aa9f",
+              "bytes": 66741,
+              "sha256": "1c1eeba1aa9f37d3725396ebdbb48f08991b932564e9ba29f66b65599b4a314d"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 11.91,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 1.76
+                },
+                {
+                  "i": 1,
+                  "s": 1.79,
+                  "voiceEnd": 3,
+                  "e": 11.91
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-3_0/step-02.mp3?v=8d517d7d6779",
+              "bytes": 72693,
+              "sha256": "8d517d7d6779df5824a06c2fa61727aac233cc4e73f2b45256f451ab2f35a687"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 13.395,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 1.76
+                },
+                {
+                  "i": 1,
+                  "s": 1.79,
+                  "voiceEnd": 3,
+                  "e": 13.395
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-3_5/step-02.mp3?v=cb0a949dd9ad",
+              "bytes": 78645,
+              "sha256": "cb0a949dd9adef8ac8dce1896b514e1992d0021cf974d33435672e6eda448567"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 12.45,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 1.76
+                },
+                {
+                  "i": 1,
+                  "s": 1.79,
+                  "voiceEnd": 3,
+                  "e": 3.33
+                },
+                {
+                  "i": 2,
+                  "s": 3.35,
+                  "voiceEnd": 4.17,
+                  "e": 12.45
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_0/step-03.mp3?v=74241d1f3b16",
+              "bytes": 82677,
+              "sha256": "74241d1f3b164b7c7e0cd9b643df1f92a1249c01d26c052abe26c73481cecff1"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 14.52,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 1.76
+                },
+                {
+                  "i": 1,
+                  "s": 1.79,
+                  "voiceEnd": 3,
+                  "e": 3.33
+                },
+                {
+                  "i": 2,
+                  "s": 3.35,
+                  "voiceEnd": 4.17,
+                  "e": 14.52
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_5/step-03.mp3?v=9270e02c40cd",
+              "bytes": 90933,
+              "sha256": "9270e02c40cd9ef121fb780339152372f18aa8a977f98acb6e7f3063f8256108"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 16.59,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 1.76
+                },
+                {
+                  "i": 1,
+                  "s": 1.79,
+                  "voiceEnd": 3,
+                  "e": 3.33
+                },
+                {
+                  "i": 2,
+                  "s": 3.35,
+                  "voiceEnd": 4.17,
+                  "e": 16.59
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-3_0/step-03.mp3?v=b682e421a3c6",
+              "bytes": 99285,
+              "sha256": "b682e421a3c6055e3d2f4cf5196e6c2696bd8d4269ac1bc9839bcc1fd3584e4a"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 18.66,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.44,
+                  "e": 1.76
+                },
+                {
+                  "i": 1,
+                  "s": 1.79,
+                  "voiceEnd": 3,
+                  "e": 3.33
+                },
+                {
+                  "i": 2,
+                  "s": 3.35,
+                  "voiceEnd": 4.17,
+                  "e": 18.66
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-3_5/step-03.mp3?v=63f9b3bd9305",
+              "bytes": 107541,
+              "sha256": "63f9b3bd9305216d21c99f3024d97601da663d957742b99387a33c41bce225a4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family-001-A2",
+      "episode": "001",
+      "level": "A2",
+      "title": "The Spare Glove",
+      "lines": [
+        {
+          "text": "I noticed a glove on the bus-stop bench.",
+          "speechSeconds": 2.07,
+          "sourceSha256": "6ffc735428cf9e8af1350b998f8af59d24b83c983e24aedefae95c802ac6e447",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/line-01.mp3?v=0c7f31f60573",
+          "bytes": 29421,
+          "sha256": "0c7f31f60573814c65760618dbfce77c9f7ccf00c0ee923a7e3bda974206d6ff"
+        },
+        {
+          "text": "A woman came back and asked about it.",
+          "speechSeconds": 1.68,
+          "sourceSha256": "6302745f9b45cf1d323bf717d280d89b36ea6bba8df4f80a6dc5c0ac92bd21f2",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/line-02.mp3?v=e315d59700b6",
+          "bytes": 24669,
+          "sha256": "e315d59700b624a26d90b85574111647cad714040f2c4ee063cf107b8b444c1f"
+        },
+        {
+          "text": "I handed it to her, and she thanked me.",
+          "speechSeconds": 1.85,
+          "sourceSha256": "ceec98a92f42f478426fcc6bb55d65508700e51e00d003a4d0fdc7d25b880fbd",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/line-03.mp3?v=613d40ec1c0d",
+          "bytes": 26229,
+          "sha256": "613d40ec1c0d29fb95560863c33044af21c8acefc5e7b723858df96d150aab2d"
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 6.25,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 6.25
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_0/step-01.mp3?v=b1b699750ff1",
+              "bytes": 45549,
+              "sha256": "b1b699750ff1681224403b973f35fac2f590205f5ed41fc313dd00e717ee069b"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 7.285,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 7.285
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_5/step-01.mp3?v=9f66689297ef",
+              "bytes": 49677,
+              "sha256": "9f66689297ef7ea4eba0fd37dc00c8598cb7e67ced889343d6b54af8f5434f48"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 8.32,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 8.32
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-3_0/step-01.mp3?v=149969817988",
+              "bytes": 53805,
+              "sha256": "149969817988c24b639540cb7a1086f0d8146c17c673af583fe1b08ee916c264"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 9.355,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 9.355
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-3_5/step-01.mp3?v=7058aeb11cd9",
+              "bytes": 57933,
+              "sha256": "7058aeb11cd97adea83017f87ca54edeeda1c5baf065710b5ee2c6ee4b0dd6a4"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 12.34,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 2.43
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.14,
+                  "e": 12.34
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_0/step-02.mp3?v=a9bc2a937292",
+              "bytes": 85605,
+              "sha256": "a9bc2a937292268e5dd2521b78751c3a53e76da4702b49f355c20c748dbae033"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 14.39,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 2.43
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.14,
+                  "e": 14.39
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_5/step-02.mp3?v=5acae0cc7b3f",
+              "bytes": 93765,
+              "sha256": "5acae0cc7b3f293f1b2f64eb1dce815f9275fed856e816d6c5f441c44a17dedd"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 16.44,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 2.43
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.14,
+                  "e": 16.44
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-3_0/step-02.mp3?v=d11f6636807d",
+              "bytes": 101925,
+              "sha256": "d11f6636807d3cfba758508d34f7e86ce1f6c72fd09ecc8bd406b11058ffde27"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 18.49,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 2.43
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.14,
+                  "e": 18.49
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-3_5/step-02.mp3?v=3178093f8cff",
+              "bytes": 110181,
+              "sha256": "3178093f8cfffaf73384566114ec288f59075b52160192f5542488deb63dc68c"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 18.94,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 2.43
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.14,
+                  "e": 4.46
+                },
+                {
+                  "i": 2,
+                  "s": 4.49,
+                  "voiceEnd": 6.34,
+                  "e": 18.94
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_0/step-03.mp3?v=5004515ef06f",
+              "bytes": 129093,
+              "sha256": "5004515ef06f92a07d28d7a39609803af4f3ee2790e3e0490f914e7d2725e617"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 22.09,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 2.43
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.14,
+                  "e": 4.46
+                },
+                {
+                  "i": 2,
+                  "s": 4.49,
+                  "voiceEnd": 6.34,
+                  "e": 22.09
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_5/step-03.mp3?v=d53fa3b90e1a",
+              "bytes": 141669,
+              "sha256": "d53fa3b90e1a00f3c641864771f2b9b7cd91f823e712ef6725188e907296d7e2"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 25.24,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 2.43
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.14,
+                  "e": 4.46
+                },
+                {
+                  "i": 2,
+                  "s": 4.49,
+                  "voiceEnd": 6.34,
+                  "e": 25.24
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-3_0/step-03.mp3?v=5acd81af8ab1",
+              "bytes": 154245,
+              "sha256": "5acd81af8ab15c1a185b9713d71c0c36c5ffd16a4e2b040e09e480e8be4df00e"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 28.39,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.04,
+                  "voiceEnd": 2.11,
+                  "e": 2.43
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.14,
+                  "e": 4.46
+                },
+                {
+                  "i": 2,
+                  "s": 4.49,
+                  "voiceEnd": 6.34,
+                  "e": 28.39
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-3_5/step-03.mp3?v=e4125d284540",
+              "bytes": 166821,
+              "sha256": "e4125d284540a97e7d78b201204b6be329ad402e9ee6608eccd9884491a44578"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family-001-B1",
+      "episode": "001",
+      "level": "B1",
+      "title": "The Spare Glove",
+      "lines": [
+        {
+          "text": "A glove lay on the bench as the bus left.",
+          "speechSeconds": 2.08,
+          "sourceSha256": "053d292422a76a218a5cc0e6ca296d426e10dec2985f9ce23d0570a5cc225f4e",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/line-01.mp3?v=cbb2ec3456cc",
+          "bytes": 31629,
+          "sha256": "cbb2ec3456cc5634f21a65433f53d7fc07d63d88718cb7f88f6bc15677551266"
+        },
+        {
+          "text": "Its owner came running back, so I waited.",
+          "speechSeconds": 2.13,
+          "sourceSha256": "f9abf151f2523b8fa0b37c1a9dd53e9bc3d3f6beb905e656a7122cf2cafb52d6",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/line-02.mp3?v=a5c5a4ae3830",
+          "bytes": 28989,
+          "sha256": "a5c5a4ae3830519e907badd803017eed7ca73f1d2c91f12d31a50d4ea4cc8673"
+        },
+        {
+          "text": "She thanked me when I returned it.",
+          "speechSeconds": 1.58,
+          "sourceSha256": "e11a5cbd45183772b0fcd65c83c21e2c99791b67c75bf4d2506f132a76dc4d51",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/line-03.mp3?v=044735858535",
+          "bytes": 20973,
+          "sha256": "04473585853588d35f79942ae1dc91f3b640c2c5beb9ccc6045e540c33d6539a"
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 6.27,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 6.27
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_0/step-01.mp3?v=3e5ba3e719a9",
+              "bytes": 47853,
+              "sha256": "3e5ba3e719a968f0baa973ff806fe80f357ef195159905f4b1ce8feab0905608"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 7.31,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 7.31
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_5/step-01.mp3?v=123870fff6aa",
+              "bytes": 51981,
+              "sha256": "123870fff6aa8f6465e49f5179492e4a36480dc6181bfc06826e64d3219807b6"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 8.35,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 8.35
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-3_0/step-01.mp3?v=120d23f1ce2d",
+              "bytes": 56109,
+              "sha256": "120d23f1ce2dafcb09459fcc458679d40325dbf8125df806a34aea6732a06ae0"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 9.39,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 9.39
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-3_5/step-01.mp3?v=bdf32537c1e5",
+              "bytes": 60333,
+              "sha256": "bdf32537c1e5cc0b4d8dad888ad5f64e1da413fafd0901de0f3cd4598ed1c0b5"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 13.71,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 2.45
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.59,
+                  "e": 13.71
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_0/step-02.mp3?v=2aed0606e8b7",
+              "bytes": 96597,
+              "sha256": "2aed0606e8b7da8aa4edd3585557a096955f434a18101c5ceaddd9a0c9b220c6"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 15.99,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 2.45
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.59,
+                  "e": 15.99
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_5/step-02.mp3?v=de7dabf556cd",
+              "bytes": 105717,
+              "sha256": "de7dabf556cdd4df66992236ae65e8262e8643e421e690f4f12cff9cf4771ff7"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 18.27,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 2.45
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.59,
+                  "e": 18.27
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-3_0/step-02.mp3?v=4aa622736006",
+              "bytes": 114837,
+              "sha256": "4aa622736006ad36dace3c0cbd559f79b348c32d0686632d134d67af325e00be"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 20.55,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 2.45
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.59,
+                  "e": 20.55
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-3_5/step-02.mp3?v=64887a3d1296",
+              "bytes": 123957,
+              "sha256": "64887a3d1296125e14472961e95a37d7ed07164bc1f7acec231838a654e09c55"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 19.5,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 2.45
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.59,
+                  "e": 4.94
+                },
+                {
+                  "i": 2,
+                  "s": 4.94,
+                  "voiceEnd": 6.52,
+                  "e": 19.5
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_0/step-03.mp3?v=5b6d3b69e449",
+              "bytes": 132285,
+              "sha256": "5b6d3b69e4490b67b3f880d2134f7df8b523e632516b3d35afc77495902b09de"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 22.745,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 2.45
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.59,
+                  "e": 4.94
+                },
+                {
+                  "i": 2,
+                  "s": 4.94,
+                  "voiceEnd": 6.52,
+                  "e": 22.745
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_5/step-03.mp3?v=52ee28fc283e",
+              "bytes": 145245,
+              "sha256": "52ee28fc283ebb59b0011f4fa0eaf4617ba7723a9d0d8f6a2892d43a1645194f"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 25.99,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 2.45
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.59,
+                  "e": 4.94
+                },
+                {
+                  "i": 2,
+                  "s": 4.94,
+                  "voiceEnd": 6.52,
+                  "e": 25.99
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-3_0/step-03.mp3?v=57b980fa3e22",
+              "bytes": 158205,
+              "sha256": "57b980fa3e2201d1f64c3fb6cf6222db40ed3691cb4e01e953d944bdc2704525"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 29.235,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 2.11,
+                  "e": 2.45
+                },
+                {
+                  "i": 1,
+                  "s": 2.46,
+                  "voiceEnd": 4.59,
+                  "e": 4.94
+                },
+                {
+                  "i": 2,
+                  "s": 4.94,
+                  "voiceEnd": 6.52,
+                  "e": 29.235
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-3_5/step-03.mp3?v=0f6e7825f1e3",
+              "bytes": 171261,
+              "sha256": "0f6e7825f1e350c7b005db37a3844704c8ac5c790b8178c8a93b62ac920ba219"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family-001-B2",
+      "episode": "001",
+      "level": "B2",
+      "title": "The Spare Glove",
+      "lines": [
+        {
+          "text": "I spotted a glove on the bench.",
+          "speechSeconds": 1.52,
+          "sourceSha256": "8ab665e8ae99c07f83f11e9d60896cf2bce95526f8b7102f0d481ad5a164d697",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/line-01.mp3?v=acc3dae80d5d",
+          "bytes": 21789,
+          "sha256": "acc3dae80d5d87262386926f0ee6af332ca234851cb8191948b6240c7be3e0e4"
+        },
+        {
+          "text": "A woman returned, searching for something she had dropped.",
+          "speechSeconds": 2.5,
+          "sourceSha256": "d145a0988e1e731ee883aa1c2cf4acf6a9d7980ba4dd4bc87ef6b18160ec691f",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/line-02.mp3?v=d1a36a3a7db8",
+          "bytes": 33549,
+          "sha256": "d1a36a3a7db877f6aa86847d63a328fe3a768caee70fb98708238983cac0fa4f"
+        },
+        {
+          "text": "I checked its color with her before handing it over.",
+          "speechSeconds": 2.37,
+          "sourceSha256": "2d897baf75ab80b8ebbff84f18a51bab2a3137d1ba3caa49f86cd41e9a1603fc",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/line-03.mp3?v=55f74389e5b3",
+          "bytes": 30765,
+          "sha256": "55f74389e5b3fab14809e6d4aaadd594b23d96e84d95810128a15f9ec922de78"
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 4.59,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 4.59
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_0/step-01.mp3?v=0d2c05c66bfc",
+              "bytes": 33501,
+              "sha256": "0d2c05c66bfc26d03253b66a2ecd356996539a43d242768578c430bdafc697ef"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 5.35,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 5.35
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_5/step-01.mp3?v=69af3495ab49",
+              "bytes": 36477,
+              "sha256": "69af3495ab491baa904aaeb3dace1422ff3a2e84a46934c1a0ef21a1e7a12fc6"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 6.11,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 6.11
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-3_0/step-01.mp3?v=0a56fc7a9bcf",
+              "bytes": 39549,
+              "sha256": "0a56fc7a9bcf132e61b42bcb686c9ec55bb83432a003058b5d0c81c74cc28b07"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 6.87,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 6.87
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-3_5/step-01.mp3?v=048b19202cb1",
+              "bytes": 42621,
+              "sha256": "048b19202cb12f5736834ae71bbbf8cc1d06425df0431c2af2dce11637a7ab15"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 13.14,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 1.87
+                },
+                {
+                  "i": 1,
+                  "s": 1.9,
+                  "voiceEnd": 4.4,
+                  "e": 13.14
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_0/step-02.mp3?v=c88ad6cab785",
+              "bytes": 90021,
+              "sha256": "c88ad6cab785f47a04725c7dc2957410099a720bad5710ca6e2e23179abf76d3"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 15.325,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 1.87
+                },
+                {
+                  "i": 1,
+                  "s": 1.9,
+                  "voiceEnd": 4.4,
+                  "e": 15.325
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_5/step-02.mp3?v=fea815946bad",
+              "bytes": 98757,
+              "sha256": "fea815946badef916707b26f17fe9875e516111d1e035934a65e62911d28cf49"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 17.51,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 1.87
+                },
+                {
+                  "i": 1,
+                  "s": 1.9,
+                  "voiceEnd": 4.4,
+                  "e": 17.51
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-3_0/step-02.mp3?v=22ecfebff8ba",
+              "bytes": 107493,
+              "sha256": "22ecfebff8baad5f471087d46e7dbca4817299aea146071e8d4c2531750fdf60"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 19.695,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 1.87
+                },
+                {
+                  "i": 1,
+                  "s": 1.9,
+                  "voiceEnd": 4.4,
+                  "e": 19.695
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-3_5/step-02.mp3?v=b19471b1f7df",
+              "bytes": 116229,
+              "sha256": "b19471b1f7df5eceefafa9c619940292e49b53939ee54c8b2e35c20d7c1c1535"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 21.3,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 1.87
+                },
+                {
+                  "i": 1,
+                  "s": 1.9,
+                  "voiceEnd": 4.4,
+                  "e": 4.72
+                },
+                {
+                  "i": 2,
+                  "s": 4.75,
+                  "voiceEnd": 7.12,
+                  "e": 21.3
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_0/step-03.mp3?v=0dd58d039d72",
+              "bytes": 141981,
+              "sha256": "0dd58d039d721845b2efaa5db3eae0c76b566a9aed42193ad82ec30ccd6c7587"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 24.845,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 1.87
+                },
+                {
+                  "i": 1,
+                  "s": 1.9,
+                  "voiceEnd": 4.4,
+                  "e": 4.72
+                },
+                {
+                  "i": 2,
+                  "s": 4.75,
+                  "voiceEnd": 7.12,
+                  "e": 24.845
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_5/step-03.mp3?v=47a49bc76804",
+              "bytes": 156189,
+              "sha256": "47a49bc7680493711de28e5176d07adfaf61a5cde7a32f98bb6f029fcdbefb83"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 28.39,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 1.87
+                },
+                {
+                  "i": 1,
+                  "s": 1.9,
+                  "voiceEnd": 4.4,
+                  "e": 4.72
+                },
+                {
+                  "i": 2,
+                  "s": 4.75,
+                  "voiceEnd": 7.12,
+                  "e": 28.39
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-3_0/step-03.mp3?v=b2c7b2e5b2f9",
+              "bytes": 170301,
+              "sha256": "b2c7b2e5b2f9ed36c397d33ac7cf9faa2acf7841eae08e61ca21256aab960615"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 31.935,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.55,
+                  "e": 1.87
+                },
+                {
+                  "i": 1,
+                  "s": 1.9,
+                  "voiceEnd": 4.4,
+                  "e": 4.72
+                },
+                {
+                  "i": 2,
+                  "s": 4.75,
+                  "voiceEnd": 7.12,
+                  "e": 31.935
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-3_5/step-03.mp3?v=957a318b03d4",
+              "bytes": 184509,
+              "sha256": "957a318b03d42400b1dfe2fc61597929120c50a63e10d2f22102507af08281b8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family-001-C1",
+      "episode": "001",
+      "level": "C1",
+      "title": "The Spare Glove",
+      "lines": [
+        {
+          "text": "A glove lay unnoticed on the crowded platform.",
+          "speechSeconds": 2.63,
+          "sourceSha256": "a25bb11784c5ad774a59918dd1541fe8377d5e179d499da39836c7664a9db786",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/line-01.mp3?v=92593b3dc4cb",
+          "bytes": 35037,
+          "sha256": "92593b3dc4cbffa711c5d56bc1fe8ae45302255b8e658b55f98ed34103d037dc"
+        },
+        {
+          "text": "I waited while a woman retraced her steps.",
+          "speechSeconds": 2.17,
+          "sourceSha256": "fb854449c118d43a7d8c758e905fc2d723214b7c01d73f60c8d86ad348effac9",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/line-02.mp3?v=a8492e6f41cd",
+          "bytes": 31029,
+          "sha256": "a8492e6f41cd48ff5af3985d9790b524250ac7547a6b1836debaae794218067a"
+        },
+        {
+          "text": "Her description matched, and I returned it with relief.",
+          "speechSeconds": 2.62,
+          "sourceSha256": "01838b10c36eb135c09edd85eb2f8379ab1ccce4e282a37770ca6d274382ec3f",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/line-03.mp3?v=28007a905309",
+          "bytes": 33597,
+          "sha256": "28007a905309d0300ba985e5232a85b5094b059ca147288d779138956a2a6400"
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 7.91,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 7.91
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_0/step-01.mp3?v=00e21c45ebde",
+              "bytes": 55581,
+              "sha256": "00e21c45ebde8bd6f0c5a33b8a3f214807fed2b6dce35263813e266decb39fcd"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 9.225,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 9.225
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_5/step-01.mp3?v=ba2a79ec18ab",
+              "bytes": 60861,
+              "sha256": "ba2a79ec18ab6d8eee537f1637dd8d7430843626a8391f9a34f17da00a8f40ee"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 10.54,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 10.54
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-3_0/step-01.mp3?v=8f62f848decf",
+              "bytes": 66141,
+              "sha256": "8f62f848decfa5d3e5f5f7293fc68f88469cbaf3ad031475ad3e1c5fbde2c55a"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 11.855,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 11.855
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-3_5/step-01.mp3?v=f52c750bd588",
+              "bytes": 71325,
+              "sha256": "f52c750bd5882808a7331fce9f546f2368979857d86fe97b2e138a0b7ffc80aa"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 15.47,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 3
+                },
+                {
+                  "i": 1,
+                  "s": 3,
+                  "voiceEnd": 5.17,
+                  "e": 15.47
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_0/step-02.mp3?v=98e7370d2419",
+              "bytes": 106845,
+              "sha256": "98e7370d2419aa32f7b9bcbde71bae40e8f63535e3c42ed9c053b116bd714e57"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 18.045,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 3
+                },
+                {
+                  "i": 1,
+                  "s": 3,
+                  "voiceEnd": 5.17,
+                  "e": 18.045
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_5/step-02.mp3?v=03e2c2aeb3da",
+              "bytes": 117117,
+              "sha256": "03e2c2aeb3da9c2f7234ac68f33c092d90dac1df5d64568e6a60293c639647d3"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 20.62,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 3
+                },
+                {
+                  "i": 1,
+                  "s": 3,
+                  "voiceEnd": 5.17,
+                  "e": 20.62
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-3_0/step-02.mp3?v=3513b48e83bd",
+              "bytes": 127485,
+              "sha256": "3513b48e83bd23d9a5383c959f4e7847b3cd0905f054d9f44d97178c24a4d11c"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 23.195,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 3
+                },
+                {
+                  "i": 1,
+                  "s": 3,
+                  "voiceEnd": 5.17,
+                  "e": 23.195
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-3_5/step-02.mp3?v=bf4f95d89d53",
+              "bytes": 137757,
+              "sha256": "bf4f95d89d53926c1199975ec84dec8c5481386dc50a73bb0e0c4edd0230b7f6"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 24.38,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 3
+                },
+                {
+                  "i": 1,
+                  "s": 3,
+                  "voiceEnd": 5.17,
+                  "e": 5.46
+                },
+                {
+                  "i": 2,
+                  "s": 5.52,
+                  "voiceEnd": 8.14,
+                  "e": 24.38
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_0/step-03.mp3?v=39656dd7b0eb",
+              "bytes": 163989,
+              "sha256": "39656dd7b0eb3a64d226f7c91442066101cf6e9ab7683f2b67d20cd8cdf11383"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 28.44,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 3
+                },
+                {
+                  "i": 1,
+                  "s": 3,
+                  "voiceEnd": 5.17,
+                  "e": 5.46
+                },
+                {
+                  "i": 2,
+                  "s": 5.52,
+                  "voiceEnd": 8.14,
+                  "e": 28.44
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_5/step-03.mp3?v=ab02bfead217",
+              "bytes": 180213,
+              "sha256": "ab02bfead217abf0cefbeee117ff08bafe3ad8b1abef47353b781ecf4d8474c2"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 32.5,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 3
+                },
+                {
+                  "i": 1,
+                  "s": 3,
+                  "voiceEnd": 5.17,
+                  "e": 5.46
+                },
+                {
+                  "i": 2,
+                  "s": 5.52,
+                  "voiceEnd": 8.14,
+                  "e": 32.5
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-3_0/step-03.mp3?v=dd5a58ed3f4d",
+              "bytes": 196533,
+              "sha256": "dd5a58ed3f4dd5f9e2ee3ad7e750544e689c08494345c1653ce22efc7e6ef6b0"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 36.56,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.02,
+                  "voiceEnd": 2.65,
+                  "e": 3
+                },
+                {
+                  "i": 1,
+                  "s": 3,
+                  "voiceEnd": 5.17,
+                  "e": 5.46
+                },
+                {
+                  "i": 2,
+                  "s": 5.52,
+                  "voiceEnd": 8.14,
+                  "e": 36.56
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-3_5/step-03.mp3?v=54418de69601",
+              "bytes": 212757,
+              "sha256": "54418de69601c70b7311238f1a889c99908632e560df55e7299a81a54b5b21d1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family-001-C2",
+      "episode": "001",
+      "level": "C2",
+      "title": "The Spare Glove",
+      "lines": [
+        {
+          "text": "A glove lay unclaimed on the bench.",
+          "speechSeconds": 1.73,
+          "sourceSha256": "ca756b95707e2f01719ea79a715df2468ed1f4601fafccef453ee70ef19504a0",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/line-01.mp3?v=456072a9aebb",
+          "bytes": 23757,
+          "sha256": "456072a9aebb679818acfa9f406fef696b7844d46beccb8e92fe891172a3abad"
+        },
+        {
+          "text": "I asked the returning woman to describe it first.",
+          "speechSeconds": 2.35,
+          "sourceSha256": "d8da3c360c021ba5eeb04900fe55519706dbe889b4527cb089c691d01e6310fb",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/line-02.mp3?v=3ffcd6aee614",
+          "bytes": 32637,
+          "sha256": "3ffcd6aee614faa90fe142ff3d1cc9a73dc9fad60932c8581f78e1c21c61406d"
+        },
+        {
+          "text": "That small question kept helpfulness from becoming guesswork.",
+          "speechSeconds": 3.09,
+          "sourceSha256": "e51cb3f3e9f45ba379cafd4d2a0cfe12c5299cb61c22ef46b2dde7a996907b90",
+          "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/line-03.mp3?v=a108a88059ad",
+          "bytes": 42117,
+          "sha256": "a108a88059adf12bde90a8bbc369f714f548f27f20f9fb4e53ff3819af152421"
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 5.22,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 5.22
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_0/step-01.mp3?v=1f9767b147ce",
+              "bytes": 37101,
+              "sha256": "1f9767b147ce4d32e43b142206511bcec7484a9471154a373148287166a6659b"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 6.085,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 6.085
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_5/step-01.mp3?v=4a3b1e17b6d7",
+              "bytes": 40557,
+              "sha256": "4a3b1e17b6d7645575c5da5a3573f0ea3ce117756b333ac0c74c5779290279f9"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 6.95,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 6.95
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-3_0/step-01.mp3?v=26f97d0a0a43",
+              "bytes": 44013,
+              "sha256": "26f97d0a0a436777a80c3a6d88da21c89b43d00ff4a68b882ddcee579e277b8f"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 7.815,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 7.815
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-3_5/step-01.mp3?v=b2de1531c52c",
+              "bytes": 47469,
+              "sha256": "b2de1531c52c94d5ce71fa0e02eef127f7bdedd313a1dd1dfe16e49c3a4cfb80"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 13.32,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 2.07
+                },
+                {
+                  "i": 1,
+                  "s": 2.11,
+                  "voiceEnd": 4.46,
+                  "e": 13.32
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_0/step-02.mp3?v=36289873461d",
+              "bytes": 91437,
+              "sha256": "36289873461ddb252b0b72fe7e3ff06d28c00052e20687e0d595db3747060ef5"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 15.535,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 2.07
+                },
+                {
+                  "i": 1,
+                  "s": 2.11,
+                  "voiceEnd": 4.46,
+                  "e": 15.535
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_5/step-02.mp3?v=d64c5c1f1982",
+              "bytes": 100365,
+              "sha256": "d64c5c1f19829a36c21d4978cbb65bc2b70478df977d4a6e4bf70f9cd9e8648f"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 17.75,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 2.07
+                },
+                {
+                  "i": 1,
+                  "s": 2.11,
+                  "voiceEnd": 4.46,
+                  "e": 17.75
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-3_0/step-02.mp3?v=28dbb696cad0",
+              "bytes": 109197,
+              "sha256": "28dbb696cad00363c37e1cf282199bd7cbc70f9a88b52b357730b0fb8ae09ab0"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 19.965,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 2.07
+                },
+                {
+                  "i": 1,
+                  "s": 2.11,
+                  "voiceEnd": 4.46,
+                  "e": 19.965
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-3_5/step-02.mp3?v=4ddbfbd25f56",
+              "bytes": 118029,
+              "sha256": "4ddbfbd25f5667bb247a0c812f333fb342ed8c3d783358bb6aae7f857468d9d1"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "variants": [
+            {
+              "ratio": 2,
+              "durationSeconds": 23.64,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 2.07
+                },
+                {
+                  "i": 1,
+                  "s": 2.11,
+                  "voiceEnd": 4.46,
+                  "e": 4.8
+                },
+                {
+                  "i": 2,
+                  "s": 4.81,
+                  "voiceEnd": 7.9,
+                  "e": 23.64
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_0/step-03.mp3?v=7c94ebbb1157",
+              "bytes": 161013,
+              "sha256": "7c94ebbb1157773a0625ce3e4d0c6a0ac7e9ca36bdaf7bde5e37e4579c964658"
+            },
+            {
+              "ratio": 2.5,
+              "durationSeconds": 27.575,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 2.07
+                },
+                {
+                  "i": 1,
+                  "s": 2.11,
+                  "voiceEnd": 4.46,
+                  "e": 4.8
+                },
+                {
+                  "i": 2,
+                  "s": 4.81,
+                  "voiceEnd": 7.9,
+                  "e": 27.575
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_5/step-03.mp3?v=cc29661ea380",
+              "bytes": 176757,
+              "sha256": "cc29661ea3802375d21bd52a1640ebf4332b624abb6aba447f13209ed27756f4"
+            },
+            {
+              "ratio": 3,
+              "durationSeconds": 31.51,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 2.07
+                },
+                {
+                  "i": 1,
+                  "s": 2.11,
+                  "voiceEnd": 4.46,
+                  "e": 4.8
+                },
+                {
+                  "i": 2,
+                  "s": 4.81,
+                  "voiceEnd": 7.9,
+                  "e": 31.51
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-3_0/step-03.mp3?v=02a3c9852dca",
+              "bytes": 192501,
+              "sha256": "02a3c9852dca0c4d5e000822b58f54c4ccf5af30c89b3afc8c85aca760049c27"
+            },
+            {
+              "ratio": 3.5,
+              "durationSeconds": 35.445,
+              "cues": [
+                {
+                  "i": 0,
+                  "s": 0.03,
+                  "voiceEnd": 1.76,
+                  "e": 2.07
+                },
+                {
+                  "i": 1,
+                  "s": 2.11,
+                  "voiceEnd": 4.46,
+                  "e": 4.8
+                },
+                {
+                  "i": 2,
+                  "s": 4.81,
+                  "voiceEnd": 7.9,
+                  "e": 35.445
+                }
+              ],
+              "audio": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-3_5/step-03.mp3?v=36b93ab637ed",
+              "bytes": 208245,
+              "sha256": "36b93ab637ed5a18f7a23dc64cb71732c265d68a8c9f6a8538d74fdfdb227f30"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

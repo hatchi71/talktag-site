@@ -10,8 +10,8 @@
     return;
   }
   const sources = korean
-    ? ['content/vocalcamp-korean-001.js?v=20261014-korean-vocal-audio-v2', 'audio/korean/vocalcamp/segments-001-002/manifest.js?v=20261017-cumulative-v2']
-    : ['content/vocalcamp/001.js?v=20261009-003'];
+    ? ['content/vocalcamp-korean-001.js?v=20261023-short-001-v3', 'audio/korean/vocalcamp/short-001-v3/manifest.js?v=20261023-short-001-v3']
+    : ['content/vocalcamp/001.js?v=20261023-short-001-v3'];
   const load = (index = 0) => {
     const script = document.createElement('script');
     script.src = sources[index];
@@ -19,7 +19,7 @@
       if (index + 1 < sources.length) return load(index + 1);
       const family = (korean ? window.TALKTAG_VOCALCAMP_KOREAN : window.TALKTAG_VOCALCAMP)?.families.find(item => item.number === number);
       const data = korean ? family?.levelsData?.[level] : family?.levels[level];
-      const native = (korean ? window.TalkTagKoreanVocal001002Variants : window.TalkTagVocal001002Variants)?.cards?.find(card => card.id === `family-${number}-${level}`);
+      const native = (korean ? window.TalkTagKoreanVocal001ShortVariants : window.TalkTagVocal001ShortVariants)?.cards?.find(card => card.id === `family-${number}-${level}`);
       const ready = Boolean(data && native && native.lines.length === data.lines.length &&
         native.lines.every((line, i) => line.text === data.lines[i]) &&
         native.steps.length === data.audioSteps.length &&
@@ -58,7 +58,7 @@
         }
       }];
       const engine = document.createElement('script');
-      engine.src = 'vocalcamp-player.js?v=20261023-001-three-units';
+      engine.src = 'vocalcamp-player.js?v=20261023-short-001-v3';
       document.head.appendChild(engine);
     };
     script.onerror = () => { app.textContent = korean ? 'Could not load this lesson.' : '자료를 불러오지 못했습니다.'; };

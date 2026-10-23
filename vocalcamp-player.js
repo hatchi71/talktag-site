@@ -21,7 +21,7 @@
   try { const saved = Number(localStorage.getItem(pauseKey)); if (PAUSE_OPTIONS.includes(saved)) silenceMultiplier = saved; } catch (_) {}
   document.title = `${unit.familyNumber} · ${unit.level} · ${unit.title} | TalkTag Vocal Camp`;
 
-  const key = `talktag-vocal-pilot-simple-${unit.id}:three-unit-v1`;
+  const key = `talktag-vocal-pilot-simple-${unit.id}:three-unit-v3`;
   const state = { card: 0, counts: lines.map(() => 0) };
   try {
     const saved = JSON.parse(localStorage.getItem(key) || '{}');

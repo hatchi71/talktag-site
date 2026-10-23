@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "talktag-bootcamp-001-asr-check-v1",
+  "language": "ja",
+  "episode": "001",
+  "status": "exact-transcript-match",
+  "humanAuditioned": false,
+  "lines": [
+    {
+      "level": "A1",
+      "unit": 1,
+      "expected": "いすにノートがありました。",
+      "spoken": "いすにノートがありました。",
+      "match": true
+    },
+    {
+      "level": "A1",
+      "unit": 2,
+      "expected": "だれのノートですか。",
+      "spoken": "だれのノートですか。",
+      "match": true
+    },
+    {
+      "level": "A1",
+      "unit": 3,
+      "expected": "先生にわたしました。",
+      "spoken": "先生にわたしました。",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 1,
+      "expected": "授業のあと、いすにノートが残っていました。",
+      "spoken": "授業のあと、いすにノートが残っていました。",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 2,
+      "expected": "名前がなかったので、先生に聞きました。",
+      "spoken": "名前がなかったので、先生に聞きました。",
+      "match": true
+    },
+    {
+      "level": "A2",
+      "unit": 3,
+      "expected": "先生が持ち主を探してくれました。",
+      "spoken": "先生が持ち主を探してくれました。",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 1,
+      "expected": "授業のあと、いすにノートが残っていました。",
+      "spoken": "授業のあと、いすにノートが残っていました。",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 2,
+      "expected": "持ち主が分からず、先生に預けました。",
+      "spoken": "持ち主が分からず、先生に預けました。",
+      "match": true
+    },
+    {
+      "level": "B1",
+      "unit": 3,
+      "expected": "翌日、無事に戻ったと聞きました。",
+      "spoken": "翌日、無事に戻ったと聞きました。",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 1,
+      "expected": "教室にノートが残されていました。",
+      "spoken": "教室にノートが残されていました。",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 2,
+      "expected": "持ち主を決めつけず、先生に事情を伝えました。",
+      "spoken": "持ち主を決めつけず、先生に事情を伝えました。",
+      "match": true
+    },
+    {
+      "level": "B2",
+      "unit": 3,
+      "expected": "確認のあと、無事に返されました。",
+      "spoken": "確認のあと、無事に返されました。",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 1,
+      "expected": "授業後、見覚えのあるノートが残っていました。",
+      "spoken": "授業後、見覚えのあるノートが残っていました。",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 2,
+      "expected": "推測だけで渡さず、先生に預けました。",
+      "spoken": "推測だけで渡さず、先生に預けました。",
+      "match": true
+    },
+    {
+      "level": "C1",
+      "unit": 3,
+      "expected": "本人に確認して返せたそうです。",
+      "spoken": "本人に確認して返せたそうです。",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 1,
+      "expected": "忘れ物のノートに、持ち主の心当たりがありました。",
+      "spoken": "忘れ物のノートに、持ち主の心当たりがありました。",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 2,
+      "expected": "でも、推測は確認ではありません。先生に預けました。",
+      "spoken": "でも、推測は確認ではありません。先生に預けました。",
+      "match": true
+    },
+    {
+      "level": "C2",
+      "unit": 3,
+      "expected": "正しい持ち主に戻り、慎重さの大切さを感じました。",
+      "spoken": "正しい持ち主に戻り、慎重さの大切さを感じました。",
+      "match": true
+    }
+  ]
+}

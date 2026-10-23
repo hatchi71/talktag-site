@@ -15,7 +15,10 @@ function add(track, id, source, english, translations={}) {
       !source.length || source.some(line=>!String(line).trim()) || english.some(line=>!String(line).trim())) {
     throw Error(`${track} ${id}: source/English line alignment failed`);
   }
-  const record=window.TalkTagKoreanTranslations?.[id];
+  const replacement001=/^(family|story)-001-(A1|A2|B1|B2|C1|C2)$/u.test(id) && ['Vocal','Story'].includes(track);
+  // Retired 001 translations must never be counted or displayed for the new
+  // short story, even where both stories happen to have the same line count.
+  const record=replacement001 ? undefined : window.TalkTagKoreanTranslations?.[id];
   if (record && (!Array.isArray(record.source) || record.source.length!==source.length ||
       record.source.some((line,index)=>line!==source[index]))) {
     throw Error(`${track} ${id}: published Korean source changed; translation invalid`);
@@ -25,7 +28,7 @@ function add(track, id, source, english, translations={}) {
   }
   const ready=[];
   for (const code of ['vi','ne','km','my','th','ja']) {
-    const list=code==='ja' ? window.TalkTagKoreanJapanese?.[id] : record?.translations?.[code] || translations[code];
+    const list=replacement001 ? undefined : code==='ja' ? window.TalkTagKoreanJapanese?.[id] : record?.translations?.[code] || translations[code];
     if (!list) continue;
     if (!Array.isArray(list) || list.length !== source.length || list.some(line=>!String(line).trim())) {
       throw Error(`${track} ${id}: ${code} line alignment failed`);
@@ -62,24 +65,15 @@ load('korean-support-manual-glr-003-ab.js');
 load('korean-support-manual-glr-003-c.js');
 load('korean-support-japanese-glr.js');
 load('korean-support-japanese-essays.js');
-load('korean-support-japanese-vocal.js');
-load('korean-support-japanese-story.js');
 load('korean-support-japanese-starter.js');
-load('korean-support-manual-vocal-001-ab.js');
-load('korean-support-manual-vocal-001-c.js');
-load('korean-support-manual-vocal-002-ab.js');
-load('korean-support-manual-vocal-002-c.js');
-load('korean-support-manual-vocal-003-ab.js');
-load('korean-support-manual-vocal-003-c.js');
 for (const lesson of window.TalkTagNativeCatalogs.ko.filter(item=>item.available!==false)) {
   add(lesson.type==='guided'?'GLR':'Essays',lesson.id,lesson.expressions,lesson.meanings,window.TalkTagKoreanGlr001Translations?.[lesson.id]);
 }
-for (const file of ['001','002','003']) load(`content/vocalcamp-korean-${file}.js`);
+load('content/vocalcamp-korean-001.js');
 for (const family of window.TALKTAG_VOCALCAMP_KOREAN.families.filter(item=>item.status==='published')) {
   for (const [level,data] of Object.entries(family.levelsData)) add('Vocal',`family-${family.number}-${level}`,data.lines,data.translation);
 }
-for (const file of ['001','002','003']) load(`content/storycamp-korean/${file}.js`);
-for (const file of ['001','002','003']) load(`korean-support-manual-story-${file}.js`);
+load('content/storycamp-korean/001.js');
 for (const family of window.TALKTAG_STORYCAMP_KOREAN.families.filter(item=>item.status==='published')) {
   for (const [level,data] of Object.entries(family.levels)) add('Story',`story-${family.number}-${level}`,data.lines,data.meanings);
 }
@@ -100,4 +94,6 @@ console.log(`Total: ${cards.length} card units; ${pending.length} still need com
 load('content/readable/korean-001.js');
 const koreanReadable=(window.TalkTagKoreanReadable||[]).filter(chapter=>chapter.status==='published');
 console.log(`Readable: ${koreanReadable.length} published chapters; ${koreanReadable.filter(chapter=>!window.TalkTagKoreanTranslations?.[chapter.id]).length} with additional support languages explicitly pending.`);
-if (pending.length) throw Error(`Incomplete support-language coverage: ${pending.map(card=>card.id).join(', ')}`);
+const unfinishedOutsideReplacement=pending.filter(card=>!['Vocal','Story'].includes(card.track) || !/^(family|story)-001-/u.test(card.id));
+if (unfinishedOutsideReplacement.length) throw Error(`Incomplete support-language coverage: ${unfinishedOutsideReplacement.map(card=>card.id).join(', ')}`);
+if (pending.length) console.log('New Boot Camp 001 support translations are explicitly pending; English meanings remain available, and retired-story translations are excluded.');

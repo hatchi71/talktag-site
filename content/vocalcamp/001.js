@@ -1,312 +1,196 @@
+/* Generated from the approved short-story source; edit the source and rebuild. */
 window.TALKTAG_VOCALCAMP = {
-  "version": "2026-10-08-qc1",
+  "version": "2026-10-23-short-001-v3",
   "families": [
     {
       "number": "001",
-      "title": "Sandwich",
-      "slug": "sandwich",
+      "title": "The Spare Glove",
+      "slug": "the-spare-glove",
+      "theme": "Find a lost glove, check its owner, and return it.",
+      "audioStatus": "ready",
+      "status": "published",
       "levels": {
         "A1": {
           "status": "ready",
           "lines": [
-            "I made two sandwiches this morning.",
-            "One was extra.",
-            "My coworker forgot his lunch.",
-            "So I gave him my sandwich.",
-            "He smiled and thanked me."
+            "I found a glove on the bench.",
+            "A woman came back for it.",
+            "I gave it to her."
+          ],
+          "translation": [
+            "벤치에서 장갑 한 짝을 발견했어요.",
+            "한 여자가 그것을 찾으러 돌아왔어요.",
+            "그 장갑을 그분께 건네드렸어요."
           ],
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-01.mp3",
-              "duration": 2.076
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_5/step-01.mp3?v=a72ce2ad18cf",
+              "duration": 4.965
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-02.mp3",
-              "duration": 3.3
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_5/step-02.mp3?v=1c1eeba1aa9f",
+              "duration": 10.425
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-03.mp3",
-              "duration": 5.124
-            },
-            {
-              "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-04.mp3",
-              "duration": 7.116
-            },
-            {
-              "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a1/step-05.mp3",
-              "duration": 9.091
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a1/pause-2_5/step-03.mp3?v=9270e02c40cd",
+              "duration": 14.52
             }
-          ],
-          "translation": []
+          ]
         },
         "A2": {
           "status": "ready",
           "lines": [
-            "I made two sandwiches before work this morning.",
-            "I planned to save one for later.",
-            "At lunchtime, my coworker realized he had forgotten his lunch.",
-            "He looked tired and a little embarrassed.",
-            "So I gave him my extra sandwich.",
-            "We sat together and ate lunch."
+            "I noticed a glove on the bus-stop bench.",
+            "A woman came back and asked about it.",
+            "I handed it to her, and she thanked me."
+          ],
+          "translation": [
+            "버스 정류장 벤치에서 장갑 한 짝을 봤어요.",
+            "한 여자가 돌아와 그것에 대해 물었어요.",
+            "장갑을 건네드리자 그분이 고맙다고 하셨어요."
           ],
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-01.mp3",
-              "duration": 2.652
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_5/step-01.mp3?v=9f66689297ef",
+              "duration": 7.285
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-02.mp3",
-              "duration": 4.548
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_5/step-02.mp3?v=5acae0cc7b3f",
+              "duration": 14.39
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-03.mp3",
-              "duration": 8.436
-            },
-            {
-              "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-04.mp3",
-              "duration": 11.172
-            },
-            {
-              "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-05.mp3",
-              "duration": 13.476
-            },
-            {
-              "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/a2/step-06.mp3",
-              "duration": 15.569
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/a2/pause-2_5/step-03.mp3?v=d53fa3b90e1a",
+              "duration": 22.09
             }
-          ],
-          "translation": []
+          ]
         },
         "B1": {
           "status": "ready",
           "lines": [
-            "I usually bring my own lunch to work.",
-            "One morning, I made two sandwiches without really thinking about it.",
-            "At lunchtime, one of my coworkers realized he had left his lunch at home.",
-            "He said he would just buy something later.",
-            "Since I had an extra sandwich, I offered it to him.",
-            "He seemed surprised but accepted it.",
-            "We ate together and talked longer than usual.",
-            "A small favor turned into a good conversation."
+            "A glove lay on the bench as the bus left.",
+            "Its owner came running back, so I waited.",
+            "She thanked me when I returned it."
+          ],
+          "translation": [
+            "버스가 떠날 때 벤치에 장갑 한 짝이 놓여 있었어요.",
+            "주인이 뛰어 돌아와서 저는 기다렸어요.",
+            "장갑을 돌려드리자 그분이 고맙다고 하셨어요."
           ],
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-01.mp3",
-              "duration": 2.268
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_5/step-01.mp3?v=123870fff6aa",
+              "duration": 7.31
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-02.mp3",
-              "duration": 6.156
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_5/step-02.mp3?v=de7dabf556cd",
+              "duration": 15.99
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-03.mp3",
-              "duration": 10.596
-            },
-            {
-              "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-04.mp3",
-              "duration": 12.756
-            },
-            {
-              "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-05.mp3",
-              "duration": 15.804
-            },
-            {
-              "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-06.mp3",
-              "duration": 18.372
-            },
-            {
-              "step": 7,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-07.mp3",
-              "duration": 21.348
-            },
-            {
-              "step": 8,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b1/step-08.mp3",
-              "duration": 24.529
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b1/pause-2_5/step-03.mp3?v=52ee28fc283e",
+              "duration": 22.745
             }
-          ],
-          "translation": []
+          ]
         },
         "B2": {
           "status": "ready",
           "lines": [
-            "I normally prepare only one sandwich for work, but that morning I happened to make two.",
-            "At lunchtime, a coworker mentioned that he had rushed out of the house and forgotten his food.",
-            "He said it was no big deal and planned to skip lunch.",
-            "I offered him my extra sandwich, although I almost felt awkward doing it.",
-            "He accepted, and we ended up eating together.",
-            "During lunch, we talked about things we had never discussed at work.",
-            "What began as a simple act of sharing changed the way we interacted afterward."
+            "I spotted a glove on the bench.",
+            "A woman returned, searching for something she had dropped.",
+            "I checked its color with her before handing it over."
+          ],
+          "translation": [
+            "벤치에서 장갑 한 짝을 발견했어요.",
+            "한 여자가 돌아와 잃어버린 물건을 찾고 있었어요.",
+            "건네기 전에 장갑 색깔을 확인했어요."
           ],
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-01.mp3",
-              "duration": 5.652
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_5/step-01.mp3?v=69af3495ab49",
+              "duration": 5.35
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-02.mp3",
-              "duration": 10.668
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_5/step-02.mp3?v=fea815946bad",
+              "duration": 15.325
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-03.mp3",
-              "duration": 13.716
-            },
-            {
-              "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-04.mp3",
-              "duration": 18.612
-            },
-            {
-              "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-05.mp3",
-              "duration": 21.492
-            },
-            {
-              "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-06.mp3",
-              "duration": 25.332
-            },
-            {
-              "step": 7,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/b2/step-07.mp3",
-              "duration": 30.198
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/b2/pause-2_5/step-03.mp3?v=47a49bc76804",
+              "duration": 24.845
             }
-          ],
-          "translation": []
+          ]
         },
         "C1": {
           "status": "ready",
           "lines": [
-            "One morning, almost by accident, I packed an extra sandwich before leaving for work.",
-            "At lunchtime, a coworker admitted that he had forgotten his lunch but insisted that he was fine.",
-            "I hesitated before offering him the extra sandwich because I did not want the gesture to feel uncomfortable or overly personal.",
-            "He accepted it with a quiet thank-you, and we ate together.",
-            "The conversation gradually moved beyond work and became unexpectedly open.",
-            "After that day, our relationship felt easier and less formal.",
-            "It made me realize that small acts of generosity can create space for connection without either person intending them to."
+            "A glove lay unnoticed on the crowded platform.",
+            "I waited while a woman retraced her steps.",
+            "Her description matched, and I returned it with relief."
+          ],
+          "translation": [
+            "사람들로 붐비는 승강장에 장갑 한 짝이 눈에 띄지 않은 채 놓여 있었어요.",
+            "한 여자가 왔던 길을 되짚어 돌아오는 동안 기다렸어요.",
+            "그분의 설명이 맞아서 안심하고 장갑을 돌려드렸어요."
           ],
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-01.mp3",
-              "duration": 5.268
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_5/step-01.mp3?v=ba2a79ec18ab",
+              "duration": 9.225
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-02.mp3",
-              "duration": 11.1
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_5/step-02.mp3?v=03e2c2aeb3da",
+              "duration": 18.045
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-03.mp3",
-              "duration": 18.708
-            },
-            {
-              "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-04.mp3",
-              "duration": 22.356
-            },
-            {
-              "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-05.mp3",
-              "duration": 27.516
-            },
-            {
-              "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-06.mp3",
-              "duration": 31.812
-            },
-            {
-              "step": 7,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c1/step-07.mp3",
-              "duration": 39.079
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c1/pause-2_5/step-03.mp3?v=ab02bfead217",
+              "duration": 28.44
             }
-          ],
-          "translation": []
+          ]
         },
         "C2": {
           "status": "ready",
           "lines": [
-            "I once brought an extra sandwich to work for no particular reason, only to discover at lunchtime that a coworker had forgotten his meal.",
-            "He dismissed the problem lightly, perhaps because accepting help can sometimes feel more uncomfortable than offering it.",
-            "I nearly said nothing, but eventually pushed the sandwich across the table and told him I did not need it.",
-            "He accepted without making much of the gesture.",
-            "What followed was more significant than the food itself.",
-            "Our conversation moved beyond routine workplace talk and revealed a degree of trust that had not existed before.",
-            "The incident reminded me that generosity often works best when it does not announce itself as generosity."
+            "A glove lay unclaimed on the bench.",
+            "I asked the returning woman to describe it first.",
+            "That small question kept helpfulness from becoming guesswork."
+          ],
+          "translation": [
+            "벤치에 주인이 나타나지 않은 장갑 한 짝이 놓여 있었어요.",
+            "돌아온 여자에게 먼저 장갑의 특징을 설명해 달라고 했어요.",
+            "그 작은 질문 덕분에 막연한 추측만으로 돕는 일을 피했어요."
           ],
           "audioSteps": [
             {
               "step": 1,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-01.mp3",
-              "duration": 7.932
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_5/step-01.mp3?v=4a3b1e17b6d7",
+              "duration": 6.085
             },
             {
               "step": 2,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-02.mp3",
-              "duration": 14.868
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_5/step-02.mp3?v=d64c5c1f1982",
+              "duration": 15.535
             },
             {
               "step": 3,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-03.mp3",
-              "duration": 21.42
-            },
-            {
-              "step": 4,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-04.mp3",
-              "duration": 24.276
-            },
-            {
-              "step": 5,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-05.mp3",
-              "duration": 27.9
-            },
-            {
-              "step": 6,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-06.mp3",
-              "duration": 34.86
-            },
-            {
-              "step": 7,
-              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008-qc1/c2/step-07.mp3",
-              "duration": 41.482
+              "url": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/short-001-v3/001/c2/pause-2_5/step-03.mp3?v=cc29661ea380",
+              "duration": 27.575
             }
-          ],
-          "translation": []
+          ]
         }
-      },
-      "audioCue": {
-        "startUrl": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/start.mp3",
-        "endUrl": "https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/ending.mp3"
-      },
-      "narrator": "Jessica",
-      "audioRevision": "20261008-qc1",
-      "storyFlow": [
-        "준비",
-        "뜻밖의 상황",
-        "작은 나눔",
-        "관계의 변화"
-      ]
+      }
     }
   ]
 };
