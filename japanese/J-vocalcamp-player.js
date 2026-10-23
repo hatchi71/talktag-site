@@ -74,20 +74,20 @@
     </section>
     <nav class="pilot-nav" aria-label="훈련 카드 이동"><details class="pilot-menu" id="pilotMenu"><summary aria-label="훈련 메뉴">•••</summary><div class="pilot-menu-panel"><button type="button" id="restartButton">처음부터 다시 시작</button><a href="${catalog}">${esc(level)} Vocal Camp 목록으로</a></div></details><button class="pilot-nav-button" id="prevButton" type="button">← 이전</button><button class="pilot-nav-button primary" id="nextButton" type="button">다음 →</button><button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button">↻ 초기화</button></nav>`;
 
-  const soundCard = app.querySelector('[data-card="0"]');
-  const referenceCard = app.querySelector('[data-card="1"]');
-  soundCard.append(referenceCard.querySelector('.reference-actions'), referenceCard.querySelector('#referencePanel'));
-  app.querySelectorAll('[data-card]:not([data-card="0"])').forEach(card => card.remove());
-  const deck = [soundCard];
+  const deck = [...app.querySelectorAll('[data-card]')];
   const soundStatus = app.querySelector('#soundStatus');
   const player = new Audio(); player.preload = 'auto'; player.playsInline = true;
-  const cuePlayer = new Audio(); cuePlayer.preload = 'auto'; cuePlayer.playsInline = true;
+  // Reuse the user-started media element for dings and speech on mobile Safari.
+  const cuePlayer = player;
   const cues = {
     start: 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/start.mp3',
     end: 'https://audio.talktag.co.kr/English/boot-camp/vocal-camp/001/20261008/cues/ending.mp3'
   };
-  let runToken = 0, activeStep = -1;
+  let runToken = 0, activeStep = -1, stallTimer = 0, stallRecoveries = 0, playbackPhase = 'idle';
   function playCue(kind, token, done) {
+    playbackPhase = 'cue';
+    cuePlayer.onplaying = null; cuePlayer.onwaiting = null; cuePlayer.onstalled = null;
+    cuePlayer.onpause = null; cuePlayer.ontimeupdate = null;
     cuePlayer.src = cues[kind]; cuePlayer.currentTime = 0;
     let finished = false;
     const finish = () => { if (finished) return; finished = true; cuePlayer.onended = null; cuePlayer.onerror = null; if (token === runToken) done(); };
@@ -116,9 +116,12 @@
   }
   function stopSound(message) {
     runToken++;
+    playbackPhase = 'idle';
+    clearTimeout(stallTimer); stallTimer = 0;
     player.pause(); player.onended = null; player.onerror = null; player.ontimeupdate = null;
+    player.onwaiting = null; player.onstalled = null; player.onpause = null; player.onplaying = null;
     player.removeAttribute('src'); player.load();
-    cuePlayer.pause(); cuePlayer.onended = null; cuePlayer.onerror = null;
+    cuePlayer.onended = null; cuePlayer.onerror = null;
     activeStep = -1;
     app.querySelectorAll('[data-step]').forEach(button => button.classList.remove('is-playing','is-waiting'));
     paintSteps();
@@ -126,6 +129,7 @@
   }
   function playStep(index, token) {
     if (token !== runToken) return;
+    playbackPhase = 'audio';
     const variant = lesson.steps[index].variants.find(item => Number(item.ratio) === ratio);
     if (!variant || variant.cues.length !== stageEnds[index]) {
       stopSound('이 단계의 음원 또는 대본이 일치하지 않습니다.'); return;
@@ -134,6 +138,34 @@
     app.querySelectorAll('[data-step]').forEach(item => item.classList.remove('is-playing','is-waiting'));
     button.classList.add('is-playing'); button.querySelector('em').textContent = '■';
     soundStatus.textContent = `${index + 1}단계 · ${state.counts[index] + 1}/${REPEATS}회 듣는 중`;
+    stallRecoveries = 0;
+    const interrupted = () => {
+      if (!player.paused) player.pause();
+      button.classList.remove('is-playing','is-waiting');
+      button.querySelector('em').textContent = '▶';
+      soundStatus.textContent = '재생이 멈췄습니다. 같은 단계를 누르면 이어서 재생합니다.';
+    };
+    const recoverStall = () => {
+      clearTimeout(stallTimer);
+      const position = player.currentTime;
+      stallTimer = setTimeout(() => {
+        if (token !== runToken || player.paused || player.ended || player.currentTime > position + 0.2) return;
+        if (stallRecoveries >= 2) { interrupted(); return; }
+        stallRecoveries++;
+        soundStatus.textContent = '음원 연결을 다시 시도하고 있습니다…';
+        const resumeAt = player.currentTime;
+        player.addEventListener('loadedmetadata', () => {
+          if (token !== runToken) return;
+          try { player.currentTime = Math.min(resumeAt, Math.max(0, player.duration - 0.1)); } catch (_) {}
+          player.play().catch(() => { if (token === runToken) interrupted(); });
+        }, {once:true});
+        player.load();
+      }, 6000);
+    };
+    player.onwaiting = recoverStall;
+    player.onstalled = recoverStall;
+    player.onplaying = () => { if (token === runToken) { clearTimeout(stallTimer); button.classList.add('is-playing'); button.querySelector('em').textContent = '■'; } };
+    player.onpause = () => { if (token === runToken && !player.ended && activeStep === index) { clearTimeout(stallTimer); interrupted(); } };
     let phase = '';
     player.ontimeupdate = () => {
       if (token !== runToken) return;
@@ -151,6 +183,7 @@
     };
     player.onended = () => {
       if (token !== runToken) return;
+      clearTimeout(stallTimer);
       state.counts[index] = Math.min(REPEATS, state.counts[index] + 1);
       save(); paintSteps();
       if (state.counts[index] < REPEATS) { playStep(index, token); return; }
@@ -164,7 +197,6 @@
         activeStep = -1;
         soundStatus.textContent = '세 의미 단위를 마쳤습니다. 대본을 덮고 내 말로 이야기해 보세요.';
         playCue('end', token, () => {
-          window.TalkTagCampProgress?.set('ja-vocal', level, '001', true);
           app.querySelector('#nextButton').disabled = false;
         });
       }
@@ -172,11 +204,15 @@
     player.onerror = () => { if (token === runToken) stopSound('음원을 불러오지 못했습니다. 연결을 확인하고 다시 눌러 주세요.'); };
     player.src = variant.audio;
     player.currentTime = 0;
-    player.play().catch(() => { if (token === runToken) stopSound('브라우저가 재생을 막았습니다. 같은 단계를 다시 눌러 주세요.'); });
+    player.play().catch(() => { if (token === runToken) interrupted(); });
   }
   app.querySelectorAll('[data-step]').forEach(button => button.addEventListener('click', () => {
     const index = Number(button.dataset.step);
-    if (activeStep === index) { stopSound('반복을 멈췄습니다. 같은 단계를 눌러 다시 시작하세요.'); return; }
+    if (activeStep === index) {
+      const current = playbackPhase === 'cue' ? cuePlayer : player;
+      if (current.paused && !current.ended) { current.play().catch(() => { soundStatus.textContent = '재생이 일시 중지되었습니다. 다시 눌러 주세요.'; }); return; }
+      stopSound('반복을 멈췄습니다. 같은 단계를 눌러 다시 시작하세요.'); return;
+    }
     stopSound();
     if (state.counts[index] >= REPEATS) state.counts[index] = 0;
     save(); paintSteps(); activeStep = index;
@@ -205,18 +241,19 @@
   app.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => showReference(button.dataset.mode)));
   function showCard(index) {
     stopSound();
-    state.card = 0; save();
+    state.card = Math.max(0, Math.min(deck.length - 1, index)); save();
     deck.forEach((card, i) => { card.classList.toggle('is-active', i === state.card); card.setAttribute('aria-hidden', String(i !== state.card)); });
-    app.querySelector('#cardCount').textContent = '1 / 1';
-    app.querySelector('#cardName').textContent = 'SOUND';
-    app.querySelector('#progressBar').style.width = '100%';
-    app.querySelector('#prevButton').disabled = true;
-    app.querySelector('#nextButton').textContent = '연습 완료';
-    app.querySelector('#nextButton').disabled = state.counts.at(-1) < REPEATS;
+    app.querySelector('#cardCount').textContent = `${state.card + 1} / ${deck.length}`;
+    app.querySelector('#cardName').textContent = ['SOUND','SAY & WRITE','MY STORY','SHARE'][state.card];
+    app.querySelector('#progressBar').style.width = `${((state.card + 1) / deck.length) * 100}%`;
+    app.querySelector('#prevButton').disabled = state.card === 0;
+    app.querySelector('#nextButton').textContent = state.card === deck.length - 1 ? '연습 완료' : '다음 →';
+    app.querySelector('#nextButton').disabled = state.card === 0 && state.counts.at(-1) < REPEATS;
     scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
   }
   app.querySelector('#prevButton').addEventListener('click', () => showCard(state.card - 1));
   app.querySelector('#nextButton').addEventListener('click', () => {
+    if (state.card < deck.length - 1) { showCard(state.card + 1); return; }
     stopSound();
     window.TalkTagCampProgress?.set('ja-vocal', level, '001', true);
     location.href = catalog;

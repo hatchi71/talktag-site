@@ -67,4 +67,14 @@ for (const level of levels) {
 const storyHtml=fs.readFileSync(new URL('storycamp-reader.html',root),'utf8');
 assert.match(storyHtml,/story-\$\{familyNumber\}-v3-\$\{L\}/,'New Korean 001 must not offer retired-story translations');
 assert.doesNotMatch(storyHtml,/korean-support-manual-story-\$\{familyNumber\}/);
+const vocalPlayer=fs.readFileSync(new URL('vocalcamp-player.js',root),'utf8');
+const japaneseVocalPlayer=fs.readFileSync(new URL('japanese/J-vocalcamp-player.js',root),'utf8');
+const japaneseStoryPlayer=fs.readFileSync(new URL('japanese/J-storycamp-reader.js',root),'utf8');
+assert.doesNotMatch(vocalPlayer,/cards\.length\s*=\s*1/,'Vocal follow-up cards must remain available');
+assert.match(vocalPlayer,/shareLabel:'4 · SHARE'/,'English and Korean Vocal Camp must retain the Share card');
+assert.match(japaneseVocalPlayer,/\['SOUND','SAY & WRITE','MY STORY','SHARE'\]/,'Japanese Vocal Camp must retain four cards');
+assert.match(storyHtml,/9 · SHARE/,'English and Korean Story Camp must retain nine stages');
+assert.match(japaneseStoryPlayer,/index < 9/,'Japanese Story Camp must retain nine stages');
+assert.match(vocalPlayer,/const cuePlayer = audioPlayer/,'Vocal dings and speech must share the same media element');
+assert.match(japaneseVocalPlayer,/const cuePlayer = player/,'Japanese Vocal dings and speech must share the same media element');
 console.log(`Boot Camp 001 release structure: ${checked} level-language cards, five new scenes, aligned meanings, 3/5 authored beats and v3 audio manifests.`);

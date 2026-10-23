@@ -70,11 +70,6 @@
     }
   ];
 
-  // The approved three-stage sound card is the whole episode. Keep script and
-  // translation access on it; the former post-card activities are not extra stages.
-  cards[0].body += cards[1].body;
-  cards.length = 1;
-
   app.innerHTML = `
     <section class="pilot-intro">
       <p class="pilot-kicker">${esc(unit.familyNumber)} · ${esc(unit.level)} · SOUND FIRST</p>
@@ -143,9 +138,13 @@
   let activeIndex = -1;
   let playbackPhase = 'idle';
   let recallObjectUrl = '';
+  let stallTimer = 0;
+  let stallRecoveries = 0;
   const audioPlayer = new Audio();
   const recallPlayer = new Audio();
-  const cuePlayer = new Audio();
+  // Keep the ding and lesson on one media element. Mobile Safari can deny the
+  // handoff to a second element after the user-initiated ding has ended.
+  const cuePlayer = audioPlayer;
   audioPlayer.preload = 'auto';
   recallPlayer.preload = 'auto';
   audioPlayer.playsInline = true;
@@ -156,6 +155,11 @@
     const url=kind==='start'?unit.audioCue?.startUrl:unit.audioCue?.endUrl;
     if (!url) { finish(); return; }
     playbackPhase='cue';
+    cuePlayer.onplaying=null;
+    cuePlayer.onwaiting=null;
+    cuePlayer.onstalled=null;
+    cuePlayer.onpause=null;
+    cuePlayer.ontimeupdate=null;
     const complete=()=>{if(token!==runToken)return;cuePlayer.onended=null;cuePlayer.onerror=null;finish();};
     const play=()=>{if(token!==runToken)return;cuePlayer.src=url;cuePlayer.currentTime=0;cuePlayer.play().catch(complete);};
     cuePlayer.onended=complete;
@@ -191,9 +195,18 @@
   function clearTimers() {
     window.clearTimeout(repeatTimer);
     window.clearInterval(countdownTimer);
+    window.clearTimeout(stallTimer);
     repeatTimer=0;
     countdownTimer=0;
+    stallTimer=0;
     releaseRecallAudio();
+  }
+  function interruptedPlayback(message, button) {
+    audioPlayer.pause();
+    button?.classList.remove('is-playing','is-waiting');
+    if(button)button.querySelector('em').textContent='▶';
+    document.getElementById('soundStatus').textContent=message;
+    setMediaPlaybackState('paused');
   }
   function stopSound(message) {
     runToken+=1;
@@ -201,9 +214,6 @@
     audioPlayer.pause();
     audioPlayer.removeAttribute('src');
     audioPlayer.load();
-    cuePlayer.pause();
-    cuePlayer.removeAttribute('src');
-    cuePlayer.load();
     playbackPhase='idle';
     setMediaPlaybackState('none');
     window.speechSynthesis?.cancel();
@@ -265,7 +275,6 @@
           status.textContent=koreanLearning?'All three units are complete. Tell the story in your own words.':'세 의미 단위를 모두 마쳤습니다. 이제 내 말로 이야기해 보세요.';
           playCue('end',token,()=>{
             playbackPhase='idle';setMediaPlaybackState('none');
-            window.TalkTagCampProgress?.set(koreanLearning?'ko-vocal':'vocal',unit.level,unit.familyNumber,true);
             next.disabled=false;
           });
         }
@@ -291,13 +300,35 @@
     if(track?.url){
       const variant=track.variants?.find(item=>Number(item.ratio)===silenceMultiplier);
       const playbackUrl=variant?.audio||track.url;
-      audioPlayer.onplaying=()=>{if(token!==runToken)return;setMediaPlaybackState('playing');button.classList.add('is-playing');button.querySelector('em').textContent='■';status.textContent=koreanLearning?`Step ${index+1} · Listen ${state.counts[index]+1}/${REPEAT_TARGET}`:`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
+      stallRecoveries=0;
+      const recoveryMessage=koreanLearning?'Playback paused. Tap this step to resume.':'재생이 멈췄습니다. 같은 단계를 누르면 이어서 재생합니다.';
+      const recoverStall=()=>{
+        window.clearTimeout(stallTimer);
+        const position=audioPlayer.currentTime;
+        stallTimer=window.setTimeout(()=>{
+          if(token!==runToken||audioPlayer.paused||audioPlayer.ended||audioPlayer.currentTime>position+0.2)return;
+          if(stallRecoveries>=2){interruptedPlayback(recoveryMessage,button);return;}
+          stallRecoveries+=1;
+          status.textContent=koreanLearning?'Reconnecting audio…':'음원 연결을 다시 시도하고 있습니다…';
+          const resumeAt=audioPlayer.currentTime;
+          audioPlayer.addEventListener('loadedmetadata',()=>{
+            if(token!==runToken)return;
+            try{audioPlayer.currentTime=Math.min(resumeAt,Math.max(0,audioPlayer.duration-0.1));}catch(_){}
+            audioPlayer.play().catch(()=>{if(token===runToken)interruptedPlayback(recoveryMessage,button);});
+          },{once:true});
+          audioPlayer.load();
+        },6000);
+      };
+      audioPlayer.onplaying=()=>{if(token!==runToken)return;window.clearTimeout(stallTimer);setMediaPlaybackState('playing');button.classList.add('is-playing');button.querySelector('em').textContent='■';status.textContent=koreanLearning?`Step ${index+1} · Listen ${state.counts[index]+1}/${REPEAT_TARGET}`:`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`;};
+      audioPlayer.onwaiting=recoverStall;
+      audioPlayer.onstalled=recoverStall;
+      audioPlayer.onpause=()=>{if(token===runToken&&!audioPlayer.ended&&activeIndex===index&&playbackPhase==='audio'){window.clearTimeout(stallTimer);button.classList.remove('is-playing','is-waiting');button.querySelector('em').textContent='▶';status.textContent=recoveryMessage;setMediaPlaybackState('paused');}};
       audioPlayer.ontimeupdate=()=>{if(token!==runToken||!variant)return;const cue=variant.cues?.find(item=>item.s<=audioPlayer.currentTime&&audioPlayer.currentTime<item.e);if(!cue)return;const waiting=cue===variant.cues.at(-1)&&audioPlayer.currentTime>=cue.voiceEnd;button.classList.toggle('is-waiting',waiting);button.classList.toggle('is-playing',!waiting);status.textContent=waiting?`${pauseLabel} · ${copy.pause} ${Math.ceil(cue.e-audioPlayer.currentTime)}${koreanLearning?'s':'초'}`:(koreanLearning?`Step ${index+1} · Listen ${state.counts[index]+1}/${REPEAT_TARGET}`:`${index+1}단계 · ${state.counts[index]+1}/${REPEAT_TARGET}회 듣는 중`);};
-      audioPlayer.onended=()=>{if(token!==runToken)return;const duration=Math.max(500,(Number(audioPlayer.duration)||Number(track.duration)||.5)*1000);state.counts[index]=Math.min(REPEAT_TARGET,state.counts[index]+1);document.querySelector(`[data-repeat-count="${index}"]`).textContent=state.counts[index];save();waitForRecall(index,button,token,duration,Boolean(variant));};
+      audioPlayer.onended=()=>{if(token!==runToken)return;window.clearTimeout(stallTimer);const duration=Math.max(500,(Number(audioPlayer.duration)||Number(track.duration)||.5)*1000);state.counts[index]=Math.min(REPEAT_TARGET,state.counts[index]+1);document.querySelector(`[data-repeat-count="${index}"]`).textContent=state.counts[index];save();waitForRecall(index,button,token,duration,Boolean(variant));};
       audioPlayer.onerror=()=>{if(token!==runToken)return;stopSound(koreanLearning?'Could not load the audio. Check your connection and try again.':'음원을 불러오지 못했습니다. 연결을 확인하고 다시 눌러 주세요.');};
       if(audioPlayer.src!==playbackUrl)audioPlayer.src=playbackUrl;
       audioPlayer.currentTime=0;
-      audioPlayer.play().catch(()=>{if(token!==runToken)return;stopSound(koreanLearning?'Your browser blocked playback. Tap the same step to try again.':'브라우저에서 자동 재생을 막았습니다. 같은 단계를 다시 눌러 주세요.');});
+      audioPlayer.play().catch(()=>{if(token===runToken)interruptedPlayback(recoveryMessage,button);});
       return;
     }
     const utterance = new SpeechSynthesisUtterance(lines.slice(0,index+1).join(' '));
@@ -312,7 +343,14 @@
     if(unit.audioStatus==='audio-pending'){document.getElementById('soundStatus').textContent='음원을 준비하고 있습니다.';return;}
     const status=document.getElementById('soundStatus');
     if(!unit.audioSteps?.[index]?.url&&!('speechSynthesis' in window)){status.textContent='이 브라우저에서는 음성 재생을 지원하지 않습니다.';return;}
-    if(activeIndex===index){stopSound(koreanLearning?'Repetition stopped. Tap the same step to continue.':'자동 반복을 멈췄습니다. 같은 단계를 누르면 이어서 시작합니다.');return;}
+    if(activeIndex===index){
+      const current=playbackPhase==='cue'?cuePlayer:playbackPhase==='recall'?recallPlayer:audioPlayer;
+      if(current.paused&&!current.ended){
+        current.play().then(()=>setMediaPlaybackState('playing')).catch(()=>interruptedPlayback(koreanLearning?'Playback is still paused. Tap again to retry.':'재생이 일시 중지되었습니다. 다시 눌러 주세요.',button));
+        return;
+      }
+      stopSound(koreanLearning?'Repetition stopped. Tap the same step to continue.':'자동 반복을 멈췄습니다. 같은 단계를 누르면 이어서 시작합니다.');return;
+    }
     stopSound();
     if(state.counts[index]>=REPEAT_TARGET){state.counts[index]=0;document.querySelector(`[data-repeat-count="${index}"]`).textContent='0';button.classList.remove('is-complete');}
     activeIndex=index;
@@ -354,7 +392,6 @@
     mediaAction('pause', () => {
       audioPlayer.pause();
       recallPlayer.pause();
-      cuePlayer.pause();
       setMediaPlaybackState('paused');
     });
     mediaAction('stop', () => stopSound(koreanLearning?'Background playback stopped.':'백그라운드 재생을 멈췄습니다.'));
