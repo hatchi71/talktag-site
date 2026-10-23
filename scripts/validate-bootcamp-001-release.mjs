@@ -77,4 +77,5 @@ assert.match(storyHtml,/9 · SHARE/,'English and Korean Story Camp must retain n
 assert.match(japaneseStoryPlayer,/index < 9/,'Japanese Story Camp must retain nine stages');
 assert.match(vocalPlayer,/const cuePlayer = audioPlayer/,'Vocal dings and speech must share the same media element');
 assert.match(japaneseVocalPlayer,/const cuePlayer = player/,'Japanese Vocal dings and speech must share the same media element');
+assert.match(fs.readFileSync(new URL('vocalcamp-player.html',root),'utf8'),/vocalcamp-player-loader\.js\?v=20261024-playback-resume-v1/,'Published Vocal page must request the repaired player loader');
 console.log(`Boot Camp 001 release structure: ${checked} level-language cards, five new scenes, aligned meanings, 3/5 authored beats and v3 audio manifests.`);
