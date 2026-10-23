@@ -161,7 +161,7 @@ var native=window.TalkTagNative;
     var selectorAnchor = document.createElement('div');
     document.querySelector('.script-controls')?.after(selectorAnchor);
     window.TalkTagKoreanSupport?.mount(selectorAnchor, {
-      source:lesson.expressions, english:lesson.meanings, translations:window.TalkTagKoreanTranslations?.[lesson.id] || {},
+      id:lesson.id, source:lesson.expressions, english:lesson.meanings, translations:window.TalkTagKoreanTranslations?.[lesson.id] || {},
       onChange:function (translated, shown) {
         meaningNodes.forEach(function (node, index) { node.lang=shown; node.textContent=translated[index]; });
       }

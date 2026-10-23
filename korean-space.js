@@ -90,7 +90,7 @@
    const source=step===0?lesson.lines.map(line=>line[0]):[step===1?lesson.pattern[0]:step===2?lesson.story:lesson.partner];
    const english=step===0?lesson.lines.map(line=>line[1]):[step===1?lesson.pattern[1]:step===2?lesson.meaning:lesson.partnerEn];
    const anchor=document.createElement('div');stage.querySelector('h2')?.after(anchor);
-   supportMount=support.mount(anchor,{source,english,translations:window.TalkTagKoreanTranslations?.[`${lesson.id}:step-${step}`]||{},onChange:(selected,shown)=>{
+   supportMount=support.mount(anchor,{id:`${lesson.id}:step-${step}`,source,english,translations:window.TalkTagKoreanTranslations?.[`${lesson.id}:step-${step}`]||{},onChange:(selected,shown)=>{
     const nodes=step===0?stage.querySelectorAll('.kr-line .kr-en'):step===2?stage.querySelectorAll('#kr-reading details p'):stage.querySelectorAll('.kr-en');
     nodes.forEach((node,index)=>{node.textContent=selected[index];node.lang=shown});
     const scriptButton=stage.querySelector('[data-script="both"]');if(scriptButton)scriptButton.textContent=`KO + ${shown.toUpperCase()}`;

@@ -14,7 +14,7 @@ Keep translations separate from the Korean source. Use the existing stable card 
   sourceHash: "sha256-of-normalized-Korean-lines", // validator/review record
   translations: {
     en: ["..."], vi: ["..."], ne: ["..."],
-    km: ["..."], my: ["..."], th: ["..."]
+    km: ["..."], my: ["..."], th: ["..."], ja: ["..."]
   },
   review: {
     vi: { status: "reviewed", reviewer: "name", reviewedAt: "YYYY-MM-DD" }
@@ -22,7 +22,7 @@ Keep translations separate from the Korean source. Use the existing stable card 
 }
 ```
 
-English (`en`) is the baseline support language. The other support languages are Vietnamese (`vi`), Nepali (`ne`), Khmer (`km`), Burmese (`my`), and Thai (`th`). Display native names: English, Tiếng Việt, नेपाली, ខ្មែរ, မြန်မာ, ไทย. Encode all source files as UTF-8 and retain native-script punctuation and line breaks. Keep translator notes and review metadata out of learner-facing text.
+English (`en`) is the baseline support language. The other support languages are Vietnamese (`vi`), Nepali (`ne`), Khmer (`km`), Burmese (`my`), Thai (`th`), and Japanese (`ja`). Display native names: English, Tiếng Việt, नेपाली, ខ្មែរ, မြန်မာ, ไทย, 日本語. Encode all source files as UTF-8 and retain native-script punctuation and line breaks. Keep translator notes and review metadata out of learner-facing text.
 
 ## Publication gate
 
@@ -35,6 +35,6 @@ English (`en`) is the baseline support language. The other support languages are
 
 ## Learner behavior
 
-Show Korean plus at most one support language. The compact selector lists supported languages and marks unavailable card translations as pending. Remember the most recent support language in `talktag:korean:support-language`; migrate the GLR-001 pilot key `talktag:korean-glr:support-language`. If an account profile preference becomes available, it takes priority over browser storage. If the saved language is unavailable for a card, show **English** with an explicit pending notice; keep the saved choice for cards where it is available. Default to English. Preserve Show/Hide meaning, playback, resume, and completion. Do not show six translations simultaneously.
+Show Korean plus at most one support language. The compact selector lists supported languages and marks unavailable card translations as pending. Remember the most recent support language in `talktag:korean:support-language`; migrate the GLR-001 pilot key `talktag:korean-glr:support-language`. If an account profile preference becomes available, it takes priority over browser storage. If the saved language is unavailable for a card, show **English** with an explicit pending notice; keep the saved choice for cards where it is available. Default to English. Preserve Show/Hide meaning, playback, resume, and completion. Do not show multiple translations simultaneously.
 
-The same ID-keyed translation registry and selector are reused by every Korean-learning track; no separate card copy per language. The registry must refuse a translation whose source-line count does not match the card.
+The same ID-keyed translation registry and selector are reused by every Korean-learning track; no separate card copy per language. The Japanese production catalog is ID-keyed and merged at selector mount. The registry must refuse a translation whose source-line count does not match the card.

@@ -92,7 +92,7 @@
     const anchor = document.createElement('div');
     app.querySelector('.reference-actions')?.before(anchor);
     window.TalkTagKoreanSupport?.mount(anchor, {
-      source:unit.fullText, english:unit.translation,
+      id:unit.id, source:unit.fullText, english:unit.translation,
       translations:window.TalkTagKoreanTranslations?.[unit.id] || {},
       onChange:(selected,shown) => {
         const panel=app.querySelector('#meaningPanel');

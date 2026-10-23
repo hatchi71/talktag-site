@@ -9,7 +9,7 @@ function load(path) {
   runInNewContext(readFileSync(resolve(root, path), 'utf8'), {window, console}, {filename:path});
 }
 const cards=[];
-const nativeScript={vi:/[À-ỹ]/u,ne:/[\u0900-\u097F]/u,km:/[\u1780-\u17FF]/u,my:/[\u1000-\u109F]/u,th:/[\u0E00-\u0E7F]/u};
+const nativeScript={vi:/[À-ỹ]/u,ne:/[\u0900-\u097F]/u,km:/[\u1780-\u17FF]/u,my:/[\u1000-\u109F]/u,th:/[\u0E00-\u0E7F]/u,ja:/[\u3040-\u30FF\u3400-\u9FFF]/u};
 function add(track, id, source, english, translations={}) {
   if (!Array.isArray(source) || !Array.isArray(english) || source.length !== english.length ||
       !source.length || source.some(line=>!String(line).trim()) || english.some(line=>!String(line).trim())) {
@@ -24,8 +24,8 @@ function add(track, id, source, english, translations={}) {
     throw Error(`${track} ${id}: Korean source hash invalid`);
   }
   const ready=[];
-  for (const code of ['vi','ne','km','my','th']) {
-    const list=record?.translations?.[code] || translations[code];
+  for (const code of ['vi','ne','km','my','th','ja']) {
+    const list=code==='ja' ? window.TalkTagKoreanJapanese?.[id] : record?.translations?.[code] || translations[code];
     if (!list) continue;
     if (!Array.isArray(list) || list.length !== source.length || list.some(line=>!String(line).trim())) {
       throw Error(`${track} ${id}: ${code} line alignment failed`);
@@ -34,7 +34,7 @@ function add(track, id, source, english, translations={}) {
       if(!nativeScript[code].test(line)) throw Error(`${track} ${id}: ${code} line ${index+1} has no target-language script`);
       if(source[index].includes('___') && !line.includes('___')) throw Error(`${track} ${id}: ${code} line ${index+1} lost practice placeholder`);
     }
-    if (record && !['reviewed','ai-reviewed'].includes(record.review?.[code]?.status)) {
+    if (record && code!=='ja' && !['reviewed','ai-reviewed'].includes(record.review?.[code]?.status)) {
       throw Error(`${track} ${id}: ${code} has no valid review status`);
     }
     ready.push(code);
@@ -58,6 +58,11 @@ load('korean-support-manual-glr-002-b1-b2.js');
 load('korean-support-manual-glr-002-c1-c2.js');
 load('korean-support-manual-glr-003-ab.js');
 load('korean-support-manual-glr-003-c.js');
+load('korean-support-japanese-glr.js');
+load('korean-support-japanese-essays.js');
+load('korean-support-japanese-vocal.js');
+load('korean-support-japanese-story.js');
+load('korean-support-japanese-starter.js');
 load('korean-support-manual-vocal-001-ab.js');
 load('korean-support-manual-vocal-001-c.js');
 load('korean-support-manual-vocal-002-ab.js');
@@ -86,6 +91,8 @@ for (const lesson of window.TalkTagKoreanStarters.filter(item=>item.published)) 
 const tracks=[...new Set(cards.map(card=>card.track))];
 for (const track of tracks) {
   const subset=cards.filter(card=>card.track===track);
-  console.log(`${track}: ${subset.length} cards, ${subset.reduce((sum,card)=>sum+card.lines,0)} source lines, ${subset.filter(card=>card.ready.length===5).length} with all five added languages`);
+  console.log(`${track}: ${subset.length} cards, ${subset.reduce((sum,card)=>sum+card.lines,0)} source lines, ${subset.filter(card=>card.ready.length===6).length} with all six added languages`);
 }
-console.log(`Total: ${cards.length} card units; ${cards.filter(card=>card.ready.length<5).length} still need complete non-English translation.`);
+const pending=cards.filter(card=>card.ready.length<6);
+console.log(`Total: ${cards.length} card units; ${pending.length} still need complete non-English translation.`);
+if (pending.length) throw Error(`Incomplete support-language coverage: ${pending.map(card=>card.id).join(', ')}`);

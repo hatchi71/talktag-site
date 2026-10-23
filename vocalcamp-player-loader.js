@@ -11,7 +11,7 @@
  if((korean?['001','002','003']:['001','002']).includes(number)&&!nativeReady){app.textContent=korean?'The new audio is unavailable. Please reopen this page.':'새 음원을 불러오지 못했습니다. 페이지를 다시 열어 주세요.';return;}
  const audioSteps=nativeReady
    ?data.audioSteps.map((step,i)=>({...step,variants:native.steps[i].variants})):data.audioSteps;
- const artwork=korean?window.TalkTagBootCampArtwork?.get('vocal',number,level):null;
+ const artwork=window.TalkTagBootCampArtwork?.get('vocal',number,level,korean?'ko':'en');
  window.TalkTagVocalPilots=[{id:'family-'+number+'-'+level,familyNumber:number,level,title:family.title,artwork:artwork?.src,artworkAlt:artwork?.alt,fullText:data.lines,translation:data.translation||[],storyFlow:family.storyFlow||(korean?['Beginning','Change','Choice','Result']:['시작','변화','선택','결과']),note:korean?'Rebuild the same Korean story from memory, then make it your own.':'같은 이야기를 Story Camp에서 기억으로 다시 구성해 보세요.',mission:data.status==='audio-pending'?(korean?'Audio in preparation':'음원 준비 중'):(korean?'Build the sound into your own story.':'소리부터 내 이야기로'),audioStatus:data.status,audioSteps,audioCue:family.audioCue}];
  const engine=document.createElement('script');engine.src='vocalcamp-player.js?v=20261021-level-repeats-1';document.head.appendChild(engine);};
  script.onerror=()=>app.textContent=korean?'Could not load the lesson. Please try again.':'자료를 불러오지 못했습니다.';document.head.appendChild(script);};load();

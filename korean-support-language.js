@@ -1,7 +1,7 @@
 /* Shared support-language preference and availability for Korean-learning cards. */
 (function () {
   'use strict';
-  const languages = Object.freeze({en:'English',vi:'Tiếng Việt',ne:'नेपाली',km:'ខ្មែរ',my:'မြန်မာ',th:'ไทย'});
+  const languages = Object.freeze({en:'English',vi:'Tiếng Việt',ne:'नेपाली',km:'ខ្មែរ',my:'မြန်မာ',th:'ไทย',ja:'日本語'});
   const key = 'talktag:korean:support-language';
   const oldKey = 'talktag:korean-glr:support-language';
   const listeners = new Set();
@@ -28,8 +28,14 @@
     return Array.isArray(source) && Array.isArray(translated) && source.length === translated.length &&
       translated.every(line => typeof line === 'string' && line.trim());
   }
-  function mount(anchor, {source, english, translations = {}, onChange, label = 'Meaning in'}) {
+  function mount(anchor, {id, source, english, translations = {}, onChange, label = 'Meaning in'}) {
     if (!anchor || !validLines(source, english)) return null;
+    const japanese = id && window.TalkTagKoreanJapanese?.[id];
+    if (japanese && validLines(source, japanese)) {
+      translations = translations.legacyPilot
+        ? {...translations, translations:{...translations.translations, ja:japanese}}
+        : {...translations, translations:{...translations.translations, ja:japanese}, review:{...translations.review, ja:{status:'ai-reviewed'}}};
+    }
     const available = {en: english};
     const reviewStatus = {};
     const legacyPilot = translations.legacyPilot === true;

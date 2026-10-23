@@ -100,7 +100,7 @@
     host.querySelector('.camp-episodes').after(allCompleted);
     function card(f, finished, cardLevel = level) {
       const ready = camp !== 'vocal' || f.audioStatus === 'ready';
-      const art = language === 'ko' ? window.TalkTagBootCampArtwork?.get(camp, f.number, cardLevel) : null;
+      const art = ['ko', 'en'].includes(language) ? window.TalkTagBootCampArtwork?.get(camp, f.number, cardLevel, language) : null;
       return `<article class="camp-episode${finished ? ' is-completed' : ''}" data-episode="${f.number}"><a class="camp-episode-link" href="${route(f, cardLevel)}"><span class="camp-kicker">${cardLevel} · ${english ? 'EPISODE' : '이야기'} ${f.number}</span><h3>${esc(f.title)}</h3>${art ? `<figure class="camp-episode-art"><img src="${esc(art.src)}" alt="${esc(art.alt)}" width="720" height="480" loading="lazy" decoding="async"></figure>` : ''}<p>${esc(f.theme)}</p><span class="camp-start">${ready ? words.start : (english ? 'Recording in preparation' : '음원 준비 중')} <span aria-hidden="true">→</span></span></a><div class="camp-episode-actions"><button type="button" data-complete="${f.number}" data-complete-level="${cardLevel}" data-finished="${finished}" aria-label="${esc(f.title)} · ${finished ? words.undo : words.complete}">${finished ? words.undo : words.complete}</button>${finished ? `<span class="camp-complete-mark">✓ ${words.completed}</span>` : ''}</div></article>`;
     }
     function renderStarters() {

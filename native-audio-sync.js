@@ -92,7 +92,7 @@ var native=window.TalkTagNative;
     document.querySelector('.script-controls')?.after(anchor);
     var sourceLines = data.lines.map(function (line) { return line.en || ''; });
     var englishLines = activeLesson?.meanings || guided?.meanings || data.lines.map(function (line) { return line.ko || ''; });
-    koreanSupport.mount(anchor, {source:sourceLines, english:englishLines, translations:supportTranslations && Object.keys(supportTranslations).length ? {legacyPilot:true,translations:supportTranslations} : window.TalkTagKoreanTranslations?.[id] || {},
+    koreanSupport.mount(anchor, {id, source:sourceLines, english:englishLines, translations:supportTranslations && Object.keys(supportTranslations).length ? {legacyPilot:true,translations:supportTranslations} : window.TalkTagKoreanTranslations?.[id] || {},
       onChange:function (translated, shown) { supportLines=translated; supportLanguage=shown; updateSupportMeaning(); }});
   }
 
