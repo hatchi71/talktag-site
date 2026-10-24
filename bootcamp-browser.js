@@ -12,7 +12,7 @@
     if (camp === 'story') host.classList.add('camp-story-leaf-archive');
     const english = language === 'ko', japanese = language === 'ja';
     const japaneseLocalPreview = japanese && ['localhost', '127.0.0.1'].includes(location.hostname);
-    const title = japanese ? (camp === 'vocal' ? '보컬 캠프' : '스토리 캠프') : (camp === 'vocal' ? 'Vocal Camp' : 'Story Camp');
+    const title = language === 'ko' ? (camp === 'vocal' ? 'Vocal Camp' : 'Story Camp') : (camp === 'vocal' ? '보컬 캠프' : '스토리 캠프');
     const families = language === 'ko' && camp === 'vocal'
       ? (window.TALKTAG_VOCALCAMP_KOREAN?.families || []).filter(f => ['audio-qc', 'published'].includes(f.status))
       : language === 'ko' && camp === 'story'
@@ -136,8 +136,8 @@
         host.querySelector('#campLevelDescription').textContent = camp === 'vocal'
           ? (english ? 'Choose one episode and build the Korean story through cumulative listening and speaking.' : '한 편을 골라 누적 음원으로 듣고 따라 말해 보세요.')
           : (english ? 'Choose one episode, remember its flow, then rebuild it in your own Korean.' : '한 편을 골라 흐름을 기억하고 내 말로 다시 구성해 보세요.');
-        document.title = `${level} · ${title} · TalkTag ${japanese ? '부트 캠프' : 'Boot Camp'}`;
-      } else document.title = `${title} · TalkTag ${japanese ? '부트 캠프' : 'Boot Camp'}`;
+        document.title = `${level} · ${title} · TalkTag ${language === 'ko' ? 'Boot Camp' : '부트 캠프'}`;
+      } else document.title = `${title} · TalkTag ${language === 'ko' ? 'Boot Camp' : '부트 캠프'}`;
       if (language === 'en') try {
         const records = Object.values(JSON.parse(localStorage.getItem('talktag-myspace-activity:v1') || '{}'));
         const last = records.filter(record => {

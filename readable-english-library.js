@@ -23,9 +23,9 @@
   let stories = [];
   document.body.dataset.audioView = selected ? 'lessons' : 'levels';
   if (selected) {
-    title.textContent = `Readable · ${selected}`;
+    title.textContent = `리더블 · ${selected}`;
     description.textContent = 'Read the English story, close it, then recall and retell it in your own words.';
-    document.title = `${selected} English Readable · TalkTag`;
+    document.title = `${selected} 영어 리더블 · TalkTag`;
     levelsNav.hidden = true;
     method.hidden = true;
     back.hidden = false;
@@ -33,7 +33,7 @@
   }
   function render() {
     const completed = stories.filter(done);
-    document.getElementById('readableProgress').textContent = `Readable · ${completed.length}/${stories.length} completed`;
+    document.getElementById('readableProgress').textContent = `리더블 · ${completed.length}/${stories.length} completed`;
     for (const anchor of levelsNav.querySelectorAll('[data-level]')) {
       const entries = stories.filter(story => story.level === anchor.dataset.level);
       const count = entries.filter(done).length;

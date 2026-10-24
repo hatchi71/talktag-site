@@ -84,14 +84,15 @@
         [/snowballing|bootcamp/, '/japanese/J-snowballing.html', '스노우볼링'],
         [/.*/, '/japanese/J-index.html', '일본어 홈']
       ] : [
-        [/storycamp|story-camp/, '/story-camp.html', 'Story Camp'],
-        [/vocal/, '/vocal-camp.html', 'Vocal Camp'],
-        [/(?:audio-library|audio-player|audio-essay-preview|listen-repeat)/, '/snowballing-studio.html#sound-check', 'Sound Check'],
-        [/readable/, '/readable.html', 'Readable'],
+        [/bootcamp-story\.html$/, '/readable.html', '리더블'],
+        [/storycamp|story-camp/, '/story-camp.html', '스토리 캠프'],
+        [/vocal/, '/vocal-camp.html', '보컬 캠프'],
+        [/(?:audio-library|audio-player|audio-essay-preview|listen-repeat)/, '/snowballing-studio.html#sound-check', '사운드 체크'],
+        [/readable/, '/readable.html', '리더블'],
         [/toeic/, '/toeic/', 'TOEIC RC'],
         [/test-preppers/, '/test-preppers.html', 'Test Preppers'],
         [/discussions/, '/discussions.html', 'Discussions'],
-        [/snowballing|bootcamp/, '/snowballing-studio.html', 'Snowballing Studio'],
+        [/snowballing|bootcamp/, '/snowballing-studio.html', '스노우볼링 스튜디오'],
         [/.*/, '/', 'TalkTag 홈']
       ];
       const koreanCampLanding = /^\/K-korean-(?:vocal|story)-camp\.html$/.test(path);

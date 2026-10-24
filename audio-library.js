@@ -3,7 +3,7 @@
 var params=new URLSearchParams(location.search),type=params.get("type")==="plain"?"plain":"guided";
 var level=(params.get("level")||"").toUpperCase();
 if(!["A1","A2","B1","B2","C1","C2"].includes(level))level="";
-var name=type==="guided"?"Guided Listen & Repeat":"Essays & Articles";
+var name=type==="guided"?"듣고 따라 말하기":"오디오 에세이와 아티클";
 var catalog=(window.TalkTagAudioLessons||[]).filter(l=>l.type===type&&(l.available!==false||(type==="plain"&&l.previewAvailable)));
 var list=document.getElementById("lessonList"),shelf=document.getElementById("audioMissionList"),toggle=document.getElementById("audioMissionsToggle");
 var missionLevels=["A1","A2","B1","B2","C1","C2"],arrivingMission="",openMissionLevel="";
@@ -12,13 +12,13 @@ document.body.dataset.audioView=level?"lessons":"levels";
 var cefrGuide=document.getElementById("cefrGuide");
 if(cefrGuide)cefrGuide.hidden=Boolean(level);
 document.title=name+(level?" · "+level:"")+" · TalkTag";
-document.getElementById("libraryEyebrow").textContent="SOUND CHECK";
+document.getElementById("libraryEyebrow").textContent="사운드 체크 · 영어";
 document.getElementById("libraryTitle").textContent=name+(level?" · "+level:"");
 document.getElementById("libraryDescription").textContent=level?(type==="guided"?"문장별 " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + "회 반복 · 듣고 따라하세요.":"듣고, 노트에 정리한 뒤 내 말로 이야기하세요."):"훈련할 레벨을 선택하세요.";
 document.querySelector(".type-switch").hidden=true;
 document.getElementById("essayGuide").hidden=type!=="plain"||Boolean(level);
 if(type==="plain")document.querySelector(".filter-bar").before(document.getElementById("essayGuide"));
-document.getElementById("audioMissionScope").textContent=type==="guided"?"Guided L&R":"Essays";
+document.getElementById("audioMissionScope").textContent=name;
 document.querySelector(".filter-bar").hidden=Boolean(level);
 document.querySelectorAll("[data-level]").forEach(a=>a.href="audio-library.html?type="+type+"&level="+a.dataset.level);
 if(level){var change=document.createElement("a");change.className="audio-change-level";change.href="audio-library.html?type="+type;change.textContent="← 레벨 선택";document.querySelector(".catalog-head").append(change);}
@@ -29,7 +29,7 @@ function number(l){var base=String(l.unit||catalog.filter(x=>x.level===l.level).
 function render(){
 var summary=document.getElementById("guidedProgressSummary");
 if(!summary){summary=document.createElement("p");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
-if(summary){summary.hidden=Boolean(level);summary.textContent=(type==="guided"?"Guided L&R":"Essays & Articles")+" · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;}
+if(summary){summary.hidden=Boolean(level);summary.textContent=name+" · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;}
 document.querySelectorAll(".filter-bar [data-level]").forEach(a=>{
 var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
 var count=lessons.filter(done).length;

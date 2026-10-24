@@ -81,11 +81,11 @@
   document.getElementById("infoDuration").textContent = lesson.durationLong;
   document.getElementById("duration").textContent = lesson.durationLabel;
   document.getElementById("libraryBack").href = "audio-library.html?type=" + lesson.type + "&level=" + lesson.level;
-  document.getElementById("libraryBack").textContent = "← " + lesson.level + " Library";
+  document.getElementById("libraryBack").textContent = "← " + lesson.level + " 목록";
   document.getElementById("infoLibraryBack").href = "audio-library.html?type=" + lesson.type + "&level=" + lesson.level;
   if (lesson.type === "plain") {
     document.body.classList.add("essay-player");
-    document.getElementById("playerHeaderMeta").textContent = "ESSAYS & ARTICLES";
+    document.getElementById("playerHeaderMeta").textContent = "오디오 에세이와 아티클";
     var info = document.querySelectorAll(".lesson-info dd");
     info[0].textContent = "Essays & Articles";
     info[2].textContent = lesson.genre;

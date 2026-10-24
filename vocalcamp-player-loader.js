@@ -58,7 +58,7 @@
         }
       }];
       const engine = document.createElement('script');
-      engine.src = 'vocalcamp-player.js?v=20261024-playback-resume-v1';
+      engine.src = 'vocalcamp-player.js?v=20261024-title-ko-v1';
       document.head.appendChild(engine);
     };
     script.onerror = () => { app.textContent = korean ? 'Could not load this lesson.' : '자료를 불러오지 못했습니다.'; };
