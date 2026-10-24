@@ -25,10 +25,16 @@ for (const [language, file, globalName] of [
   if (language === 'ko') {
     load('native-guided-ko-002.js');
     load('native-guided-ko-003.js');
+    load('native-guided-ko-004-a1.js');
+    load('native-guided-ko-005-010.js');
     load('native-guided-ko-splits.js');
   }
   load(file);
-  if (language === 'ko') load('native-guided-ko-003-variants.js');
+  if (language === 'ko') {
+    load('native-guided-ko-003-variants.js');
+    load('native-guided-ko-004-a1-variants.js');
+    load('native-guided-ko-005-010-variants.js');
+  }
   const manifest = window[globalName];
   assert.ok(manifest?.cards?.length, `${language}: manifest missing cards`);
   for (const card of manifest.cards) {

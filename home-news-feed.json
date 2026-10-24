@@ -2,6 +2,83 @@
   "version": 1,
   "items": [
     {
+      "id": "native:ko:guided:010",
+      "language": "ko",
+      "title": "Korean Guided L&R · 010",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-24T14:44:30.831Z"
+    },
+    {
+      "id": "native:ko:guided:009",
+      "language": "ko",
+      "title": "Korean Guided L&R · 009",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-24T14:44:30.831Z"
+    },
+    {
+      "id": "native:ko:guided:008",
+      "language": "ko",
+      "title": "Korean Guided L&R · 008",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-24T14:44:30.831Z"
+    },
+    {
+      "id": "native:ko:guided:007",
+      "language": "ko",
+      "title": "Korean Guided L&R · 007",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-24T14:44:30.831Z"
+    },
+    {
+      "id": "native:ko:guided:006",
+      "language": "ko",
+      "title": "Korean Guided L&R · 006",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-24T14:44:30.831Z"
+    },
+    {
+      "id": "native:ko:guided:005",
+      "language": "ko",
+      "title": "Korean Guided L&R · 005",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-24T14:44:30.831Z"
+    },
+    {
+      "id": "native:ko:guided:004",
+      "language": "ko",
+      "title": "Korean Guided L&R · 004",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-24T14:44:30.831Z"
+    },
+    {
       "id": "korean-readable:001",
       "language": "ko",
       "title": "Korean Readable · 001",

@@ -1,0 +1,118 @@
+{
+  "language": "ko",
+  "level": "A1",
+  "track": "Guided Listen & Repeat",
+  "strand": "real_life",
+  "audience": "English-speaking adults learning practical Korean in Korea",
+  "sourceReferences": [
+    {"title": "TalkTag Korean Reference Book No. 1", "section": "EJ's language acquisition protocol; sections 2–5 and 7–8", "usage": "level, task and review guidance only"},
+    {"title": "TalkTag Korean GLR AI Reference Guide", "section": "sections 4–5 and 9, first-batch themes 05–10", "usage": "situation and A1 scope only"},
+    {"title": "3. 일상생활.md", "section": "PDF pages 15–16: prices and everyday shopping", "usage": "theme and vocabulary check only"},
+    {"title": "4. 공공기관.md", "section": "PDF pages 4–5: clinic reception", "usage": "theme and register check only"}
+  ],
+  "productionRules": {
+    "repetitionsPerLine": 10,
+    "minimumResponseGap": "max(2.5 × measured voice duration, 3 seconds)",
+    "cardDings": "individual start and end dings",
+    "targetCardDurationSeconds": "480–570 when coherent; never pad short cards",
+    "hardMaximumSeconds": 600
+  },
+  "lessons": [
+    {
+      "id": "ko-guided-a1-005", "episode": "005", "title": "How Much Is This?", "nativeTitle": "이거 얼마예요?", "domain": "SHOP",
+      "concreteSituation": "A learner holds an item at a small shop and wants to pay by card.",
+      "learnerInput": "Hear the clerk and the customer exchange a price and payment choice.",
+      "expectedOutput": "Ask the price and say how you will pay without looking at the text.",
+      "targetConstruction": "이거 얼마예요? / 카드로 계산할게요.", "retainedCore": "이거", "variation": "저거 얼마예요?",
+      "independentProductionPrompt": "Point to another item and ask its price in Korean.",
+      "acquisitionCues": {"physical": "Hold an item and point to the price tag.", "sound": "Hear and say the price question and payment choice.", "graphic": "A shop-counter image and the written price on the tag.", "meta": "Choose 이거 or 저거 for a different item."},
+      "register": "polite everyday Korean", "voices": ["Min-joon", "Leejin"],
+      "lines": [
+        {"speaker": "Leejin", "role": "clerk", "ko": "어서 오세요.", "en": "Welcome."},
+        {"speaker": "Min-joon", "role": "customer", "ko": "이거 얼마예요?", "en": "How much is this?"},
+        {"speaker": "Leejin", "role": "clerk", "ko": "오천 원이에요.", "en": "It's five thousand won."},
+        {"speaker": "Min-joon", "role": "customer", "ko": "카드로 계산할게요.", "en": "I'll pay by card."}
+      ]
+    },
+    {
+      "id": "ko-guided-a1-006", "episode": "006", "title": "I Have a Reservation", "nativeTitle": "예약했어요", "domain": "SERVICES",
+      "concreteSituation": "A learner arrives at a hair salon and speaks to the receptionist.",
+      "learnerInput": "Hear the greeting, reservation statement, name question and invitation to enter.",
+      "expectedOutput": "Say you have a reservation and give your name.",
+      "targetConstruction": "예약했어요. / 저는 마리아예요.", "retainedCore": "저는 …예요", "variation": "Substitute the learner's own name.",
+      "independentProductionPrompt": "Arrive at a salon and tell the receptionist your own name.",
+      "acquisitionCues": {"physical": "Walk up to a salon reception desk.", "sound": "Hear and say a reservation and name.", "graphic": "A booking list with a highlighted name.", "meta": "Transfer the exchange to a clinic or restaurant reservation."},
+      "register": "polite everyday Korean", "voices": ["Leejin", "Min-joon"],
+      "lines": [
+        {"speaker": "Leejin", "role": "customer", "ko": "안녕하세요. 예약했어요.", "en": "Hello. I have a reservation."},
+        {"speaker": "Min-joon", "role": "receptionist", "ko": "이름이 뭐예요?", "en": "What's your name?"},
+        {"speaker": "Leejin", "role": "customer", "ko": "저는 마리아예요.", "en": "I'm Maria."},
+        {"speaker": "Min-joon", "role": "receptionist", "ko": "네, 이쪽으로 오세요.", "en": "Okay, please come this way."}
+      ]
+    },
+    {
+      "id": "ko-guided-a1-007", "episode": "007", "title": "My Stomach Hurts", "nativeTitle": "배가 아파요", "domain": "HEALTH",
+      "concreteSituation": "A patient tells a clinician where it hurts; no treatment advice is given.",
+      "learnerInput": "Hear a short question about pain and a simple description of its severity.",
+      "expectedOutput": "State the painful body part and whether the pain is severe.",
+      "targetConstruction": "배가 아파요. / 조금 아파요.", "retainedCore": "…가 아파요", "variation": "머리가 아파요.",
+      "independentProductionPrompt": "Point to a body part and describe the pain in one Korean sentence.",
+      "acquisitionCues": {"physical": "Point to the part of the body that hurts.", "sound": "Hear and say the symptom in a short exchange.", "graphic": "A simple body diagram with the painful area marked.", "meta": "Swap 배 for 머리 or another familiar body part."},
+      "register": "polite patient–clinician Korean", "voices": ["Leejin", "Min-joon"],
+      "lines": [
+        {"speaker": "Leejin", "role": "clinician", "ko": "어디가 아프세요?", "en": "Where does it hurt?"},
+        {"speaker": "Min-joon", "role": "patient", "ko": "배가 아파요.", "en": "My stomach hurts."},
+        {"speaker": "Leejin", "role": "clinician", "ko": "많이 아프세요?", "en": "Does it hurt a lot?"},
+        {"speaker": "Min-joon", "role": "patient", "ko": "아니요, 조금 아파요.", "en": "No, it hurts a little."}
+      ]
+    },
+    {
+      "id": "ko-guided-a1-008", "episode": "008", "title": "My Phone Isn't Working", "nativeTitle": "휴대전화가 안 돼요", "domain": "PHONE",
+      "concreteSituation": "A learner shows a phone that is not working at a repair counter.",
+      "learnerInput": "Hear a simple problem report and a follow-up question about charging.",
+      "expectedOutput": "Say the phone is not working and answer whether it was charged.",
+      "targetConstruction": "휴대전화가 안 돼요. / 네, 충전했어요.", "retainedCore": "…가 안 돼요", "variation": "와이파이가 안 돼요.",
+      "independentProductionPrompt": "Show a device that is not working and ask for help in Korean.",
+      "acquisitionCues": {"physical": "Show the inactive phone screen to a worker.", "sound": "Hear and say a short problem report.", "graphic": "An unlit phone icon and a charging cable.", "meta": "Use 안 돼요 to report a different everyday problem."},
+      "register": "polite customer–worker Korean", "voices": ["Min-joon", "Leejin"],
+      "lines": [
+        {"speaker": "Min-joon", "role": "customer", "ko": "휴대전화가 안 돼요.", "en": "My phone isn't working."},
+        {"speaker": "Leejin", "role": "worker", "ko": "충전했어요?", "en": "Did you charge it?"},
+        {"speaker": "Min-joon", "role": "customer", "ko": "네, 충전했어요.", "en": "Yes, I charged it."},
+        {"speaker": "Leejin", "role": "worker", "ko": "그럼 제가 볼게요.", "en": "Then I'll take a look."}
+      ]
+    },
+    {
+      "id": "ko-guided-a1-009", "episode": "009", "title": "Where Do I Apply?", "nativeTitle": "어디에서 신청해요?", "domain": "ADMIN",
+      "concreteSituation": "A learner points to a service desk and asks where to submit an application.",
+      "learnerInput": "Hear a location question, a direction, and a confirmation.",
+      "expectedOutput": "Ask which counter to visit and confirm the indicated place.",
+      "targetConstruction": "어디에서 신청해요? / 저쪽이요?", "retainedCore": "어디에서 …해요?", "variation": "어디에서 기다려요?",
+      "independentProductionPrompt": "At an unfamiliar counter, ask where to apply, using no written prompt.",
+      "acquisitionCues": {"physical": "Point from one service counter toward another.", "sound": "Hear and say the place question and confirmation.", "graphic": "A simple two-counter sign with one counter highlighted.", "meta": "Reuse 어디에서 for a new action such as waiting."},
+      "register": "polite public-service Korean", "voices": ["Min-joon", "Leejin"],
+      "lines": [
+        {"speaker": "Min-joon", "role": "visitor", "ko": "어디에서 신청해요?", "en": "Where do I apply?"},
+        {"speaker": "Leejin", "role": "staff", "ko": "저쪽 창구에서 해요.", "en": "At that counter over there."},
+        {"speaker": "Min-joon", "role": "visitor", "ko": "저쪽이요?", "en": "Over there?"},
+        {"speaker": "Leejin", "role": "staff", "ko": "네, 저쪽이에요.", "en": "Yes, over there."}
+      ]
+    },
+    {
+      "id": "ko-guided-a1-010", "episode": "010", "title": "Please Check Again", "nativeTitle": "다시 확인해 주세요", "domain": "SERVICES",
+      "concreteSituation": "A learner sees the wrong name on a café pickup label.",
+      "learnerInput": "Hear a polite correction and the worker's check-back response.",
+      "expectedOutput": "Say the label does not show the learner's name and request another check.",
+      "targetConstruction": "제 이름이 아니에요. / 다시 확인해 주세요.", "retainedCore": "제 …이 아니에요", "variation": "제 번호가 아니에요.",
+      "independentProductionPrompt": "Point to an incorrect name and ask the worker to check it again.",
+      "acquisitionCues": {"physical": "Point to a name on a pickup label.", "sound": "Hear and say a short correction and request.", "graphic": "A name label showing a different name.", "meta": "Replace 이름 with another incorrect detail, such as 번호."},
+      "register": "polite customer–worker Korean", "voices": ["Min-joon", "Leejin"],
+      "lines": [
+        {"speaker": "Min-joon", "role": "customer", "ko": "죄송해요. 제 이름이 아니에요.", "en": "Excuse me. That's not my name."},
+        {"speaker": "Leejin", "role": "worker", "ko": "이름이 뭐예요?", "en": "What's your name?"},
+        {"speaker": "Min-joon", "role": "customer", "ko": "알렉스예요. 다시 확인해 주세요.", "en": "I'm Alex. Please check again."},
+        {"speaker": "Leejin", "role": "worker", "ko": "네, 확인할게요.", "en": "Okay, I'll check."}
+      ]
+    }
+  ]
+}

@@ -2,10 +2,10 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 const c={window:{}};vm.createContext(c);
-for(const filename of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-guided-ko-splits.js']){
+for(const filename of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-guided-ko-004-a1.js','native-guided-ko-005-010.js','native-guided-ko-splits.js']){
  const file=new URL('../'+filename,import.meta.url);if(fs.existsSync(file))vm.runInContext(fs.readFileSync(file,'utf8'),c);
 }
-for(const filename of ['audio/korean/guided/segments-001-002/manifest.js','native-guided-ko-003-variants.js']){
+for(const filename of ['audio/korean/guided/segments-001-002/manifest.js','native-guided-ko-003-variants.js','native-guided-ko-004-a1-variants.js','native-guided-ko-005-010-variants.js']){
  const file=new URL('../'+filename,import.meta.url);if(fs.existsSync(file))vm.runInContext(fs.readFileSync(file,'utf8'),c);
 }
 const koreanVariants=JSON.parse(fs.readFileSync(new URL('../audio/korean/guided/segments-001-002/manifest.json',import.meta.url),'utf8'));
@@ -22,9 +22,9 @@ for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs)){
   assert(t.durationSeconds<=(lesson.level.startsWith('C')?900:600));assert.equal(t.cues.length,n*reps);
   const nativeVariant=language==='ko'&&lesson.contentRevision==='ko-segments-001-002-v1-20261016'
    ?koreanVariants.cards.find(card=>card.id===lesson.id)?.variants.find(item=>item.ratio===2.5)
-   :language==='ko'&&Number(lesson.unit)===3
+   :language==='ko'&&Number(lesson.unit)>=3
     ?c.window.TalkTagKoreanGuidedVariants?.cards.find(card=>card.id===lesson.id)?.variants.find(item=>item.ratio===2.5):null;
-  if(language==='ko'&&(lesson.contentRevision==='ko-segments-001-002-v1-20261016'||Number(lesson.unit)===3)){
+  if(language==='ko'&&(lesson.contentRevision==='ko-segments-001-002-v1-20261016'||Number(lesson.unit)>=3)){
    assert(nativeVariant,'Missing published Korean ratio variant '+lesson.id);
    assert.equal(JSON.stringify(t.cues),JSON.stringify(nativeVariant.cues));
    assert.equal(t.durationSeconds,nativeVariant.durationSeconds);
@@ -43,7 +43,7 @@ for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs)){
   const episode=String(lesson.unit||1),group=episode+':'+lesson.level;
   if(!groups.has(group))groups.set(group,[]);groups.get(group).push(lesson);levels.add(lesson.level);
   if(!episodes.has(episode))episodes.set(episode,new Set());episodes.get(episode).add(lesson.level);
-  if(language==='ko'&&(episode==='2'||episode==='3')){
+  if(language==='ko'&&Number(episode)>=2){
    assert.equal(lesson.speakers.length,n);assert.match(lesson.audioRevision,/^[a-f0-9]{16}$/);
    assert(lesson.audioRevision.startsWith(new URL(lesson.audio).searchParams.get('v')));
    assert(fs.existsSync(new URL('..'+lesson.artwork,import.meta.url)),'Missing scene '+lesson.id);
@@ -51,10 +51,13 @@ for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs)){
   }
   count++;
  }
- assert.equal(levels.size,6);for(const episodeLevels of episodes.values())assert.equal(episodeLevels.size,6);
+ assert.equal(levels.size,6);for(const [episode,episodeLevels] of episodes){
+  if(language==='ko'&&Number(episode)>=4){assert.equal(episodeLevels.size,1);assert(episodeLevels.has('A1'));}
+  else assert.equal(episodeLevels.size,6);
+ }
  for(const parts of groups.values()){
   parts.sort((a,b)=>a.partIndex-b.partIndex);let next=1;
   parts.forEach((part,index)=>{assert.equal(part.partIndex,index+1);assert.equal(part.partCount,parts.length);assert.equal(part.sentenceStart,next);next=part.sentenceEnd+1;});
  }
 }
-console.log('Native GLR: '+count+' published cards; episode parts, repetitions, gaps, dings, durations, translations and versioned Korean 002/003 audio passed.');
+console.log('Native GLR: '+count+' published cards; episode parts, repetitions, gaps, dings, durations, translations and Korean 002–010 variants passed.');
