@@ -4,7 +4,7 @@ window.TALKTAG_VOCALCAMP_JAPANESE = {
   "families": [
     {
       "number": "001",
-      "title": "Notebook After Class",
+      "title": "수업이 끝난 뒤의 공책",
       "japaneseTitle": "教室のノート",
       "theme": "수업 뒤 남은 공책의 주인을 확인하고 돌려줍니다.",
       "status": "published",

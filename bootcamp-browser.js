@@ -12,7 +12,7 @@
     if (camp === 'story') host.classList.add('camp-story-leaf-archive');
     const english = language === 'ko', japanese = language === 'ja';
     const japaneseLocalPreview = japanese && ['localhost', '127.0.0.1'].includes(location.hostname);
-    const title = camp === 'vocal' ? 'Vocal Camp' : 'Story Camp';
+    const title = japanese ? (camp === 'vocal' ? '보컬 캠프' : '스토리 캠프') : (camp === 'vocal' ? 'Vocal Camp' : 'Story Camp');
     const families = language === 'ko' && camp === 'vocal'
       ? (window.TALKTAG_VOCALCAMP_KOREAN?.families || []).filter(f => ['audio-qc', 'published'].includes(f.status))
       : language === 'ko' && camp === 'story'
@@ -136,8 +136,8 @@
         host.querySelector('#campLevelDescription').textContent = camp === 'vocal'
           ? (english ? 'Choose one episode and build the Korean story through cumulative listening and speaking.' : '한 편을 골라 누적 음원으로 듣고 따라 말해 보세요.')
           : (english ? 'Choose one episode, remember its flow, then rebuild it in your own Korean.' : '한 편을 골라 흐름을 기억하고 내 말로 다시 구성해 보세요.');
-        document.title = `${level} · ${title} · TalkTag Boot Camp`;
-      } else document.title = `${title} · TalkTag Boot Camp`;
+        document.title = `${level} · ${title} · TalkTag ${japanese ? '부트 캠프' : 'Boot Camp'}`;
+      } else document.title = `${title} · TalkTag ${japanese ? '부트 캠프' : 'Boot Camp'}`;
       if (language === 'en') try {
         const records = Object.values(JSON.parse(localStorage.getItem('talktag-myspace-activity:v1') || '{}'));
         const last = records.filter(record => {
@@ -215,9 +215,9 @@
       const main = document.querySelector('main');
       document.body.classList.add('ja-bootcamp-shell');
       document.body.classList.add('ja-studio-aligned');
-      const brand = document.querySelector('.ja-brand span'); if (brand) brand.textContent = camp === 'vocal' ? 'Vocal Camp' : 'Story Camp';
-      const category = document.querySelector('.tt-route-category'); if (category) { category.href = 'J-snowballing.html#boot-camp'; category.innerHTML = '<span aria-hidden="true">⌂</span><b>Studio</b>'; }
-      main.innerHTML = `<section class="ja-hero"><p class="ja-kicker">BOOT CAMP · ${camp === 'vocal' ? 'BUILD' : 'REBUILD'}</p><h1>${camp === 'vocal' ? 'Vocal Camp' : 'Story Camp'}</h1><p>${camp === 'vocal' ? '이야기를 소리로 익히고, 나의 말로 전달합니다.' : '이야기를 쌓고, 기억해서 말하고, 나의 이야기로 바꿉니다.'}</p></section><section id="campBrowser"></section><nav class="ja-related" aria-label="Studio 학습 공간"><a href="J-snowballing.html#sound-check">01 · Sound Check</a><a href="J-snowballing.html#boot-camp">02 · Boot Camp</a><a href="J-readable.html">03 · Readable</a></nav>`;
+      const brand = document.querySelector('.ja-brand span'); if (brand) brand.textContent = camp === 'vocal' ? '보컬 캠프' : '스토리 캠프';
+      const category = document.querySelector('.tt-route-category'); if (category) { category.href = 'J-snowballing.html#boot-camp'; category.innerHTML = '<span aria-hidden="true">⌂</span><b>스노우볼링 스튜디오</b>'; }
+      main.innerHTML = `<section class="ja-hero"><p class="ja-kicker">BOOT CAMP · ${camp === 'vocal' ? 'BUILD' : 'REBUILD'}</p><h1>${camp === 'vocal' ? '보컬 캠프' : '스토리 캠프'}</h1><p>${camp === 'vocal' ? '이야기를 소리로 익히고, 나의 말로 전달합니다.' : '이야기를 쌓고, 기억해서 말하고, 나의 이야기로 바꿉니다.'}</p></section><section id="campBrowser"></section><nav class="ja-related" aria-label="스노우볼링 스튜디오 학습 공간"><a href="J-snowballing.html#sound-check">01 · 사운드 체크</a><a href="J-snowballing.html#boot-camp">02 · 부트 캠프</a><a href="J-readable.html">03 · 리더블</a></nav>`;
       mount(main.querySelector('#campBrowser'), {camp, language:'ja'});
     } else mount(document.getElementById(`${camp}-camp`), {camp, language:'en'});
   }

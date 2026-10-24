@@ -15,7 +15,7 @@
   for(const node of document.querySelectorAll('.sync-en'))node.lang=native.language;
   for(const node of document.querySelectorAll('.sync-ko:not([lang])'))node.lang=english?'en':'ko';
   if(lesson){const h=document.getElementById('lessonTitle');if(h&&!h.querySelector('.native-flag')){const s=document.createElement('span');s.className='native-flag';s.textContent=flag;s.setAttribute('role','img');s.setAttribute('aria-label',native.language==='ko'?'Standard Korean':'Standard Japanese');h.append(s)}
-   const fields=document.querySelectorAll('.lesson-info dd'),course=lesson.type==='plain'?(english?'Korean Audio Essays & Articles':'Audio Essays & Articles')+' · '+String(lesson.unit||1).padStart(3,'0'):(english?'Korean':'日本語')+' GLR · '+String(lesson.unit||1).padStart(3,'0'),voice=lesson.type==='plain'?'Original Korean audio':'ElevenLabs · '+lesson.voiceName+' · AI voice · QC';if(fields[2]&&fields[2].textContent!==course)fields[2].textContent=course;if(fields[5]&&fields[5].textContent!==voice)fields[5].textContent=voice;
+   const fields=document.querySelectorAll('.lesson-info dd'),course=lesson.type==='plain'?(english?'Korean Audio Essays & Articles':native.language==='ja'?'일본어 오디오 에세이와 아티클':'Audio Essays & Articles')+' · '+String(lesson.unit||1).padStart(3,'0'):(english?'Korean':native.language==='ja'?'일본어':'日本語')+' GLR · '+String(lesson.unit||1).padStart(3,'0'),voice=lesson.type==='plain'?'Original Korean audio':'ElevenLabs · '+lesson.voiceName+' · AI voice · QC';if(fields[2]&&fields[2].textContent!==course)fields[2].textContent=course;if(fields[5]&&fields[5].textContent!==voice)fields[5].textContent=voice;
   }
  }
  let queued=false;const schedule=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;refresh()})};

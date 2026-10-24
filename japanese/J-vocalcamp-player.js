@@ -8,13 +8,13 @@
   const preview = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
   const catalog = `J-vocal-camp.html?level=${encodeURIComponent(level)}`;
   const back = document.querySelector('.pilot-back');
-  if (back) { back.href = catalog; back.textContent = `← ${level || ''} Vocal Camp`; }
+  if (back) { back.href = catalog; back.textContent = `← ${level || ''} 보컬 캠프`; }
   if (!['A1','A2','B1','B2','C1','C2'].includes(level) || family !== '001' || !manifest) {
     app.innerHTML = '<div class="pilot-loading">에피소드 자료를 찾을 수 없습니다. 레벨 목록으로 돌아가 주세요.</div>';
     return;
   }
   if (manifest.version !== 3 && !preview) {
-    app.innerHTML = '<div class="pilot-loading">일본어 Vocal Camp 001 음원을 검수하고 있습니다. 검수가 끝나면 이 카드가 열립니다.</div>';
+    app.innerHTML = '<div class="pilot-loading">일본어 보컬 캠프 001 음원을 검수하고 있습니다. 검수가 끝나면 이 카드가 열립니다.</div>';
     return;
   }
   const sourceLesson = manifest.cards.find(card => card.id === `japanese-vocalcamp-001-${level}`);
@@ -47,11 +47,11 @@
     C1:['자유롭게 말하기','피드백 시점','자신감 지키기','다음 수업에 적용'],
     C2:['참여의 구조','대화의 균형','생각할 시간','다음 운영에 반영']
   };
-  document.title = `001 · ${level} · Notebook After Class | TalkTag 日本語`;
+  document.title = `001 · ${level} · 수업이 끝난 뒤의 공책 | TalkTag 일본어`;
   app.innerHTML = `
     <section class="pilot-intro">
-      <p class="pilot-kicker">001 · ${esc(level)} · 일본어 VOCAL CAMP <span aria-label="일본 표준어">🇯🇵</span></p>
-      <h1>Notebook After Class</h1>
+      <p class="pilot-kicker">001 · ${esc(level)} · 일본어 보컬 캠프 <span aria-label="일본 표준어">🇯🇵</span></p>
+      <h1>수업이 끝난 뒤의 공책</h1>
       <p class="pilot-english-title" lang="ja">教室のノート</p>
       <figure class="bootcamp-player-art"><img src="../assets/bootcamp-scenes/ja/001-v3-vocal.jpg" alt="A learner returns a forgotten notebook to a community-class teacher" width="720" height="480" decoding="async"></figure>
       <p class="pilot-mission">짧은 일상 이야기를 소리로 익히고, 기억해서 내 이야기로 만들어 보세요.</p>
@@ -70,9 +70,9 @@
         <section class="reference-panel j-vocal-script" id="referencePanel" hidden aria-live="polite"></section>
       </article>
       <article class="pilot-card" data-card="2"><p class="card-label">3 · MY STORY</p><h2>같은 흐름을 나의 이야기로</h2><p class="card-guide">상황의 흐름은 유지하되, 인물·장소·선택을 실제 경험에 맞게 바꾸어 일본어로 말해 보세요.</p><div class="flow-cues" aria-label="이야기 흐름">${storyFlow[level].map((cue, index) => `${index ? '<i aria-hidden="true">→</i>' : ''}<span>${esc(cue)}</span>`).join('')}</div><div class="offline-card warm"><span aria-hidden="true">↗</span><p>대본을 보지 않고<br>내 이야기로 다시 말해 보세요.</p></div></article>
-      <article class="pilot-card" data-card="3"><p class="card-label">4 · SHARE</p><h2>파트너에게 들려주세요</h2><p class="card-guide">노트나 휴대폰을 보지 않고, 실제 사람에게 내 이야기를 자연스럽게 전해 보세요.</p><div class="share-stage"><div class="share-people" aria-hidden="true"><span>나</span><i></i><span>파트너</span></div><p>서로의 언어로 묻고 듣고 말해 보세요.</p></div><div class="win"><strong>VOCAL CAMP</strong><p>소리에서 시작해 나의 실제 이야기로 마쳤습니다.</p></div></article>
+      <article class="pilot-card" data-card="3"><p class="card-label">4 · SHARE</p><h2>파트너에게 들려주세요</h2><p class="card-guide">노트나 휴대폰을 보지 않고, 실제 사람에게 내 이야기를 자연스럽게 전해 보세요.</p><div class="share-stage"><div class="share-people" aria-hidden="true"><span>나</span><i></i><span>파트너</span></div><p>서로의 언어로 묻고 듣고 말해 보세요.</p></div><div class="win"><strong>보컬 캠프</strong><p>소리에서 시작해 나의 실제 이야기로 마쳤습니다.</p></div></article>
     </section>
-    <nav class="pilot-nav" aria-label="훈련 카드 이동"><details class="pilot-menu" id="pilotMenu"><summary aria-label="훈련 메뉴">•••</summary><div class="pilot-menu-panel"><button type="button" id="restartButton">처음부터 다시 시작</button><a href="${catalog}">${esc(level)} Vocal Camp 목록으로</a></div></details><button class="pilot-nav-button" id="prevButton" type="button">← 이전</button><button class="pilot-nav-button primary" id="nextButton" type="button">다음 →</button><button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button">↻ 초기화</button></nav>`;
+    <nav class="pilot-nav" aria-label="훈련 카드 이동"><details class="pilot-menu" id="pilotMenu"><summary aria-label="훈련 메뉴">•••</summary><div class="pilot-menu-panel"><button type="button" id="restartButton">처음부터 다시 시작</button><a href="${catalog}">${esc(level)} 보컬 캠프 목록으로</a></div></details><button class="pilot-nav-button" id="prevButton" type="button">← 이전</button><button class="pilot-nav-button primary" id="nextButton" type="button">다음 →</button><button class="pilot-nav-button pilot-reset-button" id="resetButton" type="button">↻ 초기화</button></nav>`;
 
   const deck = [...app.querySelectorAll('[data-card]')];
   const soundStatus = app.querySelector('#soundStatus');

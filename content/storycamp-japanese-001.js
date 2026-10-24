@@ -4,7 +4,7 @@ window.TALKTAG_STORYCAMP_JAPANESE = {
   "families": [
     {
       "number": "001",
-      "title": "The Borrowed Notebook",
+      "title": "빌린 공책",
       "japaneseTitle": "借りたノート",
       "theme": "잊은 공책을 빌려주고, 그 공책으로 다음 시간에 함께 복습합니다.",
       "status": "published",

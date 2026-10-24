@@ -16,8 +16,8 @@ const specs = {
   enStory: { heading: 'English Story Camp 001', size: 5, title: 'The Library Note', slug: 'the-library-note', theme: 'Respect a private note found inside a library book.', language: 'en' },
   koVocal: { heading: 'Korean Vocal Camp 001', size: 3, title: 'The Umbrella at the Stop', slug: 'the-umbrella-at-the-stop', theme: 'Ask who owns an umbrella before returning it.', language: 'ko' },
   koStory: { heading: 'Korean Story Camp 001', size: 5, title: 'The Shared Charger', slug: 'the-shared-charger', theme: 'Find a charger and check its owner before returning it.', language: 'ko' },
-  jaVocal: { heading: 'Japanese Vocal Camp 001', size: 3, title: 'Notebook After Class', slug: 'notebook-after-class', theme: '수업 뒤 남은 공책의 주인을 확인하고 돌려줍니다.', language: 'ja' },
-  jaStory: { heading: 'Japanese Story Camp 001', size: 5, title: 'The Borrowed Notebook', slug: 'the-borrowed-notebook', theme: '잊은 공책을 빌려주고, 그 공책으로 다음 시간에 함께 복습합니다.', language: 'ja' }
+  jaVocal: { heading: 'Japanese Vocal Camp 001', size: 3, title: '수업이 끝난 뒤의 공책', slug: 'notebook-after-class', theme: '수업 뒤 남은 공책의 주인을 확인하고 돌려줍니다.', language: 'ja' },
+  jaStory: { heading: 'Japanese Story Camp 001', size: 5, title: '빌린 공책', slug: 'the-borrowed-notebook', theme: '잊은 공책을 빌려주고, 그 공책으로 다음 시간에 함께 복습합니다.', language: 'ja' }
 };
 function rows(spec) {
   const section = source.split(/^## /m).find(part => part.startsWith(spec.heading));
