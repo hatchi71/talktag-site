@@ -1,0 +1,58 @@
+{
+  "number": "002",
+  "title": "The Room Mix-Up",
+  "slug": "the-room-mix-up",
+  "theme": "Resolve a classroom booking mix-up without blaming either group.",
+  "vocal": {
+    "A1": {
+      "lines": ["We went to our classroom.", "Another group was there.", "The teacher found us another room."],
+      "translation": ["우리는 교실로 갔어요.", "그곳에는 다른 모임이 있었어요.", "선생님이 우리에게 다른 교실을 찾아주셨어요."]
+    },
+    "A2": {
+      "lines": ["Our class went to Room Three.", "Another group was using it.", "Our teacher checked the schedule and moved us next door."],
+      "translation": ["우리 수업은 3번 교실로 갔어요.", "다른 모임이 그 교실을 쓰고 있었어요.", "선생님이 일정을 확인하고 우리를 옆 교실로 옮겨주셨어요."]
+    },
+    "B1": {
+      "lines": ["We arrived for class, but another group was already in our room.", "I asked the front desk whether the schedule had changed.", "They found us another room, so we started only a few minutes late."],
+      "translation": ["수업을 들으러 왔는데 다른 모임이 이미 우리 교실에 있었어요.", "안내 데스크에 일정이 바뀌었는지 물었어요.", "직원들이 다른 교실을 찾아줘서 수업은 몇 분만 늦게 시작했어요."]
+    },
+    "B2": {
+      "lines": ["When we arrived, another group had already settled into the room we had booked.", "Rather than interrupt them, I checked the reservation with the front desk.", "The staff found us a quiet room nearby, and the class went ahead with little delay."],
+      "translation": ["우리가 도착했을 때, 예약해 둔 교실에는 다른 모임이 이미 자리를 잡고 있었어요.", "그분들을 방해하기보다 안내 데스크에서 예약을 확인했어요.", "직원들이 근처의 조용한 교실을 찾아줘서 수업은 거의 지체 없이 진행됐어요."]
+    },
+    "C1": {
+      "lines": ["The classroom was occupied when our group arrived.", "Our booking confirmation showed that we had the room.", "I checked with the other group's leader before making assumptions.", "At the desk, we learned that both groups had been given the same room number.", "We took the spare room and asked the staff to correct the schedule."],
+      "translation": ["우리 모임이 도착했을 때 교실은 이미 사용 중이었어요.", "예약 확인서에는 그 교실이 우리에게 배정돼 있었어요.", "섣불리 짐작하기 전에 다른 모임의 대표에게 확인했어요.", "안내 데스크에서 두 모임 모두 같은 교실 번호를 받았다는 사실을 알게 됐어요.", "우리는 빈 교실을 쓰기로 하고 직원에게 일정을 바로잡아 달라고 했어요."]
+    },
+    "C2": {
+      "lines": ["We reached the room to find another class halfway through its session.", "The confirmation in my hand was clear, but so was their presence.", "Instead of turning the mix-up into a dispute, I asked how much time they had left.", "The coordinator found a nearby room that met our needs.", "We began on time, and she amended both bookings so the confusion would not recur."],
+      "translation": ["교실에 가 보니 다른 수업이 한창 진행 중이었어요.", "내 손에 든 예약 확인서는 분명했지만, 그분들이 이미 수업 중이라는 사실도 분명했어요.", "이 혼선을 다툼으로 만들기보다 수업이 얼마나 남았는지 물었어요.", "담당자가 우리에게 맞는 가까운 교실을 찾아줬어요.", "우리는 정시에 시작했고, 담당자는 같은 혼선이 반복되지 않도록 두 예약을 모두 수정했어요."]
+    }
+  },
+  "story": {
+    "A1": {
+      "lines": ["Our class met at the library.", "The door to our room was open.", "Another group was inside.", "The librarian found us a new room.", "We began our lesson there."],
+      "translation": ["우리 수업은 도서관에서 모였어요.", "우리 교실 문이 열려 있었어요.", "안에는 다른 모임이 있었어요.", "사서가 새 교실을 찾아줬어요.", "우리는 그곳에서 수업을 시작했어요."]
+    },
+    "A2": {
+      "lines": ["I arrived at the community center for our English class.", "Another group was sitting in our room.", "I showed our booking to a staff member.", "She checked the schedule and found an empty room.", "I texted my classmates the new room number."],
+      "translation": ["영어 수업을 들으러 주민센터에 도착했어요.", "다른 모임이 우리 교실에 앉아 있었어요.", "직원에게 우리 예약 내역을 보여줬어요.", "직원이 일정을 확인하고 빈 교실을 찾아줬어요.", "반 친구들에게 새 교실 번호를 문자로 보냈어요."]
+    },
+    "B1": {
+      "lines": ["Our evening class was supposed to meet in Room Three.", "When I opened the door, another group was setting out their materials.", "I checked the message from our teacher to make sure I had the right room.", "The coordinator discovered that two groups had been assigned the same space.", "She gave us the room across the hall, and I went to tell the classmates who were still arriving."],
+      "translation": ["우리 저녁 수업은 3번 교실에서 모이기로 돼 있었어요.", "문을 열어 보니 다른 모임이 자료를 펼치고 있었어요.", "교실을 잘못 찾은 건 아닌지 선생님이 보낸 메시지를 확인했어요.", "담당자는 두 모임에 같은 공간이 배정된 것을 알아냈어요.", "담당자가 복도 건너편 교실을 내줘서, 저는 아직 도착 중인 반 친구들에게 알리러 갔어요."]
+    },
+    "B2": {
+      "lines": ["The room listed on our booking was already full when our class arrived.", "The people inside had brought their own confirmation, so it seemed neither group had made a mistake.", "I asked their leader if we could compare the times without interrupting their activity.", "At the front desk, a coordinator found the duplicate reservation and offered us a room nearby.", "Once everyone had moved, I asked her to update the online schedule so the late arrivals would not go to the wrong door."],
+      "translation": ["우리 수업이 도착했을 때 예약 내역에 적힌 교실은 이미 사람들로 가득했어요.", "안에 있던 분들도 예약 확인서를 가져와서 어느 쪽도 실수한 것 같지 않았어요.", "활동을 방해하지 않도록 그 모임의 대표에게 시간만 함께 확인해 보자고 했어요.", "안내 데스크에서 담당자가 중복 예약을 발견하고 근처 교실을 제안했어요.", "모두 이동한 뒤, 늦게 오는 사람이 잘못된 문으로 가지 않도록 온라인 일정도 고쳐 달라고 했어요."]
+    },
+    "C1": {
+      "lines": ["The door to our booked classroom was open, and a discussion was already under way.", "Our confirmation named the room, but I did not assume the people inside were at fault.", "Their leader showed me a confirmation for the same time and place.", "Together we brought both messages to the front desk.", "The coordinator traced the overlap to an outdated entry in the shared calendar.", "She offered us a quieter room and sent the corrected location to the whole class.", "We began without an argument, and the revised calendar gave both groups a reliable record."],
+      "translation": ["예약한 교실 문이 열려 있었고 안에서는 이미 토론이 진행 중이었어요.", "우리 확인서에 그 교실이 적혀 있었지만, 안에 있는 분들이 잘못했다고 단정하지 않았어요.", "그 모임의 대표도 같은 시간과 장소가 적힌 확인서를 보여줬어요.", "우리는 두 메시지를 함께 안내 데스크로 가져갔어요.", "담당자는 공용 일정표의 오래된 항목 때문에 예약이 겹쳤다는 것을 알아냈어요.", "담당자는 더 조용한 교실을 제안하고 변경된 장소를 반 전체에 알렸어요.", "다투지 않고 수업을 시작할 수 있었고, 수정된 일정표는 두 모임 모두에게 믿을 만한 기록이 됐어요."]
+    },
+    "C2": {
+      "lines": ["We arrived expecting an empty classroom and found a seminar already in progress.", "The reservation on my phone appeared unambiguous; the other group's confirmation looked just as firm.", "I suggested we step into the hallway, where we could compare details without making their participants wait.", "The coordinator noticed that a room change had reached one booking system but not the other.", "She offered us a nearby room, while the seminar could continue where it was.", "Before leaving the desk, I asked for a single corrected notice to be sent to both groups.", "The useful outcome was not proving whose document was right, but leaving everyone with the same plan."],
+      "translation": ["빈 교실일 거라 생각하고 도착했지만, 안에서는 이미 세미나가 진행 중이었어요.", "내 휴대전화의 예약 내역은 분명해 보였고, 다른 모임의 확인서도 마찬가지였어요.", "참가자들을 기다리게 하지 않도록 복도로 나가 세부 사항을 비교하자고 제안했어요.", "담당자는 교실 변경이 한 예약 시스템에만 반영되고 다른 시스템에는 빠진 것을 알아냈어요.", "담당자는 우리에게 가까운 교실을 제안했고, 세미나는 원래 자리에서 계속할 수 있었어요.", "데스크를 떠나기 전에 두 모임 모두에게 동일한 정정 안내를 보내 달라고 했어요.", "중요한 결과는 누구 문서가 맞는지 가리는 것이 아니라, 모두가 같은 계획을 갖게 된 것이었어요."]
+    }
+  }
+}

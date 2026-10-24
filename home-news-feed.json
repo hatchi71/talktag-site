@@ -2,6 +2,22 @@
   "version": 1,
   "items": [
     {
+      "id": "boot:002",
+      "title": "002 · The Room Mix-Up",
+      "href": "storycamp-family.html?family=002",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Vocal · Story Camp에서 새 이야기를 연습하세요.",
+      "publishedAt": "2026-10-24T15:38:09Z",
+      "language": "en"
+    },
+    {
       "id": "native:ko:guided:010",
       "language": "ko",
       "title": "Korean Guided L&R · 010",
@@ -429,8 +445,8 @@
         "C2"
       ],
       "description": "Vocal · Story Camp에서 새 이야기를 연습하세요.",
-      "language": "en",
-      "publishedAt": "2026-10-09T18:17:32+09:00"
+      "publishedAt": "2026-10-09T18:17:32+09:00",
+      "language": "en"
     },
     {
       "id": "readable:010",

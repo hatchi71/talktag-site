@@ -1,4 +1,4 @@
-/* Current Boot Camp 001 scenes. Retired episode artwork is not part of the catalog. */
+/* Published Boot Camp episode scenes. */
 (() => {
   'use strict';
   const levels = new Set(['A1','A2','B1','B2','C1','C2']);
@@ -18,7 +18,12 @@
   });
   window.TalkTagBootCampArtwork = Object.freeze({
     get(camp, number, level, language = 'ko') {
-      if (number !== '001' || !levels.has(level)) return null;
+      if (!levels.has(level)) return null;
+      if (language === 'en' && number === '002') return {
+        vocal: {src:'/assets/bootcamp-scenes/en/002-vocal.jpg',alt:'A group discovers another class in its booked classroom'},
+        story: {src:'/assets/bootcamp-scenes/en/002-story.jpg',alt:'A coordinator compares two classroom reservations'}
+      }[camp] || null;
+      if (number !== '001') return null;
       return scenes[language]?.[camp] || null;
     }
   });

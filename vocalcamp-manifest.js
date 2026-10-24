@@ -3,7 +3,7 @@ window.TALKTAG_VOCALCAMP_MANIFEST = {
   "version": "2026-10-23-short-001-v3",
   "range": {
     "first": "001",
-    "last": "001"
+    "last": "002"
   },
   "families": [
     {
@@ -21,6 +21,7 @@ window.TALKTAG_VOCALCAMP_MANIFEST = {
       ],
       "status": "published",
       "audioStatus": "ready"
-    }
+    },
+    {"number":"002","slug":"the-room-mix-up","title":"The Room Mix-Up","theme":"Resolve a classroom booking mix-up without blaming either group.","levels":["A1","A2","B1","B2","C1","C2"],"status":"published","audioStatus":"ready","publishedAt":"2026-10-24T15:38:09Z"}
   ]
 };

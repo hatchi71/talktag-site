@@ -5,13 +5,13 @@
   const level = (params.get('level') || 'A1').toUpperCase();
   const korean = params.get('lang') === 'ko';
   const app = document.getElementById('pilotApp');
-  if (number !== '001' || !['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(level)) {
+  if ((!['001', '002'].includes(number) || (korean && number !== '001')) || !['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(level)) {
     app.textContent = korean ? 'Episode 001 is the current Boot Camp lesson.' : 'Boot Camp 001만 현재 이용할 수 있습니다.';
     return;
   }
   const sources = korean
     ? ['content/vocalcamp-korean-001.js?v=20261023-short-001-v3', 'audio/korean/vocalcamp/short-001-v3/manifest.js?v=20261023-short-001-v3']
-    : ['content/vocalcamp/001.js?v=20261023-short-001-v3'];
+    : [`content/vocalcamp/${number}.js?v=${number === '002' ? '20261025-short-002-v1' : '20261023-short-001-v3'}`];
   const load = (index = 0) => {
     const script = document.createElement('script');
     script.src = sources[index];
@@ -19,7 +19,7 @@
       if (index + 1 < sources.length) return load(index + 1);
       const family = (korean ? window.TALKTAG_VOCALCAMP_KOREAN : window.TALKTAG_VOCALCAMP)?.families.find(item => item.number === number);
       const data = korean ? family?.levelsData?.[level] : family?.levels[level];
-      const native = (korean ? window.TalkTagKoreanVocal001ShortVariants : window.TalkTagVocal001ShortVariants)?.cards?.find(card => card.id === `family-${number}-${level}`);
+      const native = (korean ? window.TalkTagKoreanVocal001ShortVariants : number === '002' ? window.TalkTagVocal002ShortVariants : window.TalkTagVocal001ShortVariants)?.cards?.find(card => card.id === `family-${number}-${level}`);
       const ready = Boolean(data && native && native.lines.length === data.lines.length &&
         native.lines.every((line, i) => line.text === data.lines[i]) &&
         native.steps.length === data.audioSteps.length &&
@@ -37,7 +37,8 @@
         if (home) { home.href = 'K-korean.html'; home.setAttribute('aria-label', 'TalkTag Korean home'); }
         if (back) { back.href = `K-korean-vocal-camp.html?level=${level}`; back.textContent = '← Korean Vocal Camp'; }
       }
-      const ends = window.TalkTagBootCampStages.boundaries(data.lines.length, 3);
+      const stages = number === '002' && level.startsWith('C') ? 5 : 3;
+      const ends = window.TalkTagBootCampStages.boundaries(data.lines.length, stages);
       const audioSteps = ends.map((end, index) => ({
         ...data.audioSteps[end - 1], step: index + 1,
         variants: native.steps[end - 1].variants
@@ -46,7 +47,7 @@
       window.TalkTagVocalPilots = [{
         id: `family-${number}-${level}`, familyNumber: number, level, title: family.title,
         artwork: artwork?.src, artworkAlt: artwork?.alt,
-        fullText: data.lines, stageLines: window.TalkTagBootCampStages.units(data.lines, 3),
+        fullText: data.lines, stageLines: window.TalkTagBootCampStages.units(data.lines, stages),
         translation: data.translation || [],
         storyFlow: family.storyFlow || (korean ? ['Beginning', 'Change', 'Choice', 'Result'] : ['시작', '변화', '선택', '결과']),
         note: korean ? 'Rebuild the same Korean story from memory, then make it your own.' : '같은 이야기를 Story Camp에서 기억으로 다시 구성해 보세요.',
@@ -58,7 +59,7 @@
         }
       }];
       const engine = document.createElement('script');
-      engine.src = 'vocalcamp-player.js?v=20261024-title-ko-v1';
+      engine.src = 'vocalcamp-player.js?v=20261025-bootcamp-002';
       document.head.appendChild(engine);
     };
     script.onerror = () => { app.textContent = korean ? 'Could not load this lesson.' : '자료를 불러오지 못했습니다.'; };

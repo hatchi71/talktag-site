@@ -12,7 +12,7 @@ const levels = ['A1','A2','B1','B2','C1','C2'];
 const scenes = new Set();
 let cards = 0;
 for (const camp of ['vocal','story']) {
-  for (const number of ['001']) {
+  for (const number of ['001','002']) {
     for (const level of levels) {
       const item = artwork.get(camp, number, level, 'en');
       assert.ok(item?.src?.startsWith('/assets/bootcamp-scenes/en/'), `${camp} ${number} ${level}: missing scene`);
@@ -26,7 +26,7 @@ for (const camp of ['vocal','story']) {
     }
   }
 }
-assert.equal(scenes.size, 2, 'The two newly published English 001 stories need distinct scenes');
+assert.equal(scenes.size, 4, 'The four published English Boot Camp stories need distinct scenes');
 assert.equal(artwork.get('story','004','A1','en'), null, 'Unpublished English Story 004 must not show an image');
 for (const page of ['vocal-camp.html','story-camp.html','vocalcamp-player.html','storycamp-reader.html']) {
   const html = fs.readFileSync(path.join(root,page),'utf8');
