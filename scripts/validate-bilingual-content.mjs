@@ -28,6 +28,19 @@ for (const card of miniSkits.cards) {
   }
 }
 
+const englishGuidedContext = {window: {}};
+vm.createContext(englishGuidedContext);
+vm.runInContext(fs.readFileSync(path.join(root, 'guided-miniskit-a2-c2.js'), 'utf8'), englishGuidedContext, {timeout: 1000});
+for (const card of miniSkits.cards) {
+  const parts = englishGuidedContext.window.TalkTagAudioLessons
+    .filter(part => part.unit === card.episode && part.level === card.level)
+    .sort((a, b) => a.sentenceStart - b.sentenceStart);
+  const rendered = parts.flatMap(part => part.expressions.map((line, index) => [line, part.meanings[index]]));
+  if (JSON.stringify(rendered) !== JSON.stringify(card.utterances)) {
+    fail(`MiniSkit ${card.episode}/${card.level} published English/Korean script differs from its source`);
+  }
+}
+
 const koreanGuided = readJson('content/native-glr-ko-002.json');
 for (const card of koreanGuided.cards) {
   for (const [index, line] of card.lines.entries()) {

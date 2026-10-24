@@ -4,10 +4,10 @@ window.TalkTagEssayDrafts = [
     id: 'aea-a1-002', level: 'A1', title: 'I Have Your Keys', titleKo: '열쇠 여기 있어요', genre: 'Everyday Story', topicFamily: 'neighbors',
     coreIdea: 'A small everyday favor helps two neighbors connect.',
     segments: [
-      {id:'s1',en:"I'm at home. I see a set of keys by the front door. They're not mine. My neighbor, Ben, was here this morning.",ko:'집에 있습니다. 현관 옆에 열쇠가 보입니다. 제 열쇠는 아니에요. 오늘 아침에 이웃인 벤이 다녀갔어요.'},
-      {id:'s2',en:"I call him. \"Hey, Ben. I have your keys.\" He laughs. \"Oh, good! I'm outside my apartment.\"",ko:'벤에게 전화합니다. “벤, 열쇠 여기 있어요.” 벤이 웃어요. “아, 다행이다! 나 지금 집 밖에 있어요.”'},
-      {id:'s3',en:"I go downstairs and give him the keys. \"Thanks,\" he says. \"Come over for coffee.\"",ko:'아래층으로 내려가 열쇠를 건네줍니다. 벤이 말해요. “고마워요. 커피 마시러 와요.”'},
-      {id:'s4',en:"I smile. \"Sure. Let me get my cup.\"",ko:'저도 웃으며 말합니다. “좋아요. 컵 가져올게요.”'}
+      {id:'s1',en:"I'm at home. I see a set of keys by the front door. They're not mine. My neighbor, Ben, was here this morning.",ko:'집에 있어요. 현관문 옆에 열쇠 한 묶음이 보여요. 제 것은 아니에요. 오늘 아침 이웃인 벤이 다녀갔어요.'},
+      {id:'s2',en:"I call him. \"Hey, Ben. I have your keys.\" He laughs. \"Oh, good! I'm outside my apartment.\"",ko:'벤에게 전화해요. “벤, 열쇠 내가 가지고 있어.” 벤이 웃으며 말해요. “아, 다행이다! 나 지금 아파트 밖에 있거든.”'},
+      {id:'s3',en:"I go downstairs and give him the keys. \"Thanks,\" he says. \"Come over for coffee.\"",ko:'아래층으로 내려가 벤에게 열쇠를 건네요. 벤이 “고마워. 커피 마시러 와.”라고 말해요.'},
+      {id:'s4',en:"I smile. \"Sure. Let me get my cup.\"",ko:'저도 웃으며 말해요. “좋아. 내 컵 가져올게.”'}
     ],
     meaningNodes:['Keys by the door','Call Ben','Return the keys','Coffee together'],
     referenceSummary:'The speaker finds Ben\'s keys, returns them, and accepts his invitation for coffee.',
