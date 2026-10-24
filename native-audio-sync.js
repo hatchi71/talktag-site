@@ -50,14 +50,13 @@ var native=window.TalkTagNative;
   var audio = document.getElementById("audio");
   var isJapanese = data.language === "ja";
   var displayLevel = 0;
-  var displayLabels = ["한자", "한자와 후리가나", "한자와 후리가나와 한국어 해석"];
-
   var enabled = isJapanese;
   var active = -1;
   var section = document.createElement("section");
   section.className = isJapanese ? "sync-pilot sync-pilot-always-open" : "sync-pilot";
   if (isJapanese) {
-    section.innerHTML = '<div class="sync-display-control" data-level="0"><div class="sync-display-labels" aria-hidden="true"><span>한자</span><span>+ 후리가나</span><span>+ 한국어</span></div><input class="sync-display-range" id="syncDisplayLevel" type="range" min="0" max="2" step="1" value="0" aria-label="스크립트 표시 단계" aria-valuetext="한자"></div><p class="sync-status" role="status" aria-live="polite"></p><div class="sync-lines hide-reading hide-ko" aria-label="재생 위치와 항상 동기화된 문장별 스크립트"></div>';
+    section.id = "unifiedScript";
+    section.innerHTML = '<p class="sync-status" role="status" aria-live="polite"></p><div class="sync-lines hide-reading hide-ko" aria-label="재생 위치와 항상 동기화된 문장별 스크립트"></div>';
   } else {
     section.classList.add("unified-sync");
     section.hidden=true;
@@ -73,8 +72,6 @@ var native=window.TalkTagNative;
   var follow = section.querySelector("#syncFollow");
   var play = section.querySelector("#syncPlay");
   var status = section.querySelector(".sync-status");
-  var displayControl = section.querySelector(".sync-display-control");
-  var displayRange = section.querySelector("#syncDisplayLevel");
   var buttons = [];
   var meaningNodes = [];
   var languageSelect = null;
@@ -101,11 +98,6 @@ var native=window.TalkTagNative;
     lines.classList.toggle("hide-reading", displayLevel < 1);
     lines.classList.toggle("hide-ko", displayLevel < 2);
     if (nativeJapanese) lines.classList.toggle("with-furigana", displayLevel >= 1);
-    if (displayRange) {
-      displayRange.value = String(displayLevel);
-      displayRange.setAttribute("aria-valuetext", displayLabels[displayLevel]);
-    }
-    if (displayControl) displayControl.setAttribute("data-level", String(displayLevel));
   }
 
   function seekTo(index) {
@@ -198,6 +190,7 @@ var native=window.TalkTagNative;
         if (!button) return;
         var selected = japaneseKeys[index] === japaneseMode;
         button.classList.toggle("active", selected);
+        button.setAttribute("aria-controls", "unifiedScript");
         button.setAttribute("aria-pressed", String(selected));
         button.setAttribute("aria-expanded", String(selected));
       });
@@ -206,8 +199,6 @@ var native=window.TalkTagNative;
     }
     setDisplayLevel(displayLevel);
     update();
-    displayRange.addEventListener("input", function () { setDisplayLevel(displayRange.value); });
-    displayRange.addEventListener("change", function () { setDisplayLevel(displayRange.value); });
     window.TalkTagAudioScript = { show: function (requested) {
       applyJapaneseMode(requested);
       section.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });

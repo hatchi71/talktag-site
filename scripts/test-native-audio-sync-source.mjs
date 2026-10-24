@@ -50,6 +50,13 @@ const japanese = { id: 'ja-guided-a1-001', expressions: ['日本語です。'], 
   training: { cues: [{ s: 0.5, voiceEnd: 1.4, e: 4.4, i: 0, r: 1 }] } };
 assert.strictEqual(selected({ language: 'ja', id: japanese.id, catalog: [newer], active: japanese }).cues,
   japanese.training.cues, 'Japanese pause variants must share the current cue array');
+assert.doesNotMatch(source, /syncDisplayLevel|sync-display-control/,
+  'Japanese synchronized script must not add a second display selector below the player');
+assert.match(source, /button\.setAttribute\("aria-controls", "unifiedScript"\)/,
+  'The single Japanese script selector must control the synchronized script');
+assert.match(fs.readFileSync(new URL('../japanese/J-glr-player.html', import.meta.url), 'utf8'),
+  /native-audio-sync\.js\?v=20261024-ja-single-script-selector-v1/,
+  'Japanese GLR page must load the single-selector script');
 
 const essaySync = { lines: [{ en: 'Essay' }], cues: [{ s: 0, e: 2 }] };
 assert.strictEqual(selected({ id: 'ko-essay-001', catalog: [newer], active: fallback,

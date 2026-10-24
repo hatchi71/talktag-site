@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261024-japanese-countdown-watchdog-v1';
+const CACHE_VERSION = 'talktag-pwa-20261024-ja-single-script-selector-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
