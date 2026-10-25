@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,12 +10,12 @@
   <link rel="stylesheet" href="talktag-theme.css?v=20261009-mobile-spacing">
   <link rel="stylesheet" href="content-clarity.css?v=20261009-clarity">
   <link rel="stylesheet" href="sound-check.css?v=20261025-all-card-start-v1">
-  <link rel="stylesheet" href="guided-library.css?v=20261016-matching-levels-v1">
+  <link rel="stylesheet" href="guided-library.css?v=20261025-level-cards-v2">
   <link rel="stylesheet" href="content-completion.css?v=20261015-level-bins-v1">
   <link rel="stylesheet" href="korean-readable.css?v=20261025-all-card-start-v1">
   <script src="content-completion.js?v=20261010-native001" defer></script>
-  <script src="talktag-theme.js?v=20261024-title-ko-v1" defer></script>
-  <script src="readable-english-library.js?v=20261025-all-card-start-v1" defer></script>
+  <script src="talktag-theme.js?v=20261025-level-cards-v2" defer></script>
+  <script src="readable-english-library.js?v=20261025-level-cards-v2" defer></script>
 </head>
 <body data-audio-type="readable" data-native-language="en">
   <header class="site-head"><a class="brand" href="E-english.html"><img src="talktag-logo.png" alt="TalkTag"><span><strong>리더블</strong><small>영어</small></span></a><nav class="head-links"></nav></header>
@@ -23,7 +23,7 @@
   <main class="wrap">
     <section class="catalog-head"><div><div class="eyebrow">리더블 · 영어</div><h1 id="readableTitle">리더블</h1><p id="readableDescription">레벨을 선택하고 글을 읽은 뒤, 기억한 내용을 내 말로 다시 이야기해 보세요.</p></div><a class="audio-change-level" id="changeLevel" href="readable.html" hidden>← 레벨 선택</a></section>
     <p class="guided-progress-summary" id="readableProgress"></p>
-    <nav class="filter-bar tt-level-postits" id="readableLevels" aria-label="CEFR reading level">
+    <nav class="filter-bar tt-level-cards" id="readableLevels" aria-label="CEFR reading level">
       <a data-level="A1" href="readable.html?level=A1"><span>A1</span></a>
       <a data-level="A2" href="readable.html?level=A2"><span>A2</span></a>
       <a data-level="B1" href="readable.html?level=B1"><span>B1</span></a>
@@ -43,7 +43,7 @@
       </ol>
     </section>
     <section class="lesson-list" id="readableList" aria-label="Readable chapters" hidden></section>
-    <section class="audio-missions" id="readableMissions" aria-label="Completed Readable chapters"><button class="audio-missions-toggle" id="readableMissionsToggle" type="button" aria-expanded="false" aria-controls="readableMissionList"><span aria-hidden="true">🍂</span><span>Completed chapters <small>Reopen or undo completion</small></span><span id="readableMissionCount">0</span></button><div id="readableMissionList" hidden></div><p class="audio-mission-notice" id="readableMissionNotice" role="status"></p></section>
+    <section class="audio-missions" id="readableMissions" aria-label="완료한 리더블 챕터"><button class="audio-missions-toggle" id="readableMissionsToggle" type="button" aria-expanded="false" aria-controls="readableMissionList"><span aria-hidden="true">🍂</span><span>완료한 챕터 <small>다시 열거나 완료 취소</small></span><span id="readableMissionCount">0</span></button><div id="readableMissionList" hidden></div><p class="audio-mission-notice" id="readableMissionNotice" role="status"></p></section>
   </main>
 </body>
 </html>

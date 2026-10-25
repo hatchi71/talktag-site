@@ -17,10 +17,15 @@ document.getElementById("libraryTitle").textContent=name+(level?" · "+(level===
 document.getElementById("libraryDescription").textContent=level?(type==="guided"?(level==="A0"?"그림을 보며 한 가지 유용한 표현을 5회 듣고 말한 뒤 직접 답해 보세요.":"문장별 " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + "회 반복 · 듣고 따라하세요."):"듣고, 노트에 정리한 뒤 내 말로 이야기하세요."):(type==="guided"?"짧은 소리부터 듣고 따라 말하며, 내 말로 꺼내 보세요.":"훈련할 레벨을 선택하세요.");
 document.querySelector(".type-switch").hidden=true;
 document.getElementById("essayGuide").hidden=type!=="plain"||Boolean(level);
-if(type==="plain")document.querySelector(".filter-bar").before(document.getElementById("essayGuide"));
+var levelPicker=document.querySelector(".filter-bar");
+levelPicker.classList.add("tt-level-cards");
+if(!level){
+  var missions=toggle.closest(".audio-missions");
+  levelPicker.after(missions);
+  if(type==="plain")missions.after(document.getElementById("essayGuide"));
+}
 document.getElementById("audioMissionScope").textContent=name;
-document.querySelector(".filter-bar").hidden=Boolean(level);
-if(type==="guided")document.querySelector(".filter-bar").classList.add("tt-guided-levels");
+levelPicker.hidden=Boolean(level);
 document.querySelector('.filter-bar [data-level="A0"]').hidden=type!=="guided";
 document.querySelectorAll("[data-level]").forEach(a=>a.href="audio-library.html?type="+type+"&level="+a.dataset.level);
 if(level){var change=document.createElement("a");change.className="audio-change-level";change.href="audio-library.html?type="+type;change.textContent="← 레벨 선택";document.querySelector(".catalog-head").append(change);}
@@ -31,7 +36,7 @@ function number(l){var base=String(l.unit||catalog.filter(x=>x.level===l.level).
 function render(){
 var summary=document.getElementById("guidedProgressSummary");
 if(!summary){summary=document.createElement("div");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
-if(summary){summary.hidden=Boolean(level);summary.innerHTML=type==="guided"?'<h2>레벨을 선택하세요</h2><span>완료 '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>':name+" · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;}
+if(summary){summary.hidden=Boolean(level);summary.innerHTML='<h2>레벨을 선택하세요</h2><span>완료 '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>';}
 document.querySelectorAll(".filter-bar [data-level]").forEach(a=>{
 var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
 var count=lessons.filter(done).length;

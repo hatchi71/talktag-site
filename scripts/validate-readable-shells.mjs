@@ -25,7 +25,10 @@ for (const file of ['readable.html','K-korean-readable.html']) {
   for (const shared of ['audio-lab.css','sound-check.css','guided-library.css','content-completion.css','korean-readable.css']) {
     assert.ok(html.includes(shared), `${file} is missing shared GLR styling: ${shared}`);
   }
-  assert.ok(html.includes('tt-level-postits') && html.includes('readableMissionsToggle'), `${file} is missing level bins or completed shelf`);
+  assert.ok(html.includes('tt-level-cards') && html.includes('readableMissionsToggle'), `${file} is missing level cards or completed shelf`);
+}
+for (const file of ['readable-english-library.js','korean-readable-library.js']) {
+  assert.ok(read(file).includes("levelsNav.after(document.getElementById('readableMissions'))"), `${file} must place completed missions directly after level cards`);
 }
 assert.ok(read('readable-english-library.js').includes('TalkTagCompletion?.mount(list)'));
 assert.ok(read('readable-english-library.js').includes('Promise.all(levels.map'));

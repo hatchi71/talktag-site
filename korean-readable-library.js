@@ -25,6 +25,7 @@
     back.href += '?preview=1';
   }
   document.body.dataset.audioView = selected ? 'lessons' : 'levels';
+  if (!selected) levelsNav.after(document.getElementById('readableMissions'));
   if (selected) {
     title.textContent = `Readable · ${selected}`;
     description.textContent = 'Read Korean first. Close the text to recall and retell in your own words.';

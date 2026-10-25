@@ -20,10 +20,15 @@ document.getElementById("libraryTitle").textContent=name+(level?" · "+(level===
 document.getElementById("libraryDescription").textContent=level?(type==="guided"?(level==="A0"?(english?"See one useful expression, listen and say it five times, then respond.":"그림을 보며 한 가지 유용한 표현을 5회 듣고 말한 뒤 직접 답해 보세요."):(english?"Repeat each sentence " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + " times · listen and speak along.":"문장별 " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + "회 반복 · 듣고 따라하세요.")):(english?"Listen, make notes, then retell the key idea in your own Korean.":"듣고, 노트에 정리한 뒤 내 말로 이야기하세요.")):(english&&type==="guided"?"Hear a useful expression, say it, then use it in a real moment.":(english?"Choose your practice level.":"훈련할 레벨을 선택하세요."));
 document.querySelector(".type-switch").hidden=true;
 document.getElementById("essayGuide").hidden=type!=="plain"||Boolean(level);
-if(type==="plain")document.querySelector(".filter-bar").before(document.getElementById("essayGuide"));
+var levelPicker=document.querySelector(".filter-bar");
+levelPicker.classList.add("tt-level-cards");
+if(!level){
+  var missions=toggle.closest(".audio-missions");
+  levelPicker.after(missions);
+  if(type==="plain")missions.after(document.getElementById("essayGuide"));
+}
 document.getElementById("audioMissionScope").textContent=japanese?(type==="guided"?"듣고 따라 말하기":"오디오 에세이와 아티클"):(type==="guided"?"Guided L&R":"Essays");
-document.querySelector(".filter-bar").hidden=Boolean(level);
-if(type==="guided"&&native.language==="ko")document.querySelector(".filter-bar").classList.add("tt-guided-levels");
+levelPicker.hidden=Boolean(level);
 var levelZeroLink=document.querySelector('.filter-bar [data-level="A0"]');
 if(levelZeroLink)levelZeroLink.hidden=type!=="guided"||!catalog.some(l=>l.level==="A0");
 document.querySelectorAll("[data-level]").forEach(a=>a.href=native.libraryPage+"?type="+type+"&level="+a.dataset.level);
@@ -35,7 +40,7 @@ function number(l){return String(l.unit||catalog.filter(x=>x.level===l.level).in
 function render(){
 var summary=document.getElementById("guidedProgressSummary");
 if(!summary){summary=document.createElement("div");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
-summary.hidden=Boolean(level);summary.innerHTML=type==="guided"&&native.language==="ko"?'<h2>Choose your level</h2><span>Completed '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>':(japanese?name:(type==="guided"?"Guided L&R":"Essays & Articles"))+" · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;
+summary.hidden=Boolean(level);summary.innerHTML=english?'<h2>Choose your level</h2><span>Completed '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>':'<h2>레벨을 선택하세요</h2><span>완료 '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>';
 document.querySelectorAll("[data-level]").forEach(a=>{
 var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
 var count=lessons.filter(done).length;
