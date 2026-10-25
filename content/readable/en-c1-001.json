@@ -1,0 +1,49 @@
+{
+  "id": "C1-001",
+  "number": "001",
+  "level": "C1",
+  "title": "Peter Finds His Way Home",
+  "titleKo": "피터, 집으로 돌아오다",
+  "genre": "Classic adaptation",
+  "status": "published",
+  "description": "Peter's escape invites a closer look at curiosity, risk, and the story's gently judgmental voice.",
+  "learningFocus": "Interpret perspective, implication, and the contrast between adventure and consequence.",
+  "source": {
+    "title": "The Tale of Peter Rabbit",
+    "author": "Beatrix Potter",
+    "year": 1902,
+    "portion": "Peter's visit to Mr. McGregor's garden and his return home",
+    "url": "https://www.gutenberg.org/ebooks/14838",
+    "note": "Original TalkTag C1 adaptation; not a quotation or a reproduction of the source illustrations."
+  },
+  "paragraphs": [
+    {
+      "en": "Mother Rabbit's warning is specific: her children may explore the fields and lane, but Mr. McGregor's garden is off limits. Her daughters accept that boundary and gather berries. Peter hears the same instruction yet is drawn to the very place it excludes. From a safe distance, the garden looks orderly and inviting. The warning belongs to his mother's experience; the tempting vegetables belong to what Peter can see for himself. For the moment, sight wins.",
+      "kr": "엄마 토끼의 당부는 분명해요. 들판과 길에서는 놀아도 되지만 맥그리거 아저씨네 정원에는 들어가면 안 된다는 거죠. 자매들은 그 선을 지키며 산딸기를 따러 가요. 피터도 같은 말을 들었지만, 오히려 금지된 곳에 마음이 끌려요. 멀리서 본 정원은 가지런하고 먹음직스러워 보이죠. 엄마의 당부는 엄마가 아는 위험에서 나오지만, 피터의 눈앞에는 채소가 보여요. 그 순간에는 눈에 보이는 쪽이 이겨요."
+    },
+    {
+      "en": "He slips beneath the gate, confident that a brief visit will leave no trace. Lettuce and beans are close at hand, and he eats while moving farther from the entrance. This is a small decision that quietly changes the situation: he is no longer just looking, and the gate is no longer beside him. When Mr. McGregor spots him and runs forward, Peter's excitement turns to panic. The straight rows that once promised easy food now offer too many directions and no obvious exit.",
+      "kr": "피터는 잠깐 다녀오면 흔적도 남지 않을 거라고 믿으며 문 아래로 들어가요. 상추와 콩이 손에 닿는 곳에 있고, 먹다 보니 입구에서 점점 멀어져요. 사소해 보이는 선택이 상황을 바꿔 놓죠. 이제 피터는 구경만 하는 게 아니고 정원 문도 바로 곁에 없어요. 맥그리거 아저씨가 피터를 보고 달려오자 설렘은 금세 공포로 바뀌어요. 쉽게 먹을 것을 구할 수 있을 것 같던 가지런한 채소밭이 이제는 길만 많고 출구는 보이지 않는 곳이 돼요."
+    },
+    {
+      "en": "As he runs, Peter loses a shoe among the cabbages and another near the potatoes. Without them he can move quickly, but the losses mark how little control he has. A net catches the buttons of his blue jacket. He struggles until it gives way, leaving the jacket behind as well. Nearby sparrows appear to urge him on, though they cannot tell him where to go. Help comes in the form of encouragement, not a route out of the garden.",
+      "kr": "달아나던 피터는 양배추밭에서 신발 한 짝을, 감자밭 근처에서 나머지 한 짝을 잃어요. 신발이 없으니 더 빨리 움직일 수는 있지만, 잃어버린 물건은 상황을 통제하지 못하고 있다는 흔적이기도 해요. 파란 재킷의 단추가 그물에 걸리고, 피터는 몸을 빼낸 뒤 재킷마저 두고 가요. 근처에 모인 참새들은 피터를 응원하는 듯하지만 나가는 길까지 알려 주지는 못해요. 도움은 방향이 아니라 용기를 주는 방식으로 찾아온 셈이죠."
+    },
+    {
+      "en": "In the tool shed, a large can seems like a convenient hiding place until Peter lands in the water inside it. He sits cold and wet while the gardener searches nearby. A sneeze betrays him, and he escapes through a window too narrow for Mr. McGregor to use. It is an ingenious escape, but also a lucky one. Peter has solved the immediate problem of being caught; the larger problem of finding his way home remains untouched.",
+      "kr": "도구 창고의 큰 통은 숨기에 좋아 보였지만, 안에 물이 있다는 걸 피터는 들어간 뒤에야 알게 돼요. 차갑게 젖은 채 아저씨가 가까이서 뒤지는 소리를 듣죠. 재채기 소리로 위치가 들키자 피터는 아저씨가 통과할 수 없는 좁은 창문으로 빠져나가요. 재치 있는 탈출이지만 운도 따랐어요. 잡힐 뻔한 순간은 넘겼어도 집으로 돌아갈 길을 찾는 더 큰 문제는 여전히 남아 있어요."
+    },
+    {
+      "en": "Peter discovers a door in the garden wall, but it is locked. A mouse cannot answer his question because she is carrying food. Beside a pond, a cat sits almost motionless, and Peter decides not to approach. None of these encounters gives him a clear answer. They do, however, slow him down. The garden that first appeared to exist for his pleasure is full of other creatures, each occupied with a life of its own.",
+      "kr": "피터는 담에 난 문을 발견하지만 잠겨 있어요. 만난 쥐는 먹이를 물고 있어서 질문에 답하지 못하죠. 연못 옆에는 고양이가 거의 움직이지 않고 앉아 있고, 피터는 다가가지 않기로 해요. 어느 만남도 길을 알려 주지는 않아요. 대신 피터는 잠시 속도를 늦추게 되죠. 처음에는 자기에게 먹을 것을 주는 곳처럼 보였던 정원에도 각자의 일로 바쁜 다른 생명들이 있어요."
+    },
+    {
+      "en": "A wheelbarrow finally changes Peter's view. From above the plants he spots the gate, with Mr. McGregor working between it and him. The answer is visible, but reaching it requires restraint. Earlier Peter had run because he was frightened; now he waits for the gardener to turn away. When the moment comes, he crosses the open ground, slips beneath the gate, and keeps running until the woods surround him. His escape begins not with speed, but with a decision to look and wait.",
+      "kr": "마침내 손수레 위에 올라서자 시야가 달라져요. 채소 너머로 정원 문이 보이고, 그 사이에서 맥그리거 아저씨가 일을 하고 있어요. 출구는 찾았지만 바로 달려갈 수는 없죠. 앞에서는 겁이 나서 무작정 뛰었다면, 이제는 아저씨가 등을 돌릴 때를 기다려요. 때가 되자 피터는 빈터를 가로질러 문 아래로 빠져나와 숲에 이를 때까지 달려요. 탈출의 시작은 빠른 발이 아니라 멈춰서 보고 기다린 선택이었어요."
+    },
+    {
+      "en": "At home, Peter is too exhausted to explain where his shoes and jacket have gone. His mother puts him to bed while his sisters eat the ordinary supper he has missed. The contrast is gentle but pointed: the children who obeyed had a quiet evening, while the child who took the exciting route came back empty-handed and unwell. Yet Peter also found the way out himself. The story can warn against carelessness without asking us to ignore the courage it took to return.",
+      "kr": "집에 돌아온 피터는 신발과 재킷이 어디 갔는지 설명할 힘도 없어요. 엄마가 피터를 재우는 동안 자매들은 피터가 놓친 평범한 저녁을 먹죠. 대비는 부드럽지만 분명해요. 엄마 말을 들은 아이들은 조용한 저녁을 보내고, 신나는 길을 택한 아이는 빈손에 몸까지 상해서 돌아왔어요. 그렇지만 피터가 스스로 출구를 찾은 것도 사실이에요. 이 이야기를 경솔함에 대한 경고로 읽더라도, 집으로 돌아오기까지 필요했던 용기를 지워 버릴 필요는 없어요."
+    }
+  ]
+}

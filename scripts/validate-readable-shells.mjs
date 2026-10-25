@@ -6,11 +6,20 @@ import path from 'node:path';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = file => readFileSync(path.join(root, file), 'utf8');
-const chapter = JSON.parse(read('content/readable/en-a1-001.json'));
-assert.equal(chapter.id, 'A1-001');
-assert.equal(chapter.status, 'published');
-assert.equal(chapter.paragraphs.length, 7);
-assert.ok(chapter.paragraphs.every(item => item.en && item.kr), 'Every paragraph needs English and Korean');
+const levels = ['A1','A2','B1','B2','C1','C2'];
+const chapters = levels.map(level => JSON.parse(read(`content/readable/en-${level.toLowerCase()}-001.json`)));
+let previousWords = 0;
+for (const [index, chapter] of chapters.entries()) {
+  assert.equal(chapter.id, `${levels[index]}-001`);
+  assert.equal(chapter.level, levels[index]);
+  assert.equal(chapter.status, 'published');
+  assert.ok(chapter.paragraphs.length >= 6, `${chapter.level} needs a complete chapter`);
+  assert.ok(chapter.paragraphs.every(item => item.en && item.kr), `${chapter.level} needs aligned English and Korean`);
+  assert.equal(chapter.source.url, 'https://www.gutenberg.org/ebooks/14838');
+  const words = chapter.paragraphs.flatMap(item => item.en.trim().split(/\s+/)).length;
+  assert.ok(words > previousWords, `${chapter.level} should expand the reading burden from the prior level`);
+  previousWords = words;
+}
 for (const file of ['readable.html','K-korean-readable.html']) {
   const html = read(file);
   for (const shared of ['audio-lab.css','sound-check.css','guided-library.css','content-completion.css','korean-readable.css']) {
@@ -19,9 +28,9 @@ for (const file of ['readable.html','K-korean-readable.html']) {
   assert.ok(html.includes('tt-level-postits') && html.includes('readableMissionsToggle'), `${file} is missing level bins or completed shelf`);
 }
 assert.ok(read('readable-english-library.js').includes('TalkTagCompletion?.mount(list)'));
-assert.ok(read('readable-english-library.js').includes('content/readable/en-a1-001.json'));
+assert.ok(read('readable-english-library.js').includes('Promise.all(levels.map'));
 assert.ok(!read('readable-english-library.js').includes("fetch('content/readable/readable-stories-A1-C2-60.json')"), 'Legacy chapters must not appear in the new catalog');
 assert.ok(read('readable-chapter.html').includes('STEP 05 · COMING SOON'));
-assert.ok(read('readable-chapter.js').includes("'readable:en:A1-001'"));
+assert.ok(read('readable-chapter.js').includes('readable:en:${level}-001'));
 assert.ok(read('bootcamp-level.html').includes("'readable.html?level='"), 'Legacy level links must reach the current Readable catalog');
-console.log('PASS: English Readable A1 001, bilingual chapter, five-step practice, shared shell, completion, and legacy routing.');
+console.log('PASS: English Readable 001 A1–C2, bilingual chapters, five-step practice, shared shell, completion, and legacy routing.');

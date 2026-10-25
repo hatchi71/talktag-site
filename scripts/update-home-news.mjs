@@ -17,8 +17,8 @@ function catalog(read){
  const story=c.window.TALKTAG_STORYCAMP_MANIFEST?.families||[],vocal=c.window.TALKTAG_VOCALCAMP_MANIFEST?.families||[];
  for(const f of story.filter(f=>f.status==='published'))groups.set('boot:'+f.number,{id:'boot:'+f.number,title:f.number+' · '+f.title,href:'storycamp-family.html?family='+f.number,levels:f.levels,description:vocal.some(v=>v.number===f.number&&v.status==='published'&&v.audioStatus==='ready')?'Vocal · Story Camp에서 새 이야기를 연습하세요.':'Story Camp에서 새 이야기를 연습하세요.',publishedAt:f.publishedAt});
  for(const f of vocal.filter(f=>f.status==='published'&&f.audioStatus==='ready'&&!story.some(s=>s.number===f.number&&s.status==='published')))groups.set('vocal:'+f.number,{id:'vocal:'+f.number,title:'Vocal Camp · '+f.number,href:'vocalcamp-family.html?family='+f.number,levels:f.levels,description:'새 이야기를 누적해서 듣고, 따라 말하며 내 말로 이어 보세요.'});
- const readable=read('content/readable/en-a1-001.json');
- if(readable){const chapter=JSON.parse(readable);if(chapter.status==='published'&&chapter.paragraphs?.length)groups.set('readable:en:a1:001',{id:'readable:en:a1:001',language:'en',title:'Readable · A1 001',href:'readable-chapter.html',levels:['A1'],description:'피터의 이야기를 읽고 기억한 내용을 내 말로 다시 이야기해 보세요.'});}
+ const readableLevels=['A1','A2','B1','B2','C1','C2'].filter(level=>{const source=read(`content/readable/en-${level.toLowerCase()}-001.json`);if(!source)return false;const chapter=JSON.parse(source);return chapter.level===level&&chapter.status==='published'&&chapter.paragraphs?.length;});
+ if(readableLevels.length)groups.set('readable:en:001:levels',{id:'readable:en:001:levels',language:'en',title:'Readable · 001 · A1–C2',href:'readable.html',levels:readableLevels,description:'피터의 이야기를 수준별로 읽고, 기억해서 내 말로 다시 이야기해 보세요.'});
  const koreanReadable=read('content/readable/korean-001.js');
  if(koreanReadable)vm.runInContext(koreanReadable,c,{timeout:1000});
  for(const chapter of (c.window.TalkTagKoreanReadable||[]).filter(chapter=>chapter.status==='published'&&chapter.paragraphs?.length)){

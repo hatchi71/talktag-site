@@ -1,0 +1,49 @@
+{
+  "id": "A2-001",
+  "number": "001",
+  "level": "A2",
+  "title": "Peter Finds His Way Home",
+  "titleKo": "피터, 집으로 돌아오다",
+  "genre": "Classic adaptation",
+  "status": "published",
+  "description": "Peter enters a tempting garden and must find a way out before the gardener catches him.",
+  "learningFocus": "Follow Peter's choices and their consequences.",
+  "source": {
+    "title": "The Tale of Peter Rabbit",
+    "author": "Beatrix Potter",
+    "year": 1902,
+    "portion": "Peter's visit to Mr. McGregor's garden and his return home",
+    "url": "https://www.gutenberg.org/ebooks/14838",
+    "note": "Original TalkTag A2 adaptation; not a quotation or a reproduction of the source illustrations."
+  },
+  "paragraphs": [
+    {
+      "en": "Peter and his three sisters live with their mother under a large tree. One morning, Mother Rabbit goes to the baker. Before she leaves, she tells them to play outside but not to enter Mr. McGregor's garden. Peter hears the warning, but the garden is the place he most wants to see.",
+      "kr": "피터는 세 자매, 엄마와 함께 큰 나무 아래에서 살아요. 어느 아침, 엄마 토끼가 빵집에 가면서 말했어요. 밖에서 놀되 맥그리거 아저씨네 정원에는 들어가지 말라고요. 피터도 그 말을 들었지만, 가장 가 보고 싶은 곳이 바로 그 정원이었어요."
+    },
+    {
+      "en": "His sisters go to pick berries. Peter walks to the garden gate and looks underneath it. Inside, he sees rows of vegetables. He decides to take a quick look. Soon he is eating lettuce, beans, and radishes. He thinks he can leave before anyone notices him.",
+      "kr": "자매들은 산딸기를 따러 갔어요. 피터는 정원 문으로 가서 아래를 들여다봤죠. 안쪽에는 채소가 줄지어 자라고 있었어요. 잠깐만 둘러보자고 마음먹은 피터는 어느새 상추와 콩, 무를 먹고 있었어요. 아무도 알아채기 전에 나가면 된다고 생각했죠."
+    },
+    {
+      "en": "Then Mr. McGregor sees him. The gardener calls out and runs after Peter. Peter is frightened. He rushes between the plants, but he cannot remember where the gate is. In his hurry, he loses one shoe near the cabbages and the other near the potatoes.",
+      "kr": "그런데 맥그리거 아저씨가 피터를 발견했어요. 아저씨가 소리를 지르며 쫓아오자 피터는 겁이 났죠. 채소 사이로 급히 달렸지만 정원 문이 어디 있는지 기억나지 않았어요. 서두르다 양배추밭에서 신발 한 짝을, 감자밭 근처에서 다른 한 짝을 잃었어요."
+    },
+    {
+      "en": "Next, Peter's blue jacket catches in a net. He pulls hard and gets out of it, but the jacket stays behind. He runs into a tool shed and jumps into a large can. There is water inside. Peter is now cold and wet, and he must stay quiet while Mr. McGregor looks around the shed.",
+      "kr": "이번에는 파란 재킷이 그물에 걸렸어요. 피터는 힘껏 몸을 빼냈지만 재킷은 그 자리에 남았죠. 도구 창고로 달려가 큰 통 안에 뛰어들었는데, 통에는 물이 들어 있었어요. 몸이 차갑게 젖은 피터는 아저씨가 창고를 둘러보는 동안 숨을 죽였어요."
+    },
+    {
+      "en": "Peter finds a small door in a wall, but it is locked. He asks a mouse for help, but she cannot answer because her mouth is full of food. Near a pond, Peter notices a cat and carefully walks away. Every wrong turn makes the garden feel bigger.",
+      "kr": "피터는 담에 난 작은 문을 찾았지만 잠겨 있었어요. 쥐에게 길을 물었지만, 쥐는 입에 먹이를 물고 있어서 대답하지 못했죠. 연못 근처에서는 고양이를 보고 조심스럽게 피해 갔어요. 길을 잘못 들 때마다 정원은 더 커 보였어요."
+    },
+    {
+      "en": "At last, Peter climbs onto a wheelbarrow. From there, he sees the gate. Mr. McGregor is working between Peter and the exit. Peter waits until the man's back is turned. Then he runs across the garden, squeezes under the gate, and does not stop until he reaches the woods.",
+      "kr": "마침내 피터는 손수레 위에 올라갔어요. 거기서 정원 문이 보였죠. 하지만 피터와 출구 사이에는 맥그리거 아저씨가 일을 하고 있었어요. 피터는 아저씨가 등을 돌릴 때까지 기다렸다가 정원을 가로질러 달렸어요. 문 아래로 빠져나온 뒤에도 숲에 이를 때까지 멈추지 않았어요."
+    },
+    {
+      "en": "When Peter gets home, his mother notices that his shoes and jacket are missing. Peter is too tired to tell her what happened. She puts him to bed, while his sisters enjoy bread, milk, and berries. Peter got out of the garden, but his little adventure has cost him his clothes and his supper.",
+      "kr": "집에 돌아오자 엄마는 피터의 신발과 재킷이 없어진 걸 알아챘어요. 피터는 너무 지쳐 무슨 일이 있었는지 말하지 못했죠. 엄마가 피터를 재우는 동안 자매들은 빵과 우유, 산딸기를 먹었어요. 피터는 정원에서 무사히 빠져나왔지만 옷도 잃고 저녁도 제대로 먹지 못했어요."
+    }
+  ]
+}

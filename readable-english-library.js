@@ -15,7 +15,7 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const key = story => 'readable:en:' + story.id;
   const done = story => Boolean(window.TalkTagCompletion?.getManual(key(story)));
-  const href = story => story.id === 'A1-001' ? 'readable-chapter.html' : 'readable.html';
+  const href = story => `readable-chapter.html?level=${encodeURIComponent(story.level)}`;
   const labelCompletionButtons = () => list.querySelectorAll('.tt-completion-button').forEach(button => {
     button.textContent = 'Complete';
     button.setAttribute('aria-label', 'Mark chapter complete');
@@ -75,11 +75,11 @@
   });
   window.addEventListener('pageshow', () => { render(); queueMicrotask(labelCompletionButtons); });
   window.addEventListener('storage', () => queueMicrotask(labelCompletionButtons));
-  fetch('content/readable/en-a1-001.json', { cache: 'no-store' }).then(response => {
-    if (!response.ok) throw Error('Readable catalog unavailable');
+  Promise.all(levels.map(level => fetch(`content/readable/en-${level.toLowerCase()}-001.json`, { cache: 'no-store' }).then(response => {
+    if (!response.ok) throw Error(`${level} Readable unavailable`);
     return response.json();
-  }).then(data => {
-    stories = data.status === 'published' && data.paragraphs?.length && data.title ? [data] : [];
+  }))).then(data => {
+    stories = data.filter(story => story.status === 'published' && story.paragraphs?.length && story.title && levels.includes(story.level));
     render();
   }).catch(() => {
     list.hidden = false;
