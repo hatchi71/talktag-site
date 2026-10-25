@@ -25,6 +25,24 @@ const slugs={
 };
 function ff(args){const p=spawnSync('ffmpeg',args,{encoding:null,maxBuffer:64*1024*1024});if(p.error||p.status!==0)throw Error('ffmpeg: '+(p.error?.message||String(p.stderr).slice(-1000)));return p.stdout;}
 function decode(p){return ff(['-v','error','-nostdin','-i',p,'-ar',String(rate),'-ac','1','-f','s16le','pipe:1']);}
+function voiceStats(pcm){
+  let sum=0,peak=0;
+  for(let i=0;i<pcm.length;i+=2){const sample=pcm.readInt16LE(i)/32768;sum+=sample*sample;peak=Math.max(peak,Math.abs(sample));}
+  const mean=Math.sqrt(sum/(pcm.length/2));
+  return {meanDbfs:20*Math.log10(Math.max(mean,1e-9)),peakDbfs:20*Math.log10(Math.max(peak,1e-9))};
+}
+function levelEnglishVoice(pcm){
+  const input=voiceStats(pcm);
+  // Match the approved English A0 001 model (~-22 dBFS mean) without lifting
+  // the card dings or risking a clipped consonant. Keep the Korean takes intact.
+  const gainDb=Math.min(-22-input.meanDbfs,-5.5-input.peakDbfs);
+  const gain=10**(gainDb/20),out=Buffer.allocUnsafe(pcm.length);
+  for(let i=0;i<pcm.length;i+=2){
+    const sample=Math.round(pcm.readInt16LE(i)*gain);
+    out.writeInt16LE(Math.max(-32768,Math.min(32767,sample)),i);
+  }
+  return {pcm:out,gainDb:Number(gainDb.toFixed(3)),input,output:voiceStats(out)};
+}
 
 const context={window:{TalkTagNative:{language:'en'}}};
 vm.runInNewContext(fs.readFileSync(path.join(repo,'level0-glr001.js'),'utf8'),context);
@@ -40,7 +58,9 @@ for(const pair of source.episodePairs){
   for(const language of ['en','ko']){
     const script=pair[language],raw=path.join(root,'raw',`${language}-${pair.unit}-model.mp3`);
     if(!fs.existsSync(raw))throw Error('Missing model voice '+raw);
-    const voice=decode(raw),voiceSamples=voice.length/2;
+    const decodedVoice=decode(raw);
+    const level=language==='en'?levelEnglishVoice(decodedVoice):null;
+    const voice=level?.pcm||decodedVoice,voiceSamples=voice.length/2;
     // Pad past the strict 2.5×/3s boundary to survive MP3 encoder rounding.
     const gapSamples=Math.ceil(Math.max(3.2,voiceSamples/rate*2.55+0.15)*rate);
     const scratch=fs.mkdtempSync(path.join(os.tmpdir(),'talktag-a0-glr-'));
@@ -63,6 +83,7 @@ for(const pair of source.episodePairs){
         tinyPrompt:script.prompt,expectedResponse:script.expected,pronunciation:script.pronunciation,
         scene:pair.scene,picture:pair.picture,pictureAlt:pair.pictureAlt,filename,localFile:dest,
         bytes:fs.statSync(dest).size,sha256:hash(dest),sourceFile:raw,sourceSha256:hash(raw),voiceSeconds:sec(voiceSamples),
+        voiceLevel:level?{gainDb:level.gainDb,input:level.input,output:level.output}:undefined,
         training:{kind:'sentence-repeat',defaultReps:5,silenceMultiplier:2.5,minimumGapSeconds:3,
           startCueEnd,endingCueStart,cues,cardDings:true,durationSeconds:sec(cursor)}});
     }finally{try{fs.closeSync(fd);}catch{}fs.rmSync(scratch,{recursive:true,force:true});}

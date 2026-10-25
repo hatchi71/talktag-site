@@ -22,8 +22,9 @@ const cards=manifest.cards.map(card=>{
   fs.copyFileSync(card.localFile,dest);
   const seconds=card.training.durationSeconds;
   const label=`${Math.floor(seconds/60)}:${String(Math.floor(seconds%60)).padStart(2,'0')}`;
+  const englishPrefix=card.voiceLevel?'English/guided/a0-002-010-qc2-20261025/':'English/guided/a0-002-010-20261025/';
   const mediaPath=process.env.TALKTAG_LEVEL0_PUBLISH==='1'
-    ? `https://audio.talktag.co.kr/${card.language==='ko'?'Korean':'English'}/guided/a0-002-010-20261025/${card.filename}`
+    ? `https://audio.talktag.co.kr/${card.language==='ko'?'Korean/guided/a0-002-010-20261025/':englishPrefix}${card.filename}`
     : `/audio/guided/level0-002-010/${card.filename}`;
   return {id:card.id,language:card.language,type:'guided',format:'level0',level:'A0',part:card.unit,chapter:1,unit:card.unit,
     title:card.title,titleKo:card.titleKo,

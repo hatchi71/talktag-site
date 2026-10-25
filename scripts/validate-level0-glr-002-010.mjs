@@ -15,6 +15,8 @@ const rate=48000;
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 function decode(file){const p=spawnSync('ffmpeg',['-v','error','-nostdin','-i',file,'-ar',String(rate),'-ac','1','-f','s16le','pipe:1'],{encoding:null,maxBuffer:32*1024*1024});if(p.status!==0)throw Error(String(p.stderr));return p.stdout;}
 function rms(pcm,a,b){const lo=Math.max(0,Math.floor(a*rate)),hi=Math.min(pcm.length/2,Math.ceil(b*rate));let sum=0;for(let i=lo;i<hi;i++){const v=pcm.readInt16LE(i*2)/32768;sum+=v*v;}return Math.sqrt(sum/Math.max(hi-lo,1));}
+function peak(pcm,a,b){const lo=Math.max(0,Math.floor(a*rate)),hi=Math.min(pcm.length/2,Math.ceil(b*rate));let value=0;for(let i=lo;i<hi;i++)value=Math.max(value,Math.abs(pcm.readInt16LE(i*2)/32768));return value;}
+const db=value=>20*Math.log10(Math.max(value,1e-9));
 assert.equal(source.episodePairs.length,9);
 assert.equal(manifest.cards.length,18);
 const report={status:'technical-pass',checkedAt:new Date().toISOString(),humanListening:'not-performed; user marked optional',cards:[]};
@@ -46,6 +48,7 @@ for(const pair of source.episodePairs){
     assert(startDingRms>0.003,card.id+' start ding missing');
     assert(endDingRms>0.003,card.id+' end ding missing');
     let minGap=Infinity,minSpeechRms=Infinity,maxSilenceRms=0;
+    let minVoiceDbfs=Infinity,maxVoiceDbfs=-Infinity,maxVoicePeakDbfs=-Infinity;
     t.cues.forEach((cue,i)=>{
       assert.equal(cue.i,0);assert.equal(cue.r,i+1);
       assert(cue.voiceEnd>cue.s&&cue.e>cue.voiceEnd,card.id+' invalid cue');
@@ -53,19 +56,30 @@ for(const pair of source.episodePairs){
       const voiceSeconds=cue.voiceEnd-cue.s,gap=cue.e-cue.voiceEnd;
       assert(gap>=Math.max(3,voiceSeconds*2.5)-0.01,card.id+' insufficient speaking gap');
       const speechRms=rms(pcm,cue.s+0.1,cue.voiceEnd-0.05);
+      const voiceDbfs=db(rms(pcm,cue.s,cue.voiceEnd));
+      const voicePeakDbfs=db(peak(pcm,cue.s,cue.voiceEnd));
       const silenceRms=rms(pcm,cue.voiceEnd+0.25,cue.e-0.25);
       assert(speechRms>0.002,card.id+' silent model');
       assert(silenceRms<0.003,card.id+' noisy response gap');
       minGap=Math.min(minGap,gap);minSpeechRms=Math.min(minSpeechRms,speechRms);
+      minVoiceDbfs=Math.min(minVoiceDbfs,voiceDbfs);maxVoiceDbfs=Math.max(maxVoiceDbfs,voiceDbfs);
+      maxVoicePeakDbfs=Math.max(maxVoicePeakDbfs,voicePeakDbfs);
       maxSilenceRms=Math.max(maxSilenceRms,silenceRms);
     });
+    if(language==='en'){
+      assert(card.voiceLevel?.gainDb>0,card.id+' missing English loudness correction');
+      assert(minVoiceDbfs>=-26 && maxVoiceDbfs<=-18,card.id+' weak or excessive spoken level');
+      assert(maxVoicePeakDbfs>=-10 && maxVoicePeakDbfs<=-3,card.id+' weak or clipped spoken peak');
+    }
     assert(Math.abs(t.cues[0].s-t.startCueEnd)<0.002);
     assert(Math.abs(t.cues.at(-1).e-t.endingCueStart)<0.002);
     report.cards.push({id:card.id,durationSeconds:Number(length.toFixed(3)),repetitions:5,
       minGap:Number(minGap.toFixed(3)),minSpeechRms:Number(minSpeechRms.toFixed(6)),
+      minVoiceDbfs:Number(minVoiceDbfs.toFixed(2)),maxVoiceDbfs:Number(maxVoiceDbfs.toFixed(2)),
+      maxVoicePeakDbfs:Number(maxVoicePeakDbfs.toFixed(2)),
       maxSilenceRms:Number(maxSilenceRms.toFixed(6)),startDingRms:Number(startDingRms.toFixed(6)),
       endDingRms:Number(endDingRms.toFixed(6)),sha256:card.sha256});
-    console.log('PASS '+card.id+' '+length.toFixed(3)+'s · 5 cycles · 2.5×/3s gap · 2 dings');
+    console.log('PASS '+card.id+' '+length.toFixed(3)+'s · voice '+minVoiceDbfs.toFixed(1)+' dBFS · 5 cycles · 2.5×/3s gap · 2 dings');
   }
 }
 fs.writeFileSync(path.join(work,'final/qc-report.json'),JSON.stringify(report,null,2)+'\n');
