@@ -25,6 +25,7 @@ var native=window.TalkTagNative;
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace(native.libraryPage + "?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
   if (!lesson) { document.getElementById('lessonTitle').textContent=native.ui==='en'?'Recordings are coming soon':'음원을 준비하고 있습니다.'; return; }
+  if (lesson.format === "level0") document.body.classList.add("level0-player");
   var legacyPlayback = new URLSearchParams(location.search).has("legacy");
   if (legacyPlayback && native.language === "ko") {
     var former = (window.TalkTagKoreanGuidedLegacyCatalog || []).find(function (item) { return item.id === lesson.id; });
@@ -44,9 +45,10 @@ var native=window.TalkTagNative;
   var nextLesson = lessons[lessonIndex + 1] || null;
   var storageKey = "talktag-audio:" + lesson.id;
   var pauseControl = null;
+  var level0Prompt = null;
   var guidedVariants = window.TalkTagNativeGuidedVariants?.forLesson(lesson, native, audio, readState, saveState) || null;
   var expectsNativeVariants = lesson.type === "guided" &&
-    ((native.language === "ko" && [1, 2, 3].includes(Number(lesson.unit))) ||
+    ((native.language === "ko" && lesson.level !== "A0" && [1, 2, 3].includes(Number(lesson.unit))) ||
       (native.language === "ja" && Number(lesson.unit) === 1));
   if (expectsNativeVariants && !legacyPlayback && !guidedVariants &&
       !document.getElementById("nativeVariantFallback")) {
@@ -73,9 +75,9 @@ var native=window.TalkTagNative;
   document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit || 1).padStart(3, '0') + (lesson.partCount>1?" · PART "+lesson.partIndex:"");
   document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
-  if (lesson.type === "plain" && lesson.artwork) {
+  if ((lesson.type === "plain" || lesson.format === "level0") && lesson.artwork) {
     var figure = document.createElement("figure");
-    figure.className = "essay-cover-figure";
+    figure.className = lesson.format === "level0" ? "level0-scene" : "essay-cover-figure";
     var cover = document.createElement("img");
     cover.src = lesson.artwork;
     cover.alt = lesson.artworkAlt || "";
@@ -85,7 +87,33 @@ var native=window.TalkTagNative;
     document.getElementById("lessonSummary").before(figure);
   }
   document.getElementById("lessonSummary").textContent = lesson.summary;
-  document.getElementById("infoLevel").textContent = "Learning guide · " + lesson.level;
+  if (lesson.format === "level0") {
+    var level0Summary = document.getElementById("lessonSummary");
+    level0Prompt = document.createElement("section");
+    level0Prompt.className = "level0-response";
+    level0Prompt.hidden = true;
+    var level0Heading = document.createElement("h2");
+    level0Heading.textContent = "Your turn";
+    var level0Question = document.createElement("p");
+    level0Question.textContent = lesson.tinyPrompt;
+    var translatedPrompts = window.TalkTagKoreanLevel0Prompts?.[lesson.id];
+    if (translatedPrompts && window.TalkTagKoreanSupport) {
+      var updateLevel0Prompt = function (language) {
+        var shown = translatedPrompts[language] ? language : "en";
+        level0Question.textContent = translatedPrompts[shown];
+        level0Question.lang = shown;
+      };
+      window.TalkTagKoreanSupport.subscribe(updateLevel0Prompt);
+      updateLevel0Prompt(window.TalkTagKoreanSupport.get());
+    }
+    var level0Action = document.createElement("button");
+    level0Action.type = "button";
+    level0Action.textContent = "I said it · Complete";
+    level0Action.addEventListener("click", function(){ if(completeButton.getAttribute("aria-pressed")!=="true") completeButton.click(); });
+    level0Prompt.append(level0Heading,level0Question,level0Action);
+    level0Summary.after(level0Prompt);
+  }
+  document.getElementById("infoLevel").textContent = lesson.format === "level0" ? "Start Here · Level 0 (TalkTag pre-A1)" : "Learning guide · " + lesson.level;
   document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
   document.getElementById("infoDuration").textContent = lesson.durationLong;
   document.getElementById("duration").textContent = lesson.durationLabel;
@@ -115,6 +143,12 @@ var native=window.TalkTagNative;
     var fields = document.querySelectorAll(".lesson-info dd");
     fields[2].textContent = "Sound Check · Guided Practice";
     fields[5].textContent = "문장별 " + lesson.training.defaultReps + "회 반복";
+    if (lesson.format === "level0") {
+      document.getElementById("playerHeaderMeta").textContent = "A0 · 001";
+      document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · GREETING";
+      document.getElementById("infoLocation").textContent = "One useful expression · café greeting";
+      fields[5].textContent = "One greeting · listen and say it 5 times";
+    }
     var drillStatus = document.createElement("div");
     drillStatus.className = "guided-drill-status";
     drillStatus.setAttribute("aria-live","off");
@@ -123,7 +157,7 @@ var native=window.TalkTagNative;
     function updateDrillStatus() {
       var time = audio.currentTime;
       var cue = lesson.training.cues.find(function (cue) { return cue.s <= time && time < cue.e; });
-      var label = cue ? "문장 " + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : " · 따라 말하기") : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · 문장별 " + lesson.training.defaultReps + "회 반복");
+      var label = cue ? (lesson.format === "level0" ? "Expression " : "문장 ") + (cue.i+1) + " / " + lesson.expressions.length + " · " + (lesson.format === "level0" ? "repeat " : "반복 ") + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? (lesson.format === "level0" ? " · listen" : " · 듣기") : (lesson.format === "level0" ? " · speak" : " · 따라 말하기")) : (lesson.format === "level0" ? (time >= lesson.training.endingCueStart ? "Five listens complete · ending ding" : "Starting ding · one expression · five repeats") : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · 문장별 " + lesson.training.defaultReps + "회 반복"));
       if (label !== lastDrillLabel) { drillStatus.textContent = label; lastDrillLabel = label; }
     }
     audio.addEventListener("timeupdate",updateDrillStatus);
@@ -211,6 +245,7 @@ var native=window.TalkTagNative;
     document.getElementById("wave").appendChild(bar);
   }
   var initial = readState();
+  if (level0Prompt) level0Prompt.hidden = !initial.listened;
   if (lesson.type === "plain" && lesson.boundaryDings && !initial.essayDingsMigrated) {
     if (initial.positionMode !== 'essay-variant') initial.position = initial.position > 0 ? Number(initial.position) + lesson.openingDingSeconds : 0;
     saveState({ position: initial.position, essayDingsMigrated: true });
@@ -260,7 +295,7 @@ var native=window.TalkTagNative;
     if (audio.currentTime > 0 && !audio.dataset.segmentSwitching) saveState({ position: audio.currentTime });
   });
   function finishGuidedCard() {
-    if (lesson.type !== "guided") return;
+    if (lesson.type !== "guided" || lesson.format === "level0") return;
     saveState({ completed: true, listened: true, listenedAt: new Date().toISOString(), position: 0 });
     if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, true, storageKey);
     updateCompletion(true);
@@ -274,6 +309,7 @@ var native=window.TalkTagNative;
   audio.addEventListener("ended", function () {
     if (!audio.loop) {
       saveState({ position: 0, listened: true, listenedAt: new Date().toISOString() });
+      if (level0Prompt) { level0Prompt.hidden = false; level0Prompt.scrollIntoView({behavior:"smooth",block:"center"}); }
       finishGuidedCard();
     }
   });

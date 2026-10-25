@@ -2,6 +2,28 @@
   "version": 1,
   "items": [
     {
+      "id": "level0:ko:001",
+      "language": "ko",
+      "title": "Korean Start Here · Level 0 · 001",
+      "href": "K-korean-audio-library.html?type=guided&level=A0",
+      "levels": [
+        "A0"
+      ],
+      "description": "See a real-life greeting, listen, repeat, then answer in Korean.",
+      "publishedAt": "2026-10-25T09:48:20.357Z"
+    },
+    {
+      "id": "level0:en:001",
+      "title": "English Start Here · Level 0 · 001",
+      "href": "audio-library.html?type=guided&level=A0",
+      "levels": [
+        "A0"
+      ],
+      "description": "그림을 보고 한 가지 인사를 듣고 말해 보세요.",
+      "language": "en",
+      "publishedAt": "2026-10-25T09:48:20.357Z"
+    },
+    {
       "id": "guided:011",
       "title": "Guided L&R · 011",
       "href": "audio-library.html?type=guided",

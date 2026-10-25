@@ -16,6 +16,8 @@ Before authoring, read the complete `TALKTAG_DRILLS_FRAMEWORK.md`, the assigned 
 
 The first encounter teaches **one expression at a time**. A card may revisit that expression through several short responses, but should not bury a new learner under an A1-length dialogue, a long reading passage, or multiple unintroduced expressions. Keep cards shorter and more supported than their A1 counterparts. Choose and measure the actual length, repetition count, and response gap under the relevant audio-track protocol before publication; this document does **not** silently change GLR, Vocal Camp, or Story Camp numeric rules. If a Level 0 audio format needs new numeric targets, approve and document them before producing it.
 
+**A0 GLR 001 pilot rule, approved 2026-10-25 for English and Korean only:** One spoken expression per card, five complete listen-and-repeat cycles, then one separate, short situation prompt for an independent spoken response. Preserve a decoded speaking gap after each model of at least `max(2.5 × spoken-voice duration, 3 seconds)` as required by Guided L&R. Use one opening and one closing TalkTag ding, measured cues, normal voice speed, and the normal resume/completion safeguards. The independent response prompt is not a sixth model repetition; present it on the card after the five cycles, with optional translation/pronunciation help that the learner can hide. Do not generalize these five repetitions to later A0 episodes or Japanese without a separately approved decision.
+
 ## Language-specific starting points
 
 | Course | First spoken situations | Optional visual / pronunciation support |
@@ -47,6 +49,7 @@ Allow learners to enter A1 without a mandatory alphabet or script exam. Offer Le
 - Check natural target-language wording, socially appropriate form, audience-appropriate translation, pronunciation help, and accessible text alternatives to the picture.
 - Verify support can be shown or hidden and is faded in later encounters; the learner can speak without passing a writing-system checkpoint.
 - Apply the relevant track's technical audio, cue, timing, QC, storage, versioning, completion, and publication rules. Do not infer numeric repetition or duration requirements from A1 without an explicit Level 0 decision.
+- A separate human listening check is optional, not a publication prerequisite. Keep mandatory technical QC and disclose honestly when no human listening or pronunciation review occurred.
 - Validate the learner-facing page at 360, 375, 390, and 430 CSS px, Bright/Dark, larger text, touch targets, safe areas, and desktop. Publish only complete, verified content; keep unfinished Level 0 navigation or cards local-only.
 
 This protocol establishes future authoring direction. It does not create Level 0 catalog entries, change existing A1–C2 cards, or turn on unfinished AI features.

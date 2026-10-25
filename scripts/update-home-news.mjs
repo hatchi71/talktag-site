@@ -7,11 +7,11 @@ const path='home-news-feed.json';
 function catalog(read){
  const c={window:{}};vm.createContext(c);
  const html=read('audio-library.html')||'';
- const scripts=[...html.matchAll(/src="([^"?]+)(?:\?[^" ]*)?"/g)].map(m=>m[1]).filter(x=>/^(audio-lessons|guided-[a-z-]+\d+|guided-miniskit-pilots|audio-essays(?:-\d+(?:-media)?)?)\.js$/.test(x));
+ const scripts=[...html.matchAll(/src="([^"?]+)(?:\?[^" ]*)?"/g)].map(m=>m[1]).filter(x=>/^(audio-lessons|level0-glr001|guided-[a-z-]+\d+|guided-miniskit-pilots|audio-essays(?:-\d+(?:-media)?)?)\.js$/.test(x));
  for(const f of [...scripts,'storycamp-manifest.js','vocalcamp-manifest.js']){const s=read(f);if(s)vm.runInContext(s,c,{timeout:1000});}
  const groups=new Map();
- for(const l of c.window.TalkTagAudioLessons||[]){if(l.available===false||!l.audio)continue;const number=String(l.number||l.unit||1).padStart(3,'0'),id=l.type+':'+number;
- if(!groups.has(id))groups.set(id,{id,title:(l.type==='guided'?'Guided L&R':'Audio Essays & Articles')+' · '+number,href:'audio-library.html?type='+l.type,levels:[],description:l.type==='guided'?'새 일상 표현을 듣고 따라 말해 보세요.':'새 이야기를 듣고 내 말로 다시 이야기해 보세요.'});
+ for(const l of c.window.TalkTagAudioLessons||[]){if(l.available===false||!l.audio)continue;const number=String(l.number||l.unit||1).padStart(3,'0'),isLevel0=l.format==='level0',id=isLevel0?'level0:en:'+number:l.type+':'+number;
+ if(!groups.has(id))groups.set(id,{id,title:isLevel0?'English Start Here · Level 0 · '+number:(l.type==='guided'?'Guided L&R':'Audio Essays & Articles')+' · '+number,href:'audio-library.html?type='+l.type+(isLevel0?'&level=A0':''),levels:[],description:isLevel0?'그림을 보고 한 가지 인사를 듣고 말해 보세요.':l.type==='guided'?'새 일상 표현을 듣고 따라 말해 보세요.':'새 이야기를 듣고 내 말로 다시 이야기해 보세요.'});
  const g=groups.get(id);if(!g.levels.includes(l.level))g.levels.push(l.level);
  }
  const story=c.window.TALKTAG_STORYCAMP_MANIFEST?.families||[],vocal=c.window.TALKTAG_VOCALCAMP_MANIFEST?.families||[];
@@ -40,6 +40,8 @@ function catalog(read){
   if(!groups.has(id))groups.set(id,{id,language,title:name+' '+track+' · '+number,href:language==='ko'?`K-korean-audio-library.html?type=${lesson.type}`:'japanese/J-guided.html?type=guided',levels:[],description:lesson.type==='plain'?'Listen, summarize, and retell an original audio essay.':language==='ko'?'Practice everyday Korean expressions, one line at a time.':'일본어의 새 일상 표현을 듣고 따라 말해 보세요.'});
   const group=groups.get(id);if(!group.levels.includes(lesson.level))group.levels.push(lesson.level);
  }
+ const level0=read('level0-glr001.js');
+ if(level0){const nativeLevel0={window:{TalkTagNative:{language:'ko'}}};vm.createContext(nativeLevel0);vm.runInContext(level0,nativeLevel0,{timeout:1000});for(const lesson of nativeLevel0.window.TalkTagAudioLessons||[]){if(lesson.available===false||!lesson.audio)continue;const number=String(lesson.unit||1).padStart(3,'0');groups.set('level0:ko:'+number,{id:'level0:ko:'+number,language:'ko',title:'Korean Start Here · Level 0 · '+number,href:'K-korean-audio-library.html?type=guided&level=A0',levels:['A0'],description:'See a real-life greeting, listen, repeat, then answer in Korean.'});}}
  return [...groups.values()];
 }
 const current=catalog(f=>fs.existsSync(f)?fs.readFileSync(f,'utf8'):null);

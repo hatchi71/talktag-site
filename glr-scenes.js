@@ -137,6 +137,7 @@
     const baseId = (id || '').replace(/-part\d+$/, '');
     const native = /^(?:ko|ja)-guided-(a1|a2|b1|b2|c1|c2)-001(?:-part\d+)?$/.exec(id || '');
     const lesson = (window.TalkTagAudioLessons || []).find(item => item.id === id);
+    if (lesson?.format === 'level0') return; // Level 0 uses one larger picture-led scene.
     const description = lesson?.scene || (native ? nativeScenes[native[1]] : scenes[baseId]);
     if (!title || !description || title.parentElement.classList.contains('glr-scene-title')) return;
     const header = document.createElement('div');

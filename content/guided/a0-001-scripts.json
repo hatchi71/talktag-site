@@ -1,0 +1,68 @@
+{
+  "series": "TalkTag Guided Listen & Repeat",
+  "pathway": "Start Here · Level 0",
+  "level": "A0",
+  "unit": "001",
+  "status": "script-approved-for-tts",
+  "productionDate": "2026-10-25",
+  "scope": "One original greeting expression per card; same learning sequence, language-specific source and support.",
+  "framework": "TALKTAG_DRILLS_FRAMEWORK.md",
+  "levelProtocol": "LEVEL_0_PRODUCTION_PROTOCOL.md",
+  "audioProtocol": "GUIDED_AUDIO_PROTOCOL.md plus approved A0 GLR 001 pilot rule in LEVEL_0_PRODUCTION_PROTOCOL.md: five cycles, >=max(2.5×voice,3s) gap, then separate on-card response prompt",
+  "cards": [
+    {
+      "id": "guided-a0-001",
+      "language": "en",
+      "audienceSupportLanguage": "ko",
+      "title": "Say Hello",
+      "titleKo": "처음 인사하기",
+      "situation": "An adult learner arrives at a neighborhood café and meets a staff member at the door.",
+      "physicalCue": "The customer and staff member smile and raise a hand in greeting.",
+      "targetExpression": "Hello!",
+      "supportMeaning": "안녕하세요!",
+      "picture": "assets/glr-scenes/en/a0-001-greeting-v1.jpg",
+      "pictureAlt": "A customer and café worker smile and greet each other at the entrance.",
+      "learnerInput": "Hear a natural adult English greeting while seeing the two people meet.",
+      "learnerOutput": "Say “Hello!” to the café worker, first after the model and then after the visual prompt alone.",
+      "tinyPrompt": "카페 직원이 웃으며 인사해요. 뭐라고 답할까요?",
+      "expectedResponse": "Hello!",
+      "optionalPronunciationSupport": "HEL-loh — keep the second syllable clear; do not draw out the word.",
+      "supportFade": ["picture + audio + optional Korean meaning", "picture + audio without meaning", "picture + short prompt without model"],
+      "a1BridgeSkill": "Greet someone with a supported response.",
+      "reference": {
+        "path": "English/0. English Reference/Readable A12B12 My Close Call.md",
+        "section": "PDF page 7: short, natural opening to a conversation; used for register and simplicity only",
+        "licenseStatus": "reference_only",
+        "publishedTextCopied": false
+      }
+    },
+    {
+      "id": "ko-guided-a0-001",
+      "language": "ko",
+      "audienceSupportLanguage": "en",
+      "title": "Say Hello in Korean",
+      "titleKo": "안녕하세요",
+      "situation": "An adult learner enters a small local café and meets an unfamiliar Korean staff member.",
+      "physicalCue": "The customer and staff member smile and exchange a gentle greeting at the door.",
+      "targetExpression": "안녕하세요.",
+      "supportMeaning": "Hello.",
+      "picture": "assets/glr-scenes/ko-a0-001-greeting-v1.jpg",
+      "pictureAlt": "A customer and café worker greet each other at the entrance of a neighborhood café.",
+      "learnerInput": "Hear a polite everyday Korean greeting while seeing the two adults meet.",
+      "learnerOutput": "Say “안녕하세요” to the staff member, first after the model and then after the visual prompt alone.",
+      "tinyPrompt": "A café worker smiles and greets you. What do you say?",
+      "expectedResponse": "안녕하세요.",
+      "optionalPronunciationSupport": "안녕-하세요 (annyeonghaseyo); listen to the complete spoken phrase before looking at the spelling.",
+      "register": "polite everyday greeting to an unfamiliar adult; not informal 안녕",
+      "supportFade": ["picture + audio + optional English meaning", "picture + audio without meaning", "picture + short prompt without model"],
+      "a1BridgeSkill": "Greet an unfamiliar adult politely with a supported response.",
+      "reference": {
+        "path": "Korean/0. Korean Reference/2. 기본생활.md",
+        "section": "PDF pages 3–4 and 7: beginner self-introduction and polite greeting setting; used for register and scenario only",
+        "licenseStatus": "reference_only",
+        "publishedTextCopied": false
+      },
+      "editorialGuide": "Korean/0. Korean Reference/0. TalkTag Korean Reference Book No 1.md: pre-A1, real-life strand"
+    }
+  ]
+}

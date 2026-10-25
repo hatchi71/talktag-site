@@ -23,6 +23,7 @@
   var retiredGuided = ["a1-head","a2-hair-01-03","a2-hair-04-06","a2-hair-10-12","b1-head-brain","b1-hair-13-15","b1-hair-16-17"];
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace("audio-library.html?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
   var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
+  if (lesson.format === "level0") document.body.classList.add("level0-player");
   var audio = window.TalkTagSegmented001?.forLesson(lesson) || audioElement;
   var isSegmentedEpisode = /^guided-(?:a1|a2|b1|b2|c1|c2)-(?:0[1-7]|(?:08|09|10)-miniskit(?:-pilot)?(?:-part[1-3])?)$/.test(lesson.id);
   var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type; });
@@ -31,6 +32,7 @@
   var nextLesson = lessons[lessonIndex + 1] || null;
   var storageKey = "talktag-audio:" + lesson.id;
   var pauseControl = null;
+  var level0Prompt = null;
   document.body.dataset.audioType = lesson.type;
 
   function appendList(targetId, items, speakers) {
@@ -76,7 +78,32 @@
     lessonSummary.replaceChildren(shadowingTitle, shadowingDescription);
   }
   if (lesson.training) lessonSummary.textContent = lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
-  document.getElementById("infoLevel").textContent = "CEFR " + lesson.level;
+  if (lesson.format === "level0") {
+    lessonSummary.textContent = "그림을 보고 인사를 5회 듣고 따라 하세요. 마지막에는 음성 없이 직접 답해 보세요.";
+    var level0Figure = document.createElement("figure");
+    level0Figure.className = "level0-scene";
+    var level0Image = document.createElement("img");
+    level0Image.src = lesson.artwork;
+    level0Image.alt = lesson.artworkAlt || "";
+    level0Image.width = 720;
+    level0Image.height = 480;
+    level0Figure.appendChild(level0Image);
+    lessonSummary.before(level0Figure);
+    level0Prompt = document.createElement("section");
+    level0Prompt.className = "level0-response";
+    level0Prompt.hidden = true;
+    var level0Heading = document.createElement("h2");
+    level0Heading.textContent = "이제 내 차례";
+    var level0Question = document.createElement("p");
+    level0Question.textContent = lesson.tinyPrompt;
+    var level0Action = document.createElement("button");
+    level0Action.type = "button";
+    level0Action.textContent = "말했어요 · 완료";
+    level0Action.addEventListener("click", function(){ if(completeButton.getAttribute("aria-pressed")!=="true") completeButton.click(); });
+    level0Prompt.append(level0Heading,level0Question,level0Action);
+    lessonSummary.after(level0Prompt);
+  }
+  document.getElementById("infoLevel").textContent = lesson.format === "level0" ? "Start Here · Level 0 (TalkTag pre-A1)" : "CEFR " + lesson.level;
   document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
   document.getElementById("infoDuration").textContent = lesson.durationLong;
   document.getElementById("duration").textContent = lesson.durationLabel;
@@ -105,6 +132,12 @@
     var fields = document.querySelectorAll(".lesson-info dd");
     fields[2].textContent = "Sound Check · Guided Practice";
     fields[5].textContent = (lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복";
+    if (lesson.format === "level0") {
+      document.getElementById("playerHeaderMeta").textContent = "A0 · 001";
+      document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · GREETING";
+      document.getElementById("infoLocation").textContent = "One useful expression · café greeting";
+      fields[5].textContent = "한 표현 · 5회 듣고 말하기";
+    }
     var drillStatus = document.createElement("div");
     drillStatus.className = "guided-drill-status";
     drillStatus.setAttribute("aria-live","off");
@@ -113,8 +146,8 @@
     function updateDrillStatus() {
       var time = audio.currentTime;
       var cue = lesson.training.cues.find(function (cue) { return cue.s <= time && time < cue.e; });
-      var unitLabel = lesson.format === "miniskit" ? "대사 " : "문장 ";
-      var label = cue ? unitLabel + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : (lesson.format === "miniskit" ? " · 내 차례" : " · 따라 말하기")) : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · " + (lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복");
+      var unitLabel = lesson.format === "level0" ? "표현 " : (lesson.format === "miniskit" ? "대사 " : "문장 ");
+      var label = cue ? unitLabel + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : (lesson.format === "miniskit" ? " · 내 차례" : " · 따라 말하기")) : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · " + (lesson.format === "level0" ? "한 표현 " : (lesson.format === "miniskit" ? "대사별 " : "문장별 ")) + lesson.training.defaultReps + "회 반복");
       if (label !== lastDrillLabel) { drillStatus.textContent = label; lastDrillLabel = label; }
     }
     audio.addEventListener("timeupdate",updateDrillStatus);
@@ -176,6 +209,7 @@
     document.getElementById("wave").appendChild(bar);
   }
   var initial = readState();
+  if (level0Prompt) level0Prompt.hidden = !initial.listened;
   if (lesson.type === "plain" && lesson.boundaryDings && !initial.essayDingsMigrated) {
     initial.position = initial.position > 0 ? Number(initial.position) + lesson.openingDingSeconds : 0;
     saveState({ position: initial.position, essayDingsMigrated: true });
@@ -234,7 +268,7 @@
     if (audio.currentTime > 0) saveState({ position: audio.currentTime });
   });
   function finishGuidedCard() {
-    if (lesson.type !== "guided") return;
+    if (lesson.type !== "guided" || lesson.format === "level0") return;
     saveState({ completed: true, listened: true, listenedAt: new Date().toISOString(), position: 0 });
     if (window.TalkTagCompletion) window.TalkTagCompletion.set("audio:" + lesson.id, true, storageKey);
     updateCompletion(true);
@@ -248,6 +282,7 @@
   audio.addEventListener("ended", function () {
     if (!audio.loop) {
       saveState({ position: 0, listened: true, listenedAt: new Date().toISOString() });
+      if (level0Prompt) { level0Prompt.hidden = false; level0Prompt.scrollIntoView({behavior:"smooth",block:"center"}); }
       finishGuidedCard();
     }
   });

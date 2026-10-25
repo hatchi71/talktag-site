@@ -20,4 +20,6 @@ Learner-facing pages must retain TalkTag visual consistency and pass mobile 360/
 
 Guided L&R ding update, approved 2026-10-09: each independently selectable audio card must contain its own start and ending dings, including split episode parts. This supersedes first-part/last-part-only dings. Preserve full sentence cycles, quality, bilingual synchronization and duration limits.
 
+Audio listening-check update, approved 2026-10-25: a separate human listening or pronunciation check is optional, not a universal publication gate. Run the required track-specific technical QC, alignment, timing, integrity, and public-playback checks; never claim human listening occurred if it did not. See `GUIDED_AUDIO_PROTOCOL.md` and `MINISKIT_AUDIO_PROTOCOL.md` for unresolved-defect handling.
+
 GLR update approved 2026-10-10: A1/A2 10 repetitions, B1/B2 15, C1/C2 21. New C1/C2 finished cards prefer under 15 minutes; existing longer C cards are exempt from the old 10/11-minute cap. A/B duration rules remain unchanged. Preserve scripts, dings and completed states when increasing only repetition counts; use revision-specific resume positions when audio timing changes.
