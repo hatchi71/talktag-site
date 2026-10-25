@@ -26,7 +26,7 @@
   const stageEnds = window.TalkTagBootCampStages.boundaries(sourceLesson.lines.length, 3);
   const lesson = {...sourceLesson, steps: stageEnds.map((end, index) => ({...sourceLesson.steps[end - 1], step:index + 1}))};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const REPEATS = /^A[12]$/.test(level) ? 10 : /^B[12]$/.test(level) ? 15 : 21;
+  const REPEATS = window.TalkTagBootCampStages.vocalRepetitions(level);
   const RATIOS = [2, 2.5, 3, 3.5];
   const stateKey = `talktag-japanese-vocalcamp:001:${level}:three-unit-v3`;
   const pauseKey = 'talktag-speaking-pause-multiplier';

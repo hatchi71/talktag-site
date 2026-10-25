@@ -79,9 +79,9 @@ assert.match(vocalPlayer,/const cuePlayer = audioPlayer/,'Vocal dings and speech
 assert.match(japaneseVocalPlayer,/const cuePlayer = player/,'Japanese Vocal dings and speech must share the same media element');
 assert.doesNotMatch(japaneseVocalPlayer,/if \(nextPhase === phase\) return/,'Japanese speaking-pause countdown must update within a phase');
 assert.match(japaneseVocalPlayer,/player\.ontimeupdate = \(\) => \{\s*if \(token !== runToken\) return;\s*recoverStall\(\)/,'Japanese playback must detect a stalled clock without relying on waiting events');
-assert.match(fs.readFileSync(new URL('vocalcamp-player.html',root),'utf8'),/vocalcamp-player-loader\.js\?v=20261025-bootcamp-002/,'Published Vocal page must request the repaired player loader');
+assert.match(fs.readFileSync(new URL('vocalcamp-player.html',root),'utf8'),/vocalcamp-player-loader\.js\?v=20261025-vocal-shorter-repeats/,'Published Vocal page must request the current player loader');
 const japaneseVocalCss=fs.readFileSync(new URL('japanese/J-vocalcamp-player.css',root),'utf8');
 assert.match(japaneseVocalCss,/\.j-vocal-script-list li\{display:block/,'Japanese reference lines must use the full card width');
 assert.match(fs.readFileSync(new URL('japanese/J-vocalcamp-player.html',root),'utf8'),/J-vocalcamp-player\.css\?v=20261024-reference-wrap-v1/,'Japanese Vocal page must refresh its reference CSS');
-assert.match(fs.readFileSync(new URL('japanese/J-vocalcamp-player.html',root),'utf8'),/J-vocalcamp-player\.js\?v=20261024-(?:countdown-watchdog|ja-korean-titles)-v1/,'Japanese Vocal page must load the countdown repair or a later revision');
+assert.match(fs.readFileSync(new URL('japanese/J-vocalcamp-player.html',root),'utf8'),/J-vocalcamp-player\.js\?v=20261025-vocal-shorter-repeats/,'Japanese Vocal page must load the countdown repair and current repeat policy');
 console.log(`Boot Camp 001 release structure: ${checked} level-language cards, five new scenes, aligned meanings, 3/5 authored beats and v3 audio manifests.`);

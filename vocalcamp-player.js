@@ -14,7 +14,7 @@
   const scriptLang = koreanLearning ? 'ko' : 'en';
   const meaningLang = koreanLearning ? 'en' : 'ko';
   const lines = unit.stageLines || unit.fullText || [];
-  const REPEAT_TARGET = /^A[12]$/.test(unit.level) ? 10 : /^B[12]$/.test(unit.level) ? 15 : 21;
+  const REPEAT_TARGET = window.TalkTagBootCampStages.vocalRepetitions(unit.level);
   const PAUSE_OPTIONS = [2, 2.5, 3, 3.5];
   const pauseKey = 'talktag-speaking-pause-multiplier';
   let silenceMultiplier = 2.5;
@@ -26,7 +26,8 @@
   try {
     const saved = JSON.parse(localStorage.getItem(key) || '{}');
     state.card = Number.isFinite(saved.card) ? saved.card : 0;
-    if (Array.isArray(saved.counts) && saved.counts.length === lines.length) state.counts = saved.counts.map(value => Math.max(0, Number(value) || 0));
+    if (Array.isArray(saved.counts) && saved.counts.length === lines.length)
+      state.counts = saved.counts.map(value => Math.min(REPEAT_TARGET, Math.max(0, Math.floor(Number(value) || 0))));
   } catch (_) {}
 
   const esc = value => String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));

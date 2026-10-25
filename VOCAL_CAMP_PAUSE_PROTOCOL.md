@@ -2,6 +2,10 @@
 
 Approved 2026-10-17. Applies to English, Korean, and Japanese Vocal Camp.
 
+## Repetition targets (updated 2026-10-25)
+
+For every English, Korean, and Japanese Vocal Camp cumulative stage, repeat the complete passage A1/A2 **10** times, B1/B2 **12** times, and C1/C2 **15** times. These shorter targets supersede the earlier B=15/C=21 Vocal Camp targets because the full cards took too long to finish. They do not change Guided L&R or Story Camp. Preserve previously completed stages and clamp saved counts above the new target to that target; do not reset learner progress or regenerate the one-round source audio solely for this policy change.
+
 - Play each complete cumulative passage before the learner's speaking pause: line 1; then lines 1–2; then lines 1–3; and so on.
 - Keep only natural short spacing inside a passage (target 0.35 seconds; preserve existing source tails and leads).
 - After the final line, leave `max(3 seconds, complete passage duration × selected multiplier)` of silence. Passage duration runs from the first speech onset to the final speech offset, including natural internal spacing.

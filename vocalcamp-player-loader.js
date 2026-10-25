@@ -59,7 +59,7 @@
         }
       }];
       const engine = document.createElement('script');
-      engine.src = 'vocalcamp-player.js?v=20261025-bootcamp-002';
+      engine.src = 'vocalcamp-player.js?v=20261025-vocal-shorter-repeats';
       document.head.appendChild(engine);
     };
     script.onerror = () => { app.textContent = korean ? 'Could not load this lesson.' : '자료를 불러오지 못했습니다.'; };
