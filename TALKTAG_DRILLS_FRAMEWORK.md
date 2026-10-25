@@ -13,6 +13,14 @@ The framework has four areas:
 | **Readable** | Expand understanding through practical and increasingly challenging reading. |
 | **Discussion** | Use language to exchange ideas, explain perspectives, and respond to others. |
 
+## Start Here · Level 0 — shared entry to all three languages
+
+Level 0 is TalkTag's supported starting pathway **before A1**, available for English, Japanese, and Korean. It uses the same learning structure in each course while choosing useful, language-specific first expressions and audience-appropriate translation support. Its promise is: **“Start from zero. Say something useful today.”** Level 0 is a TalkTag product label, not a claim that CEFR defines a level below A1.
+
+Begin with a concrete person, object, action, or place shown in a clear picture. Teach **one useful expression at a time**: listen, repeat, then respond to a tiny real-life prompt. Keep the encounter shorter, slower, and more supported than A1; use natural speech rather than mechanically slowed or distorted audio. Offer optional meaning and pronunciation help, then gradually remove prompts and written aids as confidence grows. Let sound and speaking develop alongside writing-system recognition; finishing an alphabet or script is never a condition for speaking.
+
+The bridge to A1 is practical, not a reading-system test: with some support, the learner can greet someone, introduce themself, express a basic need, and ask for repetition. A1 then widens situations, sentence range, and independence. Follow `LEVEL_0_PRODUCTION_PROTOCOL.md` for authoring and release details. This addition does not alter existing A1–C2 card counts, audio rules, or published content.
+
 ## 1. Sound Check
 
 Sound Check develops the foundations of listening and spoken expression, from short language chunks to complete audio passages.
