@@ -15,10 +15,7 @@ function add(track, id, source, english, translations={}) {
       !source.length || source.some(line=>!String(line).trim()) || english.some(line=>!String(line).trim())) {
     throw Error(`${track} ${id}: source/English line alignment failed`);
   }
-  const replacement001=/^(family|story)-001-(A1|A2|B1|B2|C1|C2)$/u.test(id) && ['Vocal','Story'].includes(track);
-  // Retired 001 translations must never be counted or displayed for the new
-  // short story, even where both stories happen to have the same line count.
-  const record=replacement001 ? undefined : window.TalkTagKoreanTranslations?.[id];
+  const record=window.TalkTagKoreanTranslations?.[id];
   if (record && (!Array.isArray(record.source) || record.source.length!==source.length ||
       record.source.some((line,index)=>line!==source[index]))) {
     throw Error(`${track} ${id}: published Korean source changed; translation invalid`);
@@ -28,7 +25,7 @@ function add(track, id, source, english, translations={}) {
   }
   const ready=[];
   for (const code of ['vi','ne','km','my','th','ja']) {
-    const list=replacement001 ? undefined : code==='ja' ? window.TalkTagKoreanJapanese?.[id] : record?.translations?.[code] || translations[code];
+    const list=(code==='ja' ? window.TalkTagKoreanJapanese?.[id] : undefined) || record?.translations?.[code] || translations[code];
     if (!list) continue;
     if (!Array.isArray(list) || list.length !== source.length || list.some(line=>!String(line).trim())) {
       throw Error(`${track} ${id}: ${code} line alignment failed`);
@@ -37,7 +34,7 @@ function add(track, id, source, english, translations={}) {
       if(!nativeScript[code].test(line)) throw Error(`${track} ${id}: ${code} line ${index+1} has no target-language script`);
       if(source[index].includes('___') && !line.includes('___')) throw Error(`${track} ${id}: ${code} line ${index+1} lost practice placeholder`);
     }
-    if (record && code!=='ja' && !['reviewed','ai-reviewed'].includes(record.review?.[code]?.status)) {
+    if (record?.translations?.[code] && !['reviewed','ai-reviewed'].includes(record.review?.[code]?.status)) {
       throw Error(`${track} ${id}: ${code} has no valid review status`);
     }
     ready.push(code);
@@ -48,6 +45,8 @@ function add(track, id, source, english, translations={}) {
 load('native-guided-data.js');
 load('native-guided-ko-002.js');
 load('native-guided-ko-003.js');
+load('native-guided-ko-004-a1.js');
+load('native-guided-ko-005-010.js');
 load('native-guided-ko-splits.js');
 load('native-audio-korean-aea-001.js');
 load('native-audio-korean-aea-002.js');
@@ -66,6 +65,10 @@ load('korean-support-manual-glr-003-c.js');
 load('korean-support-japanese-glr.js');
 load('korean-support-japanese-essays.js');
 load('korean-support-japanese-starter.js');
+load('korean-support-glr-004-010.js');
+load('korean-support-vocal-001.js');
+load('korean-support-story-001.js');
+load('korean-support-readable-001.js');
 for (const lesson of window.TalkTagNativeCatalogs.ko.filter(item=>item.available!==false)) {
   add(lesson.type==='guided'?'GLR':'Essays',lesson.id,lesson.expressions,lesson.meanings,window.TalkTagKoreanGlr001Translations?.[lesson.id]);
 }
@@ -75,7 +78,7 @@ for (const family of window.TALKTAG_VOCALCAMP_KOREAN.families.filter(item=>item.
 }
 load('content/storycamp-korean/001.js');
 for (const family of window.TALKTAG_STORYCAMP_KOREAN.families.filter(item=>item.status==='published')) {
-  for (const [level,data] of Object.entries(family.levels)) add('Story',`story-${family.number}-${level}`,data.lines,data.meanings);
+  for (const [level,data] of Object.entries(family.levels)) add('Story',`story-${family.number}-v3-${level}`,data.lines,data.meanings);
 }
 load('korean-starter-data.js');
 for (const lesson of window.TalkTagKoreanStarters.filter(item=>item.published)) {
@@ -84,6 +87,10 @@ for (const lesson of window.TalkTagKoreanStarters.filter(item=>item.published)) 
     add('Starter',`${lesson.id}:step-${index}`,[source],[meaning]);
   }
 }
+load('content/readable/korean-001.js');
+for (const chapter of (window.TalkTagKoreanReadable||[]).filter(item=>item.status==='published')) {
+  add('Readable',chapter.id,chapter.paragraphs.map(paragraph=>paragraph.ko),chapter.paragraphs.map(paragraph=>paragraph.en));
+}
 const tracks=[...new Set(cards.map(card=>card.track))];
 for (const track of tracks) {
   const subset=cards.filter(card=>card.track===track);
@@ -91,9 +98,12 @@ for (const track of tracks) {
 }
 const pending=cards.filter(card=>card.ready.length<6);
 console.log(`Total: ${cards.length} card units; ${pending.length} still need complete non-English translation.`);
-load('content/readable/korean-001.js');
-const koreanReadable=(window.TalkTagKoreanReadable||[]).filter(chapter=>chapter.status==='published');
-console.log(`Readable: ${koreanReadable.length} published chapters; ${koreanReadable.filter(chapter=>!window.TalkTagKoreanTranslations?.[chapter.id]).length} with additional support languages explicitly pending.`);
-const unfinishedOutsideReplacement=pending.filter(card=>!['Vocal','Story'].includes(card.track) || !/^(family|story)-001-/u.test(card.id));
-if (unfinishedOutsideReplacement.length) throw Error(`Incomplete support-language coverage: ${unfinishedOutsideReplacement.map(card=>card.id).join(', ')}`);
-if (pending.length) console.log('New Boot Camp 001 support translations are explicitly pending; English meanings remain available, and retired-story translations are excluded.');
+if (pending.length) throw Error(`Incomplete support-language coverage: ${pending.map(card=>card.id).join(', ')}`);
+for (const [page,script] of [
+  ['K-korean-audio-player.html','korean-support-glr-004-010.js'],
+  ['vocalcamp-player.html','korean-support-vocal-001.js'],
+  ['storycamp-reader.html','korean-support-story-001.js'],
+  ['K-korean-readable-chapter.html','korean-support-readable-001.js']
+]) {
+  if (!readFileSync(resolve(root,page),'utf8').includes(script)) throw Error(`${page}: support-language script is not loaded`);
+}
