@@ -79,7 +79,7 @@
   }
   if (lesson.training) lessonSummary.textContent = lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
   if (lesson.format === "level0") {
-    lessonSummary.textContent = "그림을 보고 인사를 5회 듣고 따라 하세요. 마지막에는 음성 없이 직접 답해 보세요.";
+    lessonSummary.textContent = "그림을 보고 한 가지 표현을 " + lesson.training.defaultReps + "회 듣고 따라 하세요. 마지막에는 음성 없이 직접 답해 보세요.";
     var level0Figure = document.createElement("figure");
     level0Figure.className = "level0-scene";
     var level0Image = document.createElement("img");
@@ -133,10 +133,10 @@
     fields[2].textContent = "Sound Check · Guided Practice";
     fields[5].textContent = (lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복";
     if (lesson.format === "level0") {
-      document.getElementById("playerHeaderMeta").textContent = "A0 · 001";
-      document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · GREETING";
-      document.getElementById("infoLocation").textContent = "One useful expression · café greeting";
-      fields[5].textContent = "한 표현 · 5회 듣고 말하기";
+      document.getElementById("playerHeaderMeta").textContent = "A0 · " + String(lesson.unit).padStart(3,"0");
+      document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · ONE EXPRESSION";
+      document.getElementById("infoLocation").textContent = "한 가지 유용한 표현 · " + String(lesson.unit).padStart(3,"0");
+      fields[5].textContent = "한 표현 · " + lesson.training.defaultReps + "회 듣고 말하기";
     }
     var drillStatus = document.createElement("div");
     drillStatus.className = "guided-drill-status";

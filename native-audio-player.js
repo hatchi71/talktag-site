@@ -144,10 +144,10 @@ var native=window.TalkTagNative;
     fields[2].textContent = "Sound Check · Guided Practice";
     fields[5].textContent = "문장별 " + lesson.training.defaultReps + "회 반복";
     if (lesson.format === "level0") {
-      document.getElementById("playerHeaderMeta").textContent = "A0 · 001";
-      document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · GREETING";
-      document.getElementById("infoLocation").textContent = "One useful expression · café greeting";
-      fields[5].textContent = "One greeting · listen and say it 5 times";
+      document.getElementById("playerHeaderMeta").textContent = "A0 · " + String(lesson.unit).padStart(3,"0");
+      document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · ONE EXPRESSION";
+      document.getElementById("infoLocation").textContent = "One useful expression · " + String(lesson.unit).padStart(3,"0");
+      fields[5].textContent = "One expression · listen and say it " + lesson.training.defaultReps + " times";
     }
     var drillStatus = document.createElement("div");
     drillStatus.className = "guided-drill-status";

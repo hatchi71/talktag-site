@@ -31,5 +31,5 @@
     </ul>
     <p>완벽하게 따라 하려고 서두르지 않아도 됩니다. 먼저 소리에, 다음에는 강세와 리듬에, 그다음에는 의미에 집중해 보세요.</p>
     <p><strong>한 번으로 끝내지 말고, 같은 카드를 여러 번 연습해 보세요.</strong> 반복할 때마다 조금 더 편하게, 스크립트에 덜 의존하며 말하는 것을 목표로 해 보세요.</p>`;
-  document.querySelector('#guidedProgressSummary, .filter-bar')?.before(section);
+  document.querySelector('.filter-bar')?.after(section);
 })();

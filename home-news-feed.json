@@ -2,6 +2,28 @@
   "version": 1,
   "items": [
     {
+      "id": "level0:ko:002-010",
+      "language": "ko",
+      "title": "Korean Start Here · Level 0 · 002–010",
+      "href": "K-korean-audio-library.html?type=guided&level=A0",
+      "levels": [
+        "A0"
+      ],
+      "description": "Nine short picture-led expressions to hear, repeat, and use in Korean.",
+      "publishedAt": "2026-10-25T12:01:52.563Z"
+    },
+    {
+      "id": "level0:en:002-010",
+      "title": "English Start Here · Level 0 · 002–010",
+      "href": "audio-library.html?type=guided&level=A0",
+      "levels": [
+        "A0"
+      ],
+      "description": "Nine short picture-led expressions to hear, repeat, and use today.",
+      "language": "en",
+      "publishedAt": "2026-10-25T12:01:52.563Z"
+    },
+    {
       "id": "level0:ko:001",
       "language": "ko",
       "title": "Korean Start Here · Level 0 · 001",

@@ -14,12 +14,13 @@ if(cefrGuide)cefrGuide.hidden=Boolean(level);
 document.title=name+(level?" · "+level:"")+" · TalkTag";
 document.getElementById("libraryEyebrow").textContent="사운드 체크 · 영어";
 document.getElementById("libraryTitle").textContent=name+(level?" · "+(level==="A0"?"Start Here · Level 0":level):"");
-document.getElementById("libraryDescription").textContent=level?(type==="guided"?(level==="A0"?"그림을 보며 한 가지 인사를 5회 듣고 말한 뒤 직접 답해 보세요.":"문장별 " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + "회 반복 · 듣고 따라하세요."):"듣고, 노트에 정리한 뒤 내 말로 이야기하세요."):"훈련할 레벨을 선택하세요.";
+document.getElementById("libraryDescription").textContent=level?(type==="guided"?(level==="A0"?"그림을 보며 한 가지 유용한 표현을 5회 듣고 말한 뒤 직접 답해 보세요.":"문장별 " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + "회 반복 · 듣고 따라하세요."):"듣고, 노트에 정리한 뒤 내 말로 이야기하세요."):(type==="guided"?"짧은 소리부터 듣고 따라 말하며, 내 말로 꺼내 보세요.":"훈련할 레벨을 선택하세요.");
 document.querySelector(".type-switch").hidden=true;
 document.getElementById("essayGuide").hidden=type!=="plain"||Boolean(level);
 if(type==="plain")document.querySelector(".filter-bar").before(document.getElementById("essayGuide"));
 document.getElementById("audioMissionScope").textContent=name;
 document.querySelector(".filter-bar").hidden=Boolean(level);
+if(type==="guided")document.querySelector(".filter-bar").classList.add("tt-guided-levels");
 document.querySelector('.filter-bar [data-level="A0"]').hidden=type!=="guided";
 document.querySelectorAll("[data-level]").forEach(a=>a.href="audio-library.html?type="+type+"&level="+a.dataset.level);
 if(level){var change=document.createElement("a");change.className="audio-change-level";change.href="audio-library.html?type="+type;change.textContent="← 레벨 선택";document.querySelector(".catalog-head").append(change);}
@@ -29,8 +30,8 @@ function url(l){return (l.available===false?"audio-essay-preview.html":"audio-pl
 function number(l){var base=String(l.unit||catalog.filter(x=>x.level===l.level).indexOf(l)+1).padStart(2,"0");return (l.pilot?base+"P":base)+(l.partIndex?"–"+String(l.partIndex).padStart(2,"0"):"");}
 function render(){
 var summary=document.getElementById("guidedProgressSummary");
-if(!summary){summary=document.createElement("p");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
-if(summary){summary.hidden=Boolean(level);summary.textContent=name+" · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;}
+if(!summary){summary=document.createElement("div");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
+if(summary){summary.hidden=Boolean(level);summary.innerHTML=type==="guided"?'<h2>레벨을 선택하세요</h2><span>완료 '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>':name+" · 완료 "+catalog.filter(done).length+"/"+catalog.filter(l=>l.available!==false).length;}
 document.querySelectorAll(".filter-bar [data-level]").forEach(a=>{
 var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
 var count=lessons.filter(done).length;
@@ -44,9 +45,9 @@ list.hidden=!level;
 list.innerHTML=!level?"":active.map(function(l){
 var meta=l.format==='level0'?'Start Here · '+l.training.defaultReps+'회 듣고 말하기':(l.format==='miniskit'?'MiniSkit · 대사별 '+l.training.defaultReps+'회':(type==="guided"?'문장별 '+l.training.defaultReps+'회 반복':(l.available===false?'스크립트 미리보기':'Listen · Summarize · Retell')));
 var pilotLabel=l.pilot?'<small class="pilot-card-label">MINISKIT PILOT</small>':'';
-return '<article class="lesson-card '+(l.pilot?'is-miniskit-pilot':'')+'" '+(l.available===false?'data-content-draft="true"':'data-completion-manual-only="true"')+' data-completion-id="audio:'+esc(l.id)+'" data-completion-legacy-key="talktag-audio:'+esc(l.id)+'"><a class="audio-lesson-open'+((type==='plain'||l.format==='level0')&&l.artwork?' has-essay-artwork':'')+'" href="'+url(l)+'"><span class="audio-lesson-number">'+number(l)+'</span><div class="lesson-copy">'+pilotLabel+'<h2>'+esc(l.title)+'</h2><p>'+esc(l.description)+'</p><div class="lesson-meta"><span>'+esc(l.durationLabel)+'</span><span>'+meta+'</span></div></div>'+((type==='plain'||l.format==='level0')&&l.artwork?'<img class="essay-cover-thumb" src="'+esc(l.artwork)+'" alt="'+esc(l.artworkAlt)+'" width="720" height="480" loading="lazy">':'')+'<span class="audio-lesson-arrow" aria-hidden="true">↗</span></a><div class="lesson-card-actions" data-completion-actions></div></article>';
+return '<article class="lesson-card '+(l.pilot?'is-miniskit-pilot':'')+'" '+(l.available===false?'data-content-draft="true"':'data-completion-manual-only="true"')+' data-completion-id="audio:'+esc(l.id)+'" data-completion-legacy-key="talktag-audio:'+esc(l.id)+'"><a class="audio-lesson-open'+((type==='plain'||l.format==='level0')&&l.artwork?' has-essay-artwork':'')+'" href="'+url(l)+'"><span class="audio-lesson-number">'+number(l)+'</span><div class="lesson-copy">'+pilotLabel+'<h2>'+esc(l.title)+'</h2><p>'+esc(l.description)+'</p><div class="lesson-meta"><span>'+esc(l.durationLabel)+'</span><span>'+meta+'</span></div></div>'+((type==='plain'||l.format==='level0')&&l.artwork?'<img class="essay-cover-thumb" src="'+esc(l.artwork)+'" alt="'+esc(l.artworkAlt)+'" width="720" height="480" loading="lazy">':'')+'<span class="audio-lesson-arrow" aria-hidden="true">↗</span></a><div class="lesson-card-actions" data-completion-actions><a class="audio-start-button" href="'+url(l)+'" aria-label="'+(l.available===false?'Preview ':'Start ')+esc(l.title)+'">'+(l.available===false?'PREVIEW':'START')+' <span aria-hidden="true">→</span></a></div></article>';
 }).join("")||(level?'<p class="audio-empty">'+(catalog.some(l=>l.level===level)?'이 레벨의 미션을 모두 완료했습니다. 아래에서 다시 열거나 완료를 취소할 수 있습니다.':'새로운 음원을 준비하고 있습니다.')+'</p>':"");
-list.querySelectorAll('[data-content-draft]').forEach(card=>{card.removeAttribute('data-completion-id');card.removeAttribute('data-completion-legacy-key');var actions=card.querySelector('[data-completion-actions]');if(actions)actions.remove();});
+list.querySelectorAll('[data-content-draft]').forEach(card=>{card.removeAttribute('data-completion-id');card.removeAttribute('data-completion-legacy-key');});
 window.TalkTagCompletion.mount(list);
 var completed=catalog.filter(done);
 document.getElementById("audioMissionCount").textContent=String(completed.length);

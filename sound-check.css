@@ -38,7 +38,12 @@ body[data-audio-type] .lesson-copy p{font-size:15px;line-height:1.6;margin:0 0 1
 body[data-audio-type] .lesson-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--tt-muted)}
 body[data-audio-type] .lesson-meta span{background:none;padding:0;border:0}
 body[data-audio-type] .audio-lesson-arrow{font-size:20px;color:var(--tt-muted)}
-body[data-audio-type] .lesson-card-actions{display:flex;justify-content:end;padding:0 20px 16px;min-width:0}
+body[data-audio-type] .lesson-card.tt-completion-card>.audio-lesson-open{height:auto}
+body[data-audio-type] .lesson-card-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px 16px;min-width:0}
+body[data-audio-type] .audio-start-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:112px;min-height:44px;padding:0 18px;border:1px solid var(--tt-accent);border-radius:12px;background:var(--tt-accent);color:#fff;text-decoration:none;font:800 14px/1.2 Inter,"Noto Sans KR",system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 5px 14px color-mix(in srgb,var(--tt-accent) 18%,transparent);transition:transform .16s,box-shadow .16s}
+body[data-audio-type] .audio-start-button:hover{transform:translateY(-1px);box-shadow:0 8px 17px color-mix(in srgb,var(--tt-accent) 25%,transparent)}
+body[data-audio-type] .audio-start-button span{font-size:17px;line-height:1}
+html[data-appearance=dark] body[data-audio-type] .audio-start-button{border-color:#4d9af5;background:#2165c9;color:#fff;box-shadow:0 5px 14px #0004}
 body[data-audio-type] .tt-completion-button{min-height:44px;min-width:64px;padding:0 16px;border-radius:12px;background:var(--tt-raised);color:var(--tt-text);box-shadow:none;font-size:14px}
 .audio-missions{margin:28px 0 20px;border:1px solid var(--tt-border);border-radius:18px;background:var(--tt-card);overflow:hidden}
 .audio-missions-toggle{width:100%;min-height:64px;display:flex;gap:12px;align-items:center;text-align:left;padding:12px 18px;border:0;background:transparent;color:var(--tt-text);font:700 16px system-ui;cursor:pointer}

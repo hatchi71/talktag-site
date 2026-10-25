@@ -8,6 +8,7 @@
     [code, {status: 'ai-reviewed', reviewedAt}]));
   (window.TalkTagKoreanTranslations ||= Object.create(null))[id] = {
     source: ['안녕하세요.'],
+    sourceHash: '8b118d6741f7cfa1a7ee246d0dda39f2f00bf9fd207b4e6c7fad87a15434a513',
     translations: {
       vi: ['Xin chào.'],
       ne: ['नमस्ते।'],

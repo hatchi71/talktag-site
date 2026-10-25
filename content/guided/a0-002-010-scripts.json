@@ -1,0 +1,281 @@
+{
+  "series": "TalkTag Guided Listen & Repeat",
+  "pathway": "Start Here · Level 0",
+  "level": "A0",
+  "track": "Sound Check · GLR",
+  "status": "script-draft; five-repeat audio format approved for English and Korean 002–010; audio not yet generated",
+  "framework": "TALKTAG_DRILLS_FRAMEWORK.md",
+  "levelProtocol": "LEVEL_0_PRODUCTION_PROTOCOL.md",
+  "referenceUse": "Topic, register, and short-turn calibration only. All prompts, scene descriptions, and support text are original. Private Markdown references are not included in the public site.",
+  "englishReference": {
+    "path": "English/0. English Reference/SC BC A2B12C12 The King's Speech.md",
+    "section": "PDF pages 1–2: brief conversational turns, attention, thanks, and requests for clarification; historical wording and setting are not reused",
+    "rights": "reference_only"
+  },
+  "koreanReferences": [
+    {
+      "path": "Korean/0. Korean Reference/2. 기본생활.md",
+      "section": "PDF pages 1–4: first encounters and self-introduction; no sample dialogue reused",
+      "rights": "reference_only"
+    },
+    {
+      "path": "Korean/0. Korean Reference/12.-Essential-Korean-Phrases-author-Meridian-Linguistics.md",
+      "section": "PDF pages 1–6: everyday communicative functions, public politeness, and practical requests; no distinctive example sequence reused",
+      "rights": "reference_only"
+    }
+  ],
+  "episodePairs": [
+    {
+      "unit": "002",
+      "skill": "Introduce yourself by name",
+      "scene": "Two adults meet at a neighborhood language exchange; one points gently to themself.",
+      "pictureBrief": "Two adults meeting, one hand lightly on their own chest, calm friendly eye contact; no written words or speech bubbles.",
+      "picture": "assets/glr-scenes/level0/a0-002-introduce-v1.jpg",
+      "pictureAlt": "At a language exchange, one adult touches his chest as he tells another person his name.",
+      "en": {
+        "id": "guided-a0-002",
+        "titleKo": "이름 말하기",
+        "target": "I'm Alex.",
+        "meaning": "저는 알렉스예요.",
+        "prompt": "처음 만난 사람에게 자기 이름을 말해 보세요. 알렉스 대신 내 이름을 넣어요.",
+        "expected": "I'm [your name].",
+        "pronunciation": "I'm sounds like one short beat; say your name clearly."
+      },
+      "ko": {
+        "id": "ko-guided-a0-002",
+        "title": "Say Your Name",
+        "target": "저는 알렉스예요.",
+        "meaning": "I'm Alex.",
+        "prompt": "You meet someone new. Say your own name instead of Alex.",
+        "expected": "저는 [이름]이에요/예요.",
+        "pronunciation": "저는 / 알렉스예요; listen to how the name joins 예요.",
+        "register": "polite everyday self-introduction to an unfamiliar adult"
+      },
+      "metaTransfer": "Replace only the name; keep a natural introduction."
+    },
+    {
+      "unit": "003",
+      "skill": "Thank someone",
+      "scene": "A café worker hands the learner a cup of water.",
+      "pictureBrief": "A server gently handing a glass of water to an adult customer; both visible; no text.",
+      "picture": "assets/glr-scenes/level0/a0-003-thanks-v1.jpg",
+      "pictureAlt": "A café worker gives a customer a glass of water and he smiles in thanks.",
+      "en": {
+        "id": "guided-a0-003",
+        "titleKo": "고맙다고 말하기",
+        "target": "Thank you.",
+        "meaning": "감사합니다.",
+        "prompt": "직원이 물을 건네줬어요. 뭐라고 말할까요?",
+        "expected": "Thank you.",
+        "pronunciation": "TH sounds with the tongue near the teeth; keep both words connected."
+      },
+      "ko": {
+        "id": "ko-guided-a0-003",
+        "title": "Say Thank You",
+        "target": "감사합니다.",
+        "meaning": "Thank you.",
+        "prompt": "A café worker gives you a glass of water. Thank them.",
+        "expected": "감사합니다.",
+        "pronunciation": "감사합니다 (gamsahamnida); listen for the natural flow of 합니다.",
+        "register": "polite thanks to an unfamiliar adult"
+      },
+      "metaTransfer": "Use the same phrase when a stranger helps in a different place."
+    },
+    {
+      "unit": "004",
+      "skill": "Get someone's attention politely",
+      "scene": "At a small café counter, the learner needs to call a staff member who is nearby.",
+      "pictureBrief": "An adult customer raising a small open hand at a café counter toward a nearby staff member; no text.",
+      "picture": "assets/glr-scenes/level0/a0-004-attention-v1.jpg",
+      "pictureAlt": "A customer raises his hand to get a café worker's attention.",
+      "en": {
+        "id": "guided-a0-004",
+        "titleKo": "직원 부르기",
+        "target": "Excuse me.",
+        "meaning": "저기요.",
+        "prompt": "카페 직원에게 말을 걸고 싶어요. 먼저 어떻게 부를까요?",
+        "expected": "Excuse me.",
+        "pronunciation": "ex-CUSE me; the middle part is stressed."
+      },
+      "ko": {
+        "id": "ko-guided-a0-004",
+        "title": "Get Attention",
+        "target": "저기요.",
+        "meaning": "Excuse me.",
+        "prompt": "You want to get a café worker's attention. What do you say?",
+        "expected": "저기요.",
+        "pronunciation": "저기요 (jeogiyo); keep the ending gentle rather than shouting.",
+        "register": "everyday call for service, not an apology"
+      },
+      "metaTransfer": "Use an attention-getter before making a request."
+    },
+    {
+      "unit": "005",
+      "skill": "Decline an offer politely",
+      "scene": "A staff member offers another drink, and the learner already has enough.",
+      "pictureBrief": "An adult customer smiling and gently shaking their head as a server offers another drink; no text.",
+      "picture": "assets/glr-scenes/level0/a0-005-decline-v1.jpg",
+      "pictureAlt": "A customer gently raises his hand to decline another drink from a server.",
+      "en": {
+        "id": "guided-a0-005",
+        "titleKo": "정중하게 사양하기",
+        "target": "No, thank you.",
+        "meaning": "아니요, 괜찮아요.",
+        "prompt": "직원이 음료를 더 주겠다고 해요. 필요 없을 때 정중하게 답해 보세요.",
+        "expected": "No, thank you.",
+        "pronunciation": "Pause lightly after No; keep thank you warm."
+      },
+      "ko": {
+        "id": "ko-guided-a0-005",
+        "title": "Decline Politely",
+        "target": "아니요, 괜찮아요.",
+        "meaning": "No, thank you.",
+        "prompt": "Someone offers you another drink, but you don't need one. Reply politely.",
+        "expected": "아니요, 괜찮아요.",
+        "pronunciation": "아니요 / 괜찮아요; listen for the connected sound in 괜찮아요.",
+        "register": "polite everyday decline to an unfamiliar adult"
+      },
+      "metaTransfer": "Decline without sounding angry or abrupt."
+    },
+    {
+      "unit": "006",
+      "skill": "Ask for water",
+      "scene": "The learner sits at a café table and needs drinking water.",
+      "pictureBrief": "An adult customer at a café table indicating an empty water glass while talking to a server; no text.",
+      "picture": "assets/glr-scenes/level0/a0-006-water-v1.jpg",
+      "pictureAlt": "A customer points to an empty glass while asking a café worker for water.",
+      "en": {
+        "id": "guided-a0-006",
+        "titleKo": "물 부탁하기",
+        "target": "Can I have some water, please?",
+        "meaning": "물 좀 주시겠어요?",
+        "prompt": "빈 물잔이 있어요. 직원에게 물을 부탁해 보세요.",
+        "expected": "Can I have some water, please?",
+        "pronunciation": "Can I links together; keep the request gentle."
+      },
+      "ko": {
+        "id": "ko-guided-a0-006",
+        "title": "Ask for Water",
+        "target": "물 좀 주세요.",
+        "meaning": "Could I have some water, please?",
+        "prompt": "Your glass is empty. Ask a café worker for water.",
+        "expected": "물 좀 주세요.",
+        "pronunciation": "물 좀 / 주세요; say the whole request smoothly.",
+        "register": "polite everyday request to café staff"
+      },
+      "metaTransfer": "Ask for a needed object without adding a grammar explanation first."
+    },
+    {
+      "unit": "007",
+      "skill": "Ask for repetition",
+      "scene": "At a station desk, a staff member speaks and the learner cannot hear clearly.",
+      "pictureBrief": "An adult learner leaning slightly toward a station information clerk, one hand gently cupped near an ear; no text.",
+      "picture": "assets/glr-scenes/level0/a0-007-repeat-v1.jpg",
+      "pictureAlt": "A traveler cups his hand near his ear and asks a station clerk to repeat herself.",
+      "en": {
+        "id": "guided-a0-007",
+        "titleKo": "한 번 더 부탁하기",
+        "target": "One more time, please.",
+        "meaning": "한 번 더 말씀해 주세요.",
+        "prompt": "안내 방송을 잘 못 들었어요. 직원에게 다시 말해 달라고 해 보세요.",
+        "expected": "One more time, please.",
+        "pronunciation": "ONE more TIME, please; keep please light."
+      },
+      "ko": {
+        "id": "ko-guided-a0-007",
+        "title": "Ask to Hear It Again",
+        "target": "다시 말씀해 주세요.",
+        "meaning": "Please say that again.",
+        "prompt": "You missed what the station clerk said. Ask them to repeat it.",
+        "expected": "다시 말씀해 주세요.",
+        "pronunciation": "다시 / 말씀해 주세요; listen to the polite request ending.",
+        "register": "polite request to an unfamiliar adult"
+      },
+      "metaTransfer": "Use the same repair move when you miss any important spoken instruction."
+    },
+    {
+      "unit": "008",
+      "skill": "Find the restroom",
+      "scene": "The learner is inside a station and cannot find the restroom.",
+      "pictureBrief": "An adult traveler looking around a station lobby for a restroom, then speaking to an information clerk; a simple restroom symbol may be visible, no words.",
+      "picture": "assets/glr-scenes/level0/a0-008-restroom-v1.jpg",
+      "pictureAlt": "A traveler asks a station clerk for the restroom, which is marked by a pictogram nearby.",
+      "en": {
+        "id": "guided-a0-008",
+        "titleKo": "화장실 위치 묻기",
+        "target": "Where's the restroom?",
+        "meaning": "화장실이 어디예요?",
+        "prompt": "역에서 화장실을 찾고 있어요. 직원에게 물어보세요.",
+        "expected": "Where's the restroom?",
+        "pronunciation": "Where's joins where + is; keep restroom clear."
+      },
+      "ko": {
+        "id": "ko-guided-a0-008",
+        "title": "Find the Restroom",
+        "target": "화장실이 어디예요?",
+        "meaning": "Where is the restroom?",
+        "prompt": "You cannot find the restroom at a station. Ask a staff member.",
+        "expected": "화장실이 어디예요?",
+        "pronunciation": "화장실이 / 어디예요; keep the question ending gentle.",
+        "register": "polite everyday question to an unfamiliar adult"
+      },
+      "metaTransfer": "Ask for the location of another needed place."
+    },
+    {
+      "unit": "009",
+      "skill": "Ask for help",
+      "scene": "A traveler cannot lift a heavy suitcase onto a low train rack.",
+      "pictureBrief": "An adult traveler struggling safely with a heavy suitcase beside a train luggage rack and looking to a nearby adult for help; no text.",
+      "picture": "assets/glr-scenes/level0/a0-009-help-v1.jpg",
+      "pictureAlt": "A traveler asks another adult for help lifting a heavy suitcase on a train.",
+      "en": {
+        "id": "guided-a0-009",
+        "titleKo": "도움 요청하기",
+        "target": "Please help me.",
+        "meaning": "저 좀 도와주세요.",
+        "prompt": "무거운 가방을 혼자 들기 어려워요. 옆 사람에게 도움을 청해 보세요.",
+        "expected": "Please help me.",
+        "pronunciation": "Please HELP me; keep the final word clear."
+      },
+      "ko": {
+        "id": "ko-guided-a0-009",
+        "title": "Ask for Help",
+        "target": "저 좀 도와주세요.",
+        "meaning": "Please help me.",
+        "prompt": "Your suitcase is too heavy to lift alone. Ask a nearby person for help.",
+        "expected": "저 좀 도와주세요.",
+        "pronunciation": "저 좀 / 도와주세요; keep the request polite and direct.",
+        "register": "polite request to an unfamiliar adult"
+      },
+      "metaTransfer": "Use the phrase when you need help with a different physical task."
+    },
+    {
+      "unit": "010",
+      "skill": "Say goodbye when leaving",
+      "scene": "The learner leaves a small shop while the clerk remains inside.",
+      "pictureBrief": "An adult customer at a shop door waving goodbye to a clerk who stays behind the counter; no text.",
+      "picture": "assets/glr-scenes/level0/a0-010-goodbye-v1.jpg",
+      "pictureAlt": "A customer waves goodbye as he leaves a shop while the clerk remains inside.",
+      "en": {
+        "id": "guided-a0-010",
+        "titleKo": "떠나면서 인사하기",
+        "target": "Goodbye.",
+        "meaning": "안녕히 계세요.",
+        "prompt": "가게에서 나오며 직원에게 작별 인사를 해 보세요.",
+        "expected": "Goodbye.",
+        "pronunciation": "good-BYE; let the second part rise and fall naturally."
+      },
+      "ko": {
+        "id": "ko-guided-a0-010",
+        "title": "Say Goodbye When Leaving",
+        "target": "안녕히 계세요.",
+        "meaning": "Goodbye. (said to someone staying)",
+        "prompt": "You leave a shop while the clerk stays inside. What do you say?",
+        "expected": "안녕히 계세요.",
+        "pronunciation": "안녕히 / 계세요; use this form when you are the one leaving.",
+        "register": "polite leave-taking to an adult who remains"
+      },
+      "metaTransfer": "Choose the leave-taking form by noticing who stays and who goes."
+    }
+  ]
+}

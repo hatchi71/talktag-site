@@ -31,7 +31,7 @@ let lessons=0;
 for(const camp of ['story','vocal']){
   const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync(`${camp}camp-manifest.js`,'utf8'),c);
   const families=c.window[`TALKTAG_${camp.toUpperCase()}CAMP_MANIFEST`].families.filter(f=>f.status==='published');
-  assert.deepEqual(Array.from(families,f=>f.number),['001'],`${camp} must publish only episode 001`);
+  assert.deepEqual(Array.from(families,f=>f.number),['001','002'],`${camp} must preserve published episodes 001 and 002`);
   for(const family of families)for(const level of family.levels){assert.ok(levels.includes(level));assert.ok(fs.existsSync(`content/${camp}camp/${family.number}.js`));lessons++;}
   for(const path of [`${camp}-camp.html`,`japanese/J-${camp}-camp.html`]){
     const page=fs.readFileSync(path,'utf8');
@@ -66,4 +66,4 @@ assert.match(browser,/levels\.hidden = levelSelected/,'The level grid must not r
 assert.match(browser,/What do A1–C2 language levels mean\?/,'Korean learner routes must show CEFR guidance in English');
 assert.match(fs.readFileSync('bootcamp-browser.css','utf8'),/tt-camp-level-selected\.kr-page/,'Korean selected-level pages must hide the duplicated Boot Camp introduction');
 assert.match(fs.readFileSync('bootcamp-browser.css','utf8'),/tt-camp-level-selected\.ja-bootcamp-shell/,'Japanese selected-level pages must hide the duplicated Boot Camp introduction');
-console.log(`Boot Camp: ${lessons} current English lesson routes; both tracks publish only new 001, with retired-001 completion isolated and manual undo preserved.`);
+console.log(`Boot Camp: ${lessons} current English lesson routes; both tracks preserve published 001–002, with retired-001 completion isolated and manual undo preserved.`);

@@ -137,7 +137,7 @@
     const baseId = (id || '').replace(/-part\d+$/, '');
     const native = /^(?:ko|ja)-guided-(a1|a2|b1|b2|c1|c2)-001(?:-part\d+)?$/.exec(id || '');
     const lesson = (window.TalkTagAudioLessons || []).find(item => item.id === id);
-    if (lesson?.format === 'level0') return; // Level 0 uses one larger picture-led scene.
+    if (lesson?.format === 'level0') return; // Level 0 uses a picture-led cover on its cards and player.
     const description = lesson?.scene || (native ? nativeScenes[native[1]] : scenes[baseId]);
     if (!title || !description || title.parentElement.classList.contains('glr-scene-title')) return;
     const header = document.createElement('div');
@@ -148,7 +148,7 @@
     image.className = 'glr-scene-image';
     const miniskit = /^guided-(a2|b1|b2|c1|c2)-(08|09|10)-miniskit(?:-part\d+)?$/.exec(id || '');
     image.src = lesson?.artwork || (native ? '/assets/glr-scenes/native-001-' + native[1] + '.webp' : miniskit ? '/assets/glr-scenes/miniskit/' + miniskit[2].padStart(3, '0') + '-' + miniskit[1] + '.jpg' : '/assets/glr-scenes/' + id.replace(/-(?:miniskit-pilot|miniskit)$/, '') + (/(?:07|08|09|10)(?:-miniskit-pilot|-miniskit)?$/.test(id) ? '.jpg' : '.webp'));
-    image.alt = description;
+    image.alt = lesson?.artworkAlt || description;
     image.width = 360; image.height = 240;
     // Keep portrait and square artwork in a matching frame instead of
     // squeezing it into the landscape slot used by the older GLR scenes.
