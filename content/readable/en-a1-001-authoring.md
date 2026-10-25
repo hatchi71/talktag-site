@@ -17,8 +17,8 @@
 
 ## Editorial and learning checks
 
-- Final text: 337 English words, 228 Korean 어절, seven aligned paragraphs.
-- Draft reading burden: about 4–6 minutes for an A1 learner; a representative-reader timed trial has **not** yet been conducted. No measured time is shown to learners. Capture observed reading times after launch and shorten/split if the card is fatiguing.
+- Revised text after the first learner review (2026-10-25): 242 English words and 179 Korean 어절 in seven aligned paragraphs, down from 337 English words and 228 Korean 어절. The reviewer found the sentence difficulty suitable but the passage too long, so redundant scene detail was cut without changing the event sequence.
+- Reading time has **not** been measured with representative A1 readers. No time is shown to learners. Capture observed times and shorten again if the chapter remains fatiguing; the protocol's first-draft time range is guidance, not a reason to pad the story.
 - English and Korean were checked against each other, including *cabbages* → *양배추밭* and the closed small door. The translation uses natural Korean narration rather than word-for-word syntax.
 - The five-step card keeps the chapter hidden during recall, preserves the initial summary separately from revisions, saves/resumes on-device, offers notes only on request during retelling, and labels AI discussion as coming soon. No learner draft is sent to an AI service.
 - No source illustration is used.
