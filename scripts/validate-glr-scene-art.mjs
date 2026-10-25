@@ -11,7 +11,7 @@ for (const filename of [
   'audio-lessons.js', 'guided-drill-data.js', 'guided-lauren003.js',
   'guided-lauren004.js', 'guided-jarnathan005.js', 'guided-max006.js',
   'guided-roger007.js', 'guided-miniskit-pilots.js',
-  'guided-miniskit-a2-c2.js', 'guided-card-parts.js'
+  'guided-miniskit-a2-c2.js', 'guided-glr011.js', 'guided-card-parts.js'
 ]) load(filename);
 const english = context.window.TalkTagAudioLessons.filter(lesson => lesson.type === 'guided' && lesson.available !== false);
 

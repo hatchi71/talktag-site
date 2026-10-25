@@ -53,7 +53,7 @@ const now=new Date().toISOString();
 // Imported legacy content shares one repository timestamp. Use the known
 // latest legacy release (Audio Essays 002) as the tie-break for that baseline.
 const tieRank=x=>({guided:3,plain:4,boot:2,readable:1}[x.id.split(':')[0]]||0);
-const items=current.map(x=>({...x,language:x.language||(x.id.startsWith('korean:')?'ko':'en'),publishedAt:x.publishedAt||dates.get(x.id)||now})).sort((a,b)=>b.publishedAt.localeCompare(a.publishedAt)||tieRank(b)-tieRank(a)||b.id.localeCompare(a.id));
+const items=current.map(x=>({...x,language:x.language||(x.id.startsWith('korean:')?'ko':'en'),publishedAt:x.publishedAt||dates.get(x.id)||now})).sort((a,b)=>Date.parse(b.publishedAt)-Date.parse(a.publishedAt)||tieRank(b)-tieRank(a)||b.id.localeCompare(a.id));
 const output=JSON.stringify({version:1,items},null,2)+'\n';
 if(process.argv.includes('--check')){if(!fs.existsSync(path)||fs.readFileSync(path,'utf8')!==output)throw Error('Run node scripts/update-home-news.mjs and commit home-news-feed.json');}
 else fs.writeFileSync(path,output);

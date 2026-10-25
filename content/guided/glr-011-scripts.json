@@ -1,0 +1,87 @@
+{
+  "episode": "011",
+  "theme": "Finding the right route at a station",
+  "productionStatus": "audio-qc-passed",
+  "sourceNote": "Original TalkTag dialogue. Calibration only: private Markdown references My Close Call, PDF pages 5–7 (A-level concrete trip planning); Stranger Things s01e01, PDF pages 1–3 (B-level conversational turn-taking and immediate problem-solving); The King's Speech, PDF page 1 (C-level checking information before speaking or acting). No source sentence or translation is reproduced.",
+  "drill": "Guided Listen & Repeat: listen to one spoken turn and reproduce it after a 2.5× response gap",
+  "levels": {
+    "A1": {
+      "title": "Finding Platform Two",
+      "situation": "A traveler asks for the platform and checks the train.",
+      "descriptionKo": "역에서 2번 승강장을 찾고 열차를 확인해요.",
+      "learnerInput": "Four short station turns, one at a time.",
+      "expectedOutput": "Repeat each turn clearly and ask for the correct platform.",
+      "lines": [
+        {"speaker":"Roger","en":"Excuse me. Where is platform two?","ko":"실례합니다. 2번 승강장은 어디예요?"},
+        {"speaker":"Lauren","en":"Go straight and turn left.","ko":"쭉 가서 왼쪽으로 도세요."},
+        {"speaker":"Roger","en":"Is this the right train?","ko":"이 열차가 맞나요?"},
+        {"speaker":"Lauren","en":"Yes. It leaves in five minutes.","ko":"네. 5분 뒤에 출발해요."}
+      ]
+    },
+    "A2": {
+      "title": "Getting to City Hall",
+      "situation": "A traveler asks how to reach City Hall by train.",
+      "descriptionKo": "시청 가는 노선과 환승역을 확인해요.",
+      "learnerInput": "A short route conversation with one transfer.",
+      "expectedOutput": "Repeat the route and confirm where to change trains.",
+      "lines": [
+        {"speaker":"Roger","en":"I need to get to City Hall.","ko":"시청에 가야 해요."},
+        {"speaker":"Lauren","en":"Take the blue line from platform three.","ko":"3번 승강장에서 파란색 노선을 타세요."},
+        {"speaker":"Roger","en":"Do I need to change trains?","ko":"중간에 갈아타야 하나요?"},
+        {"speaker":"Lauren","en":"Yes. Change at Central Station.","ko":"네. 센트럴역에서 갈아타세요."}
+      ]
+    },
+    "B1": {
+      "title": "A Delay on the Board",
+      "situation": "Two travelers respond to a delayed train before an appointment.",
+      "descriptionKo": "열차가 지연되어 다른 이동 방법을 찾아요.",
+      "learnerInput": "A practical delay, possible bus alternative, and a decision.",
+      "expectedOutput": "Explain the delay, propose a route, and confirm the next action.",
+      "lines": [
+        {"speaker":"Roger","en":"The board says our train is delayed by twenty minutes.","ko":"전광판에 우리 열차가 20분 지연된다고 나와 있어."},
+        {"speaker":"Lauren","en":"If we take the bus now, we might get there sooner.","ko":"지금 버스를 타면 더 빨리 도착할 수도 있어."},
+        {"speaker":"Roger","en":"Let's check when the next bus leaves.","ko":"다음 버스가 언제 출발하는지 확인해 보자."},
+        {"speaker":"Lauren","en":"Good idea. I don't want to miss the appointment.","ko":"좋아. 약속에 늦고 싶지 않아."}
+      ]
+    },
+    "B2": {
+      "title": "Finding a Step-Free Route",
+      "situation": "A traveler needs an accessible route after a station lift stops working.",
+      "descriptionKo": "엘리베이터가 고장 나 계단 없는 경로를 물어요.",
+      "learnerInput": "An access problem and a workable alternative.",
+      "expectedOutput": "Describe the obstacle and ask for a step-free route.",
+      "lines": [
+        {"speaker":"Roger","en":"The lift to platform four is out of service.","ko":"4번 승강장으로 가는 엘리베이터가 고장 났어요."},
+        {"speaker":"Lauren","en":"Is there another step-free way to reach the train?","ko":"계단을 이용하지 않고 열차로 갈 수 있는 다른 길이 있나요?"},
+        {"speaker":"Roger","en":"Yes. Use the south entrance and follow the signs.","ko":"네. 남쪽 출입구로 가서 표지판을 따라가세요."},
+        {"speaker":"Lauren","en":"That takes longer, but it avoids the stairs.","ko":"조금 더 걸리지만 계단은 피할 수 있겠네요."}
+      ]
+    },
+    "C1": {
+      "title": "Conflicting Platform Information",
+      "situation": "Two travelers resolve conflicting app and station information.",
+      "descriptionKo": "앱과 안내 방송이 달라 직원에게 확인해요.",
+      "learnerInput": "An apparent discrepancy, verification, confirmation, and coordination.",
+      "expectedOutput": "Qualify uncertain information, verify it, and relay the update.",
+      "lines": [
+        {"speaker":"Roger","en":"The app says platform six, but the station announcement says eight.","ko":"앱에는 6번 승강장이라고 나오는데, 역 안내 방송에서는 8번이라고 하네."},
+        {"speaker":"Lauren","en":"Let's check with a staff member before we cross the station.","ko":"역 반대편으로 가기 전에 직원에게 확인해 보자."},
+        {"speaker":"Roger","en":"They confirmed the train moved to eight at the last minute.","ko":"열차가 막판에 8번 승강장으로 바뀌었다고 확인해 줬어."},
+        {"speaker":"Lauren","en":"I'll tell the others now so nobody waits in the wrong place.","ko":"다른 사람들이 엉뚱한 곳에서 기다리지 않게 지금 알려 줄게."}
+      ]
+    },
+    "C2": {
+      "title": "Choosing the Reliable Connection",
+      "situation": "Two travelers weigh a risky late connection against a reliable earlier departure.",
+      "descriptionKo": "빠른 환승과 확실한 도착 사이에서 선택해요.",
+      "learnerInput": "A time-saving option with a hidden risk, followed by a reasoned choice.",
+      "expectedOutput": "Articulate a conditional risk and defend a practical trade-off.",
+      "lines": [
+        {"speaker":"Roger","en":"The timetable shows a connection, but we'd have only four minutes to change platforms.","ko":"시간표상으로는 환승이 되지만, 승강장을 옮길 시간이 4분밖에 없어."},
+        {"speaker":"Lauren","en":"If the first train runs late, we could be stuck here after midnight.","ko":"첫 열차가 늦으면 자정이 넘어서 여기 발이 묶일 수도 있어."},
+        {"speaker":"Roger","en":"Let's leave a little earlier, even if that means waiting longer between trains.","ko":"열차 사이에 좀 더 기다리더라도 조금 일찍 출발하자."},
+        {"speaker":"Lauren","en":"Agreed. Getting there reliably matters more than saving ten minutes.","ko":"동감이야. 10분 아끼는 것보다 확실히 도착하는 게 더 중요해."}
+      ]
+    }
+  }
+}

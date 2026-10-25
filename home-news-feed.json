@@ -2,6 +2,22 @@
   "version": 1,
   "items": [
     {
+      "id": "guided:011",
+      "title": "Guided L&R · 011",
+      "href": "audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+      "language": "en",
+      "publishedAt": "2026-10-25T08:07:51.298Z"
+    },
+    {
       "id": "readable:en:001:levels",
       "language": "en",
       "title": "Readable · 001 · A1–C2",
@@ -197,22 +213,6 @@
       "publishedAt": "2026-10-15T01:52:39.044Z"
     },
     {
-      "id": "native:ko:guided:002",
-      "language": "ko",
-      "title": "Korean Guided L&R · 002",
-      "href": "K-korean-audio-library.html?type=guided",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "Practice everyday Korean expressions, one line at a time.",
-      "publishedAt": "2026-10-13T20:44:34+09:00"
-    },
-    {
       "id": "korean-vocal:001",
       "language": "ko",
       "title": "Korean Vocal Camp · 001",
@@ -227,6 +227,22 @@
       ],
       "description": "Build one Korean story through cumulative listening and speaking.",
       "publishedAt": "2026-10-13T13:35:20.629Z"
+    },
+    {
+      "id": "native:ko:guided:002",
+      "language": "ko",
+      "title": "Korean Guided L&R · 002",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Practice everyday Korean expressions, one line at a time.",
+      "publishedAt": "2026-10-13T20:44:34+09:00"
     },
     {
       "id": "guided:010",
@@ -262,6 +278,22 @@
       "publishedAt": "2026-10-12T12:02:56.544Z"
     },
     {
+      "id": "guided:007",
+      "title": "Guided L&R · 007",
+      "href": "audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+      "language": "en",
+      "publishedAt": "2026-10-11T12:05:57.153Z"
+    },
+    {
       "id": "native:ko:guided:001",
       "language": "ko",
       "title": "Korean Guided L&R · 001",
@@ -292,22 +324,6 @@
       ],
       "description": "일본어의 새 일상 표현을 듣고 따라 말해 보세요.",
       "publishedAt": "2026-10-11T17:23:08+09:00"
-    },
-    {
-      "id": "guided:007",
-      "title": "Guided L&R · 007",
-      "href": "audio-library.html?type=guided",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-11T12:05:57.153Z"
     },
     {
       "id": "guided:006",

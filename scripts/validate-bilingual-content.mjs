@@ -28,6 +28,20 @@ for (const card of miniSkits.cards) {
   }
 }
 
+const glr011 = readJson('content/guided/glr-011-scripts.json');
+const glr011Context = {window: {}};
+vm.createContext(glr011Context);
+vm.runInContext(fs.readFileSync(path.join(root, 'guided-glr011.js'), 'utf8'), glr011Context, {timeout: 1000});
+for (const [level, source] of Object.entries(glr011.levels)) {
+  const parts = glr011Context.window.TalkTagAudioLessons
+    .filter(part => part.unit === 11 && part.level === level)
+    .sort((a, b) => a.sentenceStart - b.sentenceStart);
+  const rendered = parts.flatMap(part => part.expressions.map((line, index) => [line, part.meanings[index]]));
+  const expected = source.lines.map(line => [line.en, line.ko]);
+  if (JSON.stringify(rendered) !== JSON.stringify(expected)) fail(`GLR 011 ${level} published English/Korean lines differ from source`);
+  checked += expected.length;
+}
+
 const englishGuidedContext = {window: {}};
 vm.createContext(englishGuidedContext);
 vm.runInContext(fs.readFileSync(path.join(root, 'guided-miniskit-a2-c2.js'), 'utf8'), englishGuidedContext, {timeout: 1000});
