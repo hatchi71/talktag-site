@@ -15,7 +15,7 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const key = story => 'readable:en:' + story.id;
   const done = story => Boolean(window.TalkTagCompletion?.getManual(key(story)));
-  const href = story => `bootcamp-story.html?mode=readable&level=${encodeURIComponent(story.level)}&id=${Number(story.id.split('-')[1])}`;
+  const href = story => story.id === 'A1-001' ? 'readable-chapter.html' : 'readable.html';
   const labelCompletionButtons = () => list.querySelectorAll('.tt-completion-button').forEach(button => {
     button.textContent = 'Complete';
     button.setAttribute('aria-label', 'Mark chapter complete');
@@ -24,7 +24,7 @@
   document.body.dataset.audioView = selected ? 'lessons' : 'levels';
   if (selected) {
     title.textContent = `리더블 · ${selected}`;
-    description.textContent = 'Read the English story, close it, then recall and retell it in your own words.';
+    description.textContent = '영어로 읽고, 가린 뒤 기억해서 요약하고, 글을 다듬어 내 말로 다시 이야기해 보세요.';
     document.title = `${selected} 영어 리더블 · TalkTag`;
     levelsNav.hidden = true;
     method.hidden = true;
@@ -33,7 +33,8 @@
   }
   function render() {
     const completed = stories.filter(done);
-    document.getElementById('readableProgress').textContent = `리더블 · ${completed.length}/${stories.length} completed`;
+    const inLevel = selected ? stories.filter(story => story.level === selected) : stories;
+    document.getElementById('readableProgress').textContent = selected && !inLevel.length ? `${selected} · 새 챕터 준비 중` : `리더블 · ${inLevel.filter(done).length}/${inLevel.length} completed`;
     for (const anchor of levelsNav.querySelectorAll('[data-level]')) {
       const entries = stories.filter(story => story.level === anchor.dataset.level);
       const count = entries.filter(done).length;
@@ -44,8 +45,8 @@
     if (selected) {
       const current = stories.filter(story => story.level === selected && !done(story));
       list.innerHTML = current.length ? current.map(story => {
-        const preview = String(story.content || '').split(/\n\s*\n/)[0];
-        return `<article class="lesson-card" data-completion-manual-only="true" data-completion-id="${esc(key(story))}"><a class="audio-lesson-open" href="${esc(href(story))}"><span class="audio-lesson-number">${esc(story.id.split('-')[1])}</span><div class="lesson-copy"><h2>${esc(story.title)}</h2><p>${esc(story.genre)} · ${esc(preview)}</p><div class="lesson-meta"><span>Read · Recall · Retell</span></div></div><span class="audio-lesson-arrow" aria-hidden="true">↗</span></a><div class="lesson-card-actions" data-completion-actions></div></article>`;
+        const preview = String(story.paragraphs?.[0]?.en || '').slice(0, 130) + '…';
+        return `<article class="lesson-card" data-completion-manual-only="true" data-completion-id="${esc(key(story))}"><a class="audio-lesson-open" href="${esc(href(story))}"><span class="audio-lesson-number">${esc(story.number)}</span><div class="lesson-copy"><h2>${esc(story.title)}</h2><p>${esc(story.genre)} · ${esc(preview)}</p><div class="lesson-meta"><span>Read · Recall · Revise · Retell</span></div></div><span class="audio-lesson-arrow" aria-hidden="true">↗</span></a><div class="lesson-card-actions" data-completion-actions></div></article>`;
       }).join('') : (stories.some(story => story.level === selected)
         ? '<div class="readable-empty"><strong>All chapters complete.</strong>Reopen a chapter in your completed shelf, or undo completion to return it here.</div>'
         : '<div class="readable-empty"><strong>Chapters are in preparation.</strong>Choose another level for now.</div>');
@@ -74,11 +75,11 @@
   });
   window.addEventListener('pageshow', () => { render(); queueMicrotask(labelCompletionButtons); });
   window.addEventListener('storage', () => queueMicrotask(labelCompletionButtons));
-  fetch('content/readable/readable-stories-A1-C2-60.json').then(response => {
+  fetch('content/readable/en-a1-001.json', { cache: 'no-store' }).then(response => {
     if (!response.ok) throw Error('Readable catalog unavailable');
     return response.json();
   }).then(data => {
-    stories = data.filter(story => levels.includes(story.level) && story.content && story.title);
+    stories = data.status === 'published' && data.paragraphs?.length && data.title ? [data] : [];
     render();
   }).catch(() => {
     list.hidden = false;

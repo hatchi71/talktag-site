@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261025-vocal-shorter-repeats-v1';
+const CACHE_VERSION = 'talktag-pwa-20261025-readable-a1-001-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
