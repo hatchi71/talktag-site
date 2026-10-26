@@ -35,7 +35,9 @@
   function render() {
     const completed = stories.filter(done);
     const inLevel = selected ? stories.filter(story => story.level === selected) : stories;
-    document.getElementById('readableProgress').textContent = selected && !inLevel.length ? `${selected} · 새 챕터 준비 중` : `리더블 · 완료 ${inLevel.filter(done).length}/${inLevel.length}`;
+    document.getElementById('readableProgress').innerHTML = selected
+      ? `<h2>${esc(selected)} · ${!inLevel.length ? '새 챕터 준비 중' : '리더블'}</h2><span>완료 ${inLevel.filter(done).length}/${inLevel.length}</span>`
+      : `<h2>레벨을 선택하세요</h2><span>완료 ${completed.length}/${stories.length}</span>`;
     for (const anchor of levelsNav.querySelectorAll('[data-level]')) {
       const entries = stories.filter(story => story.level === anchor.dataset.level);
       const count = entries.filter(done).length;

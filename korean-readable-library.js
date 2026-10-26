@@ -37,12 +37,14 @@
   }
   function render() {
     const completed = lessons.filter(done);
-    document.getElementById('readableProgress').textContent = `Readable · ${completed.length}/${lessons.filter(item => item.status === 'published').length} completed`;
+    document.getElementById('readableProgress').innerHTML = selected
+      ? `<h2>${esc(selected)} · Readable</h2><span>Completed ${lessons.filter(item => item.level === selected && done(item)).length}/${lessons.filter(item => item.level === selected && item.status === 'published').length}</span>`
+      : `<h2>Choose your level</h2><span>Completed ${completed.length}/${lessons.filter(item => item.status === 'published').length}</span>`;
     for (const anchor of levelsNav.querySelectorAll('[data-level]')) {
       const entries = lessons.filter(item => item.level === anchor.dataset.level && item.status === 'published');
       const count = entries.filter(done).length;
       anchor.classList.toggle('is-level-complete', entries.length > 0 && count === entries.length);
-      anchor.innerHTML = `<span>${esc(anchor.dataset.level)}</span><small class="guided-level-count">${count}/${entries.length} completed</small><span class="guided-level-meter" aria-hidden="true"><span style="width:${entries.length ? count / entries.length * 100 : 0}%"></span></span>`;
+      anchor.innerHTML = `<span>${esc(anchor.dataset.level)}</span><small class="guided-level-count">Completed ${count}/${entries.length}</small><span class="guided-level-meter" aria-hidden="true"><span style="width:${entries.length ? count / entries.length * 100 : 0}%"></span></span>`;
       anchor.setAttribute('aria-label', `${anchor.dataset.level}, ${count} of ${entries.length} chapters completed, open level`);
     }
     if (selected) {

@@ -10,6 +10,13 @@
   document.querySelectorAll('.ja-related').forEach(nav=>{nav.innerHTML='<a href="'+sound+'">01 · 사운드 체크</a><a href="'+boot+'">02 · 부트 캠프</a><a href="J-readable.html">03 · 리더블</a>';});
   const titles={'J-vocal-camp.html':['보컬 캠프','同じ物語を、声から。','원어민의 음성을 듣고 따라하세요. 한 문장씩 소리가 자라납니다. 이야기의 끝까지 따라가 보세요!'],'J-story-camp.html':['스토리 캠프','STORY CAMP · REBUILD','이야기를 쌓고, 기억해서 말하고, 나의 이야기로 바꿉니다.'],'J-readable.html':['리더블','READ → RECALL → RETELL','읽고, 덮고, 기억한 내용을 내 말로 다시 이야기합니다.'],'J-audio-essays.html':['오디오 에세이와 아티클','SOUND CHECK · LONGER LISTENING','이야기를 듣고, 기억한 핵심 내용을 노트에 정리한 뒤 자신이나 파트너에게 다시 이야기해 보세요.']};
   const info=titles[file];if(!info)return;
+  // Readable has its own shared level-card shell; keep its published-page markup intact.
+  if(file==='J-readable.html'){
+   document.body.classList.add('ja-studio-aligned');
+   const brand=document.querySelector('.ja-brand span');if(brand)brand.textContent='리더블';
+   const category=document.querySelector('.tt-route-category');if(category){category.href=studio;category.innerHTML='<span aria-hidden="true">⌂</span><b>스노우볼링 스튜디오</b>';}
+   return;
+  }
   // Camp landings are owned by the shared level-first browser, not this legacy placeholder.
   if(file==='J-vocal-camp.html'||file==='J-story-camp.html')return;
   const main=document.querySelector('main');if(!main)return;document.body.classList.add('ja-studio-aligned');

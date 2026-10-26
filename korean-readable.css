@@ -23,6 +23,6 @@ body[data-audio-type=readable] .readable-cover-thumb{grid-column:2;grid-row:1 / 
 body[data-audio-type=readable] .has-readable-artwork .audio-lesson-arrow{position:absolute;top:16px;right:18px}
 body[data-audio-type=readable] .lesson-card-actions .tt-completion-button{width:auto}
 body[data-audio-type=readable] .lesson-card-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
-body[data-audio-type=readable] .audio-missions{margin-top:28px}
+body[data-audio-type=readable][data-audio-view=levels] .audio-missions{margin-top:14px}
 @media(max-width:620px){body[data-audio-type=readable] .readable-method{padding:18px;margin:18px 0 24px}body[data-audio-type=readable] .readable-empty{padding:20px}body[data-audio-type=readable] .audio-lesson-open.has-readable-artwork{grid-template-columns:minmax(0,1fr) 112px;gap:12px}}
 @media(max-width:375px){body[data-audio-type=readable] .audio-lesson-open.has-readable-artwork{grid-template-columns:minmax(0,1fr) 96px;gap:10px}}

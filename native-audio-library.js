@@ -59,7 +59,6 @@ document.getElementById("audioMissionCount").textContent=String(completed.length
 var previouslyOpen=new Set([...shelf.querySelectorAll(".audio-mission-bin[open]")].map(bin=>bin.dataset.level));
 var firstBins=!shelf.dataset.binsReady;
 var firstCompletedLevel=missionLevels.find(binLevel=>completed.some(l=>l.level===binLevel));
-if(firstBins&&completed.length){toggle.setAttribute("aria-expanded","true");shelf.hidden=false;}
 shelf.innerHTML='<p class="audio-mission-bin-intro">'+(english?'Completed cards are kept by level. Reopen a card or undo completion.':'완료한 카드는 레벨별 보관함에서 다시 열거나 완료를 취소할 수 있습니다.')+'</p>'+missionLevels.map(binLevel=>{
 var items=completed.filter(l=>l.level===binLevel);
 var open=previouslyOpen.has(binLevel)||openMissionLevel===binLevel||(firstBins&&items.length&&(binLevel===level||binLevel===firstCompletedLevel));
