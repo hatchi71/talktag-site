@@ -21,7 +21,7 @@ for (const lesson of lessons) {
 }
 const library = read('native-audio-library.js');
 assert.match(library, /document\.querySelectorAll\("\[data-level\]"\)\.forEach\(a=>\{/);
-assert.match(library, /type==="guided"\?"Guided L&R":"Essays & Articles"/);
+assert.match(library, /type==="guided"\?"Guided Listen & Repeat":"Essays & Articles"/);
 assert.match(read('guided-library.css'), /body\[data-audio-type\] \.filter-bar\.tt-level-postits>a/);
 const player = read('K-korean-audio-player.html');
 assert.doesNotMatch(player, /essay-pause-control\.js/);
