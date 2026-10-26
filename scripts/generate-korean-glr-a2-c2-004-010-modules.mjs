@@ -16,7 +16,11 @@ if(report.objectCount!==530||report.inventorySha256!==digest(path.join(work,'upl
 const catalogContext={window:{TalkTagNativeCatalogs:{ko:[]}}};
 vm.runInNewContext(fs.readFileSync(path.join(oldRoot,'native-guided-ko-004.js'),'utf8'),catalogContext,{timeout:1000});
 const oldCatalog=catalogContext.window.TalkTagNativeCatalogs.ko.filter(row=>row.level!=='A1');
-const newCatalog=JSON.parse(fs.readFileSync(path.join(work,'draft-catalog.json'),'utf8')).map(row=>({...row,available:true}));
+const newCatalog=JSON.parse(fs.readFileSync(path.join(work,'draft-catalog.json'),'utf8')).map(row=>({
+  ...row,
+  artwork:`/assets/glr-scenes/ko-${row.episode}-${row.level.toLowerCase()}.jpg`,
+  available:true
+}));
 const allCatalog=[...oldCatalog,...newCatalog];
 if(oldCatalog.length!==12||newCatalog.length!==85||new Set(allCatalog.map(row=>row.id)).size!==97)throw Error('Wrong catalog card inventory');
 

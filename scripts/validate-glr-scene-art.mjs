@@ -15,7 +15,7 @@ for (const filename of [
 ]) load(filename);
 const english = context.window.TalkTagAudioLessons.filter(lesson => lesson.type === 'guided' && lesson.available !== false);
 
-for (const filename of ['native-guided-data.js', 'native-guided-ko-002.js', 'native-guided-ko-003.js', 'native-guided-ko-004-a1.js', 'native-guided-ko-005-010.js', 'native-guided-ko-splits.js']) load(filename);
+for (const filename of ['native-guided-data.js', 'native-guided-ko-002.js', 'native-guided-ko-003.js', 'native-guided-ko-004-a1.js', 'native-guided-ko-005-010.js', 'native-guided-ko-a2-c2-004-010.js', 'native-guided-ko-splits.js']) load(filename);
 const native = Object.values(context.window.TalkTagNativeCatalogs).flat()
   .filter(lesson => lesson.type === 'guided' && lesson.available !== false);
 const lessons = [...english, ...native];
