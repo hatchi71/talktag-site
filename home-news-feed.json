@@ -2,6 +2,21 @@
   "version": 1,
   "items": [
     {
+      "id": "native:ko:guided:a2-c2:004-010",
+      "language": "ko",
+      "title": "Korean Guided L&R · A2–C2 · 004–010",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Seven everyday Korean episode groups now include new A2–C2 listening and speaking cards.",
+      "publishedAt": "2026-10-26T13:56:15.566Z"
+    },
+    {
       "id": "level0:ko:002-010",
       "language": "ko",
       "title": "Korean Start Here · Level 0 · 002–010",
@@ -99,7 +114,12 @@
       "title": "Korean Guided L&R · 010",
       "href": "K-korean-audio-library.html?type=guided",
       "levels": [
-        "A1"
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
       ],
       "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-24T14:44:30.831Z"
@@ -110,7 +130,12 @@
       "title": "Korean Guided L&R · 009",
       "href": "K-korean-audio-library.html?type=guided",
       "levels": [
-        "A1"
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
       ],
       "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-24T14:44:30.831Z"
@@ -121,7 +146,12 @@
       "title": "Korean Guided L&R · 008",
       "href": "K-korean-audio-library.html?type=guided",
       "levels": [
-        "A1"
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
       ],
       "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-24T14:44:30.831Z"
@@ -132,7 +162,12 @@
       "title": "Korean Guided L&R · 007",
       "href": "K-korean-audio-library.html?type=guided",
       "levels": [
-        "A1"
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
       ],
       "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-24T14:44:30.831Z"
@@ -143,7 +178,12 @@
       "title": "Korean Guided L&R · 006",
       "href": "K-korean-audio-library.html?type=guided",
       "levels": [
-        "A1"
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
       ],
       "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-24T14:44:30.831Z"
@@ -154,7 +194,12 @@
       "title": "Korean Guided L&R · 005",
       "href": "K-korean-audio-library.html?type=guided",
       "levels": [
-        "A1"
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
       ],
       "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-24T14:44:30.831Z"
@@ -165,7 +210,12 @@
       "title": "Korean Guided L&R · 004",
       "href": "K-korean-audio-library.html?type=guided",
       "levels": [
-        "A1"
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
       ],
       "description": "Practice everyday Korean expressions, one line at a time.",
       "publishedAt": "2026-10-24T14:44:30.831Z"

@@ -26,6 +26,19 @@ English (`en`) is the baseline support language. The other support languages are
 
 ## Publication gate
 
+For every newly produced Korean-learning episode, publication requires complete,
+line-aligned Vietnamese, Nepali, Khmer, Burmese, Thai, and Japanese meanings in
+addition to English. Treat the meaning of the whole Korean expression as the
+unit of translation: choose natural, everyday target-language phrasing rather
+than a literal word-by-word rendering. Check translation validity and accuracy
+twice before release: first against the Korean source in its speaking situation,
+then in a separate review pass against the same source and expected speaker
+intent. Both passes must examine politeness, names, numbers, times, and any
+meaning-changing omissions or additions. Record both checks. Do not publish a
+new episode with a missing language or line, or imply native-speaker approval
+when the checks were AI-assisted only. Previously published legacy cards are
+not silently withdrawn by this forward-looking gate; remediation is separate.
+
 1. Freeze Korean source and stable IDs first. Review meaning and politeness against the Korean, not an English paraphrase.
 2. Draft each language independently. Check names, honorifics, gendered forms, level, cultural context, and naturalness.
 3. Prefer native-language review before marking text `reviewed`. The owner approved a provisional `ai-reviewed` status on 2026-10-20: it may appear only with a clear learner-facing notice that native-speaker verification is still pending. AI-generated text alone must never be labeled `reviewed`.

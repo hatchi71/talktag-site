@@ -38,6 +38,7 @@
     }
     const available = {en: english};
     const reviewStatus = {};
+    const reviewPasses = {};
     const legacyPilot = translations.legacyPilot === true;
     const aligned = legacyPilot || (Array.isArray(translations.source) &&
       translations.source.length === source.length && translations.source.every((line,index) => line === source[index]));
@@ -48,6 +49,7 @@
           validLines(source, translated[code])) {
         available[code] = translated[code];
         reviewStatus[code] = status;
+        reviewPasses[code] = translations.review?.[code]?.passes || 0;
       }
     });
     const box = document.createElement('div');
@@ -61,7 +63,9 @@
       const option = document.createElement('option');
       option.value = code;
       option.lang = code;
-      option.textContent = !available[code] ? `${name} · pending` : ['ai-reviewed','legacy-pilot'].includes(reviewStatus[code]) ? `${name} · AI draft` : name;
+      option.textContent = !available[code] ? `${name} · pending` :
+        reviewPasses[code] >= 2 ? `${name} · AI-checked` :
+        ['ai-reviewed','legacy-pilot'].includes(reviewStatus[code]) ? `${name} · AI draft` : name;
       select.append(option);
     });
     const notice = document.createElement('p');
@@ -74,6 +78,7 @@
       const shown = available[wanted] ? wanted : 'en';
       select.value = wanted;
       notice.textContent = wanted !== shown ? `${languages[wanted]} meaning is being prepared. Showing English for now.` :
+        reviewPasses[shown] >= 2 ? 'Checked twice with AI. A native speaker has not yet verified this translation.' :
         ['ai-reviewed','legacy-pilot'].includes(reviewStatus[shown]) ? 'AI draft. A native speaker has not yet verified this translation.' : '';
       notice.hidden = !notice.textContent;
       onChange?.(available[shown], shown, wanted);

@@ -33,13 +33,19 @@ function catalog(read){
  const japaneseVocal=read('content/vocalcamp-japanese-001.js');
  if(japaneseVocal)vm.runInContext(japaneseVocal,c,{timeout:1000});
  for(const f of (c.window.TALKTAG_VOCALCAMP_JAPANESE?.families||[]).filter(f=>f.status==='published'&&f.audioStatus==='ready'))groups.set('japanese-vocal:'+f.number,{id:'japanese-vocal:'+f.number,language:'ja',title:'Japanese Vocal Camp · '+f.number,href:'japanese/J-vocal-camp.html',levels:f.levels,description:'짧은 일본어 이야기를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.'});
- for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-guided-ko-004-a1.js','native-guided-ko-005-010.js','native-audio-korean-aea-001.js','native-audio-korean-aea-002.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
+ for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-guided-ko-004-a1.js','native-guided-ko-005-010.js','native-guided-ko-a2-c2-004-010.js','native-audio-korean-aea-001.js','native-audio-korean-aea-002.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
  for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs||{}))for(const lesson of lessons){
   if(!lesson.available||!lesson.audio)continue;
   const number=String(lesson.unit||1).padStart(3,'0'),track=lesson.type==='plain'?'Audio Essays & Articles':'Guided L&R',id='native:'+language+':'+lesson.type+':'+number,name=language==='ko'?'Korean':'Japanese';
   if(!groups.has(id))groups.set(id,{id,language,title:name+' '+track+' · '+number,href:language==='ko'?`K-korean-audio-library.html?type=${lesson.type}`:'japanese/J-guided.html?type=guided',levels:[],description:lesson.type==='plain'?'Listen, summarize, and retell an original audio essay.':language==='ko'?'Practice everyday Korean expressions, one line at a time.':'일본어의 새 일상 표현을 듣고 따라 말해 보세요.'});
   const group=groups.get(id);if(!group.levels.includes(lesson.level))group.levels.push(lesson.level);
  }
+ const koreanA2C2=(c.window.TalkTagNativeCatalogs?.ko||[]).filter(lesson=>lesson.type==='guided'&&lesson.available&&lesson.audio&&Number(lesson.episode)>=4&&Number(lesson.episode)<=10&&['A2','B1','B2','C1','C2'].includes(lesson.level));
+ if(koreanA2C2.length===97)groups.set('native:ko:guided:a2-c2:004-010',{
+  id:'native:ko:guided:a2-c2:004-010',language:'ko',title:'Korean Guided L&R · A2–C2 · 004–010',
+  href:'K-korean-audio-library.html?type=guided',levels:['A2','B1','B2','C1','C2'],
+  description:'Seven everyday Korean episode groups now include new A2–C2 listening and speaking cards.'
+ });
  for(const file of ['level0-glr001.js','level0-glr002-010.js']){const level0=read(file);if(!level0)continue;const nativeLevel0={window:{TalkTagNative:{language:'ko'}}};vm.createContext(nativeLevel0);vm.runInContext(level0,nativeLevel0,{timeout:1000});for(const lesson of nativeLevel0.window.TalkTagAudioLessons||[]){if(lesson.available===false||!lesson.audio)continue;const number=String(lesson.unit||1).padStart(3,'0'),isBatch=Number(number)>=2&&Number(number)<=10,id='level0:ko:'+(isBatch?'002-010':number);groups.set(id,{id,language:'ko',title:'Korean Start Here · Level 0 · '+(isBatch?'002–010':number),href:'K-korean-audio-library.html?type=guided&level=A0',levels:['A0'],description:isBatch?'Nine short picture-led expressions to hear, repeat, and use in Korean.':'See a real-life greeting, listen, repeat, then answer in Korean.'});}}
  return [...groups.values()];
 }

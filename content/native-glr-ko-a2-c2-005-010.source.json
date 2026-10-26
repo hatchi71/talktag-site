@@ -1,0 +1,377 @@
+{
+  "language": "ko",
+  "track": "Guided Listen & Repeat",
+  "strand": "real_life",
+  "status": "release-ready",
+  "sourceReferences": [
+    {"title": "TALKTAG_DRILLS_FRAMEWORK.md", "usage": "learning purpose and progression"},
+    {"title": "TalkTag Korean Reference Book No 1.md", "usage": "EJ acquisition sequence and levels; reference only"},
+    {"title": "TalkTag_Korean_GLR_AI_Reference_Guide.md", "usage": "first-batch themes 05–10; reference only"},
+    {"title": "3. 일상생활.md", "section": "PDF pages 15–16 and 115", "usage": "shopping and phone vocabulary scope only; reference only"},
+    {"title": "4. 공공기관.md", "section": "PDF pages 4–5 and 41–43", "usage": "clinic and application functions only; reference only"}
+  ],
+  "voicePlan": {"Min-joon": "male, Standard Korean", "Leejin": "female, Standard Korean", "balance": "two distinct lines per voice in every card"},
+  "review": {"korean_editor": "reference-checked; native-editor-pending", "translations": "six-languages-ai-reviewed-twice; native-review-pending", "audio_qc": "TalkTag Audio QC Studio technical pass; auditory-review-not-performed"},
+  "lessons": [
+    {
+      "id": "ko-guided-a2-005", "episode": "005", "level": "A2", "domain": "SHOP", "title": "Can I Pay by Card?", "nativeTitle": "카드로 결제해도 될까요?",
+      "situation": "At a small shop counter, the customer confirms the total and asks for a receipt.",
+      "learnerInput": "Hear the total and the clerk's response to a payment question.", "expectedOutput": "Check the total, choose card payment, and request a receipt.",
+      "targetConstruction": "카드로 결제해도 될까요?", "retainedCore": "얼마예요?", "variation": "현금으로 결제해도 될까요?", "independentProductionPrompt": "At a different counter, ask the total and pay by card without reading the script.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"이거 두 개면 얼마예요?","en":"How much are these two together?"},
+        {"speaker":"Leejin","role":"clerk","ko":"모두 만 이천 원이에요.","en":"They're twelve thousand won altogether."},
+        {"speaker":"Min-joon","role":"customer","ko":"카드로 결제해도 될까요? 영수증도 주세요.","en":"Can I pay by card? And may I have a receipt?"},
+        {"speaker":"Leejin","role":"clerk","ko":"네, 카드 여기 대 주세요. 영수증은 바로 드릴게요.","en":"Sure, tap your card here. I'll give you the receipt right away."}
+      ]
+    },
+    {
+      "id": "ko-guided-b1-005", "episode": "005", "level": "B1", "domain": "SHOP", "title": "The Shelf Price Is Different", "nativeTitle": "진열대 가격이 달라요",
+      "situation": "The checkout price differs from the shelf label at a neighborhood store.",
+      "learnerInput": "Hear a discrepancy reported without blaming the clerk.", "expectedOutput": "Describe the two prices and ask for a check.",
+      "targetConstruction": "표시된 가격과 계산된 가격이 달라서요.", "retainedCore": "얼마예요?", "variation": "할인 표시와 계산 금액이 달라요.", "independentProductionPrompt": "Point to a price label and explain a different amount at checkout.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"저기 진열대에는 팔천 원이라고 적혀 있었는데, 여기서는 만 원으로 나오네요.","en":"The shelf said eight thousand won, but it's coming up as ten thousand here."},
+        {"speaker":"Leejin","role":"clerk","ko":"아, 가격표가 다른가요? 제가 한번 확인해 볼게요.","en":"Oh, is the label different? Let me check."},
+        {"speaker":"Min-joon","role":"customer","ko":"네, 급한 건 아니에요. 어떤 가격이 맞는지만 알려 주세요.","en":"No rush. Just let me know which price is correct."},
+        {"speaker":"Leejin","role":"clerk","ko":"확인해 보니 진열대 가격이 맞네요. 계산 금액을 고쳐 드릴게요.","en":"I checked, and the shelf price is correct. I'll adjust the total."}
+      ]
+    },
+    {
+      "id": "ko-guided-b2-005", "episode": "005", "level": "B2", "domain": "SHOP", "title": "Comparing Two Payment Options", "nativeTitle": "결제 방법을 비교해요",
+      "situation": "A customer wants to know whether two payment methods change the final price.",
+      "learnerInput": "Hear a qualified answer and compare options before choosing.", "expectedOutput": "Ask about the final amount and state a reasoned choice.",
+      "targetConstruction": "최종 금액이 달라지는지 먼저 확인하고 싶어요.", "retainedCore": "카드로 결제해도 될까요?", "variation": "현금으로 내면 금액이 달라지나요?", "independentProductionPrompt": "Ask a clerk to compare two accepted payment methods without assuming either is cheaper.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"카드와 현금 중 어떤 방식으로 내느냐에 따라 최종 금액이 달라지나요?","en":"Does the final amount change depending on whether I pay by card or cash?"},
+        {"speaker":"Leejin","role":"clerk","ko":"아니요, 가격은 같아요. 다만 카드로 결제하시면 영수증을 바로 보내 드릴 수 있어요.","en":"No, the price is the same. With a card, though, I can send you the receipt right away."},
+        {"speaker":"Min-joon","role":"customer","ko":"그렇다면 카드로 할게요. 나중에 확인할 수 있게 영수증을 부탁드립니다.","en":"Then I'll pay by card. Please send the receipt so I can check it later."},
+        {"speaker":"Leejin","role":"clerk","ko":"네, 결제 후에 받은 내역을 같이 확인해 드릴게요.","en":"Of course. We can check the receipt together after payment."}
+      ]
+    },
+    {
+      "id": "ko-guided-c1-005", "episode": "005", "level": "C1", "domain": "SHOP", "title": "Explaining a Price Difference", "nativeTitle": "가격 차이를 분명히 설명해요",
+      "situation": "Two store workers decide how to explain a shelf-label mismatch to a customer.",
+      "learnerInput": "Hear a precise explanation that separates the display error from the customer's choice.", "expectedOutput": "Acknowledge the mismatch, explain what was checked, and offer a clear next step.",
+      "targetConstruction": "확인된 사실과 선택 가능한 방법을 구분해 말씀드려요.", "retainedCore": "표시된 가격과 계산된 가격이 달라요.", "variation": "가격표를 바로잡되, 이번 결제는 어떻게 처리할지 안내해요.", "independentProductionPrompt": "Explain a display-price mismatch to a customer without making an unverified promise.",
+      "lines": [
+        {"speaker":"Leejin","role":"coworker","ko":"진열대 가격표와 계산대 금액이 다른데, 아직 어느 쪽이 잘못된 건지 확인 전이에요.","en":"The shelf label and checkout amount differ, but we haven't confirmed which one is wrong yet."},
+        {"speaker":"Min-joon","role":"coworker","ko":"그럼 먼저 차이가 있다는 점을 인정하고, 확인하는 동안 잠시 기다려 주실 수 있는지 여쭤봐요.","en":"Then let's acknowledge the difference and ask if the customer can wait while we check."},
+        {"speaker":"Leejin","role":"coworker","ko":"확인 결과가 나오면 이유를 짧게 설명하고, 고객이 계속 구매할지 선택할 수 있게 안내할게요.","en":"Once we know, I'll briefly explain why and let the customer decide whether to buy it."},
+        {"speaker":"Min-joon","role":"coworker","ko":"좋아요. 확인되지 않은 할인이나 환불을 먼저 약속하지만 않으면 되겠네요.","en":"Good. We just shouldn't promise a discount or refund before it's been confirmed."}
+      ]
+    },
+    {
+      "id": "ko-guided-c2-005", "episode": "005", "level": "C2", "domain": "SHOP", "title": "Repairing a Misleading Impression", "nativeTitle": "잘못된 인상을 바로잡아요",
+      "situation": "A store manager and clerk discuss how to repair a misleading impression about a price label.",
+      "learnerInput": "Hear how two colleagues distinguish intent, impact, and an appropriate response.", "expectedOutput": "Acknowledge the customer's reasonable interpretation without implying deliberate deception.",
+      "targetConstruction": "의도와 별개로 그렇게 받아들이실 만했다는 점을 인정해요.", "retainedCore": "가격표와 결제 금액이 달라요.", "variation": "고객이 어떤 가격을 기대했는지 먼저 확인해요.", "independentProductionPrompt": "A customer says the label led them to expect a lower price. Respond with nuance and a concrete verification step.",
+      "lines": [
+        {"speaker":"Leejin","role":"clerk","ko":"고객님께서는 표시된 금액을 보고 구매를 결정하셨으니, 뒤늦게 다른 금액을 들으면 속았다고 느끼실 수도 있겠어요.","en":"The customer decided based on the displayed price, so hearing a different amount at checkout could understandably feel misleading."},
+        {"speaker":"Min-joon","role":"manager","ko":"맞아요. 고의가 아니었다는 설명부터 하면 그 경험을 가볍게 여기는 것처럼 들릴 수 있어요.","en":"Yes. Leading with 'it wasn't intentional' may sound like we're dismissing their experience."},
+        {"speaker":"Leejin","role":"clerk","ko":"우선 혼란을 드린 점을 인정하고, 실제 적용되는 금액과 그 근거를 확인해서 말씀드릴게요.","en":"I'll first acknowledge the confusion, then verify the applicable amount and explain its basis."},
+        {"speaker":"Min-joon","role":"manager","ko":"그다음 구매를 계속하실지 선택하실 수 있도록 안내하고, 가격표도 바로 점검하죠.","en":"Then let them choose whether to proceed, and we'll check the label promptly."}
+      ]
+    },
+    {
+      "id": "ko-guided-a2-006", "episode": "006", "level": "A2", "domain": "SERVICES", "title": "I Booked for Three", "nativeTitle": "세 시에 예약했어요",
+      "situation": "A customer arrives at a salon for a named appointment.",
+      "learnerInput": "Hear the receptionist ask for a name and time.", "expectedOutput": "Give the booking time and name, then follow the check-in instruction.",
+      "targetConstruction": "세 시에 예약했어요.", "retainedCore": "예약했어요.", "variation": "네 시에 예약했어요.", "independentProductionPrompt": "Arrive for your own appointment and state your name and time without looking.",
+      "lines": [
+        {"speaker":"Leejin","role":"customer","ko":"안녕하세요. 세 시에 예약했어요.","en":"Hello. I have an appointment at three."},
+        {"speaker":"Min-joon","role":"receptionist","ko":"네, 성함이 어떻게 되세요?","en":"Certainly. May I have your name?"},
+        {"speaker":"Leejin","role":"customer","ko":"마리아예요. 조금 일찍 왔어요.","en":"It's Maria. I came a little early."},
+        {"speaker":"Min-joon","role":"receptionist","ko":"확인됐어요. 여기 앉아서 잠깐 기다려 주세요.","en":"I've found your booking. Please take a seat and wait a moment."}
+      ]
+    },
+    {
+      "id": "ko-guided-b1-006", "episode": "006", "level": "B1", "domain": "SERVICES", "title": "I Can't Find the Booking", "nativeTitle": "예약이 안 보이네요",
+      "situation": "A salon receptionist cannot find a customer's reservation at first.",
+      "learnerInput": "Hear a simple booking problem and a cooperative search for details.", "expectedOutput": "Explain how the reservation was made and offer a detail to check.",
+      "targetConstruction": "어제 전화로 예약했는데, 한번 더 확인해 주시겠어요?", "retainedCore": "세 시에 예약했어요.", "variation": "문자로 예약했어요.", "independentProductionPrompt": "The desk cannot find your booking. Give one detail that may help them locate it.",
+      "lines": [
+        {"speaker":"Leejin","role":"customer","ko":"어제 전화로 세 시 예약을 했는데, 제 이름이 안 보이나요?","en":"I booked for three by phone yesterday. Is my name not showing up?"},
+        {"speaker":"Min-joon","role":"receptionist","ko":"지금 목록에는 없네요. 혹시 예약하신 전화번호를 알려 주시겠어요?","en":"It's not on this list. Could you give me the phone number you booked with?"},
+        {"speaker":"Leejin","role":"customer","ko":"네, 전화번호 끝 네 자리가 사칠이일이에요. 그 번호로 다시 확인해 주세요.","en":"Yes, the last four digits of my number are four-seven-two-one. Please check with that number."},
+        {"speaker":"Min-joon","role":"receptionist","ko":"아, 다른 이름으로 저장돼 있었네요. 예약 확인됐습니다.","en":"Ah, it was saved under a different name. I've found the booking."}
+      ]
+    },
+    {
+      "id": "ko-guided-b2-006", "episode": "006", "level": "B2", "domain": "SERVICES", "title": "Moving an Appointment", "nativeTitle": "예약 시간을 조정해요",
+      "situation": "A customer needs to move a salon appointment and compare two available times.",
+      "learnerInput": "Hear a courteous request and two alternatives.", "expectedOutput": "Explain a scheduling conflict and select a workable time.",
+      "targetConstruction": "시간을 옮길 수 있다면 가능한 시간을 알려 주세요.", "retainedCore": "세 시에 예약했어요.", "variation": "다른 날로 옮길 수 있을까요?", "independentProductionPrompt": "Ask to move an appointment, compare two offers, and confirm one.",
+      "lines": [
+        {"speaker":"Leejin","role":"customer","ko":"세 시 예약이 있는데 일정이 겹쳤어요. 오늘 안에서 시간을 옮길 수 있을까요?","en":"I have a booking at three, but something has come up. Could I move it to another time today?"},
+        {"speaker":"Min-joon","role":"receptionist","ko":"네 시 반이나 여섯 시가 가능한데, 어느 쪽이 더 편하세요?","en":"We have four thirty or six. Which works better for you?"},
+        {"speaker":"Leejin","role":"customer","ko":"네 시 반은 조금 빠듯할 것 같아서 여섯 시로 부탁드릴게요.","en":"Four thirty would be a bit tight, so six would be better."},
+        {"speaker":"Min-joon","role":"receptionist","ko":"좋아요. 오늘 여섯 시로 변경했고, 확인 문자 보내 드릴게요.","en":"All set. I've moved it to six today, and I'll send a confirmation text."}
+      ]
+    },
+    {
+      "id": "ko-guided-c1-006", "episode": "006", "level": "C1", "domain": "SERVICES", "title": "Clarifying a Double Booking", "nativeTitle": "중복 예약을 차분히 풀어요",
+      "situation": "A salon manager and receptionist handle two bookings assigned to the same slot.",
+      "learnerInput": "Hear coworkers separate verified booking details from an unconfirmed explanation.", "expectedOutput": "State the overlap precisely and offer real alternatives without blaming either customer.",
+      "targetConstruction": "확인된 예약은 그대로 말씀드리고, 가능한 대안을 먼저 제시해요.", "retainedCore": "예약이 안 보이네요.", "variation": "확인 문자를 기준으로 다시 살펴볼게요.", "independentProductionPrompt": "Tell one affected customer about an overlap and offer a verified next step.",
+      "lines": [
+        {"speaker":"Leejin","role":"receptionist","ko":"같은 시간에 예약이 두 건 들어와 있는데, 어느 단계에서 겹쳤는지는 아직 확인되지 않았어요.","en":"We have two bookings for the same time, but we haven't found where the overlap happened."},
+        {"speaker":"Min-joon","role":"manager","ko":"원인을 단정하지 말고 두 분의 확인 문자를 먼저 대조해 봅시다.","en":"Let's not assume a cause. First compare both confirmation texts."},
+        {"speaker":"Leejin","role":"receptionist","ko":"확인된 내용은 그대로 설명하고, 실제로 가능한 시간만 선택지로 제시할게요.","en":"I'll explain what we've confirmed and offer only times we can actually accommodate."},
+        {"speaker":"Min-joon","role":"manager","ko":"좋아요. 기다리시게 될 분께는 예상 시간을 분명히 말씀드리는 것도 잊지 마세요.","en":"Good. Don't forget to give the person who may have to wait a clear time estimate."}
+      ]
+    },
+    {
+      "id": "ko-guided-c2-006", "episode": "006", "level": "C2", "domain": "SERVICES", "title": "Acknowledge Without Deflecting", "nativeTitle": "책임을 피하지 않고 설명해요",
+      "situation": "Two salon coworkers refine an explanation after a customer made plans around a confirmed booking.",
+      "learnerInput": "Hear a nuanced distinction between an accidental overlap and the inconvenience it caused.", "expectedOutput": "Acknowledge the disruption without prematurely assigning blame, then offer choices.",
+      "targetConstruction": "실수가 어디서 시작됐는지와 별개로 불편을 드린 점은 인정해요.", "retainedCore": "예약이 겹쳤어요.", "variation": "고객이 이미 시간을 비워 두셨다는 점을 먼저 고려해요.", "independentProductionPrompt": "Respond to a customer who arranged their day around a confirmed booking that cannot be honored as planned.",
+      "lines": [
+        {"speaker":"Leejin","role":"receptionist","ko":"고객님은 확인 문자까지 받으셨는데, 이제 와서 예약이 겹쳤다고 하면 시간을 허비한 기분이 드실 거예요.","en":"The customer received a confirmation, so learning only now that the slot overlaps may feel like we wasted their time."},
+        {"speaker":"Min-joon","role":"manager","ko":"맞아요. 누구의 입력 실수인지 따지기 전에, 그 일정에 맞춰 오셨다는 사실부터 인정해야죠.","en":"Exactly. Before sorting out whose entry caused it, we should acknowledge that they came in on the strength of that booking."},
+        {"speaker":"Leejin","role":"receptionist","ko":"현재 가능한 시간과 기다리셔야 하는 시간을 각각 분명히 말씀드리고, 결정은 고객님께 맡기겠습니다.","en":"I'll clearly explain the available slots and likely wait for each, then leave the decision to the customer."},
+        {"speaker":"Min-joon","role":"manager","ko":"그렇게 하세요. 설명은 짧고 정확하게 하고, 이후에 예약 기록도 따로 점검합시다.","en":"Please do. Keep the explanation concise and accurate, then we'll review the booking record separately."}
+      ]
+    },
+    {
+      "id": "ko-guided-a2-007", "episode": "007", "level": "A2", "domain": "HEALTH", "title": "My Stomach Has Hurt Since Yesterday", "nativeTitle": "어제부터 배가 아파요",
+      "situation": "A patient describes a stomachache at a clinic; the lesson gives no medical advice.",
+      "learnerInput": "Hear a clinician ask when a symptom began.", "expectedOutput": "Say where it hurts and when it started.",
+      "targetConstruction": "어제부터 배가 아파요.", "retainedCore": "배가 아파요.", "variation": "아침부터 머리가 아파요.", "independentProductionPrompt": "Point to a different body part and say when the discomfort began.",
+      "lines": [
+        {"speaker":"Leejin","role":"clinician","ko":"어디가 불편하세요?","en":"What is bothering you?"},
+        {"speaker":"Min-joon","role":"patient","ko":"어제부터 배가 아파요.","en":"My stomach has hurt since yesterday."},
+        {"speaker":"Leejin","role":"clinician","ko":"계속 아프세요, 아니면 가끔 아프세요?","en":"Does it hurt all the time, or only sometimes?"},
+        {"speaker":"Min-joon","role":"patient","ko":"가끔 아파요. 특히 밥을 먹고 나서요.","en":"Sometimes. Especially after I eat."}
+      ]
+    },
+    {
+      "id": "ko-guided-b1-007", "episode": "007", "level": "B1", "domain": "HEALTH", "title": "Explaining the Symptom Pattern", "nativeTitle": "언제 아픈지 설명해요",
+      "situation": "A patient describes a symptom pattern so a clinician can ask a relevant follow-up.",
+      "learnerInput": "Hear onset, frequency, and a correction to a possible misunderstanding.", "expectedOutput": "Describe when the symptom occurs and clarify what does not happen.",
+      "targetConstruction": "먹고 나면 아픈데, 먹기 전에는 괜찮아요.", "retainedCore": "어제부터 배가 아파요.", "variation": "아침에는 괜찮다가 저녁에 아파요.", "independentProductionPrompt": "Describe a symptom timeline and correct one misunderstood detail.",
+      "lines": [
+        {"speaker":"Leejin","role":"clinician","ko":"언제부터 불편했고, 주로 언제 아프세요?","en":"When did it start, and when does it usually hurt?"},
+        {"speaker":"Min-joon","role":"patient","ko":"그저께부터요. 먹고 나면 배가 아픈데, 먹기 전에는 괜찮아요.","en":"Since the day before yesterday. My stomach hurts after meals, but it's fine before I eat."},
+        {"speaker":"Leejin","role":"clinician","ko":"그러면 하루 종일 아픈 건 아니군요?","en":"So it doesn't hurt all day?"},
+        {"speaker":"Min-joon","role":"patient","ko":"네, 계속 아픈 건 아니고 하루에 두세 번 그래요.","en":"Right, not constantly. It happens two or three times a day."}
+      ]
+    },
+    {
+      "id": "ko-guided-b2-007", "episode": "007", "level": "B2", "domain": "HEALTH", "title": "Clarifying What Changed", "nativeTitle": "증상의 변화를 구분해요",
+      "situation": "A patient compares current and earlier symptoms without diagnosing themselves.",
+      "learnerInput": "Hear a distinction between increased frequency and unchanged intensity.", "expectedOutput": "Make the distinction and ask what further information would be useful.",
+      "targetConstruction": "통증이 심해졌다기보다 빈도가 늘었어요.", "retainedCore": "먹고 나면 아파요.", "variation": "강도는 비슷한데 지속 시간이 길어졌어요.", "independentProductionPrompt": "Explain one symptom change precisely, separating frequency from severity.",
+      "lines": [
+        {"speaker":"Leejin","role":"clinician","ko":"지난번보다 증상이 더 심해졌다고 느끼세요?","en":"Does it feel worse than last time?"},
+        {"speaker":"Min-joon","role":"patient","ko":"통증 자체가 더 심해졌다기보다, 아픈 횟수가 늘었어요.","en":"It's not that the pain is stronger; it happens more often."},
+        {"speaker":"Leejin","role":"clinician","ko":"강도는 비슷하지만 빈도가 달라졌다는 말씀이시군요. 언제부터 그랬는지도 기억나세요?","en":"So the intensity is similar, but the frequency has changed. Do you remember when that started?"},
+        {"speaker":"Min-joon","role":"patient","ko":"지난주 중반부터요. 기억나는 내용을 더 말씀드릴게요.","en":"Around the middle of last week. I can tell you what else I remember."}
+      ]
+    },
+    {
+      "id": "ko-guided-c1-007", "episode": "007", "level": "C1", "domain": "HEALTH", "title": "Giving a Precise Timeline", "nativeTitle": "증상 경과를 정확히 전해요",
+      "situation": "A patient prepares a concise symptom account for a clinical conversation.",
+      "learnerInput": "Hear the difference between observed events and possible explanations.", "expectedOutput": "Give a chronological account while separating facts from guesses.",
+      "targetConstruction": "확실한 변화와 제 추측을 구분해서 말씀드릴게요.", "retainedCore": "횟수가 늘었어요.", "variation": "처음엔 가끔 그랬는데 지금은 더 자주 그래요.", "independentProductionPrompt": "Tell a clinician what changed, when, and which part is only your suspicion.",
+      "lines": [
+        {"speaker":"Leejin","role":"clinician","ko":"처음 시작됐을 때부터 지금까지 어떤 변화가 있었는지 순서대로 말씀해 주세요.","en":"Please walk me through how it changed from the beginning until now."},
+        {"speaker":"Min-joon","role":"patient","ko":"처음에는 저녁 식사 후에만 불편했는데, 이번 주부터는 점심을 먹은 뒤에도 비슷한 느낌이 있어요.","en":"At first it only bothered me after dinner, but since this week I've felt something similar after lunch too."},
+        {"speaker":"Leejin","role":"clinician","ko":"발생하는 때가 늘었군요. 식사와 관련이 있다고 느끼시는 이유가 더 있나요?","en":"So it happens at more times of day. Is there another reason you think it may be related to meals?"},
+        {"speaker":"Min-joon","role":"patient","ko":"식사와 관련이 있는지는 제 추측이에요. 다만 불편했던 시간을 적어 둔 기록은 보여 드릴 수 있어요.","en":"The connection to meals is my guess. I did write down when it happened, and I can show you."}
+      ]
+    },
+    {
+      "id": "ko-guided-c2-007", "episode": "007", "level": "C2", "domain": "HEALTH", "title": "Correcting an Overstatement", "nativeTitle": "과장 없이 증상을 바로잡아요",
+      "situation": "A patient clarifies an imprecise phrase so the clinician does not infer constant pain.",
+      "learnerInput": "Hear a careful repair of an earlier overstatement.", "expectedOutput": "Correct an exaggerated description without downplaying the concern.",
+      "targetConstruction": "'항상'이라고 말씀드렸지만, 정확히는 …에 가까워요.", "retainedCore": "계속 아픈 건 아니에요.", "variation": "아프다기보다 묵직한 불편감이에요.", "independentProductionPrompt": "You said 'always' but meant 'often after meals.' Correct the record clearly.",
+      "lines": [
+        {"speaker":"Leejin","role":"clinician","ko":"아까는 늘 아프다고 하셨는데, 통증이 하루 내내 이어진다는 뜻인가요?","en":"Earlier you said it always hurts. Do you mean the pain continues all day?"},
+        {"speaker":"Min-joon","role":"patient","ko":"제가 '늘'이라고 표현했지만 정확히는 식사 후에 자주 불편해진다는 뜻이었어요.","en":"I said 'always,' but what I meant is that I often feel uncomfortable after meals."},
+        {"speaker":"Leejin","role":"clinician","ko":"그 차이가 중요하네요. 불편할 때는 어느 정도 지속되는지도 말씀해 주실 수 있을까요?","en":"That distinction matters. Could you tell me how long the discomfort lasts when it happens?"},
+        {"speaker":"Min-joon","role":"patient","ko":"시간을 재 보지는 않았어요. 다음에는 시작하고 끝나는 시각을 적어 두겠습니다.","en":"I haven't timed it. Next time, I'll note when it begins and ends."}
+      ]
+    },
+    {
+      "id": "ko-guided-a2-008", "episode": "008", "level": "A2", "domain": "PHONE", "title": "Mobile Data Isn't Working", "nativeTitle": "데이터가 안 돼요",
+      "situation": "A customer shows a phone to a service worker because mobile data is unavailable.",
+      "learnerInput": "Hear a simple question about whether calls still work.", "expectedOutput": "Report the data problem and contrast it with working calls.",
+      "targetConstruction": "전화는 되는데 데이터가 안 돼요.", "retainedCore": "휴대전화가 안 돼요.", "variation": "와이파이는 되는데 데이터가 안 돼요.", "independentProductionPrompt": "Show a phone and explain which feature works and which does not.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"휴대전화 데이터가 안 돼요.","en":"Mobile data isn't working on my phone."},
+        {"speaker":"Leejin","role":"worker","ko":"전화는 걸 수 있어요?","en":"Can you still make calls?"},
+        {"speaker":"Min-joon","role":"customer","ko":"네, 전화는 되는데 인터넷이 안 돼요.","en":"Yes, calls work, but I can't get online."},
+        {"speaker":"Leejin","role":"worker","ko":"알겠어요. 화면을 같이 확인해 볼게요.","en":"Okay. Let's look at the screen together."}
+      ]
+    },
+    {
+      "id": "ko-guided-b1-008", "episode": "008", "level": "B1", "domain": "PHONE", "title": "What Have You Tried?", "nativeTitle": "해 본 방법을 설명해요",
+      "situation": "A customer describes a phone connection problem and one attempted fix.",
+      "learnerInput": "Hear a sequence of actions and results.", "expectedOutput": "Say when the problem started, what you tried, and whether it helped.",
+      "targetConstruction": "다시 켜 봤는데도 달라지지 않았어요.", "retainedCore": "데이터가 안 돼요.", "variation": "와이파이를 껐다 켜 봤어요.", "independentProductionPrompt": "Describe one troubleshooting action and its result to a service worker.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"아침부터 데이터가 안 돼서 휴대전화를 다시 켜 봤어요.","en":"Mobile data hasn't worked since this morning, so I restarted my phone."},
+        {"speaker":"Leejin","role":"worker","ko":"다시 켠 뒤에도 똑같았나요?","en":"Was it the same after restarting?"},
+        {"speaker":"Min-joon","role":"customer","ko":"네, 전화는 되는데 인터넷 연결만 안 돼요.","en":"Yes. Calls work, but only the internet connection doesn't."},
+        {"speaker":"Leejin","role":"worker","ko":"그렇군요. 그럼 어떤 화면이 뜨는지 먼저 같이 볼게요.","en":"I see. Let's first look at the message on your screen together."}
+      ]
+    },
+    {
+      "id": "ko-guided-b2-008", "episode": "008", "level": "B2", "domain": "PHONE", "title": "Separating Two Connection Problems", "nativeTitle": "연결 문제를 구분해요",
+      "situation": "A customer distinguishes a home Wi-Fi problem from a mobile-data problem.",
+      "learnerInput": "Hear a comparison of two connection contexts.", "expectedOutput": "Explain where the failure occurs and ask what can be checked next.",
+      "targetConstruction": "와이파이에서는 되지만 모바일 데이터로는 연결되지 않아요.", "retainedCore": "데이터가 안 돼요.", "variation": "다른 장소에서도 같은 문제가 생겨요.", "independentProductionPrompt": "Compare two network situations without assuming the cause.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"집 와이파이에 연결하면 앱이 열리는데, 밖에서 모바일 데이터로는 열리지 않아요.","en":"The app opens on my home Wi-Fi, but not on mobile data when I'm out."},
+        {"speaker":"Leejin","role":"worker","ko":"앱 자체보다는 연결 방식에 따라 달라지는 것 같군요. 다른 앱도 그런가요?","en":"It seems to vary with the connection rather than just the app. Does it happen with other apps too?"},
+        {"speaker":"Min-joon","role":"customer","ko":"네, 다른 앱도 비슷해요. 우선 어떤 설정을 확인해 보면 좋을까요?","en":"Yes, other apps behave similarly. Which settings should we check first?"},
+        {"speaker":"Leejin","role":"worker","ko":"현재 설정과 표시되는 안내를 함께 살펴본 뒤 다음 방법을 정하죠.","en":"Let's look at the current settings and any on-screen message, then decide the next step."}
+      ]
+    },
+    {
+      "id": "ko-guided-c1-008", "episode": "008", "level": "C1", "domain": "PHONE", "title": "Describing a Reproducible Failure", "nativeTitle": "반복되는 오류를 구체적으로 설명해요",
+      "situation": "A customer gives a service worker enough detail to reproduce a connection failure.",
+      "learnerInput": "Hear a clear separation between observations and a possible cause.", "expectedOutput": "Report the exact conditions and avoid presenting a guess as fact.",
+      "targetConstruction": "원인은 모르지만 이 조건에서는 같은 오류가 반복돼요.", "retainedCore": "모바일 데이터로는 연결되지 않아요.", "variation": "장소가 바뀌어도 같은 메시지가 떠요.", "independentProductionPrompt": "Describe a repeatable phone failure: when it happens, what appears, and what remains uncertain.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"원인은 모르겠지만 와이파이를 끄고 모바일 데이터로 전환할 때마다 같은 오류 메시지가 떠요.","en":"I don't know the cause, but the same error appears every time I switch from Wi-Fi to mobile data."},
+        {"speaker":"Leejin","role":"worker","ko":"특정 장소에서만 그런지, 다른 곳에서도 재현되는지 확인해 보셨나요?","en":"Have you checked whether it happens only in one place or elsewhere too?"},
+        {"speaker":"Min-joon","role":"customer","ko":"집 근처와 회사 근처에서 모두 그랬어요. 화면을 캡처해 둔 것도 있습니다.","en":"It happened near home and near work. I also saved a screenshot."},
+        {"speaker":"Leejin","role":"worker","ko":"좋습니다. 확인된 조건부터 기록하고, 원인은 자료를 본 뒤에 판단하겠습니다.","en":"Good. Let's record the confirmed conditions first, then assess the cause after reviewing the evidence."}
+      ]
+    },
+    {
+      "id": "ko-guided-c2-008", "episode": "008", "level": "C2", "domain": "PHONE", "title": "Avoiding a Premature Diagnosis", "nativeTitle": "원인을 성급히 단정하지 않아요",
+      "situation": "Two support workers reconcile a customer's report with incomplete technical evidence.",
+      "learnerInput": "Hear colleagues distinguish an observed failure from a plausible but unproved explanation.", "expectedOutput": "Explain uncertainty clearly and choose a useful next check.",
+      "targetConstruction": "그럴 가능성은 있지만 현재 자료만으로는 단정하기 어려워요.", "retainedCore": "같은 오류가 반복돼요.", "variation": "확인 가능한 조건부터 좁혀 볼게요.", "independentProductionPrompt": "A colleague says the SIM must be broken. Respond without dismissing the idea or declaring it proven.",
+      "lines": [
+        {"speaker":"Leejin","role":"worker","ko":"와이파이에서는 되니까 유심 문제라고 바로 안내해도 될까요?","en":"Since Wi-Fi works, should we tell the customer right away that the SIM is the problem?"},
+        {"speaker":"Min-joon","role":"coworker","ko":"가능성은 있지만 아직 단정하기 어려워요. 연결이 안 되는 조건만 확인된 상태잖아요.","en":"It's possible, but it's too early to say. All we've confirmed is when the connection fails."},
+        {"speaker":"Leejin","role":"worker","ko":"그럼 고객에게는 확인된 현상을 먼저 설명하고, 다음 점검으로 원인을 좁혀 보겠다고 말할게요.","en":"Then I'll describe what we've confirmed and say the next checks should narrow down the cause."},
+        {"speaker":"Min-joon","role":"coworker","ko":"좋아요. 추측을 사실처럼 들리게 하지 않으면서도 진행 상황은 분명히 전할 수 있겠네요.","en":"Good. That keeps a guess from sounding like a fact while still giving the customer a clear update."}
+      ]
+    },
+    {
+      "id": "ko-guided-a2-009", "episode": "009", "level": "A2", "domain": "ADMIN", "title": "Where Can I Apply?", "nativeTitle": "어느 창구에서 신청해요?",
+      "situation": "A visitor asks where to submit a community-class application; no eligibility rule is asserted.",
+      "learnerInput": "Hear a direction and confirm the destination.", "expectedOutput": "Ask which desk handles an application and check what to bring.",
+      "targetConstruction": "어느 창구에서 신청해요?", "retainedCore": "어디에서 신청해요?", "variation": "신청서는 어디에서 받아요?", "independentProductionPrompt": "At a new public-service desk, ask where to apply and repeat the direction back.",
+      "lines": [
+        {"speaker":"Min-joon","role":"visitor","ko":"한국어 수업은 어느 창구에서 신청해요?","en":"Which desk handles sign-ups for the Korean class?"},
+        {"speaker":"Leejin","role":"staff","ko":"저쪽 안내 데스크에서 신청할 수 있어요.","en":"You can sign up at the information desk over there."},
+        {"speaker":"Min-joon","role":"visitor","ko":"저쪽 데스크요? 신청서도 거기 있어요?","en":"That desk over there? Do they have the form there too?"},
+        {"speaker":"Leejin","role":"staff","ko":"네, 가셔서 필요한 서류를 물어보세요.","en":"Yes. Ask them what documents you need when you get there."}
+      ]
+    },
+    {
+      "id": "ko-guided-b1-009", "episode": "009", "level": "B1", "domain": "ADMIN", "title": "I May Have Missed a Form", "nativeTitle": "서류가 하나 빠졌나 봐요",
+      "situation": "A visitor at a class-registration desk learns that their form is incomplete.",
+      "learnerInput": "Hear what is missing and ask how to correct it.", "expectedOutput": "Explain what was brought and ask for a specific next step.",
+      "targetConstruction": "무엇이 빠졌는지 알려 주시면 다시 작성할게요.", "retainedCore": "어느 창구에서 신청해요?", "variation": "제가 준비한 서류를 한번 봐 주시겠어요?", "independentProductionPrompt": "Your application is incomplete. Ask what is missing and how to fix it.",
+      "lines": [
+        {"speaker":"Min-joon","role":"visitor","ko":"수업 신청서를 냈는데, 빠진 부분이 있다고 들었어요.","en":"I submitted my class form, but I was told something is missing."},
+        {"speaker":"Leejin","role":"staff","ko":"네, 연락받을 전화번호 칸이 비어 있어요.","en":"Yes, the contact-number field is blank."},
+        {"speaker":"Min-joon","role":"visitor","ko":"아, 그 부분을 놓쳤네요. 지금 적어서 다시 드리면 될까요?","en":"Oh, I missed that. May I fill it in and give it back now?"},
+        {"speaker":"Leejin","role":"staff","ko":"네, 여기 적어 주시면 바로 확인해 드릴게요.","en":"Yes. Write it here, and I'll check it right away."}
+      ]
+    },
+    {
+      "id": "ko-guided-b2-009", "episode": "009", "level": "B2", "domain": "ADMIN", "title": "Confirming the Application Route", "nativeTitle": "접수 방법을 확인해요",
+      "situation": "A visitor has seen two possible ways to submit a class application and asks which is current.",
+      "learnerInput": "Hear a clarification based on the notice at hand, not a universal rule.", "expectedOutput": "Compare two routes and confirm the next action.",
+      "targetConstruction": "안내문에는 온라인 접수라고 되어 있는데, 방문해서도 신청할 수 있나요?", "retainedCore": "어느 창구에서 신청해요?", "variation": "이 공지에 적힌 방법이 지금도 맞나요?", "independentProductionPrompt": "Show an application notice and ask whether its stated method is still current.",
+      "lines": [
+        {"speaker":"Min-joon","role":"visitor","ko":"제가 본 안내문에는 온라인 신청이라고 되어 있는데, 여기서도 접수할 수 있나요?","en":"The notice I saw says to apply online. Can I also submit it here?"},
+        {"speaker":"Leejin","role":"staff","ko":"이 수업은 현재 두 방법 모두 가능해요. 다만 신청 내용을 확인하는 방식은 달라요.","en":"For this class, both methods are currently available, though confirmation works differently."},
+        {"speaker":"Min-joon","role":"visitor","ko":"그렇군요. 오늘 여기서 신청하면 접수됐다는 사실을 어떻게 확인할 수 있을까요?","en":"I see. If I apply here today, how can I confirm it was received?"},
+        {"speaker":"Leejin","role":"staff","ko":"작성하신 내용을 먼저 확인한 뒤, 접수 확인 방법을 안내해 드릴게요.","en":"I'll check your form first, then explain how to confirm receipt."}
+      ]
+    },
+    {
+      "id": "ko-guided-c1-009", "episode": "009", "level": "C1", "domain": "ADMIN", "title": "Clarifying an Ambiguous Notice", "nativeTitle": "모호한 안내문을 확인해요",
+      "situation": "A visitor asks staff to clarify whether a posted instruction applies to the current class.",
+      "learnerInput": "Hear a precise question that separates a general notice from a specific application.", "expectedOutput": "Point out the ambiguity and request written confirmation of the relevant route.",
+      "targetConstruction": "이 안내가 이번 수업에도 적용되는지 확인하고 싶습니다.", "retainedCore": "어떤 방법으로 신청하나요?", "variation": "안내문이 갱신된 날짜를 확인해 주실 수 있나요?", "independentProductionPrompt": "An old notice and a new desk instruction conflict. Ask which applies to your application.",
+      "lines": [
+        {"speaker":"Min-joon","role":"visitor","ko":"게시된 안내에는 방문 접수라고 쓰여 있는데, 이번 수업에도 그대로 적용되는지 확인하고 싶습니다.","en":"The posted notice says in-person submission. I'd like to confirm whether that still applies to this class."},
+        {"speaker":"Leejin","role":"staff","ko":"그 안내는 이전 모집 때 사용한 거예요. 이번 모집 내용은 별도 공지에 정리돼 있습니다.","en":"That notice is from an earlier intake. The current details are in a separate announcement."},
+        {"speaker":"Min-joon","role":"visitor","ko":"그렇다면 이번 공지의 링크를 받을 수 있을까요? 제가 다른 내용을 보고 다시 혼동하지 않도록요.","en":"Could you send me the link to the current announcement? I'd rather not confuse it with another version."},
+        {"speaker":"Leejin","role":"staff","ko":"네, 최신 공지를 보여 드리고 해당 부분을 함께 확인해 드릴게요.","en":"Certainly. I'll show you the latest notice and go through that section with you."}
+      ]
+    },
+    {
+      "id": "ko-guided-c2-009", "episode": "009", "level": "C2", "domain": "ADMIN", "title": "Reconciling Conflicting Guidance", "nativeTitle": "서로 다른 안내를 조율해요",
+      "situation": "A visitor received two conflicting instructions about a community-class application.",
+      "learnerInput": "Hear a nuanced account that avoids accusing either worker while requesting a clear answer.", "expectedOutput": "Lay out the conflicting guidance, identify the needed decision, and seek one authoritative confirmation.",
+      "targetConstruction": "두 안내가 서로 달라 어느 절차를 따라야 할지 확인 부탁드립니다.", "retainedCore": "이번 공지가 적용되나요?", "variation": "현재 기준을 한 번에 확인할 수 있는 자료가 있을까요?", "independentProductionPrompt": "Two staff members gave different application instructions. Ask for a reliable resolution without assigning blame.",
+      "lines": [
+        {"speaker":"Min-joon","role":"visitor","ko":"전화로는 방문해서 내라고 들었는데, 오늘은 온라인으로만 접수한다고 안내받았습니다. 어느 쪽을 따라야 할지 확인 부탁드립니다.","en":"I was told by phone to submit it in person, but today I was told applications are online only. Could you clarify which applies?"},
+        {"speaker":"Leejin","role":"staff","ko":"안내가 서로 달라 혼란스러우셨겠어요. 먼저 두 안내가 각각 언제 나온 것인지 확인하겠습니다.","en":"Those conflicting instructions must be confusing. Let me first check when each was issued."},
+        {"speaker":"Min-joon","role":"visitor","ko":"감사합니다. 접수 자체보다도 잘못된 방법을 따라 기회를 놓치지 않는 게 중요해서요.","en":"Thank you. What matters most to me is not missing the chance by following the wrong route."},
+        {"speaker":"Leejin","role":"staff","ko":"그 점 이해합니다. 이번 모집에 적용되는 방법을 확인한 뒤, 근거가 되는 공지도 함께 안내해 드릴게요.","en":"I understand. I'll confirm the route for this intake and show you the notice it's based on."}
+      ]
+    },
+    {
+      "id": "ko-guided-a2-010", "episode": "010", "level": "A2", "domain": "SERVICES", "title": "This Isn't My Order", "nativeTitle": "제가 주문한 게 아니에요",
+      "situation": "A customer at a café notices the wrong drink at pickup.",
+      "learnerInput": "Hear a worker ask what was ordered.", "expectedOutput": "State the mismatch and request a check.",
+      "targetConstruction": "제가 주문한 음료가 아니에요. 다시 확인해 주세요.", "retainedCore": "다시 확인해 주세요.", "variation": "제가 주문한 크기가 아니에요.", "independentProductionPrompt": "At a pickup counter, identify the wrong item and say what you ordered.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"죄송한데, 이건 제가 주문한 음료가 아니에요.","en":"Excuse me, this isn't the drink I ordered."},
+        {"speaker":"Leejin","role":"worker","ko":"어떤 음료를 주문하셨어요?","en":"What did you order?"},
+        {"speaker":"Min-joon","role":"customer","ko":"아이스라테를 주문했어요. 다시 확인해 주실래요?","en":"I ordered an iced latte. Could you check again?"},
+        {"speaker":"Leejin","role":"worker","ko":"네, 주문 내역을 다시 볼게요.","en":"Of course. I'll check the order again."}
+      ]
+    },
+    {
+      "id": "ko-guided-b1-010", "episode": "010", "level": "B1", "domain": "SERVICES", "title": "The Name on the Label Is Wrong", "nativeTitle": "라벨의 이름이 달라요",
+      "situation": "A café customer sees a similar name on a pickup label and checks before taking the drink.",
+      "learnerInput": "Hear a polite correction and a specific detail to verify.", "expectedOutput": "Explain the name difference and ask the worker to check the order number.",
+      "targetConstruction": "제 이름과 비슷한데 한 글자가 달라서요.", "retainedCore": "제 이름이 아니에요.", "variation": "제 주문 번호와 달라요.", "independentProductionPrompt": "Explain a near-match on a label and offer another detail to identify your order.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"이름이 제 것과 비슷한데 한 글자가 달라서요. 제 주문이 맞을까요?","en":"The name is almost mine, but one letter is different. Is this my order?"},
+        {"speaker":"Leejin","role":"worker","ko":"바로 드리기 전에 확인해 볼게요. 주문 번호를 알려 주시겠어요?","en":"I'll check before handing it over. Could you tell me your order number?"},
+        {"speaker":"Min-joon","role":"customer","ko":"화면에는 삼십이 번이라고 나와 있어요.","en":"It says number thirty-two on my screen."},
+        {"speaker":"Leejin","role":"worker","ko":"확인했어요. 이건 다른 분 거고, 고객님 음료는 곧 나와요.","en":"I checked. This belongs to someone else; yours will be ready soon."}
+      ]
+    },
+    {
+      "id": "ko-guided-b2-010", "episode": "010", "level": "B2", "domain": "SERVICES", "title": "The Receipt Doesn't Match", "nativeTitle": "영수증 금액이 다르게 나왔어요",
+      "situation": "A customer notices a receipt amount that differs from the amount announced at checkout.",
+      "learnerInput": "Hear a non-accusatory request to compare two amounts.", "expectedOutput": "Point out the mismatch and ask what caused it before requesting a correction.",
+      "targetConstruction": "안내받은 금액과 영수증 금액이 달라서 확인하고 싶어요.", "retainedCore": "다시 확인해 주세요.", "variation": "품목이 하나 더 찍혀 있는 것 같아요.", "independentProductionPrompt": "Show a receipt, compare two amounts, and ask for a check without assuming the cause.",
+      "lines": [
+        {"speaker":"Min-joon","role":"customer","ko":"아까 안내받은 금액과 영수증 금액이 다른데, 함께 확인해 주실 수 있을까요?","en":"The amount on my receipt differs from what I was told earlier. Could we check it together?"},
+        {"speaker":"Leejin","role":"worker","ko":"네, 어떤 부분이 다르게 보이세요?","en":"Of course. Which part looks different?"},
+        {"speaker":"Min-joon","role":"customer","ko":"음료는 두 잔 주문했는데 영수증에는 세 잔으로 표시돼 있어요.","en":"I ordered two drinks, but the receipt shows three."},
+        {"speaker":"Leejin","role":"worker","ko":"확인해 보겠습니다. 주문 내역과 결제 내역을 비교해 볼게요.","en":"Let me check. I'll compare the order and payment records."}
+      ]
+    },
+    {
+      "id": "ko-guided-c1-010", "episode": "010", "level": "C1", "domain": "SERVICES", "title": "Correcting an Error Without Blame", "nativeTitle": "책임을 따지기보다 오류를 바로잡아요",
+      "situation": "Two café workers plan how to respond to a customer's incorrect receipt.",
+      "learnerInput": "Hear a response that acknowledges the mismatch and states what remains unverified.", "expectedOutput": "Explain a careful check and a correction route without guessing at fault.",
+      "targetConstruction": "금액 차이는 확인됐지만 원인은 결제 기록을 봐야 알 수 있어요.", "retainedCore": "영수증 금액이 달라요.", "variation": "수정이 필요하면 절차를 안내해 드릴게요.", "independentProductionPrompt": "A customer shows an incorrect receipt. Acknowledge what you know, say what you will check, and avoid assigning blame.",
+      "lines": [
+        {"speaker":"Leejin","role":"worker","ko":"고객님이 말씀하신 금액 차이는 확인했는데, 왜 그렇게 찍혔는지는 아직 모르겠어요.","en":"I can see the difference the customer mentioned, but I don't yet know why it appeared."},
+        {"speaker":"Min-joon","role":"coworker","ko":"그럼 원인을 짐작해서 설명하기보다 주문 기록과 결제 기록을 나란히 확인합시다.","en":"Rather than guessing, let's compare the order and payment records side by side."},
+        {"speaker":"Leejin","role":"worker","ko":"고객님께는 확인 중이라고 말씀드리고, 수정이 필요하면 가능한 방법을 안내할게요.","en":"I'll tell the customer we're checking and explain the available correction if one is needed."},
+        {"speaker":"Min-joon","role":"coworker","ko":"좋아요. 기다리시는 동안 어느 정도 시간이 걸릴지도 알려 드리세요.","en":"Good. Also give them an idea of how long the check will take."}
+      ]
+    },
+    {
+      "id": "ko-guided-c2-010", "episode": "010", "level": "C2", "domain": "SERVICES", "title": "Resolving Two Different Accounts", "nativeTitle": "서로 다른 기억을 조율해요",
+      "situation": "A café manager handles a disagreement between a customer's memory and the receipt record.",
+      "learnerInput": "Hear a way to validate the concern without treating either account as settled fact.", "expectedOutput": "Distinguish what each side recalls, identify verifiable evidence, and keep the exchange constructive.",
+      "targetConstruction": "서로 기억이 다른 부분은 기록을 기준으로 함께 확인하겠습니다.", "retainedCore": "금액 차이를 확인해 볼게요.", "variation": "확인된 사실부터 하나씩 맞춰 보죠.", "independentProductionPrompt": "A customer and worker remember a payment differently. Respond without accusing either, and propose an evidence-based check.",
+      "lines": [
+        {"speaker":"Leejin","role":"worker","ko":"고객님은 두 잔만 주문하셨다고 기억하시는데, 제 화면에는 세 잔으로 남아 있어요.","en":"The customer recalls ordering only two drinks, but my screen shows three."},
+        {"speaker":"Min-joon","role":"manager","ko":"어느 한쪽의 기억이 틀렸다고 서둘러 말하지 말고, 남아 있는 주문 기록부터 함께 살펴보죠.","en":"Let's not rush to say either person's memory is wrong. We can review the order record together first."},
+        {"speaker":"Leejin","role":"worker","ko":"고객님께는 서로 다른 부분을 확인하고 있다고 말씀드리고, 기록에 남은 시각을 기준으로 순서를 다시 맞춰 볼게요.","en":"I'll tell the customer we're checking the discrepancy and reconstruct the sequence using the recorded times."},
+        {"speaker":"Min-joon","role":"manager","ko":"좋습니다. 확인된 사실이 정리되면 그때 처리 방법을 분명히 안내해 드리세요.","en":"Good. Once the facts are clear, explain the next step plainly."}
+      ]
+    }
+  ]
+}
