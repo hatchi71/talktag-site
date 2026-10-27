@@ -47,8 +47,6 @@ document.getElementById("essayGuide").hidden=type!=="plain"||japanese||Boolean(l
 if(miniMode){
   var miniGuide=document.getElementById("essayGuide");
   miniGuide.querySelector("h2").textContent="Mini Talks · How to practice";
-  miniGuide.querySelector(".essay-practice-grid").innerHTML='<article class="essay-practice-step"><small>01 · LISTEN</small><h3>Hear the whole exchange</h3><p>Follow who is speaking and what each person wants in this everyday situation.</p></article><article class="essay-practice-step"><small>02 · SPEAK ALONG</small><h3>Try each line in your own voice</h3><p>Replay any line as often as you like. There is no required repeat count.</p></article><article class="essay-practice-step"><small>03 · RETELL</small><h3>Make the conversation your own</h3><p>Use the expressions to describe the situation or answer naturally in Korean.</p></article>';
-  miniGuide.querySelector(".essay-ai-notice").hidden=true;
 }
 var levelPicker=document.querySelector(".filter-bar");
 levelPicker.classList.add("tt-level-cards");

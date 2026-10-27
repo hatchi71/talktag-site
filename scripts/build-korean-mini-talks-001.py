@@ -407,7 +407,7 @@ def validate(work, report_path, approved_path):
         json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(f'{CARD_ID}: TECHNICAL PASS; {metrics["duration"]:.2f}s; '
           f'{metrics["inputLufs"]:.2f} LUFS; {metrics["inputTruePeak"]:.2f} dBTP')
-    print('Not published. Human listening/pronunciation review was not performed.')
+    print('Publication is not checked by this local QC validator. Human listening/pronunciation review was not performed.')
 
 
 def main():
