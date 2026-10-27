@@ -1,0 +1,657 @@
+{
+  "schema": "mini-talks-batch-release-record-v1",
+  "language": "en",
+  "series": "002–010",
+  "publishedAt": "2026-10-27T08:25:20Z",
+  "qcTarget": {
+    "integratedLufs": -16,
+    "truePeakCeilingDbtp": -1
+  },
+  "sourceSpeechReview": "Exact word-level transcription matched 110 source turns; human listening not performed",
+  "cards": [
+    {
+      "id": "mt-en-a1-002",
+      "level": "A1",
+      "unit": "002",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/002/mt-en-a1-002-18ef9358fd9c.mp3?v=18ef9358fd9c",
+      "sha256": "18ef9358fd9c027b6ae39e2c4a7794c143788313873a2b0a59a12f88ee99f56a",
+      "bytes": 218981,
+      "artwork": "assets/mini-talks/en/002/a1-scene.jpg",
+      "artworkSha256": "8e939dc0d14a3b315783785396373304906b413657c4ee54e9c8c3651088315a",
+      "durationSeconds": 13.631292,
+      "integratedLufs": -15.9,
+      "truePeakDbtp": -1.73,
+      "cueToMedianSpeechRmsDb": 7.27,
+      "qcWarnings": [
+        "Cue is 7.3 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "ava",
+          "voiceId": "NHRgOEwqx5WZNClv5sat",
+          "voiceName": "Chelsea"
+        },
+        {
+          "speakerId": "luis",
+          "voiceId": "CwhRBWXzGAHq8TQ4Fs17",
+          "voiceName": "Roger"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a1-003",
+      "level": "A1",
+      "unit": "003",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/003/mt-en-a1-003-67a45001810d.mp3?v=67a45001810d",
+      "sha256": "67a45001810d33a2f759f924915919cc2cd5418675f1ef1c6d19594e9e11d3ee",
+      "bytes": 192485,
+      "artwork": "assets/mini-talks/en/003/a1-scene.jpg",
+      "artworkSha256": "2eae75a46727e8a9c4f7363c9fe4f6078a6b8bf086e7718def7fb3eac274e79f",
+      "durationSeconds": 11.959458,
+      "integratedLufs": -15.85,
+      "truePeakDbtp": -1.87,
+      "cueToMedianSpeechRmsDb": 7.26,
+      "qcWarnings": [
+        "Cue is 7.3 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "evan",
+          "voiceId": "bIHbv24MWmeRgasZH58o",
+          "voiceName": "Will"
+        },
+        {
+          "speakerId": "joy",
+          "voiceId": "cgSgspJ2msm6clMCkdW9",
+          "voiceName": "Jessica"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a1-004",
+      "level": "A1",
+      "unit": "004",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/004/mt-en-a1-004-92e2a2bcef50.mp3?v=92e2a2bcef50",
+      "sha256": "92e2a2bcef50b97f8b290236d128e47b63f65fe7e879f4b04f07767c8ab5edd2",
+      "bytes": 188645,
+      "artwork": "assets/mini-talks/en/004/a1-scene.jpg",
+      "artworkSha256": "e420e14301a232eebc1d9d0470bdc331ea977044be74e30e68dc5922b06eb257",
+      "durationSeconds": 11.72725,
+      "integratedLufs": -16.04,
+      "truePeakDbtp": -1.33,
+      "cueToMedianSpeechRmsDb": 6.84,
+      "qcWarnings": [
+        "Cue is 6.8 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "mia",
+          "voiceId": "EST9Ui6982FZPSi7gCHi",
+          "voiceName": "Elise"
+        },
+        {
+          "speakerId": "noah",
+          "voiceId": "iP95p4xoKVk53GoZ742B",
+          "voiceName": "Chris"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a1-005",
+      "level": "A1",
+      "unit": "005",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/005/mt-en-a1-005-90d2abdbccba.mp3?v=90d2abdbccba",
+      "sha256": "90d2abdbccba02494835bff5d9e9cc32b33ea8d7e3554d4feac365410617e721",
+      "bytes": 212453,
+      "artwork": "assets/mini-talks/en/005/a1-scene.jpg",
+      "artworkSha256": "fc7437eb351e3ad4e4ff54239d82313584073479546241f2edc928f1d1ea23f2",
+      "durationSeconds": 13.213354,
+      "integratedLufs": -15.93,
+      "truePeakDbtp": -1.93,
+      "cueToMedianSpeechRmsDb": 7.17,
+      "qcWarnings": [
+        "Cue is 7.2 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "zoe",
+          "voiceId": "NHRgOEwqx5WZNClv5sat",
+          "voiceName": "Chelsea"
+        },
+        {
+          "speakerId": "miles",
+          "voiceId": "CwhRBWXzGAHq8TQ4Fs17",
+          "voiceName": "Roger"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a1-006",
+      "level": "A1",
+      "unit": "006",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/006/mt-en-a1-006-ab048f359bcb.mp3?v=ab048f359bcb",
+      "sha256": "ab048f359bcbe431c4b774f082f62af7812ee6edd3f9a4e88601b6808ab8ac3f",
+      "bytes": 222053,
+      "artwork": "assets/mini-talks/en/006/a1-scene.jpg",
+      "artworkSha256": "5d91ae44f347eab439a24e098ab7a4b4915050a715c313ebf38fed41fc288170",
+      "durationSeconds": 13.817063,
+      "integratedLufs": -16.03,
+      "truePeakDbtp": -1.76,
+      "cueToMedianSpeechRmsDb": 7.87,
+      "qcWarnings": [
+        "Cue is 7.9 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "grace",
+          "voiceId": "cgSgspJ2msm6clMCkdW9",
+          "voiceName": "Jessica"
+        },
+        {
+          "speakerId": "leo",
+          "voiceId": "bIHbv24MWmeRgasZH58o",
+          "voiceName": "Will"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a1-007",
+      "level": "A1",
+      "unit": "007",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/007/mt-en-a1-007-db7d5a4530bf.mp3?v=db7d5a4530bf",
+      "sha256": "db7d5a4530bf8d2a6523ba817061e49b08257c5abab16b79f8d610104e039f3a",
+      "bytes": 225509,
+      "artwork": "assets/mini-talks/en/007/a1-scene.jpg",
+      "artworkSha256": "6cfd388b02813c1ee0299381c987cc643b85368c9730ed8d79c9cc5307bab20f",
+      "durationSeconds": 14.01775,
+      "integratedLufs": -16.49,
+      "truePeakDbtp": -1.9,
+      "cueToMedianSpeechRmsDb": 5.93,
+      "qcWarnings": [],
+      "lineCount": 7,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "lucy",
+          "voiceId": "EST9Ui6982FZPSi7gCHi",
+          "voiceName": "Elise"
+        },
+        {
+          "speakerId": "caleb",
+          "voiceId": "iP95p4xoKVk53GoZ742B",
+          "voiceName": "Chris"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a1-008",
+      "level": "A1",
+      "unit": "008",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/008/mt-en-a1-008-a0ac0b3972d6.mp3?v=a0ac0b3972d6",
+      "sha256": "a0ac0b3972d60d98e86a31c1fbe4fd3f61a94cfa66ef1dc9d4a8bb4d8ea163f9",
+      "bytes": 217829,
+      "artwork": "assets/mini-talks/en/008/a1-scene.jpg",
+      "artworkSha256": "814fd5995e819b56ad2ef8fee931a7d315c69cca5333cb12ca8b6927de586b96",
+      "durationSeconds": 13.538438,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.94,
+      "cueToMedianSpeechRmsDb": 6.63,
+      "qcWarnings": [
+        "Cue is 6.6 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "nora",
+          "voiceId": "NHRgOEwqx5WZNClv5sat",
+          "voiceName": "Chelsea"
+        },
+        {
+          "speakerId": "eli",
+          "voiceId": "CwhRBWXzGAHq8TQ4Fs17",
+          "voiceName": "Roger"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a1-009",
+      "level": "A1",
+      "unit": "009",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/009/mt-en-a1-009-dbe11c1a5b83.mp3?v=dbe11c1a5b83",
+      "sha256": "dbe11c1a5b838d4948bb8cc0e494aa5c568f0fc282a7a98b5f4668ea6ccae971",
+      "bytes": 244709,
+      "artwork": "assets/mini-talks/en/009/a1-scene.jpg",
+      "artworkSha256": "934105219e51481a2440c21a547fe9178f20471eeca44c91253d9dcf2b40d1e8",
+      "durationSeconds": 15.225208,
+      "integratedLufs": -16.25,
+      "truePeakDbtp": -1.58,
+      "cueToMedianSpeechRmsDb": 7.62,
+      "qcWarnings": [
+        "Cue is 7.6 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 7,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "mark",
+          "voiceId": "bIHbv24MWmeRgasZH58o",
+          "voiceName": "Will"
+        },
+        {
+          "speakerId": "tess",
+          "voiceId": "cgSgspJ2msm6clMCkdW9",
+          "voiceName": "Jessica"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a1-010",
+      "level": "A1",
+      "unit": "010",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/010/mt-en-a1-010-b03e7504b205.mp3?v=b03e7504b205",
+      "sha256": "b03e7504b20526b9e17b04e8bbd56d8bc194d695ec012923234bef3bba65e394",
+      "bytes": 217061,
+      "artwork": "assets/mini-talks/en/010/a1-scene.jpg",
+      "artworkSha256": "b21c92f77c0d0f4dee5fc25748ab6bb9ebefef0e73ee5988ed25c0d3a7f15a38",
+      "durationSeconds": 13.491979,
+      "integratedLufs": -16.32,
+      "truePeakDbtp": -1.91,
+      "cueToMedianSpeechRmsDb": 6.42,
+      "qcWarnings": [
+        "Cue is 6.4 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "emma",
+          "voiceId": "EST9Ui6982FZPSi7gCHi",
+          "voiceName": "Elise"
+        },
+        {
+          "speakerId": "dan",
+          "voiceId": "iP95p4xoKVk53GoZ742B",
+          "voiceName": "Chris"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-002",
+      "level": "A2",
+      "unit": "002",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/002/mt-en-a2-002-c2a123e2a2e8.mp3?v=c2a123e2a2e8",
+      "sha256": "c2a123e2a2e8a493136fdf0b78f130ecd26e63692de1a8000de9bce1e4efa7e3",
+      "bytes": 309989,
+      "artwork": "assets/mini-talks/en/002/a2-scene.jpg",
+      "artworkSha256": "fabd3bb2c1c5c0897a08872df1cd5efef08ebe4d9aa1712b93a7e8b15341bb4d",
+      "durationSeconds": 19.296979,
+      "integratedLufs": -16.64,
+      "truePeakDbtp": -1.9,
+      "cueToMedianSpeechRmsDb": 5.67,
+      "qcWarnings": [],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "mia",
+          "voiceId": "EST9Ui6982FZPSi7gCHi",
+          "voiceName": "Elise"
+        },
+        {
+          "speakerId": "noah",
+          "voiceId": "iP95p4xoKVk53GoZ742B",
+          "voiceName": "Chris"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-003",
+      "level": "A2",
+      "unit": "003",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/003/mt-en-a2-003-deb439d3cc6f.mp3?v=deb439d3cc6f",
+      "sha256": "deb439d3cc6f9dedc27998f3d6ad1999656af9435b2b577adcada4bd3f7c463e",
+      "bytes": 267365,
+      "artwork": "assets/mini-talks/en/003/a2-scene.jpg",
+      "artworkSha256": "6f8c6f00513810efaea97b8c4b9d0236ba806680e9998e4361c72159963c0637",
+      "durationSeconds": 16.649917,
+      "integratedLufs": -16.03,
+      "truePeakDbtp": -1.74,
+      "cueToMedianSpeechRmsDb": 7.68,
+      "qcWarnings": [
+        "Cue is 7.7 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "zoe",
+          "voiceId": "NHRgOEwqx5WZNClv5sat",
+          "voiceName": "Chelsea"
+        },
+        {
+          "speakerId": "chris",
+          "voiceId": "bIHbv24MWmeRgasZH58o",
+          "voiceName": "Will"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-004",
+      "level": "A2",
+      "unit": "004",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/004/mt-en-a2-004-df65c411eba3.mp3?v=df65c411eba3",
+      "sha256": "df65c411eba3d71bcc66ad2aa1c409a0b7dc2ed493c2801b0128df3b5c08f519",
+      "bytes": 277733,
+      "artwork": "assets/mini-talks/en/004/a2-scene.jpg",
+      "artworkSha256": "32eb1dd7edde0f8cb8e0527db6509ba09122e06bfb2149ce721e7ae68c099d0e",
+      "durationSeconds": 17.300042,
+      "integratedLufs": -16.34,
+      "truePeakDbtp": -1.84,
+      "cueToMedianSpeechRmsDb": 6.98,
+      "qcWarnings": [
+        "Cue is 7.0 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "luis",
+          "voiceId": "bIHbv24MWmeRgasZH58o",
+          "voiceName": "Will"
+        },
+        {
+          "speakerId": "ava",
+          "voiceId": "cgSgspJ2msm6clMCkdW9",
+          "voiceName": "Jessica"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-005",
+      "level": "A2",
+      "unit": "005",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/005/mt-en-a2-005-5e4a38bdba0b.mp3?v=5e4a38bdba0b",
+      "sha256": "5e4a38bdba0b7e086f60ae59c1719a73ceb636cdc93855720b30af6ba9aae1e3",
+      "bytes": 289637,
+      "artwork": "assets/mini-talks/en/005/a2-scene.jpg",
+      "artworkSha256": "03737d47d2e02a760de3653cd9b483c3f6329ffa76034ca344dadc1641238934",
+      "durationSeconds": 18.043104,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.8,
+      "cueToMedianSpeechRmsDb": 7.2,
+      "qcWarnings": [
+        "Cue is 7.2 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "jamie",
+          "voiceId": "NHRgOEwqx5WZNClv5sat",
+          "voiceName": "Chelsea"
+        },
+        {
+          "speakerId": "pat",
+          "voiceId": "7EzWGsX10sAS4c9m9cPf",
+          "voiceName": "Jack John"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-006",
+      "level": "A2",
+      "unit": "006",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/006/mt-en-a2-006-814fd10ea047.mp3?v=814fd10ea047",
+      "sha256": "814fd10ea047825820ed8a23b2defd4fc52c4ac8c6e0a73c7703645d5ac393d7",
+      "bytes": 301541,
+      "artwork": "assets/mini-talks/en/006/a2-scene.jpg",
+      "artworkSha256": "e792c5f3f405309e8b64fd1efca189ab3776b8b82d7e0ed13cee7929c028fad0",
+      "durationSeconds": 18.786167,
+      "integratedLufs": -16.29,
+      "truePeakDbtp": -1.73,
+      "cueToMedianSpeechRmsDb": 6.79,
+      "qcWarnings": [
+        "Cue is 6.8 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "alex",
+          "voiceId": "bIHbv24MWmeRgasZH58o",
+          "voiceName": "Will"
+        },
+        {
+          "speakerId": "dani",
+          "voiceId": "cgSgspJ2msm6clMCkdW9",
+          "voiceName": "Jessica"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-007",
+      "level": "A2",
+      "unit": "007",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/007/mt-en-a2-007-0bbddbdf5a32.mp3?v=0bbddbdf5a32",
+      "sha256": "0bbddbdf5a329230656ce80327f8fc8a97dbfcfa4b4bcf025ce1bd6fd24dc912",
+      "bytes": 341093,
+      "artwork": "assets/mini-talks/en/007/a2-scene.jpg",
+      "artworkSha256": "8124bf982870cc19fbabfb4a3aae02a3cfdb5a5ca69aa46e45020f4e1340a579",
+      "durationSeconds": 21.247438,
+      "integratedLufs": -16.18,
+      "truePeakDbtp": -1.7,
+      "cueToMedianSpeechRmsDb": 6.9,
+      "qcWarnings": [
+        "Cue is 6.9 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "erin",
+          "voiceId": "NHRgOEwqx5WZNClv5sat",
+          "voiceName": "Chelsea"
+        },
+        {
+          "speakerId": "mateo",
+          "voiceId": "CwhRBWXzGAHq8TQ4Fs17",
+          "voiceName": "Roger"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-008",
+      "level": "A2",
+      "unit": "008",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/008/mt-en-a2-008-b1d842b5a8f2.mp3?v=b1d842b5a8f2",
+      "sha256": "b1d842b5a8f23febc3e9d8061b493cdda7c9879685f5b9c225dba8ae21938f5e",
+      "bytes": 288869,
+      "artwork": "assets/mini-talks/en/008/a2-scene.jpg",
+      "artworkSha256": "2ddee95da80d66d75b540ab796a1123b837f780efa54a0cd1c18601493dde13c",
+      "durationSeconds": 17.996646,
+      "integratedLufs": -16.4,
+      "truePeakDbtp": -1.52,
+      "cueToMedianSpeechRmsDb": 6.77,
+      "qcWarnings": [
+        "Cue is 6.8 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "kim",
+          "voiceId": "cgSgspJ2msm6clMCkdW9",
+          "voiceName": "Jessica"
+        },
+        {
+          "speakerId": "jay",
+          "voiceId": "bIHbv24MWmeRgasZH58o",
+          "voiceName": "Will"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-009",
+      "level": "A2",
+      "unit": "009",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/009/mt-en-a2-009-5569277e3670.mp3?v=5569277e3670",
+      "sha256": "5569277e36701e3cf3b2fbdc45c8af77cea2648453e7eca26c34985ff46fc80f",
+      "bytes": 305381,
+      "artwork": "assets/mini-talks/en/009/a2-scene.jpg",
+      "artworkSha256": "0cfc8ba94b0736f9841ae5e81c56cffddc3ee174b6d42acdc54809e678d397a2",
+      "durationSeconds": 19.018333,
+      "integratedLufs": -16.3,
+      "truePeakDbtp": -1.83,
+      "cueToMedianSpeechRmsDb": 6.59,
+      "qcWarnings": [
+        "Cue is 6.6 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "robin",
+          "voiceId": "iP95p4xoKVk53GoZ742B",
+          "voiceName": "Chris"
+        },
+        {
+          "speakerId": "casey",
+          "voiceId": "EST9Ui6982FZPSi7gCHi",
+          "voiceName": "Elise"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    },
+    {
+      "id": "mt-en-a2-010",
+      "level": "A2",
+      "unit": "010",
+      "url": "https://audio.talktag.co.kr/English/mini-talks/010/mt-en-a2-010-7afa2230b9fe.mp3?v=7afa2230b9fe",
+      "sha256": "7afa2230b9fef64574ac489fe275e331437f78b665f7ca517386edcbde9ba256",
+      "bytes": 358757,
+      "artwork": "assets/mini-talks/en/010/a2-scene.jpg",
+      "artworkSha256": "559107bfaa999457049e0ebb5bf5c6f7d659e13ef3598a980e1581078587cc49",
+      "durationSeconds": 22.362,
+      "integratedLufs": -16.22,
+      "truePeakDbtp": -1.88,
+      "cueToMedianSpeechRmsDb": 6.06,
+      "qcWarnings": [
+        "Cue is 6.1 dB RMS above median dialogue; check playback balance"
+      ],
+      "lineCount": 6,
+      "playthroughCount": 1,
+      "forcedRepetitions": 0,
+      "sourceTranscriptVerified": true,
+      "voiceCasting": [
+        {
+          "speakerId": "jordan",
+          "voiceId": "CwhRBWXzGAHq8TQ4Fs17",
+          "voiceName": "Roger"
+        },
+        {
+          "speakerId": "taylor",
+          "voiceId": "NHRgOEwqx5WZNClv5sat",
+          "voiceName": "Chelsea"
+        }
+      ],
+      "audioQcStudioDecision": "original",
+      "humanListening": false,
+      "publicSha256VerifiedAt": "2026-10-27T08:23:55.688Z"
+    }
+  ]
+}
