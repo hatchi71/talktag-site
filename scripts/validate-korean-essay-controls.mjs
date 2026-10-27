@@ -2,9 +2,32 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import './validate-korean-mini-migration.mjs';
 
 process.chdir(fileURLToPath(new URL('../', import.meta.url)));
 const read = path => fs.readFileSync(path, 'utf8');
+const legacySource = 'native-audio-korean-aea-001.js';
+const legacyManifest = 'audio/korean/audio-essays-articles/segments-001/manifest.json';
+const legacyImportsActive = read('K-korean-audio-library.html').includes('/native-audio-korean-aea-001.js') &&
+  read('K-korean-audio-player.html').includes('/native-audio-korean-aea-001.js');
+if (!legacyImportsActive) {
+  const context = {window: {TalkTagNative: {language: 'ko'}, TalkTagNativeCatalogs: {ko: []}}};
+  vm.createContext(context);
+  for (const file of ['mini-talks-korean-001.js', 'korean-support-mini-talks-001.js', 'native-audio-catalog.js']) {
+    vm.runInContext(read(file), context, {filename: file});
+  }
+  assert.equal(context.window.TalkTagKoreanMiniReleaseReady, true,
+    'Old Korean essays may be removed only after all six published Mini Talks and six-language meanings are complete');
+  for (const page of ['K-korean-audio-library.html', 'K-korean-audio-player.html']) {
+    assert.doesNotMatch(read(page), /native-audio-korean-aea-00[12]\.js|korean-support-essays-00[12]\.js|native-essay-variants\.js|audio-essays-articles\/segments-001\/manifest\.js/,
+      `${page}: old Korean essay modules must not load after the Mini Talks release`);
+  }
+  assert.match(read('native-audio-player.js'), /retired-essay-page/,
+    'Old direct links must show a track-change notice instead of silently switching lessons');
+  console.log('PASS: Korean essay imports retired after six-level Mini Talks release; old completion and route notice preserved.');
+} else {
+assert.ok(fs.existsSync(legacySource) && fs.existsSync(legacyManifest),
+  'Legacy Korean essay imports must have their source and manifest while they remain active');
 const context = { window: {} };
 vm.createContext(context);
 vm.runInContext(read('native-audio-korean-aea-001.js'), context);
@@ -52,3 +75,4 @@ for (const lesson of lessons) {
     `${lesson.level}: preserve the sentence when restoring continuous playback`);
 }
 console.log('PASS: 6 Korean essays use continuous playback without pause controls; saved variant positions map to original sentences.');
+}

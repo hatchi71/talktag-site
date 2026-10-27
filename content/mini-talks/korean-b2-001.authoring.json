@@ -1,0 +1,61 @@
+{
+  "status": "authoring-draft",
+  "track": "Mini Talks",
+  "language": "ko",
+  "series": "001",
+  "level": "B2",
+  "reference": {
+    "framework": "TALKTAG_DRILLS_FRAMEWORK.md",
+    "protocol": "MINI_TALKS_PRODUCTION_PROTOCOL.md",
+    "file": "Private Korean Markdown reference: 3. 일상생활.md",
+    "section": "Chapter 16, 집 구하기 / Finding a House, PDF pages 71–75 in the Markdown companion",
+    "rights": "Private third-party scenario and level calibration only. This housing visit, characters, turns, English meanings, and response prompt are original TalkTag text; no reference passage is reproduced."
+  },
+  "practice": {
+    "input": "See a prospective tenant and agent in a street-facing apartment, then hear one complete, natural Korean conversation.",
+    "output": "Compare light and noise, qualify a preference, and politely request another viewing and a cost detail.",
+    "playthroughs": 1,
+    "forcedRepeats": 0,
+    "optionalScript": true,
+    "optionalEnglishMeaning": true,
+    "dings": "One start cue and one end cue around the finished card",
+    "loudnessTargetLufs": -16,
+    "truePeakCeilingDbtp": -1
+  },
+  "card": {
+    "id": "mt-ko-b2-001",
+    "title": "A Second Look at the Apartment",
+    "nativeTitle": "저녁에 다시 집 보기",
+    "situation": "During an apartment viewing, a prospective tenant likes the light but worries about traffic noise and arranges to revisit at a busier hour.",
+    "description": "Weigh a home's advantages against a concern and ask to check it again before deciding.",
+    "scene": "A bright apartment living room beside a road; the agent and prospective tenant stand near a closed window.",
+    "learnerInput": "A visible apartment window and road; eight spoken turns between an unfamiliar adult tenant and agent in polite everyday Korean.",
+    "expectedOutput": "Explain a qualified preference, ask to revisit at a relevant time, and request the maintenance-fee details without committing yet.",
+    "relationshipAndRegister": "Unfamiliar adult prospective tenant and real-estate agent; polite 해요체, natural subject omission.",
+    "targetConstruction": "Positive feature + concern + reason, followed by a tactful alternative and conditional next step.",
+    "meaningfulChunks": ["밝은 건 좋은데", "집에서 일할 땐 거실도 쓰거든요", "다시 볼 수 있을까요?", "소음이 괜찮으면"],
+    "retainedCore": "The tenant evaluates the same home rather than switching topics or listing abstract housing vocabulary.",
+    "variationOpportunity": "Change the concern from road noise to insufficient daylight in the inner room while keeping the polite request for a second viewing.",
+    "independentProductionPrompt": "Without seeing the model, tell the agent that the inner room is quiet but dark and ask to view it once more in daylight.",
+    "speakerRoles": [
+      {"id": "hyejin", "role": "prospective tenant", "gender": "female", "accent": "standard Korean", "voiceCharacter": "Observant, interested, and cautious without sounding accusatory", "approvedVoice": "Leejin"},
+      {"id": "seongho", "role": "real-estate agent", "gender": "male", "accent": "standard Korean", "voiceCharacter": "Straightforward, helpful, and not pushy", "approvedVoice": "Min-joon"}
+    ],
+    "lines": [
+      {"id": "01", "speaker": "seongho", "ko": "거실이 남향이라 낮에는 볕이 꽤 잘 들어요.", "en": "The living room faces south, so it gets quite a bit of sun during the day."},
+      {"id": "02", "speaker": "hyejin", "ko": "밝은 건 좋은데, 창문을 닫아도 도로 소리가 들리네요.", "en": "I like how bright it is, but I can still hear the road with the window closed."},
+      {"id": "03", "speaker": "seongho", "ko": "퇴근 시간엔 차가 좀 몰려요. 안쪽 방은 훨씬 조용한 편이고요.", "en": "Traffic picks up around rush hour. The inner room is much quieter, though."},
+      {"id": "04", "speaker": "hyejin", "ko": "잠은 안쪽 방에서 자겠지만, 집에서 일할 땐 거실도 쓰거든요.", "en": "I'd sleep in the inner room, but I use the living room when I work from home too."},
+      {"id": "05", "speaker": "seongho", "ko": "그러면 시간대를 바꿔서 다시 보시는 게 낫겠네요. 오늘 저녁도 가능해요.", "en": "Then it would be better to see it again at a different time. This evening works too."},
+      {"id": "06", "speaker": "hyejin", "ko": "좋아요. 그때 소음이 괜찮으면 관리비 내역도 같이 볼 수 있을까요?", "en": "Sounds good. If the noise is okay then, could I also look over the maintenance-fee details?"},
+      {"id": "07", "speaker": "seongho", "ko": "네, 최근 내역 준비해 둘게요. 몇 시쯤 편하세요?", "en": "Of course. I'll have the recent details ready. What time works for you?"},
+      {"id": "08", "speaker": "hyejin", "ko": "일곱 시쯤요. 그때 다시 보고 결정할게요.", "en": "Around seven. I'll take another look then and decide."}
+    ],
+    "variationPrompt": {
+      "en": "The inner room is quiet but too dark. Ask to see it once more in daylight before deciding.",
+      "ko": "안쪽 방은 조용하지만 너무 어두워요. 결정하기 전에 낮에 한 번 더 보고 싶다고 말해 보세요.",
+      "sampleAnswerHidden": "안쪽 방은 조용한데 좀 어둡네요. 낮에 다시 한번 볼 수 있을까요?"
+    },
+    "artworkBrief": "Natural contemporary Korean apartment viewing. A woman prospective tenant and male agent by a closed living-room window, warm afternoon light, visible roadway outside. No signage, text, or logos."
+  }
+}

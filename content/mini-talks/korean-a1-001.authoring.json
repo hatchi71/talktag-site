@@ -1,0 +1,53 @@
+{
+  "status": "local-review-draft",
+  "track": "Mini Talks",
+  "language": "ko",
+  "series": "001",
+  "level": "A1",
+  "reference": {
+    "framework": "TALKTAG_DRILLS_FRAMEWORK.md",
+    "protocol": "MINI_TALKS_PRODUCTION_PROTOCOL.md",
+    "file": "Private Korean Markdown reference: 3. 일상생활.md",
+    "section": "Chapter 9, 음식 주문, PDF pages 1–7 in the Markdown companion",
+    "rights": "Private third-party calibration only. The situation, characters, Korean lines, and translations below are original TalkTag text; no reference passage is reproduced."
+  },
+  "practice": {
+    "input": "See a café order in progress and hear one complete, natural Korean conversation with two distinct speakers.",
+    "output": "Say one useful order and answer a small changed-detail prompt in Korean.",
+    "playthroughs": 1,
+    "forcedRepeats": 0,
+    "optionalScript": true,
+    "optionalEnglishMeaning": true,
+    "dings": "One start cue and one end cue around the finished card",
+    "loudnessTargetLufs": -16,
+    "truePeakCeilingDbtp": -1
+  },
+  "card": {
+    "id": "mt-ko-a1-001",
+    "title": "Coffee to Go",
+    "nativeTitle": "커피 포장 주문",
+    "situation": "At a neighborhood café, a customer orders one drink to go and pays by card.",
+    "description": "Order a drink, say it is to go, and pay by card.",
+    "scene": "A customer and a barista speak at a café counter while a card reader is in view.",
+    "learnerInput": "A visible café counter, drink menu, paper cup and card reader; six brief spoken turns in polite everyday Korean.",
+    "expectedOutput": "Order one drink politely, say that it is to go, and answer how to pay.",
+    "speakerRoles": [
+      {"id": "minjun", "role": "customer", "gender": "male", "accent": "standard Korean"},
+      {"id": "soyeon", "role": "barista", "gender": "female", "accent": "standard Korean"}
+    ],
+    "lines": [
+      {"id": "01", "speaker": "minjun", "ko": "아이스 아메리카노 한 잔 주세요.", "en": "One iced Americano, please."},
+      {"id": "02", "speaker": "soyeon", "ko": "드시고 가세요?", "en": "Is that for here?"},
+      {"id": "03", "speaker": "minjun", "ko": "아니요, 가져갈게요.", "en": "No, I'll take it to go."},
+      {"id": "04", "speaker": "soyeon", "ko": "네, 계산은 어떻게 하실까요?", "en": "Sure. How would you like to pay?"},
+      {"id": "05", "speaker": "minjun", "ko": "카드로 할게요.", "en": "By card, please."},
+      {"id": "06", "speaker": "soyeon", "ko": "네, 여기 대 주세요.", "en": "Okay, please tap it here."}
+    ],
+    "variationPrompt": {
+      "en": "Now order a hot latte to drink at the café. What would you say?",
+      "ko": "이번에는 따뜻한 라테를 매장에서 마실 거예요. 어떻게 말할까요?",
+      "sampleAnswerHidden": "따뜻한 라테 한 잔 주세요. 여기서 마실게요."
+    },
+    "artworkBrief": "Warm, contemporary Korean café. A male customer orders at the counter from a female barista; one takeaway paper cup and a card reader establish the physical situation. No visible letters or logos."
+  }
+}

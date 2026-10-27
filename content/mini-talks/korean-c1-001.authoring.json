@@ -1,0 +1,62 @@
+{
+  "status": "authoring-draft",
+  "track": "Mini Talks",
+  "language": "ko",
+  "series": "001",
+  "level": "C1",
+  "reference": {
+    "framework": "TALKTAG_DRILLS_FRAMEWORK.md",
+    "protocol": "MINI_TALKS_PRODUCTION_PROTOCOL.md",
+    "file": "Private Korean Markdown reference: 3. 일상생활.md",
+    "section": "Chapter 16, 집 구하기 / Finding a House, PDF pages 71–75, and Chapter 11, 집안일 / Household Chores, PDF pages 21–25 in the Markdown companion",
+    "rights": "Private third-party topic and register calibration only. The leak, people, sequence, Korean dialogue, and meanings are original TalkTag text; no reference dialogue or policy is copied. No legal responsibility is asserted."
+  },
+  "practice": {
+    "input": "See a recurrent ceiling leak in an apartment and hear one complete three-person exchange in Korean.",
+    "output": "Describe recurrence and impact, avoid blaming a neighbor, and request a shared update on inspection and repair timing.",
+    "playthroughs": 1,
+    "forcedRepeats": 0,
+    "optionalScript": true,
+    "optionalEnglishMeaning": true,
+    "dings": "One start cue and one end cue around the finished card",
+    "loudnessTargetLufs": -16,
+    "truePeakCeilingDbtp": -1
+  },
+  "card": {
+    "id": "mt-ko-c1-001",
+    "title": "When the Leak Returns",
+    "nativeTitle": "다시 생긴 물자국",
+    "situation": "A tenant reports a recurring ceiling leak to a building manager while an upstairs neighbor joins the conversation; they coordinate an inspection without presuming the cause.",
+    "description": "Raise a repeated problem, acknowledge uncertainty, and arrange a clear next update.",
+    "scene": "Apartment hallway with a damp ceiling stain visible through the tenant's open doorway; tenant, building manager, and upstairs neighbor speak calmly.",
+    "learnerInput": "An observable damp ceiling patch; eight concise Korean turns with differing interests and a polite shift from concern to coordination.",
+    "expectedOutput": "Report the evidence, distinguish observation from blame, and request a concrete communication plan after inspection.",
+    "relationshipAndRegister": "Tenant, building manager, and upstairs neighbor are unfamiliar adults; consistent polite 해요체, with the manager a touch more procedural.",
+    "targetConstruction": "Repeated event + qualified inference + practical request; mitigate disagreement without abandoning urgency.",
+    "meaningfulChunks": ["또 물자국이 생겼어요", "원인을 단정하려는 건 아니에요", "어떤 조치가 가능한지", "확인되는 대로"],
+    "retainedCore": "All speakers address the same recurring water damage and the immediate inspection sequence.",
+    "variationOpportunity": "Change the damaged item from a bookshelf to a desk and request a written update rather than an oral one.",
+    "independentProductionPrompt": "Without seeing the model, report the newly wet desk, avoid assigning blame, and ask the manager to send the inspection result in a message.",
+    "speakerRoles": [
+      {"id": "eunji", "role": "tenant", "gender": "female", "accent": "standard Korean", "voiceCharacter": "Concerned, precise, and careful not to accuse", "approvedVoice": "Leejin"},
+      {"id": "taesik", "role": "building manager", "gender": "male", "accent": "standard Korean", "voiceCharacter": "Calm, accountable for coordination, but careful about an unverified cause", "approvedVoice": "Min-joon"},
+      {"id": "junseok", "role": "upstairs neighbor", "gender": "male", "accent": "standard Korean", "voiceCharacter": "Slightly defensive at first, then cooperative", "approvedVoice": "Joon - Calm & Friendly", "voiceId": "AKF7f2y1L8ktV5vxXILw", "castingNote": "Distinct Standard Korean male voice selected from the connected ElevenLabs library on 2026-10-27; not the manager's Min-joon voice."}
+    ],
+    "lines": [
+      {"id": "01", "speaker": "eunji", "ko": "지난번에 물 샜던 천장에 또 물자국이 생겼어요. 이번엔 책장 뒤까지 젖었고요.", "en": "There's another water stain on the ceiling that leaked before. This time even the back of my bookshelf got wet."},
+      {"id": "02", "speaker": "taesik", "ko": "같은 자리군요. 위층에서 새는 건지 배관 쪽인지부터 확인해야겠어요.", "en": "It's the same spot. We'll first need to check whether it's coming from upstairs or from the pipes."},
+      {"id": "03", "speaker": "junseok", "ko": "저희 집에서는 새는 게 안 보였는데, 필요하면 점검은 받겠습니다.", "en": "I haven't seen a leak in my place, but I'm willing to have it inspected if needed."},
+      {"id": "04", "speaker": "eunji", "ko": "원인을 단정하려는 건 아니에요. 다만 또 젖기 전에 임시 조치가 가능한지 궁금해서요.", "en": "I'm not trying to jump to conclusions about the cause. I'm just wondering if there's a temporary measure before it gets wet again."},
+      {"id": "05", "speaker": "taesik", "ko": "현장을 봐야 어떤 조치가 가능한지 말씀드릴 수 있어요. 사진하고 언제 발견하셨는지 먼저 보내 주시겠어요?", "en": "I need to see the site before I can say what can be done. Could you send me photos and when you first noticed it?"},
+      {"id": "06", "speaker": "junseok", "ko": "내일 오후엔 집에 있으니, 점검 시간이 정해지면 알려 주세요.", "en": "I'll be home tomorrow afternoon, so let me know when the inspection is scheduled."},
+      {"id": "07", "speaker": "eunji", "ko": "사진 보내겠습니다. 확인한 내용과 수리 일정도 같이 공유 부탁드려요.", "en": "I'll send the photos. Please share what you find and the repair schedule as well."},
+      {"id": "08", "speaker": "taesik", "ko": "네, 확인되는 대로 두 분께 같은 내용으로 안내드릴게요.", "en": "Of course. As soon as we know more, I'll give both of you the same update."}
+    ],
+    "variationPrompt": {
+      "en": "Your desk is now wet too. Report it without blaming the upstairs neighbor and ask for the inspection result by message.",
+      "ko": "이번에는 책상도 젖었어요. 윗집을 탓하지 않으면서 상황을 설명하고, 점검 결과를 문자로 알려 달라고 말해 보세요.",
+      "sampleAnswerHidden": "이번엔 책상도 젖었어요. 원인을 단정하려는 건 아니고요. 점검 결과가 나오면 문자로 알려 주실 수 있을까요?"
+    },
+    "artworkBrief": "Warm, realistic apartment corridor and partly open doorway with a subtle wet ceiling stain. One woman tenant, male building manager, and male upstairs neighbor in a calm conversation; no dramatic flood, text, or logos."
+  }
+}

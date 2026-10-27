@@ -2,6 +2,22 @@
   "version": 1,
   "items": [
     {
+      "id": "native:ko:mini:001",
+      "language": "ko",
+      "title": "Korean Mini Talks · 001 · A1–C2",
+      "href": "K-korean-audio-library.html?type=plain",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "Six practical Korean conversations to listen to, speak along with, and make your own.",
+      "publishedAt": "2026-10-27T12:30:53.790Z"
+    },
+    {
       "id": "mini:en:002-010",
       "title": "영어 미니토크 · A1–A2 · 002–010",
       "href": "audio-library.html?type=plain",
@@ -260,17 +276,6 @@
       "publishedAt": "2026-10-23T05:56:38.000Z"
     },
     {
-      "id": "native:ko:plain:002",
-      "language": "ko",
-      "title": "Korean Audio Essays & Articles · 002",
-      "href": "K-korean-audio-library.html?type=plain",
-      "levels": [
-        "A1"
-      ],
-      "description": "Listen, summarize, and retell an original audio essay.",
-      "publishedAt": "2026-10-23T05:44:51.420Z"
-    },
-    {
       "id": "native:ko:guided:003",
       "language": "ko",
       "title": "Korean Guided L&R · 003",
@@ -301,22 +306,6 @@
       ],
       "description": "짧은 일본어 이야기를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.",
       "publishedAt": "2026-10-16T06:10:02.517Z"
-    },
-    {
-      "id": "native:ko:plain:001",
-      "language": "ko",
-      "title": "Korean Audio Essays & Articles · 001",
-      "href": "K-korean-audio-library.html?type=plain",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "Listen, summarize, and retell an original audio essay.",
-      "publishedAt": "2026-10-15T01:52:39.044Z"
     },
     {
       "id": "korean-story:001",

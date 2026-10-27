@@ -1,5 +1,6 @@
 (function () {
   "use strict";
+  if (document.body.classList.contains("retired-essay-page")) return;
 var native=window.TalkTagNative;
   var nativeJapanese = native?.language === "ja";
   // Reviewed readings for the original Japanese GLR 001 sentences. Longest match first.
@@ -21,7 +22,7 @@ var native=window.TalkTagNative;
   var activeLesson = window.TalkTagActiveNativeLesson;
   var guided = activeLesson && activeLesson.id === id && activeLesson.training ? activeLesson :
     (window.TalkTagAudioLessons || []).find(function (item) { return item.id === id && item.training; });
-  var koreanSupport = native?.language === "ko" && activeLesson?.type === "guided" ? window.TalkTagKoreanSupport : null;
+  var koreanSupport = native?.language === "ko" && (activeLesson?.type === "guided" || activeLesson?.format === "mini-talks") ? window.TalkTagKoreanSupport : null;
   var supportTranslations = window.TalkTagKoreanGlr001Translations?.[id] || {};
   var multilingualPilot = Boolean(koreanSupport);
   var supportLanguage = "en";
@@ -159,7 +160,7 @@ var native=window.TalkTagNative;
     var index = !audio.ended && found >= 0 ? data.cues[found].i : -1;
     if (index === active) return;
     active = index;
-    status.textContent = index >= 0 ? "현재 문장 " + (index + 1) + " / " + buttons.length : "";
+    status.textContent = index >= 0 ? (guided?.format==="mini-talks"?"Current line ":"현재 문장 ") + (index + 1) + " / " + buttons.length : "";
     buttons.forEach(function (button, i) {
       button.classList.toggle("active", i === index);
       if (i === index) button.setAttribute("aria-current", "true");
@@ -239,7 +240,7 @@ var native=window.TalkTagNative;
       }
       if(enabled && !silent)section.scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
     }};
-    if (multilingualPilot) window.TalkTagAudioScript.show("kr", true);
+    if (multilingualPilot && guided?.format!=="mini-talks") window.TalkTagAudioScript.show("kr", true);
   }
 
   ["timeupdate", "seeked", "loadedmetadata", "ended"].forEach(function (event) { audio.addEventListener(event, update); });

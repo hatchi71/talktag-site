@@ -1,0 +1,64 @@
+{
+  "status": "local-review-draft",
+  "track": "Mini Talks",
+  "language": "ko",
+  "series": "001",
+  "level": "A2",
+  "reference": {
+    "framework": "TALKTAG_DRILLS_FRAMEWORK.md",
+    "protocol": "MINI_TALKS_PRODUCTION_PROTOCOL.md",
+    "file": "Private Korean Markdown reference: 3. 일상생활.md",
+    "section": "Chapter 12, 대중교통, PDF pages 31–35 in the Markdown companion; public-transport questions, direction, and movement",
+    "rights": "Private third-party calibration only. The situation, characters, Korean lines, and English meanings below are original TalkTag text; no reference passage is reproduced."
+  },
+  "practice": {
+    "input": "See two people at a bus stop and hear one natural Korean exchange about correcting a wrong-direction stop.",
+    "output": "Ask where to catch the bus, understand the correction, and give a short follow-up in Korean.",
+    "playthroughs": 1,
+    "forcedRepeats": 0,
+    "optionalScript": true,
+    "optionalEnglishMeaning": true,
+    "dings": "One start cue and one end cue around the finished card",
+    "loudnessTargetLufs": -16,
+    "truePeakCeilingDbtp": -1
+  },
+  "card": {
+    "id": "mt-ko-a2-001",
+    "title": "The Other Bus Stop",
+    "nativeTitle": "버스 정류장 반대편",
+    "situation": "A rider at a bus stop asks whether this is the right direction for City Hall, learns that the stop is across the street, and checks where to cross.",
+    "description": "Correct a wrong-direction bus stop and ask where to cross.",
+    "scene": "A visitor with a small bag speaks with a local rider beside a bus-stop sign; the opposite stop and a crosswalk are visible across the street.",
+    "learnerInput": "A visible street, two bus stops and a crosswalk; eight short turns in ordinary polite Korean.",
+    "expectedOutput": "Ask if the bus for City Hall leaves from this stop, then clarify where to board after hearing that the direction is wrong.",
+    "speakerRoles": [
+      {"id": "soyeon", "role": "visiting rider", "gender": "female", "voiceName": "Leejin", "voiceId": "F9mMsBUFaCLedtYXXjLD", "accent": "standard Korean"},
+      {"id": "minjun", "role": "local rider", "gender": "male", "voiceName": "Min-joon", "voiceId": "nbrxrAz3eYm9NgojrmFK", "accent": "standard Korean"}
+    ],
+    "lines": [
+      {"id": "01", "speaker": "soyeon", "ko": "저기요, 시청 가는 버스 여기서 타요?", "en": "Excuse me, do I catch the bus to City Hall here?"},
+      {"id": "02", "speaker": "minjun", "ko": "아니요, 이쪽은 반대 방향이에요.", "en": "No, this stop is for the opposite direction."},
+      {"id": "03", "speaker": "soyeon", "ko": "아, 그럼 어디서 타야 해요?", "en": "Oh, then where should I catch it?"},
+      {"id": "04", "speaker": "minjun", "ko": "길 건너편 정류장에서 타시면 돼요.", "en": "You can catch it at the stop across the street."},
+      {"id": "05", "speaker": "soyeon", "ko": "제가 반대로 왔네요. 저 앞에서 건너면 돼요?", "en": "I came to the wrong side. Can I cross up ahead?"},
+      {"id": "06", "speaker": "minjun", "ko": "네, 횡단보도 건너서 바로 오른쪽이에요.", "en": "Yes. Cross at the crosswalk; the stop is just to your right."},
+      {"id": "07", "speaker": "soyeon", "ko": "감사합니다. 버스 번호는 같아요?", "en": "Thank you. Is it the same bus number?"},
+      {"id": "08", "speaker": "minjun", "ko": "네, 같은 번호 타시면 돼요.", "en": "Yes, take the same number."}
+    ],
+    "variationPrompt": {
+      "en": "You now need the bus to the train station, but you are unsure about the direction. Ask someone at the stop where to board.",
+      "ko": "이번에는 기차역에 가야 하는데 방향이 헷갈립니다. 정류장에 있는 사람에게 어디서 타야 하는지 물어보세요.",
+      "sampleAnswerHidden": "저기요, 기차역 가는 버스는 어디서 타야 해요?"
+    },
+    "artworkBrief": "Warm, contemporary Korean street illustration. A female visitor and male local rider talk beside a bus stop, with a clearly visible crosswalk and opposite-side bus stop. No readable route numbers, signs, letters, or logos."
+  },
+  "learningNotes": {
+    "strand": "real_life",
+    "purpose": "Practical public-transport direction repair, not a TOPIK exam item.",
+    "targetConstruction": "어디서 타야 해요? / 건너면 돼요? / 타시면 돼요",
+    "meaningfulChunks": ["시청 가는 버스", "반대 방향이에요", "길 건너편 정류장에서", "횡단보도 건너서"],
+    "retainedCore": "Ask where to board a bus and confirm the corrected location.",
+    "variationOpportunity": "Change the destination and ask the same direction question without a model.",
+    "independentProductionPrompt": "At the wrong-side stop, ask a local rider where to board the bus to the train station."
+  }
+}

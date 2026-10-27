@@ -1,0 +1,65 @@
+{
+  "status": "authoring-draft",
+  "track": "Mini Talks",
+  "language": "ko",
+  "series": "001",
+  "level": "C2",
+  "reference": {
+    "framework": "TALKTAG_DRILLS_FRAMEWORK.md",
+    "protocol": "MINI_TALKS_PRODUCTION_PROTOCOL.md",
+    "file": "Private Korean Markdown reference: 7. 직무 한국어.md",
+    "section": "Chapter 36, 출하 관리 / Shipment Management, PDF pages 11–16 in the Markdown companion",
+    "rights": "Private third-party domain and vocabulary calibration only. The discrepancy, team roles, Korean dialogue, English meanings, and response prompt are original TalkTag text; no reference dialogue is reproduced."
+  },
+  "practice": {
+    "input": "See a warehouse shipment held before loading and hear one complete four-person Korean team exchange.",
+    "output": "Mediate between shipment accuracy and deadline pressure; distinguish verified facts from provisional estimates and agree on the next communication.",
+    "playthroughs": 1,
+    "forcedRepeats": 0,
+    "optionalScript": true,
+    "optionalEnglishMeaning": true,
+    "dings": "One start cue and one end cue around the finished card",
+    "loudnessTargetLufs": -16,
+    "truePeakCeilingDbtp": -1
+  },
+  "card": {
+    "id": "mt-ko-c2-001",
+    "title": "Before the Shipment Leaves",
+    "nativeTitle": "출하 전에 확인할 것",
+    "situation": "A shipment's pallet label does not match the observed box count. Warehouse, quality control, client liaison, and team lead decide how to verify it without making an ungrounded delivery promise.",
+    "description": "Handle a discrepancy, qualify what is known, and give the client a truthful next update.",
+    "scene": "Warehouse loading area with one labeled pallet, a held cart, a checklist, and four colleagues discussing before anything is loaded.",
+    "learnerInput": "An observable label-versus-box-count discrepancy; ten concise professional Korean turns from four distinct roles, with cross-speaker qualifications and a mediated plan.",
+    "expectedOutput": "Explain that departure is on hold pending a factual check, assign verification, and tell the client only what is currently confirmed.",
+    "relationshipAndRegister": "Four workplace colleagues; professional but spoken 해요체/합니다체 as appropriate to role, without ceremonial or test-style phrasing.",
+    "targetConstruction": "Separate observed facts from inference, respectfully interrupt pressure to promise a deadline, then negotiate a conditional handoff and update.",
+    "meaningfulChunks": ["어디까지 확인됐죠?", "대조 중입니다", "확답하지 말죠", "확인 결과가 나오는 대로"],
+    "retainedCore": "Each turn advances the same pallet discrepancy and shipment decision; no generic logistics exposition.",
+    "variationOpportunity": "Change the discrepancy from the label's box count to a wrong destination code and formulate a truthful client update while the correction is checked.",
+    "independentProductionPrompt": "Without seeing the model, tell the team that a destination code is inconsistent, keep loading paused, and propose what to tell the client without claiming a confirmed arrival time.",
+    "speakerRoles": [
+      {"id": "jihye", "role": "team lead", "gender": "female", "accent": "standard Korean", "voiceCharacter": "Decisive and measured; mediates accuracy against schedule pressure", "approvedVoice": "Leejin"},
+      {"id": "minseok", "role": "warehouse worker", "gender": "male", "accent": "standard Korean", "voiceCharacter": "Concrete, observant, and ready to hold the load", "approvedVoice": "Min-joon"},
+      {"id": "haeun", "role": "quality-control colleague", "gender": "female", "accent": "standard Korean", "voiceCharacter": "Precise, calm, and careful about which count is verified", "approvedVoice": "Sora - Warm and Expressive Storyteller", "voiceId": "JpGoUJuLFthrFkcdBy4k", "castingNote": "Distinct Standard Korean female voice selected from the connected ElevenLabs library on 2026-10-27; not the team lead's Leejin voice."},
+      {"id": "junho", "role": "client liaison", "gender": "male", "accent": "standard Korean", "voiceCharacter": "Aware of client expectations but willing to correct an over-promise", "approvedVoice": "Joon - Calm & Friendly", "voiceId": "AKF7f2y1L8ktV5vxXILw", "castingNote": "Distinct Standard Korean male voice selected from the connected ElevenLabs library on 2026-10-27; not the warehouse worker's Min-joon voice."}
+    ],
+    "lines": [
+      {"id": "01", "speaker": "jihye", "ko": "오늘 출하 건, 1차 검수는 끝났는데 라벨 수량이 실물과 안 맞는다고 들었어요. 어디까지 확인됐죠?", "en": "I heard the label count doesn't match the actual shipment, even though the first inspection is done. What have we confirmed so far?"},
+      {"id": "02", "speaker": "minseok", "ko": "한 팔레트가 열 상자인데 라벨에는 열두 상자로 적혀 있습니다. 아직 차에는 싣지 않았고요.", "en": "There are ten boxes on one pallet, but its label says twelve. We haven't loaded it onto the truck yet."},
+      {"id": "03", "speaker": "haeun", "ko": "검수표상 제품 수량은 맞아요. 라벨만 잘못된 건지 출고 목록도 틀린 건지 대조 중입니다.", "en": "The product count matches the inspection sheet. We're checking whether only the label is wrong or the release list is wrong too."},
+      {"id": "04", "speaker": "junho", "ko": "거래처에는 오후 도착 예정이라고 했어요. 지연 가능성부터 알릴까요, 아니면 확인될 때까지 기다릴까요?", "en": "I told the client to expect delivery this afternoon. Should I flag a possible delay now, or wait for the check?"},
+      {"id": "05", "speaker": "jihye", "ko": "확인 전엔 수량도 도착 시간도 확답하지 말죠. 대신 지금 확인 중인 내용과 다음 연락 시간을 분명히 전해 주세요.", "en": "Let's not confirm the count or arrival time before the check. Instead, clearly tell them what we're checking and when we'll contact them next."},
+      {"id": "06", "speaker": "haeun", "ko": "제가 목록과 실물을 다시 대조할게요. 차이가 없으면 수정 라벨 확인까지 마치겠습니다.", "en": "I'll compare the list with the physical goods again. If they match, I'll also verify the corrected label."},
+      {"id": "07", "speaker": "minseok", "ko": "그동안 상자는 적재하지 않고 따로 두겠습니다. 라벨도 승인받은 뒤에 바꿀게요.", "en": "I'll keep the boxes aside and won't load them in the meantime. I'll change the label only after it's approved."},
+      {"id": "08", "speaker": "jihye", "ko": "좋아요. 다만 수정 사실만 남기면 나중에 헷갈릴 수 있으니, 원인과 확인한 사람도 기록해 주세요.", "en": "Good. But simply noting that it was corrected could cause confusion later, so record the cause and who verified it as well."},
+      {"id": "09", "speaker": "haeun", "ko": "네. 차이가 계속 나면 출하 보류 사유를 함께 적어 공유하겠습니다.", "en": "Of course. If the discrepancy remains, I'll document and share why the shipment is being held."},
+      {"id": "10", "speaker": "junho", "ko": "그럼 거래처에는 출하 전 수량 확인 중이라고만 알리고, 확인 결과가 나오는 대로 도착 시간을 다시 안내하겠습니다.", "en": "Then I'll tell the client we're verifying the count before dispatch, and give them an updated arrival time once we have the result."}
+    ],
+    "variationPrompt": {
+      "en": "The destination code, not the box count, is inconsistent. Keep loading paused and propose an accurate client update without promising arrival time.",
+      "ko": "이번엔 상자 수가 아니라 배송지 코드가 맞지 않아요. 적재를 멈춘 채 확인을 맡기고, 도착 시간을 단정하지 않는 거래처 안내를 제안해 보세요.",
+      "sampleAnswerHidden": "배송지 코드가 서로 달라서 적재를 잠시 멈추겠습니다. 정확한 배송지를 확인 중이라고 먼저 안내하고, 확인되는 대로 예상 도착 시간을 다시 알려드리죠."
+    },
+    "artworkBrief": "Realistic Korean warehouse loading zone. Four colleagues—female team lead, male warehouse worker, female quality checker, male client liaison—inspect one pallet with a mismatched box-count tag before loading. Visible checklist and hand cart; no legible writing, brand names, or logos."
+  }
+}

@@ -33,9 +33,36 @@ function catalog(read){
  const japaneseVocal=read('content/vocalcamp-japanese-001.js');
  if(japaneseVocal)vm.runInContext(japaneseVocal,c,{timeout:1000});
  for(const f of (c.window.TALKTAG_VOCALCAMP_JAPANESE?.families||[]).filter(f=>f.status==='published'&&f.audioStatus==='ready'))groups.set('japanese-vocal:'+f.number,{id:'japanese-vocal:'+f.number,language:'ja',title:'Japanese Vocal Camp · '+f.number,href:'japanese/J-vocal-camp.html',levels:f.levels,description:'짧은 일본어 이야기를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.'});
- for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-guided-ko-004-a1.js','native-guided-ko-005-010.js','native-guided-ko-a2-c2-004-010.js','native-audio-korean-aea-001.js','native-audio-korean-aea-002.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
+ for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-guided-ko-004-a1.js','native-guided-ko-005-010.js','native-guided-ko-a2-c2-004-010.js','native-audio-korean-aea-001.js','native-audio-korean-aea-002.js','mini-talks-korean-001.js','korean-support-mini-talks-001.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
+ const koreanMiniLessons=c.window.TalkTagNativeCatalogs?.ko||[];
+ const koreanMiniReleaseReady=['A1','A2','B1','B2','C1','C2'].every(level=>koreanMiniLessons.some(lesson=>{
+  const support=c.window.TalkTagKoreanTranslations?.[lesson.id];
+  return (
+  lesson.id===`mt-ko-${level.toLowerCase()}-001`&&lesson.type==='plain'&&lesson.format==='mini-talks'&&
+  lesson.level===level&&lesson.status==='published'&&lesson.available===true&&
+  /^https:\/\/audio\.talktag\.co\.kr\/Korean\/mini-talks\/001\//.test(lesson.audio||'')&&
+  /^[a-f0-9]{64}$/.test(lesson.checksum||lesson.sourceSha256||'')&&
+  /^\/assets\/mini-talks\/ko\/001\//.test(lesson.artwork||'')&&
+  typeof lesson.artworkAlt==='string'&&Boolean(lesson.artworkAlt.trim())&&
+  Array.isArray(lesson.expressions)&&lesson.expressions.length>0&&
+  lesson.expressions.length===lesson.meanings?.length&&lesson.expressions.length===lesson.speakers?.length&&
+  lesson.training?.kind==='mini-talks'&&lesson.training.cues?.length===lesson.expressions.length&&
+  /^[a-f0-9]{64}$/.test(support?.sourceHash||'')&&Array.isArray(support?.source)&&
+  lesson.expressions.every((line,index)=>line===support.source[index])&&
+  ['vi','ne','km','my','th','ja'].every(code=>['reviewed','ai-reviewed'].includes(support.review?.[code]?.status)&&
+   Number(support.review[code].passes)>=2&&Array.isArray(support.translations?.[code])&&
+   support.translations[code].length===lesson.expressions.length&&
+   support.translations[code].every(line=>typeof line==='string'&&Boolean(line.trim()))));
+ }));
  for(const [language,lessons] of Object.entries(c.window.TalkTagNativeCatalogs||{}))for(const lesson of lessons){
-  if(!lesson.available||!lesson.audio)continue;
+  if(!lesson.available||!lesson.audio||(language==='ko'&&lesson.type==='plain'&&(koreanMiniReleaseReady?lesson.format!=='mini-talks':lesson.format==='mini-talks')))continue;
+  if(language==='ko'&&lesson.format==='mini-talks'){
+   const id='native:ko:mini:001';
+   if(!groups.has(id))groups.set(id,{id,language:'ko',title:'Korean Mini Talks · 001 · A1–C2',href:'K-korean-audio-library.html?type=plain',levels:[],description:'Six practical Korean conversations to listen to, speak along with, and make your own.',publishedAt:lesson.publishedAt});
+   const group=groups.get(id);if(!group.levels.includes(lesson.level))group.levels.push(lesson.level);
+   if(lesson.publishedAt&&(!group.publishedAt||Date.parse(lesson.publishedAt)>Date.parse(group.publishedAt)))group.publishedAt=lesson.publishedAt;
+   continue;
+  }
   const number=String(lesson.unit||1).padStart(3,'0'),track=lesson.type==='plain'?'Audio Essays & Articles':'Guided L&R',id='native:'+language+':'+lesson.type+':'+number,name=language==='ko'?'Korean':'Japanese';
   if(!groups.has(id))groups.set(id,{id,language,title:name+' '+track+' · '+number,href:language==='ko'?`K-korean-audio-library.html?type=${lesson.type}`:'japanese/J-guided.html?type=guided',levels:[],description:lesson.type==='plain'?'Listen, summarize, and retell an original audio essay.':language==='ko'?'Practice everyday Korean expressions, one line at a time.':'일본어의 새 일상 표현을 듣고 따라 말해 보세요.'});
   const group=groups.get(id);if(!group.levels.includes(lesson.level))group.levels.push(lesson.level);

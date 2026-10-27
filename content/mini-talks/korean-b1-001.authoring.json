@@ -1,0 +1,64 @@
+{
+  "status": "local-review-draft",
+  "track": "Mini Talks",
+  "language": "ko",
+  "series": "001",
+  "level": "B1",
+  "reference": {
+    "framework": "TALKTAG_DRILLS_FRAMEWORK.md",
+    "protocol": "MINI_TALKS_PRODUCTION_PROTOCOL.md",
+    "file": "Private Korean Markdown reference: 4. 공공기관.md",
+    "section": "Chapter 23, 우체국, PDF pages 21–25 in the Markdown companion; sending a parcel, describing a problem, weighing and paying. PDF page 26 contains OCR artifacts in an unrelated exercise and was excluded from language modeling.",
+    "rights": "Private third-party calibration only. The situation, characters, Korean lines, and English meanings below are original TalkTag text; no reference passage is reproduced."
+  },
+  "practice": {
+    "input": "See a slightly torn parcel at a post-office counter and hear one complete, natural Korean conversation about making it ready to send.",
+    "output": "Explain the parcel problem, ask for a practical fix, and confirm the next step in Korean.",
+    "playthroughs": 1,
+    "forcedRepeats": 0,
+    "optionalScript": true,
+    "optionalEnglishMeaning": true,
+    "dings": "One start cue and one end cue around the finished card",
+    "loudnessTargetLufs": -16,
+    "truePeakCeilingDbtp": -1
+  },
+  "card": {
+    "id": "mt-ko-b1-001",
+    "title": "A Torn Parcel Box",
+    "nativeTitle": "찢어진 소포 상자",
+    "situation": "At a post office, a customer notices a torn corner on a parcel, asks whether it can be sent safely, repairs it, and confirms the next step.",
+    "description": "Explain a parcel problem, fix it, and confirm what happens next.",
+    "scene": "A customer holds a parcel with a torn corner at the post-office counter while a staff member points to packing tape and a scale.",
+    "learnerInput": "The box, torn corner, tape and scale are visible; eight connected turns in polite Korean, with a reason and practical repair.",
+    "expectedOutput": "Describe the damage, respond to the staff member's suggestion, and check what to do after resealing the parcel.",
+    "speakerRoles": [
+      {"id": "minjun", "role": "customer", "gender": "male", "voiceName": "Min-joon", "voiceId": "nbrxrAz3eYm9NgojrmFK", "accent": "standard Korean"},
+      {"id": "soyeon", "role": "post-office staff member", "gender": "female", "voiceName": "Leejin", "voiceId": "F9mMsBUFaCLedtYXXjLD", "accent": "standard Korean"}
+    ],
+    "lines": [
+      {"id": "01", "speaker": "minjun", "ko": "이 소포를 보내려고 하는데, 상자가 조금 찢어졌어요. 그대로 보내도 될까요?", "en": "I'd like to send this parcel, but the box is a little torn. Is it okay to send it like this?"},
+      {"id": "02", "speaker": "soyeon", "ko": "안에 물건이 빠질 수도 있어서, 테이프로 한 번 더 붙이시는 게 좋겠어요.", "en": "Something inside could fall out, so it would be better to seal it again with tape."},
+      {"id": "03", "speaker": "minjun", "ko": "아, 그렇겠네요. 여기서 붙일 수 있을까요?", "en": "Oh, you're right. Could I tape it up here?"},
+      {"id": "04", "speaker": "soyeon", "ko": "네, 이 테이프 쓰세요. 붙이신 뒤에 저울 위에 올려 주세요.", "en": "Sure, use this tape. After you seal it, please put it on the scale."},
+      {"id": "05", "speaker": "minjun", "ko": "네, 잠깐만요. 받는 분 주소도 다시 확인해야겠네요.", "en": "Okay, just a moment. I should double-check the recipient's address too."},
+      {"id": "06", "speaker": "soyeon", "ko": "천천히 하세요. 준비되시면 말씀해 주세요.", "en": "Take your time. Let me know when you're ready."},
+      {"id": "07", "speaker": "minjun", "ko": "다 했어요. 이제 무게를 재면 되죠?", "en": "I'm done. Do we weigh it now?"},
+      {"id": "08", "speaker": "soyeon", "ko": "네, 상자를 여기 올려 주세요. 요금은 무게를 확인하고 안내해 드릴게요.", "en": "Yes, please put the box here. I'll check the weight and then tell you the price."}
+    ],
+    "variationPrompt": {
+      "en": "This time the address on your parcel is smudged. Explain the problem to a post-office worker and ask what to do next.",
+      "ko": "이번에는 소포에 적힌 주소가 번졌습니다. 직원에게 문제를 설명하고 다음에 무엇을 해야 할지 물어보세요.",
+      "sampleAnswerHidden": "주소가 조금 번졌는데, 다시 써야 할까요?"
+    },
+    "artworkBrief": "Warm, contemporary Korean post office. A male customer and female staff member discuss a small parcel with one visibly torn corner; packing tape and a scale establish the practical problem and next step. No readable text, addresses, logos, or postal branding."
+  },
+  "learningNotes": {
+    "strand": "real_life",
+    "purpose": "Explain and resolve a small real-world service problem, not a TOPIK exam item.",
+    "targetConstruction": "-려고 하는데 / -을 수도 있어서 / -는 게 좋겠어요 / -신 뒤에",
+    "meaningfulChunks": ["상자가 조금 찢어졌어요", "그대로 보내도 될까요?", "테이프로 한 번 더 붙이시는 게 좋겠어요", "받는 분 주소도 다시 확인해야겠네요"],
+    "retainedCore": "Describe the parcel's condition, accept a fix, and confirm the next action.",
+    "variationOpportunity": "Change the damage from a torn box to a smudged address and request a solution without seeing a model.",
+    "independentProductionPrompt": "At the counter, explain that the address is smudged and ask whether you should write it again."
+  }
+}

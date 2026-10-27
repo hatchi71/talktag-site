@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 var native=window.TalkTagNative;
+  var miniPreview=native?.language==="ko"&&window.TalkTagMiniTalksPreview===true;
+  var miniReleased=native?.language==="ko"&&window.TalkTagKoreanMiniReleaseReady===true;
   var audio = document.getElementById("audio");
   var playButton = document.getElementById("playButton");
   var rewindButton = document.getElementById("rewindButton");
@@ -17,14 +19,53 @@ var native=window.TalkTagNative;
   var completeState = document.getElementById("completeState");
   var prevButton = document.getElementById("prevButton");
   var nextButton = document.getElementById("nextButton");
-  var allLessons = (window.TalkTagAudioLessons || []).filter(function (item) { return item.available !== false; });
+  var allLessons = (window.TalkTagAudioLessons || []).filter(function (item) {
+    if (item.available === false) return false;
+    if (native?.language === "ko" && item.type === "plain") {
+      return miniReleased ? item.format === "mini-talks" : item.format !== "mini-talks" || miniPreview;
+    }
+    return true;
+  });
   var requestedId = new URLSearchParams(location.search).get("id");
+  if (miniReleased && /^ko-plain-(?:a1|a2|b1|b2|c1|c2)-\d{3}$/.test(requestedId || "")) {
+    document.body.classList.add("retired-essay-page");
+    document.title = "This Korean audio essay has retired · TalkTag";
+    document.getElementById("playerHeaderMeta").textContent = "MINI TALKS";
+    var retiredBack = document.getElementById("libraryBack");
+    retiredBack.href = native.libraryPage + "?type=plain";
+    retiredBack.textContent = "← Mini Talks";
+    var notice = document.createElement("section");
+    notice.className = "retired-essay-note";
+    notice.setAttribute("aria-labelledby", "retiredEssayTitle");
+    var eyebrow = document.createElement("p");
+    eyebrow.className = "retired-essay-eyebrow";
+    eyebrow.textContent = "SOUND CHECK · TRACK UPDATE";
+    var title = document.createElement("h1");
+    title.id = "retiredEssayTitle";
+    title.textContent = "This audio essay has retired.";
+    var explanation = document.createElement("p");
+    explanation.textContent = "TalkTag now uses short, practical conversations in Mini Talks. This old essay has not been replaced by the same lesson. Your completion record remains saved separately.";
+    var link = document.createElement("a");
+    link.className = "retired-essay-action";
+    link.href = native.libraryPage + "?type=plain";
+    link.textContent = "Explore Korean Mini Talks →";
+    notice.append(eyebrow, title, explanation, link);
+    document.querySelector("main.wrap").replaceChildren(notice);
+    return;
+  }
   var retiredPart = /^(guided-(?:a1|a2|b1|b2|c1|c2)-0[12])-part\d+$/.exec(requestedId || "");
   if (retiredPart) { location.replace(native.playerPage+"?id=" + retiredPart[1]); return; }
   var retiredGuided = ["a1-head","a2-hair-01-03","a2-hair-04-06","a2-hair-10-12","b1-head-brain","b1-hair-13-15","b1-hair-16-17"];
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace(native.libraryPage + "?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
-  var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
+  var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || (requestedId ? null : allLessons[0]);
   if (!lesson) { document.getElementById('lessonTitle').textContent=native.ui==='en'?'Recordings are coming soon':'음원을 준비하고 있습니다.'; return; }
+  if(lesson.format==="mini-talks")document.body.classList.add("mini-talks-player");
+  if(miniPreview&&!miniReleased&&lesson.format==="mini-talks"){
+    var reviewNotice=document.createElement("p");
+    reviewNotice.className="mini-talks-preview-notice";
+    reviewNotice.textContent="Local review · This Korean Mini Talk is not published.";
+    document.querySelector(".player-card").before(reviewNotice);
+  }
   if (lesson.format === "level0") document.body.classList.add("level0-player");
   var legacyPlayback = new URLSearchParams(location.search).has("legacy");
   if (legacyPlayback && native.language === "ko") {
@@ -39,7 +80,7 @@ var native=window.TalkTagNative;
   // The synchronized script must follow the recording selected above, not a
   // different catalog entry that happens to share the same card ID.
   window.TalkTagActiveNativeLesson = lesson;
-  var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type; });
+  var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type && item.format === lesson.format; });
   var lessonIndex = lessons.findIndex(function (item) { return item.id === lesson.id; });
   var previousLesson = lessons[lessonIndex - 1] || null;
   var nextLesson = lessons[lessonIndex + 1] || null;
@@ -73,7 +114,7 @@ var native=window.TalkTagNative;
 
   document.title = "TalkTag · " + lesson.level + " " + lesson.title;
   document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit || 1).padStart(3, '0') + (lesson.partCount>1?" · PART "+lesson.partIndex:"");
-  document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
+  document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.format === "mini-talks" ? " · MINI TALKS" : lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
   if ((lesson.type === "plain" || lesson.format === "level0") && lesson.artwork) {
     var figure = document.createElement("figure");
@@ -87,6 +128,11 @@ var native=window.TalkTagNative;
     document.getElementById("lessonSummary").before(figure);
   }
   document.getElementById("lessonSummary").textContent = lesson.summary;
+  if(lesson.format==="mini-talks"&&(lesson.scene||lesson.briefing))document.getElementById("lessonSummary").hidden=true;
+  if(lesson.format==="mini-talks"&&lesson.briefing){
+    document.getElementById("sceneBriefingText").textContent=lesson.scene||lesson.briefing;
+    document.getElementById("sceneBriefing").hidden=false;
+  }
   if (lesson.format === "level0") {
     var level0Summary = document.getElementById("lessonSummary");
     level0Prompt = document.createElement("section");
@@ -114,35 +160,35 @@ var native=window.TalkTagNative;
     level0Summary.after(level0Prompt);
   }
   document.getElementById("infoLevel").textContent = lesson.format === "level0" ? "Start Here · Level 0 (TalkTag pre-A1)" : "Learning guide · " + lesson.level;
-  document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
+  document.getElementById("infoLocation").textContent = lesson.format === "mini-talks" ? "Episode " + String(lesson.unit).padStart(3,"0") + " · " + lesson.expressions.length + " dialogue turns" : lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
   document.getElementById("infoDuration").textContent = lesson.durationLong;
   document.getElementById("duration").textContent = lesson.durationLabel;
-  document.getElementById("libraryBack").href = native.libraryPage+"?type=" + lesson.type + "&level=" + lesson.level;
+  document.getElementById("libraryBack").href = native.libraryPage+"?type=" + lesson.type + "&level=" + lesson.level + (miniPreview&&lesson.format==="mini-talks"?"&preview=mini-talks-001":"");
   document.getElementById("libraryBack").textContent = "← " + lesson.level + " Library";
-  document.getElementById("infoLibraryBack").href = native.libraryPage+"?type=" + lesson.type + "&level=" + lesson.level;
+  document.getElementById("infoLibraryBack").href = native.libraryPage+"?type=" + lesson.type + "&level=" + lesson.level + (miniPreview&&lesson.format==="mini-talks"?"&preview=mini-talks-001":"");
   if (lesson.type === "plain") {
     document.body.classList.add("essay-player");
-    document.getElementById("playerHeaderMeta").textContent = "ESSAYS & ARTICLES";
+    document.getElementById("playerHeaderMeta").textContent = lesson.format==="mini-talks"?"MINI TALKS · "+lesson.level:"ESSAYS & ARTICLES";
     var info = document.querySelectorAll(".lesson-info dd");
-    info[0].textContent = "Essays & Articles";
+    info[0].textContent = lesson.format==="mini-talks"?"Mini Talks":"Essays & Articles";
     info[2].textContent = lesson.genre;
-    info[5].textContent = "Original audio";
+    info[5].textContent = lesson.format==="mini-talks"?"AI-voiced Korean dialogue · technical QC":"Original audio";
     document.querySelector("#scriptPanel h2").textContent = native.language === 'ko' ? "Korean script" : "English script";
-    document.querySelector(".class-bridge p").textContent = native.language === 'ko' ? "Recall the key idea, summarise it, then tell it to a partner in your own Korean." : "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
-    document.querySelector(".lesson-info dd:nth-of-type(3)").textContent = native.language === 'ko' ? "Korean Audio Essays & Articles · " + String(lesson.unit).padStart(3, '0') : "Audio Essays & Articles · " + String(lesson.unit).padStart(3, '0');
+    document.querySelector(".class-bridge p").textContent = lesson.format==="mini-talks"?"Listen to the exchange, speak along if you like, then retell the situation in your own Korean.":native.language === 'ko' ? "Recall the key idea, summarise it, then tell it to a partner in your own Korean." : "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
+    document.querySelector(".lesson-info dd:nth-of-type(3)").textContent = lesson.format==="mini-talks"?"Korean Mini Talks · " + String(lesson.unit).padStart(3, '0'):native.language === 'ko' ? "Korean Audio Essays & Articles · " + String(lesson.unit).padStart(3, '0') : "Audio Essays & Articles · " + String(lesson.unit).padStart(3, '0');
   }
   if (lesson.training) {
-    document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0");
-    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + " · GUIDED PRACTICE";
-    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.expressions.length + " sentences";
+    document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(lesson.format==="mini-talks"?3:2,"0");
+    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(3,"0") + (lesson.format==="mini-talks"?" · MINI TALKS":" · GUIDED PRACTICE");
+    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(3,"0") + " · " + lesson.expressions.length + (lesson.format==="mini-talks"?" dialogue turns":" sentences");
     if (lesson.partIndex) {
       document.getElementById("playerHeaderMeta").textContent += " · " + lesson.partIndex + "/" + lesson.partCount;
       document.getElementById("lessonKicker").textContent = lesson.level + " · " + String(lesson.unit).padStart(2,"0") + "–" + String(lesson.partIndex).padStart(2,"0");
       document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.partIndex + "/" + lesson.partCount + " · 문장 " + lesson.sentenceStart + "–" + lesson.sentenceEnd;
     }
     var fields = document.querySelectorAll(".lesson-info dd");
-    fields[2].textContent = "Sound Check · Guided Practice";
-    fields[5].textContent = "문장별 " + lesson.training.defaultReps + "회 반복";
+    fields[2].textContent = lesson.format==="mini-talks"?"Sound Check · Mini Talks":"Sound Check · Guided Practice";
+    fields[5].textContent = lesson.format==="mini-talks"?"One natural dialogue · replay whenever you like":"문장별 " + lesson.training.defaultReps + "회 반복";
     if (lesson.format === "level0") {
       document.getElementById("playerHeaderMeta").textContent = "A0 · " + String(lesson.unit).padStart(3,"0");
       document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · ONE EXPRESSION";
@@ -157,19 +203,23 @@ var native=window.TalkTagNative;
     function updateDrillStatus() {
       var time = audio.currentTime;
       var cue = lesson.training.cues.find(function (cue) { return cue.s <= time && time < cue.e; });
-      var label = cue ? (lesson.format === "level0" ? "Expression " : "문장 ") + (cue.i+1) + " / " + lesson.expressions.length + " · " + (lesson.format === "level0" ? "repeat " : "반복 ") + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? (lesson.format === "level0" ? " · listen" : " · 듣기") : (lesson.format === "level0" ? " · speak" : " · 따라 말하기")) : (lesson.format === "level0" ? (time >= lesson.training.endingCueStart ? "Five listens complete · ending ding" : "Starting ding · one expression · five repeats") : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · 문장별 " + lesson.training.defaultReps + "회 반복"));
+      var label = lesson.format==="mini-talks"?
+        (cue?"Line " + (cue.i+1) + " / " + lesson.expressions.length + " · listening":
+          time>=lesson.training.endingCueStart?"Dialogue complete · ending cue":
+          time>=lesson.training.startCueEnd?"Listening to the dialogue":"Opening cue"):
+        cue ? (lesson.format === "level0" ? "Expression " : "문장 ") + (cue.i+1) + " / " + lesson.expressions.length + " · " + (lesson.format === "level0" ? "repeat " : "반복 ") + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? (lesson.format === "level0" ? " · listen" : " · 듣기") : (lesson.format === "level0" ? " · speak" : " · 따라 말하기")) : (lesson.format === "level0" ? (time >= lesson.training.endingCueStart ? "Five listens complete · ending ding" : "Starting ding · one expression · five repeats") : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · 문장별 " + lesson.training.defaultReps + "회 반복"));
       if (label !== lastDrillLabel) { drillStatus.textContent = label; lastDrillLabel = label; }
     }
     audio.addEventListener("timeupdate",updateDrillStatus);
     audio.addEventListener("seeked",updateDrillStatus);
     updateDrillStatus();
-    if (!legacyPlayback && (!expectsNativeVariants || guidedVariants)) pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: native.language === 'ko' ? document.querySelector('.transport') : document.querySelector('#progress'), readState: readState, saveState: saveState, playButton: playButton, english: native.ui === 'en' });
+    if (lesson.format!=="mini-talks"&&!legacyPlayback && (!expectsNativeVariants || guidedVariants)) pauseControl = window.TalkTagGuidedPause?.mount({ audio: audio, lesson: lesson, anchor: native.language === 'ko' ? document.querySelector('.transport') : document.querySelector('#progress'), readState: readState, saveState: saveState, playButton: playButton, english: native.ui === 'en' });
   }
   if (!guidedVariants) audio.src = legacyPlayback && lesson.legacyAudio ? lesson.legacyAudio : lesson.audio;
   appendList("scriptList", lesson.expressions);
   appendList("meaningList", lesson.meanings);
   if (!lesson.meanings.length) { meaningButton.hidden = true; meaningPanel.hidden = true; }
-  var plainKoreanScript = native.language === "ko" && lesson.type === "plain";
+  var plainKoreanScript = native.language === "ko" && lesson.type === "plain" && lesson.format!=="mini-talks";
   if (plainKoreanScript) {
     var pairedList = document.getElementById("scriptList");
     pairedList.replaceChildren();
@@ -328,8 +378,8 @@ var native=window.TalkTagNative;
   });
   rewindButton.addEventListener("click", function () { pauseControl?.cancelHold(); audio.currentTime = Math.max(0, audio.currentTime - 10); });
   restartButton.addEventListener("click", function () { var wasHolding = pauseControl?.cancelHold(); audio.currentTime = 0; if (audio.paused || wasHolding) audio.play(); });
-  prevButton.addEventListener("click", function () { if (previousLesson) location.href = native.playerPage+"?id=" + encodeURIComponent(previousLesson.id); });
-  nextButton.addEventListener("click", function () { if (nextLesson) location.href = native.playerPage+"?id=" + encodeURIComponent(nextLesson.id); });
+  prevButton.addEventListener("click", function () { if (previousLesson) location.href = native.playerPage+"?id=" + encodeURIComponent(previousLesson.id)+(miniPreview&&lesson.format==="mini-talks"?"&preview=mini-talks-001":""); });
+  nextButton.addEventListener("click", function () { if (nextLesson) location.href = native.playerPage+"?id=" + encodeURIComponent(nextLesson.id)+(miniPreview&&lesson.format==="mini-talks"?"&preview=mini-talks-001":""); });
   progress.addEventListener("input", function () { if (audio.duration) audio.currentTime = (Number(progress.value) / 1000) * audio.duration; });
   loopButton.addEventListener("click", function () { audio.loop = !audio.loop; loopButton.classList.toggle("on", audio.loop); loopButton.setAttribute("aria-checked", String(audio.loop)); saveState({ loop: audio.loop }); });
   var hideScriptButton=document.getElementById("scriptHiddenButton");

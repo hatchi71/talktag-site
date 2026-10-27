@@ -1,0 +1,10 @@
+{
+  "status": "production-selected",
+  "source": "Connected ElevenLabs Korean voice library, verified 2026-10-27",
+  "voices": {
+    "Min-joon": {"id": "nbrxrAz3eYm9NgojrmFK", "gender": "male", "accent": "Standard Korean"},
+    "Leejin": {"id": "F9mMsBUFaCLedtYXXjLD", "gender": "female", "accent": "Standard Korean"},
+    "Joon - Calm & Friendly": {"id": "AKF7f2y1L8ktV5vxXILw", "gender": "male", "accent": "Standard Korean"},
+    "Sora - Warm and Expressive Storyteller": {"id": "JpGoUJuLFthrFkcdBy4k", "gender": "female", "accent": "Standard Korean"}
+  }
+}

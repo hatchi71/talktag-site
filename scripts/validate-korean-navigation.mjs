@@ -8,18 +8,22 @@ const read = path => fs.readFileSync(path, 'utf8');
 const native = { language: 'ko', ui: 'en', libraryPage: 'K-korean-audio-library.html', studioPage: 'K-korean-learning.html' };
 const catalogContext = { window: { TalkTagNative: native } };
 vm.createContext(catalogContext);
-for (const file of ['native-guided-data.js', 'native-guided-ko-002.js', 'native-guided-ko-003.js', 'native-guided-ko-004-a1.js', 'native-guided-ko-005-010.js', 'native-guided-ko-splits.js', 'native-audio-korean-aea-001.js', 'native-audio-catalog.js']) {
+for (const file of ['native-guided-data.js', 'native-guided-ko-002.js', 'native-guided-ko-003.js', 'native-guided-ko-004-a1.js', 'native-guided-ko-005-010.js', 'native-guided-ko-splits.js', 'native-audio-korean-aea-001.js', 'native-audio-korean-aea-002.js', 'mini-talks-korean-001.js', 'korean-support-mini-talks-001.js', 'native-audio-catalog.js']) {
+  if (!fs.existsSync(file)) continue;
   vm.runInContext(read(file), catalogContext, { filename: file });
 }
 const lessons = catalogContext.window.TalkTagAudioLessons.filter(lesson => lesson.available !== false);
+const miniReleased = catalogContext.window.TalkTagKoreanMiniReleaseReady === true;
+if (!fs.existsSync('native-audio-korean-aea-001.js')) assert.ok(miniReleased,
+  'Legacy Korean essay catalog may be removed only after all six Mini Talks are published');
 const code = read('native-audio-ui.js');
 
-function backFor(search) {
+function backFor(search, { retiredEssay = false, miniReleased = false } = {}) {
   const back = { href: '' };
   const context = {
-    window: { TalkTagNative: native, TalkTagAudioLessons: lessons },
+    window: { TalkTagNative: native, TalkTagAudioLessons: lessons, TalkTagKoreanMiniReleaseReady: miniReleased },
     document: {
-      body: {},
+      body: { classList: { contains: token => retiredEssay && token === 'retired-essay-page' } },
       getElementById: id => id === 'nativeBack' ? back : null,
       querySelectorAll: () => []
     },
@@ -35,9 +39,12 @@ function backFor(search) {
 }
 
 for (const lesson of lessons) {
-  const expected = `${native.libraryPage}?type=${lesson.type}&level=${lesson.level}`;
-  assert.equal(backFor('?id=' + encodeURIComponent(lesson.id)), expected, `Wrong Back route for ${lesson.id}`);
+  const retiredEssay = miniReleased && /^ko-plain-(?:a1|a2|b1|b2|c1|c2)-\d{3}$/.test(lesson.id);
+  const expected = retiredEssay ? `${native.libraryPage}?type=plain` : `${native.libraryPage}?type=${lesson.type}&level=${lesson.level}`;
+  assert.equal(backFor('?id=' + encodeURIComponent(lesson.id), {retiredEssay, miniReleased}), expected, `Wrong Back route for ${lesson.id}`);
 }
+assert.equal(backFor('?id=ko-plain-a1-001', { retiredEssay: true, miniReleased: true }),
+  `${native.libraryPage}?type=plain`, 'Retired essays must route to Mini Talks, not back to a removed essay level');
 for (const type of ['guided', 'plain']) {
   for (const level of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']) {
     assert.equal(backFor(`?type=${type}&level=${level}`), `${native.libraryPage}?type=${type}`, `Wrong ${type} level Back route`);
