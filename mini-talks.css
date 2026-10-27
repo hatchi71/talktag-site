@@ -17,3 +17,7 @@ html[data-appearance="dark"] .mini-talks-prompt h2 { color: #f2f7f2; }
 html[data-appearance="dark"] .mini-talks-prompt-ko { color: #c3d4c6; }
 html[data-appearance="dark"] .mini-talks-legacy-notice { background: #3d3529; border-color: #706251; color: #f5eadd; }
 @media (max-width: 430px) { .mini-talks-prompt, .mini-talks-legacy-notice { padding: 1rem; border-radius: 18px; } }
+@media (max-width: 390px) {
+  body[data-audio-type="plain"] .lesson-copy h2 { display: flex; align-items: flex-start; gap: 5px; font-size: 18px; line-height: 1.35; }
+  body[data-audio-type="plain"] .lesson-copy h2 .tt-audio-accent { margin-inline-start: 0; }
+}
