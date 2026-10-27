@@ -1,4 +1,3 @@
-.mini-talks-prompt,
 .mini-talks-legacy-notice {
   margin: 1.25rem 0;
   padding: 1.15rem 1.25rem;
@@ -8,15 +7,12 @@
   color: #20354c;
   line-height: 1.6;
 }
-.mini-talks-prompt h2 { margin: 0 0 .5rem; color: #0d2b62; font-size: 1.15rem; }
-.mini-talks-prompt p { margin: .3rem 0; font-size: 1rem; }
-.mini-talks-prompt-ko { color: #596b7d; }
 .mini-talks-legacy-notice { background: #f6f1e8; border-color: #dfd5c5; }
-html[data-appearance="dark"] .mini-talks-prompt { background: #20372d; border-color: #42634d; color: #f2f7f2; }
-html[data-appearance="dark"] .mini-talks-prompt h2 { color: #f2f7f2; }
-html[data-appearance="dark"] .mini-talks-prompt-ko { color: #c3d4c6; }
 html[data-appearance="dark"] .mini-talks-legacy-notice { background: #3d3529; border-color: #706251; color: #f5eadd; }
-@media (max-width: 430px) { .mini-talks-prompt, .mini-talks-legacy-notice { padding: 1rem; border-radius: 18px; } }
+@media (max-width: 430px) { .mini-talks-legacy-notice { padding: 1rem; border-radius: 18px; } }
+.essay-practice-coming-soon { border-style: dashed; background: rgba(236, 243, 250, .34); }
+.essay-practice-coming-soon .essay-badge { display: inline-block; margin-left: 7px; padding: 3px 8px; border: 1px solid var(--line); border-radius: 999px; font-size: 11px; vertical-align: middle; white-space: nowrap; }
+html[data-appearance="dark"] .essay-practice-coming-soon { background: rgba(100, 135, 165, .08); }
 @media (max-width: 390px) {
   body[data-audio-type="plain"] .lesson-copy h2 { display: flex; align-items: flex-start; gap: 5px; font-size: 18px; line-height: 1.35; }
   body[data-audio-type="plain"] .lesson-copy h2 .tt-audio-accent { margin-inline-start: 0; }

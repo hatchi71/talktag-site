@@ -68,11 +68,11 @@ Focus on concise language with greater interpretive depth and expressive range:
 - Selected literary or formal expressions used in spoken contexts.
 - Longer sentences requiring control of phrasing, emphasis, and logical relationships.
 
-### Mini Talks: Hear, Repeat, and Respond
+### Mini Talks: Listen, Note, and Retell
 
 **Definition**
 
-Learners enter a concrete everyday situation, listen to a short natural conversation, repeat each turn aloud, and respond to one small variation without the model. The exchange connects sound, meaning, and an action the learner could take in real life.
+Learners enter a concrete everyday situation and listen to one short natural conversation without forced audio repetitions. They may shadow the exchange, jot down useful details, summarize it, and retell it in their own words. The exchange connects sound, meaning, and an action the learner could take in real life.
 
 Mini Talks use the same label and practice structure in English, Korean, and Japanese. Speaker count is flexible: A1–A2 usually have two speakers, B-level scenes may have three, and C-level scenes may bring four or more people into one topic when that makes the conversation more natural. Complexity grows through interaction and meaning, not a speaker quota. For English, American voices predominate; British and Australian varieties may appear from B2, and Indian English only occasionally. This accent policy does not apply to Korean or Japanese voices. Follow `MINI_TALKS_PRODUCTION_PROTOCOL.md` for authoring, audio QC, and migration.
 

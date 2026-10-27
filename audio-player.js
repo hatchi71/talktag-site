@@ -34,7 +34,6 @@
   var storageKey = "talktag-audio:" + lesson.id;
   var pauseControl = null;
   var level0Prompt = null;
-  var miniTalksPrompt = null;
   document.body.dataset.audioType = lesson.type;
 
   function appendList(targetId, items, speakers) {
@@ -79,24 +78,11 @@
     shadowingDescription.textContent = "음성을 들으면서 동시에 작은 소리로 따라 말해 보세요. 말하는 사람의 소리와 리듬을 따라가는 데 집중하세요.";
     lessonSummary.replaceChildren(shadowingTitle, shadowingDescription);
   }
-  if (lesson.training) lessonSummary.textContent = lesson.format === "mini-talks" ? "대화를 먼저 듣고, 대사마다 따라 말해 보세요. 마지막에는 상황을 바꿔 직접 답합니다." : lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
+  if (lesson.training) lessonSummary.textContent = lesson.format === "mini-talks" ? "짧은 대화를 듣고, 필요한 표현을 메모한 뒤 내 말로 다시 이야기해 보세요." : lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
   if (lesson.format === "mini-talks") {
     var miniScene = document.getElementById("sceneBriefing");
     document.getElementById("sceneBriefingText").textContent = lesson.briefing;
     miniScene.hidden = false;
-    miniTalksPrompt = document.createElement("section");
-    miniTalksPrompt.className = "mini-talks-prompt";
-    miniTalksPrompt.hidden = true;
-    var promptHeading = document.createElement("h2");
-    promptHeading.textContent = "이제 내 말로 답해 보세요";
-    var promptQuestion = document.createElement("p");
-    promptQuestion.lang = "en";
-    promptQuestion.textContent = lesson.variationPrompt.en;
-    var promptMeaning = document.createElement("p");
-    promptMeaning.className = "mini-talks-prompt-ko";
-    promptMeaning.textContent = lesson.variationPrompt.ko;
-    miniTalksPrompt.append(promptHeading, promptQuestion, promptMeaning);
-    lessonSummary.after(miniTalksPrompt);
   }
   if (lesson.format === "level0") {
     lessonSummary.textContent = "그림을 보고 한 가지 표현을 " + lesson.training.defaultReps + "회 듣고 따라 하세요. 마지막에는 음성 없이 직접 답해 보세요.";
@@ -138,7 +124,7 @@
     info[2].textContent = lesson.genre;
     info[5].textContent = "Original audio";
     document.querySelector("#scriptPanel h2").textContent = "English script";
-    document.querySelector(".class-bridge p").textContent = lesson.format === "mini-talks" ? "대사를 따라 말한 뒤, 바뀐 상황에 맞게 직접 한마디 해 보세요." : "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
+    document.querySelector(".class-bridge p").textContent = "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
     if (lesson.format !== "mini-talks") {
       var archiveNotice = document.createElement("p");
       archiveNotice.className = "mini-talks-legacy-notice";
@@ -157,7 +143,7 @@
     }
     var fields = document.querySelectorAll(".lesson-info dd");
     fields[2].textContent = lesson.format === "mini-talks" ? "Sound Check · Mini Talks" : "Sound Check · Guided Practice";
-    fields[5].textContent = (lesson.format === "mini-talks" || lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복";
+    fields[5].textContent = lesson.format === "mini-talks" ? "대화 한 번 재생 · 자유롭게 다시 듣기" : (lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복";
     if (lesson.format === "level0") {
       document.getElementById("playerHeaderMeta").textContent = "A0 · " + String(lesson.unit).padStart(3,"0");
       document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · ONE EXPRESSION";
@@ -172,8 +158,8 @@
     function updateDrillStatus() {
       var time = audio.currentTime;
       var cue = lesson.training.cues.find(function (cue) { return cue.s <= time && time < cue.e; });
-      var unitLabel = lesson.format === "level0" ? "표현 " : (lesson.format === "miniskit" || lesson.format === "mini-talks" ? "대사 " : "문장 ");
-      var label = cue ? unitLabel + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : (lesson.format === "miniskit" || lesson.format === "mini-talks" ? " · 내 차례" : " · 따라 말하기")) : lesson.format === "mini-talks" ? (time >= lesson.training.variationPromptAt ? "상황을 바꿔 직접 답해 보세요" : time >= lesson.training.endingCueStart ? "마무리 · 종료음" : time >= lesson.training.cues.at(-1).e ? "대화 전체 다시 듣기" : time >= lesson.training.startCueEnd ? "대화 전체 먼저 듣기" : "시작음") : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · " + (lesson.format === "level0" ? "한 표현 " : (lesson.format === "miniskit" ? "대사별 " : "문장별 ")) + lesson.training.defaultReps + "회 반복");
+      var unitLabel = lesson.format === "level0" ? "표현 " : (lesson.format === "miniskit" ? "대사 " : "문장 ");
+      var label = lesson.format === "mini-talks" ? (cue ? "대사 " + (cue.i+1) + " / " + lesson.expressions.length + " · 듣는 중" : time >= lesson.training.endingCueStart ? "대화 완료 · 종료음" : time >= lesson.training.startCueEnd ? "대화 듣기" : "시작음") : cue ? unitLabel + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : (lesson.format === "miniskit" ? " · 내 차례" : " · 따라 말하기")) : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · " + (lesson.format === "level0" ? "한 표현 " : (lesson.format === "miniskit" ? "대사별 " : "문장별 ")) + lesson.training.defaultReps + "회 반복");
       if (label !== lastDrillLabel) { drillStatus.textContent = label; lastDrillLabel = label; }
     }
     audio.addEventListener("timeupdate",updateDrillStatus);
@@ -288,7 +274,6 @@
     currentTime.textContent = formatTime(audio.currentTime);
     progress.value = audio.duration ? Math.round((audio.currentTime / audio.duration) * 1000) : 0;
     if (audio.currentTime > 0 && Math.floor(audio.currentTime) % 5 === 0) saveState({ position: audio.currentTime });
-    if (miniTalksPrompt && audio.currentTime >= lesson.training.variationPromptAt) miniTalksPrompt.hidden = false;
   });
   audio.addEventListener("play", function () { playButton.textContent = "❚❚ PAUSE"; });
   audio.addEventListener("pause", function () {

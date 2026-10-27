@@ -18,14 +18,20 @@ for (const lesson of lessons) {
   assert.match(lesson.audio, /^https:\/\/audio\.talktag\.co\.kr\/English\/mini-talks\/001\//);
   assert.equal(lesson.expressions.length, lesson.meanings.length);
   assert.equal(lesson.expressions.length, lesson.speakers.length);
-  assert.equal(lesson.training.cues.length, lesson.expressions.length * 3);
-  assert.equal(lesson.training.defaultReps, 3);
-  assert.ok(lesson.training.variationPromptAt < lesson.training.endingCueStart);
-  for (const cue of lesson.training.cues) {
-    assert.ok(cue.e - cue.voiceEnd >= Math.max(3, (cue.voiceEnd - cue.s) * 2.5) - .03);
-  }
+  assert.equal(lesson.training.playthroughs, 1);
+  assert.equal(lesson.training.cues.length, lesson.expressions.length);
+  assert.equal(lesson.training.defaultReps, undefined);
+  assert.equal(lesson.training.variationPromptAt, undefined);
+  assert.equal(lesson.training.outro, undefined);
+  assert.ok(lesson.training.cues.at(-1).e < lesson.training.endingCueStart);
+  assert.ok(fs.existsSync(lesson.artwork), `${lesson.id}: missing artwork`);
+  assert.ok(lesson.artworkAlt);
 }
+assert.equal(new Set(lessons.map(lesson => lesson.artwork)).size, 6);
 assert.match(library, /src="mini-talks-001\.js/);
+assert.match(library, /02 · JOT DOWN/);
+assert.match(library, /03 · SUMMARIZE AND RETELL/);
+assert.doesNotMatch(library, /02 · REPEAT/);
 assert.doesNotMatch(library, /src="audio-essays(?:-002(?:-media)?)?\.js/);
 assert.match(player, /src="mini-talks-001\.js/);
 assert.match(player, /src="audio-essays\.js/);
