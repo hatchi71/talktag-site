@@ -3,7 +3,7 @@
 var params=new URLSearchParams(location.search),type=params.get("type")==="plain"?"plain":"guided";
 var level=(params.get("level")||"").toUpperCase();
 if(!["A0","A1","A2","B1","B2","C1","C2"].includes(level))level="";
-var name=type==="guided"?"듣고 따라 말하기":"Mini Talks";
+var name=type==="guided"?"듣고 따라 말하기":"미니토크";
 var catalog=(window.TalkTagAudioLessons||[]).filter(l=>l.type===type&&(type!=="plain"||l.format==="mini-talks")&&l.available!==false);
 var list=document.getElementById("lessonList"),shelf=document.getElementById("audioMissionList"),toggle=document.getElementById("audioMissionsToggle");
 var missionLevels=["A0","A1","A2","B1","B2","C1","C2"],arrivingMission="",openMissionLevel="";
@@ -49,7 +49,7 @@ a.setAttribute("aria-label",a.dataset.level+" · "+lessons.length+"개 중 "+cou
 var active=catalog.filter(l=>l.level===level&&!done(l));
 list.hidden=!level;
 list.innerHTML=!level?"":active.map(function(l){
-var meta=l.format==='level0'?'Start Here · '+l.training.defaultReps+'회 듣고 말하기':(l.format==='mini-talks'?'Mini Talks · 듣기 · 요약 · 다시 말하기':(l.format==='miniskit'?'MiniSkit · 대사별 '+l.training.defaultReps+'회':'문장별 '+l.training.defaultReps+'회 반복'));
+var meta=l.format==='level0'?'Start Here · '+l.training.defaultReps+'회 듣고 말하기':(l.format==='mini-talks'?'미니토크 · 듣기 · 요약 · 다시 말하기':(l.format==='miniskit'?'MiniSkit · 대사별 '+l.training.defaultReps+'회':'문장별 '+l.training.defaultReps+'회 반복'));
 var pilotLabel=l.pilot?'<small class="pilot-card-label">MINISKIT PILOT</small>':'';
 return '<article class="lesson-card '+(l.pilot?'is-miniskit-pilot':'')+'" '+(l.available===false?'data-content-draft="true"':'data-completion-manual-only="true"')+' data-completion-id="audio:'+esc(l.id)+'" data-completion-legacy-key="talktag-audio:'+esc(l.id)+'"><a class="audio-lesson-open'+((type==='plain'||l.format==='level0')&&l.artwork?' has-essay-artwork':'')+'" href="'+url(l)+'"><span class="audio-lesson-number">'+number(l)+'</span><div class="lesson-copy">'+pilotLabel+'<h2>'+esc(l.title)+'</h2><p>'+esc(l.description)+'</p><div class="lesson-meta"><span>'+esc(l.durationLabel)+'</span><span>'+meta+'</span></div></div>'+((type==='plain'||l.format==='level0')&&l.artwork?'<img class="essay-cover-thumb" src="'+esc(l.artwork)+'" alt="'+esc(l.artworkAlt)+'" width="720" height="480" loading="lazy">':'')+'<span class="audio-lesson-arrow" aria-hidden="true">↗</span></a><div class="lesson-card-actions" data-completion-actions><a class="audio-start-button" href="'+url(l)+'" aria-label="'+(l.available===false?'Preview ':'Start ')+esc(l.title)+'">'+(l.available===false?'PREVIEW':'START')+' <span aria-hidden="true">→</span></a></div></article>';
 }).join("")||(level?'<p class="audio-empty">'+(catalog.some(l=>l.level===level)?'이 레벨의 미션을 모두 완료했습니다. 아래에서 다시 열거나 완료를 취소할 수 있습니다.':'새로운 음원을 준비하고 있습니다.')+'</p>':"");

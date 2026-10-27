@@ -10,7 +10,7 @@ Use the published 001 set as a quality reference for practical scripts, natural 
 
 Apply these approval questions and the complete authoring → casting → audio/translation QC → public-playback release sequence equally to English, Korean, and Japanese Mini Talks. The scenes need not share literal dialogue or identical characters: each target-language script should sound native and useful in its own setting. Vary only what the language or existing approved policy requires, such as accent, pronunciation, support-language meaning, and Korean production-batch voice balance; do not lower the quality or release bar for any language.
 
-The same track label, level-first card layout, START action, script/meaning controls, completion shelf, and practice flow apply in all three language areas. The learner-facing track name is **Mini Talks** in English, Korean, and Japanese; explanatory text and controls may follow each course's existing interface language. Existing `type=plain` URLs may remain as compatibility routes, but they must not silently present old essays as Mini Talks.
+The same level-first card layout, START action, script/meaning controls, completion shelf, and practice flow apply in all three language areas. The learner-facing track name is **Mini Talks** on Korean-learning pages and **미니토크** on English- and Japanese-learning pages; explanatory text and controls follow each course's existing interface language. This is a display-label distinction, not a change to lesson IDs, catalog type, audio, or quality gates. Existing `type=plain` URLs may remain as compatibility routes, but they must not silently present old essays as new conversations.
 
 ## Level progression
 

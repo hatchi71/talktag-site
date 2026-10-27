@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'talktag-pwa-20261027-mini-talks-playback-v3';
+const CACHE_VERSION = 'talktag-pwa-20261027-course-mini-talks-labels-v4';
 const APP_SHELL = [
   '/',
   '/index.html',

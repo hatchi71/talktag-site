@@ -6,7 +6,7 @@ var japanese=native&&native.language==="ja";
 var params=new URLSearchParams(location.search),type=params.get("type")==="plain"?"plain":"guided";
 var level=(params.get("level")||"").toUpperCase();
 if(!["A0","A1","A2","B1","B2","C1","C2"].includes(level))level="";
-var name=japanese?(type==="guided"?"듣고 따라 말하기":"Mini Talks"):(type==="guided"?"Guided Listen & Repeat":"Mini Talks");
+var name=japanese?(type==="guided"?"듣고 따라 말하기":"미니토크"):(type==="guided"?"Guided Listen & Repeat":"Mini Talks");
 var catalog=(window.TalkTagAudioLessons||[]).filter(l=>l.type===type&&(l.available!==false||(type==="plain"&&l.previewAvailable)));
 var list=document.getElementById("lessonList"),shelf=document.getElementById("audioMissionList"),toggle=document.getElementById("audioMissionsToggle");
 var missionLevels=["A0","A1","A2","B1","B2","C1","C2"],arrivingMission="",openMissionLevel="";
@@ -38,7 +38,7 @@ if(!level){
   levelPicker.after(missions);
   if(type==="plain"&&!japanese)missions.after(document.getElementById("essayGuide"));
 }
-document.getElementById("audioMissionScope").textContent=type==="plain"?(japanese?"Mini Talks":(english?"Previous essays":"이전 오디오 에세이")):(japanese?"듣고 따라 말하기":"Guided L&R");
+document.getElementById("audioMissionScope").textContent=type==="plain"?(japanese?"미니토크":(english?"Previous essays":"이전 오디오 에세이")):(japanese?"듣고 따라 말하기":"Guided L&R");
 levelPicker.hidden=Boolean(level);
 var levelZeroLink=document.querySelector('.filter-bar [data-level="A0"]');
 if(levelZeroLink)levelZeroLink.hidden=type!=="guided"||!catalog.some(l=>l.level==="A0");
@@ -51,7 +51,7 @@ function number(l){return String(l.unit||catalog.filter(x=>x.level===l.level).in
 function render(){
 var summary=document.getElementById("guidedProgressSummary");
 if(!summary){summary=document.createElement("div");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
-summary.hidden=Boolean(level);summary.innerHTML=japanese&&type==="plain"?'<h2>Mini Talks · 준비 중</h2><span>첫 카드 준비 중</span>':english?'<h2>'+(type==="plain"?'Previous Audio Essays':'Choose your level')+'</h2><span>Completed '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>':'<h2>'+(type==="plain"?'이전 오디오 에세이':'레벨을 선택하세요')+'</h2><span>완료 '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>';
+summary.hidden=Boolean(level);summary.innerHTML=japanese&&type==="plain"?'<h2>미니토크 · 준비 중</h2><span>첫 카드 준비 중</span>':english?'<h2>'+(type==="plain"?'Previous Audio Essays':'Choose your level')+'</h2><span>Completed '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>':'<h2>'+(type==="plain"?'이전 오디오 에세이':'레벨을 선택하세요')+'</h2><span>완료 '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>';
 document.querySelectorAll("[data-level]").forEach(a=>{
 var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
 var count=lessons.filter(done).length;

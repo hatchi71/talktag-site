@@ -54,7 +54,7 @@
 
   document.title = "TalkTag · " + lesson.level + " " + lesson.title;
   document.getElementById("playerHeaderMeta").textContent = lesson.level + " · OFFLINE CLASS PREP";
-  document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.format === "mini-talks" ? " · MINI TALKS" : lesson.type === "plain" ? " · LEGACY ESSAY" : " · GUIDED PRACTICE");
+  document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.format === "mini-talks" ? " · 미니토크" : lesson.type === "plain" ? " · LEGACY ESSAY" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
   if (lesson.type === "plain" && lesson.artwork) {
     var figure = document.createElement("figure");
@@ -118,9 +118,9 @@
   document.getElementById("infoLibraryBack").href = "audio-library.html?type=" + lesson.type + "&level=" + lesson.level;
   if (lesson.type === "plain") {
     document.body.classList.add("essay-player");
-    document.getElementById("playerHeaderMeta").textContent = lesson.format === "mini-talks" ? "Mini Talks · " + lesson.level : "지난 에세이 자료";
+    document.getElementById("playerHeaderMeta").textContent = lesson.format === "mini-talks" ? "미니토크 · " + lesson.level : "지난 에세이 자료";
     var info = document.querySelectorAll(".lesson-info dd");
-    info[0].textContent = lesson.format === "mini-talks" ? "Mini Talks" : "Archived Essays & Articles";
+    info[0].textContent = lesson.format === "mini-talks" ? "미니토크" : "Archived Essays & Articles";
     info[2].textContent = lesson.genre;
     info[5].textContent = "Original audio";
     document.querySelector("#scriptPanel h2").textContent = "English script";
@@ -128,13 +128,13 @@
     if (lesson.format !== "mini-talks") {
       var archiveNotice = document.createElement("p");
       archiveNotice.className = "mini-talks-legacy-notice";
-      archiveNotice.textContent = "이 자료는 이전 오디오 에세이입니다. 새 Mini Talks 목록에는 포함되지 않으며, 완료 기록은 그대로 유지됩니다.";
+      archiveNotice.textContent = "이 자료는 이전 오디오 에세이입니다. 새 미니토크 목록에는 포함되지 않으며, 완료 기록은 그대로 유지됩니다.";
       document.getElementById("lessonTitle").before(archiveNotice);
     }
   }
   if (lesson.training) {
     document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0");
-    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + (lesson.format === "mini-talks" ? " · MINI TALKS" : lesson.format === "miniskit" ? " · MINISKIT" : " · GUIDED PRACTICE");
+    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + (lesson.format === "mini-talks" ? " · 미니토크" : lesson.format === "miniskit" ? " · MINISKIT" : " · GUIDED PRACTICE");
     document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.expressions.length + (lesson.format === "mini-talks" || lesson.format === "miniskit" ? " dialogue lines" : " sentences");
     if (lesson.partIndex) {
       document.getElementById("playerHeaderMeta").textContent += " · " + lesson.partIndex + "/" + lesson.partCount;
@@ -142,7 +142,7 @@
     document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.partIndex + "/" + lesson.partCount + " · " + (lesson.format === "miniskit" ? "대사 " : "문장 ") + lesson.sentenceStart + "–" + lesson.sentenceEnd;
     }
     var fields = document.querySelectorAll(".lesson-info dd");
-    fields[2].textContent = lesson.format === "mini-talks" ? "Sound Check · Mini Talks" : "Sound Check · Guided Practice";
+    fields[2].textContent = lesson.format === "mini-talks" ? "Sound Check · 미니토크" : "Sound Check · Guided Practice";
     fields[5].textContent = lesson.format === "mini-talks" ? "대화 한 번 재생 · 자유롭게 다시 듣기" : (lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복";
     if (lesson.format === "level0") {
       document.getElementById("playerHeaderMeta").textContent = "A0 · " + String(lesson.unit).padStart(3,"0");

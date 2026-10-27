@@ -6,11 +6,11 @@ Inventory checked on 2026-10-27 against the local production catalog. This is a 
 
 | Course | Learner-facing label | Shared entry and practice | Voice policy |
 | --- | --- | --- | --- |
-| English | Mini Talks | Sound Check → level picker → episode START → listen, repeat, respond → completed missions | Mostly American English; B2–C2 may include British and Australian voices, with Indian English only occasionally. |
+| English | 미니토크 | Sound Check → level picker → episode START → listen, repeat, respond → completed missions | Mostly American English; B2–C2 may include British and Australian voices, with Indian English only occasionally. |
 | Korean | Mini Talks | The same sequence and controls, with English-language help where this course already uses it. | Natural Korean voices; follow the Korean-space 50:50 male/female production-batch target. |
-| Japanese | Mini Talks | The same sequence and controls, with Korean-language help where this course already uses it. | Natural Japanese voices; do not import the English accent or nationality policy. |
+| Japanese | 미니토크 | The same sequence and controls, with Korean-language help where this course already uses it. | Natural Japanese voices; do not import the English accent or nationality policy. |
 
-The label is exactly **Mini Talks** in all three courses. Localize descriptions and help text, not the name. Keep the existing TalkTag level cards, START buttons, completion shelf, phone layout, and Bright/Dark styling. The learner must be able to hide or reveal the script and meaning, pause/resume, undo completion, and practise without a separate listening approval gate.
+The label is **Mini Talks** in the Korean-learning course and **미니토크** in the English- and Japanese-learning courses. Keep the production track and practice structure shared, while localizing the visible label, descriptions, and help text. Keep the existing TalkTag level cards, START buttons, completion shelf, phone layout, and Bright/Dark styling. The learner must be able to hide or reveal the script and meaning, pause/resume, undo completion, and practise without a separate listening approval gate.
 
 ## Existing catalog to retire, not relabel
 
