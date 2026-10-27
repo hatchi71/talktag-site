@@ -6,6 +6,10 @@ Approved product direction: 2026-10-27. This protocol supersedes the Audio Essay
 
 Mini Talks are short, original, practical spoken scenes. A learner first understands who is doing what in a place, then hears one natural exchange. The learner may shadow or replay it by choice, jot down key details, summarize, and retell it in their own words. Keep the scene concrete and useful in everyday life. Do not embed forced repetitions of turns in the audio.
 
+Use the published 001 set as a quality reference for practical scripts, natural conversation, and believable voice characters—not as dialogue or plot to copy. Before approving a new scene, ask whether its lines sound like something these people would actually say, whether their voices and delivery fit the characters, and whether the learner could use the exchange in a real situation. Revise lines that feel staged, formal, or merely illustrative even when they are grammatically correct.
+
+Apply these approval questions and the complete authoring → casting → audio/translation QC → public-playback release sequence equally to English, Korean, and Japanese Mini Talks. The scenes need not share literal dialogue or identical characters: each target-language script should sound native and useful in its own setting. Vary only what the language or existing approved policy requires, such as accent, pronunciation, support-language meaning, and Korean production-batch voice balance; do not lower the quality or release bar for any language.
+
 The same track label, level-first card layout, START action, script/meaning controls, completion shelf, and practice flow apply in all three language areas. The learner-facing track name is **Mini Talks** in English, Korean, and Japanese; explanatory text and controls may follow each course's existing interface language. Existing `type=plain` URLs may remain as compatibility routes, but they must not silently present old essays as Mini Talks.
 
 ## Level progression
