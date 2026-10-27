@@ -6,7 +6,7 @@
   var data = (window.TalkTagAudioSync || {})[id] || (window.TalkTagEssayMedia || {})[id]?.sync;
   var guided = (window.TalkTagAudioLessons || []).find(function (item) { return item.id === id && item.training; });
   if (guided) {
-    data = {lines:guided.expressions.map(function (line,index) { return {en:line,ko:guided.meanings[index]||""}; }),cues:guided.training.cues,language:"en"};
+    data = {lines:guided.expressions.map(function (line,index) { return {en:line,ko:guided.meanings[index]||"",speaker:guided.format==="mini-talks"?guided.speakers[index]:""}; }),cues:guided.training.cues,language:"en",miniTalks:guided.format==="mini-talks",intro:guided.training.intro,outro:guided.training.outro};
   }
   if (!data && (window.TalkTagN4AudioSync || {})[id]) {
     var lesson = (window.TalkTagN4AudioLessons || []).find(function (item) { return item.id === id; });
@@ -88,7 +88,7 @@
       button.setAttribute("aria-label", (index + 1) + "번 문장부터 재생: " + String(line.en || "").normalize("NFKC"));
       var primary = document.createElement("span");
       if (data.language) primary.lang = data.language;
-      primary.textContent = String(line.en || "").normalize("NFKC");
+      primary.textContent = (line.speaker ? line.speaker + ": " : "") + String(line.en || "").normalize("NFKC");
       button.append(primary);
       if (line.reading) {
         var reading = document.createElement("span");
@@ -118,10 +118,14 @@
       if (data.cues[mid].s <= time) { found = mid; low = mid + 1; }
       else high = mid - 1;
     }
-    var index = !audio.ended && found >= 0 ? data.cues[found].i : -1;
+    var index = !audio.ended && found >= 0 && time < data.cues[found].e ? data.cues[found].i : -1;
+    if (data.miniTalks && index < 0) {
+      var sceneCue = (data.intro || []).concat(data.outro || []).find(function (cue) { return cue.start <= time && time < cue.end; });
+      if (sceneCue) index = sceneCue.lineIndex;
+    }
     if (index === active) return;
     active = index;
-    status.textContent = index >= 0 ? "현재 문장 " + (index + 1) + " / " + buttons.length : "";
+    status.textContent = index >= 0 ? "현재 " + (data.miniTalks ? "대사 " : "문장 ") + (index + 1) + " / " + buttons.length : "";
     buttons.forEach(function (button, i) {
       button.classList.toggle("active", i === index);
       if (i === index) button.setAttribute("aria-current", "true");

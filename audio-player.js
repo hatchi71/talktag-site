@@ -22,17 +22,19 @@
   if (retiredPart) { location.replace("audio-player.html?id=" + retiredPart[1]); return; }
   var retiredGuided = ["a1-head","a2-hair-01-03","a2-hair-04-06","a2-hair-10-12","b1-head-brain","b1-hair-13-15","b1-hair-16-17"];
   if (retiredGuided.indexOf(requestedId) !== -1) { location.replace("audio-library.html?type=guided&level=" + requestedId.slice(0,2).toUpperCase()); return; }
-  var lesson = allLessons.find(function (item) { return item.id === requestedId; }) || allLessons[0];
+  var lesson = allLessons.find(function (item) { return item.id === requestedId; });
+  if (!lesson) { location.replace("audio-library.html?type=plain"); return; }
   if (lesson.format === "level0") document.body.classList.add("level0-player");
   var audio = window.TalkTagSegmented001?.forLesson(lesson) || audioElement;
   var isSegmentedEpisode = /^guided-(?:a1|a2|b1|b2|c1|c2)-(?:0[1-7]|(?:08|09|10)-miniskit(?:-pilot)?(?:-part[1-3])?)$/.test(lesson.id);
-  var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type; });
+  var lessons = allLessons.filter(function (item) { return item.level === lesson.level && item.type === lesson.type && item.format === lesson.format; });
   var lessonIndex = lessons.findIndex(function (item) { return item.id === lesson.id; });
   var previousLesson = lessons[lessonIndex - 1] || null;
   var nextLesson = lessons[lessonIndex + 1] || null;
   var storageKey = "talktag-audio:" + lesson.id;
   var pauseControl = null;
   var level0Prompt = null;
+  var miniTalksPrompt = null;
   document.body.dataset.audioType = lesson.type;
 
   function appendList(targetId, items, speakers) {
@@ -53,7 +55,7 @@
 
   document.title = "TalkTag · " + lesson.level + " " + lesson.title;
   document.getElementById("playerHeaderMeta").textContent = lesson.level + " · OFFLINE CLASS PREP";
-  document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.type === "plain" ? " · ESSAYS & ARTICLES" : " · GUIDED PRACTICE");
+  document.getElementById("lessonKicker").textContent = lesson.level + " · UNIT " + lesson.unit + (lesson.format === "mini-talks" ? " · MINI TALKS" : lesson.type === "plain" ? " · LEGACY ESSAY" : " · GUIDED PRACTICE");
   document.getElementById("lessonTitle").textContent = lesson.title;
   if (lesson.type === "plain" && lesson.artwork) {
     var figure = document.createElement("figure");
@@ -68,7 +70,7 @@
   }
   var lessonSummary = document.getElementById("lessonSummary");
   lessonSummary.textContent = lesson.summary;
-  if (lesson.type === "plain") {
+  if (lesson.type === "plain" && lesson.format !== "mini-talks") {
     var shadowingTitle = document.createElement("h2");
     shadowingTitle.className = "essay-shadowing-title";
     shadowingTitle.textContent = "들으며 따라 말하기";
@@ -77,7 +79,25 @@
     shadowingDescription.textContent = "음성을 들으면서 동시에 작은 소리로 따라 말해 보세요. 말하는 사람의 소리와 리듬을 따라가는 데 집중하세요.";
     lessonSummary.replaceChildren(shadowingTitle, shadowingDescription);
   }
-  if (lesson.training) lessonSummary.textContent = lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
+  if (lesson.training) lessonSummary.textContent = lesson.format === "mini-talks" ? "대화를 먼저 듣고, 대사마다 따라 말해 보세요. 마지막에는 상황을 바꿔 직접 답합니다." : lesson.format === "miniskit" ? "짧은 장면 속 대화를 듣고, 한 대사씩 맡아 말해 보세요." : "한 문장씩 듣고 따라 하세요.";
+  if (lesson.format === "mini-talks") {
+    var miniScene = document.getElementById("sceneBriefing");
+    document.getElementById("sceneBriefingText").textContent = lesson.briefing;
+    miniScene.hidden = false;
+    miniTalksPrompt = document.createElement("section");
+    miniTalksPrompt.className = "mini-talks-prompt";
+    miniTalksPrompt.hidden = true;
+    var promptHeading = document.createElement("h2");
+    promptHeading.textContent = "이제 내 말로 답해 보세요";
+    var promptQuestion = document.createElement("p");
+    promptQuestion.lang = "en";
+    promptQuestion.textContent = lesson.variationPrompt.en;
+    var promptMeaning = document.createElement("p");
+    promptMeaning.className = "mini-talks-prompt-ko";
+    promptMeaning.textContent = lesson.variationPrompt.ko;
+    miniTalksPrompt.append(promptHeading, promptQuestion, promptMeaning);
+    lessonSummary.after(miniTalksPrompt);
+  }
   if (lesson.format === "level0") {
     lessonSummary.textContent = "그림을 보고 한 가지 표현을 " + lesson.training.defaultReps + "회 듣고 따라 하세요. 마지막에는 음성 없이 직접 답해 보세요.";
     var level0Figure = document.createElement("figure");
@@ -104,7 +124,7 @@
     lessonSummary.after(level0Prompt);
   }
   document.getElementById("infoLevel").textContent = lesson.format === "level0" ? "Start Here · Level 0 (TalkTag pre-A1)" : "CEFR " + lesson.level;
-  document.getElementById("infoLocation").textContent = lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
+  document.getElementById("infoLocation").textContent = lesson.format === "mini-talks" ? "Episode " + lesson.unit + " · " + lesson.expressions.length + " dialogue turns" : lesson.type === "plain" ? lesson.level + " · Essay " + lesson.unit : "Part " + lesson.part + " · Chapter " + lesson.chapter + " · Unit " + lesson.unit;
   document.getElementById("infoDuration").textContent = lesson.durationLong;
   document.getElementById("duration").textContent = lesson.durationLabel;
   document.getElementById("libraryBack").href = "audio-library.html?type=" + lesson.type + "&level=" + lesson.level;
@@ -112,26 +132,32 @@
   document.getElementById("infoLibraryBack").href = "audio-library.html?type=" + lesson.type + "&level=" + lesson.level;
   if (lesson.type === "plain") {
     document.body.classList.add("essay-player");
-    document.getElementById("playerHeaderMeta").textContent = "오디오 에세이와 아티클";
+    document.getElementById("playerHeaderMeta").textContent = lesson.format === "mini-talks" ? "Mini Talks · " + lesson.level : "지난 에세이 자료";
     var info = document.querySelectorAll(".lesson-info dd");
-    info[0].textContent = "Essays & Articles";
+    info[0].textContent = lesson.format === "mini-talks" ? "Mini Talks" : "Archived Essays & Articles";
     info[2].textContent = lesson.genre;
     info[5].textContent = "Original audio";
     document.querySelector("#scriptPanel h2").textContent = "English script";
-    document.querySelector(".class-bridge p").textContent = "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
+    document.querySelector(".class-bridge p").textContent = lesson.format === "mini-talks" ? "대사를 따라 말한 뒤, 바뀐 상황에 맞게 직접 한마디 해 보세요." : "핵심 내용을 기억에서 꺼내 요약하고, 자신의 표현으로 파트너에게 이야기해 보세요.";
+    if (lesson.format !== "mini-talks") {
+      var archiveNotice = document.createElement("p");
+      archiveNotice.className = "mini-talks-legacy-notice";
+      archiveNotice.textContent = "이 자료는 이전 오디오 에세이입니다. 새 Mini Talks 목록에는 포함되지 않으며, 완료 기록은 그대로 유지됩니다.";
+      document.getElementById("lessonTitle").before(archiveNotice);
+    }
   }
   if (lesson.training) {
     document.getElementById("playerHeaderMeta").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0");
-    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT" : " · GUIDED PRACTICE");
-    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.expressions.length + (lesson.format === "miniskit" ? " dialogue lines" : " sentences");
+    document.getElementById("lessonKicker").textContent = lesson.level + " · EPISODE " + String(lesson.unit).padStart(2,"0") + (lesson.format === "mini-talks" ? " · MINI TALKS" : lesson.format === "miniskit" ? " · MINISKIT" : " · GUIDED PRACTICE");
+    document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.expressions.length + (lesson.format === "mini-talks" || lesson.format === "miniskit" ? " dialogue lines" : " sentences");
     if (lesson.partIndex) {
       document.getElementById("playerHeaderMeta").textContent += " · " + lesson.partIndex + "/" + lesson.partCount;
     document.getElementById("lessonKicker").textContent = lesson.level + " · " + String(lesson.unit).padStart(2,"0") + "–" + String(lesson.partIndex).padStart(2,"0") + (lesson.format === "miniskit" ? " · MINISKIT" : "");
     document.getElementById("infoLocation").textContent = "Episode " + String(lesson.unit).padStart(2,"0") + " · " + lesson.partIndex + "/" + lesson.partCount + " · " + (lesson.format === "miniskit" ? "대사 " : "문장 ") + lesson.sentenceStart + "–" + lesson.sentenceEnd;
     }
     var fields = document.querySelectorAll(".lesson-info dd");
-    fields[2].textContent = "Sound Check · Guided Practice";
-    fields[5].textContent = (lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복";
+    fields[2].textContent = lesson.format === "mini-talks" ? "Sound Check · Mini Talks" : "Sound Check · Guided Practice";
+    fields[5].textContent = (lesson.format === "mini-talks" || lesson.format === "miniskit" ? "대사별 " : "문장별 ") + lesson.training.defaultReps + "회 반복";
     if (lesson.format === "level0") {
       document.getElementById("playerHeaderMeta").textContent = "A0 · " + String(lesson.unit).padStart(3,"0");
       document.getElementById("lessonKicker").textContent = "START HERE · LEVEL 0 · ONE EXPRESSION";
@@ -146,8 +172,8 @@
     function updateDrillStatus() {
       var time = audio.currentTime;
       var cue = lesson.training.cues.find(function (cue) { return cue.s <= time && time < cue.e; });
-      var unitLabel = lesson.format === "level0" ? "표현 " : (lesson.format === "miniskit" ? "대사 " : "문장 ");
-      var label = cue ? unitLabel + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : (lesson.format === "miniskit" ? " · 내 차례" : " · 따라 말하기")) : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · " + (lesson.format === "level0" ? "한 표현 " : (lesson.format === "miniskit" ? "대사별 " : "문장별 ")) + lesson.training.defaultReps + "회 반복");
+      var unitLabel = lesson.format === "level0" ? "표현 " : (lesson.format === "miniskit" || lesson.format === "mini-talks" ? "대사 " : "문장 ");
+      var label = cue ? unitLabel + (cue.i+1) + " / " + lesson.expressions.length + " · 반복 " + cue.r + " / " + lesson.training.defaultReps + (time < cue.voiceEnd ? " · 듣기" : (lesson.format === "miniskit" || lesson.format === "mini-talks" ? " · 내 차례" : " · 따라 말하기")) : lesson.format === "mini-talks" ? (time >= lesson.training.variationPromptAt ? "상황을 바꿔 직접 답해 보세요" : time >= lesson.training.endingCueStart ? "마무리 · 종료음" : time >= lesson.training.cues.at(-1).e ? "대화 전체 다시 듣기" : time >= lesson.training.startCueEnd ? "대화 전체 먼저 듣기" : "시작음") : (time >= lesson.training.endingCueStart ? "전체 훈련 완료 · 종료음" : "시작음 · " + (lesson.format === "level0" ? "한 표현 " : (lesson.format === "miniskit" ? "대사별 " : "문장별 ")) + lesson.training.defaultReps + "회 반복");
       if (label !== lastDrillLabel) { drillStatus.textContent = label; lastDrillLabel = label; }
     }
     audio.addEventListener("timeupdate",updateDrillStatus);
@@ -210,6 +236,7 @@
   }
   var initial = readState();
   if (level0Prompt) level0Prompt.hidden = !initial.listened;
+  if (miniTalksPrompt) miniTalksPrompt.hidden = true;
   if (lesson.type === "plain" && lesson.boundaryDings && !initial.essayDingsMigrated) {
     initial.position = initial.position > 0 ? Number(initial.position) + lesson.openingDingSeconds : 0;
     saveState({ position: initial.position, essayDingsMigrated: true });
@@ -261,6 +288,7 @@
     currentTime.textContent = formatTime(audio.currentTime);
     progress.value = audio.duration ? Math.round((audio.currentTime / audio.duration) * 1000) : 0;
     if (audio.currentTime > 0 && Math.floor(audio.currentTime) % 5 === 0) saveState({ position: audio.currentTime });
+    if (miniTalksPrompt && audio.currentTime >= lesson.training.variationPromptAt) miniTalksPrompt.hidden = false;
   });
   audio.addEventListener("play", function () { playButton.textContent = "❚❚ PAUSE"; });
   audio.addEventListener("pause", function () {
@@ -283,6 +311,7 @@
     if (!audio.loop) {
       saveState({ position: 0, listened: true, listenedAt: new Date().toISOString() });
       if (level0Prompt) { level0Prompt.hidden = false; level0Prompt.scrollIntoView({behavior:"smooth",block:"center"}); }
+      if (miniTalksPrompt) miniTalksPrompt.hidden = false;
       finishGuidedCard();
     }
   });

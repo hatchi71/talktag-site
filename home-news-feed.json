@@ -2,6 +2,22 @@
   "version": 1,
   "items": [
     {
+      "id": "mini:en:001",
+      "title": "English Mini Talks · 001",
+      "href": "audio-library.html?type=plain",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "A1–C2 실생활 대화 001을 듣고 따라 말해 보세요.",
+      "publishedAt": "2026-10-27T00:00:00+09:00",
+      "language": "en"
+    },
+    {
       "id": "native:ko:guided:a2-c2:004-010",
       "language": "ko",
       "title": "Korean Guided L&R · A2–C2 · 004–010",
@@ -35,8 +51,8 @@
         "A0"
       ],
       "description": "Nine short picture-led expressions to hear, repeat, and use today.",
-      "language": "en",
-      "publishedAt": "2026-10-25T12:01:52.563Z"
+      "publishedAt": "2026-10-25T12:01:52.563Z",
+      "language": "en"
     },
     {
       "id": "level0:ko:001",
@@ -57,8 +73,8 @@
         "A0"
       ],
       "description": "그림을 보고 한 가지 인사를 듣고 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-25T09:48:20.357Z"
+      "publishedAt": "2026-10-25T09:48:20.357Z",
+      "language": "en"
     },
     {
       "id": "guided:011",
@@ -73,8 +89,8 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-25T08:07:51.298Z"
+      "publishedAt": "2026-10-25T08:07:51.298Z",
+      "language": "en"
     },
     {
       "id": "readable:en:001:levels",
@@ -346,8 +362,8 @@
         "A1"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-12T13:55:59.606Z"
+      "publishedAt": "2026-10-12T13:55:59.606Z",
+      "language": "en"
     },
     {
       "id": "guided:009",
@@ -357,8 +373,8 @@
         "A1"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-12T12:02:56.544Z"
+      "publishedAt": "2026-10-12T12:02:56.544Z",
+      "language": "en"
     },
     {
       "id": "guided:008",
@@ -368,8 +384,8 @@
         "A1"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-12T12:02:56.544Z"
+      "publishedAt": "2026-10-12T12:02:56.544Z",
+      "language": "en"
     },
     {
       "id": "guided:007",
@@ -384,8 +400,8 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-11T12:05:57.153Z"
+      "publishedAt": "2026-10-11T12:05:57.153Z",
+      "language": "en"
     },
     {
       "id": "native:ko:guided:001",
@@ -432,8 +448,8 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-11T08:10:22.017Z"
+      "publishedAt": "2026-10-11T08:10:22.017Z",
+      "language": "en"
     },
     {
       "id": "korean:starters",
@@ -459,8 +475,8 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-10T05:56:00.950Z"
+      "publishedAt": "2026-10-10T05:56:00.950Z",
+      "language": "en"
     },
     {
       "id": "guided:004",
@@ -475,8 +491,8 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-10T05:30:40.796Z"
+      "publishedAt": "2026-10-10T05:30:40.796Z",
+      "language": "en"
     },
     {
       "id": "guided:003",
@@ -491,40 +507,8 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-09T20:13:56+09:00"
-    },
-    {
-      "id": "plain:002",
-      "title": "Audio Essays & Articles · 002",
-      "href": "audio-library.html?type=plain",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "새 이야기를 듣고 내 말로 다시 이야기해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-09T18:17:32+09:00"
-    },
-    {
-      "id": "plain:001",
-      "title": "Audio Essays & Articles · 001",
-      "href": "audio-library.html?type=plain",
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2",
-        "C1",
-        "C2"
-      ],
-      "description": "새 이야기를 듣고 내 말로 다시 이야기해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-09T18:17:32+09:00"
+      "publishedAt": "2026-10-09T20:13:56+09:00",
+      "language": "en"
     },
     {
       "id": "guided:002",
@@ -539,8 +523,8 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-09T18:17:32+09:00"
+      "publishedAt": "2026-10-09T18:17:32+09:00",
+      "language": "en"
     },
     {
       "id": "guided:001",
@@ -555,8 +539,8 @@
         "C2"
       ],
       "description": "새 일상 표현을 듣고 따라 말해 보세요.",
-      "language": "en",
-      "publishedAt": "2026-10-09T18:17:32+09:00"
+      "publishedAt": "2026-10-09T18:17:32+09:00",
+      "language": "en"
     },
     {
       "id": "boot:001",

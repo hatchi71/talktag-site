@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+
+const library = fs.readFileSync('audio-library.html', 'utf8');
+const player = fs.readFileSync('audio-player.html', 'utf8');
+const news = JSON.parse(fs.readFileSync('home-news-feed.json', 'utf8'));
+const source = fs.readFileSync('mini-talks-001.js', 'utf8');
+const context = { window: {} };
+vm.createContext(context);
+vm.runInContext(source, context);
+const lessons = context.window.TalkTagAudioLessons;
+assert.deepEqual(Array.from(lessons, lesson => lesson.level), ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
+assert.equal(new Set(lessons.map(lesson => lesson.id)).size, 6);
+for (const lesson of lessons) {
+  assert.equal(lesson.type, 'plain');
+  assert.equal(lesson.format, 'mini-talks');
+  assert.match(lesson.audio, /^https:\/\/audio\.talktag\.co\.kr\/English\/mini-talks\/001\//);
+  assert.equal(lesson.expressions.length, lesson.meanings.length);
+  assert.equal(lesson.expressions.length, lesson.speakers.length);
+  assert.equal(lesson.training.cues.length, lesson.expressions.length * 3);
+  assert.equal(lesson.training.defaultReps, 3);
+  assert.ok(lesson.training.variationPromptAt < lesson.training.endingCueStart);
+  for (const cue of lesson.training.cues) {
+    assert.ok(cue.e - cue.voiceEnd >= Math.max(3, (cue.voiceEnd - cue.s) * 2.5) - .03);
+  }
+}
+assert.match(library, /src="mini-talks-001\.js/);
+assert.doesNotMatch(library, /src="audio-essays(?:-002(?:-media)?)?\.js/);
+assert.match(player, /src="mini-talks-001\.js/);
+assert.match(player, /src="audio-essays\.js/);
+assert.equal(news.items.find(item => item.id === 'mini:en:001')?.levels.length, 6);
+assert.ok(!news.items.some(item => item.id === 'plain:001' || item.id === 'plain:002'));
+console.log('Mini Talks catalog: six replacement cards, archive deep links, home news, and cue timing PASS');
