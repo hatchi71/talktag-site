@@ -68,43 +68,42 @@ Focus on concise language with greater interpretive depth and expressive range:
 - Selected literary or formal expressions used in spoken contexts.
 - Longer sentences requiring control of phrasing, emphasis, and logical relationships.
 
-### Audio Essays & Articles: Listen, Understand, and Retell
+### Mini Talks: Hear, Repeat, and Respond
 
 **Definition**
 
-Learners listen to a complete passage, identify its central message and supporting details, and summarize or retell it in their own words in the target language.
+Learners enter a concrete everyday situation, listen to a short natural conversation, repeat each turn aloud, and respond to one small variation without the model. The exchange connects sound, meaning, and an action the learner could take in real life.
 
-This drill moves beyond reproducing individual sentences toward understanding and reconstructing meaning.
+Mini Talks use the same label and practice structure in English, Korean, and Japanese. Speaker count is flexible: A1–A2 usually have two speakers, B-level scenes may have three, and C-level scenes may bring four or more people into one topic when that makes the conversation more natural. Complexity grows through interaction and meaning, not a speaker quota. For English, American voices predominate; British and Australian varieties may appear from B2, and Indian English only occasionally. This accent policy does not apply to Korean or Japanese voices. Follow `MINI_TALKS_PRODUCTION_PROTOCOL.md` for authoring, audio QC, and migration.
 
 **Beginner**
 
-Build basic listening comprehension through short, clearly structured recordings:
+Build a first spoken response through a short, predictable exchange:
 
-- Familiar topics, everyday routines, and simple personal stories.
-- Clear speech with manageable vocabulary and sentence length.
-- Recognition of the main topic and key information: who, what, where, and when.
-- Brief oral summaries supported by keywords or guiding questions.
+- Familiar places, objects, routines, and immediate needs.
+- Two clear roles and short, speakable turns in most scenes.
+- A simple question, answer, and useful follow-up or request for repetition.
+- An optional meaning cue followed by a model-hidden response prompt.
 
 **Intermediate**
 
-Bridge focused practice and real-world listening:
+Bridge predictable exchanges and real-world conversation:
 
-- Everyday narratives, explanatory articles, interviews, and short opinion pieces.
-- Increasingly natural speed, varied voices, and less predictable wording.
-- Recognition of sequence, cause and effect, viewpoints, and relevant details.
-- Oral summaries that preserve the message without reproducing the original wording.
-- Follow-up questions that check understanding and invite a personal response.
+- Everyday problems, plans, service encounters, and social choices.
+- Increasingly natural turn-taking, repair, reasons, and tactful alternatives.
+- Two or three voices when the situation calls for them.
+- Spoken responses that adapt a useful turn to a changed detail.
 
 **Advanced**
 
-Develop sustained listening and interpretation through demanding recordings:
+Develop flexible participation in a demanding but brief exchange:
 
-- Extended essays, lectures, interviews, and audiobook excerpts.
-- Abstract ideas, layered arguments, figurative language, and implied attitudes.
-- Recognition of tone, rhetorical choices, assumptions, and shifts in perspective.
-- Concise summaries, critical responses, and comparisons between viewpoints.
+- Several perspectives on one practical or intellectually engaging topic.
+- Implication, qualification, disagreement, mediation, and shifts in register.
+- Multiple voices only when each role contributes to the exchange.
+- A final response that explains a position or helps the group move forward.
 
-Advanced materials should be selected using their actual audio demands—delivery speed, vocabulary, conceptual complexity, and length. A text’s reading score alone does not establish its listening difficulty.
+Select the level using the real audio demands—delivery speed, accent variety, turn-taking, vocabulary, conceptual complexity, and what the learner must say. A text’s reading score or number of speakers alone does not establish its listening difficulty.
 
 ## 2. Boot Camp
 
@@ -283,7 +282,7 @@ Develop thoughtful, flexible conversation around complex issues:
 
 ## How the Drills Work Together
 
-A single topic can connect all four areas: learners practice useful expressions in GLR, hear them in a complete audio passage, develop a spoken or written response in Boot Camp, explore a related text in Readable, and exchange perspectives in Discussion.
+A single topic can connect all four areas: learners practice useful expressions in GLR, use them in a Mini Talk exchange, develop a spoken or written response in Boot Camp, explore a related text in Readable, and exchange perspectives in Discussion.
 
 Learners can return to the same topic with greater independence and depth each time.
 
