@@ -4,6 +4,7 @@ import vm from 'node:vm';
 
 const library = fs.readFileSync('audio-library.html', 'utf8');
 const player = fs.readFileSync('audio-player.html', 'utf8');
+const playerCode = fs.readFileSync('audio-player.js', 'utf8');
 const news = JSON.parse(fs.readFileSync('home-news-feed.json', 'utf8'));
 const source = fs.readFileSync('mini-talks-001.js', 'utf8');
 const context = { window: {} };
@@ -34,6 +35,8 @@ assert.match(library, /03 · SUMMARIZE AND RETELL/);
 assert.doesNotMatch(library, /02 · REPEAT/);
 assert.doesNotMatch(library, /src="audio-essays(?:-002(?:-media)?)?\.js/);
 assert.match(player, /src="mini-talks-001\.js/);
+assert.doesNotMatch(playerCode, /miniTalksPrompt/, 'Removed Mini Talks prompt must not stop player initialization');
+assert.match(playerCode, /playButton\.addEventListener\("click"/, 'Mini Talks player must retain the play handler');
 assert.match(player, /src="audio-essays\.js/);
 assert.equal(news.items.find(item => item.id === 'mini:en:001')?.levels.length, 6);
 assert.ok(!news.items.some(item => item.id === 'plain:001' || item.id === 'plain:002'));

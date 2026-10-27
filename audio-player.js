@@ -222,7 +222,6 @@
   }
   var initial = readState();
   if (level0Prompt) level0Prompt.hidden = !initial.listened;
-  if (miniTalksPrompt) miniTalksPrompt.hidden = true;
   if (lesson.type === "plain" && lesson.boundaryDings && !initial.essayDingsMigrated) {
     initial.position = initial.position > 0 ? Number(initial.position) + lesson.openingDingSeconds : 0;
     saveState({ position: initial.position, essayDingsMigrated: true });
@@ -296,7 +295,6 @@
     if (!audio.loop) {
       saveState({ position: 0, listened: true, listenedAt: new Date().toISOString() });
       if (level0Prompt) { level0Prompt.hidden = false; level0Prompt.scrollIntoView({behavior:"smooth",block:"center"}); }
-      if (miniTalksPrompt) miniTalksPrompt.hidden = false;
       finishGuidedCard();
     }
   });
