@@ -33,7 +33,7 @@ function catalog(read){
  const japaneseVocal=read('content/vocalcamp-japanese-001.js');
  if(japaneseVocal)vm.runInContext(japaneseVocal,c,{timeout:1000});
  for(const f of (c.window.TALKTAG_VOCALCAMP_JAPANESE?.families||[]).filter(f=>f.status==='published'&&f.audioStatus==='ready'))groups.set('japanese-vocal:'+f.number,{id:'japanese-vocal:'+f.number,language:'ja',title:'Japanese Vocal Camp · '+f.number,href:'japanese/J-vocal-camp.html',levels:f.levels,description:'짧은 일본어 이야기를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.'});
- for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-guided-ko-004-a1.js','native-guided-ko-005-010.js','native-guided-ko-a2-c2-004-010.js','native-audio-korean-aea-001.js','native-audio-korean-aea-002.js','mini-talks-korean-001.js','korean-support-mini-talks-001.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
+ for(const file of ['native-guided-data.js','native-guided-ko-002.js','native-guided-ko-003.js','native-guided-ko-004-a1.js','native-guided-ko-005-010.js','native-guided-ko-a2-c2-004-010.js','mini-talks-korean-001.js','korean-support-mini-talks-001.js']){const native=read(file);if(native)vm.runInContext(native,c,{timeout:1000});}
  const koreanMiniLessons=c.window.TalkTagNativeCatalogs?.ko||[];
  const koreanMiniReleaseReady=['A1','A2','B1','B2','C1','C2'].every(level=>koreanMiniLessons.some(lesson=>{
   const support=c.window.TalkTagKoreanTranslations?.[lesson.id];

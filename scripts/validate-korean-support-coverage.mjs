@@ -48,11 +48,9 @@ load('native-guided-ko-003.js');
 load('native-guided-ko-004-a1.js');
 load('native-guided-ko-005-010.js');
 load('native-guided-ko-splits.js');
-load('native-audio-korean-aea-001.js');
-load('native-audio-korean-aea-002.js');
+load('mini-talks-korean-001.js');
 load('native-glr-001-translations.js');
-load('korean-support-essays-001.js');
-load('korean-support-essays-002.js');
+load('korean-support-mini-talks-001.js');
 load('korean-support-manual-starter-001.js');
 load('korean-support-manual-starter-002.js');
 load('korean-support-manual-starter-003-004.js');
@@ -63,14 +61,13 @@ load('korean-support-manual-glr-002-c1-c2.js');
 load('korean-support-manual-glr-003-ab.js');
 load('korean-support-manual-glr-003-c.js');
 load('korean-support-japanese-glr.js');
-load('korean-support-japanese-essays.js');
 load('korean-support-japanese-starter.js');
 load('korean-support-glr-004-010.js');
 load('korean-support-vocal-001.js');
 load('korean-support-story-001.js');
 load('korean-support-readable-001.js');
 for (const lesson of window.TalkTagNativeCatalogs.ko.filter(item=>item.available!==false)) {
-  add(lesson.type==='guided'?'GLR':'Essays',lesson.id,lesson.expressions,lesson.meanings,window.TalkTagKoreanGlr001Translations?.[lesson.id]);
+  add(lesson.format==='mini-talks'?'Mini Talks':'GLR',lesson.id,lesson.expressions,lesson.meanings,window.TalkTagKoreanGlr001Translations?.[lesson.id]);
 }
 load('content/vocalcamp-korean-001.js');
 for (const family of window.TALKTAG_VOCALCAMP_KOREAN.families.filter(item=>item.status==='published')) {
@@ -101,6 +98,7 @@ console.log(`Total: ${cards.length} card units; ${pending.length} still need com
 if (pending.length) throw Error(`Incomplete support-language coverage: ${pending.map(card=>card.id).join(', ')}`);
 for (const [page,script] of [
   ['K-korean-audio-player.html','korean-support-glr-004-010.js'],
+  ['K-korean-audio-player.html','korean-support-mini-talks-001.js'],
   ['vocalcamp-player.html','korean-support-vocal-001.js'],
   ['storycamp-reader.html','korean-support-story-001.js'],
   ['K-korean-readable-chapter.html','korean-support-readable-001.js']

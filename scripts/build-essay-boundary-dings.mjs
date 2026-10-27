@@ -27,23 +27,21 @@ function audioMatch(source,cue,side){
   return best;
 }
 const context={window:{}};vm.createContext(context);
-for(const name of ['audio-essays.js','audio-essays-002-media.js','audio-essays-002.js','native-audio-korean-aea-001.js'])vm.runInContext(fs.readFileSync(path.join(repo,name),'utf8'),context,{filename:name});
+for(const name of ['audio-essays.js','audio-essays-002-media.js','audio-essays-002.js'])vm.runInContext(fs.readFileSync(path.join(repo,name),'utf8'),context,{filename:name});
 const english=context.window.TalkTagAudioLessons.filter(x=>x.type==='plain'&&x.available!==false);
-const korean=context.window.TalkTagNativeCatalogs.ko.filter(x=>x.type==='plain'&&x.available!==false);
-if(english.length!==12||korean.length!==6)throw Error(`Unexpected catalog size: ${english.length} English, ${korean.length} Korean`);
+if(english.length!==12)throw Error(`Unexpected English essay catalog size: ${english.length}`);
 for(const file of Object.values(cueFiles))if(!fs.existsSync(file))throw Error('Missing approved cue '+file);
 const cues=Object.fromEntries(Object.entries(cueFiles).map(([name,file])=>[name,pcm(file)]));
 const cueSeconds=Object.fromEntries(Object.entries(cues).map(([name,data])=>[name,data.length/48000]));
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'talktag-essay-dings-'));
 const records=[];
-for(const [language,lessons] of [['en',english],['ko',korean]])for(const lesson of lessons){
-  const source=language==='ko'?path.join(repo,'audio/korean/audio-essays-articles/001',`${lesson.level.toLowerCase()}.mp3`):path.join(temp,lesson.id+'.mp3');
-  if(language==='en'){
-    const response=await fetch(lesson.audio,{signal:AbortSignal.timeout(30000)});
-    if(!response.ok)throw Error(`${lesson.id}: source HTTP ${response.status}`);
-    fs.writeFileSync(source,Buffer.from(await response.arrayBuffer()));
-    if(lesson.checksum&&sha(source)!==lesson.checksum)throw Error(`${lesson.id}: published source checksum changed`);
-  }
+for(const lesson of english){
+  const language='en';
+  const source=path.join(temp,lesson.id+'.mp3');
+  const response=await fetch(lesson.audio,{signal:AbortSignal.timeout(30000)});
+  if(!response.ok)throw Error(`${lesson.id}: source HTTP ${response.status}`);
+  fs.writeFileSync(source,Buffer.from(await response.arrayBuffer()));
+  if(lesson.checksum&&sha(source)!==lesson.checksum)throw Error(`${lesson.id}: published source checksum changed`);
   const decoded=pcm(source),startMatch=audioMatch(decoded,cues.start,'start'),endMatch=audioMatch(decoded,cues.end,'end');
   if(startMatch>0.75||endMatch>0.75)throw Error(`${lesson.id}: possible existing boundary ding; stop to prevent duplication (${startMatch.toFixed(2)}, ${endMatch.toFixed(2)})`);
   const outDir=path.join(outputRoot,language);fs.mkdirSync(outDir,{recursive:true});

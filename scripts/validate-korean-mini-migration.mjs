@@ -2,7 +2,6 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
-import {releaseCatalog} from './prepare-korean-essay-retirement.mjs';
 
 process.chdir(fileURLToPath(new URL('../', import.meta.url)));
 const read = path => fs.readFileSync(path, 'utf8');
@@ -50,8 +49,14 @@ for (const file of ['K-korean-audio-library.html', 'K-korean-audio-player.html']
   legacyImportStates.push(old >= 0);
 }
 assert.equal(new Set(legacyImportStates).size, 1, 'Both Korean pages must retire old imports together');
-if (!legacyImportStates[0]) assert.equal(releaseCatalog().ready, true,
-  'Old Korean essay imports may be removed only after all six published Mini Talks and six-language meanings are complete');
+assert.equal(legacyImportStates[0], false, 'Retired Korean essays must not be re-imported');
+const current = {window: {TalkTagNative: {language: 'ko'}, TalkTagNativeCatalogs: {ko: []}}};
+vm.createContext(current);
+for (const file of ['mini-talks-korean-001.js', 'korean-support-mini-talks-001.js', 'native-audio-catalog.js']) {
+  vm.runInContext(read(file), current, {filename: file});
+}
+assert.equal(current.window.TalkTagKoreanMiniReleaseReady, true,
+  'Retired Korean essays require all six published Mini Talks and six-language meanings');
 const player = read('native-audio-player.js');
 assert.match(player, /retired-essay-page/, 'Retired essay URLs need a distinct screen');
 assert.match(player, /Your completion record remains saved separately/, 'Do not silently replace or transfer old completion');

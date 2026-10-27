@@ -8,14 +8,13 @@ const read = path => fs.readFileSync(path, 'utf8');
 const native = { language: 'ko', ui: 'en', libraryPage: 'K-korean-audio-library.html', studioPage: 'K-korean-learning.html' };
 const catalogContext = { window: { TalkTagNative: native } };
 vm.createContext(catalogContext);
-for (const file of ['native-guided-data.js', 'native-guided-ko-002.js', 'native-guided-ko-003.js', 'native-guided-ko-004-a1.js', 'native-guided-ko-005-010.js', 'native-guided-ko-splits.js', 'native-audio-korean-aea-001.js', 'native-audio-korean-aea-002.js', 'mini-talks-korean-001.js', 'korean-support-mini-talks-001.js', 'native-audio-catalog.js']) {
+for (const file of ['native-guided-data.js', 'native-guided-ko-002.js', 'native-guided-ko-003.js', 'native-guided-ko-004-a1.js', 'native-guided-ko-005-010.js', 'native-guided-ko-splits.js', 'mini-talks-korean-001.js', 'korean-support-mini-talks-001.js', 'native-audio-catalog.js']) {
   if (!fs.existsSync(file)) continue;
   vm.runInContext(read(file), catalogContext, { filename: file });
 }
 const lessons = catalogContext.window.TalkTagAudioLessons.filter(lesson => lesson.available !== false);
 const miniReleased = catalogContext.window.TalkTagKoreanMiniReleaseReady === true;
-if (!fs.existsSync('native-audio-korean-aea-001.js')) assert.ok(miniReleased,
-  'Legacy Korean essay catalog may be removed only after all six Mini Talks are published');
+assert.ok(miniReleased, 'Korean Mini Talks release must remain complete after essay retirement');
 const code = read('native-audio-ui.js');
 
 function backFor(search, { retiredEssay = false, miniReleased = false } = {}) {

@@ -22,12 +22,6 @@ const releases = {
     base: 'https://audio.talktag.co.kr/Korean/guided/segments-001-002/v1-20261016/',
     cards: 23,
   },
-  'ko-essay': {
-    root: 'audio/korean/audio-essays-articles/segments-001',
-    manifest: 'manifest.json',
-    base: 'https://audio.talktag.co.kr/Korean/audio-essays-articles/segments-001/v1-20261016/',
-    cards: 6,
-  },
   'ko-vocal': {
     root: 'audio/korean/vocalcamp/segments-001-002',
     manifest: 'manifest.json',
@@ -55,7 +49,7 @@ const releases = {
 };
 const [releaseName, mode = '--dry-run'] = process.argv.slice(2);
 if (!releases[releaseName] || !['--dry-run', '--upload', '--verify-only'].includes(mode) || process.argv.length > 4) {
-  throw new Error('Usage: node scripts/upload-native-multilang-assets.mjs <ko-glr|ko-essay|ko-vocal|ja-glr|ja-vocal> [--dry-run|--upload|--verify-only]');
+  throw new Error('Usage: node scripts/upload-native-multilang-assets.mjs <ko-glr|ko-vocal|ja-glr|ja-vocal> [--dry-run|--upload|--verify-only]');
 }
 const config = releases[releaseName];
 const root = path.join(repo, config.root);
