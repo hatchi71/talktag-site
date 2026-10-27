@@ -6,7 +6,7 @@ var japanese=native&&native.language==="ja";
 var params=new URLSearchParams(location.search),type=params.get("type")==="plain"?"plain":"guided";
 var level=(params.get("level")||"").toUpperCase();
 if(!["A0","A1","A2","B1","B2","C1","C2"].includes(level))level="";
-var name=japanese?(type==="guided"?"듣고 따라 말하기":"오디오 에세이와 아티클"):(type==="guided"?"Guided Listen & Repeat":"Essays & Articles");
+var name=japanese?(type==="guided"?"듣고 따라 말하기":"Mini Talks"):(type==="guided"?"Guided Listen & Repeat":"Mini Talks");
 var catalog=(window.TalkTagAudioLessons||[]).filter(l=>l.type===type&&(l.available!==false||(type==="plain"&&l.previewAvailable)));
 var list=document.getElementById("lessonList"),shelf=document.getElementById("audioMissionList"),toggle=document.getElementById("audioMissionsToggle");
 var missionLevels=["A0","A1","A2","B1","B2","C1","C2"],arrivingMission="",openMissionLevel="";
@@ -17,17 +17,28 @@ if(cefrGuide)cefrGuide.hidden=Boolean(level);
 document.title=name+(level?" · "+level:"")+" · TalkTag";
 document.getElementById("libraryEyebrow").textContent=japanese?"사운드 체크":"SOUND CHECK";
 document.getElementById("libraryTitle").textContent=name+(level?" · "+(level==="A0"?"Start Here · Level 0":level):"");
-document.getElementById("libraryDescription").textContent=level?(type==="guided"?(level==="A0"?(english?"See one useful expression, listen and say it five times, then respond.":"그림을 보며 한 가지 유용한 표현을 5회 듣고 말한 뒤 직접 답해 보세요."):(english?"Repeat each sentence " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + " times · listen and speak along.":"문장별 " + (/^C[12]$/.test(level) ? 21 : (/^B[12]$/.test(level) ? 15 : 10)) + "회 반복 · 듣고 따라하세요.")):(english?"Listen, make notes, then retell the key idea in your own Korean.":"듣고, 노트에 정리한 뒤 내 말로 이야기하세요.")):(english&&type==="guided"?"Hear a useful expression, say it, then use it in a real moment.":(english?"Choose your practice level.":"훈련할 레벨을 선택하세요."));
+var description;
+if(type==="plain"){
+  description=japanese?"짧은 일본어 대화 카드를 준비하고 있습니다.":(english?"New dialogue cards are being prepared. The available cards below are previous audio essays, kept as separate practice.":"새로운 일상 대화 카드를 준비하고 있습니다. 아래의 이전 오디오 에세이는 별도 자료입니다.");
+}else if(level==="A0"){
+  description=english?"See one useful expression, listen and say it five times, then respond.":"그림을 보며 한 가지 유용한 표현을 5회 듣고 말한 뒤 직접 답해 보세요.";
+}else if(level){
+  var reps=/^C[12]$/.test(level)?21:(/^B[12]$/.test(level)?15:10);
+  description=english?"Repeat each sentence "+reps+" times · listen and speak along.":"문장별 "+reps+"회 반복 · 듣고 따라하세요.";
+}else{
+  description=english?"Hear a useful expression, say it, then use it in a real moment.":"짧은 표현을 듣고 따라 말해 보세요.";
+}
+document.getElementById("libraryDescription").textContent=description;
 document.querySelector(".type-switch").hidden=true;
-document.getElementById("essayGuide").hidden=type!=="plain"||Boolean(level);
+document.getElementById("essayGuide").hidden=type!=="plain"||japanese||Boolean(level);
 var levelPicker=document.querySelector(".filter-bar");
 levelPicker.classList.add("tt-level-cards");
 if(!level){
   var missions=toggle.closest(".audio-missions");
   levelPicker.after(missions);
-  if(type==="plain")missions.after(document.getElementById("essayGuide"));
+  if(type==="plain"&&!japanese)missions.after(document.getElementById("essayGuide"));
 }
-document.getElementById("audioMissionScope").textContent=japanese?(type==="guided"?"듣고 따라 말하기":"오디오 에세이와 아티클"):(type==="guided"?"Guided L&R":"Essays");
+document.getElementById("audioMissionScope").textContent=type==="plain"?(japanese?"Mini Talks":(english?"Previous essays":"이전 오디오 에세이")):(japanese?"듣고 따라 말하기":"Guided L&R");
 levelPicker.hidden=Boolean(level);
 var levelZeroLink=document.querySelector('.filter-bar [data-level="A0"]');
 if(levelZeroLink)levelZeroLink.hidden=type!=="guided"||!catalog.some(l=>l.level==="A0");
@@ -40,7 +51,7 @@ function number(l){return String(l.unit||catalog.filter(x=>x.level===l.level).in
 function render(){
 var summary=document.getElementById("guidedProgressSummary");
 if(!summary){summary=document.createElement("div");summary.id="guidedProgressSummary";summary.className="guided-progress-summary";document.querySelector(".filter-bar").before(summary);}
-summary.hidden=Boolean(level);summary.innerHTML=english?'<h2>Choose your level</h2><span>Completed '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>':'<h2>레벨을 선택하세요</h2><span>완료 '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>';
+summary.hidden=Boolean(level);summary.innerHTML=japanese&&type==="plain"?'<h2>Mini Talks · 준비 중</h2><span>첫 카드 준비 중</span>':english?'<h2>'+(type==="plain"?'Previous Audio Essays':'Choose your level')+'</h2><span>Completed '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>':'<h2>'+(type==="plain"?'이전 오디오 에세이':'레벨을 선택하세요')+'</h2><span>완료 '+catalog.filter(done).length+'/'+catalog.filter(l=>l.available!==false).length+'</span>';
 document.querySelectorAll("[data-level]").forEach(a=>{
 var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
 var count=lessons.filter(done).length;

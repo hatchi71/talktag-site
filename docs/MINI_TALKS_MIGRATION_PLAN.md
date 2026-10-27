@@ -16,7 +16,7 @@ The label is exactly **Mini Talks** in all three courses. Localize descriptions 
 
 | Course | Published old essay cards | Other old entries | Migration treatment |
 | --- | --- | --- | --- |
-| English | `aea-a1-001`, `aea-a2-001`, `aea-b1-001`, `aea-b2-001`, `aea-c1-001`, `aea-c2-001` | `aea-a1-002` through `aea-c2-002` are unavailable script previews. | Keep their identities and completion history separate from the new talk cards. Remove previews from the new track; never present their story scripts as dialogue recordings. |
+| English | `aea-a1-001` through `aea-c2-001` and `aea-a1-002` through `aea-c2-002` (12 published cards across six levels). | No unpublished 002 previews: `audio-essays-002-media.js` supplies published audio for all six. | Keep their identities and completion history separate from the new talk cards; never present their story scripts as dialogue recordings. |
 | Korean | `ko-plain-a1-001`, `ko-plain-a2-001`, `ko-plain-b1-001`, `ko-plain-b2-001`, `ko-plain-c1-001`, `ko-plain-c2-001`, `ko-plain-a1-002` | None found. | Preserve old completion keys but do not count them toward Mini Talks. Verify replacement coverage before withdrawing old entries. |
 | Japanese | No published `plain` card found. | `J-audio-essays.html` and level placeholders route to the old category. | Replace the doorway and placeholder copy when original Japanese talks are ready; no Japanese essay media need migration. |
 
@@ -24,7 +24,7 @@ New IDs should use `mt-en-<level>-<unit>`, `mt-ko-<level>-<unit>`, and `mt-ja-<l
 
 ## First release coverage
 
-Prepare one short original `001` talk per A1, A2, B1, B2, C1, and C2 level in each language before switching that course's public category label. These are scene briefs, not adapted source scripts:
+Prepare one short original `001` talk per A1, A2, B1, B2, C1, and C2 level in each language before switching that course's active lesson catalog. The category title may change first, as requested, only if every old card is visibly identified as a previous audio essay and the page says new dialogue cards are still being prepared. These are scene briefs, not adapted source scripts:
 
 | Level | Practical scene | Interaction target | Typical cast |
 | --- | --- | --- | --- |
@@ -40,7 +40,7 @@ Scenes may change to fit real life in each language area. Speaker count is a ten
 ## Release gates
 
 1. Read the approved Drills Framework, assigned reference **Markdown**, and `MINI_TALKS_PRODUCTION_PROTOCOL.md` for each card; record source section and rights status in local authoring notes. For Japanese, identify a suitable Japanese reference before drafting. The [Japan Foundation Irodori overview](https://www.irodori.jpf.go.jp/en/about.html) and the [Council of Europe's CEFR descriptors](https://www.coe.int/en/web/common-european-framework-reference-languages/cefr-descriptors) are official starting points, not permission to copy sample dialogues.
-2. Approve original scripts, natural support-language meanings, speaker/voice plans, and a genuinely conversational recording with one distinguishable voice per role. A1/A2 are normally two speakers; complexity and group discussion may grow through B and C.
-3. Assemble and QC every turn using the verified MiniSkit audio-boundary procedure. Check exact transcript order, loudness, gaps, dings, duration, synced scripts, resume, and phone playback. Do not claim a human listening review unless one occurred.
-4. Upload versioned audio, download it from each exact public catalog URL, and compare checksum and duration. Switch catalog, labels, guide, cards, and player as one release per course. Rebuild the home-news feed and validate the repository and live pages at 360, 375, 390, and 430 CSS px in Bright and Dark modes.
+2. Approve original scripts, natural support-language meanings, and a genuinely conversational recording with one distinguishable voice per role. Cast character voice and gender from the story, not a per-card quota. A1/A2 are normally two speakers; complexity and group discussion may grow through B and C.
+3. Assemble and QC every turn using the verified MiniSkit audio-boundary procedure. Check exact transcript order, −16 LUFS integrated finished-file loudness, true peak no higher than −1 dBTP, gaps, dings, duration, synced scripts, resume, and phone playback. Do not claim a human listening review unless one occurred.
+4. Upload versioned audio, download it from each exact public catalog URL, and compare checksum and duration. Switch the active catalog, practice guide, cards, and player as one release per course; the early category title must continue to mark old essays as legacy until then. Rebuild the home-news feed and validate the repository and live pages at 360, 375, 390, and 430 CSS px in Bright and Dark modes.
 5. Keep legacy completion recoverable, then remove old catalog/media only after live-reference and rollback checks. Do not show an empty Mini Talks category as if finished, or label an essay as a Mini Talk.
