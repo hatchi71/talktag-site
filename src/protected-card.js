@@ -1192,8 +1192,9 @@ async function run() {
     document.querySelector('#description').textContent = content.description || content.summary || content.theme || '';
     document.querySelector('#kicker').textContent = `${content.level || ''} · ${content.area || content.type || ''}`.toUpperCase();
     document.title = `${content.title || content.nativeTitle || 'Practice card'} · TalkTag`;
-    const picture = safeArtwork(content.artwork || guidedArtwork(content));
-    if (picture) { const node = document.querySelector('#artwork'); node.src = picture; node.alt = content.artworkAlt || ''; node.hidden = false; }
+    const publishedArt = window.TalkTagAudioLessons?.find(card => card.id === content.id);
+    const picture = safeArtwork(publishedArt?.artwork || content.artwork || guidedArtwork(content));
+    if (picture) { const node = document.querySelector('#artwork'); node.src = picture; node.alt = publishedArt?.artworkAlt || content.artworkAlt || ''; node.hidden = false; }
     const scene = content.scene || content.briefing || content.situation;
     if (scene) { const node = document.querySelector('#scene'); node.textContent = scene; node.hidden = false; }
     if (content.lesson?.audioSteps || content.lesson?.steps) await renderVocal(content);
