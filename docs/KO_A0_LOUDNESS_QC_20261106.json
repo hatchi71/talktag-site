@@ -1,0 +1,119 @@
+{
+  "scope": "Korean GLR A0 001\u2013010",
+  "cause": "Full-file integrated loudness was dominated by dings; speech measured -21.37 to -35.53 LUFS.",
+  "method": "Normalize speech separately, reduce cue level, preserve sample-boundary timings, normalize program and peak-limit; measure final encoded speech and program separately.",
+  "publication": "10 replacement media records committed in Supabase; all private R2 copies read back and SHA-256 verified. Live 004 playback ran to completion; test completion undone.",
+  "humanListeningReview": false,
+  "cards": [
+    {
+      "id": "ko-guided-a0-001",
+      "sha256": "0031784a382781f130694bfc5d814c0d8d5e6ae07256e3db6ff7ff22f7381fca",
+      "bytes": 365229,
+      "beforeSpeechLufs": -24.15,
+      "afterSpeechLufs": -14.86,
+      "wholeLufs": -17.08,
+      "truePeak": -1.72,
+      "durationSeconds": 22.760333,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-002",
+      "sha256": "c96bd447381159c0ba5a208e36bcb56f6639f9c915583cbb74fca3ed58e669ac",
+      "bytes": 408621,
+      "beforeSpeechLufs": -21.9,
+      "afterSpeechLufs": -14.46,
+      "wholeLufs": -16.44,
+      "truePeak": -2.81,
+      "durationSeconds": 25.482833,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-003",
+      "sha256": "70404527b3d4f3e827a63162183e55a399ceeae6c4f119eda0a7bad9ed406947",
+      "bytes": 422061,
+      "beforeSpeechLufs": -23.56,
+      "afterSpeechLufs": -15.18,
+      "wholeLufs": -16.88,
+      "truePeak": -1.62,
+      "durationSeconds": 26.307104,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-004",
+      "sha256": "1d8fb1e3cd40d429914625648d33c146e7b12775fd885e255135bde6c09e1e4d",
+      "bytes": 354093,
+      "beforeSpeechLufs": -32.9,
+      "afterSpeechLufs": -14.65,
+      "wholeLufs": -16.96,
+      "truePeak": -1.71,
+      "durationSeconds": 22.063771,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-005",
+      "sha256": "18493e2995596a0d1a54beba886a71a1035d0e1e0e00750cc19d2c3892bc3638",
+      "bytes": 553773,
+      "beforeSpeechLufs": -21.37,
+      "afterSpeechLufs": -16.31,
+      "wholeLufs": -17.1,
+      "truePeak": -1.58,
+      "durationSeconds": 34.550125,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-006",
+      "sha256": "c7b45c86ab6dc7ff8be999da006990052c6ed42d03d0b0415f6cf684168de6c2",
+      "bytes": 372525,
+      "beforeSpeechLufs": -35.53,
+      "afterSpeechLufs": -14.78,
+      "wholeLufs": -16.69,
+      "truePeak": -1.72,
+      "durationSeconds": 23.224708,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-007",
+      "sha256": "bb5a46849882f2d0a30fd85255c876d6e7b602385170f4080aa8efbd32d500fb",
+      "bytes": 474669,
+      "beforeSpeechLufs": -22.54,
+      "afterSpeechLufs": -15.94,
+      "wholeLufs": -17.03,
+      "truePeak": -1.73,
+      "durationSeconds": 29.604188,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-008",
+      "sha256": "9ced6560135ca861aad3352015eaee8980befdf05b2f849f485b227f26f7e319",
+      "bytes": 408621,
+      "beforeSpeechLufs": -27.4,
+      "afterSpeechLufs": -15.35,
+      "wholeLufs": -16.55,
+      "truePeak": -1.73,
+      "durationSeconds": 25.482833,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-009",
+      "sha256": "947471d3101fa645a553da79fd29010771a01ab02808d7285784857ba7598631",
+      "bytes": 369069,
+      "beforeSpeechLufs": -24.61,
+      "afterSpeechLufs": -15.06,
+      "wholeLufs": -17.22,
+      "truePeak": -1.7,
+      "durationSeconds": 22.992979,
+      "passed": true
+    },
+    {
+      "id": "ko-guided-a0-010",
+      "sha256": "0ba0f6513c8b166024dfbeb4e6124cf177c3a4bfc6515ce74a48559ab8bd1447",
+      "bytes": 361389,
+      "beforeSpeechLufs": -24.8,
+      "afterSpeechLufs": -16.1,
+      "wholeLufs": -17.11,
+      "truePeak": -1.71,
+      "durationSeconds": 22.528146,
+      "passed": true
+    }
+  ]
+}

@@ -44,3 +44,6 @@ Before publishing any new or revised TalkTag card in any language, level or lear
 Review each level separately. Never reuse a picture across levels simply because the episode number or general theme is the same. Reuse is allowed only when the actual depicted scene remains consistent with every affected script; split parts of one unchanged scene may share their image. Maintain character and visual-style continuity where appropriate.
 
 Record the reviewed card IDs, script revision, image path, matched scene details, any reuse rationale, and pass/fail result in the release QC notes. After wiring the assets, verify the correct image appears in both the live collection card and the live player, including every split part. A script change requires renewed image review; an image replacement requires renewed script comparison. Block publication on unresolved mismatches. This check supplements existing audio, translation, human-review and technical QC requirements.
+
+
+Audio loudness QC: measure the finished encoded speech segments separately from the complete program with dings and response gaps. A full-file −16 LUFS reading alone does not pass QC when cue sounds dominate quiet speech. Balance speech and cue levels, record speech and whole-program LUFS plus true peak, and preserve cue timing and response gaps during loudness replacements.
