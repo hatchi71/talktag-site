@@ -6,3 +6,6 @@
 
 /auth-config.js
   Cache-Control: no-store
+
+/catalog-metadata.js
+  Cache-Control: no-cache, must-revalidate
