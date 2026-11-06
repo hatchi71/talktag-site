@@ -53,3 +53,10 @@ Allow learners to enter A1 without a mandatory alphabet or script exam. Offer Le
 - Validate the learner-facing page at 360, 375, 390, and 430 CSS px, Bright/Dark, larger text, touch targets, safe areas, and desktop. Publish only complete, verified content; keep unfinished Level 0 navigation or cards local-only.
 
 This protocol establishes future authoring direction. It does not create Level 0 catalog entries, change existing A1–C2 cards, or turn on unfinished AI features.
+
+
+## English A0 naming and 011–020 draft extension · 2026-11-06
+
+EJ renamed the English Guided L&R learner-facing level from “Start Here · Level 0” to **A0**. Keep existing A0 IDs, routes, completion records and pre-A1 educational meaning unchanged. This is an English GLR naming change, not a global rename of Korean/Japanese or a claim of official CEFR certification.
+
+For the requested English A0 011–020 continuation, preserve the existing one-expression, five-repeat format: five model cycles with decoded gaps of at least max(2.5 × measured voice duration, 3 seconds), opening/ending dings, and a separate model-hidden situation prompt. Present all ten local drafts for **human audio review before upload/publication**. This batch-specific approval does not change Japanese repetitions or other levels. Read `R2_UPLOAD_PROTOCOL.md` for the reusable authorization-resilient upload prompt and review hold.

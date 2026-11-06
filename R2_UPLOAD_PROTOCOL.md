@@ -9,3 +9,14 @@ Use this for finished audio releases when Cloudflare's browser upload fails or w
 5. Revoke the temporary token immediately after live verification, clear temporary credential environment variables and check the token is absent from the R2 token list. Keep no persistent bucket write credential on the Mac.
 
 If the public hash or playback check fails, stop before exposing the card. Do not repeat browser uploads or spend TTS credits to work around an R2 transport failure. Record the precise failed key and stage, then retry only that stage with the same QC-approved file.
+
+
+## Authorization-resilient production prompt · approved 2026-11-06
+
+Use this prompt for future TalkTag audio releases:
+
+> Follow the exact QC-approved inventory and current publication gate. First inspect whether the existing authorized R2 connection is valid, has the required bucket scope and action, and has sufficient remaining lifetime. Reuse it only within that authorization. Prefer the S3-compatible API for bulk objects; use an already-open, signed-in dashboard when appropriate. If the uploader fails once, diagnose the transport error and use the authorized API path rather than repeating the browser picker. On 401/403 or expired credentials, stop writes and refresh the same authorized connection, or obtain a short-lived credential restricted to the exact destination bucket when required. Never bypass authentication, consent, scope, expiry, or product approval requirements; never use browser cookies as API credentials or a global key as a shortcut. Do not print secrets or commit them. Current protected lesson audio belongs in `talktag-private-audio-preview`; use `talktag-audio` only when the release explicitly still targets legacy public media. Never make a private bucket public merely to simplify upload. Upload immutable revision keys, compare local and read-back SHA-256, verify protected playback with an authorized account, update only verified records, and check an unauthorized account is still blocked. Retry only the failed stage; do not regenerate approved speech for a transport problem. Revoke task-specific temporary credentials after release verification and remove temporary secret material. Report exact blocked steps honestly.
+
+**Human-review hold:** When EJ asks for human audio review, finish local drafts and technical QC first, present the local review page, and stop. Do not upload audio, activate catalog/registry entries, publish a content notice, or expose draft media until the specific batch is approved. R2 credentials are not needed for local audio production or human review.
+
+For private media, the public hash check in steps 3–4 means the authorized protected-delivery response, not an unauthenticated public object URL. Preserve authorization; never expose private audio for checksum convenience.

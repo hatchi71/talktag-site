@@ -37,7 +37,7 @@ function renderLevels() {
     const link = document.createElement('a');
     link.href = href(next);
     const name = document.createElement('strong');
-    name.textContent = next === 'A0' ? 'Start Here · Level 0' : next;
+    name.textContent = next === 'A0' && !(language === 'en' && area === 'guided-listen-repeat') ? 'Start Here · Level 0' : next;
     const progress = document.createElement('span');
     progress.className = 'level-progress';
     progress.textContent = ui === 'ko' ? '카드를 선택하세요' : 'Choose a card';

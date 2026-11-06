@@ -47,3 +47,6 @@ Record the reviewed card IDs, script revision, image path, matched scene details
 
 
 Audio loudness QC: measure the finished encoded speech segments separately from the complete program with dings and response gaps. A full-file −16 LUFS reading alone does not pass QC when cue sounds dominate quiet speech. Balance speech and cue levels, record speech and whole-program LUFS plus true peak, and preserve cue timing and response gaps during loudness replacements.
+
+
+2026-11-06 English GLR update: display the pre-A1 level as **A0**, preserving IDs/progress. English A0 011–020 use one expression and five repeats, but remain local until EJ completes human audio review. For R2 use the authorization-resilient prompt and human-review hold in `R2_UPLOAD_PROTOCOL.md`; alternate transport never authorizes bypassing authentication or consent.

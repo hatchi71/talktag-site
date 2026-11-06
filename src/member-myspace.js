@@ -77,7 +77,7 @@ async function render(){
  const labels=[text('Guided Listen & Repeat','듣고 따라 말하기'),text('Mini Talks','미니토크'),text('Vocal Camp','보컬 캠프'),text('Story Camp','스토리 캠프'),text('Readable','리더블')];
  const formatTime=n=>`${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`;
  const cardUrl=c=>`/protected-card.html?id=${encodeURIComponent(c.id)}`;
- const identity=c=>`${c.level==='A0'?'Level 0':c.level} · ${String(c.ordinal).padStart(3,'0')}`;
+ const identity=c=>`${c.level==='A0'&&!(c.language==='en'&&c.area==='guided-listen-repeat')?'Level 0':c.level} · ${String(c.ordinal).padStart(3,'0')}`;
  function lessonRow(c,completed=false){const row=make('li'),a=make('a',null,'tt-myspace-record');a.href=cardUrl(c);a.append(make('small',identity(c)),make('strong',c.title),make('span',completed?text('Review →','다시 보기 →'):c.started?text('Continue →','이어하기 →'):text('Start →','시작 →')));row.append(a);return row;}
  groups.forEach((g,index)=>{
   const section=make('section',null,'tt-myspace-category');const heading=make('header');const names=make('div');names.append(make('small',`0${index+1} · ${['SOUND','CONVERSATION','BUILD','CREATE','READ'][index]}`),make('h3',labels[index]));heading.append(names,make('span',text(`${g.done.length} / ${g.cards.length} complete`,`${g.done.length} / ${g.cards.length} 완료`),'tt-myspace-fraction'));section.append(heading);
