@@ -1,0 +1,653 @@
+[
+  {
+    "id": "native:ko:mini:002",
+    "language": "ko",
+    "title": "Korean Mini Talks · 002 · A1–C2",
+    "href": "K-korean-audio-library.html?type=plain",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Six practical Korean conversations to listen to, shadow, and retell in your own words.",
+    "publishedAt": "2026-11-03T10:14:31.953Z"
+  },
+  {
+    "id": "korean-readable:001",
+    "language": "ko",
+    "title": "Korean Readable · 001",
+    "href": "K-korean-readable.html?level=C2",
+    "levels": [
+      "C2"
+    ],
+    "description": "Read a Korean story, then recall and retell it in your own words.",
+    "publishedAt": "2026-11-03"
+  },
+  {
+    "id": "bootcamp:ko:002:20261103",
+    "language": "ko",
+    "status": "published",
+    "title": "Korean Boot Camp · Episode 002 · A1–C2",
+    "href": "K-korean-vocal-camp.html",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Twelve new Vocal Camp and Story Camp cards, with illustrations and multilingual scripts.",
+    "publishedAt": "2026-11-03T09:00:00+09:00"
+  },
+  {
+    "id": "mini-talks:ko:002:20261102",
+    "language": "ko",
+    "status": "published",
+    "title": "Korean Mini Talks · Episode 002 · A1–C2",
+    "href": "K-korean-audio-library.html?type=plain",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Six new everyday conversations, with illustrations and multilingual scripts.",
+    "publishedAt": "2026-11-02T23:30:00+09:00"
+  },
+  {
+    "id": "level0:ko:001-010:20261101",
+    "language": "ko",
+    "status": "published",
+    "title": "Korean Start Here · Level 0 · 001–010 refreshed",
+    "href": "K-korean-audio-library.html?type=guided&level=A0",
+    "levels": [
+      "A0"
+    ],
+    "description": "Ten new picture-led Korean expressions for everyday moments. Listen, repeat, and answer a short prompt.",
+    "publishedAt": "2026-11-01T09:00:00+09:00"
+  },
+  {
+    "id": "native:ko:mini:001",
+    "language": "ko",
+    "title": "Korean Mini Talks · 001 · A1–C2",
+    "href": "K-korean-audio-library.html?type=plain",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Six practical Korean conversations to listen to, shadow, and retell in your own words.",
+    "publishedAt": "2026-10-27T12:30:53.790Z"
+  },
+  {
+    "id": "mini:en:002-010",
+    "title": "영어 미니토크 · A1–A2 · 002–010",
+    "href": "audio-library.html?type=plain",
+    "levels": [
+      "A1",
+      "A2"
+    ],
+    "description": "A1–A2의 새 실생활 대화를 듣고, 메모한 뒤 내 말로 다시 이야기해 보세요.",
+    "publishedAt": "2026-10-27T08:25:20Z",
+    "language": "en"
+  },
+  {
+    "id": "mini:en:001",
+    "title": "영어 미니토크 · 001",
+    "href": "audio-library.html?type=plain",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "A1–C2 실생활 대화를 듣고, 메모한 뒤 내 말로 다시 이야기해 보세요.",
+    "publishedAt": "2026-10-27T00:00:00+09:00",
+    "language": "en"
+  },
+  {
+    "id": "native:ko:guided:a2-c2:004-010",
+    "language": "ko",
+    "title": "Korean Guided L&R · A2–C2 · 004–010",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Seven everyday Korean episode groups now include new A2–C2 listening and speaking cards.",
+    "publishedAt": "2026-10-26T13:56:15.566Z"
+  },
+  {
+    "id": "level0:ko:002-010",
+    "language": "ko",
+    "title": "Korean Start Here · Level 0 · 002–010",
+    "href": "K-korean-audio-library.html?type=guided&level=A0",
+    "levels": [
+      "A0"
+    ],
+    "description": "Nine short picture-led expressions to hear, repeat, and use in Korean.",
+    "publishedAt": "2026-10-25T12:01:52.563Z"
+  },
+  {
+    "id": "level0:en:002-010",
+    "title": "English Start Here · Level 0 · 002–010",
+    "href": "audio-library.html?type=guided&level=A0",
+    "levels": [
+      "A0"
+    ],
+    "description": "Nine short picture-led expressions to hear, repeat, and use today.",
+    "publishedAt": "2026-10-25T12:01:52.563Z",
+    "language": "en"
+  },
+  {
+    "id": "level0:ko:001",
+    "language": "ko",
+    "title": "Korean Start Here · Level 0 · 001",
+    "href": "K-korean-audio-library.html?type=guided&level=A0",
+    "levels": [
+      "A0"
+    ],
+    "description": "See a real-life greeting, listen, repeat, then answer in Korean.",
+    "publishedAt": "2026-10-25T09:48:20.357Z"
+  },
+  {
+    "id": "level0:en:001",
+    "title": "English Start Here · Level 0 · 001",
+    "href": "audio-library.html?type=guided&level=A0",
+    "levels": [
+      "A0"
+    ],
+    "description": "그림을 보고 한 가지 인사를 듣고 말해 보세요.",
+    "publishedAt": "2026-10-25T09:48:20.357Z",
+    "language": "en"
+  },
+  {
+    "id": "guided:011",
+    "title": "Guided L&R · 011",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-25T08:07:51.298Z",
+    "language": "en"
+  },
+  {
+    "id": "readable:en:001:levels",
+    "language": "en",
+    "title": "Readable · 001 · A1–C2",
+    "href": "readable.html",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "피터의 이야기를 수준별로 읽고, 기억해서 내 말로 다시 이야기해 보세요.",
+    "publishedAt": "2026-10-25T13:16:13+09:00"
+  },
+  {
+    "id": "boot:002",
+    "title": "002 · The Room Mix-Up",
+    "href": "storycamp-family.html?family=002",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Vocal · Story Camp에서 새 이야기를 연습하세요.",
+    "publishedAt": "2026-10-24T15:38:09Z",
+    "language": "en"
+  },
+  {
+    "id": "native:ko:guided:010",
+    "language": "ko",
+    "title": "Korean Guided L&R · 010",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-24T14:44:30.831Z"
+  },
+  {
+    "id": "native:ko:guided:009",
+    "language": "ko",
+    "title": "Korean Guided L&R · 009",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-24T14:44:30.831Z"
+  },
+  {
+    "id": "native:ko:guided:008",
+    "language": "ko",
+    "title": "Korean Guided L&R · 008",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-24T14:44:30.831Z"
+  },
+  {
+    "id": "native:ko:guided:007",
+    "language": "ko",
+    "title": "Korean Guided L&R · 007",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-24T14:44:30.831Z"
+  },
+  {
+    "id": "native:ko:guided:006",
+    "language": "ko",
+    "title": "Korean Guided L&R · 006",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-24T14:44:30.831Z"
+  },
+  {
+    "id": "native:ko:guided:005",
+    "language": "ko",
+    "title": "Korean Guided L&R · 005",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-24T14:44:30.831Z"
+  },
+  {
+    "id": "native:ko:guided:004",
+    "language": "ko",
+    "title": "Korean Guided L&R · 004",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-24T14:44:30.831Z"
+  },
+  {
+    "id": "native:ko:guided:003",
+    "language": "ko",
+    "title": "Korean Guided L&R · 003",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-18T10:39:23.139Z"
+  },
+  {
+    "id": "japanese-vocal:001",
+    "language": "ja",
+    "title": "Japanese Vocal Camp · 001",
+    "href": "japanese/J-vocal-camp.html",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "짧은 일본어 이야기를 누적해서 듣고 따라 말한 뒤, 기억해 자신의 이야기로 바꾸어 보세요.",
+    "publishedAt": "2026-10-16T06:10:02.517Z"
+  },
+  {
+    "id": "korean-story:001",
+    "language": "ko",
+    "title": "Korean Story Camp · 001",
+    "href": "K-korean-story-camp.html",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Rebuild and retell an original Korean story with English guidance.",
+    "publishedAt": "2026-10-15T01:52:39.044Z"
+  },
+  {
+    "id": "korean-vocal:001",
+    "language": "ko",
+    "title": "Korean Vocal Camp · 001",
+    "href": "K-korean-vocal-camp.html",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Build one Korean story through cumulative listening and speaking.",
+    "publishedAt": "2026-10-13T13:35:20.629Z"
+  },
+  {
+    "id": "native:ko:guided:002",
+    "language": "ko",
+    "title": "Korean Guided L&R · 002",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-13T20:44:34+09:00"
+  },
+  {
+    "id": "guided:010",
+    "title": "Guided L&R · 010",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-12T13:55:59.606Z",
+    "language": "en"
+  },
+  {
+    "id": "guided:009",
+    "title": "Guided L&R · 009",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-12T12:02:56.544Z",
+    "language": "en"
+  },
+  {
+    "id": "guided:008",
+    "title": "Guided L&R · 008",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-12T12:02:56.544Z",
+    "language": "en"
+  },
+  {
+    "id": "guided:007",
+    "title": "Guided L&R · 007",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-11T12:05:57.153Z",
+    "language": "en"
+  },
+  {
+    "id": "native:ko:guided:001",
+    "language": "ko",
+    "title": "Korean Guided L&R · 001",
+    "href": "K-korean-audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Practice everyday Korean expressions, one line at a time.",
+    "publishedAt": "2026-10-11T17:23:08+09:00"
+  },
+  {
+    "id": "native:ja:guided:001",
+    "language": "ja",
+    "title": "Japanese Guided L&R · 001",
+    "href": "japanese/J-guided.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "일본어의 새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-11T17:23:08+09:00"
+  },
+  {
+    "id": "guided:006",
+    "title": "Guided L&R · 006",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-11T08:10:22.017Z",
+    "language": "en"
+  },
+  {
+    "id": "korean:starters",
+    "title": "Korean Starter Collection · 001–006",
+    "href": "K-korean-learning.html",
+    "levels": [
+      "Starter"
+    ],
+    "description": "영어 안내와 함께 일상 한국어를 연습하고 기억해서 말해 보세요.",
+    "language": "ko",
+    "publishedAt": "2026-10-10T12:04:42.868Z"
+  },
+  {
+    "id": "guided:005",
+    "title": "Guided L&R · 005",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-10T05:56:00.950Z",
+    "language": "en"
+  },
+  {
+    "id": "guided:004",
+    "title": "Guided L&R · 004",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-10T05:30:40.796Z",
+    "language": "en"
+  },
+  {
+    "id": "guided:003",
+    "title": "Guided L&R · 003",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-09T20:13:56+09:00",
+    "language": "en"
+  },
+  {
+    "id": "guided:002",
+    "title": "Guided L&R · 002",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-09T18:17:32+09:00",
+    "language": "en"
+  },
+  {
+    "id": "guided:001",
+    "title": "Guided L&R · 001",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "새 일상 표현을 듣고 따라 말해 보세요.",
+    "publishedAt": "2026-10-09T18:17:32+09:00",
+    "language": "en"
+  },
+  {
+    "id": "boot:001",
+    "title": "001 · The Library Note",
+    "href": "storycamp-family.html?family=001",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "Vocal · Story Camp에서 새 이야기를 연습하세요.",
+    "publishedAt": "2026-10-09T18:17:32+09:00",
+    "language": "en"
+  },
+  {
+    "id": "guided:en:012",
+    "language": "en",
+    "status": "published",
+    "title": "영어 듣고 따라 말하기 · 012 · A1–C2",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "매장에서 교환과 환불을 요청하는 새 대화를 듣고, 내 말로 연습해 보세요.",
+    "publishedAt": "2026-11-06T06:25:20.689089+00:00",
+    "cardIds": [
+      "guided-a1-12",
+      "guided-a2-12",
+      "guided-b1-12-part1",
+      "guided-b1-12-part2",
+      "guided-b2-12-part1",
+      "guided-b2-12-part2",
+      "guided-c1-12-part1",
+      "guided-c1-12-part2",
+      "guided-c2-12-part1",
+      "guided-c2-12-part2",
+      "guided-c2-12-part3",
+      "guided-c2-12-part4"
+    ]
+  }
+]

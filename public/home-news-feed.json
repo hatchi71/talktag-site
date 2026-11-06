@@ -2,6 +2,37 @@
   "version": 1,
   "items": [
     {
+      "id": "guided:en:012",
+      "language": "en",
+      "status": "published",
+      "title": "영어 듣고 따라 말하기 · 012 · A1–C2",
+      "href": "audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "description": "매장에서 교환과 환불을 요청하는 새 대화를 듣고, 내 말로 연습해 보세요.",
+      "publishedAt": "2026-11-06T06:25:20.689089+00:00",
+      "cardIds": [
+        "guided-a1-12",
+        "guided-a2-12",
+        "guided-b1-12-part1",
+        "guided-b1-12-part2",
+        "guided-b2-12-part1",
+        "guided-b2-12-part2",
+        "guided-c1-12-part1",
+        "guided-c1-12-part2",
+        "guided-c2-12-part1",
+        "guided-c2-12-part2",
+        "guided-c2-12-part3",
+        "guided-c2-12-part4"
+      ]
+    },
+    {
       "id": "native:ko:mini:002",
       "language": "ko",
       "title": "Korean Mini Talks · 002 · A1–C2",
