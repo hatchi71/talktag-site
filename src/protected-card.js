@@ -670,7 +670,7 @@ function mountCampTemplate(kind) {
   sheet.href = '/bootcamp-restored.css?v=20261102-vocal-controls'; document.head.append(sheet);
   document.querySelector('.card-body').classList.add('pilot-card', 'is-active');
   const brand = document.querySelector('.brand strong');
-  brand.textContent = kind === 'vocal' ? ui('Vocal Camp', '보컬 캠프') : ui('Story Camp', '스토리 캠프');
+  if (brand) brand.textContent = kind === 'vocal' ? ui('Vocal Camp', '보컬 캠프') : ui('Story Camp', '스토리 캠프');
 }
 function paintVocalButton(button, index) {
   button.classList.add('sound-step');

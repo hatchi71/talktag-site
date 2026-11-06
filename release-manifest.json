@@ -1198,8 +1198,8 @@
     },
     {
       "path": "assets/talktag-protected-card.js",
-      "bytes": 278844,
-      "sha256": "862bea49b625ddc0223e4068fa67bbe575cb0f47970b6736614e1e65e41b41ad"
+      "bytes": 278849,
+      "sha256": "359b8728f2fcefb9de68bb740978b47f0d49e8e24c0e75705d633a0acced3f7a"
     },
     {
       "path": "assets/talktag-protected-library.js",
@@ -2353,8 +2353,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3602,
-      "sha256": "0f0db1a27d98fcf85e79ab69f590447b9315357529a1ade76ecf18e97774e391"
+      "bytes": 3606,
+      "sha256": "8a338280bc1b51b45b202018bf36166b5afaf6854727995ea46f5ede7d5a97c0"
     },
     {
       "path": "protected-library.css",
