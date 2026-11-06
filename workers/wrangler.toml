@@ -1,0 +1,15 @@
+name = "talktag-private-media-preview"
+main = "protected-media.js"
+compatibility_date = "2026-10-29"
+workers_dev = true
+
+[vars]
+SUPABASE_URL = "https://kgqgrlzrkpjcudjyiwkj.supabase.co"
+SUPABASE_PUBLISHABLE_KEY = "sb_publishable_9tPpE7TjNL85TzAjqM76iA_5paIvn_u"
+ALLOWED_ORIGIN = "https://protected-a0-001.talktag-app-preview.pages.dev,https://talktag-app-preview.pages.dev,https://talktag.co.kr,https://www.talktag.co.kr"
+
+[[r2_buckets]]
+binding = "PRIVATE_AUDIO"
+bucket_name = "talktag-private-audio-preview"
+
+# TICKET_SECRET must be set with Wrangler's secret facility. Never commit it.

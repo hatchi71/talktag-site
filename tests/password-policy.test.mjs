@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {strongPassword} from '../src/password-policy.js';
+test('passwords require length and all four character classes',()=>{assert.equal(strongPassword('Example!2026Safe'),true);for(const value of ['Short1!','alllowercase123!','ALLUPPERCASE123!','NoDigitsHere!!','NoSymbolsHere123','A'.repeat(129)+'a1!'])assert.equal(strongPassword(value),false);});

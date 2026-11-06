@@ -1,0 +1,107 @@
+[hidden]{display:none!important}
+.card{margin-top:22px}.card-body{display:grid;gap:18px}.scene{margin:0}.text-actions{display:flex;flex-wrap:wrap;gap:8px}.text-actions button,.clips button{min-height:44px;padding:10px 16px;border:1px solid #c7d7e8;border-radius:14px;background:#eef5ff;color:#17345a;font:inherit;font-weight:750;cursor:pointer}.text-actions button[aria-pressed=true],.clips button[aria-pressed=true]{background:#1767dd;color:white;border-color:#1767dd}#lesson-text{font-size:1rem;line-height:1.65}#lesson-text p{margin:0 0 14px;padding:14px;border:1px solid #e0e5e5;border-radius:14px;background:#faf9f4}#lesson-text .secondary{display:block;margin-top:8px;color:#627185}.clips{display:flex;flex-wrap:wrap;gap:8px}.prompt{margin:0;padding:18px;border-radius:16px;background:#e9f3ed}.reading-steps{display:grid;gap:14px}.reading-steps section{padding:18px;border:1px solid #d9e3e3;border-radius:18px;background:#f8faf8}.reading-steps h2{font-size:1.2rem;margin:0 0 10px}.reading-steps p{line-height:1.6}.reading-steps textarea{display:block;width:100%;min-height:110px;padding:12px;border:1px solid #bac9d0;border-radius:12px;background:#fffdf8;color:#17345a;font:inherit;line-height:1.5}#audio{margin:0;width:100%}#play-status{margin:0;color:#5d6b7c;font-weight:700}html[data-appearance="dark"] #lesson-text p,html[data-appearance="dark"] .reading-steps section{background:#20344b;border-color:#3d526a}html[data-appearance="dark"] .text-actions button,html[data-appearance="dark"] .clips button{background:#213e61;color:#edf3ff;border-color:#496586}html[data-appearance="dark"] .prompt{background:#173c35}html[data-appearance="dark"] .reading-steps textarea{background:#14263a;color:#edf3ff;border-color:#496586}
+
+#lesson-text .line-play{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin:10px 0 0 12px;padding:8px 14px;border:1px solid #c7d7e8;border-radius:12px;background:#eef5ff;color:#17345a;font:inherit;font-size:.9rem;font-weight:750;cursor:pointer}#lesson-text .line-play:focus-visible{outline:3px solid #1767dd;outline-offset:2px}html[data-appearance="dark"] #lesson-text .line-play{background:#213e61;color:#edf3ff;border-color:#496586}html[data-appearance="dark"] #play-status{color:#c5d4e7}
+
+.guided-controls{display:grid;gap:12px;margin-top:18px;padding:18px;border:1px solid #d9e3e3;border-radius:18px;background:#f4f1e9}.guided-controls h2{margin:0;font-size:1.15rem}.guided-controls label{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;font-weight:700}.guided-controls input{grid-column:1/-1;width:100%;min-height:44px;accent-color:#1767dd}.guided-controls output{grid-column:2;grid-row:1;color:#1767dd;font-weight:800}.guided-controls .secondary{margin:0;line-height:1.5}.completion-button{min-height:44px;padding:10px 16px;border:1px solid #aacbb8;border-radius:14px;background:#e4f2e7;color:#173f31;font:inherit;font-weight:750;cursor:pointer}.completion-button:focus-visible,.guided-controls input:focus-visible{outline:3px solid #1767dd;outline-offset:2px}html[data-appearance="dark"] .guided-controls{background:#20344b;border-color:#3d526a}html[data-appearance="dark"] .guided-controls output{color:#8ab9ff}html[data-appearance="dark"] .completion-button{background:#1f483b;color:#e7f8ed;border-color:#4d856e}
+.guided-controls .guided-progress{margin:0;padding:10px 12px;border-radius:12px;background:#e9eff6;color:#183455;font-weight:800;line-height:1.5}html[data-appearance="dark"] .guided-controls .guided-progress{background:#182a40;color:#e7f0ff}
+.guided-navigation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.guided-navigation button{min-height:44px;padding:9px 10px;border:1px solid #c7d7e8;border-radius:12px;background:#fffdf7;color:#17345a;font:inherit;font-weight:750;cursor:pointer}.guided-navigation button:only-child{grid-column:1/-1}.guided-navigation button:focus-visible{outline:3px solid #1767dd;outline-offset:2px}@media(max-width:520px){.guided-navigation{grid-template-columns:1fr 1fr}.guided-navigation button:nth-child(2){grid-column:1/-1;grid-row:2}}html[data-appearance="dark"] .guided-navigation button{background:#213e61;color:#edf3ff;border-color:#496586}
+#reading-steps.story-steps nav{display:flex;flex-wrap:wrap;gap:8px}#reading-steps.story-steps nav button,#reading-steps.story-steps>button{min-height:44px;padding:10px 16px;border:1px solid #c7d7e8;border-radius:14px;background:#eef5ff;color:#17345a;font:inherit;font-weight:750;cursor:pointer}#reading-steps.story-steps nav button[aria-current=step]{background:#1767dd;color:#fff;border-color:#1767dd}#reading-steps.story-steps h2{margin:0;font-size:1.1rem}#reading-steps.story-steps p{margin:0;line-height:1.6}
+
+/* Keep protected delivery in the established TalkTag practice layout. */
+:root{color-scheme:light;background:#f6f4ed;color:#203653}
+body{background:#f6f4ed;color:#203653}
+.site-header{position:sticky;top:0;z-index:10;min-height:76px;background:#fffcf6;box-shadow:0 3px 18px #17345a0b}
+.brand{gap:9px;min-width:0}.brand span{display:grid;gap:2px}.brand strong{font-size:1rem;line-height:1}.brand small{font-size:.56rem;letter-spacing:.15em;color:#65758c;font-weight:900}
+main{padding-top:20px}h1{font-size:clamp(1.8rem,6vw,2.7rem);line-height:1.12}.intro{font-size:1rem}
+.card{margin-top:22px;border-radius:28px;background:#fffcf6;box-shadow:0 15px 36px #17345a14}
+.artwork{max-height:300px;object-fit:contain;background:#fffaf0}
+.card-body{gap:16px;padding:20px}
+#audio-section{display:grid;gap:12px}
+#audio{accent-color:#1768e9}
+.guided-controls{margin-top:4px;padding:16px;background:#eeece4;border-color:#d8d6ce}
+.guided-controls h2{font-size:1.1rem}.guided-controls label{font-size:.95rem}.guided-controls .secondary{color:#5f6d80}
+.guided-navigation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.guided-navigation button,.text-actions button{background:#f7f9fc;border:1px solid #bfd3e9;color:#183960}
+.completion-button{width:100%;background:#dff0e6;color:#1c6046}
+@media(max-width:520px){.site-header{padding:10px 16px}.back{font-size:.8rem;padding:8px}.card-body{padding:16px}.guided-navigation{grid-template-columns:repeat(2,minmax(0,1fr))}.guided-navigation button:nth-child(2){grid-column:auto;grid-row:auto}.guided-navigation button:last-child:nth-child(3){grid-column:1/-1}}
+#audio{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.practice-transport{display:grid;gap:12px}.practice-wave{height:64px;border-radius:16px;background:linear-gradient(90deg,#0c3d83,#1768e9);position:relative;overflow:hidden}.practice-wave:after{content:"";position:absolute;inset:12px 15%;background:repeating-linear-gradient(90deg,#fff 0 3px,transparent 3px 8px);mask-image:linear-gradient(0deg,transparent,#000 25% 75%,transparent);opacity:.8;border-radius:50%}.practice-times{display:flex;justify-content:space-between;color:#64758b;font-size:.85rem;font-weight:750}.practice-transport input{width:100%;min-height:44px;accent-color:#1768e9}.practice-buttons{display:grid;grid-template-columns:72px 1fr 72px;gap:8px}.practice-buttons button{min-height:56px;border:1px solid #c7d7e8;border-radius:14px;background:#f7f9fc;color:#0c326d;font:800 1.1rem Inter,system-ui,sans-serif}.practice-buttons #play-toggle{background:#1768e9;border-color:#1768e9;color:white}.practice-buttons small{display:block;font-size:.62rem}.practice-buttons button:focus-visible{outline:3px solid #86aefa;outline-offset:2px}
+/* The protected card uses TalkTag's bright player palette even when the device
+   requests dark mode; older pilot media rules must not leave light text here. */
+.brand strong,h1,h2{color:#082b68}
+.intro,.scene,#play-status{color:#5d6b7c}
+#lesson-text p,.reading-steps section{background:#faf9f4;border-color:#e0e5e5;color:#203653}
+#lesson-text .secondary{color:#5f6d80}
+/* Player cards always keep dark original text on their light paper surface. */
+#lesson-text p:not(.secondary){color:#17345a!important}
+#lesson-text p.secondary{color:#52667f!important}
+#lesson-text ruby{ruby-align:center;color:inherit}
+#lesson-text rt{font-size:.68em;line-height:1.25;color:#3d6b8e;font-weight:700}
+#lesson-text .japanese-reading-fallback{display:block;margin-top:5px;color:#52667f;font-size:.78em}
+.translation-choice{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#5f6d80;font-size:.9rem;font-weight:800}
+.translation-choice select{min-width:150px;min-height:44px;padding:8px 12px;border:1px solid #bfd3e9;border-radius:12px;background:#fffaf2;color:#17345a;font:inherit;font-weight:750}
+.translation-choice select:focus-visible{outline:3px solid #86aefa;outline-offset:2px}
+.text-actions button,.clips button,.guided-navigation button,#lesson-text .line-play{background:#f7f9fc;color:#17345a;border-color:#c7d7e8}
+.guided-controls{background:#eeece4;border-color:#d8d6ce}
+.guided-controls output{color:#1767dd}
+.guided-controls .guided-progress{background:#e9eff6;color:#183455}
+.completion-button{background:#dff0e6;color:#1c6046;border-color:#aacbb8}
+.prompt{background:#e9f3ed}
+.reading-steps textarea{background:#fffdf8;color:#17345a;border-color:#bac9d0}
+.whole-repeat{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:52px;padding:10px 14px;border:1px solid #dedbd2;border-radius:14px;background:#f7f5ef;color:#203653;font-weight:750}
+.whole-repeat input{appearance:none;position:relative;width:48px;height:28px;margin:0;border-radius:99px;background:#d5d5ce;cursor:pointer;transition:background .2s}
+.whole-repeat input:after{content:"";position:absolute;top:4px;left:4px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:transform .2s}
+.whole-repeat input:checked{background:#1768e9}.whole-repeat input:checked:after{transform:translateX(20px)}
+.whole-repeat input:focus-visible{outline:3px solid #86aefa;outline-offset:3px}
+.text-actions{display:grid;gap:8px}.text-actions-label{font-size:.9rem;font-weight:800;color:#5f6d80}
+.script-choice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:5px;background:#eeece5;border-radius:14px}
+.script-choice button{padding:9px 7px;min-height:44px;border:0;border-radius:10px;background:transparent;color:#203653;font-size:.88rem;line-height:1.2}
+.script-choice button[aria-pressed=true]{background:#fffaf2;color:#082b68;box-shadow:0 2px 5px #17345a20}
+@media(max-width:360px){.script-choice button{font-size:.76rem}.brand small{font-size:.49rem}}
+
+/* Follow the timed lesson line without scrolling the whole page away from playback. */
+#lesson-text.is-synchronized{max-height:min(52vh,430px);overflow-y:auto;overscroll-behavior:contain;padding:4px;scrollbar-color:#b7c9df transparent}
+#lesson-text p[data-line-index]{transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease}
+#lesson-text p.is-current-line:not(.secondary){background:#eaf3ff;border-color:#1b69e8;box-shadow:inset 4px 0 #1b69e8}
+#lesson-text p.is-current-line.secondary{background:#f2f7ff;border-color:#a9c9ef}
+@media(prefers-reduced-motion:reduce){#lesson-text p[data-line-index]{transition:none}}
+
+/* Readable keeps the original one-step-at-a-time learning sequence. */
+#reading-steps{scroll-margin-top:100px}
+#reading-steps section[hidden]{display:none}
+#reading-steps section>button{min-height:44px;margin:12px 8px 0 0;padding:10px 16px;border:1px solid #bfd3e9;border-radius:12px;background:#f7f9fc;color:#17345a;font:inherit;font-weight:750;cursor:pointer}
+#reading-steps section>button:last-child{background:#1768e9;border-color:#1768e9;color:#fff}
+#reading-steps .reading-draft{min-height:52px;padding:14px;border:1px solid #d9e3e3;border-radius:12px;background:#fffdf8;white-space:pre-wrap}
+.camp-followup{display:grid;gap:10px}.camp-followup details,#reading-steps .story-activity{padding:15px;border:1px solid #d9e3e3;border-radius:16px;background:#faf9f4}.camp-followup summary{min-height:44px;display:flex;align-items:center;color:#082b68;font-weight:800;cursor:pointer}.camp-followup p{margin:8px 0 0;line-height:1.6}#reading-steps .story-activity p{margin:0 0 12px}#reading-steps .story-activity details{margin-top:12px}#reading-steps .story-activity summary{min-height:44px;display:flex;align-items:center;font-weight:750;color:#082b68;cursor:pointer}
+
+/* Restored Boot Camp deck hierarchy from the pre-migration players. */
+.camp-deck{padding:8px 0 4px}.camp-deck h2{margin:10px 0 0;font-size:clamp(24px,6vw,34px);line-height:1.25}.camp-progress{width:100%;height:6px;accent-color:#287e59}.camp-deck textarea{width:100%;min-height:180px;padding:16px;border:1px solid #c7d7e8;border-radius:16px;background:#fffdf8;color:#203852;font:inherit;line-height:1.6}.camp-deck-navigation{display:flex!important;gap:8px;position:sticky;bottom:0;z-index:5;padding:12px 0 max(12px,env(safe-area-inset-bottom));background:#fffcf6}.camp-deck-navigation button{flex:1;min-height:48px;padding:10px;border:1px solid #c7d7e8;border-radius:14px;background:#f7f9fc;color:#17345a;font:inherit;font-weight:800}.camp-deck-navigation button:last-child{background:#1768e9;color:white;border-color:#1768e9}.camp-deck-navigation button:disabled{opacity:.45}.camp-deck~#audio-section .clips{display:grid;grid-template-columns:1fr}.camp-deck~#audio-section .clips button{min-height:66px;text-align:left;padding:16px 20px;border-radius:20px;background:#e9f0e8;border-color:#9ebca9;font-weight:850}.camp-deck~#audio-section .clips button[aria-pressed=true]{border:2px solid #287e59;background:#dcebdc;color:#173f31}.camp-deck~#audio-section .practice-wave{display:none}
+
+body[data-camp] .artwork{max-height:180px;margin:16px auto 0;width:calc(100% - 32px);border-radius:18px}
+body[data-camp] .card{overflow:visible}
+body[data-camp] .card-body{min-height:440px}
+body[data-camp] .practice-transport{display:none}
+body[data-camp] #lesson-text{min-height:160px}
+body[data-camp=story] #lesson-text p{font-size:clamp(20px,5.4vw,28px);line-height:1.65;padding:20px}
+body[data-camp=story] #lesson-text p.secondary{font-size:16px}
+.camp-menu{position:relative;flex:0 0 48px}
+.camp-menu summary{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:48px;cursor:pointer;list-style:none;border:1px solid #c7d7e8;border-radius:14px;background:#fffcf6;color:#17345a;font-weight:900}
+.camp-menu summary::-webkit-details-marker{display:none}
+.camp-menu>nav,.camp-menu>button{position:absolute;bottom:60px;left:0;width:min(290px,75vw);padding:12px;background:#fffcf6!important;color:#17345a!important;border:1px solid #c7d7e8!important;border-radius:16px;box-shadow:0 8px 30px #17345a25;z-index:8}
+.camp-menu:not([open])>nav,.camp-menu:not([open])>button{display:none!important}
+.camp-menu nav button{flex:0 0 auto!important}
+.camp-deck-navigation{grid-template-columns:none!important}
+body[data-camp] .guided-controls label{color:#203653}
+.camp-pause{display:grid;grid-template-columns:1fr auto;gap:16px;background:#eeeae0;color:#203653;border:1px solid #d8d5cb;border-radius:22px;padding:20px;margin:16px 0;font-weight:800}.camp-pause strong{color:#1764d6}.camp-pause input{grid-column:1/-1;width:100%;min-height:44px;accent-color:#1764d6}
+
+/* Shared compact lesson controls: logo and four actions, one row on phones. */
+.site-header .head-links{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;margin-left:auto}
+.site-header .head-links>a,.site-header .head-links>button{min-width:44px;min-height:44px;padding:8px 10px;border:1px solid #d6d2c8;border-radius:14px;background:#fffcf5;color:#17345a;font:inherit;font-weight:750;white-space:nowrap}
+.site-header .head-links .tt-spaces-trigger{order:1;font-size:14px;padding:8px}
+#player-share{order:2;font-size:24px}.site-header .brand{flex:0 0 44px}
+#player-account{font-size:13px}.site-header .head-links #player-theme{font-size:24px}
+html[data-appearance="dark"] .site-header .head-links>a,html[data-appearance="dark"] .site-header .head-links>button{background:#1a2c43;color:#edf3ff;border-color:#3d526a}
+@media(max-width:390px){.site-header{padding:10px 12px;gap:6px}.site-header .head-links{gap:6px}.site-header .head-links>a,.site-header .head-links>button{padding:8px}.site-header .head-links .tt-spaces-trigger{padding:8px 6px}}
+
+.site-header .brand img{width:44px!important;height:44px!important;max-width:44px}.site-header .brand{width:44px!important;max-width:44px!important}

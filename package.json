@@ -1,0 +1,25 @@
+{
+  "name": "talktag-production",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:auth": "esbuild src/account.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/assets/talktag-account.js",
+    "build:access": "esbuild src/access-gate.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/assets/talktag-access-gate.js",
+    "build:protected-pilot": "esbuild src/protected-card-pilot.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/assets/talktag-protected-card-pilot.js",
+    "build:protected-library": "esbuild src/protected-library.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/assets/talktag-protected-library.js",
+    "build:protected-card": "esbuild src/protected-card.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/assets/talktag-protected-card.js",
+    "build:meetups-preview": "esbuild src/meetups-preview.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/assets/talktag-meetups-preview.js",
+    "build:myspace": "esbuild src/member-myspace.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/assets/talktag-myspace.js",
+    "build": "node scripts/build-site.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "release:record": "node scripts/record-release.mjs",
+    "build:manager": "esbuild src/manager-standalone.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/assets/talktag-manager.js",
+    "verify:bundles": "node scripts/verify-bundles.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.118.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}
