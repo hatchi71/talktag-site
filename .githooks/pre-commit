@@ -1,5 +1,0 @@
-#!/bin/sh
-set -eu
-node scripts/update-home-news.mjs
-node scripts/update-sitemap.mjs
-git add -- home-news-feed.json sitemap.xml

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Practice card · TalkTag</title>
+  <script>
+    (() => {
+      const apply = () => { let value = 'bright'; try { value = localStorage.getItem('talktag-appearance') === 'dark' ? 'dark' : 'bright'; } catch (_) {} document.documentElement.dataset.appearance = value; };
+      apply(); window.addEventListener('storage', apply); window.addEventListener('pageshow', apply);
+    })();
+  </script>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/protected-card-pilot.css?v=audit-controls-20261106">
+  <link rel="stylesheet" href="/protected-card.css?v=audit-controls-20261106">
+  <script src="/auth-config.js" defer></script>
+  <script src="/assets/talktag-protected-card.js?v=camp-header-fix-20261106" defer></script>
+</head>
+<body>
+  <header class="site-header"><a href="/" class="brand" aria-label="TalkTag home"><img src="/talktag-logo.png" alt="TalkTag" width="44" height="44"></a><nav class="head-links" aria-label="Page controls"><a id="player-account" class="back" href="/account.html">Log in</a><button id="player-theme" type="button" aria-label="Change appearance">☼</button><button id="player-share" type="button" aria-label="Share this lesson">↥</button></nav></header>
+  <main>
+    <a id="back" href="/" class="back">← Back to cards</a>
+    <p class="eyebrow" id="kicker">TALKTAG PRACTICE</p>
+    <h1 id="title">Opening your card…</h1>
+    <p class="intro" id="description"></p>
+    <p id="status" role="status">Checking your account and access…</p>
+    <a id="sign-in" href="/account.html?ui=en" hidden>Sign in to practice</a>
+    <article id="card" class="card" hidden>
+      <img id="artwork" class="artwork" alt="" hidden>
+      <div class="card-body">
+        <p class="scene" id="scene" hidden></p>
+        <section id="audio-section" hidden>
+          <p id="play-status" role="status"></p>
+          <div class="practice-transport"><div class="practice-wave" aria-hidden="true"></div><div class="practice-times"><span id="elapsed">00:00</span><span id="duration">00:00</span></div><input id="seek" type="range" min="0" max="1000" value="0" aria-label="Audio position"><div class="practice-buttons"><button type="button" id="rewind">↶ <small>10 sec</small></button><button type="button" id="play-toggle">▶ Play</button><button type="button" id="replay">↻</button></div></div>
+          <audio id="audio" preload="metadata" controlslist="nodownload"></audio>
+          <div id="clips" class="clips" hidden></div>
+          <label class="whole-repeat" hidden><span>Repeat whole audio</span><input id="whole-repeat" type="checkbox" role="switch"></label>
+        </section>
+        <div class="text-actions" id="text-actions" hidden>
+          <span class="text-actions-label">Script</span>
+          <div class="script-choice" role="group" aria-label="Script display">
+            <button type="button" id="hide-script" aria-pressed="true">Hidden</button>
+            <button type="button" id="show-script" aria-pressed="false">Script</button>
+            <button type="button" id="show-meaning" aria-pressed="false">Script + meaning</button>
+          </div>
+        </div>
+        <div id="lesson-text" hidden></div>
+        <p class="prompt" id="prompt" hidden></p>
+        <div class="reading-steps" id="reading-steps" hidden></div>
+      </div>
+    </article>
+  </main>
+<script src="/spaces-nav.js?v=player-header-20261106" defer></script></body>
+</html>

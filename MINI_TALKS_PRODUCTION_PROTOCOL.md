@@ -27,6 +27,10 @@ These are casting tendencies, not quotas. A natural two-person C-level conversat
 
 ## English voices and accents
 
+### Excluded voice — owner decision, 2026-11-04
+
+Never cast Sora – Warm and Expressive Storyteller (ElevenLabs voice ID `JpGoUJuLFthrFkcdBy4k`) in future TalkTag audio production, across all tracks. The owner identified an objectionable howling quality in her B2 Korean Mini Talks 002 opening line, “혹시 오늘 밤에 세탁기 쓰실 분 계세요?” This exclusion supersedes earlier approval of this voice. Existing local drafts using Sora remain pending correction and human review; do not treat their previous technical QC as voice approval.
+
 Use natural American English as the default for English A1–B1 and the majority of the English catalog. From B2–C2, British and Australian voices may enter when the character and wording fit; Indian English is occasional, never a novelty accent. Choose each character's voice and gender from the script's actual roles and situation, not a preset male/female quota for an individual English card. Record the actual voice, accent, nationality when relevant to the scene, and accent-matched wording in the authoring record. Nationality is not an accent label. Do not force this English casting pattern onto Korean or Japanese Mini Talks; use natural voices for those target languages. Follow the Korean-space speaker-balance policy for Korean audio without adding an implausible character to a scene.
 
 ## Script brief and source use

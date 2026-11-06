@@ -1,0 +1,249 @@
+/* Shared appearance preference. Does not touch learning or audio state. */
+(() => {
+  // The most recently visited learning-language area becomes the next PWA home.
+  // Do not record the neutral entry URL before it has chosen a destination.
+  const languagePath = location.pathname;
+  const languageParams = new URLSearchParams(location.search);
+  const lastLanguage = languagePath.startsWith('/japanese/') ? 'japanese'
+    : /^\/K-korean(?:[.\/-]|$)/.test(languagePath) ||
+      (/^\/(?:vocalcamp-player|storycamp-reader)\.html$/.test(languagePath) && languageParams.get('lang') === 'ko') ? 'korean'
+    : languagePath === '/E-english.html' ||
+      /^\/(?:audio-library|audio-player|snowballing-studio|vocal-camp|story-camp|readable|listen-repeat|vocalcamp-player|storycamp-reader)\.html$/.test(languagePath) ? 'english'
+    : null;
+  if (lastLanguage) {
+    try { localStorage.setItem('talktag.targetLanguage', lastLanguage); } catch (_) { /* Browsing still works without storage. */ }
+  }
+  if (!document.querySelector('script[data-talktag-share-qr]')) {
+    const shareQr = document.createElement('script');
+    shareQr.src = '/landing-share-qr.js?v=20261012-delegated-share';
+    shareQr.dataset.talktagShareQr = 'true';
+    document.head.append(shareQr);
+  }
+  const spaces = document.createElement('script');
+  spaces.src = '/spaces-nav.js?v=single-row-20261102-v4';
+  spaces.defer = true;
+  document.head.append(spaces);
+  if(location.pathname.startsWith('/japanese/')){
+    const structure=document.createElement('script');structure.src='/japanese/studio-structure.js?v=20261026-shared-level-cards';structure.defer=true;document.head.append(structure);
+  }
+  if(!document.querySelector('script[data-audio-accent]')){const accents=document.createElement('script');accents.src='/audio-accent.js?v=20261016-korean-vocal';accents.dataset.audioAccent='true';document.head.append(accents);}
+  if (!document.querySelector('script[src*="/pwa.js"]')) {
+    const pwa = document.createElement('script');
+    pwa.src = '/pwa.js?v=update-recovery-20261105';
+    document.head.append(pwa);
+  }
+  if (!document.querySelector('script[data-talktag-myspace]')) {
+    const activity = document.createElement('script');
+    activity.src = '/assets/talktag-myspace.js?v=member-sort-20261106';
+    activity.dataset.talktagMyspace = 'true';
+    document.head.append(activity);
+  }
+
+  const key = 'talktag-appearance';
+  const root = document.documentElement;
+  const valid = value => value === 'dark' ? 'dark' : 'bright';
+  let preference = 'bright';
+  try { preference = valid(localStorage.getItem(key)); } catch (_) {}
+  function apply(value) {
+    root.classList.add('tt-theme-changing');
+    clearTimeout(window.ttThemeChangeTimer);
+    window.ttThemeChangeTimer = setTimeout(() => root.classList.remove('tt-theme-changing'), 220);
+    root.dataset.appearance = valid(value);
+    document.querySelectorAll('[data-theme-choice]').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.themeChoice === root.dataset.appearance));
+    });
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+      const dark=root.dataset.appearance==='dark';
+      button.innerHTML=dark?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 14.2A9 9 0 0 1 9.8 3.3 9 9 0 1 0 20.7 14.2Z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>';
+      button.setAttribute('aria-label',dark?'Switch to Bright mode':'Switch to Dark mode');
+      button.setAttribute('aria-pressed',String(dark));button.title=button.getAttribute('aria-label');
+    });
+  }
+  apply(preference);
+  window.addEventListener('storage', event => { if (event.key === key) apply(event.newValue); });
+  document.addEventListener('DOMContentLoaded', () => {
+    // One learning-language order across landing pages: English, Korean, Japanese.
+    document.querySelectorAll('.language-switch, .language-tabs, .kr-languages').forEach(group => {
+      const links=[...group.querySelectorAll('a')];
+      const rank=link=>/korean/.test(link.getAttribute('href'))?1:/japanese/.test(link.getAttribute('href'))||/日本語/.test(link.textContent)?2:0;
+      links.sort((a,b)=>rank(a)-rank(b)).forEach(link=>{if(rank(link)===1)link.textContent='KOREAN';group.append(link)});
+    });
+    const path = location.pathname;
+    const topLanding = ['/', '/index', '/E-english', '/japanese/J-index', '/K-korean'].includes(path.replace(/\.html$/, ''));
+    document.body.classList.toggle('tt-study-page', !topLanding);
+    if (!topLanding && !document.querySelector('.tt-route-tools')) {
+      const japanese = path.startsWith('/japanese/');
+      const koreanCampReader = /\/(?:storycamp-reader|vocalcamp-player)\.html$/.test(path) && new URLSearchParams(location.search).get('lang') === 'ko';
+      const routes = japanese ? [
+        [/story-camp/, '/japanese/J-story-camp.html', 'Story Camp'],
+        [/vocal/, '/japanese/J-vocal-camp.html', 'Vocal Camp'],
+        [/(?:guided|glr-player|listen-repeat|audio-essays)/, '/japanese/J-snowballing.html#sound-check', 'Sound Check'],
+        [/readable/, '/japanese/J-readable.html', 'Readable'],
+        [/(?:jlpt|jpt|test-preppers)/, '/japanese/J-test-preppers.html', '시험대비'],
+        [/discussions/, '/japanese/J-discussions.html', '토론'],
+        [/snowballing|bootcamp/, '/japanese/J-snowballing.html', '스노우볼링'],
+        [/.*/, '/japanese/J-index.html', '일본어 홈']
+      ] : [
+        [/bootcamp-story\.html$/, '/readable.html', '리더블'],
+        [/storycamp|story-camp/, '/story-camp.html', '스토리 캠프'],
+        [/vocal/, '/vocal-camp.html', '보컬 캠프'],
+        [/(?:audio-library|audio-player|audio-essay-preview|listen-repeat)/, '/snowballing-studio.html#sound-check', '사운드 체크'],
+        [/readable/, '/readable.html', '리더블'],
+        [/toeic/, '/toeic/', 'TOEIC RC'],
+        [/test-preppers/, '/test-preppers.html', 'Test Preppers'],
+        [/discussions/, '/discussions.html', 'Discussions'],
+        [/snowballing|bootcamp/, '/snowballing-studio.html', '스노우볼링 스튜디오'],
+        [/.*/, '/', 'TalkTag 홈']
+      ];
+      const koreanCampLanding = /^\/K-korean-(?:vocal|story)-camp\.html$/.test(path);
+      const koreanReadable = /^\/K-korean-readable(?:-level)?\.html$/.test(path);
+      const route = koreanCampReader ? [null, path.endsWith('/storycamp-reader.html') ? '/K-korean-story-camp.html' : '/K-korean-vocal-camp.html', path.endsWith('/storycamp-reader.html') ? 'Story Camp' : 'Vocal Camp'] : koreanCampLanding ? [null,'/K-korean-learning.html#boot-camp','Boot Camp'] : koreanReadable ? [null,'/K-korean-learning.html','Korean Studio'] : /^\/K-korean(?:[/\.\-])/.test(path) ? [null,'/K-korean.html','한국어 홈'] : routes.find(([pattern]) => pattern.test(path));
+      const parentLanding = () => {
+        const rawFile=path.split('/').pop()||'J-index.html';
+        const file=japanese?rawFile.replace(/^J-/,''):rawFile;
+        const params=new URLSearchParams(location.search);
+        const family=/^\d{3}$/.test(params.get('family')||'')?params.get('family'):'001';
+        const level=/^(A1|A2|B1|B2|C1|C2)$/.test(params.get('level')||'')?params.get('level'):'A1';
+        if(koreanCampLanding)return '/K-korean-learning.html#boot-camp';
+        if(file==='K-korean-readable-level.html')return '/K-korean-readable.html?edition=levels-20261018';
+        if(file==='K-korean-readable.html')return '/K-korean-learning.html';
+        if(/^\/K-korean(?:[/.\-])/.test(path))return '/K-korean.html';
+        if(japanese){
+          if(file==='jlpt-n4-audio-player.html')return '/japanese/J-jlpt-n4-listen-repeat.html';
+          if(file==='jlpt-n4-listen-repeat.html')return '/japanese/J-jlpt-n4.html';
+          if(/^jlpt-n[1-5]\.html$/.test(file))return '/japanese/J-jlpt.html';
+          if(/^jpt-(reading|listening)\.html$/.test(file))return '/japanese/J-jpt.html';
+          if(file==='jlpt.html'||file==='jpt.html')return '/japanese/J-test-preppers.html';
+          if(/^guided-[abc][12]\.html$/.test(file))return '/japanese/J-guided.html';
+          if(/^audio-essays-[abc][12]\.html$/.test(file))return '/japanese/J-audio-essays.html';
+          if(file==='glr-player.html')return '/japanese/J-guided.html';
+          if(file==='guided.html'||file==='audio-essays.html')return '/japanese/J-snowballing.html#sound-check';
+          if(/^story-camp-[abc][12]\.html$/.test(file))return '/japanese/J-story-camp.html';
+          if(/^readable-[abc][12]\.html$/.test(file))return '/japanese/J-readable.html';
+          if(/^vocal-v\d+\.html$/.test(file))return '/japanese/J-vocal-camp.html';
+          if(file==='vocal-camp.html'||file==='story-camp.html')return '/japanese/J-snowballing.html#boot-camp';
+          if(['listen-repeat.html','readable.html','bootcamp.html'].includes(file))return '/japanese/J-snowballing.html';
+          return '/japanese/J-index.html';
+        }
+        if(file==='audio-library.html')return params.has('level')?'/audio-library.html?type='+(params.get('type')==='plain'?'plain':'guided'):'/snowballing-studio.html#sound-check';
+        if(file==='audio-player.html'){
+          const lesson=(window.TalkTagAudioLessons||[]).find(item=>item.id===params.get('id'));
+          return '/audio-library.html?type='+(lesson?.type==='plain'?'plain':'guided')+'&level='+encodeURIComponent(lesson?.level||level);
+        }
+        if(file==='vocalcamp-player.html')return (koreanCampReader?'/K-korean-vocal-camp.html':'/vocal-camp.html')+'?level='+level;
+        if(file==='storycamp-reader.html')return (koreanCampReader?'/K-korean-story-camp.html':'/story-camp.html')+'?level='+level;
+        if(file==='vocalcamp-family.html'||file==='vocal-a1-pilot.html')return '/vocal-camp.html';
+        if(file==='storycamp-family.html'||file==='storycamp-level.html')return '/story-camp.html';
+        if(file==='vocal-camp.html'||file==='story-camp.html')return '/snowballing-studio.html#boot-camp';
+        if(file==='bootcamp-level.html'&&params.get('mode')==='readable')return '/readable.html';
+        if(file==='bootcamp-story.html'&&params.get('mode')==='readable')return '/bootcamp-level.html?mode=readable&level='+level;
+        if(/readable-/.test(file))return '/readable.html';
+        if(['bootcamp.html','listen-repeat.html','readable.html'].includes(file))return '/snowballing-studio.html';
+        if(file==='snowballing-studio.html')return '/';
+        if(path===route[1]||path===route[1]+'index.html')return /toeic/.test(path)?'/test-preppers.html':'/';
+        return route[1];
+      };
+      const tools = document.createElement('nav');
+      tools.className = 'tt-route-tools';
+      tools.setAttribute('aria-label', '페이지 이동');
+      const previous = document.createElement('button');
+      previous.type = 'button';
+      previous.className = 'tt-route-previous';
+      previous.innerHTML = '<span aria-hidden="true">←</span><b>'+(koreanCampReader?'Back':'이전으로')+'</b>';
+      previous.addEventListener('click', () => {
+        location.href = parentLanding();
+      });
+      const category = document.createElement('a');
+      category.className = 'tt-route-category';
+      const studioLanding = !japanese && ['/story-camp.html','/vocal-camp.html','/readable.html'].includes(path);
+      category.href = studioLanding ? '/snowballing-studio.html'+(path==='/readable.html'?'':'#boot-camp') : route[1];
+      if(!japanese&&/\/(storycamp-reader|vocalcamp-player)\.html$/.test(path))category.href=route[1]+'?level='+encodeURIComponent(new URLSearchParams(location.search).get('level')||'A1');
+      category.innerHTML = `<span aria-hidden="true">⌂</span><b>${studioLanding ? 'Studio' : route[2]}</b>`;
+      if(!japanese && path==='/snowballing-studio.html'){
+        category.href='/';
+        category.innerHTML='<span aria-hidden="true">⌂</span><b>TalkTag Home</b>';
+      }
+      tools.append(previous, category);
+      const header = document.querySelector('body > header, main > header, .workspace > header');
+      const main = document.querySelector('main');
+      if (header) header.insertAdjacentElement('afterend', tools);
+      else if (main) main.prepend(tools);
+      else document.body.prepend(tools);
+    }
+
+    document.querySelectorAll('.levels, .level-tabs, .filter-bar, .ja-grid, .vb-level-grid').forEach(group => {
+      if (group.classList.contains('tt-level-cards')) return;
+      const links = [...group.querySelectorAll(':scope > a')];
+      const levelLinks = links.filter(link => /(?:^|[-_/])(a1|a2|b1|b2|c1|c2|n[1-5])(?:[-_.?/]|$)/i.test(link.getAttribute('href') || '') || /[?&]level=(?:A1|A2|B1|B2|C1|C2|N[1-5])(?:&|$)/i.test(link.getAttribute('href') || '') || /^(?:A1|A2|B1|B2|C1|C2|N[1-5])(?:\b|\s|·)/.test(link.textContent.trim()));
+      if (levelLinks.length && levelLinks.length === links.length) {
+        group.classList.add('tt-level-postits');
+        levelLinks.forEach(link => {
+          const label = link.dataset.level || link.textContent.trim();
+          const match = label.match(/^(A|B|C)[12](?:\b|\s|·)/i) || (link.getAttribute('href') || '').match(/(?:level=|[-_/])(A|B|C)[12](?:[-_.?&/]|$)/i);
+          if (match) link.dataset.ttLevelGroup = match[1].toUpperCase();
+        });
+      }
+    });
+
+    const japaneseNav = document.querySelector('.ja-mode-nav');
+    if (japaneseNav) {
+      const rawFile = location.pathname.split('/').pop() || 'J-index.html';
+      const file = rawFile.replace(/^J-/,'');
+      const section = file === 'index.html' ? 'home'
+        : file === 'myspace.html' ? 'myspace'
+        : file === 'talktag.html' ? 'talktag'
+        : file === 'discussions.html' ? 'discussions'
+        : /^(?:test-preppers|jlpt|jpt)/.test(file) ? 'tests'
+        : 'studio';
+      const items = [
+        ['home', 'J-index.html', '⌂', '홈'],
+        ['myspace', 'J-myspace.html', '◉', '마이스페이스'],
+        ['talktag', 'J-talktag.html', '#', '톡&태그'],
+        ['studio', 'J-snowballing.html', '↗', '스튜디오'],
+        ['discussions', 'J-discussions.html', '◌', '토론'],
+        ['tests', 'J-test-preppers.html', '◇', '시험대비']
+      ];
+      japaneseNav.replaceChildren(...items.map(([keyName, href, icon, label]) => {
+        const link = document.createElement('a');
+        link.href = href;
+        if (keyName === section) link.setAttribute('aria-current', 'page');
+        const iconSpan = document.createElement('span');
+        iconSpan.setAttribute('aria-hidden', 'true');
+        iconSpan.textContent = icon;
+        const labelSpan = document.createElement('span');
+        labelSpan.textContent = label;
+        link.append(iconSpan, labelSpan);
+        return link;
+      }));
+    }
+    // These spaces currently display examples, not saved personal records.
+    for (const id of ['myspace', 'talktag', 'discussions', 'leader']) {
+      const view = document.getElementById(id);
+      if (!view || id === 'myspace' || view.querySelector('.tt-preview-notice') || (id === 'talktag' && view.querySelector('.tt-first-meetup, .kr-starter-notice'))) continue;
+      const notice = document.createElement('p');
+      notice.className = 'tt-preview-notice';
+      notice.textContent = '준비 중 · Coming soon — 현재는 화면 미리보기입니다. 개인 기록 저장, 진도 추적, 대화 참여 기능은 아직 제공되지 않습니다.';
+      view.prepend(notice);
+    }
+    const headers = document.querySelectorAll('header.topbar, header.top, header.site-head, header.site-header, header.toeicLandingHeader, header.examBar');
+    for (const header of headers) {
+    header.classList.add('tt-themed-header');
+    const group = document.createElement('div');
+    group.className = 'tt-theme-switch';
+    group.setAttribute('role', 'group');
+    group.setAttribute('aria-label', 'Display mode');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.themeToggle = '';
+      button.addEventListener('click', () => {
+        const next=root.dataset.appearance==='dark'?'bright':'dark';
+        apply(next);
+        try { localStorage.setItem(key, next); } catch (_) {}
+      });
+      group.append(button);
+    (header.querySelector('.top-actions, .head-links') || header).append(group);
+    }
+    apply(root.dataset.appearance);
+    document.dispatchEvent(new Event('talktag-header-ready'));
+  });
+})();

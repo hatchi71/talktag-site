@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#082b68">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Protected card preview · TalkTag</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/protected-card-pilot.css">
+  <script src="/auth-config.js" defer></script>
+  <script src="/assets/talktag-protected-card-pilot.js" defer></script>
+</head>
+<body>
+  <header class="site-header"><a href="/" class="brand"><img src="/talktag-logo.png" alt="" width="46" height="46"><span>TalkTag</span></a><a href="/audio-library.html?type=guided" class="back">Sound Check</a></header>
+  <main>
+    <p class="eyebrow">SOUND CHECK · PRIVATE DELIVERY PILOT</p>
+    <h1>Start Here · Level 0</h1>
+    <p class="intro">This card loads after your TalkTag membership is checked.</p>
+    <section class="card" aria-live="polite">
+      <p class="status" id="status">Checking your account…</p>
+      <div id="lesson" hidden>
+        <img id="artwork" class="artwork" alt="">
+        <div class="card-body">
+          <p class="eyebrow">A0 · 001</p>
+          <h2 id="title"></h2>
+          <p id="scene" class="scene"></p>
+          <p id="expression" class="expression"></p>
+          <button id="meaning-toggle" class="subtle" type="button" aria-expanded="false">Show meaning</button>
+          <p id="meaning" hidden></p>
+          <audio id="audio" controls preload="none" controlslist="nodownload"></audio>
+          <p id="prompt" class="prompt"></p>
+        </div>
+      </div>
+      <a id="sign-in" href="/account.html?ui=en" hidden>Sign in to practice</a>
+    </section>
+  </main>
+</body>
+</html>

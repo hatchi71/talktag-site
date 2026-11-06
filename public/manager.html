@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <title>TalkTag · Manager</title>
+  <link rel="stylesheet" href="/assets/talktag-manager.css?v=task-center-20261105">
+  <script src="/auth-config.js" defer></script>
+  <script src="/assets/talktag-manager.js?v=task-center-20261105" defer></script>
+</head>
+<body>
+  <div class="ribbon">TALKTAG MANAGEMENT · ADMINISTRATOR ACCESS REQUIRED</div>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/"><img src="/talktag-logo.png" alt="TalkTag"><span>TalkTag<br><small>OPERATIONS</small></span></a>
+      <nav aria-label="Operations areas">
+        <a class="selected" href="#home">⌂ <span>Overview</span></a>
+        <a href="#members">◉ <span>Members</span></a>
+        <a href="#content">▤ <span>Content</span></a>
+        <a href="#audit">◷ <span>Activity</span></a>
+        <a href="/meetups-preview.html">◎ <span>Meet-ups</span></a>
+      </nav>
+      <p class="sidebar-note">Manage members and access, check content, and see what changed.</p>
+    </aside>
+    <main id="overview">
+      <header class="topbar"><div><p class="eyebrow">TALKTAG OPERATIONS</p><h1>Overview</h1></div><a href="/account.html?ui=en&next=manager">My account ↗</a></header>
+      <div class="content">
+        <section class="welcome"><p class="eyebrow">MYSPACE · MANAGEMENT</p><h2>What needs your attention?</h2><p id="status" role="status">Checking administrator access…</p><button class="refresh-board" id="refresh-board" type="button">↻ Refresh</button></section>
+        <section id="dashboard" hidden aria-label="Operations summary">
+          <section data-panel="home" id="home">
+          <div class="attention-grid">
+            <button class="attention amber" id="attention-trials" type="button"><span>◷</span><strong id="attention-trials-count">Checking trials…</strong><small>Ending in the next 7 days · latest 50 members →</small></button>
+            <button class="attention blue" id="attention-content" type="button"><span>▤</span><strong id="attention-content-count">Checking content…</strong><small>Pending or missing material · latest 50 cards →</small></button>
+            <a class="attention sage" href="/meetups-preview.html"><span>▦</span><strong id="attention-gatherings-count">Gatherings</strong><small>Check and manage the schedule →</small></a>
+          </div>
+          <h3 class="section-title">Quick actions</h3>
+          <div class="quick-actions"><button type="button" data-open="members">⌕ Find member</button><button type="button" data-open="members" data-filter="free">＋ Grant trial</button><button type="button" data-open="content">▤ Check content</button><a href="/meetups-preview.html">▦ Manage gatherings</a></div>
+          <h3 class="section-title">Service overview</h3>
+          <div class="metrics">
+            <article><small>ACCOUNTS</small><strong id="accounts">—</strong><span>Registered members</span></article>
+            <article><small>ACTIVE TRIALS</small><strong id="trials">—</strong><span>Dated trial access</span></article>
+            <article><small>ACTIVE PAID</small><strong id="paid">—</strong><span>Current paid periods</span></article>
+            <article><small>SNOWPALS</small><strong id="snowpals">—</strong><span>Leader roles</span></article>
+          </div>
+          <section class="release-card"><div><p class="eyebrow">CONTENT OVERVIEW</p><h3>Learning content</h3><p>A quick view of the registered catalog and publication status.</p></div><div class="release-count"><strong id="catalog">—</strong><span>registered cards</span><strong id="ready">—</strong><span>marked published</span></div></section>
+          <section class="release-card activity-preview"><div><p class="eyebrow">ACTIVITY</p><h3>Recent changes</h3><div id="home-activity"><p>Loading recent changes…</p></div><button type="button" class="text-button" data-open="audit">See all activity →</button></div></section>
+          </section>
+          <section class="release-card" id="members" data-panel="members" hidden><div><p class="eyebrow">MEMBERS &amp; ROLES</p><h3>Members & access</h3><p>Assign a dated trial or Snowpal role. Every change requires administrator access and is recorded by the server.</p><p id="member-status" role="status"></p><div class="board-tools"><label>Find a member<input id="member-search" type="search" placeholder="Name or email" autocomplete="off"></label><label>Access<select id="member-filter"><option value="all">All access</option><option value="free">Free</option><option value="trial">Trial</option><option value="paid">Paid</option><option value="snowpal">Snowpal</option><option value="admin">Administrator</option></select></label></div><div class="board-tools member-sort-tools"><label>Sort by<select id="member-sort"><option value="registered">Registration date</option><option value="name">Name</option></select></label><label>Order<select id="member-sort-order"><option value="desc">Newest first</option><option value="asc">Oldest first</option></select></label></div><p id="member-filter-status" class="filter-note" aria-live="polite"></p><div class="member-workspace"><div><div class="member-columns" aria-hidden="true"><span>Member</span><span>Access</span><span>Details</span></div><div id="member-list"></div></div><aside class="member-detail" id="member-detail" aria-label="Selected member"><div class="detail-empty"><span>◉</span><h4>Choose a member</h4><p>Select a name to review access and manage a trial or Snowpal role.</p></div></aside></div></div></section>
+          <section class="release-card" id="content" data-panel="content" hidden><div><p class="eyebrow">CONTENT</p><h3>Content status</h3><p>Check scripts, media and publication status. Content production and publishing remain in the established release workflow.</p><p id="content-status" role="status"></p><div class="board-tools"><label>Find content<input id="content-search" type="search" placeholder="Language, category, level or card ID"></label><label>Status<select id="content-filter"><option value="all">All statuses</option><option value="published">Published</option><option value="pending">Pending</option></select></label></div><p id="content-filter-status" class="filter-note" aria-live="polite"></p><div id="content-list"></div></div></section>
+          <section class="release-card" id="audit" data-panel="audit" hidden><div><p class="eyebrow">ACCOUNTABILITY</p><h3>Recent changes</h3><p>Administrator actions recorded by the server. This list is read only.</p><p id="audit-status" role="status"></p><div id="audit-list"></div></div></section>
+        </section>
+        <section class="access-card" id="access-card"><strong>Access stays closed</strong><p>Sign in with an administrator account to view live totals. No member details or management controls are exposed here.</p><a href="/account.html?ui=en&next=manager">Open sign in ↗</a></section>
+      </div>
+    </main>
+  </div>
+<script>
+if(new URLSearchParams(location.search).get('embedded')==='1'){
+ document.body.classList.add('embedded');
+ const report=()=>parent.postMessage({type:'talktag-manager-height',height:document.querySelector('.shell').getBoundingClientRect().height+2},location.origin);
+ new ResizeObserver(report).observe(document.body);window.addEventListener('load',report);
+ document.addEventListener('click',event=>{const a=event.target.closest('a');if(a&&a.getAttribute('href')?.startsWith('/'))a.target='_top';});
+}
+</script></body>
+</html>
