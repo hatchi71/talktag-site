@@ -23,6 +23,7 @@
         vocal: {src:'/assets/bootcamp-scenes/en/002-vocal.jpg',alt:'A group discovers another class in its booked classroom'},
         story: {src:'/assets/bootcamp-scenes/en/002-story.jpg',alt:'A coordinator compares two classroom reservations'}
       }[camp] || null;
+      if (language === 'ko' && number === '002' && level === 'C2') return {src:'/assets/bootcamp-scenes/ko/002-c2-v2.jpg',alt:'A customer holding her blue bag explains discomfort with an ownership check while the café worker listens seriously'};
       if (language === 'ko' && number === '002') return {src:'/assets/bootcamp-scenes/ko/002-'+level.toLowerCase()+'.jpg',alt:'Finding and returning a blue bag at a café'};
       if (number !== '001') return null;
       return scenes[language]?.[camp] || null;

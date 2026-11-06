@@ -1193,8 +1193,9 @@ async function run() {
     document.querySelector('#kicker').textContent = `${content.level || ''} · ${content.area || content.type || ''}`.toUpperCase();
     document.title = `${content.title || content.nativeTitle || 'Practice card'} · TalkTag`;
     const publishedArt = window.TalkTagAudioLessons?.find(card => card.id === content.id);
-    const picture = safeArtwork(publishedArt?.artwork || content.artwork || guidedArtwork(content));
-    if (picture) { const node = document.querySelector('#artwork'); node.src = picture; node.alt = publishedArt?.artworkAlt || content.artworkAlt || ''; node.hidden = false; }
+    const reviewedArt = window.TalkTagCardArtwork?.[content.id];
+    const picture = safeArtwork(reviewedArt?.src || publishedArt?.artwork || content.artwork || guidedArtwork(content));
+    if (picture) { const node = document.querySelector('#artwork'); node.src = picture; node.alt = reviewedArt?.alt || publishedArt?.artworkAlt || content.artworkAlt || ''; node.hidden = false; }
     const scene = content.scene || content.briefing || content.situation;
     if (scene) { const node = document.querySelector('#scene'); node.textContent = scene; node.hidden = false; }
     if (content.lesson?.audioSteps || content.lesson?.steps) await renderVocal(content);

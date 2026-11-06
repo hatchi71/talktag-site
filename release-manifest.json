@@ -107,6 +107,11 @@
       "sha256": "fd29860f9409cafac6fc689ed0cf07777852d1b9e839e78e9973651e15d7dd80"
     },
     {
+      "path": "assets/bootcamp-scenes/ko/002-c2-v2.jpg",
+      "bytes": 148229,
+      "sha256": "3960eddb47a1810c031ce4db9cc2e33d23759504db2200c23d33675cdc4efdf8"
+    },
+    {
       "path": "assets/bootcamp-scenes/ko/002-c2.jpg",
       "bytes": 769939,
       "sha256": "1e0f092cf2567d0ccb9bcac85728597e0c4f0b09de2b6152d15882ad7acf14af"
@@ -245,6 +250,36 @@
       "path": "assets/glr-scenes/en/010-c2-v2.webp",
       "bytes": 62468,
       "sha256": "a93d8c76da62b565067469af3086bfa4c5b187f9cfb72db5d1580958678c2a0a"
+    },
+    {
+      "path": "assets/glr-scenes/en/011-a1-v2.jpg",
+      "bytes": 144315,
+      "sha256": "8dd184f38aaa8998cb83d63a72c96bf359d984a84272c76aa24c119ab202ce44"
+    },
+    {
+      "path": "assets/glr-scenes/en/011-a2-v2.jpg",
+      "bytes": 185873,
+      "sha256": "8541756f1e4acc3655593665d40ba70420488e11bcc7b267001ce6569c1cebc5"
+    },
+    {
+      "path": "assets/glr-scenes/en/011-b1-v2.jpg",
+      "bytes": 170064,
+      "sha256": "a4c71b10a682c8d89e5a0de7f9413a8c63b295f7724a6fd6264921e4723721ba"
+    },
+    {
+      "path": "assets/glr-scenes/en/011-b2-v2.jpg",
+      "bytes": 168912,
+      "sha256": "104f1fffc025666542780fd1172049ff83471511f6a2e7be52160b039ab20fbe"
+    },
+    {
+      "path": "assets/glr-scenes/en/011-c1-v2.jpg",
+      "bytes": 164270,
+      "sha256": "c09f087d74761c5ab65e5ae18ac2fe1b244380ea41391ba1dfec99e74eea3e0b"
+    },
+    {
+      "path": "assets/glr-scenes/en/011-c2-v2.jpg",
+      "bytes": 177030,
+      "sha256": "f8cce3e5ca0dfbed5b6e6251c24b68a64a7903e983438a5da7704900bfd6bbf6"
     },
     {
       "path": "assets/glr-scenes/en/011-station-v1.jpg",
@@ -1167,6 +1202,11 @@
       "sha256": "6b1a814e42bbd2d29482e8f30467a4c6b2022d8d98797e7c640da7eae7bfdfdc"
     },
     {
+      "path": "assets/readable-scenes/en/001-garden-v1.jpg",
+      "bytes": 201475,
+      "sha256": "d47ba683dfc9861bf22001882d04f78a8cc3e93c8e8361d31d46ff3864c59038"
+    },
+    {
       "path": "assets/readable-scenes/ko/001-a1-bus-v2.jpg",
       "bytes": 623051,
       "sha256": "f973645e8c088f55fda581693bdd1f13ba06110dc9081c8bfcfb3832056d5580"
@@ -1228,8 +1268,8 @@
     },
     {
       "path": "assets/talktag-protected-card.js",
-      "bytes": 278927,
-      "sha256": "5a61ddf2cee02ac918df9cdd96fb4f81de016b785f823ca5dabe05b6064f8783"
+      "bytes": 278979,
+      "sha256": "2c82027f2ab05618349c1f607a9fbfc2e64e58dfa6deb365ecd7be7d15d7b94c"
     },
     {
       "path": "assets/talktag-protected-library.js",
@@ -1268,8 +1308,8 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7511,
-      "sha256": "34a6fcec7a4b48385085c91faec1994250de40d2558f3aacc017db28398728b5"
+      "bytes": 7509,
+      "sha256": "2378655823a0953bf7c2bee4750a3d4a09adb72a691a06fb2a01063551a0634c"
     },
     {
       "path": "audio-library.js",
@@ -1313,8 +1353,8 @@
     },
     {
       "path": "bootcamp-artwork.js",
-      "bytes": 1850,
-      "sha256": "23da315f27fe4661f2f8d2e3a3c4604315dae66be3a18733981d36949cc98790"
+      "bytes": 2097,
+      "sha256": "a037642e229ffaa4f4c42487ab46fcc1ac532d843ba498786d9bb0fd86638333"
     },
     {
       "path": "bootcamp-browser.css",
@@ -1363,8 +1403,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 175029,
-      "sha256": "d155aff911539da57efd4daf1362ba3d56aff1c03a28ea677012584919258fc4"
+      "bytes": 231306,
+      "sha256": "8ec10416cf61f0f160379fd858d8f8cea42b96a08b5f9eec91ee7eb3e3118de0"
     },
     {
       "path": "content-clarity.css",
@@ -1388,8 +1428,8 @@
     },
     {
       "path": "E-english.html",
-      "bytes": 32989,
-      "sha256": "cfe8e01423d9a1ca32874f7687b89c7c3be74b76f1ebe63678972238bf559c22"
+      "bytes": 32987,
+      "sha256": "980da2da76eaa5890a3a8f3f095fbaac037453cd052c4a672f9c1bc72601312f"
     },
     {
       "path": "essay-artwork.css",
@@ -1633,8 +1673,8 @@
     },
     {
       "path": "japanese/J-guided.html",
-      "bytes": 7236,
-      "sha256": "d75bf48f4287992b73aeb0a87f205294157e7dfc6df42d451b7ad288c8391f80"
+      "bytes": 7234,
+      "sha256": "fbf437d6ac087d7d01505ff36e7de9dc85f22a4c9227c20aedac9fe755c50d9b"
     },
     {
       "path": "japanese/J-index.html",
@@ -1703,8 +1743,8 @@
     },
     {
       "path": "japanese/J-myspace.html",
-      "bytes": 2595,
-      "sha256": "2483568948be0cdae7b8af96cb826a5e7ad9906d230a3c1a92e71cccffe0166b"
+      "bytes": 2593,
+      "sha256": "746131ed24be60f55d2c4c51835958b0cc3837888247c26b6b7c385c10fcce7c"
     },
     {
       "path": "japanese/J-readable-a1.html",
@@ -1778,8 +1818,8 @@
     },
     {
       "path": "japanese/J-story-camp.html",
-      "bytes": 3020,
-      "sha256": "0f59dc7a67aaf6ff473a93eb3e4912557ad7056d50f9bcb1b0ebaf3fec786de1"
+      "bytes": 3014,
+      "sha256": "b16fde15efff157a233dd50fab99af8885df1b5637952a4653db98a61e7a442a"
     },
     {
       "path": "japanese/J-storycamp-reader.css",
@@ -1803,8 +1843,8 @@
     },
     {
       "path": "japanese/J-vocal-camp.html",
-      "bytes": 4614,
-      "sha256": "a4f3f231c9c33ceaab299b15e2fce3bd5d54a6f856c9fd1383bf266bea8f6bd1"
+      "bytes": 4608,
+      "sha256": "c2286f0c5840f41031358a129c8a2cce0ec725da661bed6e14d45a93df2e8fe4"
     },
     {
       "path": "japanese/J-vocal-v1.html",
@@ -2128,8 +2168,8 @@
     },
     {
       "path": "K-korean-audio-library.html",
-      "bytes": 7719,
-      "sha256": "ca84a875c4b1ecbd8b8f18ecb2d2614d6bef006d79233665d2bc622c7920ff50"
+      "bytes": 7717,
+      "sha256": "36f0aa209694ec5eb35882eb20158e8b8f43a4175fd458daff613fcd9a6a1442"
     },
     {
       "path": "K-korean-audio-player.html",
@@ -2158,8 +2198,8 @@
     },
     {
       "path": "K-korean-readable.html",
-      "bytes": 4725,
-      "sha256": "b00ce65c058ab7532a8217488b92159720653dccf849f0052596725b977cd88a"
+      "bytes": 4713,
+      "sha256": "8b83bd213db9b92ae5e2c783d031927c9c2ba6744eb8824ad76de995495f4076"
     },
     {
       "path": "K-korean-starter.html",
@@ -2168,18 +2208,18 @@
     },
     {
       "path": "K-korean-story-camp.html",
-      "bytes": 2780,
-      "sha256": "344b752d987ab77c5316c146beb46a52f6dd714c5ef57df40eb939db2be3bfb3"
+      "bytes": 2774,
+      "sha256": "60ac61bd0a1d613e29aca6740341f088a3f3138145c88721933cddd8a1868d4d"
     },
     {
       "path": "K-korean-vocal-camp.html",
-      "bytes": 2770,
-      "sha256": "4b62b11e276995218e2abcfb51605f9e85b9497b389347c558ac01098f9dbfc9"
+      "bytes": 2764,
+      "sha256": "406d0d318560078aaf54731bf0e7e8f323bbb6b8b92e0de25a188a34f09045bc"
     },
     {
       "path": "K-korean.html",
-      "bytes": 8496,
-      "sha256": "0610e41e79e602cb7d26ab106b7d82511eaba5254bd278aba26ef0351af2623b"
+      "bytes": 8494,
+      "sha256": "66e0f4b101ece08e9d873b54e6d1984627c76f1599445f37284b4824f7a05a56"
     },
     {
       "path": "korean-audio-essays.html",
@@ -2228,8 +2268,8 @@
     },
     {
       "path": "korean-readable.css",
-      "bytes": 3983,
-      "sha256": "97841def71a69f3db480cd629b991ca034c7c7bd13e2b9f258971dc01b206127"
+      "bytes": 4327,
+      "sha256": "3313b2cedc18d100bfb40cb97c1418cdd88d04e151a35fe2bd9eaee5920d1e3a"
     },
     {
       "path": "korean-readable.html",
@@ -2383,8 +2423,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3670,
-      "sha256": "9ed6e41510459d3927e4cc8613097d7ee7b7de44e0c070d4c4ef855c6379dee9"
+      "bytes": 3666,
+      "sha256": "1509ab5e151c7a27964cb4045924e0a29edcdc2e576b3dc4dcc7558ca52800b6"
     },
     {
       "path": "protected-library.css",
@@ -2453,8 +2493,8 @@
     },
     {
       "path": "readable-english-library.js",
-      "bytes": 7526,
-      "sha256": "10cf33f3243317cd0f4f9b21dea4d88217749d118e7b7aec71ebf481d5d3d2d5"
+      "bytes": 7732,
+      "sha256": "1563fedbf64370cf94efc52b42921c051ca74b675c16fd68ddbc1e0984f7ab95"
     },
     {
       "path": "readable-essay.html",
@@ -2478,8 +2518,8 @@
     },
     {
       "path": "readable.html",
-      "bytes": 4732,
-      "sha256": "b1a52633eda1c4a086a822a3bb57560dbfa4cd246b0091538cd1cdcdfeb64ccc"
+      "bytes": 4717,
+      "sha256": "16a114f917e7b7ee7c81f03762285834de7e855e2e377fdf660cc24b88333a61"
     },
     {
       "path": "robots.txt",
@@ -2523,8 +2563,8 @@
     },
     {
       "path": "story-camp.html",
-      "bytes": 2842,
-      "sha256": "543545bf5d5151a6b9d5975748e3f2849dd16fcd3075cfc0b3251bad7dd4fe59"
+      "bytes": 2836,
+      "sha256": "e1be057d81b3b33ef38c25e867963059e1fd96c613bcfdbafc7b023ce3ad0cc1"
     },
     {
       "path": "storycamp-family.html",
@@ -2698,8 +2738,8 @@
     },
     {
       "path": "vocal-camp.html",
-      "bytes": 2788,
-      "sha256": "7f97dbe6e45d7f4d183858f7b15a2963964bba61e0470d873e407f86636d513c"
+      "bytes": 2782,
+      "sha256": "d77fa11a66b567642e69afe1881bc5872f873c2fb7b2fba3de8444aafc3eee0f"
     },
     {
       "path": "vocal-stage.html",

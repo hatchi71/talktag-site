@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-06",
+  "scope": "Script-picture audit corrections",
+  "artwork_generation": "Built-in image generation; originals visually compared with existing scripts. No lesson scripts or audio changed.",
+  "coverage": {
+    "active_card_artwork_bindings": 375,
+    "changed_cards": 18,
+    "new_images": 8
+  },
+  "scenes": {
+    "011-a1": "Platform 2; staff points left",
+    "011-a2": "Platform 3 and blue line interchange",
+    "011-b1": "Train delay and alternative bus",
+    "011-b2": "Closed lift and step-free route",
+    "011-c1": "Conflicting platform 6/8 information confirmed by staff",
+    "011-c2": "Late-night connection risk and earlier train alternative",
+    "ko-002-c2": "Blue bag ownership check; customer discomfort and attentive worker",
+    "readable-001": "Peter Rabbit garden opening; blue jacket and vegetable garden"
+  },
+  "reuse_rule": "Split parts share the same actual scene; English Readable levels adapt the same story. Reuse is based on script situation, never episode number alone.",
+  "checks": [
+    "All 375 active IDs resolve to existing artwork with alt text across three language contexts",
+    "60 Boot Camp collection/player artwork mappings agree",
+    "360/375/390/430 CSS pixel layouts: no horizontal overflow, image loaded",
+    "Bright and Dark review; locked Readable contrast corrected",
+    "11 targeted tests passed; bundle checks passed; guided validation passed; home news regenerated preserving publication ordering"
+  ],
+  "deployment": "https://6e75134b.talktag-app-preview.pages.dev",
+  "live_checks": [
+    {
+      "path": "catalog-metadata.js",
+      "match": true
+    },
+    {
+      "path": "assets/talktag-protected-card.js",
+      "match": true
+    },
+    {
+      "path": "assets/glr-scenes/en/011-a1-v2.jpg",
+      "match": true
+    },
+    {
+      "path": "assets/glr-scenes/en/011-b1-v2.jpg",
+      "match": true
+    },
+    {
+      "path": "assets/glr-scenes/en/011-c1-v2.jpg",
+      "match": true
+    },
+    {
+      "path": "assets/glr-scenes/en/011-a2-v2.jpg",
+      "match": true
+    },
+    {
+      "path": "assets/glr-scenes/en/011-c2-v2.jpg",
+      "match": true
+    },
+    {
+      "path": "assets/glr-scenes/en/011-b2-v2.jpg",
+      "match": true
+    },
+    {
+      "path": "assets/bootcamp-scenes/ko/002-c2-v2.jpg",
+      "match": true
+    },
+    {
+      "path": "assets/readable-scenes/en/001-garden-v1.jpg",
+      "match": true
+    }
+  ],
+  "signed_in_live_players_observed": [
+    "guided-a1-11",
+    "ko-vocal-camp-002-c2",
+    "en-readable-001-a1"
+  ],
+  "limits": "All 375 mappings were validated structurally; all 375 players were not individually opened. Central reviewed artwork registry overrides older artwork in protected lesson payloads. Custom-domain automated HTTP verification received 403; signed-in Chrome visibly confirmed new artwork on talktag.co.kr.",
+  "final_deployment": "https://5dcc8d3f.talktag-app-preview.pages.dev",
+  "final_contrast_stylesheet_checksum": "PASS"
+}
