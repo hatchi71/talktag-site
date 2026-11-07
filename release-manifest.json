@@ -2678,13 +2678,13 @@
     },
     {
       "path": "protected-card.css",
-      "bytes": 16351,
-      "sha256": "d07317412a590549c11c0b9251568712be00c1c63dae8eaebba000b3574b72db"
+      "bytes": 17307,
+      "sha256": "0f3b65757776536cf3fbc466a1115abe8eb8a9c95a085ff1fcd7d67480c6f9f2"
     },
     {
       "path": "protected-card.html",
-      "bytes": 3674,
-      "sha256": "3e3800fa4f30a9702d725b45b75a06be1a2bd1e84da60235e5a7d69feb110d8b"
+      "bytes": 3675,
+      "sha256": "981cd6f9bd4d9da4b4f30a41d42b84760fd5131578994b1eb1b2da86b15d4867"
     },
     {
       "path": "protected-library.css",

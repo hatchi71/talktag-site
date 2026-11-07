@@ -105,3 +105,13 @@ html[data-appearance="dark"] .site-header .head-links>a,html[data-appearance="da
 @media(max-width:390px){.site-header{padding:10px 12px;gap:6px}.site-header .head-links{gap:6px}.site-header .head-links>a,.site-header .head-links>button{padding:8px}.site-header .head-links .tt-spaces-trigger{padding:8px 6px}}
 
 .site-header .brand img{width:44px!important;height:44px!important;max-width:44px}.site-header .brand{width:44px!important;max-width:44px!important}
+
+/* Pair dark lesson surfaces with readable script and synchronized-line colors. */
+html[data-appearance="dark"] .card-body{color:#edf3ff}
+html[data-appearance="dark"] .card h2{color:#edf3ff}
+html[data-appearance="dark"] #lesson-text p:not(.secondary){color:#edf3ff!important}
+html[data-appearance="dark"] #lesson-text p.secondary{color:#c5d4e7!important}
+html[data-appearance="dark"] #lesson-text p.is-current-line:not(.secondary){background:#163d69;border-color:#7fb4ff;box-shadow:inset 4px 0 #7fb4ff}
+html[data-appearance="dark"] #lesson-text p.is-current-line.secondary{background:#203e5e;border-color:#6f96c0}
+html[data-appearance="dark"] #lesson-text rt,html[data-appearance="dark"] #lesson-text .japanese-reading-fallback{color:#c5d4e7}
+html[data-appearance="dark"] .card .scene,html[data-appearance="dark"] .guided-controls .secondary,html[data-appearance="dark"] .text-actions-label,html[data-appearance="dark"] .translation-choice{color:#c5d4e7}
