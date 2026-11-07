@@ -1,0 +1,85 @@
+{
+  "scope": "English GLR A0 011–020",
+  "date": "2026-11-07",
+  "humanReview": "User confirmed review passed and approved publication",
+  "technicalQC": "PASS: 10 cards; five repeats, gaps, own dings, encoded loudness, script-picture consistency",
+  "r2": {
+    "status": "ALL_SHA256_VERIFIED",
+    "objects": [
+      {
+        "id": "guided-a0-011",
+        "key": "English/guided/SC-GLR-011-A0-US-Lauren-v1.mp3",
+        "bytes": 352941,
+        "sha256": "26e0799664c2f13ac947d3e23f8573cfc36d7cbe34a599500010415809415077",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-012",
+        "key": "English/guided/SC-GLR-012-A0-US-Lauren-v1.mp3",
+        "bytes": 347181,
+        "sha256": "f67538dadeb22a62154b8902d5588f5caf86f4c88aa9cb83ac18cc78fa46e1f8",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-013",
+        "key": "English/guided/SC-GLR-013-A0-US-Lauren-v1.mp3",
+        "bytes": 344109,
+        "sha256": "a7ef27f6fdebba8e71130b49691e85bc3318a59a97f4d9bd8210f088509b288d",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-014",
+        "key": "English/guided/SC-GLR-014-A0-US-Lauren-v1.mp3",
+        "bytes": 334509,
+        "sha256": "9094eef9f0456959a0046303ff845205269e7a0acd9710ff5c0e3c6cc0168e97",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-015",
+        "key": "English/guided/SC-GLR-015-A0-US-Lauren-v1.mp3",
+        "bytes": 335277,
+        "sha256": "973516d20ea5b5e757033b938a5bd3f741b9735a095b35c61d212b14b2c60909",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-016",
+        "key": "English/guided/SC-GLR-016-A0-US-Lauren-v1.mp3",
+        "bytes": 344109,
+        "sha256": "ac0b1c52236577f01d050c0606df9284f740f6e58c65794df61c4d1b23bbbb9f",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-017",
+        "key": "English/guided/SC-GLR-017-A0-US-Lauren-v1.mp3",
+        "bytes": 338349,
+        "sha256": "d10268573df4202385fc4a35dc597e21006a60dd4bda00670ca705f943e109e0",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-018",
+        "key": "English/guided/SC-GLR-018-A0-US-Lauren-v1.mp3",
+        "bytes": 347949,
+        "sha256": "ee5753b4893fcb59218124295f5ebbb6187315f51127729a4fefc4e236b186ed",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-019",
+        "key": "English/guided/SC-GLR-019-A0-US-Lauren-v1.mp3",
+        "bytes": 340269,
+        "sha256": "51a758801ed500dc291fe139f970b43d1941ad670040f4112752fd2901b8037e",
+        "verified": true
+      },
+      {
+        "id": "guided-a0-020",
+        "key": "English/guided/SC-GLR-020-A0-US-Lauren-v1.mp3",
+        "bytes": 328749,
+        "sha256": "41b03fc2e6e0d5278b908d789a953f62dd441e4e65688c44212856e3080c281d",
+        "verified": true
+      }
+    ]
+  },
+  "registry": "20 published A0 cards, ordinals 1–20 verified in Supabase",
+  "checks": "17 targeted tests passed; 562 public files built; generated home notice",
+  "livePlayback": "011 reached 5/5 and automatic completion; test completion undone",
+  "limits": "Human review supplied by EJ; automated checks are not independent pronunciation review. Existing Free 001–010 policy retained."
+}

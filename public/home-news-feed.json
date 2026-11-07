@@ -2,6 +2,30 @@
   "version": 1,
   "items": [
     {
+      "id": "guided:en:a0:011-020",
+      "language": "en",
+      "status": "published",
+      "title": "영어 듣고 따라 말하기 · A0 · 011–020",
+      "href": "audio-library.html?type=guided&level=A0",
+      "levels": [
+        "A0"
+      ],
+      "description": "그림과 함께 짧은 일상 표현 10가지를 듣고 따라 한 뒤 직접 말해 보세요.",
+      "publishedAt": "2026-11-07T00:11:48.662635+00:00",
+      "cardIds": [
+        "guided-a0-011",
+        "guided-a0-012",
+        "guided-a0-013",
+        "guided-a0-014",
+        "guided-a0-015",
+        "guided-a0-016",
+        "guided-a0-017",
+        "guided-a0-018",
+        "guided-a0-019",
+        "guided-a0-020"
+      ]
+    },
+    {
       "id": "guided:en:012",
       "language": "en",
       "status": "published",
