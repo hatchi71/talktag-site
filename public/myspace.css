@@ -26,3 +26,6 @@
 /* The desktop landing canvas is fixed-height; MySpace must remain scrollable. */
 .canvas:has(> #myspace.active){overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable}
 .canvas > #myspace.active{position:absolute!important;inset:0!important;height:auto!important;min-height:100%;padding-bottom:calc(90px + env(safe-area-inset-bottom))!important}
+
+/* Administration needs a workspace, not the narrower learner reading column. */
+.tt-myspace.tt-myspace-admin{max-width:1440px;width:100%;box-sizing:border-box}

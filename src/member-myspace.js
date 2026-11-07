@@ -1,5 +1,6 @@
+import { recordMemberVisit } from './member-visits.js';
 import { mountManagement } from './manager.js';
-import { managerMarkup, managerStyles } from './manager-view.js';
+import { managerMarkup, managerStyles, memberInsightStyles } from './manager-view.js';
 import { checkDeviceSession, watchDeviceSession } from './device-session.js';
 import { groupMySpace } from './myspace-model.js';
 import { makeAuthConfigurationLoader } from './auth-configuration.js';
@@ -26,7 +27,7 @@ async function render(){
  const host=hostForView();if(!host)return;
  if(host.querySelector('.tt-myspace-management')&&renderedUserId)return;
  const sequence=++renderId;
- host.classList.add('tt-myspace');host.replaceChildren(make('h2','MySpace'));
+ host.classList.remove('tt-myspace-admin');host.classList.add('tt-myspace');host.replaceChildren(make('h2','MySpace'));
  const note=make('p',text('Loading your account’s learning records…','계정의 학습 기록을 불러오고 있어요…'),'tt-myspace-note');host.append(note);
  let config;
  try { config=await loadAuthConfiguration(); }
@@ -45,16 +46,18 @@ async function render(){
  if(!session){note.textContent=text('Sign in to see your learning records on any device.','로그인하면 어느 기기에서나 학습 기록을 볼 수 있어요.');const a=make('a',text('Log in →','로그인 →'));a.href=`/account.html?ui=${english?'en':'ko'}&from=${language}`;host.append(a);return;}
  if(!await checkDeviceSession(client)){await client.auth.signOut({scope:'local'});note.textContent=text('Signed in on another device. Please sign in again.','다른 기기에서 로그인했어요. 다시 로그인해 주세요.');return;}
  if(!stopMySpaceWatch)stopMySpaceWatch=watchDeviceSession(client,()=>client.auth.signOut({scope:'local'}));
+ void recordMemberVisit(client, session.user.id);
  const roles=await client.from('staff_roles').select('role').eq('user_id',session.user.id);
  if(sequence!==renderId)return;
  if(!roles.error&&roles.data?.some(row=>row.role==='admin')){
   note.textContent=text('Manage TalkTag members, access and content here.','회원, 이용 권한, 콘텐츠를 이곳에서 관리하세요.');
+  host.classList.add('tt-myspace-admin');
   renderedUserId=session.user.id;
   const board=make('div',null,'tt-myspace-management');
   const shadow=board.attachShadow({mode:'open'});
   const syncTheme=()=>board.dataset.theme=document.documentElement.dataset.appearance==='dark'?'dark':'bright';syncTheme();
   const themeObserver=new MutationObserver(()=>{if(!board.isConnected){themeObserver.disconnect();return;}syncTheme();});themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-appearance']});
-  const style=document.createElement('style');style.textContent=managerStyles;
+  const style=document.createElement('style');style.textContent=managerStyles+memberInsightStyles;
   shadow.append(style);const content=document.createElement('div');content.innerHTML=managerMarkup;shadow.append(content);
   host.append(board);mountManagement(shadow,client);return;
  }
@@ -99,7 +102,7 @@ window.addEventListener('message',event=>{
  const frame=document.querySelector('.tt-myspace-management');
  if(frame&&event.source===frame.contentWindow&&Number.isFinite(event.data.height))frame.style.height=Math.max(600,Math.min(100000,event.data.height))+'px';
 });
-const css=make('link');css.rel='stylesheet';css.href='/myspace.css?v=dashboard-scroll-v2-20261105';document.head.append(css);
+const css=make('link');css.rel='stylesheet';css.href='/myspace.css?v=members-20261107-v3';document.head.append(css);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render);else render();
 document.addEventListener('click',event=>{if(event.target.closest('[data-view="myspace"]'))setTimeout(render,0);});
 window.addEventListener('pageshow',event=>{if(event.persisted)render();});

@@ -1,3 +1,4 @@
+import { recordMemberVisit } from './member-visits.js';
 import { checkDeviceSession, watchDeviceSession } from './device-session.js';
 import { connectMemberRecords } from './member-records.js';
 import { createClient } from '@supabase/supabase-js';
@@ -87,6 +88,7 @@ async function resolveTier() {
     if(!await checkDeviceSession(client)){await client.auth.signOut({scope:'local'});return {tier:'visitor',user:null};}
     if(watchedDeviceUser!==user.id){stopDeviceWatch?.();watchedDeviceUser=user.id;stopDeviceWatch=watchDeviceSession(client,()=>{watchedDeviceUser=null;window.TalkTagMemberRecords=null;client.auth.signOut({scope:'local'});});}
     await connectMemberRecords(client, user.id);
+    void recordMemberVisit(client, user.id);
     const [membershipResult, rolesResult] = await Promise.all([
       client.from('memberships').select('status,trial_months,active_from,active_until').eq('user_id', user.id).maybeSingle(),
       client.from('staff_roles').select('role').eq('user_id', user.id)

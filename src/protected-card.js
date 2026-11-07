@@ -1,3 +1,4 @@
+import { recordMemberVisit } from './member-visits.js';
 import { checkDeviceSession, watchDeviceSession } from './device-session.js';
 import { openMemberLearningState } from './member-learning-state.js';
 let memberState;
@@ -1155,6 +1156,7 @@ async function run() {
   }
   const replaced=()=>{audio.pause();audio.removeAttribute('src');audio.load();memberState?.close();signedInUserId=null;document.querySelector('#card').hidden=true;status.hidden=false;status.textContent=ui('Signed in on another device. Sign in again to continue here.','다른 기기에서 로그인했어요. 이 기기에서 계속하려면 다시 로그인해 주세요.');document.querySelector('#sign-in').hidden=false;client.auth.signOut({scope:'local'});};
   if(!await checkDeviceSession(client)){replaced();return;}
+  void recordMemberVisit(client, session.user.id);
   watchDeviceSession(client,replaced);
   signedInUserId = session.user.id;
   if (accountControl) {

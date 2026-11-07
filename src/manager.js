@@ -1,3 +1,4 @@
+import { renderMemberInsights, formatMemberDate } from './member-insights-view.js';
 import { contentChecks, upcomingGatherings, compareMembers } from './manager-model.js';
 import { summarizeAccess } from './entitlement.js';
 import { createClient } from '@supabase/supabase-js';
@@ -17,6 +18,7 @@ for(const kind of ['member','content'])for(const control of ['search','filter'])
 const refreshButton=root.querySelector('#refresh-board');refreshButton.addEventListener('click',loadOverview);
 let selectedMemberId=null;
 let memberRows=[];
+let managementClient;
 function sortMembers(){
  const field=root.querySelector('#member-sort').value,order=root.querySelector('#member-sort-order').value;
  const select=root.querySelector('#member-sort-order');select.options[0].textContent=field==='name'?'Z → A / reverse name order':'Newest first';select.options[1].textContent=field==='name'?'A → Z / name order':'Oldest first';
@@ -32,13 +34,13 @@ function showPanel(id){
   const current=link.getAttribute('href')==='#'+id;link.classList.toggle('selected',current);
   if(current)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');
  }
- root.querySelector('.welcome h2').textContent=({home:'What needs your attention?',members:'Members & access',content:'Content status',audit:'Recent changes'})[id];
+ root.querySelector('.welcome h2').textContent=({home:'What needs your attention?',members:'Members & learning',content:'Content status',audit:'Recent changes'})[id];
 }
 for(const link of root.querySelectorAll('.sidebar nav a[href^="#"]'))link.addEventListener('click',event=>{event.preventDefault();showPanel(link.getAttribute('href').slice(1));});
 for(const button of root.querySelectorAll('[data-open]'))button.addEventListener('click',()=>{showPanel(button.dataset.open);if(button.dataset.filter){root.querySelector('#member-filter').value=button.dataset.filter;filterRows('member');}if(button.dataset.open==='members')root.querySelector('#member-search').focus();});
 root.querySelector('#attention-trials').addEventListener('click',()=>{showPanel('members');root.querySelector('#member-filter').value='trial';root.querySelector('#member-search').value='';filterRows('member');});
 root.querySelector('#attention-content').addEventListener('click',()=>{showPanel('content');root.querySelector('#content-filter').value='all';filterRows('content');});
-function resetMemberDetail(){const detail=root.querySelector('#member-detail');detail.replaceChildren();const h=document.createElement('h4');h.textContent='Choose a member';const p=document.createElement('p');p.textContent='Select a name to review access and manage a trial or Snowpal role.';detail.append(h,p);selectedMemberId=null;for(const row of memberRows)row.classList.remove('is-selected');}
+function resetMemberDetail(){const detail=root.querySelector('#member-detail');detail.replaceChildren();const h=document.createElement('h4');h.textContent='Choose a member';const p=document.createElement('p');p.textContent='Select a member to see learning progress, account details, visits and access.';detail.append(h,p);selectedMemberId=null;for(const row of memberRows)row.classList.remove('is-selected');}
 function selectMember(member,row,name,contact,state,controls){
  selectedMemberId=member.user_id;
  for(const item of memberRows)item.classList.toggle('is-selected',item===row);
@@ -48,7 +50,14 @@ function selectMember(member,row,name,contact,state,controls){
  const hint=document.createElement('p');hint.className='detail-hint';hint.textContent='Changes take effect only after confirmation and are recorded in activity.';
  const label=document.createElement('label');label.textContent='Trial duration';label.append(controls[0]);
  const actions=document.createElement('div');actions.className='detail-actions';actions.append(label,...controls.slice(1));
- detail.append(close,heading,contact.cloneNode(true),state.cloneNode(true),actions,hint);
+ detail.append(close,heading,contact.cloneNode(true),state.cloneNode(true));
+ const sections=renderMemberInsights(detail,member,managementClient,()=>selectedMemberId===member.user_id&&detail.contains(heading));
+ const accessHeading=document.createElement('h5');accessHeading.textContent='Manage access';
+ const policy=document.createElement('p');policy.className='detail-hint';policy.textContent=member.insights?.is_admin?'Full authority · all content · multiple devices allowed':state.textContent.startsWith('Free')?'Cards 001–010 per level, category and language · one active device':'All content · one active device';
+ const accessPanel=document.createElement('div');accessPanel.append(accessHeading,policy,actions,hint);detail.append(accessPanel);
+ if(sections){accessPanel.hidden=true;const nav=document.createElement('div');nav.className='member-detail-tabs';nav.setAttribute('role','group');nav.setAttribute('aria-label','Member details');
+ const panels=[sections.overview,sections.learning,accessPanel];
+ ['Overview','Learning','Access'].forEach((label,index)=>{const button=document.createElement('button');button.type='button';button.textContent=label;button.setAttribute('aria-pressed',String(index===0));button.onclick=()=>{panels.forEach((panel,i)=>panel.hidden=i!==index);for(const item of nav.children)item.setAttribute('aria-pressed',String(item===button));};nav.append(button);});detail.insertBefore(nav,sections.overview);}
 }
 const config = window.TalkTagAuthConfig || {};
 
@@ -61,7 +70,8 @@ function deny(message) {
 async function loadMembers(client, actorId) {
   const note = root.querySelector('#member-status');
   const list = root.querySelector('#member-list');
-  const { data, error } = await client.rpc('talktag_admin_members', { p_limit: 50 });
+  managementClient=client;
+  const { data, error } = await client.rpc('talktag_admin_members', { p_limit: 100 });
   if (error || !Array.isArray(data)) {
     note.textContent = 'Member controls are not connected yet.';
     return;
@@ -69,11 +79,15 @@ async function loadMembers(client, actorId) {
   note.textContent = `${data.length} most recently registered accounts · search covers this list`;
   const profiles = await client.rpc('talktag_admin_member_names', {p_limit:100});
   const names=new Map((profiles.data||[]).map(row=>[row.user_id,row.display_name]));
+  const insightsResult=await client.rpc('talktag_admin_member_insights',{p_limit:100});
+  const insights=new Map((Array.isArray(insightsResult.data)?insightsResult.data:[]).map(item=>[item.user_id,item]));
+  if(insightsResult.error)note.textContent+=' · Statistics unavailable; refresh to retry';
   const roles = await client.rpc('talktag_admin_snowpals');
   const snowpals = !roles.error && Array.isArray(roles.data)
     ? new Set(roles.data.map(role => role.user_id)) : null;
   list.replaceChildren();memberRows=[];let trialEnding=0;
   for (const member of data) {
+    member.insights=insights.get(member.user_id);
     const row = document.createElement('div');
     row.className = 'member-row';
     row.dataset.registrationRank=String(data.indexOf(member));row.dataset.sortName=names.get(member.user_id)||'';
@@ -82,7 +96,7 @@ async function loadMembers(client, actorId) {
     name.textContent = names.get(member.user_id) || 'Name not provided';
     const contact=document.createElement('small');contact.textContent=member.email || `Kakao / social account · ${member.user_id.slice(0,8)}`;identity.append(name,contact);
     const state = document.createElement('small');
-    const tier=summarizeAccess({status:member.membership_status,trial_months:member.trial_months,active_from:member.active_from,active_until:member.active_until},member.user_id===actorId?[{role:'admin'}]:snowpals?.has(member.user_id)?[{role:'snowman'}]:[]);
+    const tier=summarizeAccess({status:member.membership_status,trial_months:member.trial_months,active_from:member.active_from,active_until:member.active_until},(member.insights?.is_admin||member.user_id===actorId)?[{role:'admin'}]:snowpals?.has(member.user_id)?[{role:'snowman'}]:[]);
     const access=tier==='member'?'paid':tier;
     row.dataset.filter=access;
     state.className='member-badge';
@@ -99,7 +113,7 @@ async function loadMembers(client, actorId) {
     }
     const button = document.createElement('button');
     button.type = 'button';
-    const isSelf = member.user_id === actorId;
+    const isSelf = member.insights?.is_admin || member.user_id === actorId;
     const hasPaidPeriod = access==='paid';
     button.textContent = isSelf ? 'Administrator' : hasPaidPeriod ? 'Paid member' : 'Grant trial';
     button.disabled = isSelf || hasPaidPeriod;
@@ -120,7 +134,8 @@ async function loadMembers(client, actorId) {
       await loadOverview();
     });
     const controls=[select,button];
-    const open=document.createElement('button');open.className='member-open';open.type='button';open.append(name,contact);open.setAttribute('aria-label',`Manage ${name.textContent} ${member.email||''}`);
+    const open=document.createElement('button');open.className='member-open';open.type='button';open.append(name,contact);
+    if(member.insights){const joined=document.createElement('small');joined.textContent='Joined '+formatMemberDate(member.insights.registered_at);const progress=document.createElement('small');progress.className='member-learning-summary';progress.textContent=`${member.insights.completed_count} complete · ${Math.max(0,member.insights.started_count-member.insights.completed_count)} in progress · ${member.insights.visits_30d} visits / 30d`;open.append(joined,progress);}open.setAttribute('aria-label',`Manage ${name.textContent} ${member.email||''}`);
     const chevron=document.createElement('span');chevron.textContent='→';chevron.setAttribute('aria-hidden','true');
     row.append(open,state,chevron);
     if (snowpals) {

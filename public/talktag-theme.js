@@ -81,7 +81,7 @@ function talktagParentRoute(pathname, search = '', lessons = []) {
   }
   if (!document.querySelector('script[data-talktag-myspace]')) {
     const activity = document.createElement('script');
-    activity.src = '/assets/talktag-myspace.js?v=member-sort-20261106';
+    activity.src = '/assets/talktag-myspace.js?v=members-20261107-v3';
     activity.dataset.talktagMyspace = 'true';
     document.head.append(activity);
   }

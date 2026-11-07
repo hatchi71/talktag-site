@@ -1473,8 +1473,8 @@
     },
     {
       "path": "assets/talktag-access-gate.js",
-      "bytes": 244929,
-      "sha256": "c2840f679bd8e205f938d824d35d95846639101d47ce604ccc22a6c2616372df"
+      "bytes": 245118,
+      "sha256": "1a071653b48ca1f2769f8fefcd8507a4500e423b1c6bfc4f1b4c718b4366f94b"
     },
     {
       "path": "assets/talktag-account.js",
@@ -1508,8 +1508,8 @@
     },
     {
       "path": "assets/talktag-manager.js",
-      "bytes": 234900,
-      "sha256": "5b63afe85a150fd9d7484a1b0c05638851191b901d5152249b6a94c8425e1b07"
+      "bytes": 243699,
+      "sha256": "8eece435040b02d37f6fef1193cf743c3630b92e921eae0a31c370b41b84f698"
     },
     {
       "path": "assets/talktag-meetups-preview.js",
@@ -1518,8 +1518,8 @@
     },
     {
       "path": "assets/talktag-myspace.js",
-      "bytes": 269893,
-      "sha256": "231539cd9daaa534ba1352c1e49d7b0d379a9c1f67f9baf71965202fcbb1d84f"
+      "bytes": 278871,
+      "sha256": "0e3c102697bbe367dfecdaadfa732506f69fc86557c7bbdaa5a6747b208c3add"
     },
     {
       "path": "assets/talktag-protected-card-pilot.js",
@@ -1528,8 +1528,8 @@
     },
     {
       "path": "assets/talktag-protected-card.js",
-      "bytes": 278979,
-      "sha256": "2c82027f2ab05618349c1f607a9fbfc2e64e58dfa6deb365ecd7be7d15d7b94c"
+      "bytes": 279173,
+      "sha256": "420e9f1d91cb6f6685a898e8a5ead6b803a44a34aeb067250594bf9b1279af75"
     },
     {
       "path": "assets/talktag-protected-library.js",
@@ -1568,8 +1568,8 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7474,
-      "sha256": "b18ad08858133f1ed30e1f08c37650332a573d975ebc1e8634248ab7132f2e37"
+      "bytes": 7466,
+      "sha256": "67800c5b41b174609f2a97584346469719654ee45d410b3689435eb981d81220"
     },
     {
       "path": "audio-library.js",
@@ -1683,13 +1683,13 @@
     },
     {
       "path": "discussions.html",
-      "bytes": 4103,
-      "sha256": "da098390621dd229fe29c70179591423870e24d3038edd29d5149d15b46fd3a6"
+      "bytes": 4095,
+      "sha256": "42cdbf612bb48e4929ab1183f94c61953e2decb25e9f15908b0e14bee5956eb5"
     },
     {
       "path": "E-english.html",
-      "bytes": 32994,
-      "sha256": "69c59f1baaafbd214d35710cc853a4c7c80a2bf4ea2e09699f5b539549f4ab3e"
+      "bytes": 32986,
+      "sha256": "5f468da28f04558837c83a4dc212b95d55a313a1d5feab3306b0382314bce2d0"
     },
     {
       "path": "essay-artwork.css",
@@ -1778,8 +1778,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 8237,
-      "sha256": "533cdf57f141d09d2cc6ab407e5556be66ca34ff4b1c7dfe5a0ef94c0ceff334"
+      "bytes": 8229,
+      "sha256": "65ac49fda4d28d1921df37d2275078f96ff8b393d7ad1034ff789b66e8d04d97"
     },
     {
       "path": "japanese/audio-essays-a1.html",
@@ -1908,8 +1908,8 @@
     },
     {
       "path": "japanese/J-discussions.html",
-      "bytes": 3468,
-      "sha256": "d17261a3c2d08dc81e7f9c5e28b1c7749de513c699edb80e3d3f71d3fc213bad"
+      "bytes": 3460,
+      "sha256": "de62a32bb78be5b932d237740f88f752ce48cd3b23d46860acc0fb1518bd7ad6"
     },
     {
       "path": "japanese/J-glr-player.html",
@@ -1933,13 +1933,13 @@
     },
     {
       "path": "japanese/J-guided.html",
-      "bytes": 7240,
-      "sha256": "9a3fb62f6d55aa0239b37e3bdce26a1f99a0a7e6dfb7887e7d28dcc08570990a"
+      "bytes": 7232,
+      "sha256": "a89e8b9a5dda3eaf3072d381b22d48c87b90883a0143fe7803870d383a6f2a58"
     },
     {
       "path": "japanese/J-index.html",
-      "bytes": 10150,
-      "sha256": "2ca22fdd87cfedd3f4fa56bd9b175b3740627692a030d48f45fec2ff0d669689"
+      "bytes": 10142,
+      "sha256": "7435e190a40b7d75521ed4e0e83c1790eb2b7523c2eb4d106e252ddd65ba7bab"
     },
     {
       "path": "japanese/J-jlpt-n1.html",
@@ -2003,8 +2003,8 @@
     },
     {
       "path": "japanese/J-myspace.html",
-      "bytes": 2600,
-      "sha256": "78dbd924f57dd6f717cc7991209b6fccf39925f2b3623cf896f989c213eda6e6"
+      "bytes": 2592,
+      "sha256": "2d9994085088f078bd6e575799041482f5cfd153ba8dea4703efc1b24f549a2f"
     },
     {
       "path": "japanese/J-readable-a1.html",
@@ -2043,8 +2043,8 @@
     },
     {
       "path": "japanese/J-snowballing.html",
-      "bytes": 17753,
-      "sha256": "fa476abba9dd4798a5eb1f943c54c6ea700ff91c73f34e5ee9508804e9a2a6de"
+      "bytes": 17745,
+      "sha256": "ad828e3a2d79216b6c0c30bf013696a1906e27c0841f4c82b8d0589ed9d8f7d5"
     },
     {
       "path": "japanese/J-story-camp-a1.html",
@@ -2078,8 +2078,8 @@
     },
     {
       "path": "japanese/J-story-camp.html",
-      "bytes": 3022,
-      "sha256": "cd2a077811314efff3035a97afe39f4db555bedbf8b9050c0ada9623a3adbac8"
+      "bytes": 3014,
+      "sha256": "635593e8a98b1cc2ddfab7c3d56de452eac300e1e5b2be4c3810435a8f0adf18"
     },
     {
       "path": "japanese/J-storycamp-reader.css",
@@ -2098,13 +2098,13 @@
     },
     {
       "path": "japanese/J-test-preppers.html",
-      "bytes": 2373,
-      "sha256": "08a75de168aa3a91b203d38e6af2f45b407394192c19b63cb8688a5558a77dbe"
+      "bytes": 2365,
+      "sha256": "81a4ff6eecb13df40ef363bcbf1553f10e50fa56c5ded9e33725d4e615acf4fc"
     },
     {
       "path": "japanese/J-vocal-camp.html",
-      "bytes": 4616,
-      "sha256": "c2f879bd907ff2995015327f0354065d2a5909791f16f82e75abf746f696a951"
+      "bytes": 4608,
+      "sha256": "d40be7fc8a3aeb7d1cd987c106595c4b8e69741c71820c2f0a6d2f8b20174d7f"
     },
     {
       "path": "japanese/J-vocal-v1.html",
@@ -2428,8 +2428,8 @@
     },
     {
       "path": "K-korean-audio-library.html",
-      "bytes": 7720,
-      "sha256": "35c7b11f64d3b37d24c55315fb2a861a8b02dd3d6587de6389868542419a2b5a"
+      "bytes": 7712,
+      "sha256": "65281ccfed4b8dddae22f916b679fc9e1fc57eaf367e404a133851421c2b8216"
     },
     {
       "path": "K-korean-audio-player.html",
@@ -2443,8 +2443,8 @@
     },
     {
       "path": "K-korean-learning.html",
-      "bytes": 17359,
-      "sha256": "5569f5075865196600bb57e412a6fccc6f6390cb49c3e99972f19fea5e86374b"
+      "bytes": 17351,
+      "sha256": "3b8963f538c883af33c5a9bf77faf0ebc89f89314a47106cd3f44d9408fce465"
     },
     {
       "path": "K-korean-readable-chapter.html",
@@ -2458,8 +2458,8 @@
     },
     {
       "path": "K-korean-readable.html",
-      "bytes": 4721,
-      "sha256": "8f4e61835f32dac4b04144984c3fb32f048382e6de3b33eedb6b9dd2a7452b91"
+      "bytes": 4713,
+      "sha256": "71bfb7a8e506a1a2ac9e55d54a61f712bb01ce498129580d0bbaed72c6681ade"
     },
     {
       "path": "K-korean-starter.html",
@@ -2468,18 +2468,18 @@
     },
     {
       "path": "K-korean-story-camp.html",
-      "bytes": 2782,
-      "sha256": "a39a67d00ef4dee2fb04b7384606134e9732b5320837ed7ba469a35c896971df"
+      "bytes": 2774,
+      "sha256": "c72dd33b7f7785d79e415999143a0b8cb3987da01785060f62acd89f8dbb3d39"
     },
     {
       "path": "K-korean-vocal-camp.html",
-      "bytes": 2772,
-      "sha256": "7d09f48054f4c6a7c6897175a8c8c50f4900cab5461cfaa082402079d7f11b4c"
+      "bytes": 2764,
+      "sha256": "a0a0efa12a3dc6f27b80313b216ed45c3cf2822d52ce612dabdee1d8c1162d8d"
     },
     {
       "path": "K-korean.html",
-      "bytes": 8501,
-      "sha256": "00fa714113291c6675ad21ecc285d94cd7680c149e32ef8011c36f4a9e9079bf"
+      "bytes": 8493,
+      "sha256": "2418d2ce38af1565d2599f781205ac6ca8c332c399b0347cecf468a7a39f7ffa"
     },
     {
       "path": "korean-audio-essays.html",
@@ -2588,8 +2588,8 @@
     },
     {
       "path": "manager.html",
-      "bytes": 7673,
-      "sha256": "db34e4f9e98d6020f4cd47ce5bee357c3fdf151a07e67573d851f77c058a9f20"
+      "bytes": 7672,
+      "sha256": "90a0edd2a3b23e5e40ac04f901a326ef7647fcf76d2b79ccbbbec35b488bf4d0"
     },
     {
       "path": "manifest.webmanifest",
@@ -2603,8 +2603,8 @@
     },
     {
       "path": "meetup-map.html",
-      "bytes": 1634,
-      "sha256": "0633ace455ea711f4e67881bc55f1320f9343e04cbdf28d200ce80f60163c7ad"
+      "bytes": 1633,
+      "sha256": "af756d8c078eeebc6af54544fb2d8cf261314a87124c0a72a4ceb5e234edfa5f"
     },
     {
       "path": "meetup-map.js",
@@ -2628,8 +2628,8 @@
     },
     {
       "path": "myspace.css",
-      "bytes": 9093,
-      "sha256": "b73758123b3c913fcd2860dd0de25cbc5b10c7aff661715f0fdaebc24a7591ee"
+      "bytes": 9255,
+      "sha256": "1831a4fed8e344b120a155fc4b575fb64d9a902d599cc413cd0c470da4bd9919"
     },
     {
       "path": "native-audio-library.js",
@@ -2683,8 +2683,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3675,
-      "sha256": "981cd6f9bd4d9da4b4f30a41d42b84760fd5131578994b1eb1b2da86b15d4867"
+      "bytes": 3677,
+      "sha256": "74a5523614badd8cb12a80a3da20bbfca86d5e295c178727c18e04320108ad98"
     },
     {
       "path": "protected-library.css",
@@ -2778,8 +2778,8 @@
     },
     {
       "path": "readable.html",
-      "bytes": 4725,
-      "sha256": "229636834e47fd170ab4b93ce3e5443a09860eafa962067683a8d6d49ac597e3"
+      "bytes": 4717,
+      "sha256": "180f6a5d6908ae37b34a77a6b4243dd5ccbbb5b4c6263ef7191af618ee243657"
     },
     {
       "path": "robots.txt",
@@ -2788,8 +2788,8 @@
     },
     {
       "path": "snowballing-studio.html",
-      "bytes": 18223,
-      "sha256": "a0986a21349888816432b7d6b3e83d1444a5bc52c800b66fa6dda85fd7ab0668"
+      "bytes": 18215,
+      "sha256": "59f6f1173728690bfd694684ed704571e54c0cb52601a3bb7fccb26b14e514d3"
     },
     {
       "path": "sound-check-card.css",
@@ -2823,8 +2823,8 @@
     },
     {
       "path": "story-camp.html",
-      "bytes": 2844,
-      "sha256": "fa06115afe0bf1d630ac697931e42c1f078ae5ec08c9b084b13a3adf3579453f"
+      "bytes": 2836,
+      "sha256": "216ef0cff026c3446416c71fbf5dde5710076c3cd29fa025b15d61ef065b85ef"
     },
     {
       "path": "storycamp-family.html",
@@ -2898,8 +2898,8 @@
     },
     {
       "path": "talktag-theme.js",
-      "bytes": 17710,
-      "sha256": "c88b2a9e75732c550d51fffed1d86aa02eed294c26523e1796c7d3a77a8bdf15"
+      "bytes": 17709,
+      "sha256": "f9dd4c39658a0b76ae0b694e255b3f0082500c298a6ba09f020d798fc764beb4"
     },
     {
       "path": "target-language-routing.js",
@@ -2918,8 +2918,8 @@
     },
     {
       "path": "test-preppers.html",
-      "bytes": 2672,
-      "sha256": "70751607653f017dd2cb823a403bf652f45caec3598a271589fcd09566d1cde3"
+      "bytes": 2664,
+      "sha256": "2a932c0d3e1e4424107f46fdaed7176702af7d8b4b69d24278c30a11e32d1b51"
     },
     {
       "path": "toeic/appearance.css",
@@ -2948,8 +2948,8 @@
     },
     {
       "path": "toeic/index.html",
-      "bytes": 3134,
-      "sha256": "22d49bb493114428f6c9b106be24a5ca1722c27dba0ef5eb0a6a16e2424637c0"
+      "bytes": 3126,
+      "sha256": "28a5ef6667495680466a124893f496afc1e4231d4d34d1176259d6fd895f07e6"
     },
     {
       "path": "toeic/lc-part.html",
@@ -2998,8 +2998,8 @@
     },
     {
       "path": "vocal-camp.html",
-      "bytes": 2790,
-      "sha256": "de3a9b6c0c040a4b31e9e08d04b4a41f43ec6bb447acc83e42304e9f9be76fe1"
+      "bytes": 2782,
+      "sha256": "106a4205ec6f124b89593495e1e3085529444bf6aed11c6af1421262ae324e81"
     },
     {
       "path": "vocal-stage.html",
