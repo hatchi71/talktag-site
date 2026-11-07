@@ -1568,8 +1568,8 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7478,
-      "sha256": "307eec2d23818f3194e2e31f53a6edfb52912033b39ce77f499fbe96d3e65557"
+      "bytes": 7474,
+      "sha256": "c1331e22f3ea908de58439ef29708796628663286f46d4857b5ca85d9496110f"
     },
     {
       "path": "audio-library.js",
@@ -1728,8 +1728,8 @@
     },
     {
       "path": "glr-scenes.js",
-      "bytes": 15654,
-      "sha256": "26bad1e8f6bde6593a2fd5a5ba20f3bf2e27ca915934d20279cf2bc29889fd86"
+      "bytes": 15742,
+      "sha256": "54086ebfe08d0a9da8e28e9eba3f1e8beb44d84971b68b8cabaff5a4785175f3"
     },
     {
       "path": "guided-drill.css",
@@ -1933,8 +1933,8 @@
     },
     {
       "path": "japanese/J-guided.html",
-      "bytes": 7241,
-      "sha256": "be8c6620a844850289307993c733fbcaa357f5bdfec305d54cd835c3f846522f"
+      "bytes": 7240,
+      "sha256": "858c36cb05f02d471adc336fca6bf203ccfc29b7ee245f3f7c89169206d43538"
     },
     {
       "path": "japanese/J-index.html",
@@ -2428,8 +2428,8 @@
     },
     {
       "path": "K-korean-audio-library.html",
-      "bytes": 7724,
-      "sha256": "4cf5682a0c6135c8af27a9799fe33cbff929d8b72a8c38e54380faea5748b1a4"
+      "bytes": 7720,
+      "sha256": "78e4b149c9b98e1cfa95932dc74c9b6256e799eab23b81407a5458cd5fbddb9c"
     },
     {
       "path": "K-korean-audio-player.html",

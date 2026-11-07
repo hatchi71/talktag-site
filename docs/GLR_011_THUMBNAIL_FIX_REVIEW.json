@@ -1,0 +1,16 @@
+{
+  "baselineCommit": "bf9483c66d3b0d8301ad8df74e3a1b1baa3bd3c6",
+  "publicFiles": 604,
+  "changedPublicFiles": [
+    "audio-library.html",
+    "japanese/J-guided.html",
+    "glr-scenes.js",
+    "K-korean-audio-library.html"
+  ],
+  "addedPublicFiles": [],
+  "removedPublicFiles": [],
+  "draftKoreanMediaIncluded": false,
+  "testResult": "63/63 pass",
+  "distMatchesReviewedPublic": true,
+  "scope": "Collection thumbnail fallback plus cache-key changes only; no card content, audio, access, account or feed-order changes."
+}

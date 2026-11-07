@@ -138,7 +138,7 @@
     const native = /^(?:ko|ja)-guided-(a1|a2|b1|b2|c1|c2)-001(?:-part\d+)?$/.exec(id || '');
     const lesson = (window.TalkTagAudioLessons || []).find(item => item.id === id);
     if (lesson?.format === 'level0') return; // Level 0 uses a picture-led cover on its cards and player.
-    const description = lesson?.scene || (native ? nativeScenes[native[1]] : scenes[baseId]);
+    const description = lesson?.scene || (native ? nativeScenes[native[1]] : scenes[baseId]) || (lesson?.artwork ? (lesson.artworkAlt || lesson.description || lesson.title) : null);
     if (!title || !description || title.parentElement.classList.contains('glr-scene-title')) return;
     const header = document.createElement('div');
     header.className = 'glr-scene-title' + (player ? ' glr-scene-player' : '');
