@@ -4,9 +4,13 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 const groups=JSON.parse(fs.readFileSync('content-release-groups.json','utf8'));
-const context={window:{},location:{pathname:'/E-english.html'}};
-vm.runInNewContext(fs.readFileSync('public/catalog-metadata.js','utf8'),context);
-const cards=new Map(context.window.TalkTagAudioLessons.map(c=>[c.id,c]));
+const source=fs.readFileSync('public/catalog-metadata.js','utf8');
+const cards=new Map();
+for(const pathname of ['/E-english.html','/K-korean.html','/japanese/J-index.html']){
+ const context={window:{},location:{pathname}};
+ vm.runInNewContext(source,context);
+ for(const card of context.window.TalkTagAudioLessons)cards.set(card.id,card);
+}
 const ids=new Set();
 for(const g of groups){
  assert(g.id&&!ids.has(g.id),'Duplicate release group');ids.add(g.id);

@@ -2,6 +2,43 @@
   "version": 1,
   "items": [
     {
+      "id": "guided:ko:a1-a2:011-020",
+      "language": "ko",
+      "status": "published",
+      "title": "Korean Guided L&R · A1/A2 · 011–020",
+      "href": "K-korean-audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2"
+      ],
+      "description": "Twenty practical Korean conversations, mirrored with English 011–020, with six additional meaning languages.",
+      "publishedAt": "2026-11-07T12:35:06.466127+00:00",
+      "cardIds": [
+        "ko-guided-a2-011",
+        "ko-guided-a1-012",
+        "ko-guided-a2-012",
+        "ko-guided-a1-013",
+        "ko-guided-a1-014",
+        "ko-guided-a1-015",
+        "ko-guided-a2-013",
+        "ko-guided-a2-014",
+        "ko-guided-a2-015",
+        "ko-guided-a1-016",
+        "ko-guided-a1-017",
+        "ko-guided-a1-018",
+        "ko-guided-a1-019",
+        "ko-guided-a1-020",
+        "ko-guided-a2-016",
+        "ko-guided-a2-017",
+        "ko-guided-a2-018",
+        "ko-guided-a2-018-p2",
+        "ko-guided-a2-019",
+        "ko-guided-a2-019-p2",
+        "ko-guided-a2-020",
+        "ko-guided-a1-011"
+      ]
+    },
+    {
       "id": "guided:en:a1-a2:031-040",
       "language": "en",
       "status": "published",
