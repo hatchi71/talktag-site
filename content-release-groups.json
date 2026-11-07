@@ -719,5 +719,27 @@
       "guided-a2-19",
       "guided-a2-20"
     ]
+  },
+  {
+    "id": "guided:en:a1-a2:021-023",
+    "language": "en",
+    "status": "published",
+    "title": "영어 듣고 따라 말하기 · A1/A2 · 021–023",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2"
+    ],
+    "description": "공 받기, 신발 끈 묶기, 춤 동작 등 몸과 움직임을 말하는 대화 6편를 듣고 따라 해 보세요.",
+    "publishedAt": "2026-11-07T07:27:07.135095+00:00",
+    "cardIds": [
+      "guided-a1-21",
+      "guided-a1-22",
+      "guided-a1-23",
+      "guided-a2-21",
+      "guided-a2-22",
+      "guided-a2-22-p2",
+      "guided-a2-23"
+    ]
   }
 ]
