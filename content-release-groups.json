@@ -694,5 +694,30 @@
       "guided-a2-14",
       "guided-a2-15"
     ]
+  },
+  {
+    "id": "guided:en:a1-a2:016-020",
+    "language": "en",
+    "status": "published",
+    "title": "영어 듣고 따라 말하기 · A1/A2 · 016–020",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2"
+    ],
+    "description": "수건 개기, 설거지, 도시락 준비 등 일상에서 바로 쓰는 대화 10개를 듣고 따라 해 보세요.",
+    "publishedAt": "2026-11-07T04:45:31.077988+00:00",
+    "cardIds": [
+      "guided-a1-16",
+      "guided-a1-17",
+      "guided-a1-18",
+      "guided-a1-19",
+      "guided-a1-20",
+      "guided-a2-16",
+      "guided-a2-17",
+      "guided-a2-18",
+      "guided-a2-19",
+      "guided-a2-20"
+    ]
   }
 ]

@@ -1,0 +1,27 @@
+{
+  "batch": "English GLR A1/A2 016–020",
+  "date": "2026-11-07",
+  "status": "PUBLISHED",
+  "productionPercent": 100,
+  "humanAudioReview": "APPROVED by EJ in chat",
+  "deployment": "https://dbe60723.talktag-app-preview.pages.dev",
+  "cards": [
+    "guided-a1-16",
+    "guided-a1-17",
+    "guided-a1-18",
+    "guided-a1-19",
+    "guided-a1-20",
+    "guided-a2-16",
+    "guided-a2-17",
+    "guided-a2-18",
+    "guided-a2-19",
+    "guided-a2-20"
+  ],
+  "r2": "All ten uploads read back with matching SHA256",
+  "registry": "Verified A1 five cards and A2 five cards, ordinals16–20",
+  "liveStatic": "Catalog, home notice and ten picture SHA256 verified",
+  "audioQC": "Ten cards pass duration,10 repetitions,600 timed cues,bilingual coverage,dings,speech and program loudness,peak and format checks",
+  "liveBrowser": "A2 020 playback advanced to sentence2/repetition7; bilingual script displayed. A1 016 loaded picture and04:16 audio metadata.",
+  "tests": "12 targeted checks passed",
+  "limitations": "No new full mobile visual sweep performed this release; existing player template unchanged. Technical QC is distinct from user listening approval."
+}

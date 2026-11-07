@@ -387,6 +387,31 @@
       "sha256": "427d3a595da5110286975abefbfeb74c0ef6f0d3978be2291d23aec303696e37"
     },
     {
+      "path": "assets/glr-scenes/en/a1-016-daily-v1.jpg",
+      "bytes": 369837,
+      "sha256": "3d66e29153c05727fea4347bc859994700f1152cfa35016f9316c2ca4b8faef8"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-017-daily-v1.jpg",
+      "bytes": 347081,
+      "sha256": "6a0ea0f57314629ed0eab93ce6140f16a529af2d849072c47c335f844c296e2e"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-018-daily-v1.jpg",
+      "bytes": 350941,
+      "sha256": "539c7f0a1ec1c5494756838b043912abe1ec56116208dfde371ef8ff26bbacd5"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-019-daily-v1.jpg",
+      "bytes": 361002,
+      "sha256": "e594d81f1fd3905cfee1ebcbeb3c2cc415d8a7353e4f9f410e83988cc347b6b1"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-020-daily-v1.jpg",
+      "bytes": 329362,
+      "sha256": "fdf7ad6434f1252d44e6d2e3cb30d35175f9d8d262a04416a8586c9bc812cfcb"
+    },
+    {
       "path": "assets/glr-scenes/en/a2-013-daily-v1.jpg",
       "bytes": 862591,
       "sha256": "b681dff1da8ffa13f245120d2d906afb7e9c7129ef86d2e8c2c2784ef5e5ba0d"
@@ -400,6 +425,31 @@
       "path": "assets/glr-scenes/en/a2-015-daily-v1.jpg",
       "bytes": 866005,
       "sha256": "84961e71221b23ed43234912f85cb3c87b780a42ae59a4cca54113fde72f53fb"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-016-daily-v1.jpg",
+      "bytes": 362250,
+      "sha256": "854cc3873bdd19ae7f86f2cfae92777abbdde3c60fc5c10dca600eaf0922e02c"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-017-daily-v1.jpg",
+      "bytes": 334876,
+      "sha256": "6681128a006b099f7b76a3debafdeb44f7b14c6b334458fc886cc7bd0bc768b3"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-018-daily-v1.jpg",
+      "bytes": 347268,
+      "sha256": "05b6e01e0db67e63da387b41f1f451db11e2697a74513e40a4285add0b586024"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-019-daily-v1.jpg",
+      "bytes": 354893,
+      "sha256": "95b1cd38560240e28964367656431abaf63ca6614bfa5a8f399ae2677c7546f2"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-020-daily-v1.jpg",
+      "bytes": 314140,
+      "sha256": "3cd4768423a075ab5d0c3f9e020e09189b578b46b618fbacd2d9b8cb18178ccd"
     },
     {
       "path": "assets/glr-scenes/guided-a1-01.webp",
@@ -1389,7 +1439,7 @@
     {
       "path": "audio-library.html",
       "bytes": 7478,
-      "sha256": "7049269287fe306aafbe7e2f209cedf31ef649bf35d7135a5ca3f1967f2338b1"
+      "sha256": "f8875463bea48eb592ad86ca3e21825b56a309a0687786f27662af469849d080"
     },
     {
       "path": "audio-library.js",
@@ -1483,8 +1533,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 243112,
-      "sha256": "5db971228f41abea4659ca258d2f633cd8f4d3b65609762278b9a62cbe2db2e2"
+      "bytes": 250350,
+      "sha256": "9ea1eed97704a25639e4b3b1c499785649847c720ad4f13dca75f577e209cf7d"
     },
     {
       "path": "content-clarity.css",
@@ -1509,7 +1559,7 @@
     {
       "path": "E-english.html",
       "bytes": 32994,
-      "sha256": "b5173f835dcebb9ed5ed680fe4169e48c5bef74485898e298148b3297a68d15b"
+      "sha256": "325e4481579e724077e40b6bac7aa612180b51f4dfeb5301af58c9783d8de856"
     },
     {
       "path": "essay-artwork.css",
@@ -1573,8 +1623,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 19103,
-      "sha256": "2a28492883e0c9c1ac4be4f3be6d8facb40d446faec76cf47c240e411e658b65"
+      "bytes": 19847,
+      "sha256": "363459b8369b7adb047c7bf074ec0bcb9e67e070bf52ebe7fdab184042e7048e"
     },
     {
       "path": "home-news-updates.css",
@@ -1754,7 +1804,7 @@
     {
       "path": "japanese/J-guided.html",
       "bytes": 7241,
-      "sha256": "69b999fdbfee56a8c20753c4cfae067941c02d084498f6a8c14f5f1f3274fcb2"
+      "sha256": "0e3c3b9b1394b3904f3e2fd9c4241a7091f526ab466d320541e97dd6cc8e7288"
     },
     {
       "path": "japanese/J-index.html",
@@ -1824,7 +1874,7 @@
     {
       "path": "japanese/J-myspace.html",
       "bytes": 2600,
-      "sha256": "a08c1826fb38a76920bf703dddfdcdc0adbd51090bd1076b189c5b793670d3ef"
+      "sha256": "a0189213cd72f51110dace3caf1c66a0122c131ec7fc44c4cdbe719da6305ca0"
     },
     {
       "path": "japanese/J-readable-a1.html",
@@ -1899,7 +1949,7 @@
     {
       "path": "japanese/J-story-camp.html",
       "bytes": 3022,
-      "sha256": "dbf6e38c9efc7212671a2ee65410c854ff55971599c24236133462902616badf"
+      "sha256": "e876dec6f98d6a4de81673f19750f38215b5907b9babbbd2d512b3431cbf53a3"
     },
     {
       "path": "japanese/J-storycamp-reader.css",
@@ -1924,7 +1974,7 @@
     {
       "path": "japanese/J-vocal-camp.html",
       "bytes": 4616,
-      "sha256": "22d63245b82372bd3040eeb59248e3bda1072975e10d6eb1ae4108bb037c280a"
+      "sha256": "c0504f90d409c3e1285cfc5b9e1dbf4cd6a49a8b262e69ce6451c4fa5bd33d37"
     },
     {
       "path": "japanese/J-vocal-v1.html",
@@ -2249,7 +2299,7 @@
     {
       "path": "K-korean-audio-library.html",
       "bytes": 7724,
-      "sha256": "15deb9e80ad31897c92d5a3b2a2e24c09c2f9bf7e1907ef0f06ea9a3ec87dc2c"
+      "sha256": "2f83f12cdaa8fd1030e4915da2037f2829b6bce47e7dbe49a736dc642dffa30d"
     },
     {
       "path": "K-korean-audio-player.html",
@@ -2279,7 +2329,7 @@
     {
       "path": "K-korean-readable.html",
       "bytes": 4721,
-      "sha256": "a3769ec597e871252850f0bbece396458083809a21d785b1a8ca2b73a729e6f8"
+      "sha256": "c182321328e12498f726392e93cca600e362ca44850f6a248976a9d95801c013"
     },
     {
       "path": "K-korean-starter.html",
@@ -2289,17 +2339,17 @@
     {
       "path": "K-korean-story-camp.html",
       "bytes": 2782,
-      "sha256": "9611aade7386aea54b4dee3375228344e5af3194b2edf27054e83b709e346883"
+      "sha256": "5bd4eff51650df2ebb3b71da2fa7627054dd2c57362664c89eb75201beab5dd7"
     },
     {
       "path": "K-korean-vocal-camp.html",
       "bytes": 2772,
-      "sha256": "ba175454f7a6416bd76cfbed9e341a5453d28751abbfd414359ba41486b9e234"
+      "sha256": "90de531f6eb811165062fcb6fad100f748d695b0bbd5b4777ffc2e61bd7d85d8"
     },
     {
       "path": "K-korean.html",
       "bytes": 8501,
-      "sha256": "a8c648ec1d23c745d8df28dff3b7039755adf15474f5238b35fd9421eb9357d2"
+      "sha256": "5fb823fa2177fcd85da704de41371f887db69ac81a6b8493d42daf93667e7c59"
     },
     {
       "path": "korean-audio-essays.html",
@@ -2504,7 +2554,7 @@
     {
       "path": "protected-card.html",
       "bytes": 3674,
-      "sha256": "f7b8600eef3164f25b5c8252738c481e324bddc9e19f69b87c985ba6acddef4a"
+      "sha256": "3c29b1edfe96d2589d3b0b5ff14efe50ad032b804b5fae1d0d043bd28c15f1a5"
     },
     {
       "path": "protected-library.css",
@@ -2599,7 +2649,7 @@
     {
       "path": "readable.html",
       "bytes": 4725,
-      "sha256": "ac5d84ee8b834ec077694b521e5dc773d6f56ed98f8389d97bd8499f8bcb9003"
+      "sha256": "7bfb021bbee2040c08371978512e6b5c9057dbbd99cccba3942bfe1e2ee7a6e7"
     },
     {
       "path": "robots.txt",
@@ -2644,7 +2694,7 @@
     {
       "path": "story-camp.html",
       "bytes": 2844,
-      "sha256": "3fb7eab3b9f4b1f6d66c9d068005b93adbdb987a031825651e382c8793be1d60"
+      "sha256": "42718627010c772e2b6c0ceaf59f526942ac6ff1e917859667c6c35d705d516a"
     },
     {
       "path": "storycamp-family.html",
@@ -2819,7 +2869,7 @@
     {
       "path": "vocal-camp.html",
       "bytes": 2790,
-      "sha256": "b46c1ebfac59fc58e5494a83f45e6e1428dc8d897e866b5ac2f63544d4633042"
+      "sha256": "b74224dee145537c50fe51215e160a7ffc2a9d2f848b9ae2fab30ad8db4712e2"
     },
     {
       "path": "vocal-stage.html",
