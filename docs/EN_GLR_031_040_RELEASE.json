@@ -1,0 +1,157 @@
+{
+  "status": "PUBLISHED",
+  "date": "2026-11-07",
+  "approval": "good to go — approved 031–040 local review",
+  "episodes": 20,
+  "audioParts": 20,
+  "deployment": "https://618bdcc8.talktag-app-preview.pages.dev",
+  "liveSite": "https://talktag.co.kr",
+  "technicalQC": "PASS",
+  "repositoryTests": "62/62 PASS",
+  "r2Integrity": "20 local/read-back SHA-256 matches",
+  "liveAssets": "Catalog, notice and all 20 image hashes match",
+  "protectedPlayers": "20/20 loaded with no audio errors; signed-in A1 031 and A2 040 playback verified; visitor access denied",
+  "protectedFullDownload": "External checksum downloads blocked by transport (403/reset); browser streamed playback and metadata verified, no full-stream checksum pass claimed",
+  "inventory": [
+    {
+      "id": "guided-a1-31",
+      "key": "English/guided/SC-GLR-031-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5735469,
+      "sha256": "882d48974a5f35897d84cce7ea64e8597ce321a4675281e1369d4363e151910f",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-32",
+      "key": "English/guided/SC-GLR-032-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5437485,
+      "sha256": "73725363bcdd4fd24086cee9466804ec82a720e2752e4ad1e4ad1e56a09948d4",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-33",
+      "key": "English/guided/SC-GLR-033-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5973933,
+      "sha256": "beabe692bc2eb76f9fcddb7a6448e2377f4ef0eb7d4fe88662028129a5d4b3ce",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-34",
+      "key": "English/guided/SC-GLR-034-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5312685,
+      "sha256": "653bbaecd0bb8b5bc4d0afdca74382b75ecf2a331b222039e5b86a07bc62ce6f",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-35",
+      "key": "English/guided/SC-GLR-035-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5312301,
+      "sha256": "8ae2fd866d36f7883219e4aa9ae4506656e021fe755919f6e9f35fec5ddb6094",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-36",
+      "key": "English/guided/SC-GLR-036-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5523117,
+      "sha256": "d3dd972c7ec7aa8404316a7a614988fabefde6cde610616e3ecafe65f0e82597",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-37",
+      "key": "English/guided/SC-GLR-037-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 4979373,
+      "sha256": "cbeffc20cdf72fcf2ffe90bd5ccee519e78f187d23c5579ef1b6a0eea3a803d6",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-38",
+      "key": "English/guided/SC-GLR-038-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5902509,
+      "sha256": "0230186ae4bfa0ecd32274ce5cfb0d5b76f470660da1b1e664635f860932f3b1",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-39",
+      "key": "English/guided/SC-GLR-039-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5375277,
+      "sha256": "f9405eb0c6108974f3d2bc53643f780a37f4610dd624f5d5b468f7efee1b29cb",
+      "verified": true
+    },
+    {
+      "id": "guided-a1-40",
+      "key": "English/guided/SC-GLR-040-A1-US-Adam-Jessica-v1.mp3",
+      "bytes": 5634861,
+      "sha256": "d6349429535f535c8ea85865b4620ceaf1f4e6cee94347f01890e5c7359055ee",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-31",
+      "key": "English/guided/SC-GLR-031-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 7388205,
+      "sha256": "48ba9aa3e8c1192ba6b593e764647603ef48449ef43199857cd264d0e86ab07c",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-32",
+      "key": "English/guided/SC-GLR-032-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 7410861,
+      "sha256": "1e6c56cb219dfef3137c3b0a4a20055de10baf46588d2124ae39f360c920e701",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-33",
+      "key": "English/guided/SC-GLR-033-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 7779885,
+      "sha256": "e9baf336a7542bdb5c67e29c54f36fc51b646608c9d846ed2451e55c56c0f6d1",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-34",
+      "key": "English/guided/SC-GLR-034-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 7342509,
+      "sha256": "c9af6bbda6f2d548fe3d52479f6559061ad56d9b93776857f5566776273768da",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-35",
+      "key": "English/guided/SC-GLR-035-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 7478829,
+      "sha256": "b71c5c3a78421ce533e0d251f4a511da4de6095bb3967738da51300156c16c8d",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-36",
+      "key": "English/guided/SC-GLR-036-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 7882413,
+      "sha256": "9d7aadb16a29640eca4a7671c18c8b962efbd2554fab38479d6ed34903f386ec",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-37",
+      "key": "English/guided/SC-GLR-037-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 7876653,
+      "sha256": "8450eedbd976073052f5c29210b7ef59aec03f8125e696b9a284a21c8d44415b",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-38",
+      "key": "English/guided/SC-GLR-038-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 6763437,
+      "sha256": "2f787229b7d5c7ef5da7785580323a35bb56451f6e33ba60ea53defcaeaeee31",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-39",
+      "key": "English/guided/SC-GLR-039-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 7342509,
+      "sha256": "bcac2ff2b844b1892840d35e5d8d8df370efa7ad34e0646306217284b205d991",
+      "verified": true
+    },
+    {
+      "id": "guided-a2-40",
+      "key": "English/guided/SC-GLR-040-A2-US-Adam-Jessica-v1.mp3",
+      "bytes": 8325165,
+      "sha256": "302f34296bb7b664a9970457c3b04d01f52e4b100ce692c2a760df4f7ce0a91a",
+      "verified": true
+    }
+  ]
+}

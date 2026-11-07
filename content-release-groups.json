@@ -741,5 +741,40 @@
       "guided-a2-22-p2",
       "guided-a2-23"
     ]
+  },
+  {
+    "id": "guided:en:a1-a2:031-040",
+    "language": "en",
+    "status": "published",
+    "title": "영어 듣고 따라 말하기 · A1/A2 · 031–040",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2"
+    ],
+    "description": "옷 입기와 음식 준비 등 일상 행동을 말하는 A1/A2 대화 20편을 듣고 따라 해 보세요.",
+    "publishedAt": "2026-11-07T08:34:22.133399+00:00",
+    "cardIds": [
+      "guided-a1-31",
+      "guided-a1-32",
+      "guided-a1-33",
+      "guided-a1-34",
+      "guided-a1-35",
+      "guided-a1-36",
+      "guided-a1-37",
+      "guided-a1-38",
+      "guided-a1-39",
+      "guided-a1-40",
+      "guided-a2-31",
+      "guided-a2-32",
+      "guided-a2-33",
+      "guided-a2-34",
+      "guided-a2-35",
+      "guided-a2-36",
+      "guided-a2-37",
+      "guided-a2-38",
+      "guided-a2-39",
+      "guided-a2-40"
+    ]
   }
 ]

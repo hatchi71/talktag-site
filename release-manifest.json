@@ -427,6 +427,56 @@
       "sha256": "2ddb1f132732c36c343adb5d2bc5056431444b44d8e7c732856ec2e5b63f830f"
     },
     {
+      "path": "assets/glr-scenes/en/a1-031-daily-action-v1.jpg",
+      "bytes": 335041,
+      "sha256": "e56659c74c1cbeda354bd254aaf55ae1a7fa81e5b6dd2197014b85b2e1fc1893"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-032-daily-action-v1.jpg",
+      "bytes": 373416,
+      "sha256": "89b01fa6758db4699d911680b27514a66d63b506a75676c23a78c0c4261df877"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-033-daily-action-v1.jpg",
+      "bytes": 337671,
+      "sha256": "0e98f6201ed1fcc7bd52c7a15b0d81b74eaec9960e1f6d2260ee865b14b8f12b"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-034-daily-action-v1.jpg",
+      "bytes": 375807,
+      "sha256": "dd67ad2f25627fb19ed9173a42f322bb63e6a40db9124a6628d6e8f0bd816fe9"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-035-daily-action-v1.jpg",
+      "bytes": 417260,
+      "sha256": "ae8525da206567414b9466cab516e2d6006b73a9a871283cf562bb4dbb7e7bee"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-036-daily-action-v1.jpg",
+      "bytes": 374720,
+      "sha256": "6e7f076c88608d7f457d86588f35c4f26b404118af457de7c12e3af44355bd7d"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-037-daily-action-v1.jpg",
+      "bytes": 345294,
+      "sha256": "2073644e4497a6c2f546c4f9f0bc0b6c8426afd1662b156bb5a2b28129b4374e"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-038-daily-action-v1.jpg",
+      "bytes": 371397,
+      "sha256": "96537e46169db9d8afb6e6df99eb73a0191714747a99dce3826393dd8b23b4b0"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-039-daily-action-v1.jpg",
+      "bytes": 370244,
+      "sha256": "7549377581f82533f6d455f9b861d30a7548fed729430d3a841ad92c33d1642c"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-040-daily-action-v1.jpg",
+      "bytes": 399683,
+      "sha256": "8f35b22196202331971c2929eb01dfaf370a8490ee90d1e2b15b027e9fe82e83"
+    },
+    {
       "path": "assets/glr-scenes/en/a2-013-daily-v1.jpg",
       "bytes": 862591,
       "sha256": "b681dff1da8ffa13f245120d2d906afb7e9c7129ef86d2e8c2c2784ef5e5ba0d"
@@ -480,6 +530,56 @@
       "path": "assets/glr-scenes/en/a2-023-movement-v1.jpg",
       "bytes": 372344,
       "sha256": "e03f2c3d5552b261fbcefa02e524a18dec8b5cd3f7978967f206c248f971a7c2"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-031-daily-action-v1.jpg",
+      "bytes": 377182,
+      "sha256": "c0a20f23b9c932eb5f81c92c812e217d7ac1160afb56e0a8ae94ab811fe90ad9"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-032-daily-action-v1.jpg",
+      "bytes": 392632,
+      "sha256": "d7eb50578d6a7f5918f897daadc6bb1c15760e4b3d5b7ad7b8bd286be44bac0b"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-033-daily-action-v1.jpg",
+      "bytes": 352826,
+      "sha256": "78e51b82e2c4701878f237ba8b0c7e83e79f845ad6b962ecccd46eea5ffef59e"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-034-daily-action-v1.jpg",
+      "bytes": 373996,
+      "sha256": "fafd17ef27873a00514ba6c610e17bdbebdabdba7c0392db1715aee33ad4d2ee"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-035-daily-action-v1.jpg",
+      "bytes": 445522,
+      "sha256": "463efed72b6f2816958e37d96b93ab94d51c7340aed045162aa3999b3bf8eecf"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-036-daily-action-v1.jpg",
+      "bytes": 336626,
+      "sha256": "b728fd150ea4540afe96fa1b6d105d66bb599149b2bcf87db1cf95f2123324e3"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-037-daily-action-v1.jpg",
+      "bytes": 353841,
+      "sha256": "c4fe641e2ddab81ac71b74e7f967c1f3ed6a623f04b864c68ea6747bf05614ef"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-038-daily-action-v1.jpg",
+      "bytes": 401944,
+      "sha256": "492f3b65f04eee448cfd30c49498ac1f914608d6cc4941666cf9bf9fc6681ee3"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-039-daily-action-v1.jpg",
+      "bytes": 388199,
+      "sha256": "70413f84b7ad6eb3333cfa43a25155d80494e5493e591cb720988fa3ef85bf1f"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-040-daily-action-v1.jpg",
+      "bytes": 380667,
+      "sha256": "bbb5db0bbd121a0172a61c74cdf32467e0f7a9bf735ca539b6eff6e56574f29c"
     },
     {
       "path": "assets/glr-scenes/guided-a1-01.webp",
@@ -1469,7 +1569,7 @@
     {
       "path": "audio-library.html",
       "bytes": 7478,
-      "sha256": "94193dae302113be4a38de24f9583dba86f4ba98d43a43979442f4356d58065f"
+      "sha256": "307eec2d23818f3194e2e31f53a6edfb52912033b39ce77f499fbe96d3e65557"
     },
     {
       "path": "audio-library.js",
@@ -1563,8 +1663,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 256215,
-      "sha256": "e37d791b66f99ad4f4d9f8ae39285f5ff052870959e17fd70ad7f8096c6757ae"
+      "bytes": 271459,
+      "sha256": "af7f107fc5335fcd05e35eefa0b787d5f98a42edd43acbc4d2932407788aaf6a"
     },
     {
       "path": "content-clarity.css",
@@ -1589,7 +1689,7 @@
     {
       "path": "E-english.html",
       "bytes": 32994,
-      "sha256": "595109997c03a728adb3c2d8383b717e3b38208e33bf5a8482a3fa482075548a"
+      "sha256": "443857a275ae3b6061290d858e12ea932630d37f26cbb237ad8011e18757d2aa"
     },
     {
       "path": "essay-artwork.css",
@@ -1653,8 +1753,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 20523,
-      "sha256": "29633869ef90ebd20eec73c19cf986d41ce946d5303b2b651be6b2bac8b1cd7f"
+      "bytes": 21498,
+      "sha256": "1ce507cdfd9c06629b7774b355821efa1a072749a206be3084ff5f11b07b808a"
     },
     {
       "path": "home-news-updates.css",
@@ -1834,7 +1934,7 @@
     {
       "path": "japanese/J-guided.html",
       "bytes": 7241,
-      "sha256": "f373f62317db2ba31bd8626eb9352d4b2f6735e40de0eb89fa4654eb0ebf55b5"
+      "sha256": "be8c6620a844850289307993c733fbcaa357f5bdfec305d54cd835c3f846522f"
     },
     {
       "path": "japanese/J-index.html",
@@ -1904,7 +2004,7 @@
     {
       "path": "japanese/J-myspace.html",
       "bytes": 2600,
-      "sha256": "5848ceb5d127e85d4bae2d97fede0cc8b82fbb007e2db1cb131a580af1516b80"
+      "sha256": "c304f6e4e099d89e353c6eb0ee12a4e5c35afc8a9ca3e74b52edddb5631f570b"
     },
     {
       "path": "japanese/J-readable-a1.html",
@@ -1979,7 +2079,7 @@
     {
       "path": "japanese/J-story-camp.html",
       "bytes": 3022,
-      "sha256": "e9a02cd2b5597c3136ef6c0b12bdcd701e703d6c6dfbb3be1c40c4399882e6bb"
+      "sha256": "0f13e8a34ce3474e158b3d2985350ad056f865a1f28a4adfb1ef8936d2568ef1"
     },
     {
       "path": "japanese/J-storycamp-reader.css",
@@ -2004,7 +2104,7 @@
     {
       "path": "japanese/J-vocal-camp.html",
       "bytes": 4616,
-      "sha256": "5d62c3eca3d99db5e27643c318b854f053c363c4e4e899f77ba4b9da1cf008e6"
+      "sha256": "1615976aa841088b9e052672479ca36a50e0882b81164f5f43875695e5522cca"
     },
     {
       "path": "japanese/J-vocal-v1.html",
@@ -2329,7 +2429,7 @@
     {
       "path": "K-korean-audio-library.html",
       "bytes": 7724,
-      "sha256": "eb2b7b5d4da1884aeae4c6fd8d1094de21757c1cb9b15f928836fb13e5a62b15"
+      "sha256": "4cf5682a0c6135c8af27a9799fe33cbff929d8b72a8c38e54380faea5748b1a4"
     },
     {
       "path": "K-korean-audio-player.html",
@@ -2359,7 +2459,7 @@
     {
       "path": "K-korean-readable.html",
       "bytes": 4721,
-      "sha256": "5f5d4b9c1dc0be42514e0f80908e55781d5e7256975fd68521232d5315f45aab"
+      "sha256": "e0b87ced302ae9d7fba4baf1415ab3af5adeb3ff5b6da6875f8c27f9d526b431"
     },
     {
       "path": "K-korean-starter.html",
@@ -2369,17 +2469,17 @@
     {
       "path": "K-korean-story-camp.html",
       "bytes": 2782,
-      "sha256": "0f355870d64cda7294ccd9a486a0077721f3a32bdf232feb69278878057f085b"
+      "sha256": "c5703221c3bbfb3148574f8777a757db9e73735945cac6dff75d2f2644bc7e14"
     },
     {
       "path": "K-korean-vocal-camp.html",
       "bytes": 2772,
-      "sha256": "47fd0024c95c75cc385a5f877680ae9405b2f089f03c9d08a07277a47bd2af73"
+      "sha256": "34e8eb0719e65b21fe5489fd64cc76a6e6823b6ea85267495e45664a881862b0"
     },
     {
       "path": "K-korean.html",
       "bytes": 8501,
-      "sha256": "53ee20b435ecb4a99efb5f0b02175fb81243a4828f223f960c18ee9315899719"
+      "sha256": "9c50b8af054677ab93b422093cf5fca371ef9a9aa6c64ae8105f5b112a70334e"
     },
     {
       "path": "korean-audio-essays.html",
@@ -2584,7 +2684,7 @@
     {
       "path": "protected-card.html",
       "bytes": 3674,
-      "sha256": "10c45a15910781c208bab14e2908d738ff9391f5d50b0c45ad1ae1d5cad13611"
+      "sha256": "9b124427fe0dca7985c8cdebd02726c8b3657e0f93fa12e9c6bc8a85daee96f9"
     },
     {
       "path": "protected-library.css",
@@ -2679,7 +2779,7 @@
     {
       "path": "readable.html",
       "bytes": 4725,
-      "sha256": "3f09e9499238ac17626cadbf28be4215fe124fd5f078d23bddd6c97e3523d9a2"
+      "sha256": "734c6d51db5b6b0a8ea5c12fe531eb1839b42f0e15494cbb7be443b65e76ef6c"
     },
     {
       "path": "robots.txt",
@@ -2724,7 +2824,7 @@
     {
       "path": "story-camp.html",
       "bytes": 2844,
-      "sha256": "d5062306f49e5c90f0c3faf1496819ae6569b7ed2f17275215a9a210f0d39e26"
+      "sha256": "80811b9a1557ec16b0e1d4e1dfbcc3aa955e6ebfc41ec7fb7583bd8e88ee1b46"
     },
     {
       "path": "storycamp-family.html",
@@ -2899,7 +2999,7 @@
     {
       "path": "vocal-camp.html",
       "bytes": 2790,
-      "sha256": "86bae34be361a38b5a21c5cdc89130a468313015feb1ce76fc2c78b5b30ea3b9"
+      "sha256": "ff1a7ce86e228b08391dfdc99f106245fc6b9dfa7d29fab4784f444b84d52f12"
     },
     {
       "path": "vocal-stage.html",

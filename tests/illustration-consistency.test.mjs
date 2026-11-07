@@ -4,8 +4,10 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 function catalog(pathname){const c={window:{},location:{pathname}};vm.runInNewContext(fs.readFileSync('public/catalog-metadata.js','utf8'),c);return c.window;}
 test('every active card has a resolvable reviewed image regardless of course pathname',()=>{
+ const expected=Object.keys(catalog('/protected-card.html').TalkTagCardTitles).sort();
+ assert.ok(expected.length>=408,'preserve the existing catalog while allowing new releases');
  for(const p of ['/protected-card.html','/K-korean-audio-library.html','/japanese/J-index.html']){
-  const w=catalog(p);assert.equal(Object.keys(w.TalkTagCardTitles).length,408);
+  const w=catalog(p);assert.deepEqual(Object.keys(w.TalkTagCardTitles).sort(),expected);
   for(const id of Object.keys(w.TalkTagCardTitles)){const art=w.TalkTagCardArtwork[id];assert.ok(art?.src,id);assert.ok(art.alt?.trim(),id);assert.ok(fs.existsSync('public/'+art.src.replace(/^\//,'')),id+': '+art.src);}
  }
 });
