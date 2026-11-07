@@ -1,0 +1,32 @@
+{
+  "batch": "English GLR A1/A2 013–015",
+  "date": "2026-11-07",
+  "status": "PUBLISHED",
+  "productionPercent": 100,
+  "publicationStatus": "DEPLOYED_AND_VERIFIED",
+  "humanAudioReview": "APPROVED",
+  "reviewUrl": "http://127.0.0.1:8809/?bright=1",
+  "folder": "/Users/eungjukim/Desktop/temp/talktag/english/glr/A1-A2/013-015-20261107",
+  "cards": [
+    "guided-a1-13",
+    "guided-a1-14",
+    "guided-a1-15",
+    "guided-a2-13",
+    "guided-a2-14",
+    "guided-a2-15"
+  ],
+  "reference": "A12 action-expression Markdown, selected verified legible English entries. OCR-damaged Korean excluded. Private proofread glossary stored in scripts/reference-proofread.md.",
+  "scriptHash": "f8e99c3efe1bfb70c439215d70fb3812998acf0d165294449a9e6c9ecacb75a5",
+  "technicalQC": "All six pass: 10 repeats per line; 360 measured speech gaps; bilingual coverage; own start/end dings; duration 258–394 seconds; final encoded and speech-only loudness −16 LUFS ±1; true peak ≤−1 dBTP; mono 48 kHz; complete decoding and SHA-256.",
+  "illustrationQC": "Six distinct scene-specific images visually reviewed; A1 014 extra plates corrected. Final image hashes in qc/script-picture-review.json.",
+  "browserQC": "12 audio sources load with finite metadata, no audio errors. Four mobile widths 360/375/390/430 no overflow; bright/dark reviewed; desktop balance. First card repetition state and script highlight observed during playback.",
+  "nextAction": "No production work remaining for this batch.",
+  "publicationPercent": 100,
+  "deployment": "https://b2359edc.talktag-app-preview.pages.dev",
+  "liveUrl": "https://talktag.co.kr/audio-library.html?type=guided",
+  "r2Verification": "Six uploads read back with identical SHA-256",
+  "registryVerification": "A1 and A2 each contain three published cards, ordinals 13–15",
+  "liveAssets": "Catalog, generated home notice, six distinct image files all SHA-256 match live domain",
+  "releaseTests": "12 targeted tests pass; guided-card validator passes six cards; 568 public files built",
+  "authorizationResolution": "Temporary local Wrangler helper used dual-address callback listener and longer receive timeout; normal OAuth authorization completed. No authentication bypass or new API token."
+}

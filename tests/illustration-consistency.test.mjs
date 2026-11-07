@@ -5,9 +5,19 @@ import vm from 'node:vm';
 function catalog(pathname){const c={window:{},location:{pathname}};vm.runInNewContext(fs.readFileSync('public/catalog-metadata.js','utf8'),c);return c.window;}
 test('every active card has a resolvable reviewed image regardless of course pathname',()=>{
  for(const p of ['/protected-card.html','/K-korean-audio-library.html','/japanese/J-index.html']){
-  const w=catalog(p);assert.equal(Object.keys(w.TalkTagCardTitles).length,385);
+  const w=catalog(p);assert.equal(Object.keys(w.TalkTagCardTitles).length,391);
   for(const id of Object.keys(w.TalkTagCardTitles)){const art=w.TalkTagCardArtwork[id];assert.ok(art?.src,id);assert.ok(art.alt?.trim(),id);assert.ok(fs.existsSync('public/'+art.src.replace(/^\//,'')),id+': '+art.src);}
  }
+});
+test('English A1/A2 013–015 each resolve their own reviewed daily-life scene',()=>{
+ const w=catalog('/audio-library.html');const scenes=new Set();
+ for(const level of ['A1','A2'])for(const episode of [13,14,15]){
+  const id=`guided-${level.toLowerCase()}-${episode}`;
+  const card=w.TalkTagAudioLessons.find(x=>x.id===id);assert.ok(card,id);
+  const expected=`/assets/glr-scenes/en/${level.toLowerCase()}-${String(episode).padStart(3,'0')}-daily-v1.jpg`;
+  assert.equal(card.artwork,expected);assert.equal(w.TalkTagCardArtwork[id].src,expected);scenes.add(expected);
+ }
+ assert.equal(scenes.size,6);
 });
 test('GLR 011 has six level-specific scenes and matching split parts',()=>{
  const w=catalog('/audio-library.html');let seen=new Set();

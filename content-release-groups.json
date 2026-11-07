@@ -673,5 +673,26 @@
       "guided-a0-019",
       "guided-a0-020"
     ]
+  },
+  {
+    "id": "guided:en:a1-a2:013-015",
+    "language": "en",
+    "status": "published",
+    "title": "영어 듣고 따라 말하기 · A1/A2 · 013–015",
+    "href": "audio-library.html?type=guided",
+    "levels": [
+      "A1",
+      "A2"
+    ],
+    "description": "장 본 물건 정리, 식탁 차리기, 화분 돌보기 등 일상에서 바로 쓰는 대화 6개를 듣고 따라 해 보세요.",
+    "publishedAt": "2026-11-07T03:23:52.794596+00:00",
+    "cardIds": [
+      "guided-a1-13",
+      "guided-a1-14",
+      "guided-a1-15",
+      "guided-a2-13",
+      "guided-a2-14",
+      "guided-a2-15"
+    ]
   }
 ]
