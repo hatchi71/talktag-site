@@ -22,6 +22,8 @@ export async function connectMemberRecords(client, userId) {
      window.dispatchEvent(new CustomEvent('talktag:completion-change', {detail:{id,completed:done}}));
    }
  };
+ const {data:{session:current}}=await client.auth.getSession();
+ if(current?.user.id!==userId)return null;
  window.TalkTagMemberRecords=records;
  window.dispatchEvent(new CustomEvent('talktag:completion-change', {detail:{id:null,hydrated:true}}));
  return records;

@@ -5,9 +5,9 @@ const config = window.TalkTagAuthConfig;
 if (entry && config?.url && config?.publishableKey) {
   const english = entry.dataset.language === 'en';
   const label = entry.querySelector('[data-account-label]');
-  const client = createClient(config.url, config.publishableKey, {
+  const client = (window.__talktagAccessClient ||= createClient(config.url, config.publishableKey, {
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
-  });
+  }));
   let signedIn = false;
   function paint(session) {
     const user = session?.user;

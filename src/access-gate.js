@@ -1,5 +1,6 @@
+import {singleFlight} from './request-coalescer.js';
 import { recordMemberVisit } from './member-visits.js';
-import { checkDeviceSession, watchDeviceSession } from './device-session.js';
+import { checkDeviceSession, watchDeviceSession, invalidateDeviceSession } from './device-session.js';
 import { connectMemberRecords } from './member-records.js';
 import { createClient } from '@supabase/supabase-js';
 
@@ -76,8 +77,9 @@ function getClient() {
   return window.__talktagAccessClient;
 }
 
+let authRevision=0;
 let stopDeviceWatch, watchedDeviceUser;
-async function resolveTier() {
+const resolveTier = singleFlight(async () => {
   const client = getClient();
   if (!client) return { tier: 'visitor', user: null };
   try {
@@ -87,11 +89,11 @@ async function resolveTier() {
     const user = session.user;
     if(!await checkDeviceSession(client)){await client.auth.signOut({scope:'local'});return {tier:'visitor',user:null};}
     if(watchedDeviceUser!==user.id){stopDeviceWatch?.();watchedDeviceUser=user.id;stopDeviceWatch=watchDeviceSession(client,()=>{watchedDeviceUser=null;window.TalkTagMemberRecords=null;client.auth.signOut({scope:'local'});});}
-    await connectMemberRecords(client, user.id);
     void recordMemberVisit(client, user.id);
     const [membershipResult, rolesResult] = await Promise.all([
       client.from('memberships').select('status,trial_months,active_from,active_until').eq('user_id', user.id).maybeSingle(),
-      client.from('staff_roles').select('role').eq('user_id', user.id)
+      client.from('staff_roles').select('role').eq('user_id', user.id),
+      connectMemberRecords(client,user.id)
     ]);
     if (membershipResult.error || rolesResult.error) return { tier: 'unknown', user };
     const now = Date.now();
@@ -109,16 +111,17 @@ async function resolveTier() {
   } catch {
     return { tier: 'unknown', user: null };
   }
-}
+});
 
+const stateRevision=authRevision;
 const statePromise = resolveTier();
 const authClient = getClient();
 let currentTier = null;
 let currentUser = null;
-let accessRefresh = Promise.resolve();
-function refreshAccessState() {
-  accessRefresh = accessRefresh.then(async () => {
+const refreshAccessState = singleFlight(async () => {
+    const revision=authRevision;
     const { tier, user } = await resolveTier();
+    if(revision!==authRevision)return;
     currentTier = tier;
     currentUser = user;
     const page = currentProtectedPage();
@@ -135,12 +138,11 @@ function refreshAccessState() {
     }
     showAccessStatus(tier, user);
     applyCatalogCards(tier);
-  }).catch(() => {});
-  return accessRefresh;
-}
+});
 authClient?.auth.onAuthStateChange(event => {
   if (event === 'SIGNED_OUT') lockForSignedOut();
   if (event === 'SIGNED_IN' || event === 'SIGNED_OUT' || event === 'USER_UPDATED') {
+    authRevision++;resolveTier.invalidate();refreshAccessState.invalidate();invalidateDeviceSession(getClient());
     // Reconcile access in place. Reloading on every Supabase auth notification
     // can race session restoration and make the lesson list appear to lose cards.
     setTimeout(refreshAccessState, 0);
@@ -150,7 +152,7 @@ window.addEventListener('talktag:auth-signed-out', lockForSignedOut);
 window.addEventListener('storage', event => {
   if (!event.key?.includes('auth-token')) return;
   if (event.newValue === null) lockForSignedOut();
-  else refreshAccessState();
+  else {authRevision++;resolveTier.invalidate();refreshAccessState.invalidate();invalidateDeviceSession(getClient());refreshAccessState();}
 });
 // Reconcile server completion when returning from a player or another app tab.
 window.addEventListener('focus', refreshAccessState);
@@ -233,6 +235,7 @@ function canAccessPage(tier, page) {
     || (tier === 'free' && page.area !== 'test-content' && page.ordinal >= 1 && page.ordinal <= FREE_LIMIT);
 }
 function lockForSignedOut() {
+  authRevision++;resolveTier.invalidate();refreshAccessState.invalidate();invalidateDeviceSession(getClient());
   window.TalkTagMemberRecords = null;
   window.dispatchEvent(new CustomEvent('talktag:completion-change'));
   currentTier = 'visitor';
@@ -370,6 +373,7 @@ function start() {
   });
   observer.observe(document.body, { childList: true, subtree: true });
   statePromise.then(({ tier, user }) => {
+    if(stateRevision!==authRevision)return;
     currentTier = tier;
     showAccessStatus(tier, user);
     if (isToeicLandingPath() && !fullTiers.has(tier)) {

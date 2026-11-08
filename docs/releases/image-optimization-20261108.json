@@ -1,0 +1,927 @@
+[
+  {
+    "path": "public/TalkTag landing sample.png",
+    "before": 1817412,
+    "after": 138419
+  },
+  {
+    "path": "public/boot-vocal-entrance.jpg",
+    "before": 210898,
+    "after": 99626
+  },
+  {
+    "path": "public/readable-page-to-voice.png",
+    "before": 1139203,
+    "after": 233521
+  },
+  {
+    "path": "public/sound-essays-entrance.jpg",
+    "before": 236792,
+    "after": 113971
+  },
+  {
+    "path": "public/boot-story-entrance.jpg",
+    "before": 223052,
+    "after": 106534
+  },
+  {
+    "path": "public/sound-check-snowpal.png",
+    "before": 822044,
+    "after": 154062
+  },
+  {
+    "path": "public/talktag-logo.png",
+    "before": 901731,
+    "after": 3975
+  },
+  {
+    "path": "public/boot-camp-basecamp.png",
+    "before": 1016361,
+    "after": 166632
+  },
+  {
+    "path": "public/icons/talktag-512.png",
+    "before": 200916,
+    "after": 11032
+  },
+  {
+    "path": "public/assets/talktag-japanese-handlettered-title-v1.png",
+    "before": 1213123,
+    "after": 39767
+  },
+  {
+    "path": "public/assets/talktag-korean-family-learning-blocks-v2.png",
+    "before": 1800368,
+    "after": 186083
+  },
+  {
+    "path": "public/assets/talktag-woman-learning-blocks.png",
+    "before": 1381412,
+    "after": 145825
+  },
+  {
+    "path": "public/assets/talktag-landing-confidence-v2.png",
+    "before": 1867068,
+    "after": 194256
+  },
+  {
+    "path": "public/assets/talktag-japanese-youth-learning-blocks-v1.png",
+    "before": 1753163,
+    "after": 186087
+  },
+  {
+    "path": "public/picture-talk/images/002.png",
+    "before": 2784849,
+    "after": 165552
+  },
+  {
+    "path": "public/picture-talk/images/003.png",
+    "before": 2572999,
+    "after": 151766
+  },
+  {
+    "path": "public/picture-talk/images/001.png",
+    "before": 2489834,
+    "after": 156934
+  },
+  {
+    "path": "public/picture-talk/images/010.png",
+    "before": 2789927,
+    "after": 205202
+  },
+  {
+    "path": "public/picture-talk/images/004.png",
+    "before": 2519885,
+    "after": 176673
+  },
+  {
+    "path": "public/picture-talk/images/005.png",
+    "before": 2999666,
+    "after": 211164
+  },
+  {
+    "path": "public/picture-talk/images/007.png",
+    "before": 2597329,
+    "after": 176971
+  },
+  {
+    "path": "public/picture-talk/images/006.png",
+    "before": 2917155,
+    "after": 199364
+  },
+  {
+    "path": "public/picture-talk/images/008.png",
+    "before": 2627375,
+    "after": 202193
+  },
+  {
+    "path": "public/picture-talk/images/009.png",
+    "before": 2785350,
+    "after": 182020
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-010-a2.jpg",
+    "before": 577949,
+    "after": 183438
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-007-b2.jpg",
+    "before": 432093,
+    "after": 145603
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-005-c2.jpg",
+    "before": 552016,
+    "after": 177376
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-009-c2.jpg",
+    "before": 485419,
+    "after": 156564
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-010-a1.jpg",
+    "before": 571405,
+    "after": 181548
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-007-b1.jpg",
+    "before": 487337,
+    "after": 149961
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-005-c1.jpg",
+    "before": 542614,
+    "after": 174001
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-009-c1.jpg",
+    "before": 466785,
+    "after": 145942
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-009-b1.jpg",
+    "before": 492089,
+    "after": 162448
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-005-b1.jpg",
+    "before": 576441,
+    "after": 182825
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-007-c1.jpg",
+    "before": 432634,
+    "after": 147715
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-009-b2.jpg",
+    "before": 500606,
+    "after": 156566
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-005-b2.jpg",
+    "before": 517505,
+    "after": 167912
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-007-c2.jpg",
+    "before": 459366,
+    "after": 149233
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-003-c1.jpg",
+    "before": 245427,
+    "after": 143517
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-008-a1.jpg",
+    "before": 523960,
+    "after": 165803
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-004-a1.jpg",
+    "before": 491533,
+    "after": 167955
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-003-c2.jpg",
+    "before": 230621,
+    "after": 135132
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-008-a2.jpg",
+    "before": 484199,
+    "after": 151959
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-004-a2.jpg",
+    "before": 490385,
+    "after": 166133
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-006-a2.jpg",
+    "before": 554134,
+    "after": 176991
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-003-b2.jpg",
+    "before": 226699,
+    "after": 132259
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-a0-001-greeting-v1.jpg",
+    "before": 219135,
+    "after": 127504
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-006-a1.jpg",
+    "before": 574683,
+    "after": 175174
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-003-b1.jpg",
+    "before": 238980,
+    "after": 138281
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-004-c1.jpg",
+    "before": 522781,
+    "after": 171032
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-008-c1.jpg",
+    "before": 457024,
+    "after": 149169
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-006-b1.jpg",
+    "before": 486854,
+    "after": 158989
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-003-a1.jpg",
+    "before": 230148,
+    "after": 133375
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-004-c2.jpg",
+    "before": 566198,
+    "after": 178618
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-008-c2.jpg",
+    "before": 465129,
+    "after": 151552
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-006-b2.jpg",
+    "before": 496015,
+    "after": 165306
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-003-a2.jpg",
+    "before": 232489,
+    "after": 135286
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-006-c2.jpg",
+    "before": 464969,
+    "after": 163010
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-008-b2.jpg",
+    "before": 537435,
+    "after": 166294
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-004-b2.jpg",
+    "before": 549225,
+    "after": 173754
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-006-c1.jpg",
+    "before": 497250,
+    "after": 162028
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-008-b1.jpg",
+    "before": 508148,
+    "after": 159587
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-004-b1.jpg",
+    "before": 538599,
+    "after": 170502
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-009-a2.jpg",
+    "before": 471192,
+    "after": 153312
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-005-a2.jpg",
+    "before": 489737,
+    "after": 165326
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-010-c2.jpg",
+    "before": 534874,
+    "after": 174002
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-009-a1.jpg",
+    "before": 469343,
+    "after": 150127
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-005-a1.jpg",
+    "before": 518011,
+    "after": 174545
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-010-c1.jpg",
+    "before": 482555,
+    "after": 153230
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-010-b1.jpg",
+    "before": 490097,
+    "after": 164518
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-007-a1.jpg",
+    "before": 488599,
+    "after": 149225
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-010-b2.jpg",
+    "before": 564608,
+    "after": 175010
+  },
+  {
+    "path": "public/assets/glr-scenes/ko-007-a2.jpg",
+    "before": 461964,
+    "after": 151378
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-007.png",
+    "before": 2659234,
+    "after": 234620
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-006.png",
+    "before": 2807463,
+    "after": 285942
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-004.png",
+    "before": 2761133,
+    "after": 250259
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-010.png",
+    "before": 2706943,
+    "after": 262530
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-005.png",
+    "before": 3096275,
+    "after": 319286
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-001.png",
+    "before": 2719520,
+    "after": 247777
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-002.png",
+    "before": 2684962,
+    "after": 235133
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-003.png",
+    "before": 2886807,
+    "after": 292374
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-008.png",
+    "before": 2762151,
+    "after": 257483
+  },
+  {
+    "path": "public/assets/illustrations/ko-a0-20261101/ko-guided-a0-009.png",
+    "before": 2726728,
+    "after": 254051
+  },
+  {
+    "path": "public/assets/mini-talks/ko/001/b1-scene.jpg",
+    "before": 196295,
+    "after": 102166
+  },
+  {
+    "path": "public/assets/mini-talks/ko/001/a2-scene.jpg",
+    "before": 248490,
+    "after": 129124
+  },
+  {
+    "path": "public/assets/mini-talks/ko/001/c2-scene.jpg",
+    "before": 204897,
+    "after": 106370
+  },
+  {
+    "path": "public/assets/mini-talks/ko/001/c1-scene.jpg",
+    "before": 198269,
+    "after": 99953
+  },
+  {
+    "path": "public/assets/mini-talks/ko/001/b2-scene.jpg",
+    "before": 212829,
+    "after": 109621
+  },
+  {
+    "path": "public/assets/mini-talks/ko/001/a1-scene.jpg",
+    "before": 252379,
+    "after": 124342
+  },
+  {
+    "path": "public/assets/mini-talks/ko/002/b1-scene.png",
+    "before": 2770342,
+    "after": 304245
+  },
+  {
+    "path": "public/assets/mini-talks/ko/002/a2-scene.png",
+    "before": 2568998,
+    "after": 266711
+  },
+  {
+    "path": "public/assets/mini-talks/ko/002/c2-scene.png",
+    "before": 2751581,
+    "after": 307134
+  },
+  {
+    "path": "public/assets/mini-talks/ko/002/c1-scene.png",
+    "before": 3043842,
+    "after": 361389
+  },
+  {
+    "path": "public/assets/mini-talks/ko/002/b2-scene.png",
+    "before": 2777613,
+    "after": 321992
+  },
+  {
+    "path": "public/assets/mini-talks/ko/002/a1-scene.png",
+    "before": 2468187,
+    "after": 262666
+  },
+  {
+    "path": "public/assets/mini-talks/en/007/a2-scene.jpg",
+    "before": 202322,
+    "after": 105158
+  },
+  {
+    "path": "public/assets/mini-talks/en/007/a1-scene.jpg",
+    "before": 270566,
+    "after": 152065
+  },
+  {
+    "path": "public/assets/mini-talks/en/009/a2-scene.jpg",
+    "before": 207025,
+    "after": 110539
+  },
+  {
+    "path": "public/assets/mini-talks/en/009/a1-scene.jpg",
+    "before": 192339,
+    "after": 112412
+  },
+  {
+    "path": "public/assets/mini-talks/en/008/a2-scene.jpg",
+    "before": 217685,
+    "after": 116763
+  },
+  {
+    "path": "public/assets/mini-talks/en/008/a1-scene.jpg",
+    "before": 237231,
+    "after": 139475
+  },
+  {
+    "path": "public/assets/mini-talks/en/001/b1-scene.jpg",
+    "before": 236583,
+    "after": 155580
+  },
+  {
+    "path": "public/assets/mini-talks/en/001/c1-scene.jpg",
+    "before": 226394,
+    "after": 151150
+  },
+  {
+    "path": "public/assets/mini-talks/en/001/b2-scene.jpg",
+    "before": 188066,
+    "after": 130814
+  },
+  {
+    "path": "public/assets/mini-talks/en/006/a2-scene.jpg",
+    "before": 260754,
+    "after": 136086
+  },
+  {
+    "path": "public/assets/mini-talks/en/006/a1-scene.jpg",
+    "before": 203119,
+    "after": 120450
+  },
+  {
+    "path": "public/assets/mini-talks/en/010/a2-scene.jpg",
+    "before": 225517,
+    "after": 119166
+  },
+  {
+    "path": "public/assets/mini-talks/en/010/a1-scene.jpg",
+    "before": 231941,
+    "after": 132339
+  },
+  {
+    "path": "public/assets/mini-talks/en/003/a2-scene.jpg",
+    "before": 252275,
+    "after": 134354
+  },
+  {
+    "path": "public/assets/mini-talks/en/003/a1-scene.jpg",
+    "before": 185120,
+    "after": 111589
+  },
+  {
+    "path": "public/assets/mini-talks/en/004/a2-scene.jpg",
+    "before": 321083,
+    "after": 169534
+  },
+  {
+    "path": "public/assets/mini-talks/en/004/a1-scene.jpg",
+    "before": 189505,
+    "after": 111845
+  },
+  {
+    "path": "public/assets/mini-talks/en/005/a2-scene.jpg",
+    "before": 284256,
+    "after": 148988
+  },
+  {
+    "path": "public/assets/mini-talks/en/005/a1-scene.jpg",
+    "before": 228218,
+    "after": 133441
+  },
+  {
+    "path": "public/assets/mini-talks/en/002/a2-scene.jpg",
+    "before": 213863,
+    "after": 113469
+  },
+  {
+    "path": "public/assets/mini-talks/en/002/a1-scene.jpg",
+    "before": 256586,
+    "after": 147371
+  },
+  {
+    "path": "public/assets/bootcamp-scenes/ko/002-b1.jpg",
+    "before": 750603,
+    "after": 183991
+  },
+  {
+    "path": "public/assets/bootcamp-scenes/ko/002-b2.jpg",
+    "before": 786442,
+    "after": 184041
+  },
+  {
+    "path": "public/assets/bootcamp-scenes/ko/002-c2.jpg",
+    "before": 769939,
+    "after": 180995
+  },
+  {
+    "path": "public/assets/bootcamp-scenes/ko/002-c1.jpg",
+    "before": 824773,
+    "after": 197956
+  },
+  {
+    "path": "public/assets/bootcamp-scenes/ko/002-a2.jpg",
+    "before": 796890,
+    "after": 182768
+  },
+  {
+    "path": "public/assets/bootcamp-scenes/ko/002-a1.jpg",
+    "before": 819127,
+    "after": 194226
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-004-attention-v1.jpg",
+    "before": 528881,
+    "after": 168385
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-008-restroom-v1.jpg",
+    "before": 532122,
+    "after": 160785
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-005-decline-v1.jpg",
+    "before": 542304,
+    "after": 160889
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-007-repeat-v1.jpg",
+    "before": 494002,
+    "after": 149571
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-003-thanks-v1.jpg",
+    "before": 527458,
+    "after": 158860
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-002-introduce-v1.jpg",
+    "before": 495857,
+    "after": 146183
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-006-water-v1.jpg",
+    "before": 545619,
+    "after": 167877
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-010-goodbye-v1.jpg",
+    "before": 545950,
+    "after": 165036
+  },
+  {
+    "path": "public/assets/glr-scenes/level0/a0-009-help-v1.jpg",
+    "before": 537518,
+    "after": 163815
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-038-daily-action-v1.jpg",
+    "before": 371397,
+    "after": 197231
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-019-daily-v1.jpg",
+    "before": 361002,
+    "after": 211503
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-034-daily-action-v1.jpg",
+    "before": 373996,
+    "after": 201137
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-039-daily-action-v1.jpg",
+    "before": 370244,
+    "after": 195348
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-035-daily-action-v1.jpg",
+    "before": 445522,
+    "after": 235820
+  },
+  {
+    "path": "public/assets/glr-scenes/en/012-c2-v2.jpg",
+    "before": 816213,
+    "after": 220287
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-036-daily-action-v1.jpg",
+    "before": 336626,
+    "after": 181065
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-037-daily-action-v1.jpg",
+    "before": 353841,
+    "after": 186467
+  },
+  {
+    "path": "public/assets/glr-scenes/en/012-b2-v2.jpg",
+    "before": 778550,
+    "after": 207911
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-031-daily-action-v1.jpg",
+    "before": 377182,
+    "after": 195914
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-018-daily-v1.jpg",
+    "before": 350941,
+    "after": 206546
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-033-daily-action-v1.jpg",
+    "before": 352826,
+    "after": 188997
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-032-daily-action-v1.jpg",
+    "before": 392632,
+    "after": 208068
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a0-016-v1.jpg",
+    "before": 186190,
+    "after": 114472
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-033-daily-action-v1.jpg",
+    "before": 337671,
+    "after": 180638
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-032-daily-action-v1.jpg",
+    "before": 373416,
+    "after": 198837
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-016-daily-v1.jpg",
+    "before": 362250,
+    "after": 210556
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-031-daily-action-v1.jpg",
+    "before": 335041,
+    "after": 180839
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-015-daily-v1.jpg",
+    "before": 805380,
+    "after": 211629
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-020-daily-v1.jpg",
+    "before": 314140,
+    "after": 185660
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-036-daily-action-v1.jpg",
+    "before": 374720,
+    "after": 199628
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-021-movement-v1.jpg",
+    "before": 450177,
+    "after": 234563
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-017-daily-v1.jpg",
+    "before": 334876,
+    "after": 197918
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-037-daily-action-v1.jpg",
+    "before": 345294,
+    "after": 182217
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-038-daily-action-v1.jpg",
+    "before": 401944,
+    "after": 213538
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-034-daily-action-v1.jpg",
+    "before": 375807,
+    "after": 199005
+  },
+  {
+    "path": "public/assets/glr-scenes/en/012-a2-v2.jpg",
+    "before": 814620,
+    "after": 217148
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-039-daily-action-v1.jpg",
+    "before": 388199,
+    "after": 207650
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-013-daily-v1.jpg",
+    "before": 822642,
+    "after": 215786
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-014-daily-v1.jpg",
+    "before": 662598,
+    "after": 184837
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-035-daily-action-v1.jpg",
+    "before": 417260,
+    "after": 220592
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-021-movement-v1.jpg",
+    "before": 401180,
+    "after": 209492
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-015-daily-v1.jpg",
+    "before": 866005,
+    "after": 237771
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-020-daily-v1.jpg",
+    "before": 329362,
+    "after": 193059
+  },
+  {
+    "path": "public/assets/glr-scenes/en/012-b1-v2.jpg",
+    "before": 793336,
+    "after": 211529
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-040-daily-action-v1.jpg",
+    "before": 380667,
+    "after": 200632
+  },
+  {
+    "path": "public/assets/glr-scenes/en/012-shop-return-v1.png",
+    "before": 3387365,
+    "after": 361567
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-016-daily-v1.jpg",
+    "before": 369837,
+    "after": 215173
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-014-daily-v1.jpg",
+    "before": 852819,
+    "after": 227040
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-013-daily-v1.jpg",
+    "before": 862591,
+    "after": 234269
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-023-movement-v1.jpg",
+    "before": 485441,
+    "after": 252736
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a0-013-v1.jpg",
+    "before": 181027,
+    "after": 108266
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a0-001-greeting-v1.jpg",
+    "before": 235439,
+    "after": 138608
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-017-daily-v1.jpg",
+    "before": 347081,
+    "after": 202362
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-023-movement-v1.jpg",
+    "before": 372344,
+    "after": 195419
+  },
+  {
+    "path": "public/assets/glr-scenes/en/011-a2-v2.jpg",
+    "before": 185873,
+    "after": 108742
+  },
+  {
+    "path": "public/assets/glr-scenes/en/012-c1-v2.jpg",
+    "before": 789433,
+    "after": 208891
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-022-movement-v1.jpg",
+    "before": 480063,
+    "after": 255729
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-019-daily-v1.jpg",
+    "before": 354893,
+    "after": 207534
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-022-movement-v1.jpg",
+    "before": 374538,
+    "after": 193720
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a2-018-daily-v1.jpg",
+    "before": 347268,
+    "after": 201683
+  },
+  {
+    "path": "public/assets/glr-scenes/en/a1-040-daily-action-v1.jpg",
+    "before": 399683,
+    "after": 210181
+  },
+  {
+    "path": "public/assets/readable-scenes/ko/001-a1-bus-v2.jpg",
+    "before": 623051,
+    "after": 196718
+  },
+  {
+    "path": "public/assets/readable-scenes/en/001-garden-v1.jpg",
+    "before": 201475,
+    "after": 119191
+  }
+]
