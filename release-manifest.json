@@ -1688,8 +1688,8 @@
     },
     {
       "path": "E-english.html",
-      "bytes": 33289,
-      "sha256": "a7a1d572e563b777705b4b09f4b03d7c9078e5a8cf36fc10b807bf34357e07c9"
+      "bytes": 33100,
+      "sha256": "78ae1f90080092b0dc6260aeb7ef5ca7169cfa7d51b98266e257095bd7d31841"
     },
     {
       "path": "essay-artwork.css",
@@ -2478,8 +2478,8 @@
     },
     {
       "path": "K-korean.html",
-      "bytes": 8781,
-      "sha256": "08cb6d00805bd61b7aee8e6b0cf70be4a17140675f89b5d5bd3757b644ae182e"
+      "bytes": 8559,
+      "sha256": "10abe73a9bc9363272943290d3d54c932ec0e0dc3db60df183f8ec5134087c87"
     },
     {
       "path": "korean-audio-essays.html",
