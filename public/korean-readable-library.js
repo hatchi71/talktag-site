@@ -49,7 +49,7 @@
       const entries = lessons.filter(item => item.level === anchor.dataset.level && available(item));
       const count = entries.filter(done).length;
       anchor.classList.toggle('is-level-complete', entries.length > 0 && count === entries.length);
-      const levelName = anchor.dataset.level === 'A0' ? 'Start Here · Level 0' : anchor.dataset.level;
+      const levelName = anchor.dataset.level === 'A0' ? 'A0' : anchor.dataset.level;
       anchor.innerHTML = `<span>${esc(levelName)}</span><small class="guided-level-count">Completed ${count}/${entries.length}</small><span class="guided-level-meter" aria-hidden="true"><span style="width:${entries.length ? count / entries.length * 100 : 0}%"></span></span>`;
       anchor.setAttribute('aria-label', `${levelName}, ${count} of ${entries.length} chapters completed, open level`);
     }

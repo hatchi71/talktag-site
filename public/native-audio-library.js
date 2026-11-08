@@ -29,7 +29,7 @@ var cefrGuide=document.getElementById("cefrGuide");
 if(cefrGuide)cefrGuide.hidden=Boolean(level);
 document.title=name+(level?" · "+level:"")+" · TalkTag";
 document.getElementById("libraryEyebrow").textContent=japanese?"사운드 체크":"SOUND CHECK";
-document.getElementById("libraryTitle").textContent=name+(level?" · "+(level==="A0"?"Start Here · Level 0":level):"");
+document.getElementById("libraryTitle").textContent=name+(level?" · "+(level==="A0"?"A0":level):"");
 var description;
 if(type==="plain"){
   description=miniMode?"Listen to one useful Korean conversation, then try the lines in your own voice.":japanese?"짧은 일본어 대화 카드를 준비하고 있습니다.":(english?"New dialogue cards are being prepared. The available cards below are previous audio essays, kept as separate practice.":"새로운 일상 대화 카드를 준비하고 있습니다. 아래의 이전 오디오 에세이는 별도 자료입니다.");
@@ -75,7 +75,7 @@ var lessons=catalog.filter(l=>l.level===a.dataset.level&&l.available!==false);
 var count=lessons.filter(done).length;
 var complete=lessons.length>0&&count===lessons.length;
 a.classList.toggle("is-level-complete",complete);
-a.innerHTML='<span>'+esc(a.dataset.level==="A0"?"Start Here · Level 0":a.dataset.level)+'</span><small class="guided-level-count">'+(complete?'✓ ':'완료 ')+count+'/'+lessons.length+'</small><span class="guided-level-meter" aria-hidden="true"><span style="width:'+(lessons.length?count/lessons.length*100:0)+'%"></span></span>';
+a.innerHTML='<span>'+esc(a.dataset.level==="A0"?"A0":a.dataset.level)+'</span><small class="guided-level-count">'+(complete?'✓ ':'완료 ')+count+'/'+lessons.length+'</small><span class="guided-level-meter" aria-hidden="true"><span style="width:'+(lessons.length?count/lessons.length*100:0)+'%"></span></span>';
 a.setAttribute("aria-label",a.dataset.level+" · "+lessons.length+"개 중 "+count+"개 완료 · 레벨 열기");
 });
 var active=catalog.filter(l=>l.level===level&&!done(l));
