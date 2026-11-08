@@ -1688,8 +1688,8 @@
     },
     {
       "path": "E-english.html",
-      "bytes": 32980,
-      "sha256": "7bd2cfce4029a741fe5fcda6f7964ae8d84b3015037faadf8c5d752a31e67138"
+      "bytes": 33289,
+      "sha256": "a7a1d572e563b777705b4b09f4b03d7c9078e5a8cf36fc10b807bf34357e07c9"
     },
     {
       "path": "essay-artwork.css",
@@ -2478,8 +2478,8 @@
     },
     {
       "path": "K-korean.html",
-      "bytes": 8482,
-      "sha256": "3cb926490480ae82f5ed95bed17f4dca032890a5517fa0233f8f2694da3722db"
+      "bytes": 8781,
+      "sha256": "08cb6d00805bd61b7aee8e6b0cf70be4a17140675f89b5d5bd3757b644ae182e"
     },
     {
       "path": "korean-audio-essays.html",
@@ -2655,6 +2655,76 @@
       "path": "offline.html",
       "bytes": 27935,
       "sha256": "57e627c30aafd846b43684c8d3a99de4585b7f1198cf4a28d56f57e50bc194f0"
+    },
+    {
+      "path": "picture-talk/app.js",
+      "bytes": 4424,
+      "sha256": "b2a5b3af972a1bc2e18493f1a97a9a6982ad0a71834167eb86bccde93ba48926"
+    },
+    {
+      "path": "picture-talk/images/001.png",
+      "bytes": 2489834,
+      "sha256": "c1a7658fb14a1a46823e6d8b2687cb2068ccdd1b2ca84e0926f17cb29b93f2ca"
+    },
+    {
+      "path": "picture-talk/images/002.png",
+      "bytes": 2784849,
+      "sha256": "6d829e299bf66300d8d3add2510a0559a0932e74919c368079f1fba2013fd0a2"
+    },
+    {
+      "path": "picture-talk/images/003.png",
+      "bytes": 2572999,
+      "sha256": "29c584638f1dd04c7047c92b5a20603a45d506b421ead46d56e882d35303c226"
+    },
+    {
+      "path": "picture-talk/images/004.png",
+      "bytes": 2519885,
+      "sha256": "64e168d3bc32a3bb9008c2619315270525478e8a858316be24ede5d0b22a9730"
+    },
+    {
+      "path": "picture-talk/images/005.png",
+      "bytes": 2999666,
+      "sha256": "ba0ea16fc122636614fea8e4690a252b0f460da935fd45f0116eadcd2e69db82"
+    },
+    {
+      "path": "picture-talk/images/006.png",
+      "bytes": 2917155,
+      "sha256": "7ea9c8f15ca18f8dc76ef16cb7118c143bb8da80ff2d695835f1953c5bdf36e4"
+    },
+    {
+      "path": "picture-talk/images/007.png",
+      "bytes": 2597329,
+      "sha256": "8fd594f7c9215f1c9c1ee7e667d6ad6808d6bcd7d458e88ac7967edb2f2e343e"
+    },
+    {
+      "path": "picture-talk/images/008.png",
+      "bytes": 2627375,
+      "sha256": "74e1dfefcea309519cf5fbed6da20f084956fd39b843200945a8710fbabf687c"
+    },
+    {
+      "path": "picture-talk/images/009.png",
+      "bytes": 2785350,
+      "sha256": "cc749a3c2561093d21d93c3969f7e658871c7504a2cc69fc38f4d336107d5b31"
+    },
+    {
+      "path": "picture-talk/images/010.png",
+      "bytes": 2789927,
+      "sha256": "8f2637501ff99315ede0392444cdf3f973064477c05e456d5a1efea2ff13cac5"
+    },
+    {
+      "path": "picture-talk/style.css",
+      "bytes": 3235,
+      "sha256": "11b0d65cbffac1d1edc41269c0323a62763b72c86eda0a22f96bc444966995fc"
+    },
+    {
+      "path": "picture-talk-entry.css",
+      "bytes": 758,
+      "sha256": "1b292d1cc96c5b330f53778764a25d21e93072b2895208e89324d5429f2e6fff"
+    },
+    {
+      "path": "picture-talk.html",
+      "bytes": 1545,
+      "sha256": "a35a515b495abd040bc9787d58ecfa5f203230f5a6c189f57bacc635ca101b8b"
     },
     {
       "path": "player-compact-controls.css",
