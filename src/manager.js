@@ -1,3 +1,4 @@
+import {mountMemberMemo} from './member-memo.js';
 import { renderMemberInsights, formatMemberDate } from './member-insights-view.js';
 import { contentChecks, upcomingGatherings, compareMembers } from './manager-model.js';
 import { summarizeAccess } from './entitlement.js';
@@ -15,8 +16,10 @@ function filterRows(kind){
  root.querySelector('#'+kind+'-filter-status').textContent=rows.length?`${visible} of ${rows.length} loaded records${visible?'':' · No matches. Try another search.'}`:'No records yet.';
 }
 for(const kind of ['member','content'])for(const control of ['search','filter'])root.querySelector('#'+kind+'-'+control).addEventListener('input',()=>filterRows(kind));
-const refreshButton=root.querySelector('#refresh-board');refreshButton.addEventListener('click',loadOverview);
+const refreshButton=root.querySelector('#refresh-board');refreshButton.addEventListener('click',()=>{if(leaveMemo()){activeMemo?.destroy();activeMemo=null;void loadOverview();}});
 let selectedMemberId=null;
+let activeMemo;
+function leaveMemo(){return !activeMemo?.hasUnsavedChanges()||window.confirm('Discard unsaved member memo changes?');}
 let memberRows=[];
 let managementClient;
 function sortMembers(){
@@ -40,8 +43,9 @@ for(const link of root.querySelectorAll('.sidebar nav a[href^="#"]'))link.addEve
 for(const button of root.querySelectorAll('[data-open]'))button.addEventListener('click',()=>{showPanel(button.dataset.open);if(button.dataset.filter){root.querySelector('#member-filter').value=button.dataset.filter;filterRows('member');}if(button.dataset.open==='members')root.querySelector('#member-search').focus();});
 root.querySelector('#attention-trials').addEventListener('click',()=>{showPanel('members');root.querySelector('#member-filter').value='trial';root.querySelector('#member-search').value='';filterRows('member');});
 root.querySelector('#attention-content').addEventListener('click',()=>{showPanel('content');root.querySelector('#content-filter').value='all';filterRows('content');});
-function resetMemberDetail(){const detail=root.querySelector('#member-detail');detail.replaceChildren();const h=document.createElement('h4');h.textContent='Choose a member';const p=document.createElement('p');p.textContent='Select a member to see learning progress, account details, visits and access.';detail.append(h,p);selectedMemberId=null;for(const row of memberRows)row.classList.remove('is-selected');}
+function resetMemberDetail(){if(!leaveMemo())return;activeMemo?.destroy();activeMemo=null;const detail=root.querySelector('#member-detail');detail.replaceChildren();const h=document.createElement('h4');h.textContent='Choose a member';const p=document.createElement('p');p.textContent='Select a member to see learning progress, account details, visits and access.';detail.append(h,p);selectedMemberId=null;for(const row of memberRows)row.classList.remove('is-selected');}
 function selectMember(member,row,name,contact,state,controls){
+ if(!leaveMemo())return;activeMemo?.destroy();activeMemo=null;
  selectedMemberId=member.user_id;
  for(const item of memberRows)item.classList.toggle('is-selected',item===row);
  const detail=root.querySelector('#member-detail');detail.replaceChildren();
@@ -52,6 +56,7 @@ function selectMember(member,row,name,contact,state,controls){
  const actions=document.createElement('div');actions.className='detail-actions';actions.append(label,...controls.slice(1));
  detail.append(close,heading,contact.cloneNode(true),state.cloneNode(true));
  const sections=renderMemberInsights(detail,member,managementClient,()=>selectedMemberId===member.user_id&&detail.contains(heading));
+ if(sections)activeMemo=mountMemberMemo(sections.overview,managementClient,member.user_id,()=>selectedMemberId===member.user_id&&detail.contains(heading));
  const accessHeading=document.createElement('h5');accessHeading.textContent='Manage access';
  const policy=document.createElement('p');policy.className='detail-hint';policy.textContent=member.insights?.is_admin?'Full authority · all content · multiple devices allowed':state.textContent.startsWith('Free')?'Cards 001–010 per level, category and language · one active device':'All content · one active device';
  const accessPanel=document.createElement('div');accessPanel.append(accessHeading,policy,actions,hint);detail.append(accessPanel);
