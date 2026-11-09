@@ -2658,8 +2658,8 @@
     },
     {
       "path": "picture-talk/app.js",
-      "bytes": 7337,
-      "sha256": "0c703469f6b92dd69aaee07c9b80b6b4a7b561abba3cfd573bf7495fea3bd7cd"
+      "bytes": 7434,
+      "sha256": "8cf48c4c90dc1bc6839ba5ec9fc04c44ca272d5c6186a49e241af6b25e25b66d"
     },
     {
       "path": "picture-talk/images/001.png",
@@ -3213,8 +3213,8 @@
     },
     {
       "path": "picture-talk/style.css",
-      "bytes": 4494,
-      "sha256": "ef81760526ecd590ba9566f8565f351a58e9b1cd5d2dd1a1582b2113e129b0d1"
+      "bytes": 5727,
+      "sha256": "28cdd59405ef32737eeb0dd5aa8fbba34fab8aefd73c8db17a7e367c973f2b42"
     },
     {
       "path": "picture-talk-entry.css",
@@ -3223,8 +3223,8 @@
     },
     {
       "path": "picture-talk.html",
-      "bytes": 2104,
-      "sha256": "2c9f154f654723d8ae2c6923bf84bd2815761224c8af6bf9697eb72e41dce71a"
+      "bytes": 2746,
+      "sha256": "6351b258115eea8670671a6b88df38282cdb477cd6d58c9b56a43fe57229bcb5"
     },
     {
       "path": "player-compact-controls.css",
@@ -3483,8 +3483,8 @@
     },
     {
       "path": "temporary-account-entry.js",
-      "bytes": 2588,
-      "sha256": "11fd13d9950df8b8b54eff4297cebfb12fac6b3d2197afa2c5b6d2866817439e"
+      "bytes": 2707,
+      "sha256": "567e29e329f6d808c139f4c3740b4bfcbdf5ebd328a5aed47ab19a5b84c3d7b5"
     },
     {
       "path": "test-preppers.html",

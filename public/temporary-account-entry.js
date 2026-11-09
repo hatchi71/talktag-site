@@ -2,7 +2,7 @@
 (() => {
   if (/\/account(?:\.html)?$/.test(location.pathname)) return;
   const path = location.pathname;
-  const language = /^\/japanese(?:\/|$)/.test(path) ? 'ja'
+  const language = /\/picture-talk(?:\.html)?$/.test(path) ? (new URLSearchParams(location.search).get('first') === 'ko' ? 'ko' : 'en') : /^\/japanese(?:\/|$)/.test(path) ? 'ja'
     : /^\/E-english(?:\.html|\/|$)/.test(path) ? 'en'
     : path === '/' || path === '/index.html' || /^\/K-korean(?:\.html|[-/]|$)/.test(path) ? 'ko'
     : null;
