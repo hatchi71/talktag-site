@@ -612,6 +612,26 @@
       "sha256": "cbb77c5c60d783805abc69d2bbba200bb3a1437945d48fd4037050560d756fe1"
     },
     {
+      "path": "assets/glr-scenes/en/b1-013-grocery-v1.jpg",
+      "bytes": 100055,
+      "sha256": "d931471ac763b71b1e58a3437e0cb00fba5c9b4032dc525981bb0c6e5d1c64f1"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-013-grocery-v1.jpg",
+      "bytes": 130240,
+      "sha256": "6b688ce5fafefffdd8dadbc0d3450545bd34af11f8e209075f433e2a7fe3746f"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-013-grocery-v1.jpg",
+      "bytes": 192725,
+      "sha256": "9313a5436fe5571be21db3b550e21eee56f8ad9192c829620f48184965a0c6d5"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-013-grocery-v1.jpg",
+      "bytes": 218175,
+      "sha256": "1655fc54cf4d4eb825e15ffecb714c983e8bb24da5a022c881959676c4e5bd28"
+    },
+    {
       "path": "assets/glr-scenes/guided-a1-01.webp",
       "bytes": 16950,
       "sha256": "dfb16ef46abe28f257e98296efef01ef8b42ae16484bc991d942cdbe595fd4d2"
@@ -1608,8 +1628,8 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7476,
-      "sha256": "f45a53f707382b69b63d43ea63564afb6f0889f1c132f8cad1096841c81a013c"
+      "bytes": 7473,
+      "sha256": "e9581354285b7d970121b647b715789f9092c4d73ab9085717de0c067fdb18af"
     },
     {
       "path": "audio-library.js",
@@ -1703,8 +1723,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 297939,
-      "sha256": "511f2f58d5d0ed59d0ca012051136c7cdd64bb99147b9e2afea91958b0b8e998"
+      "bytes": 307605,
+      "sha256": "27c59a0b85088d06a95fa18838f7281269320681204222748e0e24588eee3721"
     },
     {
       "path": "content-clarity.css",
@@ -1728,8 +1748,8 @@
     },
     {
       "path": "E-english.html",
-      "bytes": 33090,
-      "sha256": "3dceb34e7141f44e0723bc24bb856a3ecc37a71a9b5d21b90d96637a51eb1d0e"
+      "bytes": 33087,
+      "sha256": "a6b98759d44463a487a6ef050c92860fac711bef287f322623f0cb922968c3be"
     },
     {
       "path": "essay-artwork.css",
@@ -1793,8 +1813,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 23113,
-      "sha256": "db57b0fbf1898e2f5d95144455ada5161132c0b32f7d1bc6e12a8769dc81fe43"
+      "bytes": 23897,
+      "sha256": "25dc218979aae487cd6941a64ef593069c6c2c22fe8b2c3a045b45bd80c9cf66"
     },
     {
       "path": "home-news-updates.css",
@@ -3293,8 +3313,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3670,
-      "sha256": "57fcb78982b9dc4fed2297ca5b5e4081fa758268a6e5042b3c3c11bd53e28e69"
+      "bytes": 3674,
+      "sha256": "8efff28b1222fe9bf579d689ec8ce7548f8dbfe42c42dac727e8edea334d0671"
     },
     {
       "path": "protected-library.css",

@@ -830,5 +830,31 @@
     ],
     "description": "도서관에 책을 반납하는 상황으로 듣고 말한 뒤, 기억을 바탕으로 이야기를 다시 써 보세요.",
     "publishedAt": "2026-11-11T08:04:27.102Z"
+  },
+  {
+    "id": "guided:en:b1-c2:013",
+    "language": "en",
+    "status": "published",
+    "levels": [
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "title": "영어 듣고 따라 말하기 · B1–C2 · 013",
+    "href": "audio-library.html?type=guided",
+    "description": "두고 온 물건을 찾고, 대안을 제안하고, 오해를 풀고, 서로 다른 기준을 조율해 보세요.",
+    "publishedAt": "2026-11-11T10:58:45+00:00",
+    "cardIds": [
+      "guided-b1-13-part1",
+      "guided-b1-13-part2",
+      "guided-b2-13-part1",
+      "guided-b2-13-part2",
+      "guided-c1-13-part1",
+      "guided-c1-13-part2",
+      "guided-c2-13-part1",
+      "guided-c2-13-part2",
+      "guided-c2-13-part3"
+    ]
   }
 ]
