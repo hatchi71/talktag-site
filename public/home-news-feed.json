@@ -2,6 +2,35 @@
   "version": 1,
   "items": [
     {
+      "id": "guided:en:a1-a2:024-030",
+      "language": "en",
+      "status": "published",
+      "title": "영어 듣고 따라 말하기 · A1/A2 · 024–030",
+      "href": "audio-library.html?type=guided",
+      "levels": [
+        "A1",
+        "A2"
+      ],
+      "description": "일상의 동작과 상황을 표현하는 A1/A2 대화 14편을 듣고 따라 해 보세요.",
+      "publishedAt": "2026-11-11T12:22:20+00:00",
+      "cardIds": [
+        "guided-a1-24",
+        "guided-a1-25",
+        "guided-a1-26",
+        "guided-a1-27",
+        "guided-a1-28",
+        "guided-a1-29",
+        "guided-a1-30",
+        "guided-a2-24",
+        "guided-a2-25",
+        "guided-a2-26",
+        "guided-a2-27",
+        "guided-a2-28",
+        "guided-a2-29",
+        "guided-a2-30"
+      ]
+    },
+    {
       "id": "guided:en:b1-c2:013",
       "language": "en",
       "status": "published",

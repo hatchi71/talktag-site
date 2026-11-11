@@ -457,6 +457,41 @@
       "sha256": "eb521060a35cf16efe6016ec8a7f08cb654aeddf6567354cdc5c4ecb5bf62aa4"
     },
     {
+      "path": "assets/glr-scenes/en/a1-024-daily-action-v1.jpg",
+      "bytes": 347179,
+      "sha256": "30080f65115c37a36c1d04daac120e8007fe37c09068869b35abca9ed4251284"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-025-daily-action-v1.jpg",
+      "bytes": 381867,
+      "sha256": "14e522e6aaf753cab04a2f59b44dfa7930c6b46a1451bd8b1ee0167262326724"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-026-daily-action-v1.jpg",
+      "bytes": 329746,
+      "sha256": "bd40d03a0cc44733d3889fd28bb461e3309d0afeaee1b583516f3357909ddf23"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-027-daily-action-v1.jpg",
+      "bytes": 398502,
+      "sha256": "51a311bf883c5a2b7c86941f2288b4d0161094a297d31a8617280f2aef712307"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-028-daily-action-v1.jpg",
+      "bytes": 336724,
+      "sha256": "dcae3b940c463db566175898be9cfb34e33a7a5dbe989601481e1b8bbab9268b"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-029-daily-action-v1.jpg",
+      "bytes": 279997,
+      "sha256": "f30f23e4576d8924483aeeff9a3ba216eec7878ccdf8df0514e92abaf0f5db73"
+    },
+    {
+      "path": "assets/glr-scenes/en/a1-030-daily-action-v1.jpg",
+      "bytes": 367064,
+      "sha256": "fcf4a28b31cfeb530d4f3de03ca966f13d0ce5de40d79110e7fd29846b6b9227"
+    },
+    {
       "path": "assets/glr-scenes/en/a1-031-daily-action-v1.jpg",
       "bytes": 180839,
       "sha256": "a25edbbd4f26cbbbbf3840769fe3039b7ca0a19a8139147ac453a0d422734539"
@@ -560,6 +595,41 @@
       "path": "assets/glr-scenes/en/a2-023-movement-v1.jpg",
       "bytes": 195419,
       "sha256": "53c1c31187196f5c1133157ad4590b9d88ecd1f48578ece541aca0862d3fc23f"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-024-daily-action-v1.jpg",
+      "bytes": 340931,
+      "sha256": "8f5eebb92ce53e50e50cc82c5dc52c5ef431d38a6b1aacd32c5dd524b23f5b0d"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-025-daily-action-v1.jpg",
+      "bytes": 341471,
+      "sha256": "34fbf5f5b22b92d6cd21b75aa0c71dbb0cbade3f6425a696a5197baa4fa9fe76"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-026-daily-action-v1.jpg",
+      "bytes": 288971,
+      "sha256": "4b3583a1699a6cc7985f4ffac24c3ac7f4e4d8851aae1c8eea2540a6104cd601"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-027-daily-action-v1.jpg",
+      "bytes": 266091,
+      "sha256": "911497c0e8d6d30dceaceabb0cdf697c34f04796276e837069799568a3b2f4dd"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-028-daily-action-v1.jpg",
+      "bytes": 357798,
+      "sha256": "2af99109ef188036a24dd56928d6c2f7174103d8a42ad3fed108d10849c8099f"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-029-daily-action-v1.jpg",
+      "bytes": 290643,
+      "sha256": "6cb3cdfa126b34a19fb0e65e08303f9abe0394bde796732c11f9c3849da80fbe"
+    },
+    {
+      "path": "assets/glr-scenes/en/a2-030-daily-action-v1.jpg",
+      "bytes": 330711,
+      "sha256": "98d429ca18010d7d783c0f8d9b37a0ed455f07b1826d80db3be4f95f480f6b8d"
     },
     {
       "path": "assets/glr-scenes/en/a2-031-daily-action-v1.jpg",
@@ -1628,8 +1698,8 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7482,
-      "sha256": "08c64444fed3d2f63be5143e77b997b192273014a7694f0d19a52d28bfed9b9a"
+      "bytes": 7489,
+      "sha256": "8ec3b45d9c17155df36fa8f65d8d28d3f353719af1034b2f02ce4d1b80de9cec"
     },
     {
       "path": "audio-library.js",
@@ -1723,8 +1793,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 307605,
-      "sha256": "27c59a0b85088d06a95fa18838f7281269320681204222748e0e24588eee3721"
+      "bytes": 318539,
+      "sha256": "c9fa9d4a33ffff6b233a5a157724397e20dac10b4cf24592d49a191eb4b4d218"
     },
     {
       "path": "content-clarity.css",
@@ -1748,8 +1818,8 @@
     },
     {
       "path": "E-english.html",
-      "bytes": 33087,
-      "sha256": "a6b98759d44463a487a6ef050c92860fac711bef287f322623f0cb922968c3be"
+      "bytes": 33094,
+      "sha256": "c788513136bb822cc40f7b896abbc3ca8c26b488d5d3a26047835e6f21dcbedd"
     },
     {
       "path": "essay-artwork.css",
@@ -1813,8 +1883,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 23897,
-      "sha256": "25dc218979aae487cd6941a64ef593069c6c2c22fe8b2c3a045b45bd80c9cf66"
+      "bytes": 24705,
+      "sha256": "7deee104c0b59e675e71eab38872f4e3bc158c94471956da9c9bad910fe09d5e"
     },
     {
       "path": "home-news-updates.css",
@@ -3313,8 +3383,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3674,
-      "sha256": "8efff28b1222fe9bf579d689ec8ce7548f8dbfe42c42dac727e8edea334d0671"
+      "bytes": 3681,
+      "sha256": "a20cccb015e1d6a9915ba5c92d9be20552e2d9bd1c88ea06374b5568ac9c0d67"
     },
     {
       "path": "protected-library.css",
