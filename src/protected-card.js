@@ -3,6 +3,7 @@ import { checkDeviceSession, watchDeviceSession } from './device-session.js';
 import { openMemberLearningState } from './member-learning-state.js';
 let memberState;
 import { vocalPauseTimings } from './vocal-pause-timings.js';
+import { createVocalBoundaryCues } from './vocal-boundary-cues.js';
 import { createClient } from '@supabase/supabase-js';
 import { japaneseWithFurigana } from './japanese-furigana.js';
 
@@ -128,6 +129,8 @@ let vocalTarget = 0;
 let vocalSteps = [];
 let vocalWaiting = false;
 let refreshVocalStage = () => {};
+const vocalCues = /^en-vocal-camp-003-(?:a1|a2|b1|b2|c1|c2)$/i.test(cardId || '')
+  ? createVocalBoundaryCues() : null;
 let guidedHold = null;
 let guidedInternalSeek = false;
 let guidedPreviousTime = 0;
@@ -348,6 +351,7 @@ addEventListener('pagehide', () => {
 
 function stopVocal() {
   vocalRun++;
+  vocalCues?.stop();
   clearTimeout(vocalTimer);
   vocalTimer = 0;
   vocalWaiting = false;
@@ -367,12 +371,14 @@ function vocalStatus() {
 
 async function startVocalStep(index, run = null) {
   if (!vocalSteps[index]) return;
-  if (run === null) { stopVocal(); run = vocalRun; }
+  const fromTap = run === null;
+  if (fromTap) { stopVocal(); run = vocalRun; }
   vocalStep = index;
   vocalWaiting = false;
   const step = vocalSteps[index];
   try {
-    await selectClip(step.variant, ui(`Step ${index + 1} · Listen ${vocalCounts[index] + 1}/${vocalTarget}`, `${index + 1}단계 · 듣기 ${vocalCounts[index] + 1}/${vocalTarget}`), false, run);
+    const cue = fromTap ? vocalCues?.start() : null;
+    await Promise.all([cue, selectClip(step.variant, ui(`Step ${index + 1} · Listen ${vocalCounts[index] + 1}/${vocalTarget}`, `${index + 1}단계 · 듣기 ${vocalCounts[index] + 1}/${vocalTarget}`), false, run)]);
     if (run !== vocalRun) return;
     for (const button of clips.querySelectorAll('button')) {
       button.setAttribute('aria-pressed', String(Number(button.dataset.step) === index));
@@ -409,12 +415,16 @@ audio.addEventListener('ended', () => {
     : step.pauseIncluded ? 0 : Math.max(3000, Math.round(duration * (step.pauseRatio || 2.5) * 1000));
   vocalWaiting = gap > 0;
   vocalStatus();
-  vocalTimer = setTimeout(() => {
+  vocalTimer = setTimeout(async () => {
     if (run !== vocalRun) return;
     vocalWaiting = false;
     if (vocalCounts[index] < vocalTarget) startVocalStep(index, run);
     else if (vocalSteps[index + 1]) startVocalStep(index + 1, run);
     else {
+      if (vocalCues && vocalCounts.every(count => count >= vocalTarget)) {
+        await vocalCues.end();
+        if (run !== vocalRun) return;
+      }
       stopVocal();
       refreshVocalStage();
       document.querySelector('#play-status').textContent = ui(`All ${vocalSteps.length} cumulative steps complete. Continue to speaking and writing.`, `누적 ${vocalSteps.length}단계를 마쳤어요. 말하고 쓰기로 이어가세요.`);
@@ -773,6 +783,7 @@ function renderVocal(item) {
         return;
       }
       if (vocalCounts[index] >= vocalTarget) {
+        if (vocalCounts.every(count => count >= vocalTarget)) vocalCues?.reset();
         vocalCounts[index] = 0;
         paintVocalButton(button, index);
       }
@@ -820,7 +831,7 @@ function renderVocal(item) {
   restart.addEventListener('click', () => { saveNotes(); stopVocal(); stage = 0; paintStage(); menu.open = false; });
   menu.append(restart);
   const reset = document.createElement('button'); reset.type = 'button'; reset.className = 'pilot-reset-button'; reset.textContent = ui('↻ Reset', '↻ 초기화');
-  reset.addEventListener('click', () => { stopVocal(); vocalCounts.fill(0); stage = 0;
+  reset.addEventListener('click', () => { stopVocal(); vocalCues?.reset(); vocalCounts.fill(0); stage = 0;
     try { memberState.setItem(`talktag-vocal-preview:${cardId}`, JSON.stringify(vocalCounts)); } catch {}
     clips.querySelectorAll('button[data-step]').forEach((button, index) => { paintVocalButton(button, index); button.setAttribute('aria-pressed', 'false'); }); paintStage(); });
   navigation.append(menu, previous, next, reset);
@@ -1154,7 +1165,7 @@ async function run() {
     document.querySelector('#sign-in').hidden = false;
     return;
   }
-  const replaced=()=>{audio.pause();audio.removeAttribute('src');audio.load();memberState?.close();signedInUserId=null;document.querySelector('#card').hidden=true;status.hidden=false;status.textContent=ui('Signed in on another device. Sign in again to continue here.','다른 기기에서 로그인했어요. 이 기기에서 계속하려면 다시 로그인해 주세요.');document.querySelector('#sign-in').hidden=false;client.auth.signOut({scope:'local'});};
+  const replaced=()=>{if(vocalCues)stopVocal();audio.pause();audio.removeAttribute('src');audio.load();memberState?.close();signedInUserId=null;document.querySelector('#card').hidden=true;status.hidden=false;status.textContent=ui('Signed in on another device. Sign in again to continue here.','다른 기기에서 로그인했어요. 이 기기에서 계속하려면 다시 로그인해 주세요.');document.querySelector('#sign-in').hidden=false;client.auth.signOut({scope:'local'});};
   if(!await checkDeviceSession(client)){replaced();return;}
   void recordMemberVisit(client, session.user.id);
   watchDeviceSession(client,replaced);
@@ -1162,7 +1173,7 @@ async function run() {
   if (accountControl) {
     accountControl.textContent = ui('Log out', '로그아웃');
     accountControl.onclick = async event => {
-      event.preventDefault(); audio.pause();
+      event.preventDefault(); if (vocalCues) stopVocal(); audio.pause();
       await client.auth.signOut();
       location.replace(accountControl.href);
     };
@@ -1180,6 +1191,7 @@ async function run() {
     });
     client.auth.onAuthStateChange((_event, next) => {
       if (next?.user.id === signedInUserId) return;
+      if (vocalCues) stopVocal();
       memberState.close(); signedInUserId = null; audio.pause(); audio.removeAttribute('src'); audio.load();
       document.querySelector('#card').hidden = true;
       status.hidden = false; status.textContent = ui('Sign in to continue.', '로그인하고 계속해 주세요.');
@@ -1234,7 +1246,10 @@ async function run() {
 
 run();
 
-window.addEventListener('pagehide', () => memberState?.flush());
+window.addEventListener('pagehide', () => {
+  if (vocalCues) stopVocal();
+  memberState?.flush();
+});
 
 let lastRemotePositionSecond = -1;
 audio.addEventListener('timeupdate', () => {

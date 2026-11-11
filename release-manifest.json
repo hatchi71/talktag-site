@@ -67,6 +67,36 @@
       "sha256": "f2971f28c36bb5992174fe20b93fa391c85f0dfa36546a4e8b3b8cdf7ace1a9f"
     },
     {
+      "path": "assets/bootcamp-scenes/en/003-a1.jpg",
+      "bytes": 238288,
+      "sha256": "12d0cc7b06c6e74d843224c3d3663e50d75e8a3ae476cae4d849b1da7a943da3"
+    },
+    {
+      "path": "assets/bootcamp-scenes/en/003-a2.jpg",
+      "bytes": 219082,
+      "sha256": "5557feda3ec6cecd70a287e90896e741b78d374e384fee287488e5f63d40ef64"
+    },
+    {
+      "path": "assets/bootcamp-scenes/en/003-b1.jpg",
+      "bytes": 254829,
+      "sha256": "9a9efaeb768a6d685804f448bbf9a9bedd7b133e9caaf987917aab07259d9afd"
+    },
+    {
+      "path": "assets/bootcamp-scenes/en/003-b2.jpg",
+      "bytes": 229319,
+      "sha256": "ecc3ed1b562bcf0daf18e29ec907c82ec8a0d6ff0b298dbb0a12a5ce22fa237b"
+    },
+    {
+      "path": "assets/bootcamp-scenes/en/003-c1.jpg",
+      "bytes": 241610,
+      "sha256": "084545ee7bfd56eba47265db53f6b1c6bf25b123f62cecf936b9dede4ac69765"
+    },
+    {
+      "path": "assets/bootcamp-scenes/en/003-c2.jpg",
+      "bytes": 246552,
+      "sha256": "999afac55fd080eb4f97d8a2467eca6b68681bef4ae9ade27b84973648f2fbae"
+    },
+    {
       "path": "assets/bootcamp-scenes/ja/001-v3-vocal.jpg",
       "bytes": 99142,
       "sha256": "2d7d0c2d36d07ffc3a147addfd7e3e12d3557f7719b017392296a8ca57842bcc"
@@ -1528,8 +1558,8 @@
     },
     {
       "path": "assets/talktag-protected-card.js",
-      "bytes": 279720,
-      "sha256": "3bd105839b84f5cefcbac85453f0e52b6e5aa7840cbda51c19c41243971e9548"
+      "bytes": 280587,
+      "sha256": "0bf4c3bd34bc4b55729e7822410c20c1cf460cd03d3340e2f88b831ea1a086e4"
     },
     {
       "path": "assets/talktag-protected-library.js",
@@ -1545,6 +1575,16 @@
       "path": "assets/temporary-account-status.js",
       "bytes": 224826,
       "sha256": "1162e8f0b2efd71c82fcc718ab941a6740be918f2c567170a5205e7771d56739"
+    },
+    {
+      "path": "assets/vocal-camp/003-end.mp3",
+      "bytes": 13631,
+      "sha256": "07aa81eaf21e46ccedf76549876b7a915cba5a0fed6b620f87a4ac61899cdf71"
+    },
+    {
+      "path": "assets/vocal-camp/003-start.mp3",
+      "bytes": 7029,
+      "sha256": "1384115470badbc17dc2d59d3560195e2e0784e1b9073ddceee4900123e584b4"
     },
     {
       "path": "audio-accent.css",
@@ -1613,8 +1653,8 @@
     },
     {
       "path": "bootcamp-artwork.js",
-      "bytes": 2097,
-      "sha256": "a037642e229ffaa4f4c42487ab46fcc1ac532d843ba498786d9bb0fd86638333"
+      "bytes": 4235,
+      "sha256": "6a604f775a8598fce6fcc50b4a07d1b5c4f27394c497bb5a36a854f5051ac50a"
     },
     {
       "path": "bootcamp-browser.css",
@@ -1663,8 +1703,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 294037,
-      "sha256": "ecc0f73969e15c3872a3f384c1c125e95acba169cce0d1a5a247817842aeaeb4"
+      "bytes": 297939,
+      "sha256": "511f2f58d5d0ed59d0ca012051136c7cdd64bb99147b9e2afea91958b0b8e998"
     },
     {
       "path": "content-clarity.css",
@@ -1753,8 +1793,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 22612,
-      "sha256": "a5088f3f9b0fffe60e765c9f7933a947be12730fe5a6476cee6b5dacb33ab908"
+      "bytes": 23113,
+      "sha256": "db57b0fbf1898e2f5d95144455ada5161132c0b32f7d1bc6e12a8769dc81fe43"
     },
     {
       "path": "home-news-updates.css",
@@ -3253,8 +3293,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3672,
-      "sha256": "26050965563b62716bcc18f8e950c5cb1e7e82cba499a9db3dd7516268bc8e37"
+      "bytes": 3670,
+      "sha256": "57fcb78982b9dc4fed2297ca5b5e4081fa758268a6e5042b3c3c11bd53e28e69"
     },
     {
       "path": "protected-library.css",
@@ -3393,8 +3433,8 @@
     },
     {
       "path": "story-camp.html",
-      "bytes": 2846,
-      "sha256": "71f979d2756f340fe676dc8af63f19444a80b86358c2806fb57fe0ed53e2baf1"
+      "bytes": 2840,
+      "sha256": "a247577932bff3911e786e68c3e5d8e78cc22e761d06013a03cb1c00f6f5750a"
     },
     {
       "path": "storycamp-family.html",
@@ -3413,8 +3453,8 @@
     },
     {
       "path": "storycamp-reader.html",
-      "bytes": 4777,
-      "sha256": "cfeed020a9ebec67e88f249bc6df9dd371bd515eba14a1a59c12aba02594064a"
+      "bytes": 5347,
+      "sha256": "5d4fd07382052bde20235c7646423f94fe2ca95e85f59d4302ca8cc175e157c0"
     },
     {
       "path": "studio-camp-entrances.css",
@@ -3568,8 +3608,8 @@
     },
     {
       "path": "vocal-camp.html",
-      "bytes": 2792,
-      "sha256": "d8a9afe5e67047f45b72822edb39615dcd11a6dea6a96520ab3af5681a53341e"
+      "bytes": 2786,
+      "sha256": "6c0b920574955773ca98fad0f075ac52f907912ff3e64d2e58b18b44ccada810"
     },
     {
       "path": "vocal-stage.html",
@@ -3588,8 +3628,8 @@
     },
     {
       "path": "vocalcamp-player.html",
-      "bytes": 4777,
-      "sha256": "5de3fa87c9afd9e9ae943e3936ff126b18a538822055ca89b6d2bbfde94ed506"
+      "bytes": 5347,
+      "sha256": "842677ea53406f36316880162eb1e8b3a2a7724402bab9095b9cff7c1f253850"
     }
   ]
 }
