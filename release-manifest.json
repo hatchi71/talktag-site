@@ -1628,13 +1628,13 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7473,
-      "sha256": "e9581354285b7d970121b647b715789f9092c4d73ab9085717de0c067fdb18af"
+      "bytes": 7482,
+      "sha256": "08c64444fed3d2f63be5143e77b997b192273014a7694f0d19a52d28bfed9b9a"
     },
     {
       "path": "audio-library.js",
-      "bytes": 9687,
-      "sha256": "0373853b33f25a9166ef01bfb4f52a9d960539fd7dc562463af04e97f421610f"
+      "bytes": 9745,
+      "sha256": "e5a259241aad7c3e209d1d83db1a904382b354ac2a933bae2dfa5a41aa280ce1"
     },
     {
       "path": "audio-player.html",
