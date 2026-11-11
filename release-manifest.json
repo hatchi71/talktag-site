@@ -687,9 +687,29 @@
       "sha256": "d931471ac763b71b1e58a3437e0cb00fba5c9b4032dc525981bb0c6e5d1c64f1"
     },
     {
+      "path": "assets/glr-scenes/en/b1-014-broken-intercom-v1.jpg",
+      "bytes": 114696,
+      "sha256": "d4eb2ef52f0dbe971b639b4c87f80c536ab6bd9dd6d06082b8a2ae39c7f87891"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-015-shared-resources-v1.jpg",
+      "bytes": 169001,
+      "sha256": "78f0042fda326b7b599f813c0c275497ad1b8a07fcfa95811e55c3cc1532428b"
+    },
+    {
       "path": "assets/glr-scenes/en/b2-013-grocery-v1.jpg",
       "bytes": 130240,
       "sha256": "6b688ce5fafefffdd8dadbc0d3450545bd34af11f8e209075f433e2a7fe3746f"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-014-bike-brake-pads-v1.jpg",
+      "bytes": 145356,
+      "sha256": "feac88f5e78b572350a0b3af26bdb34239645607ca037a75f3118ba253290bee"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-015-shared-resources-v1.jpg",
+      "bytes": 171449,
+      "sha256": "781026d4061803319481cf134af78d598145c4be6cea7e69657c97a4e58609f1"
     },
     {
       "path": "assets/glr-scenes/en/c1-013-grocery-v1.jpg",
@@ -697,9 +717,29 @@
       "sha256": "9313a5436fe5571be21db3b550e21eee56f8ad9192c829620f48184965a0c6d5"
     },
     {
+      "path": "assets/glr-scenes/en/c1-014-projector-backup-v1.jpg",
+      "bytes": 94208,
+      "sha256": "93c8260fbc45c965ed58bc7269226cef762f90d17b83ae6f3414470d07253a93"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-015-shared-resources-v1.jpg",
+      "bytes": 133622,
+      "sha256": "bf958da46e4848a197b23d9416f23d9496a1330f4fe7af6515f7bf2a2653c3d7"
+    },
+    {
       "path": "assets/glr-scenes/en/c2-013-grocery-v1.jpg",
       "bytes": 218175,
       "sha256": "1655fc54cf4d4eb825e15ffecb714c983e8bb24da5a022c881959676c4e5bd28"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-014-cold-radiator-v1.jpg",
+      "bytes": 100032,
+      "sha256": "49cb7b3ac84b4f23c5df49f1bc480ea5d5e9d9ddae3b209e80c39f53187099c7"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-015-shared-resources-v1.jpg",
+      "bytes": 133658,
+      "sha256": "cd6523a65c88636d50a9d10f3ef58e5e18d6e976bb487211dbaf93aef7167b82"
     },
     {
       "path": "assets/glr-scenes/guided-a1-01.webp",
@@ -1698,8 +1738,8 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7489,
-      "sha256": "8ec3b45d9c17155df36fa8f65d8d28d3f353719af1034b2f02ce4d1b80de9cec"
+      "bytes": 7486,
+      "sha256": "743e60311123f9a1f18d7d6b50b36699a1fad5a262602fe60d8e6be3192fdfd7"
     },
     {
       "path": "audio-library.js",
@@ -1793,8 +1833,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 318539,
-      "sha256": "c9fa9d4a33ffff6b233a5a157724397e20dac10b4cf24592d49a191eb4b4d218"
+      "bytes": 342931,
+      "sha256": "2864ea6433617f2d486037fec1df662ce584f8aea33e3ad77913840beb333fe1"
     },
     {
       "path": "content-clarity.css",
@@ -1818,8 +1858,8 @@
     },
     {
       "path": "E-english.html",
-      "bytes": 33094,
-      "sha256": "c788513136bb822cc40f7b896abbc3ca8c26b488d5d3a26047835e6f21dcbedd"
+      "bytes": 33091,
+      "sha256": "7283535f7e1e280a461ab21d62b5ec0e72c448649938b1d56bda11a26e84424b"
     },
     {
       "path": "essay-artwork.css",
@@ -1883,8 +1923,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 24705,
-      "sha256": "7deee104c0b59e675e71eab38872f4e3bc158c94471956da9c9bad910fe09d5e"
+      "bytes": 25852,
+      "sha256": "605d8a194cac6d6eb20ccc818284132b0a30c4b487721b87f0c759c9ee0bd706"
     },
     {
       "path": "home-news-updates.css",
@@ -3383,8 +3423,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3681,
-      "sha256": "a20cccb015e1d6a9915ba5c92d9be20552e2d9bd1c88ea06374b5568ac9c0d67"
+      "bytes": 3678,
+      "sha256": "459bc2bbeee52423dcdc148d2223e88143425d00a5635e5492aa0f075272e30e"
     },
     {
       "path": "protected-library.css",

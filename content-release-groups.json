@@ -885,5 +885,43 @@
       "guided-a2-29",
       "guided-a2-30"
     ]
+  },
+  {
+    "id": "guided:en:b1-c2:014-015",
+    "language": "en",
+    "status": "published",
+    "levels": [
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "title": "영어 듣고 따라 말하기 · B1–C2 · 014–015",
+    "href": "audio-library.html?type=guided",
+    "description": "일상에서 생긴 문제를 설명하고 함께 해결하는 영어 대화를 듣고 따라 해 보세요.",
+    "publishedAt": "2026-11-11T21:26:23+00:00",
+    "cardIds": [
+      "guided-b1-14-part1",
+      "guided-b1-14-part2",
+      "guided-b2-14-part1",
+      "guided-b2-14-part2",
+      "guided-c1-14-part1",
+      "guided-c1-14-part2",
+      "guided-c1-14-part3",
+      "guided-c2-14-part1",
+      "guided-c2-14-part2",
+      "guided-c2-14-part3",
+      "guided-b1-15-part1",
+      "guided-b1-15-part2",
+      "guided-b2-15-part1",
+      "guided-b2-15-part2",
+      "guided-b2-15-part3",
+      "guided-c1-15-part1",
+      "guided-c1-15-part2",
+      "guided-c1-15-part3",
+      "guided-c2-15-part1",
+      "guided-c2-15-part2",
+      "guided-c2-15-part3"
+    ]
   }
 ]
