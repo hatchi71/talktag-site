@@ -1,3 +1,4 @@
+import { connectAudioTimeline } from './audio-timeline.js';
 import { checkDeviceSession, watchDeviceSession } from './device-session.js';
 import { openMemberLearningState } from './member-learning-state.js';
 let memberState;
@@ -68,8 +69,8 @@ const status = document.querySelector('#status');
 const card = document.querySelector('#card');
 const audio = document.querySelector('#audio');
 const playToggle = document.querySelector('#play-toggle');
-const seek = document.querySelector('#seek');
 const clock = value => { const seconds = Math.max(0, Math.floor(value || 0)); return `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`; };
+connectAudioTimeline(audio, document.querySelector('.practice-timeline'), clock, ui('Audio position', '재생 위치'));
 playToggle.addEventListener('click', () => {
   if (guidedHold || vocalWaiting) {
     cancelGuidedHold();
@@ -85,11 +86,8 @@ playToggle.addEventListener('click', () => {
 });
 document.querySelector('#rewind').addEventListener('click', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });
 document.querySelector('#replay').addEventListener('click', () => { audio.currentTime = 0; audio.play().catch(() => {}); });
-seek.addEventListener('input', () => { if (Number.isFinite(audio.duration)) audio.currentTime = audio.duration * Number(seek.value) / 1000; });
 audio.addEventListener('play', () => { playToggle.textContent = ui('Ⅱ Pause', 'Ⅱ 일시정지'); });
 audio.addEventListener('pause', () => { playToggle.textContent = ui('▶ Play', '▶ 재생'); });
-audio.addEventListener('timeupdate', () => { document.querySelector('#elapsed').textContent = clock(audio.currentTime); if (Number.isFinite(audio.duration) && audio.duration > 0) seek.value = String(Math.round(audio.currentTime / audio.duration * 1000)); });
-audio.addEventListener('loadedmetadata', () => { document.querySelector('#duration').textContent = clock(audio.duration); });
 const clips = document.querySelector('#clips');
 const lessonText = document.querySelector('#lesson-text');
 const scriptButton = document.querySelector('#show-script');
