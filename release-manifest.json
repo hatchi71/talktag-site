@@ -722,6 +722,56 @@
       "sha256": "32f3a12517426b49ffeca0bea84b7b24158e8f3226c261c370fd903528e16faa"
     },
     {
+      "path": "assets/glr-scenes/en/b1-021-pool-lane-closed-v1.webp",
+      "bytes": 93248,
+      "sha256": "f045a18eb9ea2423468c98c3c4a96dd08dc5aafb8e9bef42302a65f3cbbcad4a"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-022-plant-for-shelf-v1.webp",
+      "bytes": 115352,
+      "sha256": "a535ffcb4ff82b642b2b77e466a613445156e50305414aa15257a413cef18eb5"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-023-ice-skate-fit-v1.webp",
+      "bytes": 97774,
+      "sha256": "1af5545af5dfdfdafdcab8fa4ad1a0ab5351ea55739f946d455564b7fa3ab2dc"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-024-empty-printer-tray-v1.webp",
+      "bytes": 100520,
+      "sha256": "ad5938b28bfb9d048a9e1081069b511c0ec176ff23e986ba935956493f461574"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-025-hang-frame-lower-v1.webp",
+      "bytes": 73352,
+      "sha256": "50c30b16f2700e9edda335f1df110387e35ddd6b06e66e1d93833c1280729ced"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-026-tomatoes-for-tonight-v1.webp",
+      "bytes": 133088,
+      "sha256": "9ca7d0e3c96ab85b0c60f0f36789dc81892ac340acf4b5279e31ab43cf8df38d"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-027-room-echo-recording-v1.webp",
+      "bytes": 87028,
+      "sha256": "1e508e0e8e0e55de924805feaf6b31d32468a252d516afdb729b41723e94a729"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-028-volunteer-wrong-day-v1.webp",
+      "bytes": 86784,
+      "sha256": "28c5ed0b134225ecee8c7b32d161ca5cce3f903b8c0fa9926ed60d1bc748ae37"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-029-donation-coat-tags-v1.webp",
+      "bytes": 99926,
+      "sha256": "6cd554be170a07ba132353d0ac3ff438549b6690474d71977525ddb9cef40acd"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-030-wet-paper-recycling-v1.webp",
+      "bytes": 109874,
+      "sha256": "a014ecf96f910308b4dba8491f9e399ce85bd2c8541ec53940905e384a3013d0"
+    },
+    {
       "path": "assets/glr-scenes/en/b2-013-grocery-v1.jpg",
       "bytes": 130240,
       "sha256": "6b688ce5fafefffdd8dadbc0d3450545bd34af11f8e209075f433e2a7fe3746f"
@@ -760,6 +810,56 @@
       "path": "assets/glr-scenes/en/b2-020-bikes-entry-ramp-v1.jpg",
       "bytes": 185175,
       "sha256": "6679045d1241856eb31bcb17e745b895617846ba345c7f794fb026f83e9f29fc"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-021-market-awning-v1.webp",
+      "bytes": 105330,
+      "sha256": "85edbe0683a74d31507a16cb876e953d054b506d4d26698fb4c6c709d01807c8"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-022-rehearsal-floor-mark-v1.webp",
+      "bytes": 75986,
+      "sha256": "2dea6506291e1211a7632cbac73a562cc3e34eaeffbfe6538d4fd028749277d7"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-023-mat-muddy-footprints-v1.webp",
+      "bytes": 113176,
+      "sha256": "9baa8284e632a1c22169e864e5255a771263d350961d0debfec92a42dbd20e0e"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-024-library-cart-wheel-v1.webp",
+      "bytes": 102958,
+      "sha256": "b7afc848a102223cf41079b6382b5d8db545e8dec9fbb35659446aed03543d46"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-025-tripod-sightline-v1.webp",
+      "bytes": 96058,
+      "sha256": "207766f7a4dc6b03fc9ac5fc7f523a406cfbfd42b9845f1431b18c54ddfca6fc"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-026-pottery-wheel-base-v1.webp",
+      "bytes": 104000,
+      "sha256": "160fa30a650ba87dadebd9f495feef25d9d323a88a4c3cc4736fdf9fa516cdc2"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-027-produce-scale-empty-bowl-v1.webp",
+      "bytes": 102782,
+      "sha256": "a0f35efb4fd2f2a588565df46385d2b7cad68dba20089b03a115fd282ff981b9"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-028-garden-hose-coupling-v1.webp",
+      "bytes": 130510,
+      "sha256": "150d779a8ad6408553257e15e566b51152eb8454264edbf97e95c345739a519a"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-029-art-room-wet-paint-v1.webp",
+      "bytes": 109558,
+      "sha256": "1e9c7540bec58a27dee6f12503f11ca883edfc42a1a6ea6a38420872c594b986"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-030-printshop-two-sided-page-v1.webp",
+      "bytes": 95080,
+      "sha256": "40575658f41a3c0f90358b3ba512e098d594a667171fe40824b7fae13f49efb4"
     },
     {
       "path": "assets/glr-scenes/en/c1-013-grocery-v1.jpg",
@@ -802,6 +902,56 @@
       "sha256": "763aea3d654228d9e2fb232b99129a91cbc2a1abfc92a375b72dbeb780925195"
     },
     {
+      "path": "assets/glr-scenes/en/c1-021-workshop-photo-permission-v1.webp",
+      "bytes": 97362,
+      "sha256": "f0725fd75ded437d946db5cda388db5138ec1fb1b4399bdb41b714cf5788d34a"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-022-piano-rehearsal-handoff-v1.webp",
+      "bytes": 73632,
+      "sha256": "c185c93f6ff9ef19da16b71aee69657398d508f8c93d897fb2998ffcd71a0c01"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-023-seed-swap-labels-v1.webp",
+      "bytes": 102294,
+      "sha256": "ab09259f112dc106371abc5112f4e53e33fe827f40db811dfb264d525f13f909"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-024-shared-dinner-bill-v1.webp",
+      "bytes": 106592,
+      "sha256": "8c78aa1b2d25e4568fc8bff9cac4caec22931954f7134dfd0f238c4732410ed8"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-025-rental-lantern-dent-v1.webp",
+      "bytes": 99410,
+      "sha256": "3d04af11df3e8c6108a8151956de12f777e6bc61f0d10a4391da9202044d02b0"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-026-market-stall-cover-v1.webp",
+      "bytes": 100218,
+      "sha256": "15afc9d2ddb2650b404f35ba639b8ee49312f66eeb991c6fde83d6d9e95192dd"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-027-poster-color-proof-v1.webp",
+      "bytes": 99056,
+      "sha256": "89333cd1f0137e71dd842e3e6a7f619d644a75dfaf0efbb418ab33eaddcc54f4"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-028-farewell-card-signature-v1.webp",
+      "bytes": 88784,
+      "sha256": "af666913f5cbb505b2b44181f1a04a3fb54efb703d3607f122ecc1c94d8ec1f0"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-029-fish-tank-feeding-handoff-v1.webp",
+      "bytes": 96458,
+      "sha256": "92d3b4e8f77db29ff365da728cf5d61011fff1040415ba00893a39a98199aa19"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-030-film-night-captions-v1.webp",
+      "bytes": 91290,
+      "sha256": "f833c1c4e4bdbaa9999971e132e201fe906ba425fde19febf10c593089f958de"
+    },
+    {
       "path": "assets/glr-scenes/en/c2-013-grocery-v1.jpg",
       "bytes": 218175,
       "sha256": "1655fc54cf4d4eb825e15ffecb714c983e8bb24da5a022c881959676c4e5bd28"
@@ -840,6 +990,56 @@
       "path": "assets/glr-scenes/en/c2-020-meal-trays-v1.jpg",
       "bytes": 156714,
       "sha256": "cc2de031ba33afdae944af7cc52d760792d71a42b85017b04fe87b477bfc09f9"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-021-playground-shade-v1.webp",
+      "bytes": 110826,
+      "sha256": "407c4588cfa718b79ddeea06b90bc2bb2e3edd760461769e6521978e13059dd9"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-022-rehearsal-projector-v1.webp",
+      "bytes": 79798,
+      "sha256": "8af5ef86608e5ba7b86a3d63f526b9f15c31f6f63f2077234eb90209039d249f"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-023-returnable-glass-jars-v1.webp",
+      "bytes": 103312,
+      "sha256": "4d11d031ce29abee6973a7f148742fa4d91a52cbd968d32885e1f97752511552"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-024-mural-color-samples-v1.webp",
+      "bytes": 96166,
+      "sha256": "b5b6ac3da683eddca8be51350a41a3cb123764cffeb182c1a160bb60c7895881"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-025-swap-table-kettle-v1.webp",
+      "bytes": 104070,
+      "sha256": "2e63180fcd423b5ca0b2cdc84f407dcbff821d8f2466930d4e9d3f37ffbee472"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-026-chair-test-run-v1.webp",
+      "bytes": 82846,
+      "sha256": "512b51a7e369cbc85606ab2e6352e66f2923c64ae5025c54f5341792179f6edc"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-027-trail-detour-map-v1.webp",
+      "bytes": 119598,
+      "sha256": "da8d64809ca9dbefd71f4fd6f3ba412d1c483f99f8bfb2985218fd6a6582a383"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-028-community-oven-timer-v1.webp",
+      "bytes": 94022,
+      "sha256": "a575cd5f5772634b5d48867fa2331a0a4836827b3f940ecf9f9986a441ee6fce"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-029-market-wet-stall-v1.webp",
+      "bytes": 119602,
+      "sha256": "9b66d36bfb28413630bf7d8138b769c2daf43e28fc09964ce27df96e074c23d5"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-030-repair-cafe-speaker-v1.webp",
+      "bytes": 101180,
+      "sha256": "9cea7cbe6e4cba7a168d26b629e6435c6a194992d45e47870b316179795985e7"
     },
     {
       "path": "assets/glr-scenes/guided-a1-01.webp",
@@ -1839,7 +2039,7 @@
     {
       "path": "audio-library.html",
       "bytes": 7552,
-      "sha256": "66ed5aaea11370e61f82dc1c3af74b1b137c76672e87fa9ddf6776c8a52eb93e"
+      "sha256": "d29dceb1f49d5e0a32b3fb71006a749158843564da028e0c347e02ee50726f1b"
     },
     {
       "path": "audio-library.js",
@@ -1933,8 +2133,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 405112,
-      "sha256": "8586457afdb13d6180f8ee4b6ce6730ec393f49450ed8457cd9f9ae330f25bdf"
+      "bytes": 500205,
+      "sha256": "3407838f062c4a786468f40f79fd2246a962da4793beebc95f991a77229d9c59"
     },
     {
       "path": "content-clarity.css",
@@ -1959,7 +2159,7 @@
     {
       "path": "E-english.html",
       "bytes": 33091,
-      "sha256": "e17b270ea96cfd72912be7b587ea2fe656794944e55fe330c33588b754cf705c"
+      "sha256": "652152e99c8fdc40248028ee201b8f8719e0cfa2bab8380ebe1bf4c359cf15b1"
     },
     {
       "path": "essay-artwork.css",
@@ -2028,8 +2228,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 28663,
-      "sha256": "0b339a25a0759db98d022b58ab08aacbd189a4eca34f4350952ff94e1e57fc71"
+      "bytes": 31716,
+      "sha256": "ed768ba684a519b89af6dbf3e4835e7336ad48b4ff53dc0f02323c30fd25af05"
     },
     {
       "path": "home-news-updates.css",
@@ -3529,7 +3729,7 @@
     {
       "path": "protected-card.html",
       "bytes": 3819,
-      "sha256": "b3d79b53e37d9bdddb656aed80c86e45132a4535fb07f328b3c231daee3dd907"
+      "sha256": "e5ba73fd2d2ec3d5259a479fdbcb344bb53ca2cbb8a57dc79fc5b9eaacafb093"
     },
     {
       "path": "protected-library.css",
