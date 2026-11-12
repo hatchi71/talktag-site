@@ -47,6 +47,64 @@ main{padding-top:20px}h1{font-size:clamp(1.8rem,6vw,2.7rem);line-height:1.12}.in
 .guided-controls output{color:#1767dd}
 .guided-controls .guided-progress{background:#e9eff6;color:#183455}
 .completion-button{background:#dff0e6;color:#1c6046;border-color:#aacbb8}
+
+.guided-action-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  width: 100%;
+  max-width: 30rem;
+}
+.guided-sentence-nav {
+  display: grid;
+  grid-template-columns: minmax(44px, 1fr) minmax(44px, 1.4fr) minmax(44px, 1fr);
+  min-width: 0;
+  border-radius: 11px;
+  background: #f7f9fc;
+  box-shadow: inset 0 0 0 1px #c7d7e8;
+}
+.guided-action-row button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 5px 6px;
+  font-size: .8125rem;
+  font-weight: 750;
+  line-height: 1.2;
+  word-break: keep-all;
+}
+.guided-sentence-nav button {
+  position: relative;
+  padding-inline: 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #17345a;
+  cursor: pointer;
+}
+.guided-sentence-nav button + button::before {
+  position: absolute;
+  inset: 9px auto 9px 0;
+  border-inline-start: 1px solid #c7d7e8;
+  content: '';
+}
+.guided-sentence-nav button:only-child { grid-column: 1 / -1; }
+.guided-sentence-nav button:focus-visible { outline: 3px solid #1767dd; outline-offset: -3px; }
+.guided-sentence-nav button:active { background: #e2edf9; }
+.guided-action-row .completion-button {
+  width: auto;
+  min-width: 58px;
+  max-width: 96px;
+  padding-inline: 2px;
+  border-radius: 11px;
+}
+html[data-appearance="dark"] .guided-sentence-nav {
+  background: #213e61;
+  box-shadow: inset 0 0 0 1px #496586;
+}
+html[data-appearance="dark"] .guided-sentence-nav button { color: #edf3ff; }
+html[data-appearance="dark"] .guided-sentence-nav button + button::before { border-color: #496586; }
+html[data-appearance="dark"] .guided-sentence-nav button:focus-visible { outline-color: #8ab9ff; }
+html[data-appearance="dark"] .guided-sentence-nav button:active { background: #2d517b; }
 .prompt{background:#e9f3ed}
 .reading-steps textarea{background:#fffdf8;color:#17345a;border-color:#bac9d0}
 .whole-repeat{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:52px;padding:10px 14px;border:1px solid #dedbd2;border-radius:14px;background:#f7f5ef;color:#203653;font-weight:750}

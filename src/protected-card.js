@@ -204,6 +204,13 @@ for (const event of ['timeupdate', 'seeked', 'loadedmetadata', 'play', 'ended'])
 
 function guidedKey(kind) { return `talktag-guided-preview:${kind}:${cardId}`; }
 
+function updateGuidedCompletion() {
+  const label = guidedDone ? ui('Undo mission completion', '미션 완료 취소') : ui('Complete mission', '미션 완료로 표시');
+  guidedCompletion.textContent = guidedDone ? ui('Undo', '완료 취소') : ui('✓ Complete', '✓ 완료');
+  guidedCompletion.setAttribute('aria-label', label);
+  guidedCompletion.title = label;
+}
+
 function cancelGuidedHold() {
   if (!guidedHold) return;
   clearTimeout(guidedHold);
@@ -237,8 +244,12 @@ function mountGuidedControls(item) {
   guidedProgress = paragraph('', true);
   guidedProgress.className = 'guided-progress';
   label.append(range, output);
+  const actions = document.createElement('div');
+  actions.className = 'guided-action-row';
   const navigation = document.createElement('div');
-  navigation.className = 'guided-navigation';
+  navigation.className = 'guided-sentence-nav';
+  navigation.setAttribute('role', 'group');
+  navigation.setAttribute('aria-label', ui('Sentence controls', '문장 재생 조작'));
   const sentenceIds = [...new Set(guidedCues.map(cue => Number(cue.i)))].sort((a, b) => a - b);
   const jump = (direction) => {
     const current = guidedCues.find(cue => audio.currentTime >= cue.s && audio.currentTime < cue.e);
@@ -252,22 +263,25 @@ function mountGuidedControls(item) {
     audio.currentTime = firstCue.s;
     guidedProgress.textContent = ui(`Sentence ${targetSentence + 1}/${content.expressions?.length || sentenceIds.length} · Ready to listen`, `문장 ${targetSentence + 1}/${content.expressions?.length || sentenceIds.length} · 듣기 준비 완료`);
   };
-  for (const [text, direction] of [[ui('← Previous sentence', '← 이전 문장'), -1], [ui('↻ Repeat sentence', '↻ 문장 다시 듣기'), 0], [ui('Next sentence →', '다음 문장 →'), 1]]) {
+  const sentenceActions = [
+    [ui('← Prev', '← 이전'), ui('Prev sentence', '이전 문장'), -1],
+    [ui('↻ Replay', '↻ 다시 듣기'), ui('Replay sentence', '문장 다시 듣기'), 0],
+    [ui('Next →', '다음 →'), ui('Next sentence', '다음 문장'), 1]
+  ];
+  for (const [text, label, direction] of sentenceActions) {
     if (sentenceIds.length === 1 && direction !== 0) continue;
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = text;
+    button.setAttribute('aria-label', label);
+    button.title = label;
     button.addEventListener('click', () => jump(direction));
     navigation.append(button);
   }
-  section.append(heading, label, help, guidedProgress, navigation);
   const completion = document.createElement('button');
   completion.type = 'button'; completion.className = 'completion-button';
   guidedCompletion = completion;
-  const completionLabel = () => {
-    completion.textContent = guidedDone ? ui('✓ Completed · Undo', '✓ 완료 · 취소') : ui('Mark mission complete', '미션 완료로 표시');
-  };
-  completionLabel();
+  updateGuidedCompletion();
   completion.addEventListener('click', async () => {
     if (!signedInUserId) return;
     completion.disabled = true;
@@ -286,10 +300,11 @@ function mountGuidedControls(item) {
       if (guidedDone) memberState.setItem(guidedKey('completed'), new Date().toISOString());
       else memberState.removeItem(guidedKey('completed'));
     } catch {}
-    completionLabel();
+    updateGuidedCompletion();
     completion.disabled = false;
   });
-  section.append(completion);
+  actions.append(navigation, completion);
+  section.append(heading, label, help, guidedProgress, actions);
   document.querySelector('#audio-section').append(section);
   try {
     const saved = Number(memberState.getItem(guidedKey('position')));
@@ -1229,7 +1244,7 @@ async function run() {
         .select('lesson_id').eq('user_id', signedInUserId).eq('lesson_id', cardId).maybeSingle();
       if (!progressError) {
         guidedDone = Boolean(progress);
-        guidedCompletion.textContent = guidedDone ? ui('✓ Completed · Undo', '✓ 완료 · 취소') : ui('Mark mission complete', '미션 완료로 표시');
+        updateGuidedCompletion();
       }
     }
     if (otherCompletion) {
