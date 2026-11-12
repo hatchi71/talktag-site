@@ -1203,15 +1203,22 @@ async function run() {
     if (historyResult.error) throw new Error('Learning history could not be saved.');
     if (!content || content.id !== cardId) throw new Error('invalid_payload');
     document.querySelector('#title').textContent = content.title || content.nativeTitle || 'Practice card';
-    document.querySelector('#description').textContent = content.description || content.summary || content.theme || '';
+    const description = content.description || content.summary || content.theme || '';
+    document.querySelector('#description').textContent = description;
     document.querySelector('#kicker').textContent = `${content.level || ''} · ${content.area || content.type || ''}`.toUpperCase();
     document.title = `${content.title || content.nativeTitle || 'Practice card'} · TalkTag`;
     const publishedArt = window.TalkTagAudioLessons?.find(card => card.id === content.id);
     const reviewedArt = window.TalkTagCardArtwork?.[content.id];
     const picture = safeArtwork(reviewedArt?.src || publishedArt?.artwork || content.artwork || guidedArtwork(content));
     if (picture) { const node = document.querySelector('#artwork'); node.src = picture; node.alt = reviewedArt?.alt || publishedArt?.artworkAlt || content.artworkAlt || ''; node.hidden = false; }
-    const scene = content.scene || content.briefing || content.situation;
-    if (scene) { const node = document.querySelector('#scene'); node.textContent = scene; node.hidden = false; }
+    const scene = content.scene || content.briefing || content.situation || '';
+    const normalizeCopy = text => String(text).normalize('NFC').replace(/\s+/g, ' ').trim();
+    const sceneCopy = normalizeCopy(scene);
+    if (sceneCopy && sceneCopy !== normalizeCopy(description)) {
+      const node = document.querySelector('#scene');
+      node.textContent = scene;
+      node.hidden = false;
+    }
     if (content.lesson?.audioSteps || content.lesson?.steps) await renderVocal(content);
     else if (Array.isArray(content.expressions)) await renderSound(content);
     else renderText(content);
