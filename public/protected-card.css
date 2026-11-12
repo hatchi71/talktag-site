@@ -3,7 +3,7 @@
 
 #lesson-text .line-play{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin:10px 0 0 12px;padding:8px 14px;border:1px solid #c7d7e8;border-radius:12px;background:#eef5ff;color:#17345a;font:inherit;font-size:.9rem;font-weight:750;cursor:pointer}#lesson-text .line-play:focus-visible{outline:3px solid #1767dd;outline-offset:2px}html[data-appearance="dark"] #lesson-text .line-play{background:#213e61;color:#edf3ff;border-color:#496586}html[data-appearance="dark"] #play-status{color:#c5d4e7}
 
-.guided-controls{display:grid;gap:12px;margin-top:18px;padding:18px;border:1px solid #d9e3e3;border-radius:18px;background:#f4f1e9}.guided-controls h2{margin:0;font-size:1.15rem}.guided-controls label{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;font-weight:700}.guided-controls input{grid-column:1/-1;width:100%;min-height:44px;accent-color:#1767dd}.guided-controls output{grid-column:2;grid-row:1;color:#1767dd;font-weight:800}.guided-controls .secondary{margin:0;line-height:1.5}.completion-button{min-height:44px;padding:10px 16px;border:1px solid #aacbb8;border-radius:14px;background:#e4f2e7;color:#173f31;font:inherit;font-weight:750;cursor:pointer}.completion-button:focus-visible,.guided-controls input:focus-visible{outline:3px solid #1767dd;outline-offset:2px}html[data-appearance="dark"] .guided-controls{background:#20344b;border-color:#3d526a}html[data-appearance="dark"] .guided-controls output{color:#8ab9ff}html[data-appearance="dark"] .completion-button{background:#1f483b;color:#e7f8ed;border-color:#4d856e}
+.guided-controls{display:grid;gap:12px;margin-top:18px;padding:18px;border:1px solid #d9e3e3;border-radius:18px;background:#f4f1e9}.completion-button{min-height:44px;padding:10px 16px;border:1px solid #aacbb8;border-radius:14px;background:#e4f2e7;color:#173f31;font:inherit;font-weight:750;cursor:pointer}.completion-button:focus-visible,.guided-controls input:focus-visible{outline:3px solid #1767dd;outline-offset:2px}html[data-appearance="dark"] .guided-controls{background:#20344b;border-color:#3d526a}html[data-appearance="dark"] .guided-controls output{color:#8ab9ff}html[data-appearance="dark"] .completion-button{background:#1f483b;color:#e7f8ed;border-color:#4d856e}
 .guided-controls .guided-progress{margin:0;padding:10px 12px;border-radius:12px;background:#e9eff6;color:#183455;font-weight:800;line-height:1.5}html[data-appearance="dark"] .guided-controls .guided-progress{background:#182a40;color:#e7f0ff}
 .guided-navigation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.guided-navigation button{min-height:44px;padding:9px 10px;border:1px solid #c7d7e8;border-radius:12px;background:#fffdf7;color:#17345a;font:inherit;font-weight:750;cursor:pointer}.guided-navigation button:only-child{grid-column:1/-1}.guided-navigation button:focus-visible{outline:3px solid #1767dd;outline-offset:2px}@media(max-width:520px){.guided-navigation{grid-template-columns:1fr 1fr}.guided-navigation button:nth-child(2){grid-column:1/-1;grid-row:2}}html[data-appearance="dark"] .guided-navigation button{background:#213e61;color:#edf3ff;border-color:#496586}
 #reading-steps.story-steps nav{display:flex;flex-wrap:wrap;gap:8px}#reading-steps.story-steps nav button,#reading-steps.story-steps>button{min-height:44px;padding:10px 16px;border:1px solid #c7d7e8;border-radius:14px;background:#eef5ff;color:#17345a;font:inherit;font-weight:750;cursor:pointer}#reading-steps.story-steps nav button[aria-current=step]{background:#1767dd;color:#fff;border-color:#1767dd}#reading-steps.story-steps h2{margin:0;font-size:1.1rem}#reading-steps.story-steps p{margin:0;line-height:1.6}
@@ -20,7 +20,6 @@ main{padding-top:20px}h1{font-size:clamp(1.8rem,6vw,2.7rem);line-height:1.12}.in
 #audio-section{display:grid;gap:12px}
 #audio{accent-color:#1768e9}
 .guided-controls{margin-top:4px;padding:16px;background:#eeece4;border-color:#d8d6ce}
-.guided-controls h2{font-size:1.1rem}.guided-controls label{font-size:.95rem}.guided-controls .secondary{color:#5f6d80}
 .guided-navigation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .guided-navigation button,.text-actions button{background:#f7f9fc;border:1px solid #bfd3e9;color:#183960}
 .completion-button{width:100%;background:#dff0e6;color:#1c6046}
@@ -44,9 +43,31 @@ main{padding-top:20px}h1{font-size:clamp(1.8rem,6vw,2.7rem);line-height:1.12}.in
 .translation-choice select:focus-visible{outline:3px solid #86aefa;outline-offset:2px}
 .text-actions button,.clips button,.guided-navigation button,#lesson-text .line-play{background:#f7f9fc;color:#17345a;border-color:#c7d7e8}
 .guided-controls{background:#eeece4;border-color:#d8d6ce}
-.guided-controls output{color:#1767dd}
 .guided-controls .guided-progress{background:#e9eff6;color:#183455}
 .completion-button{background:#dff0e6;color:#1c6046;border-color:#aacbb8}
+
+.guided-pause-row {
+  display: grid;
+  grid-template-columns: auto minmax(44px, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  max-width: 30rem;
+  font-size: .875rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+.guided-pause-row input {
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  accent-color: #1767dd;
+}
+.guided-pause-row output {
+  color: #1767dd;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+.guided-progress:empty { display: none; }
 
 .guided-action-row {
   display: grid;
@@ -212,7 +233,6 @@ body[data-camp=story] #lesson-text p.secondary{font-size:16px}
 .camp-menu:not([open])>nav,.camp-menu:not([open])>button{display:none!important}
 .camp-menu nav button{flex:0 0 auto!important}
 .camp-deck-navigation{grid-template-columns:none!important}
-body[data-camp] .guided-controls label{color:#203653}
 .camp-pause{display:grid;grid-template-columns:1fr auto;gap:16px;background:#eeeae0;color:#203653;border:1px solid #d8d5cb;border-radius:22px;padding:20px;margin:16px 0;font-weight:800}.camp-pause strong{color:#1764d6}.camp-pause input{grid-column:1/-1;width:100%;min-height:44px;accent-color:#1764d6}
 
 /* Shared compact lesson controls: logo and four actions, one row on phones. */
@@ -234,4 +254,4 @@ html[data-appearance="dark"] #lesson-text p.secondary{color:#c5d4e7!important}
 html[data-appearance="dark"] #lesson-text p.is-current-line:not(.secondary){background:#163d69;border-color:#7fb4ff;box-shadow:inset 4px 0 #7fb4ff}
 html[data-appearance="dark"] #lesson-text p.is-current-line.secondary{background:#203e5e;border-color:#6f96c0}
 html[data-appearance="dark"] #lesson-text rt,html[data-appearance="dark"] #lesson-text .japanese-reading-fallback{color:#c5d4e7}
-html[data-appearance="dark"] .card .scene,html[data-appearance="dark"] .guided-controls .secondary,html[data-appearance="dark"] .text-actions-label,html[data-appearance="dark"] .translation-choice{color:#c5d4e7}
+html[data-appearance="dark"] .card .scene,html[data-appearance="dark"] .text-actions-label,html[data-appearance="dark"] .translation-choice{color:#c5d4e7}

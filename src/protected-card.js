@@ -228,26 +228,32 @@ function mountGuidedControls(item) {
   if (!guidedCues.length) return;
   const section = document.createElement('section');
   section.className = 'guided-controls';
-  const heading = document.createElement('h2');
-  heading.textContent = ui('Speaking pause', '말하기 간격');
+  const pauseRow = document.createElement('div');
+  pauseRow.className = 'guided-pause-row';
   const label = document.createElement('label');
-  label.textContent = ui('Time to speak after each sentence', '문장을 들은 뒤 말할 시간');
+  label.textContent = ui('Speaking pause', '말하기 간격');
   const range = document.createElement('input');
+  range.id = 'guided-pause';
+  label.htmlFor = range.id;
   range.type = 'range'; range.min = '0'; range.max = '3'; range.step = '1';
-  range.setAttribute('aria-label', ui('Speaking pause, two to three and a half times the voice length', '말하기 간격, 음성 길이의 두 배에서 세 배 반'));
   const output = document.createElement('output');
+  output.setAttribute('aria-hidden', 'true');
   const options = [2, 2.5, 3, 3.5];
   try { const saved = Number(memberState.getItem(guidedKey('pause'))); if (options.includes(saved)) guidedMultiplier = saved; } catch {}
-  const update = () => { range.value = String(options.indexOf(guidedMultiplier)); output.textContent = `${guidedMultiplier.toFixed(1)}×`; };
+  const update = () => {
+    const multiplier = guidedMultiplier.toFixed(1);
+    range.value = String(options.indexOf(guidedMultiplier));
+    range.setAttribute('aria-valuetext', ui(`${multiplier} times the voice length`, `음성 길이의 ${multiplier}배`));
+    output.textContent = `${multiplier}×`;
+  };
   update();
   range.addEventListener('input', () => {
     guidedMultiplier = options[Number(range.value)]; update();
     try { memberState.setItem(guidedKey('pause'), String(guidedMultiplier)); } catch {}
   });
-  const help = paragraph(ui('The recording stays at its natural speed. The timeline shows the original audio.', '음성 속도는 그대로 유지됩니다. 재생 막대는 원본 음원의 위치를 표시합니다.'), true);
   guidedProgress = paragraph('', true);
   guidedProgress.className = 'guided-progress';
-  label.append(range, output);
+  pauseRow.append(label, range, output);
   const actions = document.createElement('div');
   actions.className = 'guided-action-row';
   const navigation = document.createElement('div');
@@ -308,7 +314,7 @@ function mountGuidedControls(item) {
     completion.disabled = false;
   });
   actions.append(navigation, completion);
-  section.append(heading, label, help, guidedProgress, actions);
+  section.append(pauseRow, guidedProgress, actions);
   document.querySelector('#audio-section').append(section);
   try {
     const saved = Number(memberState.getItem(guidedKey('position')));
