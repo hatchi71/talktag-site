@@ -6,7 +6,11 @@ assert(file,'Usage: node scripts/validate-guided-cards.mjs ABSOLUTE_MANIFEST');
 const {cards}=JSON.parse(fs.readFileSync(file,'utf8'));const ids=new Set();
 for(const c of cards){
  assert(!ids.has(c.id),'Duplicate '+c.id);ids.add(c.id);
- const t=c.training,reps=c.level==='A0'?5:/^C/.test(c.level)?21:/^B/.test(c.level)?15:10;
+ const t=c.training;
+ const episode011Reps = c.id==='ko-guided-a0-011' && c.level==='A0' ? 6
+   : /^ko-guided-(b1|b2|c1|c2)-011(?:-p(?:[2-9]|[1-9]\d+))?$/.test(c.id)
+     && c.id.startsWith('ko-guided-'+c.level.toLowerCase()+'-') ? 10 : null;
+ const reps=episode011Reps ?? (c.level==='A0'?5:/^C/.test(c.level)?21:/^B/.test(c.level)?15:10);
  assert.equal(t.defaultReps,reps);assert.equal(t.silenceMultiplier,2.5);assert.equal(t.minimumGapSeconds,3);
  assert(t.durationSeconds<=(/^C/.test(c.level)?900:600),'Duration limit '+c.id);
  assert.equal(c.expressions.length,c.meanings.length);assert(c.expressions.every(Boolean)&&c.meanings.every(Boolean));

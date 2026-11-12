@@ -1833,8 +1833,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 342931,
-      "sha256": "2864ea6433617f2d486037fec1df662ce584f8aea33e3ad77913840beb333fe1"
+      "bytes": 352527,
+      "sha256": "4915e7e6e889d8e2248e5c39237d03f83d37c55c670a025f1d7f3024745e7a8f"
     },
     {
       "path": "content-clarity.css",
@@ -1928,8 +1928,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 25852,
-      "sha256": "605d8a194cac6d6eb20ccc818284132b0a30c4b487721b87f0c759c9ee0bd706"
+      "bytes": 26674,
+      "sha256": "63ac35f035e57a9caf25d5af9b4732458f43abb3a110ba3402f83dac582de5ba"
     },
     {
       "path": "home-news-updates.css",
@@ -2603,8 +2603,8 @@
     },
     {
       "path": "K-korean-audio-library.html",
-      "bytes": 7757,
-      "sha256": "adf7f1f3d5af278c44de74ea60fce596af9082a03c940fb26333263f80ef1f92"
+      "bytes": 7742,
+      "sha256": "2bc72026da49f04b5df1d9d34b3460171581e25355a292bb09bbceaa73cbc95c"
     },
     {
       "path": "K-korean-audio-player.html",
@@ -2653,8 +2653,8 @@
     },
     {
       "path": "K-korean.html",
-      "bytes": 8077,
-      "sha256": "a14f4b6b2e7ba9a7b60e3cfb13c344c2ef76d4a3fc5c1b0a896daf2a51299582"
+      "bytes": 8071,
+      "sha256": "b143dbdc45ccee44d0fd53d364d66bc6d4ca72b11f1149b7e2d7ab336e64580e"
     },
     {
       "path": "korean-audio-essays.html",
@@ -2808,8 +2808,8 @@
     },
     {
       "path": "native-audio-library.js",
-      "bytes": 12709,
-      "sha256": "10fa0e61da8a4370ab9d8a4e26730808f0a17f8aa3d0c5adaa27b7505b915cb5"
+      "bytes": 13088,
+      "sha256": "247b3a355034f34174cdf0c4b742afa3407b2ec374fd3d12af3bde5f19c7b6ce"
     },
     {
       "path": "native-audio-ui.js",
@@ -3428,8 +3428,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3678,
-      "sha256": "459bc2bbeee52423dcdc148d2223e88143425d00a5635e5492aa0f075272e30e"
+      "bytes": 3671,
+      "sha256": "0c281dbe9ba4f3ac9ada4ad46f7941c99e88c728a311ff1457560f9d7591a25c"
     },
     {
       "path": "protected-library.css",

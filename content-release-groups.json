@@ -923,5 +923,34 @@
       "guided-c2-15-part2",
       "guided-c2-15-part3"
     ]
+  },
+  {
+    "id": "guided:ko:011:all-levels",
+    "language": "ko",
+    "status": "published",
+    "levels": [
+      "A0",
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "title": "Korean Guided L&R · 011 · A0–C2",
+    "href": "K-korean-audio-library.html?type=guided",
+    "description": "Episode 011 is now available at every level, from choosing what to buy to sorting out a change at the train station.",
+    "publishedAt": "2026-11-12T04:43:25+00:00",
+    "cardIds": [
+      "ko-guided-a0-011",
+      "ko-guided-b1-011",
+      "ko-guided-b1-011-p2",
+      "ko-guided-b2-011",
+      "ko-guided-b2-011-p2",
+      "ko-guided-c1-011",
+      "ko-guided-c1-011-p2",
+      "ko-guided-c2-011",
+      "ko-guided-c2-011-p2"
+    ]
   }
 ]
