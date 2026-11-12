@@ -697,6 +697,31 @@
       "sha256": "78f0042fda326b7b599f813c0c275497ad1b8a07fcfa95811e55c3cc1532428b"
     },
     {
+      "path": "assets/glr-scenes/en/b1-016-closed-station-exit-v1.jpg",
+      "bytes": 147079,
+      "sha256": "009fefd88fa5ef229f5a7851354a739efb6de494f1f1425457ed3565bb06fe65"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-017-tote-at-pharmacy-v1.jpg",
+      "bytes": 148791,
+      "sha256": "af68cb4217d08c634b25b0b1d6975289c5bed24c1d01e83e05a3d73dea41a31a"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-018-neighbor-music-v1.jpg",
+      "bytes": 158888,
+      "sha256": "e87ae35894251dedd10ebaccf87552f424498c9af3d19b2ba9acabadd9dd845f"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-019-two-coffees-drink-tray-v1.jpg",
+      "bytes": 142485,
+      "sha256": "9e67c73a4168731ccb25e7d7c2cf336c6e9ad5d1e8e8da17d879c0d65d2aaa9c"
+    },
+    {
+      "path": "assets/glr-scenes/en/b1-020-loose-dog-park-gate-v1.jpg",
+      "bytes": 192115,
+      "sha256": "32f3a12517426b49ffeca0bea84b7b24158e8f3226c261c370fd903528e16faa"
+    },
+    {
       "path": "assets/glr-scenes/en/b2-013-grocery-v1.jpg",
       "bytes": 130240,
       "sha256": "6b688ce5fafefffdd8dadbc0d3450545bd34af11f8e209075f433e2a7fe3746f"
@@ -710,6 +735,31 @@
       "path": "assets/glr-scenes/en/b2-015-shared-resources-v1.jpg",
       "bytes": 171449,
       "sha256": "781026d4061803319481cf134af78d598145c4be6cea7e69657c97a4e58609f1"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-016-bookshelf-delivery-v1.jpg",
+      "bytes": 131913,
+      "sha256": "dc84e14649f60749b1a5ece18b6618570090c66d412548c537d702c4429d86da"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-017-tailor-jacket-sleeves-v1.jpg",
+      "bytes": 125042,
+      "sha256": "6f256f008797822f8f34f0c92640c4e7e565134f6b96c91cd068912e32ffd75b"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-018-private-call-booth-v1.jpg",
+      "bytes": 137355,
+      "sha256": "5f7de2118763c49df67fbb9516d887172cd5b028937559e3fc934e596a42f15c"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-019-bakery-separate-orders-v1.jpg",
+      "bytes": 169188,
+      "sha256": "62596695ddbeb823e6b987a95fc462287c0159b1b6260dac7dcf3416c810e48c"
+    },
+    {
+      "path": "assets/glr-scenes/en/b2-020-bikes-entry-ramp-v1.jpg",
+      "bytes": 185175,
+      "sha256": "6679045d1241856eb31bcb17e745b895617846ba345c7f794fb026f83e9f29fc"
     },
     {
       "path": "assets/glr-scenes/en/c1-013-grocery-v1.jpg",
@@ -727,6 +777,31 @@
       "sha256": "bf958da46e4848a197b23d9416f23d9496a1330f4fe7af6515f7bf2a2653c3d7"
     },
     {
+      "path": "assets/glr-scenes/en/c1-016-stained-jacket-v1.jpg",
+      "bytes": 132153,
+      "sha256": "700644e841b33adb8e7657d46099b23ee5d820a1f4dd50fe118f2cdacf18dbd2"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-017-cafe-seat-v1.jpg",
+      "bytes": 152830,
+      "sha256": "cbc2f1c198ec8361d6ff8187e9927e765717f9f7667009daebca6d1e4eafe039"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-018-garden-gate-v1.jpg",
+      "bytes": 171830,
+      "sha256": "ae7b280a64f43cf909abfafedba9cb321967469e66006e04f79caf1199688f0e"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-019-lunch-shelf-v1.jpg",
+      "bytes": 150117,
+      "sha256": "daa6bad93fb30b4b134cc11ccf76602273d5c94ce16b60f59405555c66839cb9"
+    },
+    {
+      "path": "assets/glr-scenes/en/c1-020-shared-dryer-v1.jpg",
+      "bytes": 136788,
+      "sha256": "763aea3d654228d9e2fb232b99129a91cbc2a1abfc92a375b72dbeb780925195"
+    },
+    {
       "path": "assets/glr-scenes/en/c2-013-grocery-v1.jpg",
       "bytes": 218175,
       "sha256": "1655fc54cf4d4eb825e15ffecb714c983e8bb24da5a022c881959676c4e5bd28"
@@ -740,6 +815,31 @@
       "path": "assets/glr-scenes/en/c2-015-shared-resources-v1.jpg",
       "bytes": 133658,
       "sha256": "cd6523a65c88636d50a9d10f3ef58e5e18d6e976bb487211dbaf93aef7167b82"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-016-parcel-bench-v1.jpg",
+      "bytes": 135023,
+      "sha256": "accc41892dc99cdacc6fba27761fbf408525b9407d612bb4348654dccf37e53a"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-017-bakery-rolls-v1.jpg",
+      "bytes": 146301,
+      "sha256": "02977c546b4243e025313ebc3dbe1a6b16778c8a3d2bcca1f7b8a1536e6cc52b"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-018-bike-estimate-v1.jpg",
+      "bytes": 172723,
+      "sha256": "2ba558cbb6c9051c4933221710aefa4ef68254eda296c9a36d4577d0e78be233"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-019-peach-receipt-v1.jpg",
+      "bytes": 166191,
+      "sha256": "a38f81de059ef62ebf188818d4243b6b341dd9cf4fe9d979b064b66c10229f14"
+    },
+    {
+      "path": "assets/glr-scenes/en/c2-020-meal-trays-v1.jpg",
+      "bytes": 156714,
+      "sha256": "cc2de031ba33afdae944af7cc52d760792d71a42b85017b04fe87b477bfc09f9"
     },
     {
       "path": "assets/glr-scenes/guided-a1-01.webp",
@@ -1739,7 +1839,7 @@
     {
       "path": "audio-library.html",
       "bytes": 7552,
-      "sha256": "be64d1d2bec75a595c07709d874631175f78e3b0a60c2e7252994d9093c9d227"
+      "sha256": "66ed5aaea11370e61f82dc1c3af74b1b137c76672e87fa9ddf6776c8a52eb93e"
     },
     {
       "path": "audio-library.js",
@@ -1833,8 +1933,8 @@
     },
     {
       "path": "catalog-metadata.js",
-      "bytes": 352527,
-      "sha256": "4915e7e6e889d8e2248e5c39237d03f83d37c55c670a025f1d7f3024745e7a8f"
+      "bytes": 405112,
+      "sha256": "8586457afdb13d6180f8ee4b6ce6730ec393f49450ed8457cd9f9ae330f25bdf"
     },
     {
       "path": "content-clarity.css",
@@ -1859,7 +1959,7 @@
     {
       "path": "E-english.html",
       "bytes": 33091,
-      "sha256": "7283535f7e1e280a461ab21d62b5ec0e72c448649938b1d56bda11a26e84424b"
+      "sha256": "e17b270ea96cfd72912be7b587ea2fe656794944e55fe330c33588b754cf705c"
     },
     {
       "path": "essay-artwork.css",
@@ -1928,8 +2028,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 26674,
-      "sha256": "63ac35f035e57a9caf25d5af9b4732458f43abb3a110ba3402f83dac582de5ba"
+      "bytes": 28663,
+      "sha256": "0b339a25a0759db98d022b58ab08aacbd189a4eca34f4350952ff94e1e57fc71"
     },
     {
       "path": "home-news-updates.css",
@@ -3428,8 +3528,8 @@
     },
     {
       "path": "protected-card.html",
-      "bytes": 3671,
-      "sha256": "0c281dbe9ba4f3ac9ada4ad46f7941c99e88c728a311ff1457560f9d7591a25c"
+      "bytes": 3678,
+      "sha256": "10944873a421932789d21e97d980281b56033b7b428795e62cd058eec341a0b7"
     },
     {
       "path": "protected-library.css",
