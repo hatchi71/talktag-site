@@ -70,6 +70,8 @@ const status = document.querySelector('#status');
 const card = document.querySelector('#card');
 const audio = document.querySelector('#audio');
 const playToggle = document.querySelector('#play-toggle');
+const rewind = document.querySelector('#rewind');
+const replay = document.querySelector('#replay');
 const seek = document.querySelector('#seek');
 const clock = value => { const seconds = Math.max(0, Math.floor(value || 0)); return `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`; };
 playToggle.addEventListener('click', () => {
@@ -85,8 +87,10 @@ playToggle.addEventListener('click', () => {
   });
   else audio.pause();
 });
-document.querySelector('#rewind').addEventListener('click', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });
-document.querySelector('#replay').addEventListener('click', () => { audio.currentTime = 0; audio.play().catch(() => {}); });
+rewind.setAttribute('aria-label', ui('Back 10 seconds', '10초 뒤로'));
+replay.setAttribute('aria-label', ui('Restart audio', '처음부터 다시 듣기'));
+rewind.addEventListener('click', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });
+replay.addEventListener('click', () => { audio.currentTime = 0; audio.play().catch(() => {}); });
 seek.addEventListener('input', () => { if (Number.isFinite(audio.duration)) audio.currentTime = audio.duration * Number(seek.value) / 1000; });
 audio.addEventListener('play', () => { playToggle.textContent = ui('Ⅱ Pause', 'Ⅱ 일시정지'); });
 audio.addEventListener('pause', () => { playToggle.textContent = ui('▶ Play', '▶ 재생'); });
@@ -675,8 +679,19 @@ function renderSound(item) {
   renderLines(lines, selectedMeaning(), speakers, readings);
   // Mini Talks can carry cue timing for display, but they do not use Guided
   // repetition cycles or the adjustable speaking-pause player.
-  wholeRepeat.closest('label').hidden = false;
+  const repeatLabel = wholeRepeat.closest('label');
+  repeatLabel.hidden = false;
   if (item.area === 'guided-listen-repeat' || item.type === 'guided') {
+    const buttons = playToggle.parentElement;
+    buttons.classList.add('practice-buttons--compact');
+    const playback = document.createElement('div');
+    playback.className = 'practice-playback-group';
+    playback.setAttribute('role', 'group');
+    playback.setAttribute('aria-label', ui('Audio playback', '음원 재생 조작'));
+    playback.append(rewind, playToggle, replay);
+    wholeRepeat.setAttribute('aria-label', ui('Repeat whole audio', '전체 반복'));
+    repeatLabel.querySelector('span').textContent = ui('Loop', '전체 반복');
+    buttons.append(playback, repeatLabel);
     mountGuidedControls(item);
   }
   const prompt = item.tinyPrompt || item.variationPrompt?.ko || item.variationPrompt?.en;

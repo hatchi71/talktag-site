@@ -112,6 +112,68 @@ html[data-appearance="dark"] .guided-sentence-nav button:active { background: #2
 .whole-repeat input:after{content:"";position:absolute;top:4px;left:4px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:transform .2s}
 .whole-repeat input:checked{background:#1768e9}.whole-repeat input:checked:after{transform:translateX(20px)}
 .whole-repeat input:focus-visible{outline:3px solid #86aefa;outline-offset:3px}
+
+.practice-buttons--compact {
+  grid-template-columns: minmax(0, 1fr) auto;
+  width: 100%;
+  max-width: 30rem;
+}
+.practice-playback-group {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  border-radius: 11px;
+  background: #f7f9fc;
+  box-shadow: inset 0 0 0 1px #c7d7e8;
+}
+.practice-playback-group button {
+  min-height: 44px;
+  padding: 4px 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  font-size: .875rem;
+  line-height: 1.15;
+  cursor: pointer;
+}
+.practice-playback-group button:focus-visible { outline-offset: -3px; }
+.practice-playback-group button:active { background: #e2edf9; }
+.practice-playback-group #play-toggle { padding-inline: 4px; }
+.practice-buttons--compact .whole-repeat {
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  min-width: 60px;
+  min-height: 44px;
+  padding: 4px 6px;
+  border-radius: 11px;
+  font-size: .75rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.practice-buttons--compact .whole-repeat input {
+  width: 30px;
+  min-height: 0;
+  height: 16px;
+}
+.practice-buttons--compact .whole-repeat input::after {
+  inset: 2px auto auto 2px;
+  width: 12px;
+  height: 12px;
+}
+.practice-buttons--compact .whole-repeat input:checked::after { transform: translateX(14px); }
+html[data-appearance="dark"] .practice-playback-group {
+  background: #213e61;
+  box-shadow: inset 0 0 0 1px #496586;
+}
+html[data-appearance="dark"] .practice-playback-group button { color: #edf3ff; }
+html[data-appearance="dark"] .practice-playback-group button:active { background: #2d517b; }
+html[data-appearance="dark"] .practice-buttons--compact .whole-repeat {
+  background: #21364e;
+  border-color: #496586;
+  color: #edf3ff;
+}
+
 .text-actions{display:grid;gap:8px}.text-actions-label{font-size:.9rem;font-weight:800;color:#5f6d80}
 .script-choice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:5px;background:#eeece5;border-radius:14px}
 .script-choice button{padding:9px 7px;min-height:44px;border:0;border-radius:10px;background:transparent;color:#203653;font-size:.88rem;line-height:1.2}
