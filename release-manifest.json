@@ -1738,13 +1738,13 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7486,
-      "sha256": "743e60311123f9a1f18d7d6b50b36699a1fad5a262602fe60d8e6be3192fdfd7"
+      "bytes": 7552,
+      "sha256": "be64d1d2bec75a595c07709d874631175f78e3b0a60c2e7252994d9093c9d227"
     },
     {
       "path": "audio-library.js",
-      "bytes": 9745,
-      "sha256": "e5a259241aad7c3e209d1d83db1a904382b354ac2a933bae2dfa5a41aa280ce1"
+      "bytes": 9838,
+      "sha256": "c2c4eabece045edd5b7aa8d49b879b6cbb7d72db6a6e67018917803554807fe0"
     },
     {
       "path": "audio-player.html",
@@ -1880,6 +1880,11 @@
       "path": "favicon.ico",
       "bytes": 23742,
       "sha256": "4dc500b6333f9243271a7de4f0f0c1c5cfd4f9a8fad3ae43acee9049c9008424"
+    },
+    {
+      "path": "glr-episode-labels.js",
+      "bytes": 1036,
+      "sha256": "ab09ad22f8cb8e44a3853e1c6049d507f5d0131ba58b1bd24b970e0d15095b17"
     },
     {
       "path": "glr-introduction.css",
@@ -2103,8 +2108,8 @@
     },
     {
       "path": "japanese/J-guided.html",
-      "bytes": 7242,
-      "sha256": "17bb737e78aba4bb431990845efb2f3386da45de8f5f7ad180d3c6c02c755808"
+      "bytes": 7315,
+      "sha256": "662cba553e01727cc8f1c4e2a11b930b48331df4a1f5e6d8a3b6d28f0bf71cc9"
     },
     {
       "path": "japanese/J-index.html",
@@ -2598,8 +2603,8 @@
     },
     {
       "path": "K-korean-audio-library.html",
-      "bytes": 7684,
-      "sha256": "98454a83d7fdd976f4138f9bb7f8dff0a8089d22bdcdd6d9dc1da98eed8f5879"
+      "bytes": 7757,
+      "sha256": "adf7f1f3d5af278c44de74ea60fce596af9082a03c940fb26333263f80ef1f92"
     },
     {
       "path": "K-korean-audio-player.html",
@@ -2803,8 +2808,8 @@
     },
     {
       "path": "native-audio-library.js",
-      "bytes": 12561,
-      "sha256": "ba77e34586545ca10102e941aad5b3835e4713ce6ef4ff1e1f04ba034c4ac648"
+      "bytes": 12709,
+      "sha256": "10fa0e61da8a4370ab9d8a4e26730808f0a17f8aa3d0c5adaa27b7505b915cb5"
     },
     {
       "path": "native-audio-ui.js",

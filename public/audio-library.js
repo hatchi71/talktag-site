@@ -34,9 +34,10 @@ function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;",
 function done(l){return l.available!==false&&window.TalkTagCompletion.getManual("audio:"+l.id,"talktag-audio:"+l.id);}
 function accessNumber(l){var n=Number(l.unit||l.episode);if(Number.isInteger(n)&&n>0)return n;var id=String(l.id||"");var m=id.match(/-(\d{3})(?:-|$)/)||id.match(/-(\d+)(?:$)/);if(m&&Number(m[1])>0)return Number(m[1]);return catalog.filter(x=>x.level===l.level).indexOf(l)+1;}
 function url(l){var ordinal=accessNumber(l);return (l.available===false?"audio-essay-preview.html":"audio-player.html")+"?id="+encodeURIComponent(l.id)+(ordinal>0?"&access-index="+ordinal:"");}
+var guidedNumbers=type==="guided"?window.TalkTagGLREpisodeLabels(catalog,accessNumber):null;
 function number(l){
-  var episodeWidth=type==="guided"?3:2;
-  var base=String(l.unit||catalog.filter(x=>x.level===l.level).indexOf(l)+1).padStart(episodeWidth,"0");
+  if(guidedNumbers)return guidedNumbers.get(l.id);
+  var base=String(l.unit||catalog.filter(x=>x.level===l.level).indexOf(l)+1).padStart(2,"0");
   return (l.pilot?base+"P":base)+(l.partIndex?"–"+String(l.partIndex).padStart(2,"0"):"");
 }
 function render(){
