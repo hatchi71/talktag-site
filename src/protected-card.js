@@ -73,7 +73,81 @@ const playToggle = document.querySelector('#play-toggle');
 const rewind = document.querySelector('#rewind');
 const replay = document.querySelector('#replay');
 const seek = document.querySelector('#seek');
+const wave = seek.parentElement;
+const elapsedTime = document.querySelector('#elapsed');
+const totalTime = document.querySelector('#duration');
 const clock = value => { const seconds = Math.max(0, Math.floor(value || 0)); return `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`; };
+seek.setAttribute('aria-label', ui('Audio position', '음원 재생 위치'));
+const waveBars = document.createDocumentFragment();
+const barCount = 36;
+for (let index = 0; index < barCount; index++) {
+  const bar = document.createElement('span');
+  const envelope = Math.sin(Math.PI * index / (barCount - 1)) ** 0.7;
+  bar.style.setProperty('--bar-height', `${12 + envelope * (40 + 8 * (index * 7 % 5))}%`);
+  bar.style.setProperty('--bar-delay', `-${index * 103 % 740}ms`);
+  waveBars.append(bar);
+}
+wave.querySelector('.practice-wave-bars').append(waveBars);
+
+let wavePlaying = false;
+let waveFrame = 0;
+function paintWave() {
+  const time = audio.currentTime;
+  const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+  const fraction = duration > 0 ? Math.min(1, Math.max(0, time / duration)) : 0;
+  wave.style.setProperty('--audio-progress', `${fraction * 100}%`);
+  const cues = scriptCuesByVariant.get(currentVariant);
+  const cue = cueAt(cues, time);
+  wave.classList.toggle('is-voicing', wavePlaying && !document.hidden && !audio.seeking
+    && (!cues || (cue && time < cue.voiceEnd)));
+}
+
+function syncTimeline() {
+  const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+  const elapsed = clock(audio.currentTime);
+  const total = clock(duration);
+  if (elapsedTime.textContent !== elapsed) elapsedTime.textContent = elapsed;
+  if (totalTime.textContent !== total) totalTime.textContent = total;
+  seek.disabled = duration <= 0;
+  seek.value = String(duration > 0 ? Math.round(audio.currentTime / duration * Number(seek.max)) : 0);
+  const position = `${elapsed} / ${total}`;
+  if (seek.getAttribute('aria-valuetext') !== position) seek.setAttribute('aria-valuetext', position);
+  paintWave();
+}
+
+function animateWave() {
+  paintWave();
+  waveFrame = requestAnimationFrame(animateWave);
+}
+
+function refreshWave() {
+  cancelAnimationFrame(waveFrame);
+  waveFrame = 0;
+  paintWave();
+  if (wavePlaying && !document.hidden && wave.getClientRects().length) {
+    waveFrame = requestAnimationFrame(animateWave);
+  }
+}
+
+for (const event of ['playing', 'seeked']) {
+  audio.addEventListener(event, () => {
+    wavePlaying = !audio.paused && !audio.ended && audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA;
+    refreshWave();
+  });
+}
+for (const event of ['pause', 'ended', 'waiting', 'seeking', 'emptied', 'error']) {
+  audio.addEventListener(event, () => {
+    wavePlaying = false;
+    refreshWave();
+  });
+}
+for (const event of ['timeupdate', 'durationchange', 'loadedmetadata', 'seeking', 'seeked', 'emptied', 'ended']) {
+  audio.addEventListener(event, syncTimeline);
+}
+document.addEventListener('visibilitychange', refreshWave);
+window.addEventListener('pageshow', refreshWave);
+window.addEventListener('pagehide', () => cancelAnimationFrame(waveFrame));
+
 playToggle.addEventListener('click', () => {
   if (guidedHold || vocalWaiting) {
     cancelGuidedHold();
@@ -91,11 +165,11 @@ rewind.setAttribute('aria-label', ui('Back 10 seconds', '10초 뒤로'));
 replay.setAttribute('aria-label', ui('Restart audio', '처음부터 다시 듣기'));
 rewind.addEventListener('click', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });
 replay.addEventListener('click', () => { audio.currentTime = 0; audio.play().catch(() => {}); });
-seek.addEventListener('input', () => { if (Number.isFinite(audio.duration)) audio.currentTime = audio.duration * Number(seek.value) / 1000; });
+seek.addEventListener('input', () => {
+  if (!seek.disabled) audio.currentTime = audio.duration * Number(seek.value) / Number(seek.max);
+});
 audio.addEventListener('play', () => { playToggle.textContent = ui('Ⅱ Pause', 'Ⅱ 일시정지'); });
 audio.addEventListener('pause', () => { playToggle.textContent = ui('▶ Play', '▶ 재생'); });
-audio.addEventListener('timeupdate', () => { document.querySelector('#elapsed').textContent = clock(audio.currentTime); if (Number.isFinite(audio.duration) && audio.duration > 0) seek.value = String(Math.round(audio.currentTime / audio.duration * 1000)); });
-audio.addEventListener('loadedmetadata', () => { document.querySelector('#duration').textContent = clock(audio.duration); });
 const clips = document.querySelector('#clips');
 const lessonText = document.querySelector('#lesson-text');
 const scriptButton = document.querySelector('#show-script');
@@ -154,7 +228,8 @@ function registerScriptCues(variant, cues, lineIds = []) {
   if (!variant || !Array.isArray(cues)) return;
   const normalized = cues.map(cue => ({
     s: Number(cue.s ?? cue.start),
-    e: Number(cue.e ?? cue.pauseEnd),
+    e: Number(cue.e ?? cue.pauseEnd ?? cue.end),
+    voiceEnd: Number(cue.voiceEnd ?? cue.end ?? cue.e ?? cue.pauseEnd),
     i: Number(cue.i ?? lineIds.indexOf(cue.lineId))
   })).filter(cue => Number.isFinite(cue.s) && Number.isFinite(cue.e)
     && Number.isInteger(cue.i) && cue.i >= 0 && cue.e > cue.s)
@@ -162,9 +237,8 @@ function registerScriptCues(variant, cues, lineIds = []) {
   if (normalized.length) scriptCuesByVariant.set(variant, normalized);
 }
 
-function activeLineAt(time) {
-  if (audio.ended) return -1;
-  const cues = scriptCuesByVariant.get(currentVariant) || [];
+function cueAt(cues, time) {
+  if (!cues?.length) return null;
   let low = 0;
   let high = cues.length - 1;
   let found = -1;
@@ -173,7 +247,13 @@ function activeLineAt(time) {
     if (cues[mid].s <= time) { found = mid; low = mid + 1; }
     else high = mid - 1;
   }
-  if (found >= 0 && time < cues[found].e) return cues[found].i;
+  return found >= 0 && time < cues[found].e ? cues[found] : null;
+}
+
+function activeLineAt(time) {
+  if (audio.ended) return -1;
+  const cue = cueAt(scriptCuesByVariant.get(currentVariant), time);
+  if (cue) return cue.i;
   return audio.currentSrc && lineClipIndices.has(currentVariant) && time >= 0
     ? lineClipIndices.get(currentVariant) : -1;
 }

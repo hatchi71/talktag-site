@@ -13,10 +13,10 @@
   </script>
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/protected-card-pilot.css?v=audit-controls-20261106">
-  <link rel="stylesheet" href="/protected-card.css?v=guided-pause-row-20261112">
+  <link rel="stylesheet" href="/protected-card.css?v=waveform-seek-20261112">
   <script src="/auth-config.js" defer></script>
   <script src="/catalog-metadata.js?v=en-glr-016-020-bc-20261112"></script>
-  <script src="/assets/talktag-protected-card.js?v=guided-pause-row-20261112" defer></script>
+  <script src="/assets/talktag-protected-card.js?v=waveform-seek-20261112" defer></script>
 </head>
 <body>
   <header class="site-header"><a href="/" class="brand" aria-label="TalkTag home"><img src="/talktag-logo.png" alt="TalkTag" width="44" height="44"></a><nav class="head-links" aria-label="Page controls"><a id="player-account" class="back" href="/account.html">Log in</a><button id="player-theme" type="button" aria-label="Change appearance">☼</button><button id="player-share" type="button" aria-label="Share this lesson">↥</button></nav></header>
@@ -33,7 +33,14 @@
         <p class="scene" id="scene" hidden></p>
         <section id="audio-section" hidden>
           <p id="play-status" role="status"></p>
-          <div class="practice-transport"><div class="practice-wave" aria-hidden="true"></div><div class="practice-times"><span id="elapsed">00:00</span><span id="duration">00:00</span></div><input id="seek" type="range" min="0" max="1000" value="0" aria-label="Audio position"><div class="practice-buttons"><button type="button" id="rewind">↶ <small>10 sec</small></button><button type="button" id="play-toggle">▶ Play</button><button type="button" id="replay">↻</button></div></div>
+          <div class="practice-transport">
+            <div class="practice-wave">
+              <div class="practice-wave-bars" aria-hidden="true"></div>
+              <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Audio position" disabled>
+            </div>
+            <div class="practice-times"><span id="elapsed">00:00</span><span id="duration">00:00</span></div>
+            <div class="practice-buttons"><button type="button" id="rewind">↶ <small>10 sec</small></button><button type="button" id="play-toggle">▶ Play</button><button type="button" id="replay">↻</button></div>
+          </div>
           <audio id="audio" preload="metadata" controlslist="nodownload"></audio>
           <div id="clips" class="clips" hidden></div>
           <label class="whole-repeat" hidden><span>Repeat whole audio</span><input id="whole-repeat" type="checkbox" role="switch"></label>
