@@ -2028,8 +2028,8 @@
     },
     {
       "path": "assets/talktag-protected-card.js",
-      "bytes": 283860,
-      "sha256": "2b0c8f7c6474f9de21416fe6dae0ff8db7abf4b413a9f4f645f87edc7c3cc45f"
+      "bytes": 284327,
+      "sha256": "5f846063fdcf786bcac4d200e51d8941c5309841d038fd9772250813bd611fc2"
     },
     {
       "path": "assets/talktag-protected-library.js",
@@ -2198,8 +2198,8 @@
     },
     {
       "path": "E-english.html",
-      "bytes": 33423,
-      "sha256": "ad7ff3e36d2ec2af3c5621cc373440f9329bd7b15d49b680db50133047777ec4"
+      "bytes": 33439,
+      "sha256": "f25d4d186e45271db18f0d423e0a44bb407d3830abca4ce19638bd9be3d042b4"
     },
     {
       "path": "essay-artwork.css",
@@ -3763,13 +3763,13 @@
     },
     {
       "path": "protected-card.css",
-      "bytes": 21938,
-      "sha256": "25ab7b97780d8626779b820cf14620a435f3ae29b02a4ef2317a3c2c7b8bfc70"
+      "bytes": 22821,
+      "sha256": "74b7258cbedcdccb997edc29067d5954075ff239f9b5b04ff026417beea551d2"
     },
     {
       "path": "protected-card.html",
-      "bytes": 3803,
-      "sha256": "3d2510879ac14b606d9ca2669090dc102abf7b024070cb5528a8a6d7912c91ff"
+      "bytes": 3835,
+      "sha256": "172368c68c0ff0d6dbdadcb43df7652caf1e8fb1219eee898ccd7482567dc51b"
     },
     {
       "path": "protected-library.css",
@@ -3908,13 +3908,13 @@
     },
     {
       "path": "sr001/index.html",
-      "bytes": 5672,
-      "sha256": "8b41c9e57a1e16ac93c6f4471fcd17b309a3983d36890dc35d976cec027e8cbc"
+      "bytes": 5688,
+      "sha256": "5e29354b3edeb4595e9123c09e5b30b842661729942f2d91b65514537ac0151e"
     },
     {
       "path": "sr001-catalog.js",
-      "bytes": 15473,
-      "sha256": "c37b21215ed90573c026b50f46f050bd5d5f624ba20a43854ec304164735473f"
+      "bytes": 15534,
+      "sha256": "f0ce3bb74e8ee750f9e554b6fdece451aeb22599fde0aba3d87d996405e119cc"
     },
     {
       "path": "sr001.css",
@@ -3968,8 +3968,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 458,
-      "sha256": "fb8c6a0898927a3475e75dcb69ef5fc2e03065f717b1e194d2fbb14fe8cd222e"
+      "bytes": 471,
+      "sha256": "7e48af1d207cd8a5d839de5670c3edc2d76429100d855d42e440540c04133400"
     },
     {
       "path": "TalkTag Inspiring Aspiring and Accomplishing.jpg",

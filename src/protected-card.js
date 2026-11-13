@@ -1176,6 +1176,14 @@ function renderText(item) {
   if (story && lines.length) {
     try { storyStage = Math.max(0, Math.min(lines.length + 3, Number(memberState.getItem(storyKey)) || 0)); } catch {}
   }
+  const sr001Reading = sr001Card?.[2] === 'readable';
+  if (sr001Reading) {
+    document.querySelector('#card').classList.add('sr001-reading');
+    document.querySelector('.text-actions-label').textContent = '읽기 언어';
+    document.querySelector('.script-choice').setAttribute('aria-label', '읽기 언어');
+    scriptButton.textContent = '영어 원문';
+    meaningButton.textContent = '영어 + 한국어';
+  }
   const japaneseStory = story && item.language === 'ja';
   let storyView = 'original';
   const paint = () => {
@@ -1199,7 +1207,7 @@ function renderText(item) {
   };
   paint();
   document.querySelector('#text-actions').hidden = !meanings.length;
-  scriptButton.hidden = !japaneseStory || !readings.length;
+  scriptButton.hidden = !sr001Reading && (!japaneseStory || !readings.length);
   hideScriptButton.hidden = !japaneseStory;
   meaningButton.hidden = !meanings.length;
   if (japaneseStory) {
@@ -1208,6 +1216,10 @@ function renderText(item) {
     meaningButton.textContent = '한국어 뜻';
     for (const [button, view] of [[hideScriptButton, 'original'], [scriptButton, 'reading'], [meaningButton, 'meaning']]) {
       button.addEventListener('click', () => { storyView = view; showScript = true; paint(); });
+    }
+  } else if (sr001Reading) {
+    for (const [button, bilingual] of [[scriptButton, false], [meaningButton, true]]) {
+      button.addEventListener('click', () => { showMeaning = bilingual; paint(); });
     }
   } else {
     meaningButton.addEventListener('click', () => { showMeaning = !showMeaning; paint(); });

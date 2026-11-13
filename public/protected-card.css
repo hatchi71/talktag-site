@@ -318,3 +318,13 @@ html[data-appearance="dark"] #lesson-text p.is-current-line:not(.secondary){back
 html[data-appearance="dark"] #lesson-text p.is-current-line.secondary{background:#203e5e;border-color:#6f96c0}
 html[data-appearance="dark"] #lesson-text rt,html[data-appearance="dark"] #lesson-text .japanese-reading-fallback{color:#c5d4e7}
 html[data-appearance="dark"] .card .scene,html[data-appearance="dark"] .text-actions-label,html[data-appearance="dark"] .translation-choice{color:#c5d4e7}
+
+/* SR001 Readable uses continuous prose with optional paragraph translations. */
+.sr001-reading .script-choice{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sr001-reading #lesson-text{width:100%;max-width:64ch;margin-inline:auto}
+.sr001-reading #lesson-text p{margin:0 0 1em;padding:0;border:0;border-radius:0;background:transparent;font-size:clamp(16px,2.5vw,19px);line-height:1.7}
+.sr001-reading #lesson-text p.secondary{margin-top:-.25em;padding-inline-start:12px;border-inline-start:2px solid #a6b8c8;font-size:1rem}
+html[data-appearance="dark"] .sr001-reading .script-choice{background:#21364e}
+html[data-appearance="dark"] .sr001-reading .script-choice button{color:#c5d4e7}
+html[data-appearance="dark"] .sr001-reading .script-choice button[aria-pressed=true]{background:#2d517b;color:#fff}
+html[data-appearance="dark"] .sr001-reading #lesson-text p{background:transparent}
