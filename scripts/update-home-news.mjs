@@ -11,6 +11,12 @@ for(const pathname of ['/E-english.html','/K-korean.html','/japanese/J-index.htm
  vm.runInNewContext(source,context);
  for(const card of context.window.TalkTagAudioLessons)cards.set(card.id,card);
 }
+// Linked series use a separate catalog so they stay out of the ordinary track grids.
+if(fs.existsSync('public/sr001-catalog.js')){
+ const context={window:{}};
+ vm.runInNewContext(fs.readFileSync('public/sr001-catalog.js','utf8'),context);
+ for(const card of context.window.TalkTagSR001Catalog?.cards||[])cards.set(card.id,card);
+}
 const ids=new Set();
 for(const g of groups){
  assert(g.id&&!ids.has(g.id),'Duplicate release group');ids.add(g.id);

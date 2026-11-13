@@ -7,6 +7,7 @@ const language = params.get('language') || 'en';
 const signInDestination = `/account.html?ui=${language === 'ko' ? 'en' : 'ko'}&from=${encodeURIComponent(language)}&next=${encodeURIComponent(location.pathname + location.search)}`;
 const area = params.get('area') || 'guided-listen-repeat';
 const level = params.get('level') || 'A0';
+const sr001CardId = /^en-sr001-(?:a1|a2|b1|b2|c1|c2)-(?:glr|mini|vocal|story|readable)$/;
 const areaNames = {
   'guided-listen-repeat': 'Guided Listen & Repeat',
   'mini-talks': 'Mini Talks',
@@ -81,16 +82,17 @@ async function run() {
     if (!response.ok) throw new Error(String(response.status));
     const result = await response.json();
     if (!Array.isArray(result.cards)) throw new Error('invalid_payload');
-    status.textContent = result.cards.length ? '' : labels.unavailable;
+    const standardCards = result.cards.filter(card => !sr001CardId.test(card.card_id));
+    status.textContent = standardCards.length ? '' : labels.unavailable;
     const completed = document.querySelector('#completed-cards');
-    const cardIds = result.cards.map(card => card.card_id);
+    const cardIds = standardCards.map(card => card.card_id);
     let remoteCompletions = null;
     if (cardIds.length) {
       const progress = await client.from('learning_progress').select('lesson_id')
         .eq('user_id', session.user.id).in('lesson_id', cardIds);
       if (!progress.error) remoteCompletions = new Set((progress.data || []).map(row => row.lesson_id));
     }
-    for (const card of result.cards) {
+    for (const card of standardCards) {
       const link = document.createElement('a');
       link.href = `/protected-card.html?id=${encodeURIComponent(card.card_id)}`;
       const number = document.createElement('span');
@@ -115,7 +117,7 @@ async function run() {
         }
       } catch {}
     }
-    cards.hidden = !result.cards.length;
+    cards.hidden = !standardCards.length;
     document.querySelector('#completed-missions').hidden = !completed.children.length;
   } catch {
     status.textContent = 'Cards could not load. Please try again shortly.';

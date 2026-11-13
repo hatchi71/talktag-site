@@ -1742,6 +1742,46 @@
       "sha256": "0b3f040a0309baddab379183fa75e4daefb240e1383b9d319f1edbd65d6c04ea"
     },
     {
+      "path": "assets/images/sr001/a1.webp",
+      "bytes": 110046,
+      "sha256": "a43054b2c37ad2feb28616d591a07dce3567d71e903dd2ae7ad1a4c652c01183"
+    },
+    {
+      "path": "assets/images/sr001/a2.webp",
+      "bytes": 93480,
+      "sha256": "f53167c0fe125fd38aa3fb7982af67effa59dd8e2ab2f368c21efb533ac4c85c"
+    },
+    {
+      "path": "assets/images/sr001/b1.webp",
+      "bytes": 93086,
+      "sha256": "5101a950818ad47847bb307aa20e15ffe36e99b0ca08ebdff292236c7ed7bfd7"
+    },
+    {
+      "path": "assets/images/sr001/b2-mini.webp",
+      "bytes": 119716,
+      "sha256": "44e0ba69b745314add06a0645a3f28797daeded87f945b1c0bcc9641bb6e65b9"
+    },
+    {
+      "path": "assets/images/sr001/b2.webp",
+      "bytes": 106578,
+      "sha256": "ec4f2b705a928f39c9ffac39821cf18867820d4513e36ce04551063843d5d4f4"
+    },
+    {
+      "path": "assets/images/sr001/c1.webp",
+      "bytes": 89716,
+      "sha256": "c336656d230bd67af9a50ae0e8819a8b4a17f6f5455ba564ca6920c7abf83619"
+    },
+    {
+      "path": "assets/images/sr001/c2.webp",
+      "bytes": 93562,
+      "sha256": "648c1b9d12954d1c93de98aa7d74716de154eb6233afd4a0f66633f76b00ab0e"
+    },
+    {
+      "path": "assets/images/sr001/readable.webp",
+      "bytes": 84496,
+      "sha256": "561dfb5afcbb647a9aaa405733e16e7d414d3e014fbd6f9facba83c2024f2efa"
+    },
+    {
       "path": "assets/mini-talks/en/001/a1-scene.jpg",
       "bytes": 171724,
       "sha256": "029ec2306fa1336a82a5e2ab3eb45e7c00528721a6baf823e7ace95ecee74aad"
@@ -1978,8 +2018,8 @@
     },
     {
       "path": "assets/talktag-myspace.js",
-      "bytes": 282999,
-      "sha256": "a4445e6c9d092d6c056732c0f0d5ba5f82036370b4612c7480da5501210e7903"
+      "bytes": 283121,
+      "sha256": "577bf14bec88521c6cd22276085021fbfa97a0bc6fe6a79ecbf390e528774e3a"
     },
     {
       "path": "assets/talktag-protected-card-pilot.js",
@@ -1988,13 +2028,13 @@
     },
     {
       "path": "assets/talktag-protected-card.js",
-      "bytes": 282881,
-      "sha256": "3e5bd98937d4d7b3f9244b9e00f6a345f8e88234271111b30f404137b1766d4a"
+      "bytes": 283860,
+      "sha256": "2b0c8f7c6474f9de21416fe6dae0ff8db7abf4b413a9f4f645f87edc7c3cc45f"
     },
     {
       "path": "assets/talktag-protected-library.js",
-      "bytes": 226752,
-      "sha256": "401ea7172af97896690d2c0103dde2e362a37a9f797772ba23a560181560287b"
+      "bytes": 226845,
+      "sha256": "f3a7fb5090b06985ab1f9056489482c4212e35beee4887f2415b6fc6f46efce0"
     },
     {
       "path": "assets/talktag-woman-learning-blocks.png",
@@ -2158,8 +2198,8 @@
     },
     {
       "path": "E-english.html",
-      "bytes": 33091,
-      "sha256": "652152e99c8fdc40248028ee201b8f8719e0cfa2bab8380ebe1bf4c359cf15b1"
+      "bytes": 33423,
+      "sha256": "ad7ff3e36d2ec2af3c5621cc373440f9329bd7b15d49b680db50133047777ec4"
     },
     {
       "path": "essay-artwork.css",
@@ -2228,8 +2268,8 @@
     },
     {
       "path": "home-news-feed.json",
-      "bytes": 31716,
-      "sha256": "ed768ba684a519b89af6dbf3e4835e7336ad48b4ff53dc0f02323c30fd25af05"
+      "bytes": 33130,
+      "sha256": "eb475b00fdf162f464347735b94b3b0047c84fe0adbb2ec851abc900504ef20a"
     },
     {
       "path": "home-news-updates.css",
@@ -3048,8 +3088,8 @@
     },
     {
       "path": "landing-training.css",
-      "bytes": 7862,
-      "sha256": "442c8ed52182054a3af34d6a1ed2d7e9031f6f00dae3c22f2ae5de59cce6c8c0"
+      "bytes": 9475,
+      "sha256": "3e872a7eed93b1caa82bd736b1fc292a42003f4c2ee1cc7da319ab75b2ab51d9"
     },
     {
       "path": "level0-glr.css",
@@ -3723,13 +3763,13 @@
     },
     {
       "path": "protected-card.css",
-      "bytes": 21588,
-      "sha256": "3015372acce27d36c08cad16a0a54cc188760a46b6d1dee7da054ab4cbedd3a9"
+      "bytes": 21938,
+      "sha256": "25ab7b97780d8626779b820cf14620a435f3ae29b02a4ef2317a3c2c7b8bfc70"
     },
     {
       "path": "protected-card.html",
-      "bytes": 3819,
-      "sha256": "e5ba73fd2d2ec3d5259a479fdbcb344bb53ca2cbb8a57dc79fc5b9eaacafb093"
+      "bytes": 3803,
+      "sha256": "3d2510879ac14b606d9ca2669090dc102abf7b024070cb5528a8a6d7912c91ff"
     },
     {
       "path": "protected-library.css",
@@ -3867,6 +3907,26 @@
       "sha256": "e17665c41f102c8561ff6bbb6970b36e543001b08f33dc03331e28a7a21cc157"
     },
     {
+      "path": "sr001/index.html",
+      "bytes": 5672,
+      "sha256": "8b41c9e57a1e16ac93c6f4471fcd17b309a3983d36890dc35d976cec027e8cbc"
+    },
+    {
+      "path": "sr001-catalog.js",
+      "bytes": 15473,
+      "sha256": "c37b21215ed90573c026b50f46f050bd5d5f624ba20a43854ec304164735473f"
+    },
+    {
+      "path": "sr001.css",
+      "bytes": 8821,
+      "sha256": "07720003fcaacda9d0401d3dfb9cc29ddee275994e853faa63e6532ef184fa49"
+    },
+    {
+      "path": "sr001.js",
+      "bytes": 5633,
+      "sha256": "ebc44a191ee7bfade99ca15012e3b8ff53861347f1cbb34f4c0b4353b1498135"
+    },
+    {
       "path": "story-camp.html",
       "bytes": 2840,
       "sha256": "a247577932bff3911e786e68c3e5d8e78cc22e761d06013a03cb1c00f6f5750a"
@@ -3908,8 +3968,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 466,
-      "sha256": "ca75b70dc18e07eb03a2ed274e2a18540f0781f6d5ed4524b9f2dc8ea9a8542c"
+      "bytes": 458,
+      "sha256": "fb8c6a0898927a3475e75dcb69ef5fc2e03065f717b1e194d2fbb14fe8cd222e"
     },
     {
       "path": "TalkTag Inspiring Aspiring and Accomplishing.jpg",

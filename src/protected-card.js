@@ -32,6 +32,7 @@ document.querySelector('#sign-in').href = `/account.html?ui=${cardLanguage === '
 // The return route must work for visitors and denied cards too. Those users
 // cannot fetch the private lesson body, so derive the public catalog from ID.
 const inferredLevel = cardId?.match(/(?:^|-)(a0|a1|a2|b1|b2|c1|c2)(?:-|$)/i)?.[1]?.toUpperCase() || 'A1';
+const sr001Card = /^en-sr001-(a1|a2|b1|b2|c1|c2)-(glr|mini|vocal|story|readable)$/.exec(cardId || '');
 const inferredArea = /^mt-/.test(cardId || '') ? 'mini-talks'
   : /-vocal-camp-/.test(cardId || '') ? 'vocal-camp'
   : /-story-camp-/.test(cardId || '') ? 'story-camp'
@@ -42,8 +43,14 @@ const publicCatalogs = {
   ja: { 'guided-listen-repeat': '/japanese/J-guided.html', 'mini-talks': '/japanese/J-audio-essays.html', 'vocal-camp': '/japanese/J-vocal-camp.html', 'story-camp': '/japanese/J-story-camp.html', readable: '/japanese/J-readable.html' }
 };
 function setReturnRoute(language, area, level) {
-  const page = publicCatalogs[language]?.[area];
   const back = document.querySelector('#back');
+  if (sr001Card) {
+    const srLevel = sr001Card[1].toUpperCase();
+    back.href = `/sr001/?level=${srLevel}`;
+    back.textContent = `← SR001 · ${srLevel} 카드로`;
+    return;
+  }
+  const page = publicCatalogs[language]?.[area];
   back.href = page ? `${page}${page.includes('?') ? '&' : '?'}level=${encodeURIComponent(level)}`
     : language === 'ko' ? '/K-korean.html' : language === 'ja' ? '/japanese/J-index.html' : '/E-english.html';
   back.textContent = language === 'ko' ? `← Back to ${level} cards` : `← ${level} 카드로`;
@@ -207,7 +214,7 @@ let vocalTarget = 0;
 let vocalSteps = [];
 let vocalWaiting = false;
 let refreshVocalStage = () => {};
-const vocalCues = /^en-vocal-camp-003-(?:a1|a2|b1|b2|c1|c2)$/i.test(cardId || '')
+const vocalCues = /^(?:en-vocal-camp-003-(?:a1|a2|b1|b2|c1|c2)|en-sr001-(?:a1|a2|b1|b2|c1|c2)-vocal)$/i.test(cardId || '')
   ? createVocalBoundaryCues() : null;
 let guidedHold = null;
 let guidedInternalSeek = false;
@@ -780,7 +787,7 @@ function renderSound(item) {
     buttons.append(playback, repeatLabel);
     mountGuidedControls(item);
   }
-  const prompt = item.tinyPrompt || item.variationPrompt?.ko || item.variationPrompt?.en;
+  const prompt = item.tinyPrompt || item.variationPrompt?.ko || item.variationPrompt?.en || (sr001Card && item.transfer);
   if (prompt) {
     const node = document.querySelector('#prompt');
     node.textContent = prompt;
@@ -1047,6 +1054,27 @@ function addReadingSteps(item) {
     block.hidden = true;
     const heading = document.createElement('h2'); heading.textContent = name;
     block.append(heading, paragraph(description));
+    if (sr001Card && index === 1 && item.recall) block.append(paragraph(item.recall));
+    if (sr001Card && index === 3 && item.transfer) block.append(paragraph(item.transfer));
+    if (index === 0 && sr001Card?.[2] === 'readable' && item.source?.title && item.source?.author && item.source?.url) {
+      let sourceUrl;
+      try {
+        sourceUrl = new URL(item.source.url);
+        if (!['https:', 'http:'].includes(sourceUrl.protocol)) sourceUrl = null;
+      } catch { sourceUrl = null; }
+      if (sourceUrl) {
+        const citation = document.createElement('p');
+        citation.className = 'reading-source';
+        citation.append(document.createTextNode('읽기 자료 출처 · '));
+        const link = document.createElement('a');
+        link.href = sourceUrl.href;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = `${item.source.author} · ${item.source.title} ↗`;
+        citation.append(link);
+        block.append(citation);
+      }
+    }
     if (index === 1 || index === 2) {
       if (index === 2) {
         const original = paragraph('');
@@ -1250,6 +1278,8 @@ function renderText(item) {
       activity.replaceChildren();
       if (!building) {
         activity.append(paragraph(activities[storyStage - lines.length][1]));
+        if (sr001Card && storyStage === lines.length && item.recall) activity.append(paragraph(item.recall));
+        if (sr001Card && storyStage === lines.length + 2 && item.transfer) activity.append(paragraph(item.transfer));
         if (storyStage === lines.length) activity.append(reference);
         if (storyStage === lines.length || storyStage === lines.length + 2) {
           const notes = document.createElement('textarea'); notes.rows = 6; notes.setAttribute('aria-label', activities[storyStage - lines.length][0]);

@@ -1119,5 +1119,54 @@
       "guided-c2-30-part1",
       "guided-c2-30-part2"
     ]
+  },
+  {
+    "id": "linked-series:en:sr001",
+    "language": "en",
+    "status": "published",
+    "title": "영어 연계 학습 · SR001 · A Seat by the Window",
+    "href": "/sr001/",
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "description": "카페 창가 자리 이야기로 듣고 따라 말하기, 미니토크, 보컬 캠프, 스토리 캠프, 리더블을 연습해요.",
+    "publishedAt": "2026-11-13T07:32:12+00:00",
+    "cardIds": [
+      "en-sr001-a1-glr",
+      "en-sr001-a1-mini",
+      "en-sr001-a1-vocal",
+      "en-sr001-a1-story",
+      "en-sr001-a1-readable",
+      "en-sr001-a2-glr",
+      "en-sr001-a2-mini",
+      "en-sr001-a2-vocal",
+      "en-sr001-a2-story",
+      "en-sr001-a2-readable",
+      "en-sr001-b1-glr",
+      "en-sr001-b1-mini",
+      "en-sr001-b1-vocal",
+      "en-sr001-b1-story",
+      "en-sr001-b1-readable",
+      "en-sr001-b2-glr",
+      "en-sr001-b2-mini",
+      "en-sr001-b2-vocal",
+      "en-sr001-b2-story",
+      "en-sr001-b2-readable",
+      "en-sr001-c1-glr",
+      "en-sr001-c1-mini",
+      "en-sr001-c1-vocal",
+      "en-sr001-c1-story",
+      "en-sr001-c1-readable",
+      "en-sr001-c2-glr",
+      "en-sr001-c2-mini",
+      "en-sr001-c2-vocal",
+      "en-sr001-c2-story",
+      "en-sr001-c2-readable"
+    ]
   }
 ]
