@@ -38,6 +38,11 @@ body[data-audio-type] .lesson-copy p{font-size:15px;line-height:1.6;margin:0 0 1
 body[data-audio-type] .lesson-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--tt-muted)}
 body[data-audio-type] .lesson-meta span{background:none;padding:0;border:0}
 body[data-audio-type] .audio-lesson-arrow{font-size:20px;color:var(--tt-muted)}
+/* Locked links keep the dark card surface when the access gate disables them. */
+html[data-appearance=dark] body[data-audio-type] .lesson-card.tt-access-locked a.tt-access-disabled{
+  background:var(--tt-raised)!important;
+  color:var(--tt-text)!important;
+}
 body[data-audio-type] .lesson-card.tt-completion-card>.audio-lesson-open{height:auto}
 body[data-audio-type] .lesson-card-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px 16px;min-width:0}
 body[data-audio-type] .audio-start-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:112px;min-height:44px;padding:0 18px;border:1px solid var(--tt-accent);border-radius:12px;background:var(--tt-accent);color:#fff;text-decoration:none;font:800 14px/1.2 Inter,"Noto Sans KR",system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 5px 14px color-mix(in srgb,var(--tt-accent) 18%,transparent);transition:transform .16s,box-shadow .16s}

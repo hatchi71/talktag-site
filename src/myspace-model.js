@@ -18,3 +18,18 @@ export function groupMySpace(catalog,language,completions,history,states){
   return {area,cards,done,unfinished,continuing,notStarted:unfinished.length-continuing.length};
  });
 }
+
+// Keep the member's own records visible after a lesson leaves the public catalog.
+// The private retirement table is administrator-only; these rows come from the member's
+// existing progress, visit history, and saved state queries.
+export function historicalMySpace(catalog,language,completions,history,states){
+ const visits=new Map(history.map(row=>[row.lesson_id,row]));
+ const completed=new Map(completions.map(row=>[row.lesson_id,row.completed_at]));
+ const ids=new Set([...completed.keys(),...visits.keys(),...states.map(row=>row.lesson_id)]);
+ const cardLanguage=id=>/^(?:ko-|mt-ko-)/.test(id)?'ko':/^(?:ja-|mt-ja-)/.test(id)?'ja':'en';
+ return [...ids].filter(id=>id&&!id.includes(':')&&!catalog[id]&&cardLanguage(id)===language).map(id=>{
+  const visit=visits.get(id),completedAt=completed.get(id)||'',lastOpened=visit?.last_opened_at||'';
+  const level=id.match(/(?:^|-)(a0|a1|a2|b1|b2|c1|c2)(?:-|$)/i)?.[1]?.toUpperCase()||'';
+  return {id,title:visit?.title||`${level||'Earlier'} lesson`,level,completedAt,lastOpened};
+ }).sort((a,b)=>(b.lastOpened||b.completedAt).localeCompare(a.lastOpened||a.completedAt));
+}

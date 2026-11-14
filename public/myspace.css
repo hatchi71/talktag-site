@@ -29,3 +29,4 @@
 
 /* Administration needs a workspace, not the narrower learner reading column. */
 .tt-myspace.tt-myspace-admin{max-width:1440px;width:100%;box-sizing:border-box}
+.tt-myspace-past .tt-myspace-category-lists{grid-template-columns:minmax(0,1fr)}

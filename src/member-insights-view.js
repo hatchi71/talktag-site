@@ -26,8 +26,12 @@ export function renderMemberInsights(host, member, client, isCurrent) {
    const section=make('details',undefined,'member-language');section.open=code==='en';section.append(make('summary',`${languages[code]} · ${groups.reduce((n,g)=>n+Number(g.completed),0)} complete`));
    for(const g of groups){const row=make('div',undefined,'member-progress-row');row.append(make('strong',areas[g.area]||g.area),make('small',`${g.completed} / ${g.total} complete · ${Math.max(0,g.started-g.completed)} in progress`));const bar=make('progress');bar.max=g.total||1;bar.value=g.completed;bar.setAttribute('aria-label',`${languages[code]} ${areas[g.area]||g.area} completed`);row.append(bar);section.append(row);}learning.append(section);
   }
+  const historical=data.historical||[];
+  if(historical.length){const past=make('details',undefined,'member-recent member-language');past.append(make('summary',`Past lessons · ${historical.reduce((n,g)=>n+Number(g.completed),0)} complete`));
+   past.append(make('p','These earlier cards were replaced. Learning records are kept, but the old lessons are no longer available.','detail-hint'));
+   for(const g of historical){const row=make('div',undefined,'member-progress-row');row.append(make('strong',`${languages[g.language]||g.language} · ${areas[g.area]||g.area}`),make('small',`${g.completed} complete · ${g.started} started`));past.append(row);}learning.append(past);}
   const recent=make('details',undefined,'member-recent member-language');recent.append(make('summary',`Recent lessons · ${(data.recent||[]).length}`));
-  for(const item of data.recent||[]){const row=make('div',undefined,'identity-record');row.append(make('strong',item.title||`${item.level} · ${String(item.ordinal).padStart(3,'0')}`),make('small',`${languages[item.language]} · ${areas[item.area]||item.area} · ${item.level} · ${item.completed_at?'Completed':'In progress'}`),make('small',formatMemberDate(item.last_opened_at)));recent.append(row);}
+  for(const item of data.recent||[]){const row=make('div',undefined,'identity-record');row.append(make('strong',item.title||`${item.level} · ${String(item.ordinal).padStart(3,'0')}`),make('small',`${languages[item.language]} · ${areas[item.area]||item.area} · ${item.level} · ${item.completed_at?'Completed':'In progress'}${item.retired?' · Former card unavailable':''}`),make('small',formatMemberDate(item.last_opened_at)));recent.append(row);}
   if(!data.recent?.length)recent.append(make('p','No lesson visits recorded yet.'));learning.append(recent);
  }).catch(()=>{if(isCurrent())learning.replaceChildren(make('p','Learning records unavailable. Select the member again to retry.'));});
  return {overview,learning};

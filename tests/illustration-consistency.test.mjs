@@ -27,7 +27,14 @@ test('GLR 011 has six level-specific scenes and matching split parts',()=>{
  assert.equal(seen.size,6);
 });
 test('Boot Camp collection and protected player use the same reviewed scene',()=>{
- const w=catalog('/protected-card.html');const c={window:{}};vm.runInNewContext(fs.readFileSync('public/bootcamp-artwork.js','utf8'),c);
- for(const id of Object.keys(w.TalkTagCardTitles).filter(x=>/^(en|ko|ja)-(vocal|story)-camp-/.test(x))){const [,lang,camp,n,level]=/^(en|ko|ja)-(vocal|story)-camp-(\d+)-(\w+)$/.exec(id);assert.equal(c.window.TalkTagBootCampArtwork.get(camp,n,level.toUpperCase(),lang).src,w.TalkTagCardArtwork[id].src);}
+ const w=catalog('/protected-card.html');const c={window:{TalkTagCardArtwork:w.TalkTagCardArtwork}};vm.runInNewContext(fs.readFileSync('public/bootcamp-artwork.js','utf8'),c);
+ for(const id of Object.keys(w.TalkTagCardTitles).filter(x=>/^(en|ko|ja)-(vocal|story)-camp-/.test(x))){
+  const current=/^(en|ko)-(vocal|story)-camp-(a1|a2|b1|b2|c1|c2)-001-ppp-v2$/.exec(id);
+  const previous=/^(en|ko|ja)-(vocal|story)-camp-(\d+)-(\w+)$/.exec(id);
+  assert.ok(current||previous,id);
+  const lang=current?.[1]||previous[1],camp=current?.[2]||previous[2];
+  const n=current?'001':previous[3],level=current?current[3]:previous[4];
+  assert.equal(c.window.TalkTagBootCampArtwork.get(camp,n,level.toUpperCase(),lang).src,w.TalkTagCardArtwork[id].src);
+ }
  assert.ok(w.TalkTagCardArtwork['ko-vocal-camp-002-c2'].src.endsWith('002-c2-v2.jpg'));
 });

@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const levels = ['A0', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const params = new URLSearchParams(location.search);
   const selected = levels.includes(params.get('level')) ? params.get('level') : '';
   const title = document.getElementById('readableTitle');
@@ -15,7 +15,9 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const key = story => 'readable:en:' + story.id;
   const done = story => Boolean(window.TalkTagCompletion?.getManual(key(story)));
-  const href = story => `readable-chapter.html?level=${encodeURIComponent(story.level)}&access-index=${accessIndex(story)}`;
+  const href = story => story.cardId
+    ? `readable-chapter.html?id=${encodeURIComponent(story.cardId)}&access-index=${accessIndex(story)}`
+    : `readable-chapter.html?level=${encodeURIComponent(story.level)}&access-index=${accessIndex(story)}`;
   const labelCompletionButtons = () => list.querySelectorAll('.tt-completion-button').forEach(button => {
     button.textContent = '완료';
     button.setAttribute('aria-label', '챕터 완료로 표시');
@@ -52,7 +54,7 @@
     if (selected) {
       const current = stories.filter(story => story.level === selected && !done(story));
       list.innerHTML = current.length ? current.map(story => {
-        const preview = String(story.paragraphs?.[0]?.en || '').slice(0, 130) + '…';
+        const preview = story.preview || (String(story.paragraphs?.[0]?.en || '').slice(0, 130) + '…');
         return `<article class="lesson-card" data-tt-access-index="${accessIndex(story)}" data-completion-manual-only="true" data-completion-id="${esc(key(story))}"><a class="audio-lesson-open${story.artwork ? ' has-readable-artwork' : ''}" href="${esc(href(story))}"><span class="audio-lesson-number">${esc(story.number)}</span><div class="lesson-copy"><h2>${esc(story.title)}</h2><p>${esc(story.genre)} · ${esc(preview)}</p><div class="lesson-meta"><span>Read · Recall · Revise · Retell</span></div></div>${story.artwork ? `<img class="readable-cover-thumb" src="${esc(story.artwork)}" alt="${esc(story.artworkAlt)}" width="720" height="480" loading="lazy">` : ''}<span class="audio-lesson-arrow" aria-hidden="true">↗</span></a><div class="lesson-card-actions" data-completion-actions><a class="audio-start-button" href="${esc(href(story))}" aria-label="Start ${esc(story.title)}">START <span aria-hidden="true">→</span></a></div></article>`;
       }).join('') : (stories.some(story => story.level === selected)
         ? '<div class="readable-empty"><strong>모든 챕터를 완료했어요.</strong>완료한 챕터에서 다시 열거나 완료를 취소할 수 있습니다.</div>'

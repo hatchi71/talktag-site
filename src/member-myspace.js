@@ -2,7 +2,7 @@ import { recordMemberVisit } from './member-visits.js';
 import { mountManagement } from './manager.js';
 import { managerMarkup, managerStyles, memberInsightStyles } from './manager-view.js';
 import { checkDeviceSession, watchDeviceSession } from './device-session.js';
-import { groupMySpace } from './myspace-model.js';
+import { groupMySpace, historicalMySpace } from './myspace-model.js';
 import { makeAuthConfigurationLoader } from './auth-configuration.js';
 import { createClient } from '@supabase/supabase-js';
 if (!window.__talktagMemberMySpaceLoaded) {
@@ -95,6 +95,20 @@ async function render(){
    const details=make('details');const summary=make('summary',`${label} ${items.length} `);summary.append(make('span','⌄'));details.append(summary);const list=make('ul');for(const c of items)list.append(lessonRow(c,complete));if(!items.length)list.append(make('li',text('No cards here yet.','해당 카드가 없어요.'),'tt-myspace-empty'));details.append(list);lists.append(details);
   }section.append(lists);host.append(section);
  });
+ const earlier=historicalMySpace(catalog,language,results[1].data,results[0].data,results[2].data);
+ if(earlier.length){
+  const section=make('section',null,'tt-myspace-category tt-myspace-past');
+  const heading=make('header');const names=make('div');names.append(make('small',text('SAVED HISTORY','지난 학습 기록')),make('h3',text('Earlier lessons','이전 학습')));
+  heading.append(names,make('span',text(`${earlier.length} records`,`${earlier.length}개 기록`),'tt-myspace-fraction'));section.append(heading);
+  section.append(make('p',text('These lessons are no longer in the current collection. Your completion and visit records remain saved.','이 수업은 현재 목록에서 내려갔지만 완료와 방문 기록은 보관됩니다.'),'tt-myspace-counts'));
+  const lists=make('div',null,'tt-myspace-category-lists');const details=make('details');
+  details.append(make('summary',text('View earlier records','이전 기록 보기')));
+  const list=make('ul');
+  for(const record of earlier){const item=make('li'),body=make('div',null,'tt-myspace-record');
+   body.append(make('small',record.level||text('Earlier lesson','이전 수업')),make('strong',record.title),make('span',record.completedAt?text('Completed · saved record','완료 · 보관된 기록'):text('Opened · saved record','방문 · 보관된 기록')));
+   item.append(body);list.append(item);}
+  details.append(list);lists.append(details);section.append(lists);host.append(section);
+ }
  const account=make('a',text('Account & membership →','계정 및 회원 정보 →'),'tt-myspace-account');account.href=`/account.html?ui=${english?'en':'ko'}&from=${language}`;host.append(account);
 
 }
@@ -103,7 +117,7 @@ window.addEventListener('message',event=>{
  const frame=document.querySelector('.tt-myspace-management');
  if(frame&&event.source===frame.contentWindow&&Number.isFinite(event.data.height))frame.style.height=Math.max(600,Math.min(100000,event.data.height))+'px';
 });
-const css=make('link');css.rel='stylesheet';css.href='/myspace.css?v=members-20261107-v3';document.head.append(css);
+const css=make('link');css.rel='stylesheet';css.href='/myspace.css?v=ppp001-20261115';document.head.append(css);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render);else render();
 document.addEventListener('click',event=>{if(event.target.closest('[data-view="myspace"]'))setTimeout(render,0);});
 window.addEventListener('pageshow',event=>{if(event.persisted)render();});
