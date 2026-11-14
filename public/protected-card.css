@@ -310,7 +310,14 @@ html[data-appearance="dark"] .site-header .head-links>a,html[data-appearance="da
 .site-header .brand img{width:44px!important;height:44px!important;max-width:44px}.site-header .brand{width:44px!important;max-width:44px!important}
 
 /* Pair dark lesson surfaces with readable script and synchronized-line colors. */
-html[data-appearance="dark"] .card-body{color:#edf3ff}
+html[data-appearance="dark"]{color-scheme:dark}
+html[data-appearance="dark"] body{background:#101e30;color:#edf3ff}
+html[data-appearance="dark"] .eyebrow{color:#8ab9ff}
+html[data-appearance="dark"] .card-body,
+html[data-appearance="dark"] .reading-steps section{color:#edf3ff}
+html[data-appearance="dark"] #reading-steps .reading-draft{background:#14263a;border-color:#496586;color:#edf3ff}
+html[data-appearance="dark"] #reading-steps .reading-source{background:#14263a;color:#c5d4e7}
+html[data-appearance="dark"] #reading-steps .reading-source a{color:#8ab9ff}
 html[data-appearance="dark"] .card h2{color:#edf3ff}
 html[data-appearance="dark"] #lesson-text p:not(.secondary){color:#edf3ff!important}
 html[data-appearance="dark"] #lesson-text p.secondary{color:#c5d4e7!important}

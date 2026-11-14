@@ -3763,13 +3763,13 @@
     },
     {
       "path": "protected-card.css",
-      "bytes": 22821,
-      "sha256": "74b7258cbedcdccb997edc29067d5954075ff239f9b5b04ff026417beea551d2"
+      "bytes": 23328,
+      "sha256": "7bc0a062a0b04ae7b0c26a9faab659f19b6140f974679eb1e488dd27fe5d8020"
     },
     {
       "path": "protected-card.html",
-      "bytes": 3835,
-      "sha256": "172368c68c0ff0d6dbdadcb43df7652caf1e8fb1219eee898ccd7482567dc51b"
+      "bytes": 3825,
+      "sha256": "79582fa101d2f808b9a46385a892378b759b632c5fa538d26c6accf8f2b926cb"
     },
     {
       "path": "protected-library.css",
@@ -3968,8 +3968,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 471,
-      "sha256": "7e48af1d207cd8a5d839de5670c3edc2d76429100d855d42e440540c04133400"
+      "bytes": 461,
+      "sha256": "275fc94c2ce4f16dcbe279291a23ce4e6ec280353a07d142d083864840905ae9"
     },
     {
       "path": "TalkTag Inspiring Aspiring and Accomplishing.jpg",
