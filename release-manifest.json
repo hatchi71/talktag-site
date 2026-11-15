@@ -1238,8 +1238,8 @@
     },
     {
       "path": "audio-library.html",
-      "bytes": 7506,
-      "sha256": "7c6665aedf5e67f6c23c4a443c726b55a7c5309e73ce905fe883b3dbd190c1ed"
+      "bytes": 7512,
+      "sha256": "8514b4508e34a480981821b458ec15c22919d47887127b4b82da3f4392ab01a2"
     },
     {
       "path": "audio-library.js",
@@ -1353,13 +1353,13 @@
     },
     {
       "path": "discussions.html",
-      "bytes": 4097,
-      "sha256": "39cfb69832fc26482f337b7744f1c1e774ab924ba9c3776c68edf1b6191c83ce"
+      "bytes": 4103,
+      "sha256": "da098390621dd229fe29c70179591423870e24d3038edd29d5149d15b46fd3a6"
     },
     {
       "path": "E-english.html",
-      "bytes": 31568,
-      "sha256": "58c0a6b336fb4016f0fe67117306d0f949641d024fdfccb5d12473ac48002e11"
+      "bytes": 31574,
+      "sha256": "6e4becf6d1b2f2ea7d2e34bb610a779eb0d88dad706bdd02eb3ae5ac8cd60fec"
     },
     {
       "path": "essay-artwork.css",
@@ -1448,8 +1448,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 8231,
-      "sha256": "16750d70f33a5f3f186fe7246393db54ef39975b6cd8013998a07a2927dccf11"
+      "bytes": 8237,
+      "sha256": "533cdf57f141d09d2cc6ab407e5556be66ca34ff4b1c7dfe5a0ef94c0ceff334"
     },
     {
       "path": "japanese/audio-essays-a1.html",
@@ -1578,8 +1578,8 @@
     },
     {
       "path": "japanese/J-discussions.html",
-      "bytes": 3462,
-      "sha256": "b145709314cbd9e7740458159e62b72c0db50bdad9bc1477ad51bb33ef0a5ed4"
+      "bytes": 3468,
+      "sha256": "d17261a3c2d08dc81e7f9c5e28b1c7749de513c699edb80e3d3f71d3fc213bad"
     },
     {
       "path": "japanese/J-glr-player.html",
@@ -1603,13 +1603,13 @@
     },
     {
       "path": "japanese/J-guided.html",
-      "bytes": 7231,
-      "sha256": "2a0f648105952e801a4f7a606fa6925636e9fb7396cc9c63949df4462e89293a"
+      "bytes": 7237,
+      "sha256": "ea2004a41576959aebb132df2b5733b01cf985a83c2509b93a9555e02e872ce0"
     },
     {
       "path": "japanese/J-index.html",
-      "bytes": 10144,
-      "sha256": "a450235f72aef7dbbadcd91cab31b00dfdc6ad6cd6245911a99c848c60f73032"
+      "bytes": 10150,
+      "sha256": "2ca22fdd87cfedd3f4fa56bd9b175b3740627692a030d48f45fec2ff0d669689"
     },
     {
       "path": "japanese/J-jlpt-n1.html",
@@ -1673,8 +1673,8 @@
     },
     {
       "path": "japanese/J-myspace.html",
-      "bytes": 2590,
-      "sha256": "3054fa7246da8973cd4948d7571ad699bde023b3cfbc11aac909478fd0eac03d"
+      "bytes": 2596,
+      "sha256": "a113dfdb6a32d83256aa37ded3bb7050f5a2ba0718551dcec664a859a25d6634"
     },
     {
       "path": "japanese/J-readable-a1.html",
@@ -1713,8 +1713,8 @@
     },
     {
       "path": "japanese/J-snowballing.html",
-      "bytes": 17747,
-      "sha256": "9cb4667b4ea02c16a69b690dd016ee33ee85808891fb7102759021e2b1f5e0c0"
+      "bytes": 17753,
+      "sha256": "fa476abba9dd4798a5eb1f943c54c6ea700ff91c73f34e5ee9508804e9a2a6de"
     },
     {
       "path": "japanese/J-story-camp-a1.html",
@@ -1748,8 +1748,8 @@
     },
     {
       "path": "japanese/J-story-camp.html",
-      "bytes": 3015,
-      "sha256": "a8561737bab5521db0c05dc92c128fdd0f4d9bed7d104153ec2d909b91d82803"
+      "bytes": 3021,
+      "sha256": "488ffb4e56a54f20f8f798fa01fea6625ec1e8736d82532752c4e18c34d56300"
     },
     {
       "path": "japanese/J-storycamp-reader.css",
@@ -1768,13 +1768,13 @@
     },
     {
       "path": "japanese/J-test-preppers.html",
-      "bytes": 2367,
-      "sha256": "1e8fe11a43b4a7e553150c1d01ecfb9ff1dde8dcf90847d03f4b7b7896aa4a26"
+      "bytes": 2373,
+      "sha256": "08a75de168aa3a91b203d38e6af2f45b407394192c19b63cb8688a5558a77dbe"
     },
     {
       "path": "japanese/J-vocal-camp.html",
-      "bytes": 4609,
-      "sha256": "51957d9da031e050eacdd4a805f23de258567b69bb60e796b582c4b693f576db"
+      "bytes": 4615,
+      "sha256": "ebb37328e5a217167ef2d30e2ec1212fc7504010d4c9567ea626e3079b51e1b2"
     },
     {
       "path": "japanese/J-vocal-v1.html",
@@ -2098,8 +2098,8 @@
     },
     {
       "path": "K-korean-audio-library.html",
-      "bytes": 7714,
-      "sha256": "c3bcb8141a77ceadc3cf56f6ebb6944ae58d907367acd1a9bbb48ffaa8e42a37"
+      "bytes": 7720,
+      "sha256": "41043ddc140ecad6b45b9c7069238c6ec58f6b81df1ddd79684a680c66620bdb"
     },
     {
       "path": "K-korean-audio-player.html",
@@ -2113,8 +2113,8 @@
     },
     {
       "path": "K-korean-learning.html",
-      "bytes": 17353,
-      "sha256": "55716901ac4794efa938c94947ed68b4a643d1c0c020399aeeb5ba6b34e47483"
+      "bytes": 17359,
+      "sha256": "5569f5075865196600bb57e412a6fccc6f6390cb49c3e99972f19fea5e86374b"
     },
     {
       "path": "K-korean-readable-chapter.html",
@@ -2128,8 +2128,8 @@
     },
     {
       "path": "K-korean-readable.html",
-      "bytes": 4720,
-      "sha256": "935dba1a9bb123f40fc4751bdef0b1a1c7f87397dd160d0f3dfb3369bdd3acf4"
+      "bytes": 4726,
+      "sha256": "cad7192a362c6abc40efa875273646c794335c2510c2c72d45382254cf293707"
     },
     {
       "path": "K-korean-starter.html",
@@ -2138,18 +2138,18 @@
     },
     {
       "path": "K-korean-story-camp.html",
-      "bytes": 2775,
-      "sha256": "c03769cbad151505bdf496fcd5171d4d99a7550a3e95820c87448fd98477adf4"
+      "bytes": 2781,
+      "sha256": "938755165f3587adfeb2fc3d963c81bce514e4946f33db86cec5b9ab15c0741a"
     },
     {
       "path": "K-korean-vocal-camp.html",
-      "bytes": 2765,
-      "sha256": "6d2b5599d52dcfb929bf80fdf0a89ff513ece2daa746f34a6a195ee78f2e3ad6"
+      "bytes": 2771,
+      "sha256": "30cc0fa81a044356dd703433b7d790ba6ffcd6b9a27b2afb4532b710a30d323e"
     },
     {
       "path": "K-korean.html",
-      "bytes": 8491,
-      "sha256": "4b9374e5c34004edf03bbd7dac936011a4b0a80e4cea2d9fe189efe8912747a3"
+      "bytes": 8497,
+      "sha256": "fe5f013ea6c0170de10995d0aa3d6db2c8b1f0c5a8cd0b2d1392ad3e31901730"
     },
     {
       "path": "korean-audio-essays.html",
@@ -2448,8 +2448,8 @@
     },
     {
       "path": "readable.html",
-      "bytes": 4727,
-      "sha256": "655aece3a2a71b9a4a2d166283989337a3817191539796b376a92b0555a93338"
+      "bytes": 4733,
+      "sha256": "d2d0b742850e2b7d09d605e30f38d9fe6f7382228f90ff7f4c6b1b0563dcdfeb"
     },
     {
       "path": "robots.txt",
@@ -2458,8 +2458,8 @@
     },
     {
       "path": "snowballing-studio.html",
-      "bytes": 18217,
-      "sha256": "2404b741248fa6b86e8137653f953f20eae138a5eb3155ce8489f7265ef344c8"
+      "bytes": 18223,
+      "sha256": "a0986a21349888816432b7d6b3e83d1444a5bc52c800b66fa6dda85fd7ab0668"
     },
     {
       "path": "sound-check-card.css",
@@ -2493,8 +2493,8 @@
     },
     {
       "path": "story-camp.html",
-      "bytes": 2837,
-      "sha256": "5918f525ddfb10844874a8ad560c177eeba1e4db8ccb238181e5a78b7dc37815"
+      "bytes": 2843,
+      "sha256": "3babc72148cc6770dab50aa6044d52443aaaece60a95941ffd73ef9bbe3a3853"
     },
     {
       "path": "storycamp-family.html",
@@ -2568,8 +2568,8 @@
     },
     {
       "path": "talktag-theme.js",
-      "bytes": 16495,
-      "sha256": "30966c844e776067186eb82056fa455a1ba153ffce60779d1287934d768ef14c"
+      "bytes": 17710,
+      "sha256": "c88b2a9e75732c550d51fffed1d86aa02eed294c26523e1796c7d3a77a8bdf15"
     },
     {
       "path": "target-language-routing.js",
@@ -2588,8 +2588,8 @@
     },
     {
       "path": "test-preppers.html",
-      "bytes": 2666,
-      "sha256": "2036734ff17221f6688e69160b541fdb8a126d1a39292d5c9d6fc146033b450d"
+      "bytes": 2672,
+      "sha256": "70751607653f017dd2cb823a403bf652f45caec3598a271589fcd09566d1cde3"
     },
     {
       "path": "toeic/appearance.css",
@@ -2618,8 +2618,8 @@
     },
     {
       "path": "toeic/index.html",
-      "bytes": 3128,
-      "sha256": "1394de0b6b7420e33daf143fa00646193e381e926b82719dbf423a63b2664149"
+      "bytes": 3134,
+      "sha256": "22d49bb493114428f6c9b106be24a5ca1722c27dba0ef5eb0a6a16e2424637c0"
     },
     {
       "path": "toeic/lc-part.html",
@@ -2668,8 +2668,8 @@
     },
     {
       "path": "vocal-camp.html",
-      "bytes": 2783,
-      "sha256": "767100e069e4affe2a29ee0f14da9d0f68b4a2c9e8c271cc5493c13f4d5b7898"
+      "bytes": 2789,
+      "sha256": "9a07441cd551ef0eaa5594f13ef77079d819faeded32966ed27fd76e1f963b03"
     },
     {
       "path": "vocal-stage.html",

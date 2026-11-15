@@ -33,6 +33,6 @@ Website: `npx wrangler@4.45.0 pages deploy dist --project-name talktag-app-previ
 
 Audio service: `npx wrangler@4.45.0 deploy --config workers/wrangler.toml`
 
-The website and Worker have separate deployment permissions. Secrets must be stored in Cloudflare, never in Git. The Worker session-recheck change is prepared but was not yet deployed at the time of this reconciliation; check the release notes before claiming it live.
+The website and Worker have separate deployment permissions. Secrets must be stored in Cloudflare, never in Git. The Worker session-recheck change was deployed on 2026-11-06 as version `426c565e-4418-4ee9-ad0f-f3e37943ec04`. Live signed-in Boot Camp playback and unauthenticated rejection (HTTP 401) were verified; 38 automated checks passed. The temporary deployment token was revoked after verification. Real two-device account testing remains separate from these checks.
 
 This checkout replaces the legacy public site tree. Git history preserves its chronology; the original local authoring checkout was not altered or deleted.
