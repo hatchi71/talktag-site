@@ -154,13 +154,36 @@ test('audio bridge requires one decoded QC pass per checksum-matching file', () 
     sha256: createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length,
     durationSeconds: 1.5, training: { cues: [{ s: 0, voiceEnd: .4, e: 1, i: 0, r: 1 }] } };
   const assembly = { schemaVersion: 1, episode: '001', status: 'technical-preview-not-publishable', audio: [item] };
-  const qc = { schemaVersion: 1, counts: { pass: 1 }, records: [{ id: item.id,
-    language: 'en', level: 'A1', track: 'glr', partIndex: 1, status: 'pass', durationSeconds: 1.5 }] };
+  const speechQc = { speechLufs: -17, speechRmsDbfs: -17.5,
+    cueRmsDbfs: [-19, -19], cueAdvantageDb: -1.5,
+    weakestUtteranceRmsDbfs: -18,
+    utterances: [{ key: 'g1', index: 0, start: 0, end: .4, rmsDbfs: -18, distinct: true }] };
+  const qc = { schemaVersion: 2, gates: { minimumSpeechLufs: -19,
+    minimumUtteranceRmsDbfs: -25, maximumCueAdvantageDb: 3 },
+    counts: { pass: 1, fail: 0 }, records: [{ id: item.id,
+      language: 'en', level: 'A1', track: 'glr', partIndex: 1, status: 'pass',
+      problems: [], durationSeconds: 1.5, sha256: item.sha256,
+      bytes: item.bytes, speechQc }] };
   const bridged = bridgeReleaseMedia(assembly, qc, 'a'.repeat(64));
   assert.equal(bridged.status, 'technical-preview-not-publishable');
   assert.equal(bridged.cards[0].id, finalCardId('en', 'A1', 'guided'));
   qc.records[0].status = 'fail';
-  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /passing decoded QC/);
+  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /passing decoded speech QC v2/);
   qc.records[0].status = 'pass'; item.bytes++;
-  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /checksum or bytes changed/);
+  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /decoded QC checksum or bytes differ/);
+  item.bytes--;
+  qc.gates.minimumSpeechLufs = -20;
+  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /weaker than PPP001/);
+  qc.gates.minimumSpeechLufs = -19;
+  qc.records[0].sha256 = '0'.repeat(64);
+  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /checksum or bytes differ/);
+  qc.records[0].sha256 = item.sha256;
+  speechQc.speechLufs = -19.1;
+  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /below release limits/);
+  speechQc.speechLufs = -17;
+  speechQc.cueAdvantageDb = 3.1;
+  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /below release limits/);
+  speechQc.cueAdvantageDb = -1.5;
+  speechQc.utterances[0].distinct = false;
+  assert.throws(() => bridgeReleaseMedia(assembly, qc, 'a'.repeat(64)), /below release limits/);
 });

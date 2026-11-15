@@ -18,10 +18,18 @@ export function bridgeReleaseMedia(assembly, qc, qcHash) {
     || !Array.isArray(assembly.audio) || !assembly.audio.length
     || assembly.status === 'synthetic-dry-run')
     fail('Expected real PPP001 audio assembly, not a dry run');
-  if (qc.schemaVersion !== 1 || !Array.isArray(qc.records)
-    || qc.records.length !== assembly.audio.length || qc.counts?.fail
-    || qc.records.some(item => item.status !== 'pass'))
-    fail('Every assembled audio item needs a passing decoded QC record');
+  if (qc.schemaVersion !== 2 || !Array.isArray(qc.records)
+    || qc.records.length !== assembly.audio.length
+    || qc.counts?.pass !== assembly.audio.length || (qc.counts?.fail || 0) !== 0
+    || qc.records.some(item => item.status !== 'pass' || item.problems?.length))
+    fail('Every assembled audio item needs a passing decoded speech QC v2 record');
+  const gates = qc.gates;
+  if (!gates || gates.minimumSpeechLufs < -19
+    || gates.minimumUtteranceRmsDbfs < -25
+    || gates.maximumCueAdvantageDb > 3
+    || ![gates.minimumSpeechLufs, gates.minimumUtteranceRmsDbfs,
+      gates.maximumCueAdvantageDb].every(Number.isFinite))
+    fail('Decoded speech QC v2 gates are absent or weaker than PPP001 release limits');
   const qcByKey = new Map();
   for (const record of qc.records) {
     const k = key(record);
@@ -35,6 +43,22 @@ export function bridgeReleaseMedia(assembly, qc, qcHash) {
     seen.add(k);
     if (checked.durationSeconds !== item.durationSeconds)
       fail(`${k}: decoded QC duration differs from assembly`);
+    if (checked.sha256 !== item.sha256 || checked.bytes !== item.bytes)
+      fail(`${k}: decoded QC checksum or bytes differ from assembly`);
+    const speech = checked.speechQc;
+    if (!speech || !Number.isFinite(speech.speechLufs)
+      || !Number.isFinite(speech.speechRmsDbfs)
+      || !Number.isFinite(speech.weakestUtteranceRmsDbfs)
+      || !Number.isFinite(speech.cueAdvantageDb)
+      || !Array.isArray(speech.cueRmsDbfs) || speech.cueRmsDbfs.length !== 2
+      || !speech.cueRmsDbfs.every(Number.isFinite)
+      || !Array.isArray(speech.utterances) || !speech.utterances.length
+      || speech.utterances.some(utterance => !Number.isFinite(utterance.rmsDbfs)
+        || utterance.distinct !== true)
+      || speech.speechLufs < gates.minimumSpeechLufs
+      || speech.weakestUtteranceRmsDbfs < gates.minimumUtteranceRmsDbfs
+      || speech.cueAdvantageDb > gates.maximumCueAdvantageDb)
+      fail(`${k}: decoded speech QC v2 evidence is missing or below release limits`);
     const area = { glr: 'guided', 'mini-talks': 'miniTalks', 'vocal-camp': 'vocalCamp' }[item.track];
     if (!area || !['en', 'ko'].includes(item.language)
       || !['A0','A1','A2','B1','B2','C1','C2'].includes(item.level)
