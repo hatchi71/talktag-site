@@ -6,9 +6,12 @@ import { vocalPauseTimings } from './vocal-pause-timings.js';
 import { createVocalBoundaryCues } from './vocal-boundary-cues.js';
 import { createClient } from '@supabase/supabase-js';
 import { japaneseWithFurigana } from './japanese-furigana.js';
+import { canonicalRetired001Url } from './retired-001-card-redirects.js';
 
 const workerOrigin = 'https://talktag-private-media-preview.ejkim2022.workers.dev';
-const cardId = new URLSearchParams(location.search).get('id');
+const canonicalCardUrl = canonicalRetired001Url(location.href);
+if (canonicalCardUrl) history.replaceState(history.state, '', canonicalCardUrl.pathname + canonicalCardUrl.search + canonicalCardUrl.hash);
+const cardId = canonicalCardUrl?.searchParams.get('id') || new URLSearchParams(location.search).get('id');
 const cardLanguage = /^(?:ko-|mt-ko-)/.test(cardId || '') ? 'ko' : /^(?:ja-|mt-ja-)/.test(cardId || '') ? 'ja' : 'en';
 const ui = (english, korean) => cardLanguage === 'ko' ? english : korean;
 document.documentElement.lang = cardLanguage === 'ko' ? 'en' : 'ko';
