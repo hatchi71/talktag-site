@@ -830,7 +830,7 @@ function renderVocal(item) {
   // keeps its old player behavior until every cue-free replacement is live.
   if (ppp001Vocal && lesson.cueMode === 'external-single') {
     vocalCues = createVocalBoundaryCues(() => new Audio(), {
-      startCue: '/assets/vocal-camp/001-start.mp3',
+      startCue: '/assets/vocal-camp/003-start.mp3',
       endCue: '/assets/vocal-camp/001-end-single.mp3'
     });
   }

@@ -73,11 +73,11 @@ test('PPP001 can use one opening and one single-note closing cue', async () => {
     pause() {}
   }
   const cues = createVocalBoundaryCues(() => new FakeAudio(), {
-    startCue: '/assets/vocal-camp/001-start.mp3',
+    startCue: '/assets/vocal-camp/003-start.mp3',
     endCue: '/assets/vocal-camp/001-end-single.mp3'
   });
   const opening = cues.start();
-  assert.match(instances[0].url, /001-start\.mp3$/);
+  assert.match(instances[0].url, /003-start\.mp3$/);
   instances[0].finish();
   await opening;
   await cues.start();

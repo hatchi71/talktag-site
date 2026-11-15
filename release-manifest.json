@@ -1,5 +1,5 @@
 {
-  "sourceRelease": "PPP001-20261114",
+  "sourceRelease": "ppp001-vocal-boundary-20261115",
   "files": [
     {
       "path": "_headers",
@@ -1958,8 +1958,8 @@
     },
     {
       "path": "assets/talktag-protected-card.js",
-      "bytes": 287874,
-      "sha256": "fdc60e72ab124a70303fd598f3f697b9c4999782c86de86194f150d3c5ab95be"
+      "bytes": 288132,
+      "sha256": "73744f8fe8e7c2d260efb939a5bba6dcb33653ed5160931595f2288f2ab7c1fc"
     },
     {
       "path": "assets/talktag-protected-library.js",
@@ -1975,6 +1975,11 @@
       "path": "assets/temporary-account-status.js",
       "bytes": 224826,
       "sha256": "1162e8f0b2efd71c82fcc718ab941a6740be918f2c567170a5205e7771d56739"
+    },
+    {
+      "path": "assets/vocal-camp/001-end-single.mp3",
+      "bytes": 7583,
+      "sha256": "aad3d80d351234a8e50b590db53a655272c068606edb20687a405eff6002e3bf"
     },
     {
       "path": "assets/vocal-camp/003-end.mp3",

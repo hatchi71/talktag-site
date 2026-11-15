@@ -3,10 +3,11 @@ import {inventory} from './record-release.mjs';
 const manifest=JSON.parse(await readFile('release-manifest.json','utf8'));
 const actual=await inventory('public');
 if(JSON.stringify(actual)!==JSON.stringify(manifest.files))throw Error('Public files differ from the reviewed release manifest. Review changes, then run npm run release:record.');
-// Only these two checksum-pinned non-speech UI cues may be served from Pages.
+// Only these checksum-pinned non-speech UI cues may be served from Pages.
 const publicCueHashes = {
   'assets/vocal-camp/003-start.mp3': '1384115470badbc17dc2d59d3560195e2e0784e1b9073ddceee4900123e584b4',
-  'assets/vocal-camp/003-end.mp3': '07aa81eaf21e46ccedf76549876b7a915cba5a0fed6b620f87a4ac61899cdf71'
+  'assets/vocal-camp/003-end.mp3': '07aa81eaf21e46ccedf76549876b7a915cba5a0fed6b620f87a4ac61899cdf71',
+  'assets/vocal-camp/001-end-single.mp3': 'aad3d80d351234a8e50b590db53a655272c068606edb20687a405eff6002e3bf'
 };
 for (const file of actual) {
   if (publicCueHashes[file.path] === file.sha256) continue;
