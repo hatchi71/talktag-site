@@ -217,7 +217,8 @@ let vocalTarget = 0;
 let vocalSteps = [];
 let vocalWaiting = false;
 let refreshVocalStage = () => {};
-const vocalCues = /^(?:en-vocal-camp-003-(?:a1|a2|b1|b2|c1|c2)|en-sr001-(?:a1|a2|b1|b2|c1|c2)-vocal)$/i.test(cardId || '')
+const ppp001Vocal = /^(?:en|ko)-vocal-camp-(?:a1|a2|b1|b2|c1|c2)-001-ppp-v2$/i.test(cardId || '');
+let vocalCues = /^(?:en-vocal-camp-003-(?:a1|a2|b1|b2|c1|c2)|en-sr001-(?:a1|a2|b1|b2|c1|c2)-vocal)$/i.test(cardId || '')
   ? createVocalBoundaryCues() : null;
 let guidedHold = null;
 let guidedInternalSeek = false;
@@ -825,6 +826,14 @@ function paintVocalButton(button, index) {
 function renderVocal(item) {
   mountCampTemplate('vocal');
   const lesson = item.lesson || {};
+  // The media rows and this flag switch together, so old embedded-cue audio
+  // keeps its old player behavior until every cue-free replacement is live.
+  if (ppp001Vocal && lesson.cueMode === 'external-single') {
+    vocalCues = createVocalBoundaryCues(() => new Audio(), {
+      startCue: '/assets/vocal-camp/001-start.mp3',
+      endCue: '/assets/vocal-camp/001-end-single.mp3'
+    });
+  }
   const lines = Array.isArray(lesson.lines)
     ? lesson.lines.map(line => typeof line === 'string' ? line : line?.text || '') : [];
   const meanings = Array.isArray(lesson.translation) ? lesson.translation

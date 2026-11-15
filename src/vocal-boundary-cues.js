@@ -1,8 +1,11 @@
-// The closing recording already contains two dings.
-const startCue = '/assets/vocal-camp/003-start.mp3';
-const endCue = '/assets/vocal-camp/003-end.mp3';
+// Legacy Vocal 003 and SR001 retain their established two-note closing cue.
+const defaultStartCue = '/assets/vocal-camp/003-start.mp3';
+const defaultEndCue = '/assets/vocal-camp/003-end.mp3';
 
-export function createVocalBoundaryCues(makeAudio = () => new Audio()) {
+export function createVocalBoundaryCues(makeAudio = () => new Audio(), {
+  startCue = defaultStartCue,
+  endCue = defaultEndCue
+} = {}) {
   let audio;
   let cancel;
   let started = false;
