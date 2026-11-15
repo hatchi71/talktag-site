@@ -47,16 +47,6 @@
       "sha256": "77c4dc0289079d90bde1abaf4b6a0d42c1cc689c1f9ea44b9c37c905fe31f957"
     },
     {
-      "path": "assets/bootcamp-scenes/en/001-v3-story.jpg",
-      "bytes": 109324,
-      "sha256": "eebce0fd3641817b303522902fed56f5660482a8e4782582a0427dbc7dd5a5e2"
-    },
-    {
-      "path": "assets/bootcamp-scenes/en/001-v3-vocal.jpg",
-      "bytes": 123254,
-      "sha256": "8ef269cb9aeedd8637422d365fbb73552e9545c48d7c88becea5f9b236f57763"
-    },
-    {
       "path": "assets/bootcamp-scenes/en/002-story.jpg",
       "bytes": 110993,
       "sha256": "bcbb4bb9f509837d40abe363f0d1005581d7ab4938ca5e6ead4be95e2d9b2a8f"
@@ -102,16 +92,6 @@
       "sha256": "2d7d0c2d36d07ffc3a147addfd7e3e12d3557f7719b017392296a8ca57842bcc"
     },
     {
-      "path": "assets/bootcamp-scenes/ko/001-v3-story.jpg",
-      "bytes": 99513,
-      "sha256": "f8d3ddd99834e2da044a4bc9e3bf4e80b33d347f28c87999026261dbc1347e27"
-    },
-    {
-      "path": "assets/bootcamp-scenes/ko/001-v3-vocal.jpg",
-      "bytes": 111905,
-      "sha256": "5f7d19d5e68b4803191dd24c53a01d6afea3b3aeb8ee53cc68e5d1b205568216"
-    },
-    {
       "path": "assets/bootcamp-scenes/ko/002-a1.jpg",
       "bytes": 194226,
       "sha256": "2f867521b2f15954acc8e482e89fa36ffad86cf696ecaae71ebeb86b23622b7c"
@@ -145,36 +125,6 @@
       "path": "assets/bootcamp-scenes/ko/002-c2.jpg",
       "bytes": 180995,
       "sha256": "493c9f76c31dbe32937c1580e351d4526a17cedc3cc254af8ffb60e37cda8cf7"
-    },
-    {
-      "path": "assets/essay-scenes/en/001-a1.jpg",
-      "bytes": 121762,
-      "sha256": "b2a7e66b9a28a6570fc5ce4bdda5052cac47da7ed0ec2ff7fa09e03ce8572572"
-    },
-    {
-      "path": "assets/essay-scenes/en/001-a2.jpg",
-      "bytes": 154770,
-      "sha256": "46d40e9560d3acf95aaa8fd5de3f7a24122e16ffc7a29d4e50a784660eb5cad6"
-    },
-    {
-      "path": "assets/essay-scenes/en/001-b1.jpg",
-      "bytes": 172503,
-      "sha256": "e6cf6922cbad1cd3c9ec8c2f2b119b7249228c6769c992c63ae60336b342acf4"
-    },
-    {
-      "path": "assets/essay-scenes/en/001-b2.jpg",
-      "bytes": 136779,
-      "sha256": "9c4a29ff43b2851a332e0a19ea61d0e45796a15f50665727eb9933f76f743dff"
-    },
-    {
-      "path": "assets/essay-scenes/en/001-c1.jpg",
-      "bytes": 99134,
-      "sha256": "b7ba3bbbc68083b6789417904250851c8698a5143d0bf6b9919f51bcf97b58cf"
-    },
-    {
-      "path": "assets/essay-scenes/en/001-c2.jpg",
-      "bytes": 134942,
-      "sha256": "75ae8fa82cde0723b72acbe45c1bd08c950065c422e413c23a2fefa241b1b08b"
     },
     {
       "path": "assets/essay-scenes/en/002-a1.jpg",
@@ -345,11 +295,6 @@
       "path": "assets/glr-scenes/en/012-shop-return-v1.png",
       "bytes": 361567,
       "sha256": "b867c4734ad7c28b60737ae707168b64b72087cb909816eb754a2d8bc8a7523d"
-    },
-    {
-      "path": "assets/glr-scenes/en/a0-001-greeting-v1.jpg",
-      "bytes": 138608,
-      "sha256": "1d8ca784b02a8222fd9fdd90f9ebd3feb6d93dcd0922f8b260d6ff0dda1e821a"
     },
     {
       "path": "assets/glr-scenes/en/a0-011-v1.jpg",
@@ -1042,11 +987,6 @@
       "sha256": "9cea7cbe6e4cba7a168d26b629e6435c6a194992d45e47870b316179795985e7"
     },
     {
-      "path": "assets/glr-scenes/guided-a1-01.webp",
-      "bytes": 16950,
-      "sha256": "dfb16ef46abe28f257e98296efef01ef8b42ae16484bc991d942cdbe595fd4d2"
-    },
-    {
       "path": "assets/glr-scenes/guided-a1-02.webp",
       "bytes": 16876,
       "sha256": "d36c525d18052a755419b39e590bdc7be30764972afcf9a6b43a25d06643f6da"
@@ -1092,11 +1032,6 @@
       "sha256": "6f496d183f347d1e11169b436fffb35ce750770966dcb2e27dadce65cb815af5"
     },
     {
-      "path": "assets/glr-scenes/guided-a2-01.webp",
-      "bytes": 16172,
-      "sha256": "57064197a55ebec6fd6455b90ffbc05c079f30b093dd60ffb4cc99ec12e036ca"
-    },
-    {
       "path": "assets/glr-scenes/guided-a2-02.webp",
       "bytes": 15554,
       "sha256": "317138b0739653adbae410df96b071d242b10a5c97eae7aaa922208f0241d56b"
@@ -1125,11 +1060,6 @@
       "path": "assets/glr-scenes/guided-a2-07.jpg",
       "bytes": 118699,
       "sha256": "6f349dd828c5df041027133ab66a475de53315ad66d2d90ca596110e7ae7fadf"
-    },
-    {
-      "path": "assets/glr-scenes/guided-b1-01.webp",
-      "bytes": 18092,
-      "sha256": "447e4ca4a8f8499d8fd7e011e12ec596b402dcc33d434d34d698d143f209274d"
     },
     {
       "path": "assets/glr-scenes/guided-b1-02.webp",
@@ -1162,11 +1092,6 @@
       "sha256": "1124d5e534c039a842591984ce46e5b307192573db178cff89d26c0c69966bfb"
     },
     {
-      "path": "assets/glr-scenes/guided-b2-01.webp",
-      "bytes": 13460,
-      "sha256": "8495386ade297209165968fb15b8dbf4c9a6fe52b6c3c0dd207aa33d7bc3ace8"
-    },
-    {
       "path": "assets/glr-scenes/guided-b2-02.webp",
       "bytes": 14388,
       "sha256": "cc3117ba0c35dd107077a1c282a727389d6ad73bc6a14b653f362fde8871d1d7"
@@ -1197,11 +1122,6 @@
       "sha256": "1f3f4dda261b9351441838b4e56ab9a9b548263e0a37c48392730d88b5408175"
     },
     {
-      "path": "assets/glr-scenes/guided-c1-01.webp",
-      "bytes": 16334,
-      "sha256": "14815d7803c5805d1f0a6a14fabae4eed8b0e84bf13402c47ed129439efaacb1"
-    },
-    {
       "path": "assets/glr-scenes/guided-c1-02.webp",
       "bytes": 14588,
       "sha256": "76c2e340215d97179a492c5815f6e414cd509cd8374844de6552731fa24275e2"
@@ -1230,11 +1150,6 @@
       "path": "assets/glr-scenes/guided-c1-07.jpg",
       "bytes": 110067,
       "sha256": "797f86973de4528aaa9d4a026c66cee49d85520f8efa6f3edb660e60b5fda9e4"
-    },
-    {
-      "path": "assets/glr-scenes/guided-c2-01.webp",
-      "bytes": 16036,
-      "sha256": "9eaf79cf25e88ecbedd68871718af02d904d333434edac246161e7e7d3b76431"
     },
     {
       "path": "assets/glr-scenes/guided-c2-02.webp",
@@ -1537,11 +1452,6 @@
       "sha256": "4272ab5ab6fb2ff69ddb7ce7ca62a8f528216191fb0cedcf33ba5c08560cb4c2"
     },
     {
-      "path": "assets/glr-scenes/ko-a0-001-greeting-v1.jpg",
-      "bytes": 127504,
-      "sha256": "8a6e5cbcef69e67f7ee96000157331ce5b44aeb554b147896a20b1e470ce082a"
-    },
-    {
       "path": "assets/glr-scenes/level0/a0-002-introduce-v1.jpg",
       "bytes": 146183,
       "sha256": "a8102ec3837c791629435223dc05134261e70fe155f15678edfaf7a2d24f98cc"
@@ -1690,11 +1600,6 @@
       "path": "assets/glr-scenes/native-001-c2.webp",
       "bytes": 65254,
       "sha256": "afd510258f18568868a2d7dda894c1ecc24b4080d85f62e502e10781ab880f4d"
-    },
-    {
-      "path": "assets/illustrations/ko-a0-20261101/ko-guided-a0-001.png",
-      "bytes": 247777,
-      "sha256": "1f443b3337347414b2ac48770dbe542196316364ee268f3c681133042603f8d3"
     },
     {
       "path": "assets/illustrations/ko-a0-20261101/ko-guided-a0-002.png",
@@ -1995,16 +1900,6 @@
       "path": "assets/ppp001-scenes/001-c2.jpg",
       "bytes": 196477,
       "sha256": "d07988d72959ff441b0e932451e1ff5681add3e54b4ade9e0513cb689f365866"
-    },
-    {
-      "path": "assets/readable-scenes/en/001-garden-v1.jpg",
-      "bytes": 119191,
-      "sha256": "44040063b157c632eb3d25d5f3478addc7ed18e2d9c83d8a9e10a243d069390c"
-    },
-    {
-      "path": "assets/readable-scenes/ko/001-a1-bus-v2.jpg",
-      "bytes": 196718,
-      "sha256": "05fa7e3941230b7bf8d7c9abd39920aa2c45da3d2f92752b9fb61ac271ad6386"
     },
     {
       "path": "assets/talktag-access-gate.js",
