@@ -102,6 +102,26 @@ function sqlFor(replacements, hashes, rollback = false) {
     + `-- ${expected} media rows changed; cards, content, and member progress untouched.\n`;
 }
 
+function preflightSql(replacements, hashes) {
+  const values = replacements.map(item =>
+    `  (${[item.card_id, item.variant, item.old.r2_key,
+      item.old.sha256].map(quote).join(', ')}, ${item.old.byte_length})`).join(',\n');
+  return `-- Read-only PPP001 media preflight; pack ${hashes.pack}, repair ${hashes.repair}.\n`
+    + `-- exact_live_rows must equal ${replacements.length}; joined_rows must also equal ${replacements.length}.\n`
+    + `with expected(card_id,variant,r2_key,sha256,byte_length) as (values\n${values}\n),\n`
+    + `checked as (select e.*, m.card_id as found_media, m.r2_key as actual_key,\n`
+    + `  m.sha256 as actual_sha, m.byte_length as actual_bytes,\n`
+    + `  c.published as actual_published, c.catalog_visible as actual_visible\n`
+    + `  from expected e left join public.talktag_card_media m\n`
+    + `    on m.card_id=e.card_id and m.variant=e.variant\n`
+    + `  left join public.talktag_cards c on c.card_id=e.card_id)\n`
+    + `select count(*) as joined_rows,\n`
+    + `  count(*) filter (where found_media is not null and actual_key=r2_key\n`
+    + `    and actual_sha=sha256 and actual_bytes=byte_length\n`
+    + `    and actual_published and actual_visible) as exact_live_rows\n`
+    + `from checked;\n`;
+}
+
 export function prepareMediaRepair(pack, repair, original, baselineQc, final, finalQc,
   hashes = { pack: 'fixture', repair: 'fixture', qc: 'fixture' }) {
   if (pack.release !== 'PPP001-20261114' || pack.episode !== '001'
@@ -179,6 +199,7 @@ export function prepareMediaRepair(pack, repair, original, baselineQc, final, fi
     changedCount: changed.length, unchangedCount: 208 - changed.length,
     originalPackSha256: hashes.pack, repairManifestSha256: hashes.repair,
     finalSpeechQcSha256: hashes.qc, objects: uploads },
+  preflightSql: preflightSql(changed, hashes),
   applySql: sqlFor(changed, hashes), rollbackSql: sqlFor(changed, hashes, true) };
 }
 
@@ -217,6 +238,7 @@ function main(args) {
   const result = prepareMediaRepairFromFiles(options.pack, options.repair, options.qc);
   mkdirSync(options.out, { recursive: true });
   writeFileSync(resolve(options.out, 'upload-inventory.json'), JSON.stringify(result.inventory, null, 2) + '\n');
+  writeFileSync(resolve(options.out, 'preflight-media-status.sql'), result.preflightSql);
   writeFileSync(resolve(options.out, 'apply-media-update.sql'), result.applySql);
   writeFileSync(resolve(options.out, 'rollback-media-update.sql'), result.rollbackSql);
   console.log(`Prepared ${result.inventory.changedCount} immutable uploads and media-only SQL; no upload or database update performed.`);

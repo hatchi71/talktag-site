@@ -76,6 +76,8 @@ test('prepares only failed PPP001 audio as immutable upload and guarded media-ro
     new RegExp(`/${f.repair.replacements[0].new_sha256}\\.mp3$`));
   assert.match(result.applySql, /update public\.talktag_card_media/);
   assert.match(result.rollbackSql, /update public\.talktag_card_media/);
+  assert.match(result.preflightSql, /exact_live_rows/);
+  assert(!/\bupdate\b|\bdelete\b|\binsert\b/i.test(result.preflightSql));
   assert(!/update public\.talktag_card_content|delete from public\.talktag_cards/i.test(result.applySql));
   assert(!/member_learning|learning_progress/i.test(result.applySql));
   assert(result.applySql.includes(f.repair.replacements[0].old_sha256));
